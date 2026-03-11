@@ -51,6 +51,7 @@ __export(index_exports, {
   CardTitle: () => CardTitle,
   Checkbox: () => Checkbox,
   FeatureCard: () => FeatureCard,
+  Kbd: () => Kbd,
   Marquee: () => Marquee,
   MarqueeLogo: () => MarqueeLogo,
   MarqueeTrack: () => MarqueeTrack,
@@ -91,6 +92,7 @@ __export(index_exports, {
   badge_variants: () => badge_variants,
   button_variants: () => button_variants,
   card_variants: () => card_variants,
+  kbd_variants: () => kbd_variants,
   marquee_variants: () => marquee_variants,
   switch_variants: () => switch_variants
 });
@@ -115,12 +117,13 @@ var button_variants = (0, import_class_variance_authority.cva)("aster_btn", {
       xl: "aster_btn_xl",
       lg: "aster_btn_lg",
       md: "aster_btn_md",
-      sm: "aster_btn_sm"
+      sm: "aster_btn_sm",
+      icon: "aster_btn_icon"
     }
   },
   defaultVariants: {
     variant: "primary",
-    size: "md"
+    size: "lg"
   }
 });
 var Button = React.forwardRef(
@@ -721,10 +724,17 @@ var switch_variants = (0, import_class_variance_authority5.cva)("aster_switch", 
   }
 });
 var Switch = React12.forwardRef(
-  ({ className, size, color, label_title, label_desc, ...props }, ref) => {
+  ({ className, size, color, label_title, label_desc, onChange, onCheckedChange, ...props }, ref) => {
     const switch_classes = switch_variants({ size, color });
+    const handle_change = React12.useCallback(
+      (e) => {
+        onChange?.(e);
+        onCheckedChange?.(e.target.checked);
+      },
+      [onChange, onCheckedChange]
+    );
     const switch_el = /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("label", { className: [switch_classes, className].filter(Boolean).join(" "), children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("input", { type: "checkbox", className: "aster_switch_input", ref, ...props }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("input", { type: "checkbox", className: "aster_switch_input", ref, onChange: handle_change, ...props }),
       /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "aster_switch_track", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "aster_switch_thumb" }) })
     ] });
     if (label_title) {
@@ -741,11 +751,43 @@ var Switch = React12.forwardRef(
 );
 Switch.displayName = "Switch";
 var Checkbox = React12.forwardRef(
-  ({ className, label, ...props }, ref) => {
+  ({ className, label, indeterminate, onChange, onCheckedChange, ...props }, ref) => {
     const classes = ["aster_checkbox", className].filter(Boolean).join(" ");
+    const internal_ref = React12.useRef(null);
+    React12.useEffect(() => {
+      const el = typeof ref === "function" ? internal_ref.current : ref?.current ?? internal_ref.current;
+      if (el) {
+        el.indeterminate = !!indeterminate;
+      }
+    }, [indeterminate, ref]);
+    const combined_ref = React12.useCallback(
+      (node) => {
+        internal_ref.current = node;
+        if (typeof ref === "function") ref(node);
+        else if (ref) ref.current = node;
+      },
+      [ref]
+    );
+    const handle_change = React12.useCallback(
+      (e) => {
+        onChange?.(e);
+        onCheckedChange?.(e.target.checked);
+      },
+      [onChange, onCheckedChange]
+    );
     return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("label", { className: classes, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("input", { type: "checkbox", className: "aster_checkbox_input", ref, ...props }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "aster_checkbox_box", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("input", { type: "checkbox", className: "aster_checkbox_input", ref: combined_ref, onChange: handle_change, ...props }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "aster_checkbox_box", children: indeterminate ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        "svg",
+        {
+          className: "aster_checkbox_check",
+          fill: "none",
+          viewBox: "0 0 24 24",
+          strokeWidth: "3",
+          stroke: "currentColor",
+          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("path", { strokeLinecap: "round", strokeLinejoin: "round", d: "M5 12h14" })
+        }
+      ) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         "svg",
         {
           className: "aster_checkbox_check",
@@ -1225,11 +1267,92 @@ var AccordionContent = React14.forwardRef(
 );
 AccordionContent.displayName = "AccordionContent";
 
-// src/marquee/marquee.tsx
+// src/kbd/kbd.tsx
 var React15 = __toESM(require("react"), 1);
 var import_class_variance_authority7 = require("class-variance-authority");
 var import_jsx_runtime15 = require("react/jsx-runtime");
-var marquee_variants = (0, import_class_variance_authority7.cva)("aster_marquee", {
+var kbd_variants = (0, import_class_variance_authority7.cva)("aster_kbd", {
+  variants: {
+    size: {
+      xs: "aster_kbd_xs",
+      sm: "aster_kbd_sm",
+      md: "aster_kbd_md",
+      lg: "aster_kbd_lg"
+    },
+    variant: {
+      default: "aster_kbd_default",
+      outline: "aster_kbd_outline",
+      ghost: "aster_kbd_ghost",
+      inlay: "aster_kbd_inlay"
+    }
+  },
+  defaultVariants: {
+    size: "sm",
+    variant: "default"
+  }
+});
+var MODIFIER_MAP_MAC = {
+  cmd: "\u2318",
+  ctrl: "\u2318",
+  shift: "\u21E7",
+  alt: "\u2325",
+  option: "\u2325",
+  meta: "\u2318"
+};
+var MODIFIER_MAP_OTHER = {
+  cmd: "Ctrl",
+  ctrl: "Ctrl",
+  shift: "Shift",
+  alt: "Alt",
+  option: "Alt",
+  meta: "Win"
+};
+var KEY_DISPLAY = {
+  enter: "\u21B5",
+  return: "\u21B5",
+  escape: "Esc",
+  esc: "Esc",
+  backspace: "\u232B",
+  delete: "\u2326",
+  tab: "\u21E5",
+  arrowup: "\u2191",
+  arrowdown: "\u2193",
+  arrowleft: "\u2190",
+  arrowright: "\u2192",
+  space: "Space",
+  " ": "Space"
+};
+function is_mac() {
+  if (typeof navigator === "undefined") return false;
+  return /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
+}
+function format_key(key) {
+  const lower = key.toLowerCase();
+  const mac = is_mac();
+  const mod_map = mac ? MODIFIER_MAP_MAC : MODIFIER_MAP_OTHER;
+  if (mod_map[lower]) return mod_map[lower];
+  if (KEY_DISPLAY[lower]) return KEY_DISPLAY[lower];
+  return key.length === 1 ? key.toUpperCase() : key;
+}
+var Kbd = React15.forwardRef(
+  ({ className, size, variant, keys, ...props }, ref) => {
+    const key_list = Array.isArray(keys) ? keys : [keys];
+    const formatted = key_list.map(format_key);
+    const label = key_list.join(" + ");
+    const classes = [kbd_variants({ size, variant }), className].filter(Boolean).join(" ");
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("kbd", { "aria-label": `Keyboard shortcut: ${label}`, className: classes, ref, ...props, children: formatted.map((k, i) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(React15.Fragment, { children: [
+      i > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { "aria-hidden": "true", className: "aster_kbd_sep" }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { "aria-hidden": "true", children: k })
+    ] }, i)) });
+  }
+);
+Kbd.displayName = "Kbd";
+
+// src/marquee/marquee.tsx
+var React16 = __toESM(require("react"), 1);
+var import_class_variance_authority8 = require("class-variance-authority");
+var import_jsx_runtime16 = require("react/jsx-runtime");
+var marquee_variants = (0, import_class_variance_authority8.cva)("aster_marquee", {
   variants: {
     variant: {
       default: "",
@@ -1254,9 +1377,9 @@ var speed_class_map = {
   fast: "aster_marquee_fast",
   slow: "aster_marquee_slow"
 };
-var Marquee = React15.forwardRef(
+var Marquee = React16.forwardRef(
   ({ className, variant, fade, pause_on_hover, children, ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
       "div",
       {
         ref,
@@ -1273,9 +1396,9 @@ var Marquee = React15.forwardRef(
   }
 );
 Marquee.displayName = "Marquee";
-var MarqueeTrack = React15.forwardRef(
+var MarqueeTrack = React16.forwardRef(
   ({ className, reverse = false, speed = "default", children, ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
       "div",
       {
         ref,
@@ -1287,24 +1410,24 @@ var MarqueeTrack = React15.forwardRef(
         ].filter(Boolean).join(" "),
         ...props,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "aster_marquee_slide", children }),
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "aster_marquee_slide", "aria-hidden": "true", children })
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "aster_marquee_slide", children }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "aster_marquee_slide", "aria-hidden": "true", children })
         ]
       }
     );
   }
 );
 MarqueeTrack.displayName = "MarqueeTrack";
-var MarqueeLogo = React15.forwardRef(
+var MarqueeLogo = React16.forwardRef(
   ({ className, icon, children, ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
       "span",
       {
         ref,
         className: ["aster_marquee_logo", className].filter(Boolean).join(" "),
         ...props,
         children: [
-          icon && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "aster_marquee_logo_icon", children: icon }),
+          icon && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "aster_marquee_logo_icon", children: icon }),
           children
         ]
       }
@@ -1335,6 +1458,7 @@ MarqueeLogo.displayName = "MarqueeLogo";
   CardTitle,
   Checkbox,
   FeatureCard,
+  Kbd,
   Marquee,
   MarqueeLogo,
   MarqueeTrack,
@@ -1375,6 +1499,7 @@ MarqueeLogo.displayName = "MarqueeLogo";
   badge_variants,
   button_variants,
   card_variants,
+  kbd_variants,
   marquee_variants,
   switch_variants
 });

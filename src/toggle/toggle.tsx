@@ -49,15 +49,24 @@ interface SwitchProps
     SwitchVariantProps {
   label_title?: string;
   label_desc?: string;
+  onCheckedChange?: (checked: boolean) => void;
 }
 
 const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
-  ({ className, size, color, label_title, label_desc, ...props }, ref) => {
+  ({ className, size, color, label_title, label_desc, onChange, onCheckedChange, ...props }, ref) => {
     const switch_classes = switch_variants({ size, color });
+
+    const handle_change = React.useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        onChange?.(e);
+        onCheckedChange?.(e.target.checked);
+      },
+      [onChange, onCheckedChange],
+    );
 
     const switch_el = (
       <label className={[switch_classes, className].filter(Boolean).join(" ")}>
-        <input type="checkbox" className="aster_switch_input" ref={ref} {...props} />
+        <input type="checkbox" className="aster_switch_input" ref={ref} onChange={handle_change} {...props} />
         <span className="aster_switch_track">
           <span className="aster_switch_thumb" />
         </span>
@@ -87,29 +96,68 @@ Switch.displayName = "Switch";
 interface CheckboxProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {
   label?: string;
+  indeterminate?: boolean;
+  onCheckedChange?: (checked: boolean | "indeterminate") => void;
 }
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ className, label, ...props }, ref) => {
+  ({ className, label, indeterminate, onChange, onCheckedChange, ...props }, ref) => {
     const classes = ["aster_checkbox", className].filter(Boolean).join(" ");
+    const internal_ref = React.useRef<HTMLInputElement>(null);
+
+    React.useEffect(() => {
+      const el = typeof ref === "function" ? internal_ref.current : (ref?.current ?? internal_ref.current);
+      if (el) {
+        el.indeterminate = !!indeterminate;
+      }
+    }, [indeterminate, ref]);
+
+    const combined_ref = React.useCallback(
+      (node: HTMLInputElement | null) => {
+        (internal_ref as React.MutableRefObject<HTMLInputElement | null>).current = node;
+        if (typeof ref === "function") ref(node);
+        else if (ref) (ref as React.MutableRefObject<HTMLInputElement | null>).current = node;
+      },
+      [ref],
+    );
+
+    const handle_change = React.useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        onChange?.(e);
+        onCheckedChange?.(e.target.checked);
+      },
+      [onChange, onCheckedChange],
+    );
 
     return (
       <label className={classes}>
-        <input type="checkbox" className="aster_checkbox_input" ref={ref} {...props} />
+        <input type="checkbox" className="aster_checkbox_input" ref={combined_ref} onChange={handle_change} {...props} />
         <span className="aster_checkbox_box">
-          <svg
-            className="aster_checkbox_check"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="3"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m4.5 12.75 6 6 9-13.5"
-            />
-          </svg>
+          {indeterminate ? (
+            <svg
+              className="aster_checkbox_check"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="3"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+            </svg>
+          ) : (
+            <svg
+              className="aster_checkbox_check"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="3"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m4.5 12.75 6 6 9-13.5"
+              />
+            </svg>
+          )}
         </span>
         {label && <span className="aster_checkbox_text">{label}</span>}
       </label>

@@ -53,13 +53,13 @@
 
 .aster_btn_outline {
   color: #1a1a1a;
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   transition: background 0.12s ease;
 }
 
 .aster_btn_outline:hover {
-  background: rgba(0, 0, 0, 0.02);
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .aster_btn_ghost {
@@ -126,9 +126,90 @@
   font-size: 12px;
 }
 
+.aster_btn_icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+
 .aster_btn:focus-visible {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
+}
+
+.aster_input {
+  display: flex;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  outline: none;
+}
+
+.aster_input::placeholder {
+  color: #9ca3af;
+}
+
+.aster_input:hover {
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+.aster_input:focus {
+  border-color: #3b82f6;
+  box-shadow: none;
+}
+
+.aster_input_success {
+  border-color: #22c55e;
+}
+
+.aster_input_success:focus {
+  border-color: #22c55e;
+}
+
+.aster_input_error {
+  border-color: #ef4444;
+}
+
+.aster_input_error:focus {
+  border-color: #ef4444;
+}
+
+.aster_input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.aster_input_xl {
+  height: 44px;
+  font-size: 16px;
+  padding: 0 16px;
+  border-radius: 14px;
+}
+
+.aster_input_lg {
+  height: 40px;
+  font-size: 14px;
+  padding: 0 14px;
+}
+
+.aster_input_md {
+  height: 36px;
+  font-size: 13px;
+  padding: 0 12px;
+}
+
+.aster_input_sm {
+  height: 32px;
+  font-size: 12px;
+  padding: 0 10px;
+  border-radius: 10px;
 }
 
 .aster_badge {
@@ -764,9 +845,9 @@
 
 .aster_modal_header {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
 }
 
 .aster_modal_title {
@@ -1146,6 +1227,15 @@
   opacity: 1;
 }
 
+.aster_checkbox_input:indeterminate + .aster_checkbox_box {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.aster_checkbox_input:indeterminate + .aster_checkbox_box .aster_checkbox_check {
+  opacity: 1;
+}
+
 .aster_checkbox_input:disabled + .aster_checkbox_box {
   opacity: 0.4;
   cursor: not-allowed;
@@ -1411,6 +1501,83 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 5px;
   flex-shrink: 0;
+}
+
+/* ─── Kbd ─── */
+
+.aster_kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-weight: 500;
+  line-height: 1;
+  border-radius: 5px;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.aster_kbd_xs {
+  min-width: 14px;
+  height: 14px;
+  padding: 0 2px;
+  font-size: 8px;
+}
+
+.aster_kbd_sm {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  font-size: 10px;
+}
+
+.aster_kbd_md {
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  font-size: 11px;
+}
+
+.aster_kbd_lg {
+  min-width: 28px;
+  height: 28px;
+  padding: 0 8px;
+  font-size: 13px;
+}
+
+.aster_kbd_default {
+  color: #666;
+  background: #f5f5f5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.aster_kbd_outline {
+  color: #666;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.aster_kbd_ghost {
+  color: #666;
+  background: transparent;
+  border: none;
+}
+
+.aster_kbd_inlay {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.aster_kbd_sep {
+  width: 1px;
+  height: 60%;
+  background: currentColor;
+  opacity: 0.25;
+  margin: 0 1px;
 }
 
 .aster_navbar_mega {
@@ -1834,4 +2001,429 @@
 
 .aster_marquee_track + .aster_marquee_track {
   margin-top: 16px;
+}
+
+.dark .aster_btn_primary {
+  background: #3b82f6;
+}
+
+.dark .aster_btn_primary:hover {
+  background: #60a5fa;
+}
+
+.dark .aster_btn_secondary {
+  color: var(--text-secondary, #b0b0b0);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dark .aster_btn_secondary:hover {
+  color: var(--text-primary, #e5e5e5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dark .aster_btn_outline {
+  color: var(--text-secondary, #b0b0b0);
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark .aster_btn_outline:hover {
+  color: var(--text-primary, #e5e5e5);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dark .aster_btn_ghost {
+  color: var(--text-muted, #888888);
+}
+
+.dark .aster_btn_ghost:hover {
+  color: var(--text-secondary, #e5e5e5);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dark .aster_btn_destructive {
+  background: #dc2626;
+}
+
+.dark .aster_btn_destructive:hover {
+  background: #ef4444;
+}
+
+.dark .aster_btn_depth {
+  background: linear-gradient(to bottom, #4a7aff, #3b6aef, #2d5ae0) padding-box,
+              linear-gradient(to bottom, #5a8aff, #3b6aef, #2350d0) border-box;
+}
+
+.dark .aster_btn_depth:hover {
+  filter: brightness(1.25);
+}
+
+.dark .aster_badge_blue {
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.dark .aster_badge_green {
+  color: #86efac;
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.dark .aster_badge_purple {
+  color: #d8b4fe;
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.dark .aster_badge_amber {
+  color: #fcd34d;
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.dark .aster_badge_gray {
+  color: #d1d5db;
+  background: rgba(107, 114, 128, 0.15);
+  border-color: rgba(107, 114, 128, 0.3);
+}
+
+.dark .aster_badge_red {
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.dark .aster_card {
+  background: var(--bg-primary, #121212);
+}
+
+.dark .aster_card_default {
+  border-color: var(--border-primary, #333333);
+}
+
+.dark .aster_card_elevated {
+  border-color: var(--border-primary, #333333);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .aster_card_outlined {
+  border-color: var(--border-primary, #333333);
+}
+
+.dark .aster_card_glass {
+  border-color: rgba(255, 255, 255, 0.06);
+  background: rgba(18, 18, 18, 0.7);
+}
+
+.dark .aster_card_featured {
+  border-color: rgba(59, 130, 246, 0.2);
+  background: var(--bg-primary, #121212);
+}
+
+.dark .aster_card_interactive:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.dark .aster_card_title {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_card_description {
+  color: var(--text-muted, #666666);
+}
+
+.dark .aster_feature_card {
+  background: var(--bg-primary, #121212);
+}
+
+.dark .aster_feature_card:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.dark .aster_feature_card_title {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_feature_card_description {
+  color: var(--text-muted, #666666);
+}
+
+.dark .aster_pricing_card_plan {
+  color: var(--text-muted, #666666);
+}
+
+.dark .aster_pricing_card_price {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_pricing_card_period {
+  color: var(--text-muted, #666666);
+}
+
+.dark .aster_pricing_card_description {
+  color: var(--text-muted, #666666);
+}
+
+.dark .aster_pricing_card_divider {
+  background: var(--border-primary, #333333);
+}
+
+.dark .aster_pricing_card_feature {
+  color: #d1d5db;
+}
+
+.dark .aster_testimonial_card_quote {
+  color: #d1d5db;
+}
+
+.dark .aster_testimonial_card_avatar {
+  background: #1a1a1a;
+  color: #9ca3af;
+}
+
+.dark .aster_testimonial_card_name {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_testimonial_card_role {
+  color: var(--text-muted, #666666);
+}
+
+.dark .aster_stat_card_value {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_stat_card_label {
+  color: var(--text-muted, #666666);
+}
+
+.dark .aster_banner {
+  background: var(--bg-hover, #1a1a1a);
+  border-color: var(--border-primary, #333333);
+}
+
+.dark .aster_banner_text {
+  color: #d1d5db;
+}
+
+.dark .aster_banner_action {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_banner_close {
+  color: #6b7280;
+}
+
+.dark .aster_banner_close:hover {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_avatar_initials {
+  background: #1a1a1a;
+  color: #9ca3af;
+}
+
+.dark .aster_avatar_bordered {
+  border-color: var(--bg-primary, #121212);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.dark .aster_avatar_status {
+  border-color: var(--bg-primary, #121212);
+}
+
+.dark .aster_avatar_group .aster_avatar {
+  border-color: var(--bg-primary, #121212);
+}
+
+.dark .aster_avatar_named_text {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_modal_overlay {
+  background: var(--modal-overlay, rgba(0, 0, 0, 0.85));
+}
+
+.dark .aster_modal {
+  background: var(--modal-bg, #121212);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.dark .aster_modal_title {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_modal_close {
+  color: #6b7280;
+}
+
+.dark .aster_modal_close:hover {
+  color: var(--text-primary, #ffffff);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dark .aster_modal_body {
+  color: var(--text-tertiary, #888888);
+}
+
+.dark [data-tip]::after,
+.dark .aster_tip_dotted::after {
+  background: var(--bg-primary, #121212);
+  color: #d1d5db;
+  border-color: var(--border-primary, #333333);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark .aster_tip_dark::after {
+  background: #f0f0f0;
+  color: #1a1a1a;
+  border-color: #f0f0f0;
+}
+
+.dark .aster_tip_rich {
+  background: var(--bg-primary, #121212);
+  border-color: var(--border-primary, #333333);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.dark .aster_tip_rich_title {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_tip_rich_desc {
+  color: var(--text-tertiary, #888888);
+}
+
+.dark .aster_tip_dotted {
+  text-decoration-color: rgba(255, 255, 255, 0.25);
+}
+
+.dark .aster_switch_track {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dark .aster_switch_thumb {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.dark .aster_checkbox_box {
+  border-color: rgba(255, 255, 255, 0.25);
+  background: transparent;
+}
+
+.dark .aster_checkbox_text {
+  color: #d1d5db;
+}
+
+.dark .aster_radio_circle {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.dark .aster_radio_text {
+  color: #d1d5db;
+}
+
+.dark .aster_seg {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dark .aster_seg_label {
+  color: #9ca3af;
+}
+
+.dark .aster_seg_input:checked + .aster_seg_label {
+  color: var(--text-primary, #ffffff);
+  background: var(--bg-hover, #1a1a1a);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .aster_switch_labeled_title {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_switch_labeled_desc {
+  color: var(--text-muted, #666666);
+}
+
+.dark .aster_accordion_item {
+  border-color: var(--border-primary, #333333);
+}
+
+.dark .aster_accordion_trigger {
+  color: var(--text-primary, #ffffff);
+}
+
+.dark .aster_accordion_trigger:hover {
+  color: #d1d5db;
+}
+
+.dark .aster_accordion_chevron {
+  color: var(--text-muted, #666666);
+}
+
+.dark .aster_accordion_content_inner {
+  color: var(--text-tertiary, #888888);
+}
+
+.dark .aster_accordion_bordered .aster_accordion_item {
+  border-color: var(--border-primary, #333333);
+}
+
+.dark .aster_accordion_separated .aster_accordion_item {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--border-primary, #333333);
+}
+
+.dark .aster_input {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #f5f5f5;
+}
+
+.dark .aster_input::placeholder {
+  color: #6b7280;
+}
+
+.dark .aster_input:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.dark .aster_input:focus {
+  border-color: #3b82f6;
+  box-shadow: none;
+}
+
+.dark .aster_input_success {
+  border-color: #22c55e;
+}
+
+.dark .aster_input_success:focus {
+  border-color: #22c55e;
+}
+
+.dark .aster_input_error {
+  border-color: #ef4444;
+}
+
+.dark .aster_input_error:focus {
+  border-color: #ef4444;
+}
+
+.aster_skeleton {
+  background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+  background-size: 200% 100%;
+  animation: aster_skeleton_shimmer 1.5s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+.dark .aster_skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.06) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.06) 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes aster_skeleton_shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }

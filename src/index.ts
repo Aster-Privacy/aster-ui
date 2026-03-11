@@ -158,6 +158,9 @@ export type {
   AccordionContentProps,
 } from "./accordion";
 
+export { Kbd, kbd_variants } from "./kbd";
+export type { KbdProps, KbdVariantProps } from "./kbd";
+
 export { Marquee, MarqueeTrack, MarqueeLogo, marquee_variants } from "./marquee";
 export type {
   MarqueeProps,

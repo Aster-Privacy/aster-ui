@@ -38,11 +38,12 @@ const button_variants = cva("aster_btn", {
       lg: "aster_btn_lg",
       md: "aster_btn_md",
       sm: "aster_btn_sm",
+      icon: "aster_btn_icon",
     },
   },
   defaultVariants: {
     variant: "primary",
-    size: "md",
+    size: "lg",
   },
 });
 

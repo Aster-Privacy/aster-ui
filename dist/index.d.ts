@@ -5,7 +5,7 @@ import * as react_jsx_runtime from 'react/jsx-runtime';
 
 declare const button_variants: (props?: ({
     variant?: "primary" | "secondary" | "outline" | "ghost" | "destructive" | "depth" | null | undefined;
-    size?: "xl" | "lg" | "md" | "sm" | null | undefined;
+    size?: "xl" | "lg" | "md" | "sm" | "icon" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type ButtonVariantProps = VariantProps<typeof button_variants>;
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, ButtonVariantProps {
@@ -167,10 +167,13 @@ type SwitchVariantProps = VariantProps<typeof switch_variants>;
 interface SwitchProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "color" | "type">, SwitchVariantProps {
     label_title?: string;
     label_desc?: string;
+    onCheckedChange?: (checked: boolean) => void;
 }
 declare const Switch: React.ForwardRefExoticComponent<SwitchProps & React.RefAttributes<HTMLInputElement>>;
 interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {
     label?: string;
+    indeterminate?: boolean;
+    onCheckedChange?: (checked: boolean | "indeterminate") => void;
 }
 declare const Checkbox: React.ForwardRefExoticComponent<CheckboxProps & React.RefAttributes<HTMLInputElement>>;
 interface RadioProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {
@@ -270,6 +273,16 @@ declare const AccordionItem: React.ForwardRefExoticComponent<AccordionItemProps 
 declare const AccordionTrigger: React.ForwardRefExoticComponent<AccordionTriggerProps & React.RefAttributes<HTMLButtonElement>>;
 declare const AccordionContent: React.ForwardRefExoticComponent<AccordionContentProps & React.RefAttributes<HTMLDivElement>>;
 
+declare const kbd_variants: (props?: ({
+    size?: "lg" | "md" | "sm" | "xs" | null | undefined;
+    variant?: "outline" | "ghost" | "default" | "inlay" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+type KbdVariantProps = VariantProps<typeof kbd_variants>;
+interface KbdProps extends Omit<React.HTMLAttributes<HTMLElement>, "children">, KbdVariantProps {
+    keys: string | string[];
+}
+declare const Kbd: React.ForwardRefExoticComponent<KbdProps & React.RefAttributes<HTMLElement>>;
+
 declare const marquee_variants: (props?: ({
     variant?: "default" | "dark" | null | undefined;
     fade?: boolean | null | undefined;
@@ -288,4 +301,4 @@ declare const Marquee: React.ForwardRefExoticComponent<React.HTMLAttributes<HTML
 declare const MarqueeTrack: React.ForwardRefExoticComponent<MarqueeTrackProps & React.RefAttributes<HTMLDivElement>>;
 declare const MarqueeLogo: React.ForwardRefExoticComponent<MarqueeLogoProps & React.RefAttributes<HTMLSpanElement>>;
 
-export { Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, type AccordionVariantProps, Avatar, AvatarGroup, type AvatarGroupProps, AvatarNamed, type AvatarNamedProps, type AvatarProps, type AvatarVariantProps, AvatarWithStatus, type AvatarWithStatusProps, Badge, BadgeDot, type BadgeDotProps, type BadgeProps, type BadgeVariantProps, Banner, type BannerProps, Button, type ButtonProps, type ButtonVariantProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, type CardIconProps, type CardProps, CardTitle, type CardVariantProps, Checkbox, type CheckboxProps, FeatureCard, type FeatureCardProps, Marquee, MarqueeLogo, type MarqueeLogoProps, type MarqueeProps, MarqueeTrack, type MarqueeTrackProps, type MarqueeVariantProps, Modal, ModalActions, type ModalActionsProps, ModalBody, type ModalBodyProps, ModalHeader, type ModalHeaderProps, type ModalProps, Navbar, NavbarActions, type NavbarActionsProps, NavbarCta, type NavbarCtaProps, NavbarHamburger, type NavbarHamburgerProps, NavbarInner, type NavbarInnerProps, NavbarLink, type NavbarLinkProps, NavbarLinks, type NavbarLinksProps, NavbarLogo, type NavbarLogoProps, NavbarMega, NavbarMegaCol, type NavbarMegaColProps, NavbarMegaCols, type NavbarMegaColsProps, NavbarMegaItem, type NavbarMegaItemProps, NavbarMegaItemSimple, type NavbarMegaItemSimpleProps, NavbarMegaPanel, type NavbarMegaPanelProps, type NavbarMegaProps, NavbarMobileDivider, NavbarMobileLink, type NavbarMobileLinkProps, NavbarMobileMenu, type NavbarMobileMenuProps, type NavbarProps, NavbarSearch, type NavbarSearchProps, NavbarTrigger, type NavbarTriggerProps, type NavbarVariant, PricingCard, type PricingCardProps, Radio, type RadioProps, type SegOption, SegmentedToggle, type SegmentedToggleProps, StatCard, type StatCardProps, type StatTrend, type StatusType, Switch, type SwitchProps, type SwitchVariantProps, TestimonialCard, type TestimonialCardProps, Tooltip, TooltipDotted, type TooltipDottedProps, type TooltipPosition, type TooltipProps, TooltipRich, type TooltipRichProps, accordion_variants, avatar_variants, badge_variants, button_variants, card_variants, marquee_variants, switch_variants };
+export { Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, type AccordionVariantProps, Avatar, AvatarGroup, type AvatarGroupProps, AvatarNamed, type AvatarNamedProps, type AvatarProps, type AvatarVariantProps, AvatarWithStatus, type AvatarWithStatusProps, Badge, BadgeDot, type BadgeDotProps, type BadgeProps, type BadgeVariantProps, Banner, type BannerProps, Button, type ButtonProps, type ButtonVariantProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, type CardIconProps, type CardProps, CardTitle, type CardVariantProps, Checkbox, type CheckboxProps, FeatureCard, type FeatureCardProps, Kbd, type KbdProps, type KbdVariantProps, Marquee, MarqueeLogo, type MarqueeLogoProps, type MarqueeProps, MarqueeTrack, type MarqueeTrackProps, type MarqueeVariantProps, Modal, ModalActions, type ModalActionsProps, ModalBody, type ModalBodyProps, ModalHeader, type ModalHeaderProps, type ModalProps, Navbar, NavbarActions, type NavbarActionsProps, NavbarCta, type NavbarCtaProps, NavbarHamburger, type NavbarHamburgerProps, NavbarInner, type NavbarInnerProps, NavbarLink, type NavbarLinkProps, NavbarLinks, type NavbarLinksProps, NavbarLogo, type NavbarLogoProps, NavbarMega, NavbarMegaCol, type NavbarMegaColProps, NavbarMegaCols, type NavbarMegaColsProps, NavbarMegaItem, type NavbarMegaItemProps, NavbarMegaItemSimple, type NavbarMegaItemSimpleProps, NavbarMegaPanel, type NavbarMegaPanelProps, type NavbarMegaProps, NavbarMobileDivider, NavbarMobileLink, type NavbarMobileLinkProps, NavbarMobileMenu, type NavbarMobileMenuProps, type NavbarProps, NavbarSearch, type NavbarSearchProps, NavbarTrigger, type NavbarTriggerProps, type NavbarVariant, PricingCard, type PricingCardProps, Radio, type RadioProps, type SegOption, SegmentedToggle, type SegmentedToggleProps, StatCard, type StatCardProps, type StatTrend, type StatusType, Switch, type SwitchProps, type SwitchVariantProps, TestimonialCard, type TestimonialCardProps, Tooltip, TooltipDotted, type TooltipDottedProps, type TooltipPosition, type TooltipProps, TooltipRich, type TooltipRichProps, accordion_variants, avatar_variants, badge_variants, button_variants, card_variants, kbd_variants, marquee_variants, switch_variants };
