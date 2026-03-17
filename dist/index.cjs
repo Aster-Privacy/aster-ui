@@ -661,23 +661,22 @@ ModalActions.displayName = "ModalActions";
 
 // src/tooltip/tooltip.tsx
 var React11 = __toESM(require("react"), 1);
+var TooltipPrimitive = __toESM(require("@radix-ui/react-tooltip"), 1);
 var import_jsx_runtime11 = require("react/jsx-runtime");
-var position_class_map = {
-  top: "aster_tip_top",
-  bottom: "aster_tip_bottom",
-  left: "aster_tip_left",
-  right: "aster_tip_right"
-};
-var Tooltip = React11.forwardRef(
-  ({ tip, position = "top", dark, className, children, ...props }, ref) => {
-    const classes = [
-      position_class_map[position],
-      dark && "aster_tip_dark",
-      className
-    ].filter(Boolean).join(" ");
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: classes, "data-tip": tip, ref, ...props, children });
-  }
-);
+function Tooltip({ tip, position = "bottom", dark, delay = 400, children }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(TooltipPrimitive.Provider, { delayDuration: delay, skipDelayDuration: 0, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(TooltipPrimitive.Root, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(TooltipPrimitive.Trigger, { asChild: true, children }),
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(TooltipPrimitive.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      TooltipPrimitive.Content,
+      {
+        className: dark ? "aster_tip_portal aster_tip_portal_dark" : "aster_tip_portal",
+        side: position,
+        sideOffset: 6,
+        children: tip
+      }
+    ) })
+  ] }) });
+}
 Tooltip.displayName = "Tooltip";
 var TooltipDotted = React11.forwardRef(
   ({ tip, className, children, ...props }, ref) => {

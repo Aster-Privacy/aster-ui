@@ -140,13 +140,17 @@ type ModalActionsProps = React.HTMLAttributes<HTMLDivElement>;
 declare const ModalActions: React.ForwardRefExoticComponent<ModalActionsProps & React.RefAttributes<HTMLDivElement>>;
 
 type TooltipPosition = "top" | "bottom" | "left" | "right";
-interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
+interface TooltipProps {
     tip: string;
     position?: TooltipPosition;
     dark?: boolean;
+    delay?: number;
     children: React.ReactNode;
 }
-declare const Tooltip: React.ForwardRefExoticComponent<TooltipProps & React.RefAttributes<HTMLSpanElement>>;
+declare function Tooltip({ tip, position, dark, delay, children }: TooltipProps): react_jsx_runtime.JSX.Element;
+declare namespace Tooltip {
+    var displayName: string;
+}
 interface TooltipDottedProps extends React.HTMLAttributes<HTMLSpanElement> {
     tip: string;
     children: React.ReactNode;

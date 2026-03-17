@@ -902,6 +902,33 @@
   position: relative;
 }
 
+.aster_tip_portal {
+  padding: 6px 10px;
+  background: #fff;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
+  white-space: nowrap;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 99999;
+  pointer-events: none;
+  animation: aster_tip_fade_in 0.15s ease;
+}
+
+.aster_tip_portal_dark {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
+}
+
+@keyframes aster_tip_fade_in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .aster_tip_top::after {
   content: attr(data-tip);
   position: absolute;
@@ -918,7 +945,7 @@
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  z-index: 10;
+  z-index: 99999;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -944,7 +971,7 @@
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  z-index: 10;
+  z-index: 99999;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -970,7 +997,7 @@
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  z-index: 10;
+  z-index: 99999;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -996,7 +1023,7 @@
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  z-index: 10;
+  z-index: 99999;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -1035,7 +1062,7 @@
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  z-index: 10;
+  z-index: 99999;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.15s ease;
@@ -1064,7 +1091,7 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 10px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  z-index: 99999;
   text-align: left;
   white-space: normal;
   pointer-events: none;
@@ -2276,6 +2303,19 @@
 }
 
 .dark .aster_tip_dark::after {
+  background: #f0f0f0;
+  color: #1a1a1a;
+  border-color: #f0f0f0;
+}
+
+.dark .aster_tip_portal {
+  background: var(--bg-primary, #121212);
+  color: #d1d5db;
+  border-color: var(--border-primary, #333333);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark .aster_tip_portal_dark {
   background: #f0f0f0;
   color: #1a1a1a;
   border-color: #f0f0f0;

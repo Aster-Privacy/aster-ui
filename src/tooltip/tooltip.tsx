@@ -20,40 +20,38 @@
 //
 
 import * as React from "react";
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
 type TooltipPosition = "top" | "bottom" | "left" | "right";
 
-const position_class_map: Record<TooltipPosition, string> = {
-  top: "aster_tip_top",
-  bottom: "aster_tip_bottom",
-  left: "aster_tip_left",
-  right: "aster_tip_right",
-};
-
-interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
+interface TooltipProps {
   tip: string;
   position?: TooltipPosition;
   dark?: boolean;
+  delay?: number;
   children: React.ReactNode;
 }
 
-const Tooltip = React.forwardRef<HTMLSpanElement, TooltipProps>(
-  ({ tip, position = "top", dark, className, children, ...props }, ref) => {
-    const classes = [
-      position_class_map[position],
-      dark && "aster_tip_dark",
-      className,
-    ]
-      .filter(Boolean)
-      .join(" ");
-
-    return (
-      <span className={classes} data-tip={tip} ref={ref} {...props}>
-        {children}
-      </span>
-    );
-  }
-);
+function Tooltip({ tip, position = "bottom", dark, delay = 400, children }: TooltipProps) {
+  return (
+    <TooltipPrimitive.Provider delayDuration={delay} skipDelayDuration={0}>
+      <TooltipPrimitive.Root>
+        <TooltipPrimitive.Trigger asChild>
+          {children}
+        </TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Portal>
+          <TooltipPrimitive.Content
+            className={dark ? "aster_tip_portal aster_tip_portal_dark" : "aster_tip_portal"}
+            side={position}
+            sideOffset={6}
+          >
+            {tip}
+          </TooltipPrimitive.Content>
+        </TooltipPrimitive.Portal>
+      </TooltipPrimitive.Root>
+    </TooltipPrimitive.Provider>
+  );
+}
 
 Tooltip.displayName = "Tooltip";
 
