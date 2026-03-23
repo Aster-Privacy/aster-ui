@@ -2467,3 +2467,24 @@
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
+.aster_text_roller {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.aster_text_roller_track {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aster_text_roller_item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  line-height: inherit;
+}

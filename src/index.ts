@@ -168,3 +168,6 @@ export type {
   MarqueeTrackProps,
   MarqueeLogoProps,
 } from "./marquee";
+
+export { TextRoller } from "./text_roller";
+export type { TextRollerProps, TextRollerItem } from "./text_roller";

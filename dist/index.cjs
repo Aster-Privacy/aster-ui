@@ -84,6 +84,7 @@ __export(index_exports, {
   StatCard: () => StatCard,
   Switch: () => Switch,
   TestimonialCard: () => TestimonialCard,
+  TextRoller: () => TextRoller,
   Tooltip: () => Tooltip,
   TooltipDotted: () => TooltipDotted,
   TooltipRich: () => TooltipRich,
@@ -1434,6 +1435,54 @@ var MarqueeLogo = React16.forwardRef(
   }
 );
 MarqueeLogo.displayName = "MarqueeLogo";
+
+// src/text_roller/text_roller.tsx
+var React17 = __toESM(require("react"), 1);
+var import_jsx_runtime17 = require("react/jsx-runtime");
+var TextRoller = React17.forwardRef(
+  ({ className, items, interval = 2e3, item_height = "1.2em", ...props }, ref) => {
+    const [index, set_index] = React17.useState(0);
+    React17.useEffect(() => {
+      if (items.length <= 1) return;
+      const timer = setInterval(() => {
+        set_index((prev) => (prev + 1) % items.length);
+      }, interval);
+      return () => clearInterval(timer);
+    }, [items.length, interval]);
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+      "span",
+      {
+        ref,
+        className: ["aster_text_roller", className].filter(Boolean).join(" "),
+        style: { height: item_height },
+        ...props,
+        children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+          "span",
+          {
+            className: "aster_text_roller_track",
+            style: { transform: `translateY(calc(-${index} * ${item_height}))` },
+            "aria-live": "polite",
+            children: items.map((item, i) => {
+              const text = typeof item === "string" ? item : item.text;
+              const item_class = typeof item === "string" ? void 0 : item.class_name;
+              return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+                "span",
+                {
+                  className: ["aster_text_roller_item", item_class].filter(Boolean).join(" "),
+                  style: { height: item_height },
+                  "aria-hidden": i !== index,
+                  children: text
+                },
+                i
+              );
+            })
+          }
+        )
+      }
+    );
+  }
+);
+TextRoller.displayName = "TextRoller";
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Accordion,
@@ -1490,6 +1539,7 @@ MarqueeLogo.displayName = "MarqueeLogo";
   StatCard,
   Switch,
   TestimonialCard,
+  TextRoller,
   Tooltip,
   TooltipDotted,
   TooltipRich,
