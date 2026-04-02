@@ -1940,6 +1940,7 @@
   position: relative;
   overflow: hidden;
   padding: 16px 0;
+  direction: ltr;
 }
 
 .aster_marquee_track {
@@ -1947,6 +1948,11 @@
   width: max-content;
   animation: aster_marquee_scroll 30s linear infinite;
   will-change: transform;
+}
+
+[dir="rtl"] .aster_marquee_slide > * {
+  direction: rtl;
+  unicode-bidi: plaintext;
 }
 
 .aster_marquee_reverse {
@@ -2008,8 +2014,8 @@
 }
 
 .aster_marquee_fade {
-  mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
-  -webkit-mask-image: linear-gradient(to right, transparent, black 80px, black calc(100% - 80px), transparent);
+  mask-image: linear-gradient(90deg, transparent, black 80px, black calc(100% - 80px), transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 80px, black calc(100% - 80px), transparent);
 }
 
 .aster_marquee_dark {
