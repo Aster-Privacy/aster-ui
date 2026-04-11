@@ -4,7 +4,7 @@ import { VariantProps } from 'class-variance-authority';
 import * as react_jsx_runtime from 'react/jsx-runtime';
 
 declare const button_variants: (props?: ({
-    variant?: "primary" | "secondary" | "outline" | "ghost" | "destructive" | "depth" | null | undefined;
+    variant?: "primary" | "secondary" | "outline" | "ghost" | "destructive" | "depth" | "depth_destructive" | null | undefined;
     size?: "xl" | "lg" | "md" | "sm" | "icon" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type ButtonVariantProps = VariantProps<typeof button_variants>;

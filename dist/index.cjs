@@ -112,7 +112,8 @@ var button_variants = (0, import_class_variance_authority.cva)("aster_btn", {
       outline: "aster_btn_outline",
       ghost: "aster_btn_ghost",
       destructive: "aster_btn_destructive",
-      depth: "aster_btn_depth"
+      depth: "aster_btn_depth",
+      depth_destructive: "aster_btn_depth_destructive"
     },
     size: {
       xl: "aster_btn_xl",

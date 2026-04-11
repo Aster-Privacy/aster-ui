@@ -32,6 +32,7 @@ const button_variants = cva("aster_btn", {
       ghost: "aster_btn_ghost",
       destructive: "aster_btn_destructive",
       depth: "aster_btn_depth",
+      depth_destructive: "aster_btn_depth_destructive",
     },
     size: {
       xl: "aster_btn_xl",

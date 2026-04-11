@@ -102,6 +102,26 @@
   filter: brightness(1.1);
 }
 
+.aster_btn_depth_destructive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 14px;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(to bottom, #ef4444, #dc2626, #b91c1c) padding-box,
+              linear-gradient(to bottom, #f87171, #dc2626, #991b1b) border-box;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.aster_btn_depth_destructive:hover {
+  filter: brightness(1.1);
+}
+
 .aster_btn_xl {
   height: 44px;
   padding: 0 22px;
@@ -2088,6 +2108,15 @@
 }
 
 .dark .aster_btn_depth:hover {
+  filter: brightness(1.25);
+}
+
+.dark .aster_btn_depth_destructive {
+  background: linear-gradient(to bottom, #ef4444, #dc2626, #b91c1c) padding-box,
+              linear-gradient(to bottom, #f87171, #dc2626, #991b1b) border-box;
+}
+
+.dark .aster_btn_depth_destructive:hover {
   filter: brightness(1.25);
 }
 
