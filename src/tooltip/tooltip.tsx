@@ -33,10 +33,39 @@ interface TooltipProps {
 }
 
 function Tooltip({ tip, position = "bottom", dark, delay = 400, children }: TooltipProps) {
+  const [open, set_open] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!open) return;
+    const force_close = () => set_open(false);
+    const on_visibility = () => {
+      if (document.hidden) force_close();
+    };
+    window.addEventListener("blur", force_close);
+    document.addEventListener("visibilitychange", on_visibility);
+    window.addEventListener("wheel", force_close, { passive: true });
+    return () => {
+      window.removeEventListener("blur", force_close);
+      document.removeEventListener("visibilitychange", on_visibility);
+      window.removeEventListener("wheel", force_close);
+    };
+  }, [open]);
+
+  const handle_open_change = (next: boolean) => {
+    if (next && document.hidden) return;
+    set_open(next);
+  };
+
   return (
     <TooltipPrimitive.Provider delayDuration={delay} skipDelayDuration={0}>
-      <TooltipPrimitive.Root>
-        <TooltipPrimitive.Trigger asChild>
+      <TooltipPrimitive.Root open={open} onOpenChange={handle_open_change}>
+        <TooltipPrimitive.Trigger
+          asChild
+          onPointerLeave={() => set_open(false)}
+          onPointerDown={() => set_open(false)}
+          onClick={() => set_open(false)}
+          onBlur={() => set_open(false)}
+        >
           {children}
         </TooltipPrimitive.Trigger>
         <TooltipPrimitive.Portal>
@@ -44,6 +73,7 @@ function Tooltip({ tip, position = "bottom", dark, delay = 400, children }: Tool
             className={dark ? "aster_tip_portal aster_tip_portal_dark" : "aster_tip_portal"}
             side={position}
             sideOffset={6}
+            onPointerDownOutside={() => set_open(false)}
           >
             {tip}
           </TooltipPrimitive.Content>

@@ -666,14 +666,45 @@ var React11 = __toESM(require("react"), 1);
 var TooltipPrimitive = __toESM(require("@radix-ui/react-tooltip"), 1);
 var import_jsx_runtime11 = require("react/jsx-runtime");
 function Tooltip({ tip, position = "bottom", dark, delay = 400, children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(TooltipPrimitive.Provider, { delayDuration: delay, skipDelayDuration: 0, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(TooltipPrimitive.Root, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(TooltipPrimitive.Trigger, { asChild: true, children }),
+  const [open, set_open] = React11.useState(false);
+  React11.useEffect(() => {
+    if (!open) return;
+    const force_close = () => set_open(false);
+    const on_visibility = () => {
+      if (document.hidden) force_close();
+    };
+    window.addEventListener("blur", force_close);
+    document.addEventListener("visibilitychange", on_visibility);
+    window.addEventListener("wheel", force_close, { passive: true });
+    return () => {
+      window.removeEventListener("blur", force_close);
+      document.removeEventListener("visibilitychange", on_visibility);
+      window.removeEventListener("wheel", force_close);
+    };
+  }, [open]);
+  const handle_open_change = (next) => {
+    if (next && document.hidden) return;
+    set_open(next);
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(TooltipPrimitive.Provider, { delayDuration: delay, skipDelayDuration: 0, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(TooltipPrimitive.Root, { open, onOpenChange: handle_open_change, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      TooltipPrimitive.Trigger,
+      {
+        asChild: true,
+        onPointerLeave: () => set_open(false),
+        onPointerDown: () => set_open(false),
+        onClick: () => set_open(false),
+        onBlur: () => set_open(false),
+        children
+      }
+    ),
     /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(TooltipPrimitive.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
       TooltipPrimitive.Content,
       {
         className: dark ? "aster_tip_portal aster_tip_portal_dark" : "aster_tip_portal",
         side: position,
         sideOffset: 6,
+        onPointerDownOutside: () => set_open(false),
         children: tip
       }
     ) })
