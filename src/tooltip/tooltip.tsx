@@ -34,6 +34,7 @@ interface TooltipProps {
 
 function Tooltip({ tip, position = "bottom", dark, delay = 400, children }: TooltipProps) {
   const [open, set_open] = React.useState(false);
+  const pointer_inside_ref = React.useRef(false);
 
   React.useEffect(() => {
     if (!open) return;
@@ -53,6 +54,7 @@ function Tooltip({ tip, position = "bottom", dark, delay = 400, children }: Tool
 
   const handle_open_change = (next: boolean) => {
     if (next && document.hidden) return;
+    if (next && !pointer_inside_ref.current) return;
     set_open(next);
   };
 
@@ -61,7 +63,13 @@ function Tooltip({ tip, position = "bottom", dark, delay = 400, children }: Tool
       <TooltipPrimitive.Root open={open} onOpenChange={handle_open_change}>
         <TooltipPrimitive.Trigger
           asChild
-          onPointerLeave={() => set_open(false)}
+          onPointerEnter={() => {
+            pointer_inside_ref.current = true;
+          }}
+          onPointerLeave={() => {
+            pointer_inside_ref.current = false;
+            set_open(false);
+          }}
           onPointerDown={() => set_open(false)}
           onClick={() => set_open(false)}
           onBlur={() => set_open(false)}

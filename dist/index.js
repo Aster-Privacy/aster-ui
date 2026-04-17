@@ -566,6 +566,7 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { jsx as jsx11, jsxs as jsxs8 } from "react/jsx-runtime";
 function Tooltip({ tip, position = "bottom", dark, delay = 400, children }) {
   const [open, set_open] = React11.useState(false);
+  const pointer_inside_ref = React11.useRef(false);
   React11.useEffect(() => {
     if (!open) return;
     const force_close = () => set_open(false);
@@ -583,6 +584,7 @@ function Tooltip({ tip, position = "bottom", dark, delay = 400, children }) {
   }, [open]);
   const handle_open_change = (next) => {
     if (next && document.hidden) return;
+    if (next && !pointer_inside_ref.current) return;
     set_open(next);
   };
   return /* @__PURE__ */ jsx11(TooltipPrimitive.Provider, { delayDuration: delay, skipDelayDuration: 0, children: /* @__PURE__ */ jsxs8(TooltipPrimitive.Root, { open, onOpenChange: handle_open_change, children: [
@@ -590,7 +592,13 @@ function Tooltip({ tip, position = "bottom", dark, delay = 400, children }) {
       TooltipPrimitive.Trigger,
       {
         asChild: true,
-        onPointerLeave: () => set_open(false),
+        onPointerEnter: () => {
+          pointer_inside_ref.current = true;
+        },
+        onPointerLeave: () => {
+          pointer_inside_ref.current = false;
+          set_open(false);
+        },
         onPointerDown: () => set_open(false),
         onClick: () => set_open(false),
         onBlur: () => set_open(false),

@@ -161,14 +161,14 @@
   display: flex;
   width: 100%;
   border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: #ffffff;
+  border: none;
+  background: transparent;
   color: #1a1a1a;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
   padding: 0 14px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: box-shadow 0.15s ease;
   outline: none;
 }
 
@@ -177,28 +177,27 @@
 }
 
 .aster_input:hover {
-  border-color: rgba(0, 0, 0, 0.18);
+  background: transparent;
 }
 
 .aster_input:focus {
-  border-color: #3b82f6;
-  box-shadow: none;
+  box-shadow: 0 0 0 2px #3b82f6;
 }
 
 .aster_input_success {
-  border-color: #22c55e;
+  box-shadow: 0 0 0 2px #22c55e;
 }
 
 .aster_input_success:focus {
-  border-color: #22c55e;
+  box-shadow: 0 0 0 2px #22c55e;
 }
 
 .aster_input_error {
-  border-color: #ef4444;
+  box-shadow: 0 0 0 2px #ef4444;
 }
 
 .aster_input_error:focus {
-  border-color: #ef4444;
+  box-shadow: 0 0 0 2px #ef4444;
 }
 
 .aster_input:disabled {
@@ -865,9 +864,10 @@
 
 .aster_modal_header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
-  gap: 4px;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .aster_modal_title {
@@ -875,6 +875,8 @@
   font-weight: 600;
   color: #1a1a1a;
   margin: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .aster_modal_close {
@@ -2452,8 +2454,8 @@
 }
 
 .dark .aster_input {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: none;
   color: #f5f5f5;
 }
 
@@ -2462,28 +2464,27 @@
 }
 
 .dark .aster_input:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  background: transparent;
 }
 
 .dark .aster_input:focus {
-  border-color: #3b82f6;
-  box-shadow: none;
+  box-shadow: 0 0 0 2px #3b82f6;
 }
 
 .dark .aster_input_success {
-  border-color: #22c55e;
+  box-shadow: 0 0 0 2px #22c55e;
 }
 
 .dark .aster_input_success:focus {
-  border-color: #22c55e;
+  box-shadow: 0 0 0 2px #22c55e;
 }
 
 .dark .aster_input_error {
-  border-color: #ef4444;
+  box-shadow: 0 0 0 2px #ef4444;
 }
 
 .dark .aster_input_error:focus {
-  border-color: #ef4444;
+  box-shadow: 0 0 0 2px #ef4444;
 }
 
 .aster_skeleton {
