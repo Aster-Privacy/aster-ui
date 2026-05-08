@@ -1173,15 +1173,15 @@
 }
 
 .aster_switch_sm .aster_switch_track { width: 32px; height: 18px; }
-.aster_switch_sm .aster_switch_thumb { width: 14px; height: 14px; left: 2px; }
+.aster_switch_sm .aster_switch_thumb { width: 14px; height: 14px; top: 2px; left: 2px; }
 .aster_switch_sm .aster_switch_input:checked + .aster_switch_track .aster_switch_thumb { transform: translateX(14px); }
 
 .aster_switch_md .aster_switch_track { width: 40px; height: 22px; }
-.aster_switch_md .aster_switch_thumb { width: 18px; height: 18px; left: 2px; }
+.aster_switch_md .aster_switch_thumb { width: 18px; height: 18px; top: 2px; left: 2px; }
 .aster_switch_md .aster_switch_input:checked + .aster_switch_track .aster_switch_thumb { transform: translateX(18px); }
 
 .aster_switch_lg .aster_switch_track { width: 48px; height: 26px; }
-.aster_switch_lg .aster_switch_thumb { width: 22px; height: 22px; left: 2px; }
+.aster_switch_lg .aster_switch_thumb { width: 22px; height: 22px; top: 2px; left: 2px; }
 .aster_switch_lg .aster_switch_input:checked + .aster_switch_track .aster_switch_thumb { transform: translateX(22px); }
 
 .aster_switch_green .aster_switch_input:checked + .aster_switch_track { background: #16a34a; }
