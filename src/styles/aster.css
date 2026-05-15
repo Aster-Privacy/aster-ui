@@ -161,14 +161,14 @@
   display: flex;
   width: 100%;
   border-radius: 12px;
-  border: none;
-  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
   color: #1a1a1a;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
   padding: 0 14px;
-  transition: box-shadow 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
   outline: none;
 }
 
@@ -177,27 +177,28 @@
 }
 
 .aster_input:hover {
-  background: transparent;
+  border-color: rgba(0, 0, 0, 0.18);
 }
 
 .aster_input:focus {
-  box-shadow: 0 0 0 2px #3b82f6;
+  border-color: #3b82f6;
+  box-shadow: none;
 }
 
 .aster_input_success {
-  box-shadow: 0 0 0 2px #22c55e;
+  border-color: #22c55e;
 }
 
 .aster_input_success:focus {
-  box-shadow: 0 0 0 2px #22c55e;
+  border-color: #22c55e;
 }
 
 .aster_input_error {
-  box-shadow: 0 0 0 2px #ef4444;
+  border-color: #ef4444;
 }
 
 .aster_input_error:focus {
-  box-shadow: 0 0 0 2px #ef4444;
+  border-color: #ef4444;
 }
 
 .aster_input:disabled {
@@ -2451,8 +2452,8 @@
 }
 
 .dark .aster_input {
-  background: transparent;
-  border: none;
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
   color: #f5f5f5;
 }
 
@@ -2461,27 +2462,28 @@
 }
 
 .dark .aster_input:hover {
-  background: transparent;
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 .dark .aster_input:focus {
-  box-shadow: 0 0 0 2px #3b82f6;
+  border-color: #3b82f6;
+  box-shadow: none;
 }
 
 .dark .aster_input_success {
-  box-shadow: 0 0 0 2px #22c55e;
+  border-color: #22c55e;
 }
 
 .dark .aster_input_success:focus {
-  box-shadow: 0 0 0 2px #22c55e;
+  border-color: #22c55e;
 }
 
 .dark .aster_input_error {
-  box-shadow: 0 0 0 2px #ef4444;
+  border-color: #ef4444;
 }
 
 .dark .aster_input_error:focus {
-  box-shadow: 0 0 0 2px #ef4444;
+  border-color: #ef4444;
 }
 
 .aster_skeleton {
