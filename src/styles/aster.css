@@ -87,7 +87,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 14px;
   font-weight: 500;
   color: #fff;
   background: linear-gradient(to bottom, #4a7aff, #3b6aef, #2d5ae0) padding-box,
@@ -107,7 +106,6 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 14px;
   font-weight: 500;
   color: #fff;
   background: linear-gradient(to bottom, #ef4444, #dc2626, #b91c1c) padding-box,
@@ -126,30 +124,35 @@
   height: 44px;
   padding: 0 22px;
   font-size: 16px;
+  border-radius: 18px;
 }
 
 .aster_btn_lg {
   height: 36px;
   padding: 0 16px;
   font-size: 14px;
+  border-radius: 16px;
 }
 
 .aster_btn_md {
   height: 32px;
   padding: 0 14px;
   font-size: 13px;
+  border-radius: 14px;
 }
 
 .aster_btn_sm {
   height: 28px;
   padding: 0 12px;
   font-size: 12px;
+  border-radius: 12px;
 }
 
 .aster_btn_icon {
   width: 36px;
   height: 36px;
   padding: 0;
+  border-radius: 10px;
 }
 
 .aster_btn:focus-visible {
@@ -217,12 +220,14 @@
   height: 40px;
   font-size: 14px;
   padding: 0 14px;
+  border-radius: 14px;
 }
 
 .aster_input_md {
   height: 36px;
   font-size: 13px;
   padding: 0 12px;
+  border-radius: 12px;
 }
 
 .aster_input_sm {
@@ -665,7 +670,7 @@
   padding: 10px 16px;
   background: #f6f5f4;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .aster_banner_content {
@@ -1546,7 +1551,7 @@
   color: #999;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 5px;
+  border-radius: 6px;
   flex-shrink: 0;
 }
 
@@ -1560,7 +1565,7 @@
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   font-weight: 500;
   line-height: 1;
-  border-radius: 5px;
+  border-radius: 6px;
   flex-shrink: 0;
   user-select: none;
 }
@@ -2490,7 +2495,7 @@
   background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
   background-size: 200% 100%;
   animation: aster_skeleton_shimmer 1.5s ease-in-out infinite;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 
 .dark .aster_skeleton {
