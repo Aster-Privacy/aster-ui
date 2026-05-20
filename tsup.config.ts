@@ -28,7 +28,7 @@ export default defineConfig({
   dts: true,
   splitting: false,
   clean: true,
-  external: ["react", "react-dom"],
+  external: ["react", "react-dom", "framer-motion"],
   onSuccess: async () => {
     cpSync("src/styles", "dist/styles", { recursive: true });
   },
