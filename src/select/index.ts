@@ -20,21 +20,16 @@
 //
 
 export {
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalActions,
-  ModalTitle,
-  ModalDescription,
-  ModalFooter,
-} from "./modal";
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "./select";
 export type {
-  ModalProps,
-  ModalSize,
-  ModalHeaderProps,
-  ModalBodyProps,
-  ModalActionsProps,
-  ModalTitleProps,
-  ModalDescriptionProps,
-  ModalFooterProps,
-} from "./modal";
+  SelectProps,
+  SelectTriggerProps,
+  SelectValueProps,
+  SelectContentProps,
+  SelectItemProps,
+} from "./select";

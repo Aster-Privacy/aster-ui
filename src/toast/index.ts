@@ -20,21 +20,12 @@
 //
 
 export {
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalActions,
-  ModalTitle,
-  ModalDescription,
-  ModalFooter,
-} from "./modal";
+  SimpleToast,
+  show_toast,
+  dismiss_toast,
+} from "./simple_toast";
 export type {
-  ModalProps,
-  ModalSize,
-  ModalHeaderProps,
-  ModalBodyProps,
-  ModalActionsProps,
-  ModalTitleProps,
-  ModalDescriptionProps,
-  ModalFooterProps,
-} from "./modal";
+  SimpleToastProps,
+  ToastKind,
+  ToastPayload,
+} from "./simple_toast";

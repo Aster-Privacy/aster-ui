@@ -20,21 +20,21 @@
 //
 
 export {
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalActions,
-  ModalTitle,
-  ModalDescription,
-  ModalFooter,
-} from "./modal";
+  SettingsModalShell,
+  SettingsNavGroup,
+  SettingsNavItemButton,
+  SettingsSectionHeader,
+  SettingsRow,
+  SettingsSaveIndicator,
+} from "./settings_shell";
 export type {
-  ModalProps,
-  ModalSize,
-  ModalHeaderProps,
-  ModalBodyProps,
-  ModalActionsProps,
-  ModalTitleProps,
-  ModalDescriptionProps,
-  ModalFooterProps,
-} from "./modal";
+  SettingsModalShellProps,
+  SettingsNavGroupProps,
+  SettingsNavItemButtonProps,
+  SettingsNavItem,
+  SettingsNavGroupData,
+  SettingsSectionHeaderProps,
+  SettingsRowProps,
+  SettingsSaveIndicatorProps,
+  SettingsSaveStatus,
+} from "./settings_shell";

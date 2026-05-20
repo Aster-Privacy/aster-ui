@@ -19,22 +19,5 @@
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
 
-export {
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalActions,
-  ModalTitle,
-  ModalDescription,
-  ModalFooter,
-} from "./modal";
-export type {
-  ModalProps,
-  ModalSize,
-  ModalHeaderProps,
-  ModalBodyProps,
-  ModalActionsProps,
-  ModalTitleProps,
-  ModalDescriptionProps,
-  ModalFooterProps,
-} from "./modal";
+export { Skeleton, SkeletonText } from "./skeleton";
+export type { SkeletonProps, SkeletonTextProps, SkeletonVariant } from "./skeleton";

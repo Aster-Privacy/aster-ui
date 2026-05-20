@@ -20,21 +20,20 @@
 //
 
 export {
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalActions,
-  ModalTitle,
-  ModalDescription,
-  ModalFooter,
-} from "./modal";
+  SidebarHeader,
+  SidebarSectionHeader,
+  SidebarSectionToggle,
+  SidebarMoreToggle,
+  SidebarNavRow,
+  SidebarTagRow,
+  SidebarActionButton,
+} from "./sidebar";
 export type {
-  ModalProps,
-  ModalSize,
-  ModalHeaderProps,
-  ModalBodyProps,
-  ModalActionsProps,
-  ModalTitleProps,
-  ModalDescriptionProps,
-  ModalFooterProps,
-} from "./modal";
+  SidebarHeaderProps,
+  SidebarSectionHeaderProps,
+  SidebarSectionToggleProps,
+  SidebarMoreToggleProps,
+  SidebarNavRowProps,
+  SidebarTagRowProps,
+  SidebarActionButtonProps,
+} from "./sidebar";
