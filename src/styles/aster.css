@@ -861,12 +861,21 @@
   padding: 24px;
   width: 100%;
   max-width: 400px;
+  max-height: calc(100vh - 48px);
   box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   gap: 16px;
   text-align: left;
+  overflow: hidden;
 }
+
+.aster_modal_sm { max-width: 320px; }
+.aster_modal_md { max-width: 480px; }
+.aster_modal_lg { max-width: 640px; }
+.aster_modal_xl { max-width: 800px; }
+.aster_modal_2xl { max-width: 960px; }
+.aster_modal_full { max-width: calc(100vw - 48px); }
 
 .aster_modal_header {
   display: flex;
@@ -914,6 +923,9 @@
   color: #6b7280;
   line-height: 1.55;
   margin: 0;
+  overflow-y: auto;
+  min-height: 0;
+  flex: 1 1 auto;
 }
 
 .aster_modal_actions {
