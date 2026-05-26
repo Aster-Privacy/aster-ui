@@ -119,10 +119,12 @@ export function SidebarSectionHeader({
   label,
   is_collapsed,
 }: SidebarSectionHeaderProps) {
-  if (is_collapsed) return <div className="h-1" />;
+  if (is_collapsed) return null;
   return (
-    <div className="px-2 pt-3 pb-1 text-[11px] font-semibold uppercase tracking-wider text-txt-muted select-none">
-      {label}
+    <div className="mb-1 px-2.5">
+      <span className="text-[10px] font-semibold uppercase tracking-[0.05em] text-txt-muted opacity-70">
+        {label}
+      </span>
     </div>
   );
 }
@@ -142,30 +144,28 @@ export function SidebarSectionToggle({
   section_collapsed,
   on_toggle,
   right_slot,
-  margin_top,
 }: SidebarSectionToggleProps) {
-  if (is_collapsed) return <div className="h-1" />;
+  if (is_collapsed) return null;
   return (
-    <div
-      className={join_classes(
-        "flex items-center justify-between pl-2 pr-1 pt-3 pb-1 group",
-        margin_top && "mt-2",
-      )}
-    >
-      <button
-        className="flex items-center gap-1 text-[11px] font-semibold uppercase tracking-wider text-txt-muted hover:text-txt-secondary select-none"
-        type="button"
-        onClick={on_toggle}
-      >
-        <ChevronDown
-          className={join_classes(
-            "w-3 h-3 transition-transform",
-            section_collapsed ? "-rotate-90" : "rotate-0",
-          )}
-        />
-        <span>{label}</span>
-      </button>
-      {right_slot}
+    <div className="mt-5 mb-1 px-2.5">
+      <div className="w-full flex items-center justify-between">
+        <button
+          className="flex-1 flex items-center gap-1 py-1 text-txt-muted opacity-70 hover:opacity-100"
+          type="button"
+          onClick={on_toggle}
+        >
+          <ChevronDown
+            className={join_classes(
+              "w-3 h-3",
+              section_collapsed ? "-rotate-90" : "rotate-0",
+            )}
+          />
+          <span className="text-[10px] font-semibold uppercase tracking-[0.05em]">
+            {label}
+          </span>
+        </button>
+        {right_slot}
+      </div>
     </div>
   );
 }
@@ -186,13 +186,13 @@ export function SidebarMoreToggle({
 }: SidebarMoreToggleProps) {
   return (
     <button
-      className="w-full flex items-center gap-2 px-2 py-1.5 mt-0.5 rounded-[10px] text-[12px] text-txt-muted hover:bg-black/[0.04] dark:hover:bg-white/[0.04]"
+      className="w-full flex items-center gap-2 px-2.5 h-7 text-[12px] rounded-[12px] hover:bg-black/[0.03] dark:hover:bg-white/[0.04] text-txt-muted"
       type="button"
       onClick={on_toggle}
     >
       <ChevronDown
         className={join_classes(
-          "w-3.5 h-3.5 transition-transform",
+          "w-3.5 h-3.5",
           expanded ? "rotate-180" : "rotate-0",
         )}
       />
@@ -239,25 +239,36 @@ export const SidebarNavRow = React.forwardRef<
       <button
         ref={ref}
         className={join_classes(
-          "sidebar-nav-btn relative z-[1] w-full flex items-center gap-2 rounded-[10px] px-2 py-1.5 text-[13px] text-txt-secondary",
-          is_collapsed && "justify-center px-0 py-2",
-          selected && "sidebar-active text-txt-primary font-medium",
+          "sidebar-nav-btn group relative w-full flex items-center rounded-[12px] h-8 text-[14px]",
+          is_collapsed ? "justify-center px-0" : "gap-2.5 px-2.5",
+          selected && "sidebar-active",
+          is_collapsed && selected && "sidebar-selected",
         )}
-        title={title ?? label}
+        style={{
+          zIndex: 1,
+          color: selected
+            ? "var(--text-primary)"
+            : "var(--text-secondary)",
+          backgroundColor:
+            is_collapsed && selected ? "var(--indicator-bg)" : undefined,
+        }}
+        title={title ?? (is_collapsed ? label : undefined)}
         type="button"
         onClick={on_click}
       >
         {leading}
         {Icon && (
           <Icon
-            className={join_classes(
-              "flex-shrink-0",
-              is_collapsed ? "w-5 h-5" : "w-4 h-4",
-            )}
+            className={is_collapsed ? "w-5 h-5" : "w-4 h-4"}
+            style={{
+              color: selected
+                ? "var(--text-primary)"
+                : "var(--text-muted)",
+            }}
           />
         )}
         {!is_collapsed && (
-          <span className="flex-1 truncate text-left">{label}</span>
+          <span className="flex-1 text-left">{label}</span>
         )}
         {!is_collapsed && trailing}
         {!is_collapsed &&
@@ -290,7 +301,7 @@ export interface SidebarTagRowProps {
   on_drag_leave?: (e: React.DragEvent<HTMLButtonElement>) => void;
   on_drag_over?: (e: React.DragEvent<HTMLButtonElement>) => void;
   on_drop?: (e: React.DragEvent<HTMLButtonElement>) => void;
-  tag_icon?: React.ComponentType<{ className?: string }> | null;
+  tag_icon?: React.ComponentType<{ className?: string; style?: React.CSSProperties }> | null;
 }
 
 export function SidebarTagRow({
@@ -313,12 +324,24 @@ export function SidebarTagRow({
     <button
       ref={button_ref}
       className={join_classes(
-        "sidebar-nav-btn relative z-[1] w-full flex items-center gap-2 rounded-[10px] px-2 py-1.5 text-[13px] text-txt-secondary",
-        is_collapsed && "justify-center px-0 py-2",
-        selected && "sidebar-active text-txt-primary font-medium",
-        drag_over && "ring-2 ring-[var(--accent-blue)]",
+        "sidebar-nav-btn group relative w-full flex items-center rounded-[12px] h-8 text-[14px]",
+        is_collapsed ? "justify-center px-0" : "gap-2.5 px-2.5",
+        selected && "sidebar-active",
+        is_collapsed && selected && "sidebar-selected",
+        drag_over && "ring-2 ring-blue-500/60 bg-blue-500/10",
       )}
-      title={label}
+      style={{
+        zIndex: 1,
+        color: selected
+          ? "var(--text-primary)"
+          : "var(--text-secondary)",
+        backgroundColor: drag_over
+          ? undefined
+          : is_collapsed && selected
+            ? "var(--indicator-bg)"
+            : undefined,
+      }}
+      title={is_collapsed ? label : undefined}
       type="button"
       onClick={on_click}
       onDragEnter={on_drag_enter}
@@ -327,19 +350,25 @@ export function SidebarTagRow({
       onDrop={on_drop}
     >
       {TagIcon ? (
-        <TagIcon className={is_collapsed ? "w-4 h-4" : "w-3.5 h-3.5"} />
+        <TagIcon
+          className={join_classes(
+            "flex-shrink-0",
+            is_collapsed ? "w-5 h-5" : "w-4 h-4",
+          )}
+          style={{ color: color ?? "var(--accent-color)" }}
+        />
       ) : (
         <span
           className={join_classes(
             "flex-shrink-0 rounded-full",
-            is_collapsed ? "w-2.5 h-2.5" : "w-2 h-2",
+            is_collapsed ? "w-3 h-3" : "w-2.5 h-2.5",
           )}
           style={{ backgroundColor: color ?? "var(--accent-color)" }}
         />
       )}
       {!is_collapsed && (
         <>
-          <span className="flex-1 truncate text-left">{label}</span>
+          <span className="flex-1 text-left truncate leading-4">{label}</span>
           {show_count && count !== undefined && count > 0 && (
             <span className="ml-auto text-[11px] tabular-nums text-txt-muted">
               {count}

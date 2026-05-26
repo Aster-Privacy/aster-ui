@@ -233,6 +233,14 @@ export type {
   SidebarActionButtonProps,
 } from "./sidebar";
 
+export { DashboardSidebar } from "./sidebar";
+export type {
+  DashboardSidebarProps,
+  DashboardSidebarFilter,
+  DashboardSidebarAccountLike,
+  DashboardSidebarTStrings,
+} from "./sidebar";
+
 export {
   SettingsModalShell,
   SettingsNavGroup,
@@ -258,3 +266,44 @@ export type { ThemeCardProps, ThemeMode } from "./theme_card";
 
 export { StorageIndicator } from "./storage_indicator/storage_indicator";
 export type { StorageIndicatorProps } from "./storage_indicator/storage_indicator";
+
+export { EmptyState } from "./empty_state";
+export type { EmptyStateProps } from "./empty_state";
+
+export { SearchBar } from "./search_bar";
+export type { SearchBarProps } from "./search_bar";
+
+export { AppSwitcher } from "./app_switcher";
+export type { AppSwitcherProps, AppEntry } from "./app_switcher";
+
+export {
+  AuthLogo,
+  AuthEyeIcon,
+  AuthEyeSlashIcon,
+  AuthInputWrapper,
+} from "./auth";
+export type { AuthLogoProps, AuthInputWrapperProps } from "./auth";
+
+export { FieldLabel, FieldHint, ErrorBanner } from "./form";
+export type { FieldLabelProps, FieldHintProps, ErrorBannerProps } from "./form";
+
+export { ConfirmationModal } from "./confirmation_modal";
+export type {
+  ConfirmationModalProps,
+  ConfirmationVariant,
+} from "./confirmation_modal";
+
+export { KeyboardShortcutsModal } from "./keyboard_shortcuts";
+export type {
+  KeyboardShortcutsModalProps,
+  KeyboardShortcutEntry,
+  KeyboardShortcutSection,
+  KeyboardShortcutsTStrings,
+} from "./keyboard_shortcuts";
+
+export { ContextMenu } from "./context_menu";
+export type {
+  ContextMenuProps,
+  ContextMenuItem,
+  ContextMenuPosition,
+} from "./context_menu";

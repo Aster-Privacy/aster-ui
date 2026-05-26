@@ -20,6 +20,7 @@
 //
 
 import * as React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export type ToastKind = "success" | "error" | "info" | "warning";
 
@@ -72,8 +73,83 @@ export function dismiss_toast(): void {
   emit(null);
 }
 
-function join_classes(...parts: Array<string | false | null | undefined>): string {
-  return parts.filter(Boolean).join(" ");
+function check_icon() {
+  return (
+    <svg
+      className="w-4 h-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M4.5 12.75l6 6 9-13.5"
+      />
+    </svg>
+  );
+}
+
+function info_icon() {
+  return (
+    <svg
+      className="w-4 h-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+      />
+    </svg>
+  );
+}
+
+function warning_icon() {
+  return (
+    <svg
+      className="w-4 h-4"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+      />
+    </svg>
+  );
+}
+
+function close_icon(size: string) {
+  return (
+    <svg
+      className={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      />
+    </svg>
+  );
+}
+
+function icon_for(kind: ToastKind) {
+  if (kind === "success") return check_icon();
+  if (kind === "error") return close_icon("w-4 h-4");
+  if (kind === "warning") return warning_icon();
+  return info_icon();
 }
 
 export interface SimpleToastProps {
@@ -97,38 +173,46 @@ export function SimpleToast({
     };
   }, []);
 
-  if (!toast) return null;
-
-  const kind_classes =
-    toast.kind === "success"
-      ? "bg-emerald-600 text-white"
-      : toast.kind === "error"
-        ? "bg-rose-600 text-white"
-        : toast.kind === "warning"
-          ? "bg-amber-500 text-black"
-          : "bg-[var(--bg-card,#1f2937)] text-[var(--text-primary,#fff)]";
+  const is_top = position === "top";
+  const y_offset = is_top ? -20 : 20;
+  const container_style: React.CSSProperties = is_top
+    ? { top: `calc(env(safe-area-inset-top, 0px) + 12px)` }
+    : { bottom: "24px" };
 
   return (
     <div
-      role="status"
-      aria-live="polite"
-      className={join_classes(
-        "fixed left-1/2 -translate-x-1/2 z-[1000] flex items-center gap-3 rounded-[12px] px-4 py-2.5 shadow-lg",
-        position === "top" ? "top-4" : "bottom-6",
-        kind_classes,
-        className,
-      )}
-      style={{ maxWidth: "calc(100vw - 2rem)" }}
+      className={`fixed left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none ${className ?? ""}`}
+      style={container_style}
     >
-      <span className="text-[13px] font-medium truncate">{toast.message}</span>
-      <button
-        type="button"
-        onClick={dismiss_toast}
-        aria-label={dismiss_label}
-        className="text-[12px] underline-offset-2 hover:underline opacity-80 hover:opacity-100"
-      >
-        {dismiss_label}
-      </button>
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            key={toast.id}
+            initial={{ opacity: 0, y: y_offset, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.15 }}
+            className="pointer-events-auto"
+          >
+            <div className="px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2 bg-modal-bg border border-edge-secondary">
+              <span className="flex-shrink-0 text-txt-primary">
+                {icon_for(toast.kind)}
+              </span>
+              <span className="text-[13px] font-medium text-txt-primary whitespace-nowrap">
+                {toast.message}
+              </span>
+              <button
+                type="button"
+                aria-label={dismiss_label}
+                onClick={dismiss_toast}
+                className="ml-1 flex-shrink-0 text-txt-muted hover:text-txt-primary transition-colors"
+              >
+                {close_icon("w-3.5 h-3.5")}
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

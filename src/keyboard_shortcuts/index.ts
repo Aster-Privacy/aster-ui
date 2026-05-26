@@ -19,29 +19,10 @@
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
 
-export {
-  SidebarHeader,
-  SidebarSectionHeader,
-  SidebarSectionToggle,
-  SidebarMoreToggle,
-  SidebarNavRow,
-  SidebarTagRow,
-  SidebarActionButton,
-} from "./sidebar";
+export { KeyboardShortcutsModal } from "./keyboard_shortcuts_modal";
 export type {
-  SidebarHeaderProps,
-  SidebarSectionHeaderProps,
-  SidebarSectionToggleProps,
-  SidebarMoreToggleProps,
-  SidebarNavRowProps,
-  SidebarTagRowProps,
-  SidebarActionButtonProps,
-} from "./sidebar";
-
-export { DashboardSidebar } from "./dashboard_sidebar";
-export type {
-  DashboardSidebarProps,
-  DashboardSidebarFilter,
-  DashboardSidebarAccountLike,
-  DashboardSidebarTStrings,
-} from "./dashboard_sidebar";
+  KeyboardShortcutsModalProps,
+  KeyboardShortcutEntry,
+  KeyboardShortcutSection,
+  KeyboardShortcutsTStrings,
+} from "./keyboard_shortcuts_modal";

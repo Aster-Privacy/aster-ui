@@ -20,28 +20,9 @@
 //
 
 export {
-  SidebarHeader,
-  SidebarSectionHeader,
-  SidebarSectionToggle,
-  SidebarMoreToggle,
-  SidebarNavRow,
-  SidebarTagRow,
-  SidebarActionButton,
-} from "./sidebar";
-export type {
-  SidebarHeaderProps,
-  SidebarSectionHeaderProps,
-  SidebarSectionToggleProps,
-  SidebarMoreToggleProps,
-  SidebarNavRowProps,
-  SidebarTagRowProps,
-  SidebarActionButtonProps,
-} from "./sidebar";
-
-export { DashboardSidebar } from "./dashboard_sidebar";
-export type {
-  DashboardSidebarProps,
-  DashboardSidebarFilter,
-  DashboardSidebarAccountLike,
-  DashboardSidebarTStrings,
-} from "./dashboard_sidebar";
+  AuthLogo,
+  AuthEyeIcon,
+  AuthEyeSlashIcon,
+  AuthInputWrapper,
+} from "./auth";
+export type { AuthLogoProps, AuthInputWrapperProps } from "./auth";

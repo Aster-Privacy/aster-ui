@@ -19,29 +19,9 @@
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
 
-export {
-  SidebarHeader,
-  SidebarSectionHeader,
-  SidebarSectionToggle,
-  SidebarMoreToggle,
-  SidebarNavRow,
-  SidebarTagRow,
-  SidebarActionButton,
-} from "./sidebar";
+export { ContextMenu } from "./context_menu";
 export type {
-  SidebarHeaderProps,
-  SidebarSectionHeaderProps,
-  SidebarSectionToggleProps,
-  SidebarMoreToggleProps,
-  SidebarNavRowProps,
-  SidebarTagRowProps,
-  SidebarActionButtonProps,
-} from "./sidebar";
-
-export { DashboardSidebar } from "./dashboard_sidebar";
-export type {
-  DashboardSidebarProps,
-  DashboardSidebarFilter,
-  DashboardSidebarAccountLike,
-  DashboardSidebarTStrings,
-} from "./dashboard_sidebar";
+  ContextMenuProps,
+  ContextMenuItem,
+  ContextMenuPosition,
+} from "./context_menu";

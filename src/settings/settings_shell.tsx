@@ -205,17 +205,15 @@ export function SettingsNavItemButton({
   const Icon = item.icon;
   return (
     <button
-      className={join_classes(
-        "w-full flex items-center gap-2 px-3 py-1.5 rounded-[10px] text-[13px] text-txt-secondary relative z-[1]",
-        is_selected
-          ? "font-medium text-txt-primary"
-          : "hover:bg-black/[0.04] dark:hover:bg-white/[0.04]",
-      )}
+      className="w-full flex items-center gap-2.5 px-2.5 h-8 rounded-[12px] text-[13px] transition-colors duration-150 relative z-[1]"
+      style={{
+        color: is_selected ? "var(--text-primary)" : "var(--text-secondary)",
+      }}
       data-nav-id={data_nav_id ?? item.id}
       type="button"
       onClick={() => on_select(item.id)}
     >
-      <Icon className="w-4 h-4 flex-shrink-0" />
+      <Icon className="w-5 h-5 flex-shrink-0" />
       <span className="truncate text-left">{item.label}</span>
     </button>
   );
@@ -233,20 +231,22 @@ export function SettingsNavGroup({
   on_select,
 }: SettingsNavGroupProps) {
   return (
-    <div>
+    <div className="mb-4 last:mb-0">
       {group.label && (
-        <div className="px-3 pt-3 pb-1 text-[10px] font-semibold uppercase tracking-wider text-txt-muted select-none">
+        <div className="text-[10px] font-semibold uppercase tracking-wider px-2.5 mb-2 text-txt-muted select-none">
           {group.label}
         </div>
       )}
-      {group.items.map((item) => (
-        <SettingsNavItemButton
-          key={item.id}
-          is_selected={selected_id === item.id}
-          item={item}
-          on_select={on_select}
-        />
-      ))}
+      <div className="space-y-0.5">
+        {group.items.map((item) => (
+          <SettingsNavItemButton
+            key={item.id}
+            is_selected={selected_id === item.id}
+            item={item}
+            on_select={on_select}
+          />
+        ))}
+      </div>
     </div>
   );
 }
@@ -263,6 +263,7 @@ export interface SettingsModalShellProps {
   close_label?: string;
   reduce_motion?: boolean;
   header_extra?: React.ReactNode;
+  header_slot?: React.ReactNode;
   overlay_content?: React.ReactNode;
   content_dimmed?: boolean;
   children: React.ReactNode;
@@ -280,6 +281,7 @@ export function SettingsModalShell({
   close_label = "Close",
   reduce_motion: reduce_motion_prop,
   header_extra,
+  header_slot,
   overlay_content,
   content_dimmed,
   children,
@@ -347,17 +349,12 @@ export function SettingsModalShell({
     };
   }, [recalculate_indicator]);
 
-  const flat_items = React.useMemo(
-    () => groups.flatMap((g) => g.items),
-    [groups],
-  );
-  const header_label =
-    active_label ?? flat_items.find((i) => i.id === selected_id)?.label ?? "";
+  void active_label;
 
   return (
     <AnimatePresence>
       {is_open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-0 md:p-4">
           <motion.div
             animate={{ opacity: 1 }}
             className="absolute inset-0"
@@ -368,29 +365,32 @@ export function SettingsModalShell({
             onClick={on_close}
           />
           <motion.div
-            animate={{ opacity: 1, scale: 1 }}
-            className="relative w-full max-w-[960px] h-[640px] max-h-[90vh] rounded-[18px] shadow-2xl flex overflow-hidden"
-            exit={{ opacity: 0, scale: 0.98 }}
-            initial={reduce_motion ? false : { opacity: 0, scale: 0.98 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            className="relative flex flex-row w-full h-full md:w-[80vw] md:max-w-[1200px] md:h-[80vh] md:max-h-[900px] md:rounded-2xl overflow-hidden bg-surf-primary"
+            exit={{ scale: 0.95, opacity: 0, y: 8 }}
+            initial={reduce_motion ? false : { scale: 0.95, opacity: 0, y: 8 }}
             style={{
-              backgroundColor: "var(--bg-card)",
-              border: "1px solid var(--border-primary)",
+              border: "1px solid var(--border-secondary)",
             }}
-            transition={{ duration: reduce_motion ? 0 : 0.18, ease: "easeOut" }}
+            transition={{
+              duration: reduce_motion ? 0 : 0.2,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            onClick={(e) => e.stopPropagation()}
           >
-            <aside
-              className="w-[220px] flex-shrink-0 flex flex-col py-4 px-2 border-r border-edge-primary"
-              style={{ backgroundColor: "var(--bg-secondary)" }}
+            <nav
+              className="hidden md:flex w-52 px-3 py-4 flex-col overflow-y-auto flex-shrink-0"
+              style={{
+                backgroundColor: "var(--sidebar-bg)",
+                borderRight: "1px solid var(--border-primary)",
+              }}
             >
-              <div className="px-3 pb-3">
-                <h2 className="text-[15px] font-semibold text-txt-primary">
-                  {title}
-                </h2>
-              </div>
-              <nav className="flex-1 overflow-y-auto">
-                <div ref={nav_container_ref} className="relative">
+              {header_slot && (
+                <div className="mb-3 px-1">{header_slot}</div>
+              )}
+              <div ref={nav_container_ref} className="relative">
                   <div
-                    className="pointer-events-none absolute left-0 right-0 rounded-[10px]"
+                    className="pointer-events-none absolute left-0 w-full rounded-md"
                     style={{
                       top: indicator_style.top,
                       height: indicator_style.height,
@@ -398,7 +398,7 @@ export function SettingsModalShell({
                       backgroundColor: "var(--indicator-bg)",
                       border: "1px solid var(--border-primary)",
                       zIndex: 0,
-                      transition: "none",
+                      transition: "top 200ms ease, height 200ms ease, opacity 200ms ease",
                     }}
                   />
                   {groups.map((group, idx) => (
@@ -408,17 +408,16 @@ export function SettingsModalShell({
                       on_select={on_select}
                       selected_id={selected_id}
                     />
-                  ))}
-                </div>
-              </nav>
-            </aside>
+                ))}
+              </div>
+            </nav>
 
-            <div className="flex-1 flex flex-col min-w-0">
-              <header className="flex items-center justify-between px-6 py-3 border-b border-edge-primary">
+            <div className="flex-1 overflow-y-auto flex flex-col min-h-0 bg-surf-primary">
+              <header className="flex items-center justify-between px-4 md:px-6 py-4 flex-shrink-0 border-b border-b-edge-secondary">
                 <div className="flex items-center gap-3 min-w-0">
-                  <h3 className="text-[14px] font-semibold text-txt-primary truncate">
-                    {header_label}
-                  </h3>
+                  <h2 className="text-[17px] font-semibold text-txt-primary truncate">
+                    {title}
+                  </h2>
                   <SettingsSaveIndicator status={save_status} />
                 </div>
                 <button
@@ -427,10 +426,10 @@ export function SettingsModalShell({
                   type="button"
                   onClick={on_close}
                 >
-                  <XIcon className="w-4 h-4" />
+                  <XIcon className="w-5 h-5" />
                 </button>
               </header>
-              <div className="flex-1 overflow-y-auto px-6 py-4">{children}</div>
+              <div className="flex-1 overflow-y-auto p-4 md:p-6">{children}</div>
             </div>
           </motion.div>
         </div>
