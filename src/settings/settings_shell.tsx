@@ -266,6 +266,14 @@ export interface SettingsModalShellProps {
   header_slot?: React.ReactNode;
   overlay_content?: React.ReactNode;
   content_dimmed?: boolean;
+  enable_mobile_drilldown?: boolean;
+  back_label?: string;
+  content_key?: string;
+  close_button?: React.ReactNode;
+  mobile_back_button?: React.ReactNode;
+  mobile_item_full_border?: boolean;
+  mobile_group_spacing?: boolean;
+  stable_scrollbar_gutter?: boolean;
   children: React.ReactNode;
 }
 
@@ -284,11 +292,40 @@ export function SettingsModalShell({
   header_slot,
   overlay_content,
   content_dimmed,
+  enable_mobile_drilldown,
+  back_label = "Back",
+  content_key,
+  close_button,
+  mobile_back_button,
+  mobile_item_full_border,
+  mobile_group_spacing,
+  stable_scrollbar_gutter,
   children,
 }: SettingsModalShellProps) {
   void header_extra;
-  void overlay_content;
-  void content_dimmed;
+  const [show_mobile_nav, set_show_mobile_nav] = React.useState(true);
+  const content_scroll_ref = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    content_scroll_ref.current?.scrollTo(0, 0);
+  }, [selected_id, content_key]);
+  React.useEffect(() => {
+    if (is_open) set_show_mobile_nav(true);
+  }, [is_open]);
+  const active_section_label = React.useMemo(() => {
+    for (const g of groups) {
+      for (const it of g.items) {
+        if (it.id === selected_id) return it.label;
+      }
+    }
+    return title;
+  }, [groups, selected_id, title]);
+  const handle_select_internal = React.useCallback(
+    (id: string) => {
+      on_select(id);
+      if (enable_mobile_drilldown) set_show_mobile_nav(false);
+    },
+    [on_select, enable_mobile_drilldown],
+  );
   const [reduce_motion_state, set_reduce_motion] = React.useState(get_reduce_motion);
   const reduce_motion = reduce_motion_prop ?? reduce_motion_state;
   const nav_container_ref = React.useRef<HTMLDivElement>(null);
@@ -366,7 +403,7 @@ export function SettingsModalShell({
           />
           <motion.div
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            className="relative flex flex-row w-full h-full md:w-[80vw] md:max-w-[1200px] md:h-[80vh] md:max-h-[900px] md:rounded-2xl overflow-hidden bg-surf-primary"
+            className="relative flex flex-col md:flex-row w-full h-full md:w-[80vw] md:max-w-[1200px] md:h-[80vh] md:max-h-[900px] md:rounded-2xl overflow-hidden bg-surf-primary"
             exit={{ scale: 0.95, opacity: 0, y: 8 }}
             initial={reduce_motion ? false : { scale: 0.95, opacity: 0, y: 8 }}
             style={{
@@ -405,7 +442,7 @@ export function SettingsModalShell({
                     <SettingsNavGroup
                       key={group.id ?? group.label ?? idx}
                       group={group}
-                      on_select={on_select}
+                      on_select={handle_select_internal}
                       selected_id={selected_id}
                     />
                 ))}
@@ -415,21 +452,122 @@ export function SettingsModalShell({
             <div className="flex-1 overflow-y-auto flex flex-col min-h-0 bg-surf-primary">
               <header className="flex items-center justify-between px-4 md:px-6 py-4 flex-shrink-0 border-b border-b-edge-secondary">
                 <div className="flex items-center gap-3 min-w-0">
+                  {enable_mobile_drilldown && !show_mobile_nav && (
+                    mobile_back_button ? (
+                      <span
+                        className="md:hidden -ml-1.5"
+                        onClick={() => set_show_mobile_nav(true)}
+                      >
+                        {mobile_back_button}
+                      </span>
+                    ) : (
+                      <button
+                        aria-label={back_label}
+                        className="md:hidden -ml-1.5 flex items-center justify-center w-8 h-8 rounded-[10px] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-muted"
+                        type="button"
+                        onClick={() => set_show_mobile_nav(true)}
+                      >
+                        <svg
+                          aria-hidden="true"
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M15 18l-6-6 6-6"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
+                    )
+                  )}
                   <h2 className="text-[17px] font-semibold text-txt-primary truncate">
-                    {title}
+                    {enable_mobile_drilldown ? (
+                      <>
+                        <span className="hidden md:inline">{title}</span>
+                        <span className="md:hidden">
+                          {show_mobile_nav ? title : active_section_label}
+                        </span>
+                      </>
+                    ) : (
+                      title
+                    )}
                   </h2>
                   <SettingsSaveIndicator status={save_status} />
                 </div>
-                <button
-                  aria-label={close_label}
-                  className="flex items-center justify-center w-8 h-8 rounded-[10px] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-muted"
-                  type="button"
-                  onClick={on_close}
-                >
-                  <XIcon className="w-5 h-5" />
-                </button>
+                {close_button ? (
+                  <span onClick={on_close}>{close_button}</span>
+                ) : (
+                  <button
+                    aria-label={close_label}
+                    className="flex items-center justify-center w-8 h-8 rounded-[10px] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-muted"
+                    type="button"
+                    onClick={on_close}
+                  >
+                    <XIcon className="w-5 h-5" />
+                  </button>
+                )}
               </header>
-              <div className="flex-1 overflow-y-auto p-4 md:p-6">{children}</div>
+              {enable_mobile_drilldown && show_mobile_nav && (
+                <div className="md:hidden flex-1 overflow-y-auto">
+                  {groups.map((group, idx) => (
+                    <div key={group.id ?? group.label ?? idx}>
+                      {group.label && (
+                        <div
+                          className={join_classes(
+                            "text-[11px] font-semibold uppercase tracking-wider px-4 py-3 text-txt-muted",
+                            mobile_group_spacing && idx > 0 && "mt-2",
+                          )}
+                        >
+                          {group.label}
+                        </div>
+                      )}
+                      {group.items.map((item) => {
+                        const Icon = item.icon;
+                        return (
+                          <button
+                            key={item.id}
+                            className={join_classes(
+                              "w-full flex items-center gap-3 px-4 py-3 text-[15px] transition-colors duration-150 text-txt-primary border-b border-b-edge-primary",
+                              mobile_item_full_border && "border border-edge-primary",
+                            )}
+                            type="button"
+                            onClick={() => handle_select_internal(item.id)}
+                          >
+                            <Icon className="w-5 h-5 flex-shrink-0 text-txt-secondary" />
+                            <span>{item.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div
+                ref={content_scroll_ref}
+                className={join_classes(
+                  "flex-1 overflow-y-auto p-4 md:p-6 relative",
+                  enable_mobile_drilldown && show_mobile_nav && "hidden md:block",
+                )}
+                style={
+                  stable_scrollbar_gutter ? { scrollbarGutter: "stable" } : undefined
+                }
+              >
+                {overlay_content}
+                <div
+                  key={content_key ?? selected_id}
+                  style={
+                    content_dimmed
+                      ? { opacity: 0.4, pointerEvents: "none" }
+                      : undefined
+                  }
+                >
+                  {children}
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

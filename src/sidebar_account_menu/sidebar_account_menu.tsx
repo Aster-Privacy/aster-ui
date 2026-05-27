@@ -37,6 +37,9 @@ export interface SidebarAccountMenuProps {
   active_label: string;
   display_name?: string;
   email?: string;
+  profile_color?: string | null;
+  profile_picture?: string | null;
+  aster_fallback_src?: string;
   items: SidebarAccountMenuItem[];
   footer?: React.ReactNode;
 }
@@ -57,9 +60,19 @@ export function SidebarAccountMenu({
   active_label,
   display_name,
   email,
+  profile_color,
+  profile_picture,
+  aster_fallback_src,
   items,
   footer,
 }: SidebarAccountMenuProps) {
+  const [image_failed, set_image_failed] = React.useState(false);
+  React.useEffect(() => {
+    set_image_failed(false);
+  }, [profile_picture]);
+  const show_image = !!profile_picture && !image_failed;
+  const avatar_color = profile_color || "#7c3aed";
+  const avatar_gradient = `linear-gradient(135deg, ${avatar_color} 0%, ${avatar_color}cc 100%)`;
   const wrapper_ref = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -113,13 +126,45 @@ export function SidebarAccountMenu({
                 style={{ backgroundColor: "var(--surf-tertiary, transparent)" }}
               >
                 <div className="relative">
-                  <div
-                    aria-hidden="true"
-                    className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-semibold text-white flex-shrink-0"
-                    style={{ backgroundColor: "var(--color-info)" }}
-                  >
-                    {initials_for(display_name, email)}
-                  </div>
+                  {show_image ? (
+                    <img
+                      alt=""
+                      className="w-7 h-7 rounded-full object-cover flex-shrink-0 ring-1 ring-black/5 dark:ring-white/10"
+                      decoding="async"
+                      draggable={false}
+                      onError={() => set_image_failed(true)}
+                      src={profile_picture!}
+                    />
+                  ) : (
+                    <div
+                      aria-hidden="true"
+                      className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden"
+                      style={{
+                        background: avatar_gradient,
+                        boxShadow:
+                          "inset 0 -2px 4px rgba(0,0,0,0.25), inset 0 1px 2px rgba(255,255,255,0.2)",
+                      }}
+                    >
+                      {aster_fallback_src ? (
+                        <img
+                          alt=""
+                          draggable={false}
+                          src={aster_fallback_src}
+                          style={{
+                            width: 16,
+                            height: 16,
+                            filter: "brightness(0) invert(1)",
+                            objectFit: "contain",
+                            pointerEvents: "none",
+                          }}
+                        />
+                      ) : (
+                        <span className="text-[10px] font-semibold text-white">
+                          {initials_for(display_name, email)}
+                        </span>
+                      )}
+                    </div>
+                  )}
                   <div
                     className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full border-2"
                     style={{
@@ -146,13 +191,7 @@ export function SidebarAccountMenu({
                     </span>
                   )}
                 </div>
-                <span
-                  className="text-[10px] font-medium px-2 py-0.5 rounded-full"
-                  style={{
-                    backgroundColor: "var(--color-success-soft, rgba(16,185,129,0.12))",
-                    color: "var(--color-success)",
-                  }}
-                >
+                <span className="inline-flex items-center text-[9px] font-medium px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700 border border-emerald-200 dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/30">
                   {active_label}
                 </span>
               </div>

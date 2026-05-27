@@ -103,7 +103,8 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
             <button
               type="button"
               aria-label="Close"
-              className="aster_modal_close_floating"
+              className="aster_modal_close absolute right-5 top-4 z-10 flex items-center justify-center rounded-[14px] transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+              style={{ width: 28, height: 28, padding: 0 }}
               onClick={on_close}
             >
               <svg

@@ -38,6 +38,7 @@ export interface KeyboardShortcutsTStrings {
   press_label?: string;
   anywhere_to_open?: string;
   platform_label?: string;
+  platform_prefix?: string;
 }
 
 export interface KeyboardShortcutsModalProps {
@@ -46,6 +47,10 @@ export interface KeyboardShortcutsModalProps {
   shortcuts: KeyboardShortcutEntry[] | KeyboardShortcutSection[];
   t_strings: KeyboardShortcutsTStrings;
   reduce_motion?: boolean;
+  header_right_slot?: React.ReactNode;
+  disabled_overlay?: React.ReactNode;
+  use_two_column_grid?: boolean;
+  render_entry_extra?: (entry: KeyboardShortcutEntry) => React.ReactNode;
 }
 
 function get_reduce_motion(): boolean {
@@ -80,6 +85,10 @@ export function KeyboardShortcutsModal({
   shortcuts,
   t_strings,
   reduce_motion: reduce_motion_prop,
+  header_right_slot,
+  disabled_overlay,
+  use_two_column_grid,
+  render_entry_extra,
 }: KeyboardShortcutsModalProps) {
   const [reduce_motion_state, set_reduce_motion] = React.useState(get_reduce_motion);
   const reduce_motion = reduce_motion_prop ?? reduce_motion_state;
@@ -184,16 +193,19 @@ export function KeyboardShortcutsModal({
               >
                 {t_strings.title}
               </h2>
-              <button
-                ref={close_button_ref}
-                aria-label={t_strings.close}
-                className="p-1.5 rounded-[14px] transition-colors hover:bg-black/[0.05] dark:hover:bg-white/[0.05]"
-                style={{ color: "var(--text-muted)" }}
-                onClick={on_close}
-                type="button"
-              >
-                <CloseIcon className="w-5 h-5" />
-              </button>
+              <div className="flex items-center gap-4">
+                {header_right_slot}
+                <button
+                  ref={close_button_ref}
+                  aria-label={t_strings.close}
+                  className="p-1.5 rounded-[14px] transition-colors hover:bg-black/[0.05] dark:hover:bg-white/[0.05]"
+                  style={{ color: "var(--text-muted)" }}
+                  onClick={on_close}
+                  type="button"
+                >
+                  <CloseIcon className="w-5 h-5" />
+                </button>
+              </div>
             </div>
 
             <div
@@ -203,9 +215,10 @@ export function KeyboardShortcutsModal({
                 scrollbarWidth: "thin",
               }}
             >
+              {disabled_overlay}
               <div
                 className={
-                  has_section_titles
+                  use_two_column_grid ?? has_section_titles
                     ? "grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6"
                     : "space-y-1"
                 }
@@ -235,21 +248,24 @@ export function KeyboardShortcutsModal({
                           >
                             {entry.label}
                           </span>
-                          <div className="flex items-center gap-0.5 ml-4">
-                            {entry.keys.map((key, kidx) => (
-                              <kbd
-                                key={kidx}
-                                className="min-w-[22px] h-[22px] px-1.5 rounded flex items-center justify-center text-[11px] font-medium"
-                                style={{
-                                  backgroundColor: "var(--bg-tertiary)",
-                                  color: "var(--text-secondary)",
-                                  border: "1px solid var(--border-secondary)",
-                                  boxShadow: "0 1px 0 var(--border-secondary)",
-                                }}
-                              >
-                                {key}
-                              </kbd>
-                            ))}
+                          <div className="flex items-center gap-2 ml-4">
+                            <div className="flex items-center gap-0.5">
+                              {entry.keys.map((key, kidx) => (
+                                <kbd
+                                  key={kidx}
+                                  className="min-w-[22px] h-[22px] px-1.5 rounded flex items-center justify-center text-[11px] font-medium"
+                                  style={{
+                                    backgroundColor: "var(--bg-tertiary)",
+                                    color: "var(--text-secondary)",
+                                    border: "1px solid var(--border-secondary)",
+                                    boxShadow: "0 1px 0 var(--border-secondary)",
+                                  }}
+                                >
+                                  {key}
+                                </kbd>
+                              ))}
+                            </div>
+                            {render_entry_extra?.(entry)}
                           </div>
                         </div>
                       ))}
@@ -287,12 +303,17 @@ export function KeyboardShortcutsModal({
                   )}
                 </div>
                 {t_strings.platform_label && (
-                  <span
-                    className="px-2 py-0.5 rounded font-medium"
-                    style={{ backgroundColor: "var(--bg-tertiary)" }}
-                  >
-                    {t_strings.platform_label}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    {t_strings.platform_prefix && (
+                      <span>{t_strings.platform_prefix}</span>
+                    )}
+                    <span
+                      className="px-2 py-0.5 rounded font-medium"
+                      style={{ backgroundColor: "var(--bg-tertiary)" }}
+                    >
+                      {t_strings.platform_label}
+                    </span>
+                  </div>
                 )}
               </div>
             )}

@@ -18,6 +18,8 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
+import * as React from "react";
+
 import { Button } from "../button";
 import {
   Modal,
@@ -26,6 +28,7 @@ import {
   ModalDescription,
   ModalFooter,
 } from "../modal";
+import { Checkbox } from "../toggle";
 
 export type ConfirmationVariant = "danger" | "warning" | "info";
 
@@ -38,6 +41,10 @@ export interface ConfirmationModalProps {
   confirm_text: string;
   cancel_text: string;
   variant?: ConfirmationVariant;
+  show_dont_ask_again?: boolean;
+  dont_ask_again_label?: string;
+  on_dont_ask_again?: () => void | Promise<void>;
+  saving_text?: string;
 }
 
 const VARIANT_MAP: Record<ConfirmationVariant, "destructive" | "primary"> = {
@@ -55,8 +62,33 @@ export function ConfirmationModal({
   confirm_text,
   cancel_text,
   variant = "info",
+  show_dont_ask_again = false,
+  dont_ask_again_label,
+  on_dont_ask_again,
+  saving_text,
 }: ConfirmationModalProps) {
   const button_variant = VARIANT_MAP[variant];
+  const [dont_ask, set_dont_ask] = React.useState(false);
+  const [is_saving, set_is_saving] = React.useState(false);
+
+  React.useEffect(() => {
+    if (!is_open) {
+      set_dont_ask(false);
+      set_is_saving(false);
+    }
+  }, [is_open]);
+
+  const handle_confirm = async () => {
+    if (dont_ask && on_dont_ask_again) {
+      set_is_saving(true);
+      try {
+        await on_dont_ask_again();
+      } finally {
+        set_is_saving(false);
+      }
+    }
+    on_confirm();
+  };
 
   return (
     <Modal
@@ -69,10 +101,30 @@ export function ConfirmationModal({
         <ModalTitle>{title}</ModalTitle>
         <ModalDescription>{message}</ModalDescription>
       </ModalHeader>
+      {show_dont_ask_again && dont_ask_again_label && (
+        <div className="px-6 pb-2">
+          <label
+            className="inline-flex items-center gap-2 cursor-pointer select-none"
+            htmlFor="aster-ui-dont-ask-again"
+          >
+            <Checkbox
+              checked={dont_ask}
+              id="aster-ui-dont-ask-again"
+              onCheckedChange={(checked) => set_dont_ask(checked === true)}
+            />
+            <span
+              className="text-[13px]"
+              style={{ color: "var(--text-muted)" }}
+            >
+              {dont_ask_again_label}
+            </span>
+          </label>
+        </div>
+      )}
       <ModalFooter>
         <Button
           className="max-sm:flex-1"
-          size="xl"
+          disabled={is_saving}
           variant="outline"
           onClick={on_cancel}
         >
@@ -80,11 +132,11 @@ export function ConfirmationModal({
         </Button>
         <Button
           className="max-sm:flex-1"
-          size="xl"
+          disabled={is_saving}
           variant={button_variant}
-          onClick={on_confirm}
+          onClick={handle_confirm}
         >
-          {confirm_text}
+          {is_saving && saving_text ? saving_text : confirm_text}
         </Button>
       </ModalFooter>
     </Modal>

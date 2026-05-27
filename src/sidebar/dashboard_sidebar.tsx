@@ -29,6 +29,7 @@ import {
   type ReactNode,
 } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { use_should_reduce_motion } from "../motion/use_should_reduce_motion";
 import { Button } from "../button";
 import { Kbd } from "../kbd";
 import { SidebarAccountMenu } from "../sidebar_account_menu";
@@ -89,6 +90,9 @@ export interface DashboardSidebarProps {
   brand_text_logo_src: string;
   account_display_name?: string;
   account_email?: string;
+  account_profile_color?: string | null;
+  account_profile_picture?: string | null;
+  account_aster_fallback_src?: string;
   t_strings: DashboardSidebarTStrings;
   storage_key_prefix?: string;
   add_shortcut_key?: string;
@@ -343,6 +347,9 @@ export function DashboardSidebar({
   brand_text_logo_src,
   account_display_name,
   account_email,
+  account_profile_color,
+  account_profile_picture,
+  account_aster_fallback_src,
   t_strings,
   storage_key_prefix = "aster_authenticator_sidebar",
   add_shortcut_key = "a",
@@ -350,6 +357,8 @@ export function DashboardSidebar({
 }: DashboardSidebarProps) {
   const accounts_collapsed_key = `${storage_key_prefix}_accounts_collapsed`;
   const tags_collapsed_key = `${storage_key_prefix}_tags_collapsed`;
+  const reduce_motion = use_should_reduce_motion();
+  const dur = (n: number) => (reduce_motion ? 0 : n);
 
   const [is_mobile, set_is_mobile] = useState(false);
   const [is_tablet, set_is_tablet] = useState(false);
@@ -617,6 +626,9 @@ export function DashboardSidebar({
           active_label={t_strings.active}
           display_name={account_display_name || undefined}
           email={account_email || undefined}
+          profile_color={account_profile_color || undefined}
+          profile_picture={account_profile_picture || undefined}
+          aster_fallback_src={account_aster_fallback_src}
           footer={account_menu_footer}
           identity_label={t_strings.your_account}
           is_open={is_account_menu_open}
@@ -881,7 +893,7 @@ export function DashboardSidebar({
               className="fixed inset-0 z-40 bg-black/50 backdrop-blur-md"
               exit={{ opacity: 0 }}
               initial={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: dur(0.2) }}
               onClick={on_close_mobile}
             />
             <motion.div
@@ -889,7 +901,7 @@ export function DashboardSidebar({
               className="fixed top-0 left-0 bottom-0 z-50"
               exit={{ x: -SIDEBAR_EXPANDED_WIDTH }}
               initial={{ x: -SIDEBAR_EXPANDED_WIDTH }}
-              transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
+              transition={{ type: "tween", duration: dur(0.25), ease: "easeOut" }}
             >
               {content}
             </motion.div>
