@@ -1,15 +1,24 @@
 import * as class_variance_authority_types from 'class-variance-authority/types';
 import * as React$1 from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import { VariantProps } from 'class-variance-authority';
+import * as SelectPrimitive from '@radix-ui/react-select';
 import * as react_jsx_runtime from 'react/jsx-runtime';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
+import { Variants, Transition } from 'framer-motion';
 
 declare const button_variants: (props?: ({
     variant?: "primary" | "secondary" | "outline" | "ghost" | "destructive" | "depth" | "depth_destructive" | null | undefined;
-    size?: "xl" | "lg" | "md" | "sm" | "icon" | null | undefined;
+    size?: "sm" | "md" | "lg" | "xl" | "icon" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type ButtonVariantProps = VariantProps<typeof button_variants>;
+type LoadingPosition = "replace" | "before" | "after";
 interface ButtonProps extends React$1.ButtonHTMLAttributes<HTMLButtonElement>, ButtonVariantProps {
     as_child?: boolean;
+    is_loading?: boolean;
+    loading_position?: LoadingPosition;
 }
 declare const Button: React$1.ForwardRefExoticComponent<ButtonProps & React$1.RefAttributes<HTMLButtonElement>>;
 
@@ -28,7 +37,7 @@ declare const BadgeDot: React$1.ForwardRefExoticComponent<BadgeDotProps & React$
 
 declare const card_variants: (props?: ({
     variant?: "ghost" | "default" | "elevated" | "outlined" | "glass" | "featured" | null | undefined;
-    padding?: "lg" | "md" | "sm" | "none" | null | undefined;
+    padding?: "sm" | "md" | "lg" | "none" | null | undefined;
     interactive?: boolean | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type CardVariantProps = VariantProps<typeof card_variants>;
@@ -97,7 +106,7 @@ interface BannerProps extends React$1.HTMLAttributes<HTMLDivElement> {
 declare const Banner: React$1.ForwardRefExoticComponent<BannerProps & React$1.RefAttributes<HTMLDivElement>>;
 
 declare const avatar_variants: (props?: ({
-    size?: "xl" | "lg" | "md" | "sm" | "xs" | null | undefined;
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type AvatarVariantProps = VariantProps<typeof avatar_variants>;
 interface AvatarProps extends Omit<React$1.HTMLAttributes<HTMLElement>, "children">, AvatarVariantProps {
@@ -152,37 +161,18 @@ declare const ModalDescription: React$1.ForwardRefExoticComponent<ModalDescripti
 type ModalFooterProps = React$1.HTMLAttributes<HTMLDivElement>;
 declare const ModalFooter: React$1.ForwardRefExoticComponent<ModalFooterProps & React$1.RefAttributes<HTMLDivElement>>;
 
-interface SelectProps {
-    value?: string;
-    default_value?: string;
-    defaultValue?: string;
-    on_value_change?: (next: string) => void;
-    onValueChange?: (next: string) => void;
-    disabled?: boolean;
-    children: React$1.ReactNode;
-}
-declare function Select({ value, default_value, defaultValue, on_value_change, onValueChange, disabled, children, }: SelectProps): react_jsx_runtime.JSX.Element;
-interface SelectTriggerProps extends React$1.ButtonHTMLAttributes<HTMLButtonElement> {
-    children: React$1.ReactNode;
-}
-declare const SelectTrigger: React$1.ForwardRefExoticComponent<SelectTriggerProps & React$1.RefAttributes<HTMLButtonElement>>;
-interface SelectValueProps {
-    placeholder?: string;
-    className?: string;
-    children?: React$1.ReactNode;
-}
-declare function SelectValue({ placeholder, className, children, }: SelectValueProps): react_jsx_runtime.JSX.Element;
-interface SelectContentProps {
-    children: React$1.ReactNode;
-    className?: string;
-}
-declare function SelectContent({ children, className }: SelectContentProps): react_jsx_runtime.JSX.Element;
-interface SelectItemProps extends Omit<React$1.HTMLAttributes<HTMLDivElement>, "onClick"> {
-    value: string;
-    disabled?: boolean;
-    children: React$1.ReactNode;
-}
-declare const SelectItem: React$1.ForwardRefExoticComponent<SelectItemProps & React$1.RefAttributes<HTMLDivElement>>;
+declare const Select: React$1.FC<SelectPrimitive.SelectProps>;
+declare const SelectGroup: React$1.ForwardRefExoticComponent<SelectPrimitive.SelectGroupProps & React$1.RefAttributes<HTMLDivElement>>;
+declare const SelectValue: React$1.ForwardRefExoticComponent<SelectPrimitive.SelectValueProps & React$1.RefAttributes<HTMLSpanElement>>;
+declare const SelectTrigger: React$1.ForwardRefExoticComponent<Omit<SelectPrimitive.SelectTriggerProps & React$1.RefAttributes<HTMLButtonElement>, "ref"> & React$1.RefAttributes<HTMLButtonElement>>;
+declare const SelectContent: React$1.ForwardRefExoticComponent<Omit<SelectPrimitive.SelectContentProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const SelectItem: React$1.ForwardRefExoticComponent<Omit<SelectPrimitive.SelectItemProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+type SelectProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>;
+type SelectGroupProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Group>;
+type SelectValueProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Value>;
+type SelectTriggerProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>;
+type SelectContentProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>;
+type SelectItemProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>;
 
 type SkeletonVariant = "text" | "circular" | "rectangular";
 interface SkeletonProps extends Omit<React$1.HTMLAttributes<HTMLDivElement>, "children"> {
@@ -199,21 +189,25 @@ interface SkeletonTextProps extends Omit<React$1.HTMLAttributes<HTMLDivElement>,
 }
 declare const SkeletonText: React$1.ForwardRefExoticComponent<SkeletonTextProps & React$1.RefAttributes<HTMLDivElement>>;
 
-type ToastKind = "success" | "error" | "info" | "warning";
-interface ToastPayload {
-    id: number;
-    message: string;
-    kind: ToastKind;
-    duration_ms: number;
+type SpinnerSize = "xs" | "sm" | "md" | "lg";
+interface SpinnerProps extends React$1.SVGAttributes<SVGSVGElement> {
+    size?: SpinnerSize;
 }
-declare function show_toast(message: string, kind?: ToastKind, duration_ms?: number): void;
-declare function dismiss_toast(): void;
+declare const Spinner: React$1.ForwardRefExoticComponent<SpinnerProps & React$1.RefAttributes<SVGSVGElement>>;
+
+type ToastKind = "success" | "warning" | "error" | "info";
+interface ToastPayload {
+    id: string;
+    message: string;
+    icon_type?: ToastKind;
+}
+declare function dismiss_toast(id: string): void;
+declare function show_toast(message: string, icon_type?: ToastKind): string;
 interface SimpleToastProps {
     position?: "top" | "bottom";
     dismiss_label?: string;
-    className?: string;
 }
-declare function SimpleToast({ position, dismiss_label, className, }: SimpleToastProps): react_jsx_runtime.JSX.Element;
+declare function SimpleToast({ position, dismiss_label, }: SimpleToastProps): react_jsx_runtime.JSX.Element;
 
 interface NotFoundPageProps {
     title?: string;
@@ -239,10 +233,13 @@ interface SidebarAccountMenuProps {
     active_label: string;
     display_name?: string;
     email?: string;
+    profile_color?: string | null;
+    profile_picture?: string | null;
+    aster_fallback_src?: string;
     items: SidebarAccountMenuItem[];
     footer?: React$1.ReactNode;
 }
-declare function SidebarAccountMenu({ is_open, on_close, trigger, identity_label, active_label, display_name, email, items, footer, }: SidebarAccountMenuProps): react_jsx_runtime.JSX.Element;
+declare function SidebarAccountMenu({ is_open, on_close, trigger, identity_label, active_label, display_name, email, profile_color, profile_picture, aster_fallback_src, items, footer, }: SidebarAccountMenuProps): react_jsx_runtime.JSX.Element;
 
 type TooltipPosition = "top" | "bottom" | "left" | "right";
 interface TooltipProps {
@@ -269,7 +266,7 @@ interface TooltipRichProps extends React$1.HTMLAttributes<HTMLSpanElement> {
 declare const TooltipRich: React$1.ForwardRefExoticComponent<TooltipRichProps & React$1.RefAttributes<HTMLSpanElement>>;
 
 declare const switch_variants: (props?: ({
-    size?: "lg" | "md" | "sm" | null | undefined;
+    size?: "sm" | "md" | "lg" | null | undefined;
     color?: "blue" | "green" | "purple" | "amber" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type SwitchVariantProps = VariantProps<typeof switch_variants>;
@@ -383,7 +380,7 @@ declare const AccordionTrigger: React$1.ForwardRefExoticComponent<AccordionTrigg
 declare const AccordionContent: React$1.ForwardRefExoticComponent<AccordionContentProps & React$1.RefAttributes<HTMLDivElement>>;
 
 declare const kbd_variants: (props?: ({
-    size?: "lg" | "md" | "sm" | "xs" | null | undefined;
+    size?: "xs" | "sm" | "md" | "lg" | null | undefined;
     variant?: "outline" | "ghost" | "default" | "inlay" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type KbdVariantProps = VariantProps<typeof kbd_variants>;
@@ -552,6 +549,9 @@ interface DashboardSidebarProps {
     brand_text_logo_src: string;
     account_display_name?: string;
     account_email?: string;
+    account_profile_color?: string | null;
+    account_profile_picture?: string | null;
+    account_aster_fallback_src?: string;
     t_strings: DashboardSidebarTStrings;
     storage_key_prefix?: string;
     add_shortcut_key?: string;
@@ -562,7 +562,7 @@ interface DashboardSidebarProps {
         on_click: () => void;
     }>;
 }
-declare function DashboardSidebar({ active_filter, on_filter_change, on_add_account, on_settings_click, on_sign_out, is_collapsed, is_mobile_open, on_close_mobile, accounts, brand_logo_src, brand_text_logo_src, account_display_name, account_email, t_strings, storage_key_prefix, add_shortcut_key, extra_account_menu_items, }: DashboardSidebarProps): react_jsx_runtime.JSX.Element;
+declare function DashboardSidebar({ active_filter, on_filter_change, on_add_account, on_settings_click, on_sign_out, is_collapsed, is_mobile_open, on_close_mobile, accounts, brand_logo_src, brand_text_logo_src, account_display_name, account_email, account_profile_color, account_profile_picture, account_aster_fallback_src, t_strings, storage_key_prefix, add_shortcut_key, extra_account_menu_items, }: DashboardSidebarProps): react_jsx_runtime.JSX.Element;
 
 type SettingsSaveStatus = "idle" | "saving" | "saved" | "error";
 interface SettingsSaveIndicatorProps {
@@ -620,9 +620,17 @@ interface SettingsModalShellProps {
     header_slot?: React$1.ReactNode;
     overlay_content?: React$1.ReactNode;
     content_dimmed?: boolean;
+    enable_mobile_drilldown?: boolean;
+    back_label?: string;
+    content_key?: string;
+    close_button?: React$1.ReactNode;
+    mobile_back_button?: React$1.ReactNode;
+    mobile_item_full_border?: boolean;
+    mobile_group_spacing?: boolean;
+    stable_scrollbar_gutter?: boolean;
     children: React$1.ReactNode;
 }
-declare function SettingsModalShell({ is_open, on_close, title, groups, selected_id, on_select, active_label, save_status, close_label, reduce_motion: reduce_motion_prop, header_extra, header_slot, overlay_content, content_dimmed, children, }: SettingsModalShellProps): react_jsx_runtime.JSX.Element;
+declare function SettingsModalShell({ is_open, on_close, title, groups, selected_id, on_select, active_label, save_status, close_label, reduce_motion: reduce_motion_prop, header_extra, header_slot, overlay_content, content_dimmed, enable_mobile_drilldown, back_label, content_key, close_button, mobile_back_button, mobile_item_full_border, mobile_group_spacing, stable_scrollbar_gutter, children, }: SettingsModalShellProps): react_jsx_runtime.JSX.Element;
 
 type ThemeMode = "light" | "dark" | "system";
 interface ThemeCardProps {
@@ -696,6 +704,49 @@ interface AuthInputWrapperProps {
     children: React$1.ReactNode;
 }
 declare const AuthInputWrapper: ({ end_content, wrapper_class, children, }: AuthInputWrapperProps) => react_jsx_runtime.JSX.Element;
+declare const AuthCheckIcon: ({ className, }: {
+    className?: string;
+}) => react_jsx_runtime.JSX.Element;
+interface AuthCheckboxProps {
+    checked: boolean;
+    disabled?: boolean;
+    onChange: (checked: boolean) => void;
+}
+declare const AuthCheckbox: ({ checked, disabled, onChange, }: AuthCheckboxProps) => react_jsx_runtime.JSX.Element;
+interface AuthCardProps {
+    children: React$1.ReactNode;
+    className?: string;
+}
+declare const AuthCard: ({ children, className, }: AuthCardProps) => react_jsx_runtime.JSX.Element;
+interface AuthCardBodyProps {
+    children: React$1.ReactNode;
+    padding?: string;
+}
+declare const AuthCardBody: ({ children, padding, }: AuthCardBodyProps) => react_jsx_runtime.JSX.Element;
+declare const AuthFormLabel: ({ children, }: {
+    children: React$1.ReactNode;
+}) => react_jsx_runtime.JSX.Element;
+declare const AuthFourPointStar: ({ className, }: {
+    className?: string;
+}) => react_jsx_runtime.JSX.Element;
+declare const AuthSparkleDecoration: () => react_jsx_runtime.JSX.Element;
+declare const AuthShieldCheckIcon: ({ color }: {
+    color: string;
+}) => react_jsx_runtime.JSX.Element;
+declare const AuthLockIcon: ({ color }: {
+    color: string;
+}) => react_jsx_runtime.JSX.Element;
+declare const AuthWarningIcon: ({ color }: {
+    color: string;
+}) => react_jsx_runtime.JSX.Element;
+declare const AuthDocumentIcon: () => react_jsx_runtime.JSX.Element;
+declare const AuthDownloadIcon: () => react_jsx_runtime.JSX.Element;
+declare const AuthUserCircleIcon: () => react_jsx_runtime.JSX.Element;
+declare const AuthLockClosedIcon: () => react_jsx_runtime.JSX.Element;
+declare const AuthEnvelopeIcon: () => react_jsx_runtime.JSX.Element;
+type AuthAlertKind = "error" | "info" | "warning" | "success";
+declare const get_auth_alert_styles: (type: AuthAlertKind, _is_dark: boolean) => CSSProperties;
+declare const get_auth_primary_button_style: (is_dark: boolean, is_disabled?: boolean) => CSSProperties;
 
 interface FieldLabelProps {
     children: React$1.ReactNode;
@@ -714,6 +765,48 @@ interface ErrorBannerProps {
 }
 declare function ErrorBanner({ message, className }: ErrorBannerProps): react_jsx_runtime.JSX.Element;
 
+type InputSize = "sm" | "md" | "lg" | "xl";
+type InputStatus = "default" | "success" | "error";
+interface InputProps extends Omit<React$1.ComponentProps<"input">, "size"> {
+    size?: InputSize;
+    status?: InputStatus;
+}
+declare const Input: React$1.ForwardRefExoticComponent<Omit<InputProps, "ref"> & React$1.RefAttributes<HTMLInputElement>>;
+
+declare const RadioGroup: React$1.ForwardRefExoticComponent<Omit<RadioGroupPrimitive.RadioGroupProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const RadioGroupItem: React$1.ForwardRefExoticComponent<Omit<RadioGroupPrimitive.RadioGroupItemProps & React$1.RefAttributes<HTMLButtonElement>, "ref"> & React$1.RefAttributes<HTMLButtonElement>>;
+
+type MotionModalSize = "sm" | "md" | "lg" | "xl" | "2xl";
+interface MotionModalProps {
+    is_open: boolean;
+    on_close: () => void;
+    size?: MotionModalSize;
+    show_close_button?: boolean;
+    close_on_overlay?: boolean;
+    z_index?: number;
+    className?: string;
+    children: React$1.ReactNode;
+}
+declare function MotionModal({ is_open, on_close, size, show_close_button, close_on_overlay, z_index, className, children, }: MotionModalProps): react_jsx_runtime.JSX.Element;
+interface MotionModalHeaderProps extends React$1.HTMLAttributes<HTMLDivElement> {
+}
+declare function MotionModalHeader({ className, children, ...props }: MotionModalHeaderProps): react_jsx_runtime.JSX.Element;
+interface MotionModalTitleProps extends React$1.HTMLAttributes<HTMLHeadingElement> {
+}
+declare function MotionModalTitle({ className, children, ...props }: MotionModalTitleProps): react_jsx_runtime.JSX.Element;
+interface MotionModalDescriptionProps extends React$1.HTMLAttributes<HTMLParagraphElement> {
+}
+declare function MotionModalDescription({ className, children, ...props }: MotionModalDescriptionProps): react_jsx_runtime.JSX.Element;
+interface MotionModalBodyProps extends React$1.HTMLAttributes<HTMLDivElement> {
+}
+declare function MotionModalBody({ className, children, ...props }: MotionModalBodyProps): react_jsx_runtime.JSX.Element;
+interface MotionModalFooterProps extends React$1.HTMLAttributes<HTMLDivElement> {
+}
+declare function MotionModalFooter({ className, children, ...props }: MotionModalFooterProps): react_jsx_runtime.JSX.Element;
+interface MotionModalActionsProps extends React$1.HTMLAttributes<HTMLDivElement> {
+}
+declare function MotionModalActions({ className, children, ...props }: MotionModalActionsProps): react_jsx_runtime.JSX.Element;
+
 type ConfirmationVariant = "danger" | "warning" | "info";
 interface ConfirmationModalProps {
     is_open: boolean;
@@ -724,8 +817,12 @@ interface ConfirmationModalProps {
     confirm_text: string;
     cancel_text: string;
     variant?: ConfirmationVariant;
+    show_dont_ask_again?: boolean;
+    dont_ask_again_label?: string;
+    on_dont_ask_again?: () => void | Promise<void>;
+    saving_text?: string;
 }
-declare function ConfirmationModal({ is_open, on_confirm, on_cancel, title, message, confirm_text, cancel_text, variant, }: ConfirmationModalProps): react_jsx_runtime.JSX.Element;
+declare function ConfirmationModal({ is_open, on_confirm, on_cancel, title, message, confirm_text, cancel_text, variant, show_dont_ask_again, dont_ask_again_label, on_dont_ask_again, saving_text, }: ConfirmationModalProps): react_jsx_runtime.JSX.Element;
 
 interface KeyboardShortcutEntry {
     keys: string[];
@@ -741,6 +838,7 @@ interface KeyboardShortcutsTStrings {
     press_label?: string;
     anywhere_to_open?: string;
     platform_label?: string;
+    platform_prefix?: string;
 }
 interface KeyboardShortcutsModalProps {
     is_open: boolean;
@@ -748,8 +846,37 @@ interface KeyboardShortcutsModalProps {
     shortcuts: KeyboardShortcutEntry[] | KeyboardShortcutSection[];
     t_strings: KeyboardShortcutsTStrings;
     reduce_motion?: boolean;
+    header_right_slot?: React$1.ReactNode;
+    disabled_overlay?: React$1.ReactNode;
+    use_two_column_grid?: boolean;
+    render_entry_extra?: (entry: KeyboardShortcutEntry) => React$1.ReactNode;
 }
-declare function KeyboardShortcutsModal({ is_open, on_close, shortcuts, t_strings, reduce_motion: reduce_motion_prop, }: KeyboardShortcutsModalProps): react_jsx_runtime.JSX.Element;
+declare function KeyboardShortcutsModal({ is_open, on_close, shortcuts, t_strings, reduce_motion: reduce_motion_prop, header_right_slot, disabled_overlay, use_two_column_grid, render_entry_extra, }: KeyboardShortcutsModalProps): react_jsx_runtime.JSX.Element;
+
+declare const DropdownMenu: React$1.FC<DropdownMenuPrimitive.DropdownMenuProps>;
+declare const DropdownMenuTrigger: React$1.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuTriggerProps & React$1.RefAttributes<HTMLButtonElement>>;
+declare const DropdownMenuGroup: React$1.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuGroupProps & React$1.RefAttributes<HTMLDivElement>>;
+declare const DropdownMenuPortal: React$1.FC<DropdownMenuPrimitive.DropdownMenuPortalProps>;
+declare const DropdownMenuSub: React$1.FC<DropdownMenuPrimitive.DropdownMenuSubProps>;
+declare const DropdownMenuRadioGroup: React$1.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuRadioGroupProps & React$1.RefAttributes<HTMLDivElement>>;
+declare const DropdownMenuSubTrigger: React$1.ForwardRefExoticComponent<Omit<DropdownMenuPrimitive.DropdownMenuSubTriggerProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & {
+    inset?: boolean;
+} & React$1.RefAttributes<HTMLDivElement>>;
+declare const DropdownMenuSubContent: React$1.ForwardRefExoticComponent<Omit<DropdownMenuPrimitive.DropdownMenuSubContentProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const DropdownMenuContent: React$1.ForwardRefExoticComponent<Omit<DropdownMenuPrimitive.DropdownMenuContentProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const DropdownMenuItem: React$1.ForwardRefExoticComponent<Omit<DropdownMenuPrimitive.DropdownMenuItemProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & {
+    inset?: boolean;
+} & React$1.RefAttributes<HTMLDivElement>>;
+declare const DropdownMenuCheckboxItem: React$1.ForwardRefExoticComponent<Omit<DropdownMenuPrimitive.DropdownMenuCheckboxItemProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const DropdownMenuRadioItem: React$1.ForwardRefExoticComponent<Omit<DropdownMenuPrimitive.DropdownMenuRadioItemProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const DropdownMenuLabel: React$1.ForwardRefExoticComponent<Omit<DropdownMenuPrimitive.DropdownMenuLabelProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & {
+    inset?: boolean;
+} & React$1.RefAttributes<HTMLDivElement>>;
+declare const DropdownMenuSeparator: React$1.ForwardRefExoticComponent<Omit<DropdownMenuPrimitive.DropdownMenuSeparatorProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const DropdownMenuShortcut: {
+    ({ className, ...props }: React$1.HTMLAttributes<HTMLSpanElement>): react_jsx_runtime.JSX.Element;
+    displayName: string;
+};
 
 interface ContextMenuItem {
     id: string;
@@ -773,4 +900,152 @@ interface ContextMenuProps {
 }
 declare function ContextMenu({ items, position, on_close, min_width, origin, }: ContextMenuProps): react_jsx_runtime.JSX.Element;
 
-export { Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, type AccordionVariantProps, type AppEntry, AppSwitcher, type AppSwitcherProps, AuthEyeIcon, AuthEyeSlashIcon, AuthInputWrapper, type AuthInputWrapperProps, AuthLogo, type AuthLogoProps, Avatar, AvatarGroup, type AvatarGroupProps, AvatarNamed, type AvatarNamedProps, type AvatarProps, type AvatarVariantProps, AvatarWithStatus, type AvatarWithStatusProps, Badge, BadgeDot, type BadgeDotProps, type BadgeProps, type BadgeVariantProps, Banner, type BannerProps, Button, type ButtonProps, type ButtonVariantProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, type CardIconProps, type CardProps, CardTitle, type CardVariantProps, Checkbox, type CheckboxProps, ConfirmationModal, type ConfirmationModalProps, type ConfirmationVariant, ContextMenu, type ContextMenuItem, type ContextMenuPosition, type ContextMenuProps, DashboardSidebar, type DashboardSidebarAccountLike, type DashboardSidebarFilter, type DashboardSidebarProps, type DashboardSidebarTStrings, EmptyState, type EmptyStateProps, ErrorBanner, type ErrorBannerProps, FeatureCard, type FeatureCardProps, FieldHint, type FieldHintProps, FieldLabel, type FieldLabelProps, Kbd, type KbdProps, type KbdVariantProps, type KeyboardShortcutEntry, type KeyboardShortcutSection, KeyboardShortcutsModal, type KeyboardShortcutsModalProps, type KeyboardShortcutsTStrings, Marquee, MarqueeLogo, type MarqueeLogoProps, type MarqueeProps, MarqueeTrack, type MarqueeTrackProps, type MarqueeVariantProps, Modal, ModalActions, type ModalActionsProps, ModalBody, type ModalBodyProps, ModalDescription, type ModalDescriptionProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, type ModalProps, type ModalSize, ModalTitle, type ModalTitleProps, Navbar, NavbarActions, type NavbarActionsProps, NavbarCta, type NavbarCtaProps, NavbarHamburger, type NavbarHamburgerProps, NavbarInner, type NavbarInnerProps, NavbarLink, type NavbarLinkProps, NavbarLinks, type NavbarLinksProps, NavbarLogo, type NavbarLogoProps, NavbarMega, NavbarMegaCol, type NavbarMegaColProps, NavbarMegaCols, type NavbarMegaColsProps, NavbarMegaItem, type NavbarMegaItemProps, NavbarMegaItemSimple, type NavbarMegaItemSimpleProps, NavbarMegaPanel, type NavbarMegaPanelProps, type NavbarMegaProps, NavbarMobileDivider, NavbarMobileLink, type NavbarMobileLinkProps, NavbarMobileMenu, type NavbarMobileMenuProps, type NavbarProps, NavbarSearch, type NavbarSearchProps, NavbarTrigger, type NavbarTriggerProps, type NavbarVariant, NotFoundPage, type NotFoundPageProps, PricingCard, type PricingCardProps, Radio, type RadioProps, SearchBar, type SearchBarProps, type SegOption, SegmentedToggle, type SegmentedToggleProps, Select, SelectContent, type SelectContentProps, SelectItem, type SelectItemProps, type SelectProps, SelectTrigger, type SelectTriggerProps, SelectValue, type SelectValueProps, SettingsModalShell, type SettingsModalShellProps, SettingsNavGroup, type SettingsNavGroupData, type SettingsNavGroupProps, type SettingsNavItem, SettingsNavItemButton, type SettingsNavItemButtonProps, SettingsRow, type SettingsRowProps, SettingsSaveIndicator, type SettingsSaveIndicatorProps, type SettingsSaveStatus, SettingsSectionHeader, type SettingsSectionHeaderProps, SidebarAccountMenu, type SidebarAccountMenuItem, type SidebarAccountMenuProps, SidebarActionButton, type SidebarActionButtonProps, SidebarHeader, type SidebarHeaderProps, SidebarMoreToggle, type SidebarMoreToggleProps, SidebarNavRow, type SidebarNavRowProps, SidebarSectionHeader, type SidebarSectionHeaderProps, SidebarSectionToggle, type SidebarSectionToggleProps, SidebarTagRow, type SidebarTagRowProps, SimpleToast, type SimpleToastProps, Skeleton, type SkeletonProps, SkeletonText, type SkeletonTextProps, type SkeletonVariant, StatCard, type StatCardProps, type StatTrend, type StatusType, StorageIndicator, type StorageIndicatorProps, Switch, type SwitchProps, type SwitchVariantProps, TestimonialCard, type TestimonialCardProps, TextRoller, type TextRollerItem, type TextRollerProps, ThemeCard, type ThemeCardProps, type ThemeMode, type ToastKind, type ToastPayload, Tooltip, TooltipDotted, type TooltipDottedProps, type TooltipPosition, type TooltipProps, TooltipRich, type TooltipRichProps, accordion_variants, avatar_variants, badge_variants, button_variants, card_variants, dismiss_toast, kbd_variants, marquee_variants, show_toast, switch_variants };
+declare function FullPageLoader(): react_jsx_runtime.JSX.Element | null;
+
+interface CountBadgeProps {
+    count: number;
+    show_zero?: boolean;
+    is_active?: boolean;
+    is_loading?: boolean;
+    className?: string;
+}
+declare function CountBadge({ count, show_zero, is_active, is_loading, className, }: CountBadgeProps): react_jsx_runtime.JSX.Element | null;
+
+interface SettingRowProps {
+    label: string;
+    description: string;
+    children: React.ReactNode;
+}
+declare function SettingRow({ label, description, children }: SettingRowProps): react_jsx_runtime.JSX.Element;
+
+interface RadioRowWithDescriptionProps {
+    label: string;
+    description: string;
+    is_selected: boolean;
+    on_select: () => void;
+}
+declare function RadioRowWithDescription({ label, description, is_selected, on_select, }: RadioRowWithDescriptionProps): react_jsx_runtime.JSX.Element;
+
+interface ViewMockupProps {
+    theme: "light" | "dark";
+}
+declare function ViewMockupSplit({ theme }: ViewMockupProps): react_jsx_runtime.JSX.Element;
+declare function ViewMockupPopup({ theme }: ViewMockupProps): react_jsx_runtime.JSX.Element;
+declare function ViewMockupFullpage({ theme }: ViewMockupProps): react_jsx_runtime.JSX.Element;
+
+declare function ThemeMockupLight(): react_jsx_runtime.JSX.Element;
+declare function ThemeMockupDark(): react_jsx_runtime.JSX.Element;
+
+interface ViewModeCardProps {
+    mode: "popup" | "split" | "fullpage";
+    label: string;
+    is_selected: boolean;
+    on_select: () => void;
+    theme: "light" | "dark";
+}
+declare function ViewModeCard({ mode, label, is_selected, on_select, theme, }: ViewModeCardProps): react_jsx_runtime.JSX.Element;
+
+declare const AlertDialog: React$1.FC<AlertDialogPrimitive.AlertDialogProps>;
+declare const AlertDialogTrigger: React$1.ForwardRefExoticComponent<AlertDialogPrimitive.AlertDialogTriggerProps & React$1.RefAttributes<HTMLButtonElement>>;
+declare const AlertDialogPortal: React$1.FC<AlertDialogPrimitive.AlertDialogPortalProps>;
+interface AlertDialogContentProps extends React$1.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content> {
+    on_overlay_click?: () => void;
+}
+declare const AlertDialogContent: React$1.ForwardRefExoticComponent<AlertDialogContentProps & React$1.RefAttributes<HTMLDivElement>>;
+declare const AlertDialogHeader: {
+    ({ className, ...props }: React$1.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+    displayName: string;
+};
+declare const AlertDialogFooter: {
+    ({ className, ...props }: React$1.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+    displayName: string;
+};
+declare const AlertDialogTitle: React$1.ForwardRefExoticComponent<Omit<AlertDialogPrimitive.AlertDialogTitleProps & React$1.RefAttributes<HTMLHeadingElement>, "ref"> & React$1.RefAttributes<HTMLHeadingElement>>;
+declare const AlertDialogDescription: React$1.ForwardRefExoticComponent<Omit<AlertDialogPrimitive.AlertDialogDescriptionProps & React$1.RefAttributes<HTMLParagraphElement>, "ref"> & React$1.RefAttributes<HTMLParagraphElement>>;
+declare const AlertDialogAction: React$1.ForwardRefExoticComponent<Omit<AlertDialogPrimitive.AlertDialogActionProps & React$1.RefAttributes<HTMLButtonElement>, "ref"> & React$1.RefAttributes<HTMLButtonElement>>;
+declare const AlertDialogCancel: React$1.ForwardRefExoticComponent<Omit<AlertDialogPrimitive.AlertDialogCancelProps & React$1.RefAttributes<HTMLButtonElement>, "ref"> & React$1.RefAttributes<HTMLButtonElement>>;
+
+interface ExternalLinkWarningModalProps {
+    is_open: boolean;
+    url: string;
+    on_close: () => void;
+    on_confirm: () => void;
+    on_dismiss_permanently: () => void;
+    title?: string;
+    description?: string;
+    continue_label?: string;
+    cancel_label?: string;
+    dont_ask_again_label?: string;
+}
+declare function ExternalLinkWarningModal({ is_open, url, on_close, on_confirm, on_dismiss_permanently, title, description, continue_label, cancel_label, dont_ask_again_label, }: ExternalLinkWarningModalProps): react_jsx_runtime.JSX.Element;
+
+declare function use_should_reduce_motion(): boolean;
+
+declare const motion_ease_standard: [number, number, number, number];
+declare const motion_duration_fast = 0.1;
+declare const motion_duration_base = 0.15;
+declare const motion_duration_slow = 0.25;
+declare const stagger_container: Variants;
+declare const fade_up_item: Variants;
+declare const page_slide_transition: Transition;
+declare const button_tap: {
+    scale: number;
+    transition: {
+        duration: number;
+    };
+};
+
+type ColorVisionMode = "none" | "protanopia" | "deuteranopia" | "tritanopia" | "achromatopsia";
+interface ColorVisionFiltersProps {
+    mode?: ColorVisionMode;
+}
+declare function ColorVisionFilters({ mode }: ColorVisionFiltersProps): react_jsx_runtime.JSX.Element;
+
+interface MobileHeaderProps {
+    title?: ReactNode;
+    left_action?: ReactNode;
+    right_actions?: ReactNode;
+    safe_area_top?: number | string;
+    height?: number;
+    on_title_click?: () => void;
+    center_content?: ReactNode;
+}
+declare const MobileHeader: React$1.NamedExoticComponent<MobileHeaderProps>;
+interface MobileHeaderIconButtonProps {
+    on_click: () => void;
+    children: ReactNode;
+    "aria-label"?: string;
+}
+declare const MobileHeaderIconButton: React$1.NamedExoticComponent<MobileHeaderIconButtonProps>;
+
+interface MobileDrawerShellProps {
+    is_open: boolean;
+    on_close: () => void;
+    children: ReactNode;
+    width?: number;
+    max_width_vw?: number;
+    safe_area_top?: number | string;
+    safe_area_bottom?: number | string;
+    reduce_motion?: boolean;
+    lock_body_scroll?: boolean;
+    side?: "left" | "right";
+    background_color?: string;
+}
+declare function MobileDrawerShell({ is_open, on_close, children, width, max_width_vw, safe_area_top, safe_area_bottom, reduce_motion, lock_body_scroll, side, background_color, }: MobileDrawerShellProps): react_jsx_runtime.JSX.Element;
+
+interface MobileActionSheetShellProps {
+    is_open: boolean;
+    on_close: () => void;
+    children: ReactNode;
+    safe_area_bottom?: number | string;
+    reduce_motion?: boolean;
+    lock_body_scroll?: boolean;
+    background_color?: string;
+    max_height_vh?: number;
+    z_index_backdrop?: number;
+    z_index_panel?: number;
+    show_handle?: boolean;
+}
+declare const MobileActionSheetShell: React$1.NamedExoticComponent<MobileActionSheetShellProps>;
+
+export { Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, type AccordionVariantProps, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, type AlertDialogContentProps, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger, type AppEntry, AppSwitcher, type AppSwitcherProps, type AuthAlertKind, AuthCard, AuthCardBody, type AuthCardBodyProps, type AuthCardProps, AuthCheckIcon, AuthCheckbox, type AuthCheckboxProps, AuthDocumentIcon, AuthDownloadIcon, AuthEnvelopeIcon, AuthEyeIcon, AuthEyeSlashIcon, AuthFormLabel, AuthFourPointStar, AuthInputWrapper, type AuthInputWrapperProps, AuthLockClosedIcon, AuthLockIcon, AuthLogo, type AuthLogoProps, AuthShieldCheckIcon, AuthSparkleDecoration, AuthUserCircleIcon, AuthWarningIcon, Avatar, AvatarGroup, type AvatarGroupProps, AvatarNamed, type AvatarNamedProps, type AvatarProps, type AvatarVariantProps, AvatarWithStatus, type AvatarWithStatusProps, Badge, BadgeDot, type BadgeDotProps, type BadgeProps, type BadgeVariantProps, Banner, type BannerProps, Button, type ButtonProps, type ButtonVariantProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, type CardIconProps, type CardProps, CardTitle, type CardVariantProps, Checkbox, type CheckboxProps, ColorVisionFilters, type ColorVisionFiltersProps, type ColorVisionMode, ConfirmationModal, type ConfirmationModalProps, type ConfirmationVariant, ContextMenu, type ContextMenuItem, type ContextMenuPosition, type ContextMenuProps, CountBadge, DashboardSidebar, type DashboardSidebarAccountLike, type DashboardSidebarFilter, type DashboardSidebarProps, type DashboardSidebarTStrings, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, EmptyState, type EmptyStateProps, ErrorBanner, type ErrorBannerProps, ExternalLinkWarningModal, type ExternalLinkWarningModalProps, FeatureCard, type FeatureCardProps, FieldHint, type FieldHintProps, FieldLabel, type FieldLabelProps, FullPageLoader, Input, type InputProps, Kbd, type KbdProps, type KbdVariantProps, type KeyboardShortcutEntry, type KeyboardShortcutSection, KeyboardShortcutsModal, type KeyboardShortcutsModalProps, type KeyboardShortcutsTStrings, Marquee, MarqueeLogo, type MarqueeLogoProps, type MarqueeProps, MarqueeTrack, type MarqueeTrackProps, type MarqueeVariantProps, MobileActionSheetShell, type MobileActionSheetShellProps, MobileDrawerShell, type MobileDrawerShellProps, MobileHeader, MobileHeaderIconButton, type MobileHeaderIconButtonProps, type MobileHeaderProps, Modal, ModalActions, type ModalActionsProps, ModalBody, type ModalBodyProps, ModalDescription, type ModalDescriptionProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, type ModalProps, type ModalSize, ModalTitle, type ModalTitleProps, MotionModal, MotionModalActions, type MotionModalActionsProps, MotionModalBody, type MotionModalBodyProps, MotionModalDescription, type MotionModalDescriptionProps, MotionModalFooter, type MotionModalFooterProps, MotionModalHeader, type MotionModalHeaderProps, type MotionModalProps, type MotionModalSize, MotionModalTitle, type MotionModalTitleProps, Navbar, NavbarActions, type NavbarActionsProps, NavbarCta, type NavbarCtaProps, NavbarHamburger, type NavbarHamburgerProps, NavbarInner, type NavbarInnerProps, NavbarLink, type NavbarLinkProps, NavbarLinks, type NavbarLinksProps, NavbarLogo, type NavbarLogoProps, NavbarMega, NavbarMegaCol, type NavbarMegaColProps, NavbarMegaCols, type NavbarMegaColsProps, NavbarMegaItem, type NavbarMegaItemProps, NavbarMegaItemSimple, type NavbarMegaItemSimpleProps, NavbarMegaPanel, type NavbarMegaPanelProps, type NavbarMegaProps, NavbarMobileDivider, NavbarMobileLink, type NavbarMobileLinkProps, NavbarMobileMenu, type NavbarMobileMenuProps, type NavbarProps, NavbarSearch, type NavbarSearchProps, NavbarTrigger, type NavbarTriggerProps, type NavbarVariant, NotFoundPage, type NotFoundPageProps, PricingCard, type PricingCardProps, Radio, RadioGroup, RadioGroupItem, type RadioProps, RadioRowWithDescription, SearchBar, type SearchBarProps, type SegOption, SegmentedToggle, type SegmentedToggleProps, Select, SelectContent, type SelectContentProps, SelectGroup, type SelectGroupProps, SelectItem, type SelectItemProps, type SelectProps, SelectTrigger, type SelectTriggerProps, SelectValue, type SelectValueProps, SettingRow, SettingsModalShell, type SettingsModalShellProps, SettingsNavGroup, type SettingsNavGroupData, type SettingsNavGroupProps, type SettingsNavItem, SettingsNavItemButton, type SettingsNavItemButtonProps, SettingsRow, type SettingsRowProps, SettingsSaveIndicator, type SettingsSaveIndicatorProps, type SettingsSaveStatus, SettingsSectionHeader, type SettingsSectionHeaderProps, SidebarAccountMenu, type SidebarAccountMenuItem, type SidebarAccountMenuProps, SidebarActionButton, type SidebarActionButtonProps, SidebarHeader, type SidebarHeaderProps, SidebarMoreToggle, type SidebarMoreToggleProps, SidebarNavRow, type SidebarNavRowProps, SidebarSectionHeader, type SidebarSectionHeaderProps, SidebarSectionToggle, type SidebarSectionToggleProps, SidebarTagRow, type SidebarTagRowProps, SimpleToast, type SimpleToastProps, Skeleton, type SkeletonProps, SkeletonText, type SkeletonTextProps, type SkeletonVariant, Spinner, type SpinnerProps, type SpinnerSize, StatCard, type StatCardProps, type StatTrend, type StatusType, StorageIndicator, type StorageIndicatorProps, Switch, type SwitchProps, type SwitchVariantProps, TestimonialCard, type TestimonialCardProps, TextRoller, type TextRollerItem, type TextRollerProps, ThemeCard, type ThemeCardProps, ThemeMockupDark, ThemeMockupLight, type ThemeMode, type ToastKind, type ToastPayload, Tooltip, TooltipDotted, type TooltipDottedProps, type TooltipPosition, type TooltipProps, TooltipRich, type TooltipRichProps, ViewMockupFullpage, ViewMockupPopup, ViewMockupSplit, ViewModeCard, accordion_variants, avatar_variants, badge_variants, button_tap, button_variants, card_variants, dismiss_toast, fade_up_item, get_auth_alert_styles, get_auth_primary_button_style, kbd_variants, marquee_variants, motion_duration_base, motion_duration_fast, motion_duration_slow, motion_ease_standard, page_slide_transition, show_toast, stagger_container, switch_variants, use_should_reduce_motion };
