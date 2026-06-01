@@ -116,6 +116,8 @@ __export(index_exports, {
   Tooltip: () => Tooltip,
   TooltipDotted: () => TooltipDotted,
   TooltipRich: () => TooltipRich,
+  UpgradeBtn: () => UpgradeBtn,
+  UpgradeOverlay: () => UpgradeOverlay,
   accordion_variants: () => accordion_variants,
   avatar_variants: () => avatar_variants,
   badge_variants: () => badge_variants,
@@ -143,7 +145,8 @@ var button_variants = (0, import_class_variance_authority.cva)("aster_btn", {
       ghost: "aster_btn_ghost",
       destructive: "aster_btn_destructive",
       depth: "aster_btn_depth",
-      depth_destructive: "aster_btn_depth_destructive"
+      depth_destructive: "aster_btn_depth_destructive",
+      upgrade: "aster_btn_upgrade"
     },
     size: {
       xl: "aster_btn_xl",
@@ -3007,6 +3010,56 @@ function StorageIndicator({
     footer_slot && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", { className: "mt-2", children: footer_slot })
   ] });
 }
+
+// src/upgrade_btn/upgrade_btn.tsx
+var React24 = __toESM(require("react"), 1);
+var import_jsx_runtime27 = require("react/jsx-runtime");
+function SparkleIcon() {
+  return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(
+    "svg",
+    {
+      width: "13",
+      height: "13",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("path", { d: "M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" }),
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("path", { d: "M5 17l.75 2.25L8 20l-2.25.75L5 23l-.75-2.25L2 20l2.25-.75L5 17z" }),
+        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("path", { d: "M19 3l.5 1.5L21 5l-1.5.5L19 7l-.5-1.5L17 5l1.5-.5L19 3z" })
+      ]
+    }
+  );
+}
+var UpgradeBtn = React24.forwardRef(
+  ({ label, children, size = "md", ...props }, ref) => {
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, { ref, variant: "upgrade", size, ...props, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(SparkleIcon, {}),
+      children ?? label ?? "Upgrade"
+    ] });
+  }
+);
+UpgradeBtn.displayName = "UpgradeBtn";
+
+// src/upgrade_overlay/upgrade_overlay.tsx
+var import_jsx_runtime28 = require("react/jsx-runtime");
+function UpgradeOverlay({
+  badge_label = "Upgrade plan",
+  message,
+  cta_label = "Upgrade",
+  on_upgrade,
+  className
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", { className: ["aster_upgrade_overlay", className].filter(Boolean).join(" "), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Badge, { color: "blue", children: badge_label }),
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("p", { className: "aster_upgrade_overlay_message", children: message }),
+    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(UpgradeBtn, { size: "sm", onClick: on_upgrade, children: cta_label })
+  ] });
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Accordion,
@@ -3095,6 +3148,8 @@ function StorageIndicator({
   Tooltip,
   TooltipDotted,
   TooltipRich,
+  UpgradeBtn,
+  UpgradeOverlay,
   accordion_variants,
   avatar_variants,
   badge_variants,

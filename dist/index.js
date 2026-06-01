@@ -12,7 +12,8 @@ var button_variants = cva("aster_btn", {
       ghost: "aster_btn_ghost",
       destructive: "aster_btn_destructive",
       depth: "aster_btn_depth",
-      depth_destructive: "aster_btn_depth_destructive"
+      depth_destructive: "aster_btn_depth_destructive",
+      upgrade: "aster_btn_upgrade"
     },
     size: {
       xl: "aster_btn_xl",
@@ -2876,6 +2877,56 @@ function StorageIndicator({
     footer_slot && /* @__PURE__ */ jsx26("div", { className: "mt-2", children: footer_slot })
   ] });
 }
+
+// src/upgrade_btn/upgrade_btn.tsx
+import * as React24 from "react";
+import { jsx as jsx27, jsxs as jsxs22 } from "react/jsx-runtime";
+function SparkleIcon() {
+  return /* @__PURE__ */ jsxs22(
+    "svg",
+    {
+      width: "13",
+      height: "13",
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "2",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true",
+      children: [
+        /* @__PURE__ */ jsx27("path", { d: "M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" }),
+        /* @__PURE__ */ jsx27("path", { d: "M5 17l.75 2.25L8 20l-2.25.75L5 23l-.75-2.25L2 20l2.25-.75L5 17z" }),
+        /* @__PURE__ */ jsx27("path", { d: "M19 3l.5 1.5L21 5l-1.5.5L19 7l-.5-1.5L17 5l1.5-.5L19 3z" })
+      ]
+    }
+  );
+}
+var UpgradeBtn = React24.forwardRef(
+  ({ label, children, size = "md", ...props }, ref) => {
+    return /* @__PURE__ */ jsxs22(Button, { ref, variant: "upgrade", size, ...props, children: [
+      /* @__PURE__ */ jsx27(SparkleIcon, {}),
+      children ?? label ?? "Upgrade"
+    ] });
+  }
+);
+UpgradeBtn.displayName = "UpgradeBtn";
+
+// src/upgrade_overlay/upgrade_overlay.tsx
+import { jsx as jsx28, jsxs as jsxs23 } from "react/jsx-runtime";
+function UpgradeOverlay({
+  badge_label = "Upgrade plan",
+  message,
+  cta_label = "Upgrade",
+  on_upgrade,
+  className
+}) {
+  return /* @__PURE__ */ jsxs23("div", { className: ["aster_upgrade_overlay", className].filter(Boolean).join(" "), children: [
+    /* @__PURE__ */ jsx28(Badge, { color: "blue", children: badge_label }),
+    /* @__PURE__ */ jsx28("p", { className: "aster_upgrade_overlay_message", children: message }),
+    /* @__PURE__ */ jsx28(UpgradeBtn, { size: "sm", onClick: on_upgrade, children: cta_label })
+  ] });
+}
 export {
   Accordion,
   AccordionContent,
@@ -2963,6 +3014,8 @@ export {
   Tooltip,
   TooltipDotted,
   TooltipRich,
+  UpgradeBtn,
+  UpgradeOverlay,
   accordion_variants,
   avatar_variants,
   badge_variants,

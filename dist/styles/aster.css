@@ -237,6 +237,64 @@
   border-radius: 10px;
 }
 
+@keyframes aster_shimmer {
+  from { transform: translateX(-160%) skewX(-18deg); }
+  to   { transform: translateX(260%) skewX(-18deg); }
+}
+
+.aster_btn_upgrade {
+  color: #fff;
+  background:
+    linear-gradient(180deg, #4a84f5 0%, #1c4fd6 100%) padding-box,
+    linear-gradient(180deg, #bfdbfe 0%, #3b82f6 50%, #1e3a8a 100%) border-box;
+  border: 1.5px solid transparent;
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.12s ease;
+}
+
+.aster_btn_upgrade:hover {
+  filter: brightness(1.08);
+}
+
+.aster_btn_upgrade::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: translateX(-160%) skewX(-18deg);
+  z-index: 2;
+}
+
+.aster_btn_upgrade:hover::before {
+  animation: aster_shimmer 0.42s ease forwards;
+}
+
+.aster_upgrade_overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 16px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.aster_upgrade_overlay_message {
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 280px;
+  margin: 0;
+}
+
 .aster_badge {
   display: inline-flex;
   align-items: center;

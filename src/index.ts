@@ -258,3 +258,9 @@ export type { ThemeCardProps, ThemeMode } from "./theme_card";
 
 export { StorageIndicator } from "./storage_indicator/storage_indicator";
 export type { StorageIndicatorProps } from "./storage_indicator/storage_indicator";
+
+export { UpgradeBtn } from "./upgrade_btn/upgrade_btn";
+export type { UpgradeBtnProps } from "./upgrade_btn/upgrade_btn";
+
+export { UpgradeOverlay } from "./upgrade_overlay/upgrade_overlay";
+export type { UpgradeOverlayProps } from "./upgrade_overlay/upgrade_overlay";
