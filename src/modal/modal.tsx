@@ -30,10 +30,13 @@ interface ModalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title">
   size?: ModalSize;
   show_close_button?: boolean;
   close_on_overlay?: boolean;
+  close_on_escape?: boolean;
   close_label?: string;
   z_index?: number;
   children: React.ReactNode;
 }
+
+const open_modal_stack: symbol[] = [];
 
 const size_class: Record<ModalSize, string> = {
   sm: "aster_modal_sm",
@@ -53,6 +56,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       size,
       show_close_button,
       close_on_overlay = true,
+      close_on_escape = true,
       close_label = "Close",
       z_index,
       children,
@@ -88,15 +92,34 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       }
     };
 
+    const stack_token = React.useRef<symbol | null>(null);
+    if (stack_token.current === null) {
+      stack_token.current = Symbol("aster_modal");
+    }
+
     React.useEffect(() => {
-      const handle_escape = (e: KeyboardEvent) => {
-        if (e.key === "Escape" && resolved_open) {
-          on_close();
+      if (!resolved_open) return;
+      const token = stack_token.current!;
+      open_modal_stack.push(token);
+      return () => {
+        const index = open_modal_stack.lastIndexOf(token);
+        if (index !== -1) {
+          open_modal_stack.splice(index, 1);
         }
+      };
+    }, [resolved_open]);
+
+    React.useEffect(() => {
+      if (!resolved_open || !close_on_escape) return;
+      const token = stack_token.current!;
+      const handle_escape = (e: KeyboardEvent) => {
+        if (e.key !== "Escape") return;
+        if (open_modal_stack[open_modal_stack.length - 1] !== token) return;
+        on_close();
       };
       document.addEventListener("keydown", handle_escape);
       return () => document.removeEventListener("keydown", handle_escape);
-    }, [resolved_open, on_close]);
+    }, [resolved_open, close_on_escape, on_close]);
 
     return (
       <div className={overlay_classes} onClick={handle_overlay_click} style={overlay_style}>

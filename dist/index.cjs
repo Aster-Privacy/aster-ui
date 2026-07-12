@@ -628,6 +628,7 @@ AvatarNamed.displayName = "AvatarNamed";
 // src/modal/modal.tsx
 var React10 = __toESM(require("react"), 1);
 var import_jsx_runtime10 = require("react/jsx-runtime");
+var open_modal_stack = [];
 var size_class = {
   sm: "aster_modal_sm",
   md: "aster_modal_md",
@@ -644,6 +645,7 @@ var Modal = React10.forwardRef(
     size,
     show_close_button,
     close_on_overlay = true,
+    close_on_escape = true,
     close_label = "Close",
     z_index,
     children,
@@ -668,15 +670,32 @@ var Modal = React10.forwardRef(
         on_close();
       }
     };
+    const stack_token = React10.useRef(null);
+    if (stack_token.current === null) {
+      stack_token.current = /* @__PURE__ */ Symbol("aster_modal");
+    }
     React10.useEffect(() => {
-      const handle_escape = (e) => {
-        if (e.key === "Escape" && resolved_open) {
-          on_close();
+      if (!resolved_open) return;
+      const token = stack_token.current;
+      open_modal_stack.push(token);
+      return () => {
+        const index = open_modal_stack.lastIndexOf(token);
+        if (index !== -1) {
+          open_modal_stack.splice(index, 1);
         }
+      };
+    }, [resolved_open]);
+    React10.useEffect(() => {
+      if (!resolved_open || !close_on_escape) return;
+      const token = stack_token.current;
+      const handle_escape = (e) => {
+        if (e.key !== "Escape") return;
+        if (open_modal_stack[open_modal_stack.length - 1] !== token) return;
+        on_close();
       };
       document.addEventListener("keydown", handle_escape);
       return () => document.removeEventListener("keydown", handle_escape);
-    }, [resolved_open, on_close]);
+    }, [resolved_open, close_on_escape, on_close]);
     return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: overlay_classes, onClick: handle_overlay_click, style: overlay_style, children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: modal_classes, ref, style, ...props, children: [
       show_close_button && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
         "button",

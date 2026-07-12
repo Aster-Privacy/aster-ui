@@ -131,6 +131,7 @@ interface ModalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title">
     size?: ModalSize;
     show_close_button?: boolean;
     close_on_overlay?: boolean;
+    close_on_escape?: boolean;
     close_label?: string;
     z_index?: number;
     children: React.ReactNode;
