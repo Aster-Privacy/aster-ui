@@ -473,6 +473,7 @@ var Banner = React8.forwardRef(
     on_action,
     on_dismiss,
     show_close = true,
+    dismiss_label = "Dismiss",
     ...props
   }, ref) => {
     const classes = ["aster_banner", className].filter(Boolean).join(" ");
@@ -514,7 +515,7 @@ var Banner = React8.forwardRef(
         "button",
         {
           className: "aster_banner_close",
-          "aria-label": "Dismiss",
+          "aria-label": dismiss_label,
           onClick: on_dismiss,
           children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
             "svg",
@@ -643,6 +644,7 @@ var Modal = React10.forwardRef(
     size,
     show_close_button,
     close_on_overlay = true,
+    close_label = "Close",
     z_index,
     children,
     className,
@@ -680,7 +682,7 @@ var Modal = React10.forwardRef(
         "button",
         {
           type: "button",
-          "aria-label": "Close",
+          "aria-label": close_label,
           className: "aster_modal_close_floating",
           onClick: on_close,
           children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
@@ -708,7 +710,7 @@ var Modal = React10.forwardRef(
 );
 Modal.displayName = "Modal";
 var ModalHeader = React10.forwardRef(
-  ({ title, icon, on_close, className, children, ...props }, ref) => {
+  ({ title, icon, on_close, close_label = "Close", className, children, ...props }, ref) => {
     const classes = ["aster_modal_header", className].filter(Boolean).join(" ");
     if (children !== void 0 && !title && !on_close && !icon) {
       return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: classes, ref, ...props, children });
@@ -721,6 +723,7 @@ var ModalHeader = React10.forwardRef(
         "button",
         {
           type: "button",
+          "aria-label": close_label,
           className: "aster_modal_close",
           onClick: on_close,
           children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(

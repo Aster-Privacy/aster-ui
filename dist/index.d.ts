@@ -93,6 +93,7 @@ interface BannerProps extends React.HTMLAttributes<HTMLDivElement> {
     on_action?: () => void;
     on_dismiss?: () => void;
     show_close?: boolean;
+    dismiss_label?: string;
 }
 declare const Banner: React.ForwardRefExoticComponent<BannerProps & React.RefAttributes<HTMLDivElement>>;
 
@@ -130,6 +131,7 @@ interface ModalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title">
     size?: ModalSize;
     show_close_button?: boolean;
     close_on_overlay?: boolean;
+    close_label?: string;
     z_index?: number;
     children: React.ReactNode;
 }
@@ -138,6 +140,7 @@ interface ModalHeaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "t
     title?: string;
     icon?: React.ReactNode;
     on_close?: () => void;
+    close_label?: string;
     children?: React.ReactNode;
 }
 declare const ModalHeader: React.ForwardRefExoticComponent<ModalHeaderProps & React.RefAttributes<HTMLDivElement>>;

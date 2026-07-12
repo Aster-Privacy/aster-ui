@@ -30,6 +30,7 @@ interface ModalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title">
   size?: ModalSize;
   show_close_button?: boolean;
   close_on_overlay?: boolean;
+  close_label?: string;
   z_index?: number;
   children: React.ReactNode;
 }
@@ -52,6 +53,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       size,
       show_close_button,
       close_on_overlay = true,
+      close_label = "Close",
       z_index,
       children,
       className,
@@ -102,7 +104,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
           {show_close_button && (
             <button
               type="button"
-              aria-label="Close"
+              aria-label={close_label}
               className="aster_modal_close_floating"
               onClick={on_close}
             >
@@ -133,11 +135,12 @@ interface ModalHeaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "t
   title?: string;
   icon?: React.ReactNode;
   on_close?: () => void;
+  close_label?: string;
   children?: React.ReactNode;
 }
 
 const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
-  ({ title, icon, on_close, className, children, ...props }, ref) => {
+  ({ title, icon, on_close, close_label = "Close", className, children, ...props }, ref) => {
     const classes = ["aster_modal_header", className].filter(Boolean).join(" ");
 
     if (children !== undefined && !title && !on_close && !icon) {
@@ -156,6 +159,7 @@ const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
         {on_close && (
           <button
             type="button"
+            aria-label={close_label}
             className="aster_modal_close"
             onClick={on_close}
           >
