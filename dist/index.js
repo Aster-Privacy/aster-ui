@@ -495,7 +495,17 @@ AvatarNamed.displayName = "AvatarNamed";
 // src/modal/modal.tsx
 import * as React10 from "react";
 import { jsx as jsx10, jsxs as jsxs7 } from "react/jsx-runtime";
+var DEFAULT_MODAL_Z_INDEX = 100;
 var open_modal_stack = [];
+var topmost_modal_token = (stack) => {
+  let top = null;
+  for (const entry of stack) {
+    if (top === null || entry.z_index >= top.z_index) {
+      top = entry;
+    }
+  }
+  return top === null ? null : top.token;
+};
 var size_class = {
   sm: "aster_modal_sm",
   md: "aster_modal_md",
@@ -541,23 +551,26 @@ var Modal = React10.forwardRef(
     if (stack_token.current === null) {
       stack_token.current = /* @__PURE__ */ Symbol("aster_modal");
     }
+    const resolved_z_index = z_index ?? DEFAULT_MODAL_Z_INDEX;
     React10.useEffect(() => {
       if (!resolved_open) return;
       const token = stack_token.current;
-      open_modal_stack.push(token);
+      open_modal_stack.push({ token, z_index: resolved_z_index });
       return () => {
-        const index = open_modal_stack.lastIndexOf(token);
+        const index = open_modal_stack.findIndex(
+          (entry) => entry.token === token
+        );
         if (index !== -1) {
           open_modal_stack.splice(index, 1);
         }
       };
-    }, [resolved_open]);
+    }, [resolved_open, resolved_z_index]);
     React10.useEffect(() => {
       if (!resolved_open || !close_on_escape) return;
       const token = stack_token.current;
       const handle_escape = (e) => {
         if (e.key !== "Escape") return;
-        if (open_modal_stack[open_modal_stack.length - 1] !== token) return;
+        if (topmost_modal_token(open_modal_stack) !== token) return;
         on_close();
       };
       document.addEventListener("keydown", handle_escape);

@@ -36,7 +36,26 @@ interface ModalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title">
   children: React.ReactNode;
 }
 
-const open_modal_stack: symbol[] = [];
+const DEFAULT_MODAL_Z_INDEX = 100;
+
+interface OpenModalEntry {
+  token: symbol;
+  z_index: number;
+}
+
+const open_modal_stack: OpenModalEntry[] = [];
+
+const topmost_modal_token = (
+  stack: readonly OpenModalEntry[],
+): symbol | null => {
+  let top: OpenModalEntry | null = null;
+  for (const entry of stack) {
+    if (top === null || entry.z_index >= top.z_index) {
+      top = entry;
+    }
+  }
+  return top === null ? null : top.token;
+};
 
 const size_class: Record<ModalSize, string> = {
   sm: "aster_modal_sm",
@@ -97,24 +116,28 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       stack_token.current = Symbol("aster_modal");
     }
 
+    const resolved_z_index = z_index ?? DEFAULT_MODAL_Z_INDEX;
+
     React.useEffect(() => {
       if (!resolved_open) return;
       const token = stack_token.current!;
-      open_modal_stack.push(token);
+      open_modal_stack.push({ token, z_index: resolved_z_index });
       return () => {
-        const index = open_modal_stack.lastIndexOf(token);
+        const index = open_modal_stack.findIndex(
+          (entry) => entry.token === token,
+        );
         if (index !== -1) {
           open_modal_stack.splice(index, 1);
         }
       };
-    }, [resolved_open]);
+    }, [resolved_open, resolved_z_index]);
 
     React.useEffect(() => {
       if (!resolved_open || !close_on_escape) return;
       const token = stack_token.current!;
       const handle_escape = (e: KeyboardEvent) => {
         if (e.key !== "Escape") return;
-        if (open_modal_stack[open_modal_stack.length - 1] !== token) return;
+        if (topmost_modal_token(open_modal_stack) !== token) return;
         on_close();
       };
       document.addEventListener("keydown", handle_escape);
@@ -286,6 +309,8 @@ const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
 ModalFooter.displayName = "ModalFooter";
 
 export {
+  topmost_modal_token,
+  DEFAULT_MODAL_Z_INDEX,
   Modal,
   ModalHeader,
   ModalBody,
