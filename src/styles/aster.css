@@ -32,13 +32,13 @@
 }
 
 .aster_btn_primary {
-  color: #fff;
-  background: #3b82f6;
+  color: var(--accent-color-foreground, #fff);
+  background: var(--accent-color, #3b82f6);
   transition: background 0.12s ease;
 }
 
 .aster_btn_primary:hover {
-  background: #2563eb;
+  background: var(--accent-color-hover, #2563eb);
 }
 
 .aster_btn_secondary {
@@ -88,9 +88,9 @@
   justify-content: center;
   gap: 0.5rem;
   font-weight: 500;
-  color: #fff;
-  background: linear-gradient(to bottom, #4a7aff, #3b6aef, #2d5ae0) padding-box,
-              linear-gradient(to bottom, #5a8aff, #3b6aef, #2350d0) border-box;
+  color: var(--accent-color-foreground, #fff);
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color, #3b6aef) 85%, white), var(--accent-color, #3b6aef), color-mix(in srgb, var(--accent-color, #3b6aef) 85%, black)) padding-box,
+              linear-gradient(to bottom, color-mix(in srgb, var(--accent-color, #3b6aef) 70%, white), var(--accent-color, #3b6aef), color-mix(in srgb, var(--accent-color, #3b6aef) 75%, black)) border-box;
   border: 1px solid transparent;
   text-decoration: none;
   cursor: pointer;
@@ -156,7 +156,7 @@
 }
 
 .aster_btn:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--accent-color, #3b82f6);
   outline-offset: 2px;
 }
 
@@ -184,7 +184,7 @@
 }
 
 .aster_input:focus {
-  border-color: #3b82f6;
+  border-color: var(--accent-color, #3b82f6);
   box-shadow: none;
 }
 
@@ -370,7 +370,7 @@
 .aster_badge_dot_gray { background: #6b7280; }
 
 .aster_badge:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--accent-color, #3b82f6);
   outline-offset: 2px;
 }
 
@@ -381,7 +381,7 @@
 }
 
 .aster_card:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--accent-color, #3b82f6);
   outline-offset: 2px;
 }
 
@@ -1245,7 +1245,7 @@
 }
 
 .aster_switch_input:checked + .aster_switch_track {
-  background: #3b82f6;
+  background: var(--accent-color, #3b82f6);
 }
 
 .aster_switch_sm .aster_switch_track { width: 32px; height: 18px; }
@@ -1341,8 +1341,8 @@
 }
 
 .aster_checkbox_input:checked + .aster_checkbox_box {
-  background: #3b82f6;
-  border-color: #3b82f6;
+  background: var(--accent-color, #3b82f6);
+  border-color: var(--accent-color, #3b82f6);
 }
 
 .aster_checkbox_input:checked + .aster_checkbox_box .aster_checkbox_check {
@@ -1350,8 +1350,8 @@
 }
 
 .aster_checkbox_input:indeterminate + .aster_checkbox_box {
-  background: #3b82f6;
-  border-color: #3b82f6;
+  background: var(--accent-color, #3b82f6);
+  border-color: var(--accent-color, #3b82f6);
 }
 
 .aster_checkbox_input:indeterminate + .aster_checkbox_box .aster_checkbox_check {
@@ -1411,13 +1411,13 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #3b82f6;
+  background: var(--accent-color, #3b82f6);
   transform: scale(0);
   transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .aster_radio_input:checked + .aster_radio_circle {
-  border-color: #3b82f6;
+  border-color: var(--accent-color, #3b82f6);
 }
 
 .aster_radio_input:checked + .aster_radio_circle::after {
@@ -2132,11 +2132,11 @@
 }
 
 .dark .aster_btn_primary {
-  background: #3b82f6;
+  background: var(--accent-color, #3b82f6);
 }
 
 .dark .aster_btn_primary:hover {
-  background: #60a5fa;
+  background: var(--accent-color-hover, #60a5fa);
 }
 
 .dark .aster_btn_secondary {
@@ -2178,8 +2178,8 @@
 }
 
 .dark .aster_btn_depth {
-  background: linear-gradient(to bottom, #4a7aff, #3b6aef, #2d5ae0) padding-box,
-              linear-gradient(to bottom, #5a8aff, #3b6aef, #2350d0) border-box;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color, #3b6aef) 85%, white), var(--accent-color, #3b6aef), color-mix(in srgb, var(--accent-color, #3b6aef) 85%, black)) padding-box,
+              linear-gradient(to bottom, color-mix(in srgb, var(--accent-color, #3b6aef) 70%, white), var(--accent-color, #3b6aef), color-mix(in srgb, var(--accent-color, #3b6aef) 75%, black)) border-box;
 }
 
 .dark .aster_btn_depth:hover {
@@ -2541,7 +2541,7 @@
 }
 
 .dark .aster_input:focus {
-  border-color: #3b82f6;
+  border-color: var(--accent-color, #3b82f6);
   box-shadow: none;
 }
 
