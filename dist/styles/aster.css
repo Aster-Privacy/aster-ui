@@ -89,8 +89,8 @@
   gap: 0.5rem;
   font-weight: 500;
   color: var(--accent-color-foreground, #fff);
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color, #3b6aef) 85%, white), var(--accent-color, #3b6aef), color-mix(in srgb, var(--accent-color, #3b6aef) 85%, black)) padding-box,
-              linear-gradient(to bottom, color-mix(in srgb, var(--accent-color, #3b6aef) 70%, white), var(--accent-color, #3b6aef), color-mix(in srgb, var(--accent-color, #3b6aef) 75%, black)) border-box;
+  background: linear-gradient(to bottom, var(--accent-mix-w85, color-mix(in srgb, var(--accent-color, #3b6aef) 85%, white)), var(--accent-color, #3b6aef), var(--accent-mix-b85, color-mix(in srgb, var(--accent-color, #3b6aef) 85%, black))) padding-box,
+              linear-gradient(to bottom, var(--accent-mix-w70, color-mix(in srgb, var(--accent-color, #3b6aef) 70%, white)), var(--accent-color, #3b6aef), var(--accent-mix-b75, color-mix(in srgb, var(--accent-color, #3b6aef) 75%, black))) border-box;
   border: 1px solid transparent;
   text-decoration: none;
   cursor: pointer;
@@ -2178,8 +2178,8 @@
 }
 
 .dark .aster_btn_depth {
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--accent-color, #3b6aef) 85%, white), var(--accent-color, #3b6aef), color-mix(in srgb, var(--accent-color, #3b6aef) 85%, black)) padding-box,
-              linear-gradient(to bottom, color-mix(in srgb, var(--accent-color, #3b6aef) 70%, white), var(--accent-color, #3b6aef), color-mix(in srgb, var(--accent-color, #3b6aef) 75%, black)) border-box;
+  background: linear-gradient(to bottom, var(--accent-mix-w85, color-mix(in srgb, var(--accent-color, #3b6aef) 85%, white)), var(--accent-color, #3b6aef), var(--accent-mix-b85, color-mix(in srgb, var(--accent-color, #3b6aef) 85%, black))) padding-box,
+              linear-gradient(to bottom, var(--accent-mix-w70, color-mix(in srgb, var(--accent-color, #3b6aef) 70%, white)), var(--accent-color, #3b6aef), var(--accent-mix-b75, color-mix(in srgb, var(--accent-color, #3b6aef) 75%, black))) border-box;
 }
 
 .dark .aster_btn_depth:hover {
