@@ -151,7 +151,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
             <button
               type="button"
               aria-label={close_label}
-              className="aster_modal_close_floating"
+              className="aster_modal_close aster_modal_close_floating"
               onClick={on_close}
             >
               <svg

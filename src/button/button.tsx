@@ -22,6 +22,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import { Spinner } from "../spinner";
 
 const button_variants = cva("aster_btn", {
   variants: {
@@ -51,21 +52,75 @@ const button_variants = cva("aster_btn", {
 
 type ButtonVariantProps = VariantProps<typeof button_variants>;
 
+type LoadingPosition = "replace" | "before" | "after";
+
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     ButtonVariantProps {
   as_child?: boolean;
+  is_loading?: boolean;
+  loading_position?: LoadingPosition;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, as_child = false, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      as_child = false,
+      is_loading = false,
+      loading_position = "replace",
+      disabled,
+      onClick,
+      children,
+      ...props
+    },
+    ref
+  ) => {
     const Comp = as_child ? Slot : "button";
+    const effective_disabled = disabled || is_loading;
+    const handle_click: React.MouseEventHandler<HTMLButtonElement> | undefined =
+      is_loading
+        ? (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+        : onClick;
+
+    let content: React.ReactNode = children;
+    if (is_loading && !as_child) {
+      if (loading_position === "replace") {
+        content = <Spinner size="sm" />;
+      } else if (loading_position === "before") {
+        content = (
+          <>
+            <Spinner size="sm" />
+            {children}
+          </>
+        );
+      } else {
+        content = (
+          <>
+            {children}
+            <Spinner size="sm" />
+          </>
+        );
+      }
+    }
+
     return (
       <Comp
         className={button_variants({ variant, size, className })}
         ref={ref}
+        disabled={effective_disabled}
+        aria-busy={is_loading || undefined}
+        data-loading={is_loading || undefined}
+        onClick={handle_click}
         {...props}
-      />
+      >
+        {content}
+      </Comp>
     );
   }
 );

@@ -914,6 +914,7 @@
 }
 
 .aster_modal {
+  position: relative;
   background: #fff;
   border-radius: 14px;
   padding: 24px;
@@ -939,7 +940,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0;
+  gap: 10px;
 }
 
 .aster_modal_title {
@@ -947,6 +948,35 @@
   font-weight: 600;
   margin: 0;
   width: 100%;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.aster_modal_description {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+  width: 100%;
+  color: var(--text-tertiary);
+  line-height: 1.55;
+}
+
+.aster_modal_footer,
+.aster_modal_actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .aster_modal_footer,
+  .aster_modal_actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
 }
 
 .aster_modal_close {
@@ -973,6 +1003,13 @@
 .aster_modal_close svg {
   width: 16px;
   height: 16px;
+}
+
+.aster_modal_close_floating {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  z-index: 10;
 }
 
 .aster_modal_body {

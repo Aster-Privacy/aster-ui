@@ -90,6 +90,7 @@ export type {
 
 export {
   Select,
+  SelectGroup,
   SelectTrigger,
   SelectValue,
   SelectContent,
@@ -97,6 +98,7 @@ export {
 } from "./select";
 export type {
   SelectProps,
+  SelectGroupProps,
   SelectTriggerProps,
   SelectValueProps,
   SelectContentProps,
@@ -105,6 +107,9 @@ export type {
 
 export { Skeleton, SkeletonText } from "./skeleton";
 export type { SkeletonProps, SkeletonTextProps, SkeletonVariant } from "./skeleton";
+
+export { Spinner } from "./spinner";
+export type { SpinnerProps, SpinnerSize } from "./spinner";
 
 export { SimpleToast, show_toast, dismiss_toast } from "./toast";
 export type { SimpleToastProps, ToastKind, ToastPayload } from "./toast";
@@ -233,6 +238,14 @@ export type {
   SidebarActionButtonProps,
 } from "./sidebar";
 
+export { DashboardSidebar } from "./sidebar";
+export type {
+  DashboardSidebarProps,
+  DashboardSidebarFilter,
+  DashboardSidebarAccountLike,
+  DashboardSidebarTStrings,
+} from "./sidebar";
+
 export {
   SettingsModalShell,
   SettingsNavGroup,
@@ -264,3 +277,172 @@ export type { UpgradeBtnProps } from "./upgrade_btn/upgrade_btn";
 
 export { UpgradeOverlay } from "./upgrade_overlay/upgrade_overlay";
 export type { UpgradeOverlayProps } from "./upgrade_overlay/upgrade_overlay";
+export { EmptyState } from "./empty_state";
+export type { EmptyStateProps } from "./empty_state";
+
+export { SearchBar } from "./search_bar";
+export type { SearchBarProps } from "./search_bar";
+
+export { AppSwitcher } from "./app_switcher";
+export type { AppSwitcherProps, AppEntry } from "./app_switcher";
+
+export {
+  AuthLogo,
+  AuthEyeIcon,
+  AuthEyeSlashIcon,
+  AuthInputWrapper,
+  AuthCheckIcon,
+  AuthCheckbox,
+  AuthCard,
+  AuthCardBody,
+  AuthFormLabel,
+  AuthFourPointStar,
+  AuthSparkleDecoration,
+  AuthShieldCheckIcon,
+  AuthLockIcon,
+  AuthWarningIcon,
+  AuthDocumentIcon,
+  AuthDownloadIcon,
+  AuthUserCircleIcon,
+  AuthLockClosedIcon,
+  AuthEnvelopeIcon,
+  get_auth_alert_styles,
+  get_auth_primary_button_style,
+} from "./auth";
+export type {
+  AuthLogoProps,
+  AuthInputWrapperProps,
+  AuthCheckboxProps,
+  AuthCardProps,
+  AuthCardBodyProps,
+  AuthAlertKind,
+} from "./auth";
+
+export { FieldLabel, FieldHint, ErrorBanner } from "./form";
+export type { FieldLabelProps, FieldHintProps, ErrorBannerProps } from "./form";
+
+export { Input } from "./input";
+export type { InputProps } from "./input";
+
+export { RadioGroup, RadioGroupItem } from "./radio_group";
+
+export {
+  MotionModal,
+  MotionModalHeader,
+  MotionModalTitle,
+  MotionModalDescription,
+  MotionModalBody,
+  MotionModalFooter,
+  MotionModalActions,
+} from "./motion_modal";
+export type {
+  MotionModalProps,
+  MotionModalSize,
+  MotionModalHeaderProps,
+  MotionModalTitleProps,
+  MotionModalDescriptionProps,
+  MotionModalBodyProps,
+  MotionModalFooterProps,
+  MotionModalActionsProps,
+} from "./motion_modal";
+
+export { ConfirmationModal } from "./confirmation_modal";
+export type {
+  ConfirmationModalProps,
+  ConfirmationVariant,
+} from "./confirmation_modal";
+
+export { KeyboardShortcutsModal } from "./keyboard_shortcuts";
+export type {
+  KeyboardShortcutsModalProps,
+  KeyboardShortcutEntry,
+  KeyboardShortcutSection,
+  KeyboardShortcutsTStrings,
+} from "./keyboard_shortcuts";
+
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuGroup,
+  DropdownMenuPortal,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuRadioGroup,
+} from "./dropdown_menu";
+
+export { ContextMenu } from "./context_menu";
+export type {
+  ContextMenuProps,
+  ContextMenuItem,
+  ContextMenuPosition,
+} from "./context_menu";
+
+export { FullPageLoader } from "./full_page_loader";
+
+export { CountBadge } from "./count_badge";
+
+export { SettingRow } from "./setting_row";
+
+export { RadioRowWithDescription } from "./radio_row_with_description";
+
+export {
+  ViewMockupSplit,
+  ViewMockupPopup,
+  ViewMockupFullpage,
+} from "./view_mode_mockups";
+
+export { ThemeMockupLight, ThemeMockupDark } from "./theme_mockups";
+
+export { ViewModeCard } from "./view_mode_card";
+
+export {
+  AlertDialog,
+  AlertDialogPortal,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "./alert_dialog";
+export type { AlertDialogContentProps } from "./alert_dialog";
+
+export { ExternalLinkWarningModal } from "./external_link_warning_modal";
+export type { ExternalLinkWarningModalProps } from "./external_link_warning_modal";
+
+export {
+  use_should_reduce_motion,
+  stagger_container,
+  fade_up_item,
+  page_slide_transition,
+  button_tap,
+  motion_ease_standard,
+  motion_duration_fast,
+  motion_duration_base,
+  motion_duration_slow,
+  ColorVisionFilters,
+} from "./motion";
+export type { ColorVisionMode, ColorVisionFiltersProps } from "./motion";
+
+export {
+  MobileHeader,
+  MobileHeaderIconButton,
+  MobileDrawerShell,
+  MobileActionSheetShell,
+} from "./mobile";
+export type {
+  MobileHeaderProps,
+  MobileHeaderIconButtonProps,
+  MobileDrawerShellProps,
+  MobileActionSheetShellProps,
+} from "./mobile";

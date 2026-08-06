@@ -37,3 +37,11 @@ export type {
   SidebarTagRowProps,
   SidebarActionButtonProps,
 } from "./sidebar";
+
+export { DashboardSidebar } from "./dashboard_sidebar";
+export type {
+  DashboardSidebarProps,
+  DashboardSidebarFilter,
+  DashboardSidebarAccountLike,
+  DashboardSidebarTStrings,
+} from "./dashboard_sidebar";
