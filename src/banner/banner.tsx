@@ -29,6 +29,7 @@ interface BannerProps extends React.HTMLAttributes<HTMLDivElement> {
   on_action?: () => void;
   on_dismiss?: () => void;
   show_close?: boolean;
+  dismiss_label?: string;
 }
 
 const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
@@ -42,6 +43,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
       on_action,
       on_dismiss,
       show_close = true,
+      dismiss_label = "Dismiss",
       ...props
     },
     ref
@@ -79,7 +81,7 @@ const Banner = React.forwardRef<HTMLDivElement, BannerProps>(
         {show_close && on_dismiss && (
           <button
             className="aster_banner_close"
-            aria-label="Dismiss"
+            aria-label={dismiss_label}
             onClick={on_dismiss}
           >
             <svg

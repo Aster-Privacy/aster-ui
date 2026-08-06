@@ -473,6 +473,7 @@ var Banner = React8.forwardRef(
     on_action,
     on_dismiss,
     show_close = true,
+    dismiss_label = "Dismiss",
     ...props
   }, ref) => {
     const classes = ["aster_banner", className].filter(Boolean).join(" ");
@@ -514,7 +515,7 @@ var Banner = React8.forwardRef(
         "button",
         {
           className: "aster_banner_close",
-          "aria-label": "Dismiss",
+          "aria-label": dismiss_label,
           onClick: on_dismiss,
           children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
             "svg",
@@ -627,6 +628,17 @@ AvatarNamed.displayName = "AvatarNamed";
 // src/modal/modal.tsx
 var React10 = __toESM(require("react"), 1);
 var import_jsx_runtime10 = require("react/jsx-runtime");
+var DEFAULT_MODAL_Z_INDEX = 100;
+var open_modal_stack = [];
+var topmost_modal_token = (stack) => {
+  let top = null;
+  for (const entry of stack) {
+    if (top === null || entry.z_index >= top.z_index) {
+      top = entry;
+    }
+  }
+  return top === null ? null : top.token;
+};
 var size_class = {
   sm: "aster_modal_sm",
   md: "aster_modal_md",
@@ -643,6 +655,8 @@ var Modal = React10.forwardRef(
     size,
     show_close_button,
     close_on_overlay = true,
+    close_on_escape = true,
+    close_label = "Close",
     z_index,
     children,
     className,
@@ -666,21 +680,41 @@ var Modal = React10.forwardRef(
         on_close();
       }
     };
+    const stack_token = React10.useRef(null);
+    if (stack_token.current === null) {
+      stack_token.current = /* @__PURE__ */ Symbol("aster_modal");
+    }
+    const resolved_z_index = z_index ?? DEFAULT_MODAL_Z_INDEX;
     React10.useEffect(() => {
-      const handle_escape = (e) => {
-        if (e.key === "Escape" && resolved_open) {
-          on_close();
+      if (!resolved_open) return;
+      const token = stack_token.current;
+      open_modal_stack.push({ token, z_index: resolved_z_index });
+      return () => {
+        const index = open_modal_stack.findIndex(
+          (entry) => entry.token === token
+        );
+        if (index !== -1) {
+          open_modal_stack.splice(index, 1);
         }
+      };
+    }, [resolved_open, resolved_z_index]);
+    React10.useEffect(() => {
+      if (!resolved_open || !close_on_escape) return;
+      const token = stack_token.current;
+      const handle_escape = (e) => {
+        if (e.key !== "Escape") return;
+        if (topmost_modal_token(open_modal_stack) !== token) return;
+        on_close();
       };
       document.addEventListener("keydown", handle_escape);
       return () => document.removeEventListener("keydown", handle_escape);
-    }, [resolved_open, on_close]);
+    }, [resolved_open, close_on_escape, on_close]);
     return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: overlay_classes, onClick: handle_overlay_click, style: overlay_style, children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: modal_classes, ref, style, ...props, children: [
       show_close_button && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
         "button",
         {
           type: "button",
-          "aria-label": "Close",
+          "aria-label": close_label,
           className: "aster_modal_close_floating",
           onClick: on_close,
           children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
@@ -708,7 +742,7 @@ var Modal = React10.forwardRef(
 );
 Modal.displayName = "Modal";
 var ModalHeader = React10.forwardRef(
-  ({ title, icon, on_close, className, children, ...props }, ref) => {
+  ({ title, icon, on_close, close_label = "Close", className, children, ...props }, ref) => {
     const classes = ["aster_modal_header", className].filter(Boolean).join(" ");
     if (children !== void 0 && !title && !on_close && !icon) {
       return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: classes, ref, ...props, children });
@@ -721,6 +755,7 @@ var ModalHeader = React10.forwardRef(
         "button",
         {
           type: "button",
+          "aria-label": close_label,
           className: "aster_modal_close",
           onClick: on_close,
           children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(

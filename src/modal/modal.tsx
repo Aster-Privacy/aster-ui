@@ -30,9 +30,32 @@ interface ModalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title">
   size?: ModalSize;
   show_close_button?: boolean;
   close_on_overlay?: boolean;
+  close_on_escape?: boolean;
+  close_label?: string;
   z_index?: number;
   children: React.ReactNode;
 }
+
+const DEFAULT_MODAL_Z_INDEX = 100;
+
+interface OpenModalEntry {
+  token: symbol;
+  z_index: number;
+}
+
+const open_modal_stack: OpenModalEntry[] = [];
+
+const topmost_modal_token = (
+  stack: readonly OpenModalEntry[],
+): symbol | null => {
+  let top: OpenModalEntry | null = null;
+  for (const entry of stack) {
+    if (top === null || entry.z_index >= top.z_index) {
+      top = entry;
+    }
+  }
+  return top === null ? null : top.token;
+};
 
 const size_class: Record<ModalSize, string> = {
   sm: "aster_modal_sm",
@@ -52,6 +75,8 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       size,
       show_close_button,
       close_on_overlay = true,
+      close_on_escape = true,
+      close_label = "Close",
       z_index,
       children,
       className,
@@ -86,15 +111,38 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       }
     };
 
+    const stack_token = React.useRef<symbol | null>(null);
+    if (stack_token.current === null) {
+      stack_token.current = Symbol("aster_modal");
+    }
+
+    const resolved_z_index = z_index ?? DEFAULT_MODAL_Z_INDEX;
+
     React.useEffect(() => {
-      const handle_escape = (e: KeyboardEvent) => {
-        if (e.key === "Escape" && resolved_open) {
-          on_close();
+      if (!resolved_open) return;
+      const token = stack_token.current!;
+      open_modal_stack.push({ token, z_index: resolved_z_index });
+      return () => {
+        const index = open_modal_stack.findIndex(
+          (entry) => entry.token === token,
+        );
+        if (index !== -1) {
+          open_modal_stack.splice(index, 1);
         }
+      };
+    }, [resolved_open, resolved_z_index]);
+
+    React.useEffect(() => {
+      if (!resolved_open || !close_on_escape) return;
+      const token = stack_token.current!;
+      const handle_escape = (e: KeyboardEvent) => {
+        if (e.key !== "Escape") return;
+        if (topmost_modal_token(open_modal_stack) !== token) return;
+        on_close();
       };
       document.addEventListener("keydown", handle_escape);
       return () => document.removeEventListener("keydown", handle_escape);
-    }, [resolved_open, on_close]);
+    }, [resolved_open, close_on_escape, on_close]);
 
     return (
       <div className={overlay_classes} onClick={handle_overlay_click} style={overlay_style}>
@@ -102,7 +150,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
           {show_close_button && (
             <button
               type="button"
-              aria-label="Close"
+              aria-label={close_label}
               className="aster_modal_close_floating"
               onClick={on_close}
             >
@@ -133,11 +181,12 @@ interface ModalHeaderProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "t
   title?: string;
   icon?: React.ReactNode;
   on_close?: () => void;
+  close_label?: string;
   children?: React.ReactNode;
 }
 
 const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
-  ({ title, icon, on_close, className, children, ...props }, ref) => {
+  ({ title, icon, on_close, close_label = "Close", className, children, ...props }, ref) => {
     const classes = ["aster_modal_header", className].filter(Boolean).join(" ");
 
     if (children !== undefined && !title && !on_close && !icon) {
@@ -156,6 +205,7 @@ const ModalHeader = React.forwardRef<HTMLDivElement, ModalHeaderProps>(
         {on_close && (
           <button
             type="button"
+            aria-label={close_label}
             className="aster_modal_close"
             onClick={on_close}
           >
@@ -259,6 +309,8 @@ const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
 ModalFooter.displayName = "ModalFooter";
 
 export {
+  topmost_modal_token,
+  DEFAULT_MODAL_Z_INDEX,
   Modal,
   ModalHeader,
   ModalBody,
