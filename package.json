@@ -4,7 +4,7 @@
   "description": "Aster UI component library: buttons, badges, cards, banners, avatars, modals, tooltips, and more.",
   "type": "module",
   "license": "AGPL-3.0-or-later",
-  "author": "Aster Communications Inc.",
+  "author": "Aster",
   "homepage": "https://astermail.org",
   "repository": {
     "type": "git",
