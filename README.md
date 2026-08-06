@@ -15,14 +15,14 @@ Styling uses plain CSS classes, so the library doesn't require Tailwind or a run
 ## Install
 
 ```bash
-npm install @aster/ui
+npm install @aster-privacy/ui
 ```
 
 React 18 or later, React DOM, and Framer Motion 11 or later are peer dependencies, so install them alongside the package if your project doesn't already have them.
 
 ```tsx
-import { Button, Card, CardTitle } from "@aster/ui";
-import "@aster/ui/styles";
+import { Button, Card, CardTitle } from "@aster-privacy/ui";
+import "@aster-privacy/ui/styles";
 
 export function Example() {
   return (
@@ -36,7 +36,7 @@ export function Example() {
 
 The stylesheet is a separate import so that you can load it once at the root of your application.
 
-A second entry point at `@aster/ui/crypto` contains the family vault and Shamir recovery primitives. That entry point depends on [OpenPGP.js](https://openpgpjs.org) 6 or later, which is an optional peer dependency that you only need to install if you import from it.
+A second entry point at `@aster-privacy/ui/crypto` contains the family vault and Shamir recovery primitives. That entry point depends on [OpenPGP.js](https://openpgpjs.org) 6 or later, which is an optional peer dependency that you only need to install if you import from it.
 
 ## Theming
 

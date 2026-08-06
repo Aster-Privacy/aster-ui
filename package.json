@@ -1,5 +1,5 @@
 {
-  "name": "@aster/ui",
+  "name": "@aster-privacy/ui",
   "version": "0.1.1",
   "description": "Aster UI component library: buttons, badges, cards, banners, avatars, modals, tooltips, and more.",
   "type": "module",
