@@ -8,7 +8,7 @@
   "homepage": "https://astermail.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Aster-Privacy/aster-ui"
+    "url": "git+https://github.com/Aster-Privacy/aster-ui.git"
   },
   "keywords": [
     "aster",
@@ -50,6 +50,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
@@ -84,5 +87,8 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.2.8",
     "class-variance-authority": "^0.7.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

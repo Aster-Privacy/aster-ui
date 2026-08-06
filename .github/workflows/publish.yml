@@ -1,0 +1,128 @@
+name: publish
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.local.outputs.version }}
+      should_publish: ${{ steps.compare.outputs.should_publish }}
+      has_npm_token: ${{ steps.token.outputs.has_npm_token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - id: local
+        run: echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+
+      - id: compare
+        run: |
+          local_version="${{ steps.local.outputs.version }}"
+          published=$(npm view @aster/ui version 2>/dev/null || echo "none")
+          echo "local=$local_version published=$published"
+          if [ "$local_version" = "$published" ]; then
+            echo "should_publish=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::version $local_version is already published, nothing to do"
+          else
+            echo "should_publish=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - id: token
+        env:
+          npm_token: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -n "$npm_token" ]; then
+            echo "has_npm_token=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_npm_token=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::NPM_TOKEN is not set, skipping the npmjs.com publish"
+          fi
+
+  npm:
+    needs: check
+    if: needs.check.outputs.should_publish == 'true' && needs.check.outputs.has_npm_token == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Verify build output
+        run: |
+          test -f dist/index.js
+          test -f dist/index.cjs
+          test -f dist/index.d.ts
+          test -f dist/styles/aster.css
+
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  github_packages:
+    needs: check
+    if: needs.check.outputs.should_publish == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Verify build output
+        run: |
+          test -f dist/index.js
+          test -f dist/index.cjs
+          test -f dist/index.d.ts
+          test -f dist/styles/aster.css
+
+      - name: Rename scope for GitHub Packages
+        run: node -e "const f='package.json',p=require('./'+f);p.name='@aster-privacy/ui';require('fs').writeFileSync(f,JSON.stringify(p,null,2)+'\n')"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: '@aster-privacy'
+
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release:
+    needs: [check, github_packages]
+    if: needs.check.outputs.should_publish == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create the release if it does not exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag: v${{ needs.check.outputs.version }}
+        run: |
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "::notice::release $tag already exists"
+          else
+            gh release create "$tag" --title "$tag" --generate-notes
+          fi
