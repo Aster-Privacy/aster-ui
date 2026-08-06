@@ -4,11 +4,11 @@
 
 Aster UI is the React component library that [Aster Mail](https://github.com/Aster-Privacy/Aster-Mail) and the rest of the Aster apps are built from. It is the same code that runs in production rather than a reduced version of it, so every component you see in an Aster app is available to you here.
 
-The library is free and open source under AGPL v3, and you can install it from npm and use it in any React project. For the complete documentation, including live examples of every component, see [astermail.org/ui/docs](https://astermail.org/ui/docs).
+The library is free and open source under AGPL v3, and you can install it from npm and use it in any React project. For the complete documentation, including live examples of every component, see [astermail.org/ui/docs](https://astermail.org/ui/docs). The [component index](https://astermail.org/ui/docs/components) lists every export in the package.
 
 ## What's included
 
-The package exports around 170 components across 50 modules, covering buttons, badges, cards, banners, avatars, modals, tooltips, selects, toggles, accordions, navbars, sidebars, toasts, skeletons, dropdown menus, alert dialogs, mobile drawers, action sheets, and the settings and authentication shells that the apps share. Every component is fully typed, and the package ships both ESM and CommonJS builds with co-located type definitions.
+The package exports more than 190 components and helpers across 50 modules, covering buttons, badges, cards, banners, avatars, modals, tooltips, selects, toggles, accordions, navbars, sidebars, toasts, skeletons, dropdown menus, alert dialogs, mobile drawers, action sheets, and the settings and authentication shells that the apps share. Every component is fully typed, and the package ships both ESM and CommonJS builds with co-located type definitions.
 
 Styling uses plain CSS classes, so the library doesn't require Tailwind or a runtime CSS-in-JS library. Components that depend on focus management and keyboard navigation are built on [Radix UI](https://www.radix-ui.com) primitives, and animation uses [Framer Motion](https://www.framer.com/motion/).
 
