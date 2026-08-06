@@ -10,7 +10,7 @@ The library is free and open source under AGPL v3, and you can install it from n
 
 The package exports more than 190 components and helpers across 50 modules, covering buttons, badges, cards, banners, avatars, modals, tooltips, selects, toggles, accordions, navbars, sidebars, toasts, skeletons, dropdown menus, alert dialogs, mobile drawers, action sheets, and the settings and authentication shells that the apps share. Every component is fully typed, and the package ships both ESM and CommonJS builds with co-located type definitions.
 
-Styling uses plain CSS classes, so the library doesn't require Tailwind or a runtime CSS-in-JS library. Components that depend on focus management and keyboard navigation are built on [Radix UI](https://www.radix-ui.com) primitives, and animation uses [Framer Motion](https://www.framer.com/motion/).
+Styling uses plain CSS classes rather than a runtime CSS-in-JS library. The primitives, including buttons, badges, cards, modals, and tooltips, are styled entirely by the stylesheet and need nothing else. Around twenty of the larger components, such as `Spinner`, `EmptyState`, `SearchBar`, and `DashboardSidebar`, also render Tailwind utility classes and `txt-*`, `surf-*`, and `edge-*` design tokens, so use those in a project that has Tailwind set up with the tokens defined, or style the class names yourself. Components that depend on focus management and keyboard navigation are built on [Radix UI](https://www.radix-ui.com) primitives, and animation uses [Framer Motion](https://www.framer.com/motion/).
 
 ## Install
 
