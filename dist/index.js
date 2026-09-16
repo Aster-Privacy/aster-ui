@@ -21,7 +21,12 @@ var Spinner = React.forwardRef(
       "svg",
       {
         ref,
-        className: join_classes("animate-spin", size_classes[size], className),
+        className: join_classes(
+          "aster_spinner",
+          "animate-spin",
+          size_classes[size],
+          className
+        ),
         fill: "none",
         viewBox: "0 0 24 24",
         xmlns: "http://www.w3.org/2000/svg",
@@ -53,6 +58,22 @@ var Spinner = React.forwardRef(
   }
 );
 Spinner.displayName = "Spinner";
+var ButtonSpinner = React.forwardRef(({ size = "sm", centered = false, className, ...props }, ref) => {
+  return /* @__PURE__ */ jsx(
+    "span",
+    {
+      ref,
+      className: join_classes(
+        "aster_btn_spinner",
+        centered && "aster_btn_spinner_centered",
+        className
+      ),
+      ...props,
+      children: /* @__PURE__ */ jsx(Spinner, { size })
+    }
+  );
+});
+ButtonSpinner.displayName = "ButtonSpinner";
 
 // src/button/button.tsx
 import { Fragment, jsx as jsx2, jsxs as jsxs2 } from "react/jsx-runtime";
@@ -88,7 +109,7 @@ var Button = React2.forwardRef(
     size,
     as_child = false,
     is_loading = false,
-    loading_position = "replace",
+    loading_position = "edge",
     disabled,
     onClick,
     children,
@@ -100,21 +121,15 @@ var Button = React2.forwardRef(
       event.preventDefault();
       event.stopPropagation();
     } : onClick;
+    const has_label = React2.Children.toArray(children).length > 0;
+    const spinner_size = size === "sm" ? "xs" : "sm";
+    const centered_spinner = !has_label || size === "icon" || loading_position === "replace";
     let content = children;
     if (is_loading && !as_child) {
-      if (loading_position === "replace") {
-        content = /* @__PURE__ */ jsx2(Spinner, { size: "sm" });
-      } else if (loading_position === "before") {
-        content = /* @__PURE__ */ jsxs2(Fragment, { children: [
-          /* @__PURE__ */ jsx2(Spinner, { size: "sm" }),
-          children
-        ] });
-      } else {
-        content = /* @__PURE__ */ jsxs2(Fragment, { children: [
-          children,
-          /* @__PURE__ */ jsx2(Spinner, { size: "sm" })
-        ] });
-      }
+      content = centered_spinner ? /* @__PURE__ */ jsx2(Spinner, { size: spinner_size }) : /* @__PURE__ */ jsxs2(Fragment, { children: [
+        children,
+        /* @__PURE__ */ jsx2(ButtonSpinner, { size: spinner_size })
+      ] });
     }
     return /* @__PURE__ */ jsx2(
       Comp,
@@ -7033,6 +7048,7 @@ export {
   BadgeDot,
   Banner,
   Button,
+  ButtonSpinner,
   Card,
   CardContent,
   CardDescription,

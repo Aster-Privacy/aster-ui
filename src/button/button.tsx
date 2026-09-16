@@ -22,7 +22,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import { Spinner } from "../spinner";
+import { ButtonSpinner, Spinner } from "../spinner";
 
 const button_variants = cva("aster_btn", {
   variants: {
@@ -52,7 +52,7 @@ const button_variants = cva("aster_btn", {
 
 type ButtonVariantProps = VariantProps<typeof button_variants>;
 
-type LoadingPosition = "replace" | "before" | "after";
+type LoadingPosition = "edge" | "replace" | "before" | "after";
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -70,7 +70,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       as_child = false,
       is_loading = false,
-      loading_position = "replace",
+      loading_position = "edge",
       disabled,
       onClick,
       children,
@@ -88,25 +88,21 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           }
         : onClick;
 
+    const has_label = React.Children.toArray(children).length > 0;
+    const spinner_size = size === "sm" ? "xs" : "sm";
+    const centered_spinner =
+      !has_label || size === "icon" || loading_position === "replace";
+
     let content: React.ReactNode = children;
     if (is_loading && !as_child) {
-      if (loading_position === "replace") {
-        content = <Spinner size="sm" />;
-      } else if (loading_position === "before") {
-        content = (
-          <>
-            <Spinner size="sm" />
-            {children}
-          </>
-        );
-      } else {
-        content = (
-          <>
-            {children}
-            <Spinner size="sm" />
-          </>
-        );
-      }
+      content = centered_spinner ? (
+        <Spinner size={spinner_size} />
+      ) : (
+        <>
+          {children}
+          <ButtonSpinner size={spinner_size} />
+        </>
+      );
     }
 
     return (

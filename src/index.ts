@@ -108,8 +108,8 @@ export type {
 export { Skeleton, SkeletonText } from "./skeleton";
 export type { SkeletonProps, SkeletonTextProps, SkeletonVariant } from "./skeleton";
 
-export { Spinner } from "./spinner";
-export type { SpinnerProps, SpinnerSize } from "./spinner";
+export { Spinner, ButtonSpinner } from "./spinner";
+export type { SpinnerProps, SpinnerSize, ButtonSpinnerProps } from "./spinner";
 
 export { SimpleToast, show_toast, dismiss_toast } from "./toast";
 export type { SimpleToastProps, ToastKind, ToastPayload } from "./toast";

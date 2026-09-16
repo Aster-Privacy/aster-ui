@@ -43,7 +43,12 @@ export const Spinner = React.forwardRef<SVGSVGElement, SpinnerProps>(
     return (
       <svg
         ref={ref}
-        className={join_classes("animate-spin", size_classes[size], className)}
+        className={join_classes(
+          "aster_spinner",
+          "animate-spin",
+          size_classes[size],
+          className,
+        )}
         fill="none"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -69,3 +74,30 @@ export const Spinner = React.forwardRef<SVGSVGElement, SpinnerProps>(
 );
 
 Spinner.displayName = "Spinner";
+
+export interface ButtonSpinnerProps
+  extends React.HTMLAttributes<HTMLSpanElement> {
+  size?: SpinnerSize;
+  centered?: boolean;
+}
+
+export const ButtonSpinner = React.forwardRef<
+  HTMLSpanElement,
+  ButtonSpinnerProps
+>(({ size = "sm", centered = false, className, ...props }, ref) => {
+  return (
+    <span
+      ref={ref}
+      className={join_classes(
+        "aster_btn_spinner",
+        centered && "aster_btn_spinner_centered",
+        className,
+      )}
+      {...props}
+    >
+      <Spinner size={size} />
+    </span>
+  );
+});
+
+ButtonSpinner.displayName = "ButtonSpinner";
