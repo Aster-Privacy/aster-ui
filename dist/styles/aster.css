@@ -42,9 +42,17 @@
   animation: aster_spin 1s linear infinite;
 }
 
+.aster_btn,
+.aster_btn_loading_host,
+button:has(.aster_btn_spinner),
+a:has(.aster_btn_spinner),
+label:has(.aster_btn_spinner) {
+  position: relative;
+}
+
 .aster_btn_spinner {
   position: absolute;
-  inset-inline-end: 14px;
+  inset-inline-end: 12px;
   top: 0;
   bottom: 0;
   display: inline-flex;
@@ -55,6 +63,11 @@
 
 .aster_btn_xl .aster_btn_spinner {
   inset-inline-end: 18px;
+}
+
+.aster_btn_lg .aster_btn_spinner,
+.aster_btn_md .aster_btn_spinner {
+  inset-inline-end: 14px;
 }
 
 .aster_btn_sm .aster_btn_spinner {

@@ -14,7 +14,7 @@ declare const button_variants: (props?: ({
     size?: "sm" | "md" | "lg" | "xl" | "icon" | null | undefined;
 } & class_variance_authority_types.ClassProp) | undefined) => string;
 type ButtonVariantProps = VariantProps<typeof button_variants>;
-type LoadingPosition = "edge" | "replace" | "before" | "after";
+type LoadingPosition = "edge" | "replace";
 interface ButtonProps extends React$1.ButtonHTMLAttributes<HTMLButtonElement>, ButtonVariantProps {
     as_child?: boolean;
     is_loading?: boolean;
