@@ -19,28 +19,5 @@
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
 
-export {
-  Avatar,
-  AvatarWithStatus,
-  AvatarGroup,
-  AvatarNamed,
-  avatar_variants,
-} from "./avatar";
-export type {
-  AvatarProps,
-  AvatarVariantProps,
-  AvatarWithStatusProps,
-  AvatarGroupProps,
-  AvatarNamedProps,
-  StatusType,
-} from "./avatar";
-export {
-  AVATAR_COLORS,
-  get_active_locale,
-  get_avatar_color,
-  get_avatar_color_index,
-  get_avatar_key,
-  get_contrast_text,
-  get_initials,
-  hash_utf16,
-} from "./identity";
+export { UnderlineTabs } from "./underline_tabs";
+export type { UnderlineTabItem, UnderlineTabsProps } from "./underline_tabs";

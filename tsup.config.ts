@@ -23,7 +23,11 @@ import { defineConfig } from "tsup";
 import { cpSync } from "fs";
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/crypto/index.ts"],
+  entry: [
+    "src/index.ts",
+    "src/crypto/index.ts",
+    "src/compose_core/index.ts",
+  ],
   format: ["esm", "cjs"],
   dts: true,
   splitting: false,

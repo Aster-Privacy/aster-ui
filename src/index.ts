@@ -58,6 +58,14 @@ export {
   AvatarGroup,
   AvatarNamed,
   avatar_variants,
+  AVATAR_COLORS,
+  get_active_locale,
+  get_avatar_color,
+  get_avatar_color_index,
+  get_avatar_key,
+  get_contrast_text,
+  get_initials,
+  hash_utf16,
 } from "./avatar";
 export type {
   AvatarProps,
@@ -388,6 +396,8 @@ export type {
 export { FullPageLoader } from "./full_page_loader";
 
 export { CountBadge } from "./count_badge";
+export { UnderlineTabs } from "./tabs";
+export type { UnderlineTabItem, UnderlineTabsProps } from "./tabs";
 
 export { SettingRow } from "./setting_row";
 
@@ -446,3 +456,57 @@ export type {
   MobileDrawerShellProps,
   MobileActionSheetShellProps,
 } from "./mobile";
+
+export {
+  COMPOSE_ICON_PATHS,
+  ComposeIcon,
+  ComposeToolbarLayout,
+  ToolbarButton,
+  ToolbarDivider,
+  FORMAT_BAR_STORAGE_KEY,
+  read_format_bar_preference,
+  store_format_bar_preference,
+  use_anchored_layer,
+  has_open_overlay_layer,
+  is_top_overlay_layer,
+  push_overlay_layer,
+  remove_overlay_layer,
+  use_escape_layer,
+  use_overlay_layer,
+  is_composing,
+  normalize_link_url,
+  EmojiPicker,
+  is_emoji_renderable,
+  EMOJI_PICKER_MAX_HEIGHT,
+  EMOJI_PICKER_WIDTH,
+  EmojiPopover,
+  clamp_emoji_picker_position,
+  LinkPopover,
+  DraftStatusIndicator,
+  apply_skin_tone,
+  emoji_categories,
+  get_all_emojis,
+  is_tone_capable,
+  search_emojis,
+  skin_tone_modifiers,
+  skin_tone_swatches,
+  skin_tones,
+  tone_capable_emoji,
+} from "./compose";
+export type {
+  ComposeIconName,
+  ComposeIconProps,
+  ComposeToolbarLayoutProps,
+  ToolbarButtonProps,
+  EmojiPickerLabels,
+  EmojiPickerProps,
+  EmojiPopoverProps,
+  LinkPopoverLabels,
+  LinkPopoverProps,
+  DraftStatus,
+  DraftStatusIndicatorProps,
+  DraftStatusLabels,
+  EmojiCategory,
+  EmojiEntry,
+  SkinTone,
+} from "./compose";
