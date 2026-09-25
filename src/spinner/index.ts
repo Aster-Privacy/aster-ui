@@ -19,5 +19,5 @@
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
 
-export { Spinner } from "./spinner";
-export type { SpinnerProps, SpinnerSize } from "./spinner";
+export { Spinner, ButtonSpinner } from "./spinner";
+export type { SpinnerProps, SpinnerSize, ButtonSpinnerProps } from "./spinner";

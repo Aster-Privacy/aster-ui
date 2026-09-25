@@ -28,7 +28,7 @@ function join_classes(...parts: Array<string | false | null | undefined>): strin
 }
 
 export type IslandPadding = "none" | "sm" | "md" | "lg";
-export type IslandTone = "default" | "danger" | "accent";
+export type IslandTone = "default" | "danger" | "accent" | "warning" | "success";
 
 export interface IslandProps extends React.HTMLAttributes<HTMLDivElement> {
   padding?: IslandPadding;
@@ -74,9 +74,87 @@ export const Island = React.forwardRef<HTMLDivElement, IslandProps>(
 
 Island.displayName = "Island";
 
+export interface IslandLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  padding?: IslandPadding;
+  tone?: IslandTone;
+  selected?: boolean;
+}
+
+export const IslandLink = React.forwardRef<HTMLAnchorElement, IslandLinkProps>(
+  ({ padding = "none", tone = "default", selected = false, className, target, rel, ...props }, ref) => (
+    <a
+      ref={ref}
+      className={join_classes(
+        "aster_island",
+        "aster_island_link",
+        "aster_island_interactive",
+        padding !== "none" && `aster_island_pad_${padding}`,
+        tone !== "default" && `aster_island_tone_${tone}`,
+        selected && "aster_island_selected",
+        className,
+      )}
+      rel={rel ?? (target === "_blank" ? "noopener noreferrer" : undefined)}
+      target={target}
+      {...props}
+    />
+  ),
+);
+
+IslandLink.displayName = "IslandLink";
+
+export type IslandBlockSize = "sm" | "md" | "lg";
+
+export interface IslandBlockProps extends React.HTMLAttributes<HTMLDivElement> {
+  size?: IslandBlockSize;
+}
+
+export const IslandBlock = React.forwardRef<HTMLDivElement, IslandBlockProps>(
+  ({ size = "md", className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={join_classes("aster_island_block", `aster_island_block_${size}`, className)}
+      {...props}
+    />
+  ),
+);
+
+IslandBlock.displayName = "IslandBlock";
+
+export interface IslandEmptyProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
+  icon?: React.ReactNode;
+  title: React.ReactNode;
+  description?: React.ReactNode;
+  action?: React.ReactNode;
+  tone?: IslandTone;
+}
+
+export const IslandEmpty = React.forwardRef<HTMLDivElement, IslandEmptyProps>(
+  ({ icon, title, description, action, tone = "default", className, ...props }, ref) => (
+    <Island
+      ref={ref}
+      className={join_classes("aster_island_empty", className)}
+      padding="lg"
+      tone={tone}
+      {...props}
+    >
+      {icon && (
+        <span aria-hidden="true" className="aster_island_empty_icon">
+          {icon}
+        </span>
+      )}
+      <p className="aster_island_empty_title">{title}</p>
+      {description && <p className="aster_island_empty_description">{description}</p>}
+      {action && <div className="aster_island_empty_action">{action}</div>}
+    </Island>
+  ),
+);
+
+IslandEmpty.displayName = "IslandEmpty";
+
 export interface IslandSectionProps
   extends Omit<React.HTMLAttributes<HTMLElement>, "title"> {
   title?: React.ReactNode;
+  title_info?: React.ReactNode;
   icon?: React.ReactNode;
   description?: React.ReactNode;
   trailing?: React.ReactNode;
@@ -92,6 +170,7 @@ export const IslandSection = React.forwardRef<HTMLElement, IslandSectionProps>(
   (
     {
       title,
+      title_info,
       icon,
       description,
       trailing,
@@ -123,6 +202,9 @@ export const IslandSection = React.forwardRef<HTMLElement, IslandSectionProps>(
                 <h3 className="aster_island_section_title" id={heading_id}>
                   {icon}
                   <span>{title}</span>
+                  {title_info && (
+                    <span className="aster_island_section_title_info">{title_info}</span>
+                  )}
                 </h3>
               )}
               {description && (

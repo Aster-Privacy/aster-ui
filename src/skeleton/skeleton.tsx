@@ -21,14 +21,11 @@
 
 import * as React from "react";
 
-function join_classes(...parts: Array<string | false | null | undefined>): string {
-  return parts.filter(Boolean).join(" ");
-}
+import { cn } from "../lib/cn";
 
 export type SkeletonVariant = "text" | "circular" | "rectangular";
 
-export interface SkeletonProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
+export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: SkeletonVariant;
   width?: number | string;
   height?: number | string;
@@ -38,21 +35,33 @@ const base_classes =
   "animate-pulse bg-black/[0.06] dark:bg-white/[0.08] inline-block align-middle";
 
 export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(
-  ({ variant = "rectangular", width, height, className, style, ...props }, ref) => {
+  ({ variant, width, height, className, style, ...props }, ref) => {
+    if (variant === undefined && width === undefined && height === undefined) {
+      return (
+        <div
+          ref={ref}
+          className={cn("aster_skeleton", className)}
+          style={style}
+          {...props}
+        />
+      );
+    }
+
+    const resolved_variant: SkeletonVariant = variant ?? "rectangular";
     const radius =
-      variant === "circular"
+      resolved_variant === "circular"
         ? "rounded-full"
-        : variant === "text"
+        : resolved_variant === "text"
           ? "rounded-[4px]"
           : "rounded-md";
 
     const resolved_style: React.CSSProperties = {
-      width: width ?? (variant === "text" ? "100%" : undefined),
+      width: width ?? (resolved_variant === "text" ? "100%" : undefined),
       height:
         height ??
-        (variant === "text"
+        (resolved_variant === "text"
           ? "0.85em"
-          : variant === "circular"
+          : resolved_variant === "circular"
             ? width
             : undefined),
       ...style,
@@ -62,7 +71,7 @@ export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(
       <div
         ref={ref}
         aria-hidden="true"
-        className={join_classes(base_classes, radius, className)}
+        className={cn(base_classes, radius, className)}
         style={resolved_style}
         {...props}
       />
@@ -71,7 +80,6 @@ export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(
 );
 
 Skeleton.displayName = "Skeleton";
-
 export interface SkeletonTextProps
   extends Omit<React.HTMLAttributes<HTMLDivElement>, "children"> {
   lines?: number;
@@ -96,7 +104,7 @@ export const SkeletonText = React.forwardRef<HTMLDivElement, SkeletonTextProps>(
     return (
       <div
         ref={ref}
-        className={join_classes("flex flex-col", className)}
+        className={cn("flex flex-col", className)}
         style={{ gap, ...style }}
         {...props}
       >

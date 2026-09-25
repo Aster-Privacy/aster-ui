@@ -21,6 +21,7 @@
 
 @import "./island.css";
 @import "./tokens.css";
+@import "./account.css";
 
 @source "../index.js";
 @source "../date_picker/index.js";
@@ -2641,4 +2642,67 @@
   justify-content: center;
   white-space: nowrap;
   line-height: inherit;
+}
+
+@keyframes aster_spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.aster_spinner {
+  animation: aster_spin 1s linear infinite;
+}
+
+.aster_btn,
+.aster_btn_loading_host,
+button:has(.aster_btn_spinner),
+a:has(.aster_btn_spinner),
+label:has(.aster_btn_spinner) {
+  position: relative;
+}
+
+.aster_btn,
+.aster_btn_loading_host,
+button,
+a,
+label {
+  --aster-btn-spinner-end: 12px;
+}
+
+.aster_btn_xl {
+  --aster-btn-spinner-end: 18px;
+}
+
+.aster_btn_lg,
+.aster_btn_md {
+  --aster-btn-spinner-end: 14px;
+}
+
+.aster_btn_sm {
+  --aster-btn-spinner-end: 10px;
+}
+
+.aster_btn_spinner {
+  position: absolute;
+  inset-inline-end: var(--aster-btn-spinner-end);
+  top: 0;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.aster_btn_loading_host:has(.aster_btn_spinner:not(.aster_btn_spinner_centered)),
+button:has(.aster_btn_spinner:not(.aster_btn_spinner_centered)),
+a:has(.aster_btn_spinner:not(.aster_btn_spinner_centered)),
+label:has(.aster_btn_spinner:not(.aster_btn_spinner_centered)) {
+  padding-inline-end: calc(var(--aster-btn-spinner-end) + 1.5rem);
+}
+
+.aster_btn_icon .aster_btn_spinner,
+.aster_btn_spinner_centered {
+  position: static;
+  inset-inline-end: auto;
 }

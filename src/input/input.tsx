@@ -20,6 +20,8 @@
 //
 import * as React from "react";
 
+import { cn } from "../lib/cn";
+
 type InputSize = "sm" | "md" | "lg" | "xl";
 type InputStatus = "default" | "success" | "error";
 
@@ -42,16 +44,12 @@ export interface InputProps
   status?: InputStatus;
 }
 
-function join_classes(...parts: Array<string | false | null | undefined>): string {
-  return parts.filter(Boolean).join(" ");
-}
-
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, size = "lg", status = "default", ...props }, ref) => {
     return (
       <input
         ref={ref}
-        className={join_classes(
+        className={cn(
           "aster_input",
           SIZE_CLASSES[size],
           STATUS_CLASSES[status],

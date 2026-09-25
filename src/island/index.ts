@@ -28,6 +28,9 @@ export {
   IslandStack,
   IslandGrid,
   IslandPage,
+  IslandLink,
+  IslandBlock,
+  IslandEmpty,
 } from "./island";
 export type {
   IslandProps,
@@ -42,6 +45,10 @@ export type {
   IslandGridProps,
   IslandPageProps,
   IslandPageWidth,
+  IslandLinkProps,
+  IslandBlockProps,
+  IslandBlockSize,
+  IslandEmptyProps,
 } from "./island";
 
 export {

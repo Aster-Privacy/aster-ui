@@ -23,9 +23,7 @@
 import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { button_variants } from "../button";
-
-const cn = (...classes: Array<string | undefined | null | false>) =>
-  classes.filter(Boolean).join(" ");
+import { cn } from "../lib/cn";
 
 const AlertDialog = AlertDialogPrimitive.Root;
 
@@ -73,7 +71,7 @@ const AlertDialogHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn("flex flex-col gap-3 text-center sm:text-left", className)}
+    className={cn("flex flex-col gap-3 text-center sm:text-start", className)}
     {...props}
   />
 );

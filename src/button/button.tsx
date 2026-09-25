@@ -22,7 +22,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import { Spinner } from "../spinner";
+import { ButtonSpinner } from "../spinner";
 
 const button_variants = cva("aster_btn", {
   variants: {
@@ -70,59 +70,45 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       as_child = false,
       is_loading = false,
-      loading_position = "replace",
+      loading_position,
       disabled,
-      onClick,
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     const Comp = as_child ? Slot : "button";
-    const effective_disabled = disabled || is_loading;
-    const handle_click: React.MouseEventHandler<HTMLButtonElement> | undefined =
-      is_loading
-        ? (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-        : onClick;
+    const class_name = button_variants({ variant, size, className });
 
-    let content: React.ReactNode = children;
-    if (is_loading && !as_child) {
-      if (loading_position === "replace") {
-        content = <Spinner size="sm" />;
-      } else if (loading_position === "before") {
-        content = (
-          <>
-            <Spinner size="sm" />
-            {children}
-          </>
-        );
-      } else {
-        content = (
-          <>
-            {children}
-            <Spinner size="sm" />
-          </>
-        );
-      }
+    if (!is_loading || as_child) {
+      return (
+        <Comp className={class_name} disabled={disabled} ref={ref} {...props}>
+          {children}
+        </Comp>
+      );
     }
+
+    const has_label = React.Children.toArray(children).length > 0;
+    const keep_centered =
+      !has_label || size === "icon" || loading_position === "replace";
 
     return (
       <Comp
-        className={button_variants({ variant, size, className })}
+        className={class_name}
         ref={ref}
-        disabled={effective_disabled}
-        aria-busy={is_loading || undefined}
-        data-loading={is_loading || undefined}
-        onClick={handle_click}
         {...props}
+        aria-busy
+        data-loading
+        disabled={disabled || is_loading}
       >
-        {content}
+        {keep_centered ? null : children}
+        <ButtonSpinner
+          centered={keep_centered}
+          size={size === "sm" ? "xs" : "sm"}
+        />
       </Comp>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";

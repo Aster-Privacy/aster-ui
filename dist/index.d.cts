@@ -1,11 +1,12 @@
 import * as class_variance_authority_types from 'class-variance-authority/types';
 import * as React$1 from 'react';
-import { CSSProperties, ReactNode, SVGProps, ReactElement } from 'react';
+import { CSSProperties, ReactNode, SVGProps, ReactElement, PointerEvent, ComponentType } from 'react';
 import { VariantProps } from 'class-variance-authority';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
+import * as ContextMenuPrimitive from '@radix-ui/react-context-menu';
 import * as AlertDialogPrimitive from '@radix-ui/react-alert-dialog';
 import { Variants, Transition } from 'framer-motion';
 import { ClassValue } from 'clsx';
@@ -172,6 +173,10 @@ declare const ModalFooter: React$1.ForwardRefExoticComponent<ModalFooterProps & 
 declare const Select: React$1.FC<SelectPrimitive.SelectProps>;
 declare const SelectGroup: React$1.ForwardRefExoticComponent<SelectPrimitive.SelectGroupProps & React$1.RefAttributes<HTMLDivElement>>;
 declare const SelectValue: React$1.ForwardRefExoticComponent<SelectPrimitive.SelectValueProps & React$1.RefAttributes<HTMLSpanElement>>;
+declare const SelectLabel: React$1.ForwardRefExoticComponent<Omit<SelectPrimitive.SelectLabelProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const SelectSeparator: React$1.ForwardRefExoticComponent<Omit<SelectPrimitive.SelectSeparatorProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const SelectScrollUpButton: React$1.ForwardRefExoticComponent<Omit<SelectPrimitive.SelectScrollUpButtonProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const SelectScrollDownButton: React$1.ForwardRefExoticComponent<Omit<SelectPrimitive.SelectScrollDownButtonProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
 declare const SelectTrigger: React$1.ForwardRefExoticComponent<Omit<SelectPrimitive.SelectTriggerProps & React$1.RefAttributes<HTMLButtonElement>, "ref"> & React$1.RefAttributes<HTMLButtonElement>>;
 declare const SelectContent: React$1.ForwardRefExoticComponent<Omit<SelectPrimitive.SelectContentProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
 declare const SelectItem: React$1.ForwardRefExoticComponent<Omit<SelectPrimitive.SelectItemProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
@@ -181,9 +186,13 @@ type SelectValueProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.
 type SelectTriggerProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>;
 type SelectContentProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>;
 type SelectItemProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>;
+type SelectLabelProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>;
+type SelectSeparatorProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>;
+type SelectScrollUpButtonProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>;
+type SelectScrollDownButtonProps = React$1.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>;
 
 type SkeletonVariant = "text" | "circular" | "rectangular";
-interface SkeletonProps extends Omit<React$1.HTMLAttributes<HTMLDivElement>, "children"> {
+interface SkeletonProps extends React$1.HTMLAttributes<HTMLDivElement> {
     variant?: SkeletonVariant;
     width?: number | string;
     height?: number | string;
@@ -202,6 +211,12 @@ interface SpinnerProps extends React$1.SVGAttributes<SVGSVGElement> {
     size?: SpinnerSize;
 }
 declare const Spinner: React$1.ForwardRefExoticComponent<SpinnerProps & React$1.RefAttributes<SVGSVGElement>>;
+interface ButtonSpinnerProps {
+    size?: SpinnerSize;
+    centered?: boolean;
+    className?: string;
+}
+declare function ButtonSpinner({ size, centered, className, }: ButtonSpinnerProps): react_jsx_runtime.JSX.Element;
 
 type ToastKind = "success" | "warning" | "error" | "info";
 interface ToastPayload {
@@ -800,27 +815,32 @@ declare const Input: React$1.ForwardRefExoticComponent<Omit<InputProps, "ref"> &
 declare const RadioGroup: React$1.ForwardRefExoticComponent<Omit<RadioGroupPrimitive.RadioGroupProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
 declare const RadioGroupItem: React$1.ForwardRefExoticComponent<Omit<RadioGroupPrimitive.RadioGroupItemProps & React$1.RefAttributes<HTMLButtonElement>, "ref"> & React$1.RefAttributes<HTMLButtonElement>>;
 
-type MotionModalSize = "sm" | "md" | "lg" | "xl" | "2xl";
+type MotionModalSize = "sm" | "md" | "lg" | "xl" | "2xl" | "full";
 interface MotionModalProps {
     is_open: boolean;
     on_close: () => void;
     size?: MotionModalSize;
     show_close_button?: boolean;
     close_on_overlay?: boolean;
+    close_on_escape?: boolean;
     z_index?: number;
     className?: string;
+    panel_class_name?: string;
+    overlay_class_name?: string;
+    reduce_motion?: boolean;
+    close_label?: string;
     children: React$1.ReactNode;
 }
-declare function MotionModal({ is_open, on_close, size, show_close_button, close_on_overlay, z_index, className, children, }: MotionModalProps): react_jsx_runtime.JSX.Element;
+declare function MotionModal({ is_open, on_close, size, show_close_button, close_on_overlay, close_on_escape, z_index, className, panel_class_name, overlay_class_name, reduce_motion, close_label, children, }: MotionModalProps): react_jsx_runtime.JSX.Element;
 interface MotionModalHeaderProps extends React$1.HTMLAttributes<HTMLDivElement> {
 }
 declare function MotionModalHeader({ className, children, ...props }: MotionModalHeaderProps): react_jsx_runtime.JSX.Element;
 interface MotionModalTitleProps extends React$1.HTMLAttributes<HTMLHeadingElement> {
 }
-declare function MotionModalTitle({ className, children, ...props }: MotionModalTitleProps): react_jsx_runtime.JSX.Element;
+declare function MotionModalTitle({ className, children, id, style, ...props }: MotionModalTitleProps): react_jsx_runtime.JSX.Element;
 interface MotionModalDescriptionProps extends React$1.HTMLAttributes<HTMLParagraphElement> {
 }
-declare function MotionModalDescription({ className, children, ...props }: MotionModalDescriptionProps): react_jsx_runtime.JSX.Element;
+declare function MotionModalDescription({ className, children, id, style, ...props }: MotionModalDescriptionProps): react_jsx_runtime.JSX.Element;
 interface MotionModalBodyProps extends React$1.HTMLAttributes<HTMLDivElement> {
 }
 declare function MotionModalBody({ className, children, ...props }: MotionModalBodyProps): react_jsx_runtime.JSX.Element;
@@ -923,6 +943,27 @@ interface ContextMenuProps {
     origin?: "top-left" | "top-right";
 }
 declare function ContextMenu({ items, position, on_close, min_width, origin, }: ContextMenuProps): react_jsx_runtime.JSX.Element;
+
+declare const RadixContextMenu: React$1.FC<ContextMenuPrimitive.ContextMenuProps>;
+declare const RadixContextMenuTrigger: React$1.ForwardRefExoticComponent<ContextMenuPrimitive.ContextMenuTriggerProps & React$1.RefAttributes<HTMLSpanElement>>;
+declare const RadixContextMenuGroup: React$1.ForwardRefExoticComponent<ContextMenuPrimitive.ContextMenuGroupProps & React$1.RefAttributes<HTMLDivElement>>;
+declare const RadixContextMenuPortal: React$1.FC<ContextMenuPrimitive.ContextMenuPortalProps>;
+declare const RadixContextMenuSub: React$1.FC<ContextMenuPrimitive.ContextMenuSubProps>;
+declare const RadixContextMenuRadioGroup: React$1.ForwardRefExoticComponent<ContextMenuPrimitive.ContextMenuRadioGroupProps & React$1.RefAttributes<HTMLDivElement>>;
+declare const RadixContextMenuSubTrigger: React$1.ForwardRefExoticComponent<Omit<ContextMenuPrimitive.ContextMenuSubTriggerProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & {
+    inset?: boolean;
+} & React$1.RefAttributes<HTMLDivElement>>;
+declare const RadixContextMenuSubContent: React$1.ForwardRefExoticComponent<Omit<ContextMenuPrimitive.ContextMenuSubContentProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const RadixContextMenuContent: React$1.ForwardRefExoticComponent<Omit<ContextMenuPrimitive.ContextMenuContentProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const RadixContextMenuItem: React$1.ForwardRefExoticComponent<Omit<ContextMenuPrimitive.ContextMenuItemProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & {
+    inset?: boolean;
+} & React$1.RefAttributes<HTMLDivElement>>;
+declare const RadixContextMenuCheckboxItem: React$1.ForwardRefExoticComponent<Omit<ContextMenuPrimitive.ContextMenuCheckboxItemProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const RadixContextMenuRadioItem: React$1.ForwardRefExoticComponent<Omit<ContextMenuPrimitive.ContextMenuRadioItemProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
+declare const RadixContextMenuLabel: React$1.ForwardRefExoticComponent<Omit<ContextMenuPrimitive.ContextMenuLabelProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & {
+    inset?: boolean;
+} & React$1.RefAttributes<HTMLDivElement>>;
+declare const RadixContextMenuSeparator: React$1.ForwardRefExoticComponent<Omit<ContextMenuPrimitive.ContextMenuSeparatorProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
 
 declare function FullPageLoader(): react_jsx_runtime.JSX.Element | null;
 
@@ -1074,7 +1115,7 @@ interface MobileActionSheetShellProps {
 declare const MobileActionSheetShell: React$1.NamedExoticComponent<MobileActionSheetShellProps>;
 
 type IslandPadding = "none" | "sm" | "md" | "lg";
-type IslandTone = "default" | "danger" | "accent";
+type IslandTone = "default" | "danger" | "accent" | "warning" | "success";
 interface IslandProps extends React$1.HTMLAttributes<HTMLDivElement> {
     padding?: IslandPadding;
     tone?: IslandTone;
@@ -1084,8 +1125,28 @@ interface IslandProps extends React$1.HTMLAttributes<HTMLDivElement> {
     as?: "div" | "section" | "article" | "li" | "ul" | "ol" | "form";
 }
 declare const Island: React$1.ForwardRefExoticComponent<IslandProps & React$1.RefAttributes<HTMLDivElement>>;
+interface IslandLinkProps extends React$1.AnchorHTMLAttributes<HTMLAnchorElement> {
+    padding?: IslandPadding;
+    tone?: IslandTone;
+    selected?: boolean;
+}
+declare const IslandLink: React$1.ForwardRefExoticComponent<IslandLinkProps & React$1.RefAttributes<HTMLAnchorElement>>;
+type IslandBlockSize = "sm" | "md" | "lg";
+interface IslandBlockProps extends React$1.HTMLAttributes<HTMLDivElement> {
+    size?: IslandBlockSize;
+}
+declare const IslandBlock: React$1.ForwardRefExoticComponent<IslandBlockProps & React$1.RefAttributes<HTMLDivElement>>;
+interface IslandEmptyProps extends Omit<React$1.HTMLAttributes<HTMLDivElement>, "title"> {
+    icon?: React$1.ReactNode;
+    title: React$1.ReactNode;
+    description?: React$1.ReactNode;
+    action?: React$1.ReactNode;
+    tone?: IslandTone;
+}
+declare const IslandEmpty: React$1.ForwardRefExoticComponent<IslandEmptyProps & React$1.RefAttributes<HTMLDivElement>>;
 interface IslandSectionProps extends Omit<React$1.HTMLAttributes<HTMLElement>, "title"> {
     title?: React$1.ReactNode;
+    title_info?: React$1.ReactNode;
     icon?: React$1.ReactNode;
     description?: React$1.ReactNode;
     trailing?: React$1.ReactNode;
@@ -1190,13 +1251,14 @@ interface SettingToggleRowProps {
     info?: React$1.ReactNode;
     note?: React$1.ReactNode;
     icon?: React$1.ReactNode;
+    trailing?: React$1.ReactNode;
     checked: boolean;
     on_change: (checked: boolean) => void;
     disabled?: boolean;
     size?: "sm" | "md" | "lg";
     className?: string;
 }
-declare function SettingToggleRow({ label, description, info, note, icon, checked, on_change, disabled, size, className, }: SettingToggleRowProps): react_jsx_runtime.JSX.Element;
+declare function SettingToggleRow({ label, description, info, note, icon, trailing, checked, on_change, disabled, size, className, }: SettingToggleRowProps): react_jsx_runtime.JSX.Element;
 interface SettingControlRowProps {
     label: React$1.ReactNode;
     description?: React$1.ReactNode;
@@ -1313,4 +1375,395 @@ declare function has_open_overlay_layer(): boolean;
 declare function use_overlay_layer(is_open: boolean, label?: string, blocking?: boolean): symbol;
 declare function use_escape_layer(is_open: boolean, on_close: () => void, label?: string, blocking?: boolean): symbol;
 
-export { Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, type AccordionVariantProps, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, type AlertDialogContentProps, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger, type AppEntry, AppSwitcher, type AppSwitcherProps, type AsterUiStrings, type AuthAlertKind, AuthCard, AuthCardBody, type AuthCardBodyProps, type AuthCardProps, AuthCheckIcon, AuthCheckbox, type AuthCheckboxProps, AuthDocumentIcon, AuthDownloadIcon, AuthEnvelopeIcon, AuthEyeIcon, AuthEyeSlashIcon, AuthFormLabel, AuthFourPointStar, AuthInputWrapper, type AuthInputWrapperProps, AuthLockClosedIcon, AuthLockIcon, AuthLogo, type AuthLogoProps, AuthShieldCheckIcon, AuthSparkleDecoration, AuthUserCircleIcon, AuthWarningIcon, Avatar, AvatarGroup, type AvatarGroupProps, AvatarNamed, type AvatarNamedProps, type AvatarProps, type AvatarVariantProps, AvatarWithStatus, type AvatarWithStatusProps, Badge, BadgeDot, type BadgeDotProps, type BadgeProps, type BadgeVariantProps, Banner, type BannerProps, Button, type ButtonProps, type ButtonVariantProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, type CardIconProps, type CardProps, CardTitle, type CardVariantProps, Checkbox, type CheckboxProps, CoinIcon, type CoinIconProps, ColorVisionFilters, type ColorVisionFiltersProps, type ColorVisionMode, ConfirmationModal, type ConfirmationModalProps, type ConfirmationVariant, ContextMenu, type ContextMenuItem, type ContextMenuPosition, type ContextMenuProps, CountBadge, CrownIcon, DashboardSidebar, type DashboardSidebarAccountLike, type DashboardSidebarFilter, type DashboardSidebarProps, type DashboardSidebarTStrings, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, EmptyState, type EmptyStateProps, ErrorBanner, type ErrorBannerProps, ExternalLinkWarningModal, type ExternalLinkWarningModalProps, FaviconOrInitial, type FaviconOrInitialProps, FeatureCard, type FeatureCardProps, FieldHint, type FieldHintProps, FieldLabel, type FieldLabelProps, FullPageLoader, InfoPopover, type InfoPopoverProps, Input, type InputProps, Island, IslandChip, type IslandChipProps, IslandCountPill, type IslandCountPillProps, IslandDivider, type IslandDividerProps, IslandGrid, type IslandGridProps, IslandIconButton, type IslandIconButtonProps, type IslandPadding, IslandPage, type IslandPageProps, type IslandPageWidth, type IslandProps, IslandRow, type IslandRowProps, type IslandRowToggle, IslandSection, type IslandSectionProps, IslandSections, type IslandSectionsProps, IslandStack, type IslandStackProps, type IslandTone, Kbd, type KbdProps, type KbdVariantProps, type KeyboardShortcutEntry, type KeyboardShortcutSection, KeyboardShortcutsModal, type KeyboardShortcutsModalProps, type KeyboardShortcutsTStrings, Marquee, MarqueeLogo, type MarqueeLogoProps, type MarqueeProps, MarqueeTrack, type MarqueeTrackProps, type MarqueeVariantProps, MobileActionSheetShell, type MobileActionSheetShellProps, MobileDrawerShell, type MobileDrawerShellProps, MobileHeader, MobileHeaderIconButton, type MobileHeaderIconButtonProps, type MobileHeaderProps, Modal, ModalActions, type ModalActionsProps, ModalBody, type ModalBodyProps, ModalDescription, type ModalDescriptionProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, type ModalProps, type ModalSize, ModalTitle, type ModalTitleProps, MotionModal, MotionModalActions, type MotionModalActionsProps, MotionModalBody, type MotionModalBodyProps, MotionModalDescription, type MotionModalDescriptionProps, MotionModalFooter, type MotionModalFooterProps, MotionModalHeader, type MotionModalHeaderProps, type MotionModalProps, type MotionModalSize, MotionModalTitle, type MotionModalTitleProps, Navbar, NavbarActions, type NavbarActionsProps, NavbarCta, type NavbarCtaProps, NavbarHamburger, type NavbarHamburgerProps, NavbarInner, type NavbarInnerProps, NavbarLink, type NavbarLinkProps, NavbarLinks, type NavbarLinksProps, NavbarLogo, type NavbarLogoProps, NavbarMega, NavbarMegaCol, type NavbarMegaColProps, NavbarMegaCols, type NavbarMegaColsProps, NavbarMegaItem, type NavbarMegaItemProps, NavbarMegaItemSimple, type NavbarMegaItemSimpleProps, NavbarMegaPanel, type NavbarMegaPanelProps, type NavbarMegaProps, NavbarMobileDivider, NavbarMobileLink, type NavbarMobileLinkProps, NavbarMobileMenu, type NavbarMobileMenuProps, type NavbarProps, NavbarSearch, type NavbarSearchProps, NavbarTrigger, type NavbarTriggerProps, type NavbarVariant, NotFoundPage, type NotFoundPageProps, OtpInput, type OtpInputProps, PillButton, type PillButtonProps, type PillSize, type PillVariant, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, PricingCard, type PricingCardProps, Progress, Radio, RadioGroup, RadioGroupItem, type RadioProps, RadioRowWithDescription, SearchBar, type SearchBarProps, type SegOption, SegmentedToggle, type SegmentedToggleProps, Select, SelectContent, type SelectContentProps, SelectGroup, type SelectGroupProps, SelectItem, type SelectItemProps, type SelectProps, SelectTrigger, type SelectTriggerProps, SelectValue, type SelectValueProps, Separator, SettingControlRow, type SettingControlRowProps, SettingNote, type SettingNoteProps, type SettingNoteTone, SettingRow, SettingToggleRow, type SettingToggleRowProps, SettingsModalShell, type SettingsModalShellProps, SettingsNavGroup, type SettingsNavGroupData, type SettingsNavGroupProps, type SettingsNavItem, SettingsNavItemButton, type SettingsNavItemButtonProps, SettingsRow, type SettingsRowProps, SettingsSaveIndicator, type SettingsSaveIndicatorProps, type SettingsSaveStatus, SettingsSectionHeader, type SettingsSectionHeaderProps, SidebarAccountMenu, type SidebarAccountMenuItem, type SidebarAccountMenuProps, SidebarActionButton, type SidebarActionButtonProps, SidebarHeader, type SidebarHeaderProps, SidebarMoreToggle, type SidebarMoreToggleProps, SidebarNavRow, type SidebarNavRowProps, SidebarSectionHeader, type SidebarSectionHeaderProps, SidebarSectionToggle, type SidebarSectionToggleProps, SidebarTagRow, type SidebarTagRowProps, SimpleToast, type SimpleToastProps, Skeleton, type SkeletonProps, SkeletonText, type SkeletonTextProps, type SkeletonVariant, Slider, type SliderProps, SparkleOverlay, type SparkleOverlayProps, Spinner, type SpinnerProps, type SpinnerSize, StatCard, type StatCardProps, type StatTrend, type StatusType, StorageIndicator, type StorageIndicatorProps, Switch, type SwitchProps, type SwitchVariantProps, TestimonialCard, type TestimonialCardProps, TextRoller, type TextRollerItem, type TextRollerProps, ThemeCard, type ThemeCardProps, ThemeMockupDark, ThemeMockupLight, type ThemeMode, type ToastKind, type ToastPayload, Tooltip, TooltipDotted, type TooltipDottedProps, type TooltipPosition, type TooltipProps, TooltipRich, type TooltipRichProps, UiStringsProvider, type UiStringsProviderProps, UpgradeBtn, type UpgradeBtnProps, UpgradeOverlay, type UpgradeOverlayProps, ViewMockupFullpage, ViewMockupPopup, ViewMockupSplit, ViewModeCard, accordion_variants, avatar_variants, badge_variants, button_tap, button_variants, card_variants, cn, default_ui_strings, dismiss_toast, fade_up_item, format_ui_string, get_auth_alert_styles, get_auth_primary_button_style, has_open_overlay_layer, is_top_overlay_layer, kbd_variants, marquee_variants, motion_duration_base, motion_duration_fast, motion_duration_slow, motion_ease_standard, page_slide_transition, push_overlay_layer, remove_overlay_layer, show_toast, stagger_container, switch_variants, use_escape_layer, use_overlay_layer, use_should_reduce_motion, use_ui_strings };
+declare function lock_body_scroll(): void;
+declare function unlock_body_scroll(): void;
+declare function use_body_scroll_lock(is_locked: boolean): void;
+
+declare function use_focus_trap<T extends HTMLElement>(is_open: boolean, layer_id: symbol): React$1.RefObject<T>;
+declare function use_backdrop_dismiss(on_dismiss: () => void): (e: PointerEvent<HTMLElement>) => void;
+declare function use_dialog_shell<T extends HTMLElement>(is_open: boolean, on_close: () => void, label?: string, close_on_escape?: boolean): {
+    layer_id: symbol;
+    dialog_ref: React$1.RefObject<T>;
+    handle_backdrop_pointer_down: (e: PointerEvent<HTMLElement>) => void;
+};
+
+type ProfileAvatarSize = "xs" | "sm_compact" | "sm" | "md" | "lg" | "xl";
+declare const PROFILE_AVATAR_SIZE_MAP: Record<ProfileAvatarSize, number>;
+interface ProfileAvatarViewProps {
+    name: string;
+    email?: string;
+    size?: ProfileAvatarSize;
+    className?: string;
+    src?: string | null;
+    pending?: boolean;
+    initials?: string;
+    background_color?: string;
+    text_color?: string;
+    is_favicon_source?: boolean;
+    is_local_logo_source?: boolean;
+    show_placeholder?: boolean;
+    image_attributes?: Record<string, string>;
+    on_image_error?: React$1.ReactEventHandler<HTMLImageElement>;
+    on_image_load?: React$1.ReactEventHandler<HTMLImageElement>;
+}
+declare const ProfileAvatarView: React$1.NamedExoticComponent<ProfileAvatarViewProps>;
+
+type AccountAvatarButtonSize = "sm" | "md" | "lg" | "xl";
+interface AccountAvatarButtonViewProps {
+    avatar: React$1.ReactNode;
+    label: string;
+    size?: AccountAvatarButtonSize;
+    is_paid_plan?: boolean;
+    ring_offset_color?: string;
+    className?: string;
+    uploading?: boolean;
+    accept?: string;
+    file_input_ref?: React$1.Ref<HTMLInputElement>;
+    on_file_change?: React$1.ChangeEventHandler<HTMLInputElement>;
+    on_open_picker?: () => void;
+}
+declare function AccountAvatarButtonView({ avatar, label, size, is_paid_plan, ring_offset_color, className, uploading, accept, file_input_ref, on_file_change, on_open_picker, }: AccountAvatarButtonViewProps): react_jsx_runtime.JSX.Element;
+
+interface BadgeChipData {
+    slug: string;
+    display_name: string;
+    find_order?: number | null;
+}
+type BadgeChipSize = "xs" | "sm" | "md";
+interface BadgeChipProps {
+    badge: BadgeChipData;
+    size?: BadgeChipSize;
+    show_find_order?: boolean;
+    show_label?: boolean;
+    className?: string;
+    title?: string;
+    locale?: string;
+}
+declare const BadgeChip: React$1.NamedExoticComponent<BadgeChipProps>;
+
+type BadgeIconComponent = ComponentType<SVGProps<SVGSVGElement>>;
+interface BadgeVisual {
+    icon: BadgeIconComponent;
+    gradient_from: string;
+    gradient_to: string;
+    text_class: string;
+    bg_class: string;
+    border_class: string;
+}
+declare const BADGE_VISUALS: Record<string, BadgeVisual>;
+declare function get_badge_visual(slug: string): BadgeVisual;
+declare function format_find_order(find_order: number | null | undefined, locale?: string): string | null;
+
+declare const tag_icon_map: Record<string, React$1.ComponentType<{
+    className?: string;
+    style?: React$1.CSSProperties;
+}>>;
+type TagIconName = keyof typeof tag_icon_map;
+interface TagIconGroup {
+    key: string;
+    label_key: string;
+    icons: TagIconName[];
+}
+declare const TAG_ICON_GROUPS: TagIconGroup[];
+declare const email_tag_variants: (props?: ({
+    variant?: "blue" | "green" | "purple" | "amber" | "red" | "neutral" | "cyan" | "fuchsia" | "indigo" | "lime" | "orange" | "pink" | "teal" | "violet" | "yellow" | "custom" | "archived" | "draft" | "scheduled" | "sent" | "trashed" | "spam" | "snoozed" | "starred" | "important" | "unread" | "encrypted" | "emerald" | "sky" | "rose" | "slate" | null | undefined;
+    size?: "xs" | "sm" | "lg" | "default" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+interface EmailTagProps extends React$1.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof email_tag_variants> {
+    icon?: TagIconName | React$1.ReactNode;
+    label: string;
+    custom_color?: string;
+    show_icon?: boolean;
+    muted?: boolean;
+}
+declare const EmailTag: React$1.ForwardRefExoticComponent<EmailTagProps & React$1.RefAttributes<HTMLSpanElement>>;
+declare const TAG_COLOR_PRESETS: readonly [{
+    readonly name: "Red";
+    readonly variant: "red";
+    readonly hex: "#ef4444";
+}, {
+    readonly name: "Orange";
+    readonly variant: "orange";
+    readonly hex: "#f97316";
+}, {
+    readonly name: "Amber";
+    readonly variant: "amber";
+    readonly hex: "#f59e0b";
+}, {
+    readonly name: "Yellow";
+    readonly variant: "yellow";
+    readonly hex: "#eab308";
+}, {
+    readonly name: "Lime";
+    readonly variant: "lime";
+    readonly hex: "#84cc16";
+}, {
+    readonly name: "Green";
+    readonly variant: "green";
+    readonly hex: "#22c55e";
+}, {
+    readonly name: "Emerald";
+    readonly variant: "emerald";
+    readonly hex: "#10b981";
+}, {
+    readonly name: "Teal";
+    readonly variant: "teal";
+    readonly hex: "#14b8a6";
+}, {
+    readonly name: "Cyan";
+    readonly variant: "cyan";
+    readonly hex: "#06b6d4";
+}, {
+    readonly name: "Sky";
+    readonly variant: "sky";
+    readonly hex: "#0ea5e9";
+}, {
+    readonly name: "Blue";
+    readonly variant: "blue";
+    readonly hex: "#3b82f6";
+}, {
+    readonly name: "Indigo";
+    readonly variant: "indigo";
+    readonly hex: "#6366f1";
+}, {
+    readonly name: "Violet";
+    readonly variant: "violet";
+    readonly hex: "#8b5cf6";
+}, {
+    readonly name: "Purple";
+    readonly variant: "purple";
+    readonly hex: "#a855f7";
+}, {
+    readonly name: "Fuchsia";
+    readonly variant: "fuchsia";
+    readonly hex: "#d946ef";
+}, {
+    readonly name: "Pink";
+    readonly variant: "pink";
+    readonly hex: "#ec4899";
+}, {
+    readonly name: "Rose";
+    readonly variant: "rose";
+    readonly hex: "#f43f5e";
+}];
+declare const TAG_ICONS: TagIconName[];
+type TagColorVariant = (typeof TAG_COLOR_PRESETS)[number]["variant"];
+declare function tag_color_label_key(variant: TagColorVariant): `common.color_${TagColorVariant}`;
+declare function tag_icon_label_key(icon: TagIconName): string;
+type TagVariant = NonNullable<VariantProps<typeof email_tag_variants>["variant"]>;
+declare function hex_to_variant(hex: string): TagVariant;
+
+interface SnoozeTimeUnits {
+    now: string;
+    days_short: string;
+    hours_short: string;
+    minutes_short: string;
+}
+declare const default_snooze_time_units: SnoozeTimeUnits;
+interface SnoozeBadgeProps {
+    snoozed_until: string;
+    muted?: boolean;
+    size?: "xs" | "sm" | "default" | "lg";
+    className?: string;
+    units?: SnoozeTimeUnits;
+}
+declare function format_snooze_time_remaining(target: Date, units?: SnoozeTimeUnits): string;
+declare function SnoozeBadge({ snoozed_until, muted, size, className, units, }: SnoozeBadgeProps): react_jsx_runtime.JSX.Element;
+
+interface ErrorDetailsViewProps {
+    error: Error;
+    title: string;
+    copy_label: string;
+    on_copy?: (error_text: string) => void;
+}
+declare function format_error_text(error: Error): string;
+declare function ErrorDetailsView({ error, title, copy_label, on_copy, }: ErrorDetailsViewProps): react_jsx_runtime.JSX.Element;
+interface ErrorBoundaryViewProps {
+    error: Error | null;
+    title: string;
+    description: string;
+    retry_label: string;
+    status_label: string;
+    details_title: string;
+    copy_label: string;
+    logo_src?: string;
+    logo_alt?: string;
+    on_retry: () => void;
+    on_view_status?: () => void;
+    on_copy_error?: (error_text: string) => void;
+}
+declare function ErrorBoundaryView({ error, title, description, retry_label, status_label, details_title, copy_label, logo_src, logo_alt, on_retry, on_view_status, on_copy_error, }: ErrorBoundaryViewProps): react_jsx_runtime.JSX.Element;
+interface EmailErrorFallbackViewProps {
+    title: string;
+    description: string;
+    retry_label: string;
+    on_retry?: () => void;
+}
+declare function EmailErrorFallbackView({ title, description, retry_label, on_retry, }: EmailErrorFallbackViewProps): react_jsx_runtime.JSX.Element;
+interface ComposeErrorFallbackViewProps {
+    title: string;
+    description: string;
+}
+declare function ComposeErrorFallbackView({ title, description, }: ComposeErrorFallbackViewProps): react_jsx_runtime.JSX.Element;
+interface ChunkRecoveryFallbackViewProps {
+    label: string;
+}
+declare function ChunkRecoveryFallbackView({ label, }: ChunkRecoveryFallbackViewProps): react_jsx_runtime.JSX.Element;
+
+interface ProfileDropdownLabels {
+    copy: string;
+    add_to_contacts: string;
+    remove_from_contacts: string;
+    notes: string;
+    hide_notes: string;
+    messages_from_sender: string;
+    block_sender: string;
+}
+interface ProfileDropdownViewProps {
+    email: string;
+    display_name: string;
+    domain?: string | null;
+    children: React$1.ReactNode;
+    avatar: React$1.ReactNode;
+    notes?: React$1.ReactNode;
+    labels: ProfileDropdownLabels;
+    open: boolean;
+    on_open_change: (open: boolean) => void;
+    is_contact: boolean;
+    is_contact_loading?: boolean;
+    is_blocking?: boolean;
+    show_notes: boolean;
+    on_prewarm?: () => void;
+    on_copy_email: () => void;
+    on_contact_action: () => void;
+    on_toggle_notes: () => void;
+    on_messages_from_sender: () => void;
+    on_block_sender: () => void;
+}
+declare function ProfileDropdownView({ email, display_name, domain, children, avatar, notes, labels, open, on_open_change, is_contact, is_contact_loading, is_blocking, show_notes, on_prewarm, on_copy_email, on_contact_action, on_toggle_notes, on_messages_from_sender, on_block_sender, }: ProfileDropdownViewProps): react_jsx_runtime.JSX.Element;
+
+declare function PanelToggleIcon({ direction, className, }: {
+    direction: "collapse" | "expand";
+    className?: string;
+}): react_jsx_runtime.JSX.Element;
+interface AccountSwitcherLabels {
+    invite: string;
+    expand_sidebar: string;
+    collapse_sidebar: string;
+}
+interface AccountSwitcherViewProps {
+    is_collapsed: boolean;
+    storage?: React$1.ReactNode;
+    labels: AccountSwitcherLabels;
+    on_invite: () => void;
+    on_toggle_collapse?: () => void;
+}
+declare const AccountSwitcherView: React$1.NamedExoticComponent<AccountSwitcherViewProps>;
+
+interface WorkspaceAccountBadge {
+    label: string;
+    muted?: boolean;
+}
+interface WorkspaceAccountRow {
+    id: string;
+    name: string;
+    email: string;
+    avatar: React$1.ReactNode;
+    href: string;
+    has_plan_ring?: boolean;
+    badge?: WorkspaceAccountBadge | null;
+}
+interface WorkspaceHubAccountRow {
+    id: string;
+    name: string;
+    email: string;
+    avatar: React$1.ReactNode;
+    badge?: WorkspaceAccountBadge | null;
+}
+interface WorkspaceSwitcherLabels {
+    official_sender: string;
+    manage_account: string;
+    storage_used: string;
+    resubscribe: string;
+    add_account: string;
+    sign_out: string;
+    sign_out_all: string;
+}
+interface WorkspaceSwitcherViewProps {
+    align?: "start" | "center" | "end";
+    trigger: React$1.ReactNode;
+    is_open: boolean;
+    on_open_change: (open: boolean) => void;
+    labels: WorkspaceSwitcherLabels;
+    header_avatar: React$1.ReactNode;
+    greeting?: string;
+    display_name: string;
+    email: string;
+    is_official?: boolean;
+    official_badge_src?: string;
+    plan_badge?: React$1.ReactNode;
+    storage_used_text?: string | null;
+    storage_percent: number;
+    accounts: WorkspaceAccountRow[];
+    hub_accounts?: WorkspaceHubAccountRow[];
+    show_resubscribe?: boolean;
+    add_account_dimmed?: boolean;
+    add_account_meta?: string | null;
+    show_sign_out_all?: boolean;
+    on_copy_email: () => void;
+    on_manage_account: () => void;
+    on_switch_account: (account_id: string) => void;
+    on_hub_account?: (account_id: string) => void;
+    on_resubscribe?: () => void;
+    on_add_account: () => void;
+    on_sign_out: () => void;
+    on_sign_out_all?: () => void;
+}
+declare function WorkspaceSwitcherView({ align, trigger, is_open, on_open_change, labels, header_avatar, greeting, display_name, email, is_official, official_badge_src, plan_badge, storage_used_text, storage_percent, accounts, hub_accounts, show_resubscribe, add_account_dimmed, add_account_meta, show_sign_out_all, on_copy_email, on_manage_account, on_switch_account, on_hub_account, on_resubscribe, on_add_account, on_sign_out, on_sign_out_all, }: WorkspaceSwitcherViewProps): react_jsx_runtime.JSX.Element;
+
+interface StorageMeterLabels {
+    storage_used: string;
+    under_one_percent: string;
+    of: string;
+    open?: string;
+    buy_more?: string;
+}
+interface StorageMeterViewProps {
+    storage_percentage: number;
+    used_text: string;
+    total_text: string;
+    percent_text: string;
+    is_loading?: boolean;
+    labels: StorageMeterLabels;
+    on_buy_more?: () => void;
+    on_open?: () => void;
+    className?: string;
+}
+declare const StorageMeterView: React$1.NamedExoticComponent<StorageMeterViewProps>;
+
+interface AppRailItem {
+    key: string;
+    label: string;
+    selected: boolean;
+    icon_src?: string;
+    icon_src_set?: string;
+    fallback_icon: React$1.ReactNode;
+    on_click: () => void;
+}
+interface AppRailLabels {
+    expand: string;
+    collapse: string;
+}
+interface AppRailViewProps {
+    panel?: React$1.ReactNode;
+    is_panel_visible: boolean;
+    is_settings_view?: boolean;
+    is_hidden: boolean;
+    items: AppRailItem[];
+    labels: AppRailLabels;
+    on_toggle_hidden: () => void;
+}
+declare function AppRailViewComponent({ panel, is_panel_visible, is_settings_view, is_hidden, items, labels, on_toggle_hidden, }: AppRailViewProps): react_jsx_runtime.JSX.Element;
+declare const AppRailView: React$1.MemoExoticComponent<typeof AppRailViewComponent>;
+
+export { Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, type AccordionVariantProps, type AccountAvatarButtonSize, AccountAvatarButtonView, type AccountAvatarButtonViewProps, type AccountSwitcherLabels, AccountSwitcherView, type AccountSwitcherViewProps, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, type AlertDialogContentProps, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger, type AppEntry, type AppRailItem, type AppRailLabels, AppRailView, type AppRailViewProps, AppSwitcher, type AppSwitcherProps, type AsterUiStrings, type AuthAlertKind, AuthCard, AuthCardBody, type AuthCardBodyProps, type AuthCardProps, AuthCheckIcon, AuthCheckbox, type AuthCheckboxProps, AuthDocumentIcon, AuthDownloadIcon, AuthEnvelopeIcon, AuthEyeIcon, AuthEyeSlashIcon, AuthFormLabel, AuthFourPointStar, AuthInputWrapper, type AuthInputWrapperProps, AuthLockClosedIcon, AuthLockIcon, AuthLogo, type AuthLogoProps, AuthShieldCheckIcon, AuthSparkleDecoration, AuthUserCircleIcon, AuthWarningIcon, Avatar, AvatarGroup, type AvatarGroupProps, AvatarNamed, type AvatarNamedProps, type AvatarProps, type AvatarVariantProps, AvatarWithStatus, type AvatarWithStatusProps, BADGE_VISUALS, Badge, BadgeChip, type BadgeChipData, type BadgeChipProps, type BadgeChipSize, BadgeDot, type BadgeDotProps, type BadgeIconComponent, type BadgeProps, type BadgeVariantProps, type BadgeVisual, Banner, type BannerProps, Button, type ButtonProps, ButtonSpinner, type ButtonSpinnerProps, type ButtonVariantProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, type CardIconProps, type CardProps, CardTitle, type CardVariantProps, Checkbox, type CheckboxProps, ChunkRecoveryFallbackView, type ChunkRecoveryFallbackViewProps, CoinIcon, type CoinIconProps, ColorVisionFilters, type ColorVisionFiltersProps, type ColorVisionMode, ComposeErrorFallbackView, type ComposeErrorFallbackViewProps, ConfirmationModal, type ConfirmationModalProps, type ConfirmationVariant, ContextMenu, type ContextMenuItem, type ContextMenuPosition, type ContextMenuProps, CountBadge, CrownIcon, DashboardSidebar, type DashboardSidebarAccountLike, type DashboardSidebarFilter, type DashboardSidebarProps, type DashboardSidebarTStrings, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, EmailErrorFallbackView, type EmailErrorFallbackViewProps, EmailTag, type EmailTagProps, EmptyState, type EmptyStateProps, ErrorBanner, type ErrorBannerProps, ErrorBoundaryView, type ErrorBoundaryViewProps, ErrorDetailsView, type ErrorDetailsViewProps, ExternalLinkWarningModal, type ExternalLinkWarningModalProps, FaviconOrInitial, type FaviconOrInitialProps, FeatureCard, type FeatureCardProps, FieldHint, type FieldHintProps, FieldLabel, type FieldLabelProps, FullPageLoader, InfoPopover, type InfoPopoverProps, Input, type InputProps, Island, IslandBlock, type IslandBlockProps, type IslandBlockSize, IslandChip, type IslandChipProps, IslandCountPill, type IslandCountPillProps, IslandDivider, type IslandDividerProps, IslandEmpty, type IslandEmptyProps, IslandGrid, type IslandGridProps, IslandIconButton, type IslandIconButtonProps, IslandLink, type IslandLinkProps, type IslandPadding, IslandPage, type IslandPageProps, type IslandPageWidth, type IslandProps, IslandRow, type IslandRowProps, type IslandRowToggle, IslandSection, type IslandSectionProps, IslandSections, type IslandSectionsProps, IslandStack, type IslandStackProps, type IslandTone, Kbd, type KbdProps, type KbdVariantProps, type KeyboardShortcutEntry, type KeyboardShortcutSection, KeyboardShortcutsModal, type KeyboardShortcutsModalProps, type KeyboardShortcutsTStrings, Marquee, MarqueeLogo, type MarqueeLogoProps, type MarqueeProps, MarqueeTrack, type MarqueeTrackProps, type MarqueeVariantProps, MobileActionSheetShell, type MobileActionSheetShellProps, MobileDrawerShell, type MobileDrawerShellProps, MobileHeader, MobileHeaderIconButton, type MobileHeaderIconButtonProps, type MobileHeaderProps, Modal, ModalActions, type ModalActionsProps, ModalBody, type ModalBodyProps, ModalDescription, type ModalDescriptionProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, type ModalProps, type ModalSize, ModalTitle, type ModalTitleProps, MotionModal, MotionModalActions, type MotionModalActionsProps, MotionModalBody, type MotionModalBodyProps, MotionModalDescription, type MotionModalDescriptionProps, MotionModalFooter, type MotionModalFooterProps, MotionModalHeader, type MotionModalHeaderProps, type MotionModalProps, type MotionModalSize, MotionModalTitle, type MotionModalTitleProps, Navbar, NavbarActions, type NavbarActionsProps, NavbarCta, type NavbarCtaProps, NavbarHamburger, type NavbarHamburgerProps, NavbarInner, type NavbarInnerProps, NavbarLink, type NavbarLinkProps, NavbarLinks, type NavbarLinksProps, NavbarLogo, type NavbarLogoProps, NavbarMega, NavbarMegaCol, type NavbarMegaColProps, NavbarMegaCols, type NavbarMegaColsProps, NavbarMegaItem, type NavbarMegaItemProps, NavbarMegaItemSimple, type NavbarMegaItemSimpleProps, NavbarMegaPanel, type NavbarMegaPanelProps, type NavbarMegaProps, NavbarMobileDivider, NavbarMobileLink, type NavbarMobileLinkProps, NavbarMobileMenu, type NavbarMobileMenuProps, type NavbarProps, NavbarSearch, type NavbarSearchProps, NavbarTrigger, type NavbarTriggerProps, type NavbarVariant, NotFoundPage, type NotFoundPageProps, OtpInput, type OtpInputProps, PROFILE_AVATAR_SIZE_MAP, PanelToggleIcon, PillButton, type PillButtonProps, type PillSize, type PillVariant, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, PricingCard, type PricingCardProps, type ProfileAvatarSize, ProfileAvatarView, type ProfileAvatarViewProps, type ProfileDropdownLabels, ProfileDropdownView, type ProfileDropdownViewProps, Progress, Radio, RadioGroup, RadioGroupItem, type RadioProps, RadioRowWithDescription, RadixContextMenu, RadixContextMenuCheckboxItem, RadixContextMenuContent, RadixContextMenuGroup, RadixContextMenuItem, RadixContextMenuLabel, RadixContextMenuPortal, RadixContextMenuRadioGroup, RadixContextMenuRadioItem, RadixContextMenuSeparator, RadixContextMenuSub, RadixContextMenuSubContent, RadixContextMenuSubTrigger, RadixContextMenuTrigger, SearchBar, type SearchBarProps, type SegOption, SegmentedToggle, type SegmentedToggleProps, Select, SelectContent, type SelectContentProps, SelectGroup, type SelectGroupProps, SelectItem, type SelectItemProps, SelectLabel, type SelectLabelProps, type SelectProps, SelectScrollDownButton, type SelectScrollDownButtonProps, SelectScrollUpButton, type SelectScrollUpButtonProps, SelectSeparator, type SelectSeparatorProps, SelectTrigger, type SelectTriggerProps, SelectValue, type SelectValueProps, Separator, SettingControlRow, type SettingControlRowProps, SettingNote, type SettingNoteProps, type SettingNoteTone, SettingRow, SettingToggleRow, type SettingToggleRowProps, SettingsModalShell, type SettingsModalShellProps, SettingsNavGroup, type SettingsNavGroupData, type SettingsNavGroupProps, type SettingsNavItem, SettingsNavItemButton, type SettingsNavItemButtonProps, SettingsRow, type SettingsRowProps, SettingsSaveIndicator, type SettingsSaveIndicatorProps, type SettingsSaveStatus, SettingsSectionHeader, type SettingsSectionHeaderProps, SidebarAccountMenu, type SidebarAccountMenuItem, type SidebarAccountMenuProps, SidebarActionButton, type SidebarActionButtonProps, SidebarHeader, type SidebarHeaderProps, SidebarMoreToggle, type SidebarMoreToggleProps, SidebarNavRow, type SidebarNavRowProps, SidebarSectionHeader, type SidebarSectionHeaderProps, SidebarSectionToggle, type SidebarSectionToggleProps, SidebarTagRow, type SidebarTagRowProps, SimpleToast, type SimpleToastProps, Skeleton, type SkeletonProps, SkeletonText, type SkeletonTextProps, type SkeletonVariant, Slider, type SliderProps, SnoozeBadge, type SnoozeBadgeProps, type SnoozeTimeUnits, SparkleOverlay, type SparkleOverlayProps, Spinner, type SpinnerProps, type SpinnerSize, StatCard, type StatCardProps, type StatTrend, type StatusType, StorageIndicator, type StorageIndicatorProps, type StorageMeterLabels, StorageMeterView, type StorageMeterViewProps, Switch, type SwitchProps, type SwitchVariantProps, TAG_COLOR_PRESETS, TAG_ICONS, TAG_ICON_GROUPS, type TagColorVariant, type TagIconGroup, type TagIconName, type TagVariant, TestimonialCard, type TestimonialCardProps, TextRoller, type TextRollerItem, type TextRollerProps, ThemeCard, type ThemeCardProps, ThemeMockupDark, ThemeMockupLight, type ThemeMode, type ToastKind, type ToastPayload, Tooltip, TooltipDotted, type TooltipDottedProps, type TooltipPosition, type TooltipProps, TooltipRich, type TooltipRichProps, UiStringsProvider, type UiStringsProviderProps, UpgradeBtn, type UpgradeBtnProps, UpgradeOverlay, type UpgradeOverlayProps, ViewMockupFullpage, ViewMockupPopup, ViewMockupSplit, ViewModeCard, type WorkspaceAccountBadge, type WorkspaceAccountRow, type WorkspaceHubAccountRow, type WorkspaceSwitcherLabels, WorkspaceSwitcherView, type WorkspaceSwitcherViewProps, accordion_variants, avatar_variants, badge_variants, button_tap, button_variants, card_variants, cn, default_snooze_time_units, default_ui_strings, dismiss_toast, email_tag_variants, fade_up_item, format_error_text, format_find_order, format_snooze_time_remaining, format_ui_string, get_auth_alert_styles, get_auth_primary_button_style, get_badge_visual, has_open_overlay_layer, hex_to_variant, is_top_overlay_layer, kbd_variants, lock_body_scroll, marquee_variants, motion_duration_base, motion_duration_fast, motion_duration_slow, motion_ease_standard, page_slide_transition, push_overlay_layer, remove_overlay_layer, show_toast, stagger_container, switch_variants, tag_color_label_key, tag_icon_label_key, tag_icon_map, unlock_body_scroll, use_backdrop_dismiss, use_body_scroll_lock, use_dialog_shell, use_escape_layer, use_focus_trap, use_overlay_layer, use_should_reduce_motion, use_ui_strings };

@@ -18,7 +18,6 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
-
 export {
   Select,
   SelectGroup,
@@ -26,6 +25,10 @@ export {
   SelectValue,
   SelectContent,
   SelectItem,
+  SelectLabel,
+  SelectSeparator,
+  SelectScrollUpButton,
+  SelectScrollDownButton,
 } from "./select";
 export type {
   SelectProps,
@@ -34,4 +37,8 @@ export type {
   SelectValueProps,
   SelectContentProps,
   SelectItemProps,
+  SelectLabelProps,
+  SelectSeparatorProps,
+  SelectScrollUpButtonProps,
+  SelectScrollDownButtonProps,
 } from "./select";

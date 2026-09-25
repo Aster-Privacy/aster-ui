@@ -75,6 +75,7 @@ export interface SettingToggleRowProps {
   info?: React.ReactNode;
   note?: React.ReactNode;
   icon?: React.ReactNode;
+  trailing?: React.ReactNode;
   checked: boolean;
   on_change: (checked: boolean) => void;
   disabled?: boolean;
@@ -88,6 +89,7 @@ export function SettingToggleRow({
   info,
   note,
   icon,
+  trailing,
   checked,
   on_change,
   disabled,
@@ -102,6 +104,7 @@ export function SettingToggleRow({
       icon={icon}
       label={render_label(label, info)}
       toggle={{ checked, on_change, size, aria_label: label }}
+      trailing={trailing}
     />
   );
 }

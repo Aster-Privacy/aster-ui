@@ -85,6 +85,83 @@
   --aster-island-fill: var(--island-accent-bg, color-mix(in srgb, var(--accent-color, #3b82f6) 9%, var(--bg-primary, #ffffff)));
 }
 
+.aster_island.aster_island_tone_warning {
+  --aster-island-fill: var(--island-warning-bg, color-mix(in srgb, var(--color-warning, #d97706) 9%, var(--bg-primary, #ffffff)));
+}
+
+.aster_island.aster_island_tone_success {
+  --aster-island-fill: var(--island-success-bg, color-mix(in srgb, var(--color-success, #16a34a) 8%, var(--bg-primary, #ffffff)));
+}
+
+.aster_island_link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.aster_island_link:focus-visible {
+  outline: 2px solid var(--accent-color, #3b82f6);
+  outline-offset: 2px;
+}
+
+.aster_island_block_sm {
+  padding: 12px;
+}
+
+.aster_island_block_md {
+  padding: 16px;
+}
+
+.aster_island_block_lg {
+  padding: 24px;
+}
+
+.aster_island_empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.aster_island_empty_icon {
+  display: inline-flex;
+  margin-bottom: 8px;
+  color: var(--text-muted, #9ca3af);
+}
+
+.aster_island_empty_icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.aster_island_empty_title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--text-primary, #111827);
+}
+
+.aster_island_empty_description {
+  margin: 0;
+  max-width: 36ch;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text-muted, #6b7280);
+}
+
+.aster_island_empty_action {
+  margin-top: 12px;
+}
+
+.aster_island_section_title_info {
+  display: inline-flex;
+  align-items: center;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
 .aster_island_interactive {
   cursor: pointer;
   transition: background-color 0.16s var(--aster-island-ease);
