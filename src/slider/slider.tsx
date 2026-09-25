@@ -179,7 +179,7 @@ export function Slider({
         aria-valuemin={min}
         aria-valuenow={display_value}
         className={cn(
-          "absolute top-1/2 w-5 h-5 rounded-full border-0 bg-[var(--accent-blue)] shadow-[0_1px_3px_rgba(0,0,0,0.4)] ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 cursor-grab active:cursor-grabbing hover:scale-125 hover:shadow-[0_2px_8px_rgba(0,0,0,0.45)] active:scale-110 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--accent-blue)]/30",
+          "absolute top-1/2 w-5 h-5 rounded-full border-0 bg-[var(--accent-blue)] shadow-[0_1px_3px_rgba(0,0,0,0.4)] ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 cursor-grab active:cursor-grabbing hover:shadow-[0_2px_8px_rgba(0,0,0,0.45)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--accent-blue)]/30",
           thumb_transition,
         )}
         role="slider"

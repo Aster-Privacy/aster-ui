@@ -70,7 +70,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size,
       as_child = false,
       is_loading = false,
-      loading_position,
+      loading_position: _loading_position,
       disabled,
       children,
       ...props
@@ -88,10 +88,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       );
     }
 
-    const has_label = React.Children.toArray(children).length > 0;
-    const keep_centered =
-      !has_label || size === "icon" || loading_position === "replace";
-
     return (
       <Comp
         className={class_name}
@@ -101,11 +97,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         data-loading
         disabled={disabled || is_loading}
       >
-        {keep_centered ? null : children}
-        <ButtonSpinner
-          centered={keep_centered}
-          size={size === "sm" ? "xs" : "sm"}
-        />
+        {children}
+        <ButtonSpinner centered size={size === "sm" ? "xs" : "sm"} />
       </Comp>
     );
   },

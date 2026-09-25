@@ -592,6 +592,16 @@
     gap: var(--aster-island-gap);
   }
 
+  .aster_select_trigger {
+    background: color-mix(in srgb, var(--text-primary, #111827) 7%, var(--bg-primary, #ffffff));
+    transition: background-color 0.14s var(--aster-island-ease);
+  }
+
+  .aster_select_trigger:hover:not(:disabled),
+  .aster_select_trigger[data-state="open"] {
+    background: color-mix(in srgb, var(--text-primary, #111827) 11%, var(--bg-primary, #ffffff));
+  }
+
   .aster_pill {
     display: inline-flex;
     align-items: center;
@@ -610,16 +620,12 @@
     text-decoration: none;
     cursor: pointer;
     user-select: none;
-    transition: background-color 0.16s var(--aster-island-ease), border-color 0.16s var(--aster-island-ease), color 0.16s var(--aster-island-ease), transform 0.12s var(--aster-island-ease);
+    transition: background-color 0.16s var(--aster-island-ease), border-color 0.16s var(--aster-island-ease), color 0.16s var(--aster-island-ease);
     -webkit-tap-highlight-color: transparent;
   }
 
-  .aster_pill:active:not(:disabled) {
-    transform: scale(0.97);
-  }
-
   .aster_pill:disabled {
-    opacity: 0.5;
+    opacity: 0.45;
     cursor: not-allowed;
   }
 
@@ -671,21 +677,21 @@
   }
 
   .aster_pill_tonal {
-    background: color-mix(in srgb, var(--accent-color, #3b82f6) 14%, transparent);
-    color: var(--accent-color, #3b82f6);
+    background: color-mix(in srgb, var(--text-primary, #111827) 8%, var(--bg-primary, #ffffff));
+    color: var(--text-primary, #111827);
   }
 
   .aster_pill_tonal:hover:not(:disabled) {
-    background: color-mix(in srgb, var(--accent-color, #3b82f6) 20%, transparent);
+    background: color-mix(in srgb, var(--text-primary, #111827) 12%, var(--bg-primary, #ffffff));
   }
 
   .aster_pill_neutral {
-    background: color-mix(in srgb, var(--text-primary, #111827) 7%, transparent);
+    background: color-mix(in srgb, var(--text-primary, #111827) 8%, var(--bg-primary, #ffffff));
     color: var(--text-primary, #111827);
   }
 
   .aster_pill_neutral:hover:not(:disabled) {
-    background: color-mix(in srgb, var(--text-primary, #111827) 11%, transparent);
+    background: color-mix(in srgb, var(--text-primary, #111827) 12%, var(--bg-primary, #ffffff));
   }
 
   .aster_pill_ghost {
