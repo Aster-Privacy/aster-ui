@@ -20,3 +20,4 @@
 //
 
 export { CountBadge } from "./count_badge";
+export type { CountBadgeProps } from "./count_badge";

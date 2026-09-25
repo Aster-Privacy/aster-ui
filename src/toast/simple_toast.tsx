@@ -18,8 +18,16 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+
+import {
+  resolve_toast_layout,
+  resolve_toast_position,
+  type ToastPosition,
+  type ToastPositionLayout,
+} from "./toast_position";
 
 function CheckIcon({ className }: { className?: string }) {
   return (
@@ -103,17 +111,41 @@ function InformationCircleIcon({ className }: { className?: string }) {
 
 export type ToastKind = "success" | "warning" | "error" | "info";
 
+export interface ToastAction {
+  label: string;
+  on_click: () => void;
+}
+
 export interface ToastPayload {
   id: string;
   message: string;
   icon_type?: ToastKind;
+  action?: ToastAction;
+  repeat?: number;
 }
 
-const MAX_TOASTS = 5;
+const MAX_TOASTS = 3;
+
+export const TOAST_DURATION_DEFAULT_MS = 2000;
+
+export const TOAST_DURATION_BILLING_MS = 8000;
+
+let toast_min_duration_ms = TOAST_DURATION_DEFAULT_MS;
+
+export function set_toast_min_duration(duration_ms: number) {
+  toast_min_duration_ms = Math.max(
+    TOAST_DURATION_DEFAULT_MS,
+    Math.min(30000, Math.round(duration_ms)),
+  );
+}
 
 let toast_listeners: ((toasts: ToastPayload[]) => void)[] = [];
 let toast_stack: ToastPayload[] = [];
 let toast_timeouts: Map<string, ReturnType<typeof setTimeout>> = new Map();
+
+function notify_toast_listeners() {
+  toast_listeners.forEach((listener) => listener([...toast_stack]));
+}
 
 export function dismiss_toast(id: string) {
   const existing_timeout = toast_timeouts.get(id);
@@ -123,16 +155,51 @@ export function dismiss_toast(id: string) {
     toast_timeouts.delete(id);
   }
   toast_stack = toast_stack.filter((t) => t.id !== id);
-  toast_listeners.forEach((listener) => listener([...toast_stack]));
+  notify_toast_listeners();
+}
+
+function schedule_toast_expiry(id: string, duration_ms: number) {
+  const timeout = setTimeout(() => {
+    toast_timeouts.delete(id);
+    toast_stack = toast_stack.filter((t) => t.id !== id);
+    notify_toast_listeners();
+  }, duration_ms);
+
+  toast_timeouts.set(id, timeout);
 }
 
 export function show_toast(
   message: string,
   icon_type?: ToastKind,
+  duration = TOAST_DURATION_DEFAULT_MS,
+  action?: ToastAction,
 ): string {
+  const effective_duration = Math.max(duration, toast_min_duration_ms);
+  const duplicate = toast_stack.find(
+    (t) => t.message === message && t.icon_type === icon_type,
+  );
+
+  if (duplicate) {
+    toast_stack = toast_stack.map((t) =>
+      t.id === duplicate.id ? { ...t, repeat: (t.repeat ?? 0) + 1 } : t,
+    );
+    notify_toast_listeners();
+
+    const existing_timeout = toast_timeouts.get(duplicate.id);
+
+    if (existing_timeout) {
+      clearTimeout(existing_timeout);
+    }
+
+    schedule_toast_expiry(duplicate.id, effective_duration);
+
+    return duplicate.id;
+  }
+
   const new_toast: ToastPayload = {
     message,
     icon_type,
+    action,
     id: crypto.randomUUID(),
   };
 
@@ -152,15 +219,8 @@ export function show_toast(
     toast_stack = toast_stack.slice(0, MAX_TOASTS);
   }
 
-  toast_listeners.forEach((listener) => listener([...toast_stack]));
-
-  const timeout = setTimeout(() => {
-    toast_timeouts.delete(new_toast.id);
-    toast_stack = toast_stack.filter((t) => t.id !== new_toast.id);
-    toast_listeners.forEach((listener) => listener([...toast_stack]));
-  }, 2000);
-
-  toast_timeouts.set(new_toast.id, timeout);
+  notify_toast_listeners();
+  schedule_toast_expiry(new_toast.id, effective_duration);
 
   return new_toast.id;
 }
@@ -183,15 +243,22 @@ function get_toast_icon(icon_type?: ToastKind) {
 }
 
 export interface SimpleToastProps {
-  position?: "top" | "bottom";
+  position?: ToastPosition;
   dismiss_label?: string;
+  reduce_motion?: boolean;
+  layout?: ToastPositionLayout;
+  y_offset?: number;
 }
 
 export function SimpleToast({
-  position = "bottom",
+  position,
   dismiss_label = "Dismiss",
+  reduce_motion,
+  layout,
+  y_offset,
 }: SimpleToastProps) {
-  const reduce_motion = useReducedMotion() ?? false;
+  const system_reduce_motion = useReducedMotion() ?? false;
+  const should_reduce_motion = reduce_motion ?? system_reduce_motion;
   const [toasts, set_toasts] = useState<ToastPayload[]>([]);
 
   useEffect(() => {
@@ -206,17 +273,17 @@ export function SimpleToast({
     };
   }, []);
 
-  const is_top = position === "top";
-  const y_offset = is_top ? -20 : 20;
+  const resolved = resolve_toast_layout(resolve_toast_position(position));
+  const active_layout = layout ?? resolved.layout;
+  const active_y_offset = y_offset ?? resolved.y_offset;
 
   return (
     <div
-      className={`fixed left-1/2 -translate-x-1/2 z-[100] flex ${is_top ? "flex-col" : "flex-col-reverse"} gap-2 pointer-events-none`}
-      style={
-        is_top
-          ? { top: `calc(env(safe-area-inset-top, 0px) + 12px)` }
-          : { bottom: "24px" }
-      }
+      aria-atomic="false"
+      aria-live="polite"
+      className={`fixed ${active_layout.anchor} z-[100] flex ${active_layout.column} ${active_layout.align} gap-2 pointer-events-none`}
+      role="status"
+      style={active_layout.style}
     >
       <AnimatePresence>
         {toasts.map((toast) => (
@@ -226,28 +293,52 @@ export function SimpleToast({
             className="pointer-events-auto"
             exit={{ opacity: 0, scale: 0.95 }}
             initial={
-              reduce_motion ? false : { opacity: 0, y: y_offset, scale: 0.95 }
+              should_reduce_motion
+                ? false
+                : { opacity: 0, y: active_y_offset, scale: 0.95 }
             }
-            layout={!reduce_motion}
-            transition={{ duration: reduce_motion ? 0 : 0.15 }}
+            layout={should_reduce_motion ? false : "position"}
+            transition={{
+              duration: should_reduce_motion ? 0 : 0.15,
+              layout: { duration: 0.2 },
+            }}
           >
-            <div className="px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2 bg-modal-bg border border-edge-secondary">
+            <motion.div
+              key={toast.repeat ?? 0}
+              animate={{ x: toast.repeat ? [0, -5, 5, -3, 0] : 0 }}
+              className="px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2 bg-modal-bg border border-edge-secondary max-w-[min(92vw,28rem)]"
+              initial={{ x: 0 }}
+              transition={{ duration: should_reduce_motion ? 0 : 0.32 }}
+            >
               {get_toast_icon(toast.icon_type) && (
                 <span className="flex-shrink-0 text-txt-primary">
                   {get_toast_icon(toast.icon_type)}
                 </span>
               )}
-              <span className="text-[13px] font-medium text-txt-primary whitespace-nowrap">
+              <span className="text-[13px] font-medium text-txt-primary min-w-0 break-words">
                 {toast.message}
               </span>
+              {toast.action && (
+                <button
+                  className="flex-shrink-0 text-[13px] font-semibold text-brand hover:underline"
+                  onClick={() => {
+                    const run = toast.action?.on_click;
+
+                    dismiss_toast(toast.id);
+                    run?.();
+                  }}
+                >
+                  {toast.action.label}
+                </button>
+              )}
               <button
                 aria-label={dismiss_label}
-                className="ml-1 flex-shrink-0 text-txt-muted hover:text-txt-primary transition-colors"
+                className="flex-shrink-0 text-txt-muted hover:text-txt-primary transition-colors p-1.5 -m-1.5"
                 onClick={() => dismiss_toast(toast.id)}
               >
                 <XMarkIcon className="w-3.5 h-3.5" />
               </button>
-            </div>
+            </motion.div>
           </motion.div>
         ))}
       </AnimatePresence>

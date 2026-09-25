@@ -1,6 +1,6 @@
 import * as class_variance_authority_types from 'class-variance-authority/types';
 import * as React$1 from 'react';
-import { CSSProperties, ReactNode, SVGProps, ReactElement, PointerEvent, ComponentType } from 'react';
+import { CSSProperties, ReactNode, SVGProps, ReactElement, PointerEvent, ComponentType, FC, AriaRole, RefObject } from 'react';
 import { VariantProps } from 'class-variance-authority';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import * as react_jsx_runtime from 'react/jsx-runtime';
@@ -218,19 +218,57 @@ interface ButtonSpinnerProps {
 }
 declare function ButtonSpinner({ size, centered, className, }: ButtonSpinnerProps): react_jsx_runtime.JSX.Element;
 
+type ToastPosition = "top" | "bottom" | "top-right" | "bottom-right" | "top-left" | "bottom-left";
+interface ToastPositionLayout {
+    anchor: string;
+    align: string;
+    column: string;
+    style: {
+        top: string;
+    } | {
+        bottom: string;
+    };
+}
+interface ResolvedToastPosition {
+    position: ToastPosition;
+    layout: ToastPositionLayout;
+    is_top: boolean;
+    y_offset: number;
+}
+declare const TOAST_BOTTOM_ISLAND_STYLE: {
+    bottom: string;
+};
+declare const TOAST_POSITION_LAYOUT: Record<ToastPosition, ToastPositionLayout>;
+declare const DEFAULT_TOAST_POSITION: ToastPosition;
+declare function is_top_position(position: ToastPosition): boolean;
+declare function resolve_toast_position(value: string | undefined): ToastPosition;
+declare function resolve_toast_layout(position: ToastPosition, lift_above_island?: boolean): ResolvedToastPosition;
+
 type ToastKind = "success" | "warning" | "error" | "info";
+interface ToastAction {
+    label: string;
+    on_click: () => void;
+}
 interface ToastPayload {
     id: string;
     message: string;
     icon_type?: ToastKind;
+    action?: ToastAction;
+    repeat?: number;
 }
+declare const TOAST_DURATION_DEFAULT_MS = 2000;
+declare const TOAST_DURATION_BILLING_MS = 8000;
+declare function set_toast_min_duration(duration_ms: number): void;
 declare function dismiss_toast(id: string): void;
-declare function show_toast(message: string, icon_type?: ToastKind): string;
+declare function show_toast(message: string, icon_type?: ToastKind, duration?: number, action?: ToastAction): string;
 interface SimpleToastProps {
-    position?: "top" | "bottom";
+    position?: ToastPosition;
     dismiss_label?: string;
+    reduce_motion?: boolean;
+    layout?: ToastPositionLayout;
+    y_offset?: number;
 }
-declare function SimpleToast({ position, dismiss_label, }: SimpleToastProps): react_jsx_runtime.JSX.Element;
+declare function SimpleToast({ position, dismiss_label, reduce_motion, layout, y_offset, }: SimpleToastProps): react_jsx_runtime.JSX.Element;
 
 interface NotFoundPageProps {
     title?: string;
@@ -464,8 +502,9 @@ interface SidebarSectionToggleProps {
     on_toggle: () => void;
     right_slot?: React$1.ReactNode;
     margin_top?: boolean;
+    data_onboarding?: string;
 }
-declare function SidebarSectionToggle({ label, is_collapsed, section_collapsed, on_toggle, right_slot, }: SidebarSectionToggleProps): react_jsx_runtime.JSX.Element | null;
+declare function SidebarSectionToggle({ label, is_collapsed, section_collapsed, on_toggle, right_slot, data_onboarding, }: SidebarSectionToggleProps): react_jsx_runtime.JSX.Element | null;
 interface SidebarMoreToggleProps {
     more_label: string;
     less_label: string;
@@ -486,6 +525,8 @@ interface SidebarNavRowProps {
     trailing?: React$1.ReactNode;
     leading?: React$1.ReactNode;
     title?: string;
+    rail_tip?: boolean;
+    collapsed_slot?: React$1.ReactNode;
 }
 declare const SidebarNavRow: React$1.ForwardRefExoticComponent<SidebarNavRowProps & React$1.RefAttributes<HTMLButtonElement>>;
 interface SidebarTagRowProps {
@@ -506,8 +547,13 @@ interface SidebarTagRowProps {
         className?: string;
         style?: React$1.CSSProperties;
     }> | null;
+    rail_tip?: boolean;
+    icon_slot?: React$1.ReactNode;
+    collapsed_slot?: React$1.ReactNode;
+    trailing?: React$1.ReactNode;
 }
-declare function SidebarTagRow({ label, count, selected, is_collapsed, on_click, color, show_count, button_ref, drag_over, on_drag_enter, on_drag_leave, on_drag_over, on_drop, tag_icon: TagIcon, }: SidebarTagRowProps): react_jsx_runtime.JSX.Element;
+type SidebarTagRowButtonProps = Omit<React$1.ButtonHTMLAttributes<HTMLButtonElement>, "color" | "title">;
+declare const SidebarTagRow: React$1.ForwardRefExoticComponent<SidebarTagRowProps & SidebarTagRowButtonProps & React$1.RefAttributes<HTMLButtonElement>>;
 interface SidebarActionButtonProps {
     icon: React$1.ElementType;
     label: string;
@@ -973,8 +1019,9 @@ interface CountBadgeProps {
     is_active?: boolean;
     is_loading?: boolean;
     className?: string;
+    locale?: string;
 }
-declare function CountBadge({ count, show_zero, is_active, is_loading, className, }: CountBadgeProps): react_jsx_runtime.JSX.Element | null;
+declare function CountBadge({ count, show_zero, is_active, is_loading, className, locale, }: CountBadgeProps): react_jsx_runtime.JSX.Element | null;
 
 interface SettingRowProps {
     label: string;
@@ -1075,6 +1122,12 @@ interface MobileHeaderProps {
     height?: number;
     on_title_click?: () => void;
     center_content?: ReactNode;
+    on_back?: () => void;
+    on_menu?: () => void;
+    on_search?: () => void;
+    back_label?: string;
+    menu_label?: string;
+    search_label?: string;
 }
 declare const MobileHeader: React$1.NamedExoticComponent<MobileHeaderProps>;
 interface MobileHeaderIconButtonProps {
@@ -1294,6 +1347,11 @@ interface AsterUiStrings {
     verification_code_digit: string;
     qr_code: string;
     learn_more: string;
+    actions: string;
+    back: string;
+    open_menu: string;
+    search: string;
+    download: string;
 }
 declare const default_ui_strings: AsterUiStrings;
 interface UiStringsProviderProps {
@@ -1769,4 +1827,517 @@ interface AppRailViewProps {
 declare function AppRailViewComponent({ panel, is_panel_visible, is_settings_view, is_hidden, items, labels, on_toggle_hidden, }: AppRailViewProps): react_jsx_runtime.JSX.Element;
 declare const AppRailView: React$1.MemoExoticComponent<typeof AppRailViewComponent>;
 
-export { Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, type AccordionVariantProps, type AccountAvatarButtonSize, AccountAvatarButtonView, type AccountAvatarButtonViewProps, type AccountSwitcherLabels, AccountSwitcherView, type AccountSwitcherViewProps, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, type AlertDialogContentProps, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger, type AppEntry, type AppRailItem, type AppRailLabels, AppRailView, type AppRailViewProps, AppSwitcher, type AppSwitcherProps, type AsterUiStrings, type AuthAlertKind, AuthCard, AuthCardBody, type AuthCardBodyProps, type AuthCardProps, AuthCheckIcon, AuthCheckbox, type AuthCheckboxProps, AuthDocumentIcon, AuthDownloadIcon, AuthEnvelopeIcon, AuthEyeIcon, AuthEyeSlashIcon, AuthFormLabel, AuthFourPointStar, AuthInputWrapper, type AuthInputWrapperProps, AuthLockClosedIcon, AuthLockIcon, AuthLogo, type AuthLogoProps, AuthShieldCheckIcon, AuthSparkleDecoration, AuthUserCircleIcon, AuthWarningIcon, Avatar, AvatarGroup, type AvatarGroupProps, AvatarNamed, type AvatarNamedProps, type AvatarProps, type AvatarVariantProps, AvatarWithStatus, type AvatarWithStatusProps, BADGE_VISUALS, Badge, BadgeChip, type BadgeChipData, type BadgeChipProps, type BadgeChipSize, BadgeDot, type BadgeDotProps, type BadgeIconComponent, type BadgeProps, type BadgeVariantProps, type BadgeVisual, Banner, type BannerProps, Button, type ButtonProps, ButtonSpinner, type ButtonSpinnerProps, type ButtonVariantProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, type CardIconProps, type CardProps, CardTitle, type CardVariantProps, Checkbox, type CheckboxProps, ChunkRecoveryFallbackView, type ChunkRecoveryFallbackViewProps, CoinIcon, type CoinIconProps, ColorVisionFilters, type ColorVisionFiltersProps, type ColorVisionMode, ComposeErrorFallbackView, type ComposeErrorFallbackViewProps, ConfirmationModal, type ConfirmationModalProps, type ConfirmationVariant, ContextMenu, type ContextMenuItem, type ContextMenuPosition, type ContextMenuProps, CountBadge, CrownIcon, DashboardSidebar, type DashboardSidebarAccountLike, type DashboardSidebarFilter, type DashboardSidebarProps, type DashboardSidebarTStrings, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, EmailErrorFallbackView, type EmailErrorFallbackViewProps, EmailTag, type EmailTagProps, EmptyState, type EmptyStateProps, ErrorBanner, type ErrorBannerProps, ErrorBoundaryView, type ErrorBoundaryViewProps, ErrorDetailsView, type ErrorDetailsViewProps, ExternalLinkWarningModal, type ExternalLinkWarningModalProps, FaviconOrInitial, type FaviconOrInitialProps, FeatureCard, type FeatureCardProps, FieldHint, type FieldHintProps, FieldLabel, type FieldLabelProps, FullPageLoader, InfoPopover, type InfoPopoverProps, Input, type InputProps, Island, IslandBlock, type IslandBlockProps, type IslandBlockSize, IslandChip, type IslandChipProps, IslandCountPill, type IslandCountPillProps, type IslandCountPillSize, IslandDivider, type IslandDividerProps, IslandEmpty, type IslandEmptyProps, IslandGrid, type IslandGridProps, IslandIconButton, type IslandIconButtonProps, IslandLink, type IslandLinkProps, type IslandPadding, IslandPage, type IslandPageProps, type IslandPageWidth, type IslandProps, IslandRow, type IslandRowProps, type IslandRowToggle, IslandSection, type IslandSectionProps, IslandSections, type IslandSectionsProps, IslandStack, type IslandStackProps, type IslandTone, Kbd, type KbdProps, type KbdVariantProps, type KeyboardShortcutEntry, type KeyboardShortcutSection, KeyboardShortcutsModal, type KeyboardShortcutsModalProps, type KeyboardShortcutsTStrings, Marquee, MarqueeLogo, type MarqueeLogoProps, type MarqueeProps, MarqueeTrack, type MarqueeTrackProps, type MarqueeVariantProps, MobileActionSheetShell, type MobileActionSheetShellProps, MobileDrawerShell, type MobileDrawerShellProps, MobileHeader, MobileHeaderIconButton, type MobileHeaderIconButtonProps, type MobileHeaderProps, Modal, ModalActions, type ModalActionsProps, ModalBody, type ModalBodyProps, ModalDescription, type ModalDescriptionProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, type ModalProps, type ModalSize, ModalTitle, type ModalTitleProps, MotionModal, MotionModalActions, type MotionModalActionsProps, MotionModalBody, type MotionModalBodyProps, MotionModalDescription, type MotionModalDescriptionProps, MotionModalFooter, type MotionModalFooterProps, MotionModalHeader, type MotionModalHeaderProps, type MotionModalProps, type MotionModalSize, MotionModalTitle, type MotionModalTitleProps, Navbar, NavbarActions, type NavbarActionsProps, NavbarCta, type NavbarCtaProps, NavbarHamburger, type NavbarHamburgerProps, NavbarInner, type NavbarInnerProps, NavbarLink, type NavbarLinkProps, NavbarLinks, type NavbarLinksProps, NavbarLogo, type NavbarLogoProps, NavbarMega, NavbarMegaCol, type NavbarMegaColProps, NavbarMegaCols, type NavbarMegaColsProps, NavbarMegaItem, type NavbarMegaItemProps, NavbarMegaItemSimple, type NavbarMegaItemSimpleProps, NavbarMegaPanel, type NavbarMegaPanelProps, type NavbarMegaProps, NavbarMobileDivider, NavbarMobileLink, type NavbarMobileLinkProps, NavbarMobileMenu, type NavbarMobileMenuProps, type NavbarProps, NavbarSearch, type NavbarSearchProps, NavbarTrigger, type NavbarTriggerProps, type NavbarVariant, NotFoundPage, type NotFoundPageProps, OtpInput, type OtpInputProps, PROFILE_AVATAR_SIZE_MAP, PanelToggleIcon, PillButton, type PillButtonProps, type PillSize, type PillVariant, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, PricingCard, type PricingCardProps, type ProfileAvatarSize, ProfileAvatarView, type ProfileAvatarViewProps, type ProfileDropdownLabels, ProfileDropdownView, type ProfileDropdownViewProps, Progress, Radio, RadioGroup, RadioGroupItem, type RadioProps, RadioRowWithDescription, RadixContextMenu, RadixContextMenuCheckboxItem, RadixContextMenuContent, RadixContextMenuGroup, RadixContextMenuItem, RadixContextMenuLabel, RadixContextMenuPortal, RadixContextMenuRadioGroup, RadixContextMenuRadioItem, RadixContextMenuSeparator, RadixContextMenuSub, RadixContextMenuSubContent, RadixContextMenuSubTrigger, RadixContextMenuTrigger, SearchBar, type SearchBarProps, type SegOption, SegmentedToggle, type SegmentedToggleProps, Select, SelectContent, type SelectContentProps, SelectGroup, type SelectGroupProps, SelectItem, type SelectItemProps, SelectLabel, type SelectLabelProps, type SelectProps, SelectScrollDownButton, type SelectScrollDownButtonProps, SelectScrollUpButton, type SelectScrollUpButtonProps, SelectSeparator, type SelectSeparatorProps, SelectTrigger, type SelectTriggerProps, SelectValue, type SelectValueProps, Separator, SettingControlRow, type SettingControlRowProps, SettingNote, type SettingNoteProps, type SettingNoteTone, SettingRow, SettingToggleRow, type SettingToggleRowProps, SettingsModalShell, type SettingsModalShellProps, SettingsNavGroup, type SettingsNavGroupData, type SettingsNavGroupProps, type SettingsNavItem, SettingsNavItemButton, type SettingsNavItemButtonProps, SettingsRow, type SettingsRowProps, SettingsSaveIndicator, type SettingsSaveIndicatorProps, type SettingsSaveStatus, SettingsSectionHeader, type SettingsSectionHeaderProps, SidebarAccountMenu, type SidebarAccountMenuItem, type SidebarAccountMenuProps, SidebarActionButton, type SidebarActionButtonProps, SidebarHeader, type SidebarHeaderProps, SidebarMoreToggle, type SidebarMoreToggleProps, SidebarNavRow, type SidebarNavRowProps, SidebarSectionHeader, type SidebarSectionHeaderProps, SidebarSectionToggle, type SidebarSectionToggleProps, SidebarTagRow, type SidebarTagRowProps, SimpleToast, type SimpleToastProps, Skeleton, type SkeletonProps, SkeletonText, type SkeletonTextProps, type SkeletonVariant, Slider, type SliderProps, SnoozeBadge, type SnoozeBadgeProps, type SnoozeTimeUnits, SparkleOverlay, type SparkleOverlayProps, Spinner, type SpinnerProps, type SpinnerSize, StatCard, type StatCardProps, type StatTrend, type StatusType, StorageIndicator, type StorageIndicatorProps, type StorageMeterLabels, StorageMeterView, type StorageMeterViewProps, Switch, type SwitchProps, type SwitchVariantProps, TAG_COLOR_PRESETS, TAG_ICONS, TAG_ICON_GROUPS, type TagColorVariant, type TagIconGroup, type TagIconName, type TagVariant, TestimonialCard, type TestimonialCardProps, TextRoller, type TextRollerItem, type TextRollerProps, ThemeCard, type ThemeCardProps, ThemeMockupDark, ThemeMockupLight, type ThemeMode, type ToastKind, type ToastPayload, Tooltip, TooltipDotted, type TooltipDottedProps, type TooltipPosition, type TooltipProps, TooltipRich, type TooltipRichProps, UiStringsProvider, type UiStringsProviderProps, UpgradeBtn, type UpgradeBtnProps, UpgradeOverlay, type UpgradeOverlayProps, ViewMockupFullpage, ViewMockupPopup, ViewMockupSplit, ViewModeCard, type WorkspaceAccountBadge, type WorkspaceAccountRow, type WorkspaceHubAccountRow, type WorkspaceSwitcherLabels, WorkspaceSwitcherView, type WorkspaceSwitcherViewProps, accordion_variants, avatar_variants, badge_variants, button_tap, button_variants, card_variants, cn, default_snooze_time_units, default_ui_strings, dismiss_toast, email_tag_variants, fade_up_item, format_error_text, format_find_order, format_snooze_time_remaining, format_ui_string, get_auth_alert_styles, get_auth_primary_button_style, get_badge_visual, has_open_overlay_layer, hex_to_variant, is_top_overlay_layer, kbd_variants, lock_body_scroll, marquee_variants, motion_duration_base, motion_duration_fast, motion_duration_slow, motion_ease_standard, page_slide_transition, push_overlay_layer, remove_overlay_layer, show_toast, stagger_container, switch_variants, tag_color_label_key, tag_icon_label_key, tag_icon_map, unlock_body_scroll, use_backdrop_dismiss, use_body_scroll_lock, use_dialog_shell, use_escape_layer, use_focus_trap, use_overlay_layer, use_should_reduce_motion, use_ui_strings };
+type IconSvgProps = SVGProps<SVGSVGElement> & {
+    size?: number;
+};
+type pin_icon_props = IconSvgProps & {
+    filled?: boolean;
+};
+declare const InboxIcon: FC<IconSvgProps>;
+declare const AllMailIcon: FC<IconSvgProps>;
+declare const ArchiveIcon: FC<IconSvgProps>;
+declare const SpamIcon: FC<IconSvgProps>;
+declare const TrashIcon: FC<IconSvgProps>;
+declare const TagIcon: FC<IconSvgProps>;
+declare const ThreeDotsHorizontal: FC<IconSvgProps>;
+declare const Logo: FC<IconSvgProps>;
+declare const SearchIcon: FC<IconSvgProps>;
+declare const ArrowLeftIcon: FC<IconSvgProps>;
+declare const ClockIcon: FC<IconSvgProps>;
+declare const StarIcon: FC<IconSvgProps>;
+declare const CloseIcon: FC<IconSvgProps>;
+declare const PinIcon: FC<pin_icon_props>;
+declare const AttachmentIcon: FC<IconSvgProps>;
+declare const LinkIcon: FC<IconSvgProps>;
+declare const FileIcon: FC<IconSvgProps>;
+declare const LockIcon: FC<IconSvgProps>;
+declare const CheckIcon: FC<IconSvgProps>;
+declare const WarningIcon: FC<IconSvgProps>;
+declare const SnoozeIcon: FC<IconSvgProps>;
+declare const FilterIcon: FC<IconSvgProps>;
+
+interface OpenFullIconProps {
+    className?: string;
+}
+declare function OpenFullIcon({ className }: OpenFullIconProps): react_jsx_runtime.JSX.Element;
+
+interface AsterSecurityMarkProps {
+    className?: string;
+}
+declare function AsterSecurityMark({ className, }: AsterSecurityMarkProps): react_jsx_runtime.JSX.Element;
+
+type StatusBannerTone = "danger" | "warning" | "accent";
+type StatusBannerVariant = "status" | "alert" | "prompt";
+type StatusBannerContrast = "light" | "dark";
+type StatusBannerActionEmphasis = "primary" | "secondary";
+interface StatusBannerAction {
+    label: ReactNode;
+    on_click: () => void;
+    emphasis?: StatusBannerActionEmphasis;
+    background?: string;
+    hover_background?: string;
+}
+interface StatusBannerProps {
+    message: ReactNode;
+    icon?: ComponentType<{
+        className?: string;
+    }>;
+    actions?: StatusBannerAction[];
+    is_visible?: boolean;
+    animated?: boolean;
+    reduce_motion?: boolean;
+    tone?: StatusBannerTone;
+    variant?: StatusBannerVariant;
+    background?: string;
+    text_color?: string;
+    contrast?: StatusBannerContrast;
+    role?: AriaRole;
+    className?: string;
+}
+declare const STATUS_BANNER_TONE_COLORS: Record<StatusBannerTone, string>;
+declare const STATUS_BANNER_DARK_TEXT = "#111827";
+declare function StatusBanner({ message, icon: Icon, actions, is_visible, animated, reduce_motion, tone, variant, background, text_color, contrast, role, className, }: StatusBannerProps): react_jsx_runtime.JSX.Element | null;
+
+type OfflineIndicatorPosition = "top" | "bottom";
+interface OfflineIndicatorViewProps {
+    is_online: boolean;
+    show_reconnected: boolean;
+    offline_label: string;
+    reconnected_label: string;
+    position?: OfflineIndicatorPosition;
+    reduce_motion?: boolean;
+    className?: string;
+}
+declare function OfflineIndicatorView({ is_online, show_reconnected, offline_label, reconnected_label, position, reduce_motion, className, }: OfflineIndicatorViewProps): react_jsx_runtime.JSX.Element;
+
+type SaveStatus = "idle" | "saving" | "saved" | "error";
+interface SaveStatusIndicatorViewProps {
+    status: SaveStatus;
+    saving_label: string;
+    saved_label: string;
+    error_label: string;
+    reduce_motion?: boolean;
+    className?: string;
+}
+declare function SaveStatusIndicatorView({ status, saving_label, saved_label, error_label, reduce_motion, className, }: SaveStatusIndicatorViewProps): react_jsx_runtime.JSX.Element;
+
+type BlockingDialogIcon = "warning" | "lock";
+interface BlockingDialogViewProps {
+    title: ReactNode;
+    body: ReactNode;
+    primary_label: ReactNode;
+    secondary_label: ReactNode;
+    on_primary: () => void;
+    on_secondary: () => void;
+    title_id: string;
+    icon?: BlockingDialogIcon;
+    icon_color?: string;
+    error_message?: ReactNode;
+    is_busy?: boolean;
+}
+declare const BLOCKING_DIALOG_ICON_PATHS: Record<BlockingDialogIcon, string>;
+declare function BlockingDialogView({ title, body, primary_label, secondary_label, on_primary, on_secondary, title_id, icon, icon_color, error_message, is_busy, }: BlockingDialogViewProps): react_jsx_runtime.JSX.Element;
+interface PendingDeletionDialogViewProps {
+    title: ReactNode;
+    body: ReactNode;
+    keep_label: ReactNode;
+    sign_out_label: ReactNode;
+    on_keep: () => void;
+    on_sign_out: () => void;
+    error_message?: ReactNode;
+    is_busy?: boolean;
+    title_id?: string;
+}
+declare function PendingDeletionDialogView({ title, body, keep_label, sign_out_label, on_keep, on_sign_out, error_message, is_busy, title_id, }: PendingDeletionDialogViewProps): react_jsx_runtime.JSX.Element;
+interface Family2faDialogViewProps {
+    title: ReactNode;
+    body: ReactNode;
+    action_label: ReactNode;
+    sign_out_label: ReactNode;
+    on_action: () => void;
+    on_sign_out: () => void;
+    is_busy?: boolean;
+    title_id?: string;
+}
+declare function Family2faDialogView({ title, body, action_label, sign_out_label, on_action, on_sign_out, is_busy, title_id, }: Family2faDialogViewProps): react_jsx_runtime.JSX.Element;
+
+interface SuspensionBannerViewProps {
+    label: ReactNode;
+    reason: ReactNode;
+    appeal_label: ReactNode;
+    appeal_href: string;
+}
+declare function SuspensionBannerView({ label, reason, appeal_label, appeal_href, }: SuspensionBannerViewProps): react_jsx_runtime.JSX.Element;
+
+type EncryptionSenderVerification = "verified" | "invalid" | "unsigned" | "no_keys" | "unknown";
+interface EncryptionInfoDropdownViewProps {
+    is_open: boolean;
+    on_open_change: (is_open: boolean) => void;
+    is_encrypted: boolean;
+    has_pq_protection: boolean;
+    heading: ReactNode;
+    description: ReactNode;
+    size?: number;
+    label?: ReactNode;
+    sender_verification?: EncryptionSenderVerification;
+    sender_title?: ReactNode;
+    sender_description?: ReactNode;
+    sender_invalid_short_label?: ReactNode;
+    reduce_motion?: boolean;
+}
+declare const ENCRYPTED_LOCK_COLOR = "rgb(59, 130, 246)";
+declare function EncryptionInfoDropdownView({ is_open, on_open_change, is_encrypted, has_pq_protection, heading, description, size, label, sender_verification, sender_title, sender_description, sender_invalid_short_label, reduce_motion, }: EncryptionInfoDropdownViewProps): react_jsx_runtime.JSX.Element;
+
+interface ContactAvatarViewProps {
+    size_px: number;
+    initials: string;
+    background_color: string;
+    text_color: string;
+    aria_label?: string;
+    avatar_url?: string;
+    favicon_src?: string;
+    favicon_key?: string;
+    favicon_initially_failed?: boolean;
+    on_favicon_failed?: () => void;
+    on_favicon_loaded?: (src: string) => void;
+    rounded?: string;
+    className?: string;
+}
+declare function get_contact_avatar_font_size(size_px: number, initials: string): number;
+declare function ContactAvatarView({ size_px, initials, background_color, text_color, aria_label, avatar_url, favicon_src, favicon_key, favicon_initially_failed, on_favicon_failed, on_favicon_loaded, rounded, className, }: ContactAvatarViewProps): react_jsx_runtime.JSX.Element;
+
+declare function RailTipLayer(): React$1.ReactPortal | null;
+
+interface RailUnreadDotProps {
+    count: number;
+    label: string;
+    locale?: string;
+}
+declare function RailUnreadDot({ count, label, locale }: RailUnreadDotProps): react_jsx_runtime.JSX.Element | null;
+
+interface NavSectionSkeletonProps {
+    rows?: number;
+    row_height?: string;
+}
+declare function NavSectionSkeleton({ rows, row_height, }: NavSectionSkeletonProps): react_jsx_runtime.JSX.Element;
+
+type PlanBadgeTier = "star" | "nova" | "supernova";
+declare function plan_badge_tier(plan_code: string | null | undefined): PlanBadgeTier | null;
+interface PlanBadgeViewProps {
+    tier: PlanBadgeTier | null;
+    label: string;
+    aria_label?: string;
+    title?: string;
+    className?: string;
+}
+declare function PlanBadgeView({ tier, label, aria_label, title, className, }: PlanBadgeViewProps): react_jsx_runtime.JSX.Element | null;
+
+type KeyboardShortcutBadgeSize = "xs" | "sm" | "md" | "lg";
+type KeyboardShortcutBadgeVariant = "default" | "outline" | "ghost";
+type KeyboardShortcutModifier = "cmd" | "ctrl" | "shift" | "alt" | "cmd+shift" | "ctrl+shift";
+interface KeyboardShortcutBadgeViewProps {
+    shortcut_key: string | null | undefined;
+    modifier?: KeyboardShortcutModifier;
+    is_mac: boolean;
+    size?: KeyboardShortcutBadgeSize;
+    variant?: KeyboardShortcutBadgeVariant;
+    show_on_touch?: boolean;
+    className?: string;
+    format_aria_label?: (shortcut: string) => string;
+}
+declare function format_shortcut_modifier(mod: KeyboardShortcutModifier, is_mac: boolean): string;
+declare function format_shortcut_key(key: string): string;
+declare function KeyboardShortcutBadgeView({ shortcut_key, modifier, is_mac, size, variant, show_on_touch, className, format_aria_label, }: KeyboardShortcutBadgeViewProps): react_jsx_runtime.JSX.Element | null;
+
+interface AliasContextMenuLabels {
+    copy_address: string;
+    view_sent: string;
+    pin: string;
+    unpin: string;
+    enable: string;
+    disable: string;
+    manage: string;
+}
+interface AliasContextMenuViewProps {
+    children: React$1.ReactNode;
+    labels: AliasContextMenuLabels;
+    is_pinned: boolean;
+    is_enabled: boolean;
+    show_pin: boolean;
+    show_toggle_enabled: boolean;
+    pin_icon?: React$1.ReactNode;
+    on_copy_address: () => void;
+    on_view_sent: () => void;
+    on_toggle_pin: () => void;
+    on_toggle_enabled: () => void;
+    on_manage: () => void;
+}
+declare function AliasContextMenuView({ children, labels, is_pinned, is_enabled, show_pin, show_toggle_enabled, pin_icon, on_copy_address, on_view_sent, on_toggle_pin, on_toggle_enabled, on_manage, }: AliasContextMenuViewProps): React$1.ReactElement;
+
+interface SidebarSectionAddButtonProps {
+    label: string;
+    on_click: () => void;
+    rail_tip?: boolean;
+}
+declare function SidebarSectionAddButton({ label, on_click, rail_tip, }: SidebarSectionAddButtonProps): React$1.ReactElement;
+interface SidebarRailSectionButtonProps {
+    icon: React$1.ComponentType<{
+        className?: string;
+        style?: React$1.CSSProperties;
+    }>;
+    label: string;
+    on_click: () => void;
+    icon_style?: React$1.CSSProperties;
+}
+declare function SidebarRailSectionButton({ icon: Icon, label, on_click, icon_style, }: SidebarRailSectionButtonProps): React$1.ReactElement;
+interface SidebarEmptyTextProps {
+    children: React$1.ReactNode;
+}
+declare function SidebarEmptyText({ children, }: SidebarEmptyTextProps): React$1.ReactElement;
+interface AliasIconViewProps {
+    background: string;
+    is_random: boolean;
+    size: number;
+}
+declare function AliasIconView({ background, is_random, size, }: AliasIconViewProps): React$1.ReactElement;
+interface SidebarFolderRowViewProps {
+    label: string;
+    color: string;
+    is_collapsed: boolean;
+    selected: boolean;
+    depth: number;
+    has_children: boolean;
+    is_expanded: boolean;
+    is_locked_closed: boolean;
+    show_lock_badge?: boolean;
+    guide_trail?: boolean[];
+    guide_has_next?: boolean;
+    unread_count: number;
+    locale?: string;
+    expand_label: string;
+    collapse_label: string;
+    drag_over?: boolean;
+    button_ref?: React$1.Ref<HTMLButtonElement>;
+    on_click: () => void;
+    on_toggle_expanded: () => void;
+    on_drag_enter?: (e: React$1.DragEvent<HTMLButtonElement>) => void;
+    on_drag_leave?: (e: React$1.DragEvent<HTMLButtonElement>) => void;
+    on_drag_over?: (e: React$1.DragEvent<HTMLButtonElement>) => void;
+    on_drop?: (e: React$1.DragEvent<HTMLButtonElement>) => void;
+}
+declare function SidebarFolderRowView({ label, color, is_collapsed, selected, depth, has_children, is_expanded, is_locked_closed, show_lock_badge, guide_trail, guide_has_next, unread_count, locale, expand_label, collapse_label, drag_over, button_ref, on_click, on_toggle_expanded, on_drag_enter, on_drag_leave, on_drag_over, on_drop, }: SidebarFolderRowViewProps): React$1.ReactElement;
+
+interface MobileMenuButtonViewProps {
+    label: string;
+    on_click: () => void;
+}
+declare function MobileMenuButtonView({ label, on_click, }: MobileMenuButtonViewProps): React$1.ReactElement;
+interface SidebarAsideViewProps {
+    label: string;
+    is_collapsed: boolean;
+    is_mobile: boolean;
+    expanded_width: number;
+    children: React$1.ReactNode;
+}
+declare function SidebarAsideView({ label, is_collapsed, is_mobile, expanded_width, children, }: SidebarAsideViewProps): React$1.ReactElement;
+interface SidebarRailOpenButtonProps {
+    label: string;
+    on_click: () => void;
+}
+declare function SidebarRailOpenButton({ label, on_click, }: SidebarRailOpenButtonProps): React$1.ReactElement;
+interface SidebarTopBarViewProps {
+    is_collapsed: boolean;
+    is_compact: boolean;
+    children?: React$1.ReactNode;
+}
+declare function SidebarTopBarView({ is_collapsed, is_compact, children, }: SidebarTopBarViewProps): React$1.ReactElement;
+interface SidebarCloseButtonProps {
+    label: string;
+    on_click: () => void;
+    type?: "button";
+}
+declare function SidebarCloseButton({ label, on_click, type, }: SidebarCloseButtonProps): React$1.ReactElement;
+interface SidebarComposeButtonViewProps {
+    label: string;
+    is_collapsed: boolean;
+    on_click: () => void;
+}
+declare function SidebarComposeButtonView({ label, is_collapsed, on_click, }: SidebarComposeButtonViewProps): React$1.ReactElement;
+interface SidebarScrollAreaViewProps {
+    is_collapsed: boolean;
+    show_indicator: boolean;
+    indicator_style: React$1.CSSProperties;
+    container_ref?: React$1.Ref<HTMLDivElement>;
+    children: React$1.ReactNode;
+}
+declare function SidebarScrollAreaView({ is_collapsed, show_indicator, indicator_style, container_ref, children, }: SidebarScrollAreaViewProps): React$1.ReactElement;
+
+interface MobileBottomSheetProps {
+    is_open: boolean;
+    on_close: () => void;
+    children: ReactNode;
+    aria_label?: string;
+    safe_area_bottom?: number | string;
+    reduce_motion?: boolean;
+}
+declare const MobileBottomSheet: React$1.NamedExoticComponent<MobileBottomSheetProps>;
+
+interface MobileActionSheetItem {
+    icon: ComponentType<{
+        className?: string;
+    }>;
+    label: string;
+    on_action: () => void;
+    destructive?: boolean;
+}
+interface MobileActionSheetProps {
+    is_open: boolean;
+    on_close: () => void;
+    items: MobileActionSheetItem[];
+    aria_label?: string;
+    cancel_label?: string;
+    title?: string;
+    subtitle?: string;
+    close_on_action?: boolean;
+    safe_area_bottom?: number | string;
+    reduce_motion?: boolean;
+}
+declare const MobileActionSheet: React$1.NamedExoticComponent<MobileActionSheetProps>;
+type MobileContextMenuViewProps = Omit<MobileActionSheetProps, "close_on_action">;
+declare const MobileContextMenuView: React$1.NamedExoticComponent<MobileContextMenuViewProps>;
+
+interface MobileAttachmentRowProps {
+    filename: string;
+    content_type: string;
+    size_label: string;
+    on_download?: () => void;
+    is_downloading?: boolean;
+    download_label?: string;
+}
+declare const MobileAttachmentRow: React$1.NamedExoticComponent<MobileAttachmentRowProps>;
+
+interface MobileSidebarNavButtonProps {
+    icon: ReactNode;
+    label: string;
+    active: boolean;
+    count?: number;
+    trailing?: ReactNode;
+    on_click: () => void;
+    on_long_press?: () => void;
+    locale?: string;
+}
+declare function MobileSidebarNavButton({ icon, label, active, count, trailing, on_click, on_long_press, locale, }: MobileSidebarNavButtonProps): react_jsx_runtime.JSX.Element;
+
+interface SwipeAction {
+    icon: ReactNode;
+    color: string;
+    on_trigger: () => void;
+}
+interface SwipeActionsProps {
+    left_action?: SwipeAction;
+    right_action?: SwipeAction;
+    disabled?: boolean;
+    children: ReactNode;
+    reduce_motion?: boolean;
+    on_threshold_cross?: () => void;
+}
+declare const SwipeActions: React$1.NamedExoticComponent<SwipeActionsProps>;
+
+type ProfileNoteSaveStatus = "idle" | "saving" | "saved" | "error" | "too_long";
+interface ProfileNotesStrings {
+    notes: string;
+    too_long: string;
+    load_failed: string;
+    placeholder: string;
+}
+interface ProfileNotesBaseProps {
+    note: string;
+    is_loading: boolean;
+    load_failed: boolean;
+    save_status: ProfileNoteSaveStatus;
+    status_indicator?: ReactNode;
+    strings: ProfileNotesStrings;
+    on_change: (value: string) => void;
+    on_blur: () => void;
+    max_length?: number;
+}
+interface ProfileNotesBoxViewProps extends ProfileNotesBaseProps {
+    className?: string;
+}
+interface ProfileNotesInlineViewProps extends ProfileNotesBaseProps {
+    textarea_ref?: RefObject<HTMLTextAreaElement>;
+}
+declare function ProfileNotesBoxView({ note, is_loading, load_failed, save_status, status_indicator, strings, on_change, on_blur, max_length, className, }: ProfileNotesBoxViewProps): react_jsx_runtime.JSX.Element;
+declare function ProfileNotesInlineView({ note, is_loading, load_failed, save_status, status_indicator, strings, on_change, on_blur, max_length, textarea_ref, }: ProfileNotesInlineViewProps): react_jsx_runtime.JSX.Element;
+
+declare const ASTER_EMAIL_DOMAINS: ReadonlySet<string>;
+declare function is_aster_email_address(email: string): boolean;
+interface SenderProfileAvatarRenderOptions {
+    size: ProfileAvatarSize;
+    className: string;
+}
+type SenderProfileAvatarRenderer = (options: SenderProfileAvatarRenderOptions) => ReactNode;
+interface SenderProfileBaseProps {
+    email: string;
+    display_name: string;
+    domain: string;
+    is_aster_user: boolean;
+    render_avatar: SenderProfileAvatarRenderer;
+    on_copy_email: () => void;
+    is_contact: boolean;
+    is_contact_loading: boolean;
+    contact_disabled: boolean;
+    on_contact_action: () => void;
+    on_messages_from: () => void;
+    on_compose?: () => void;
+    is_allowlisted: boolean;
+    is_allowlist_loading: boolean;
+    allowlist_disabled: boolean;
+    on_allowlist_action: () => void;
+    is_blocking: boolean;
+    on_block_action: () => void;
+    notes?: ReactNode;
+}
+interface SenderProfileCardStrings {
+    add_to_contacts: string;
+    remove_from_contacts: string;
+    notes: string;
+    hide_notes: string;
+    messages_from: string;
+    send_email: string;
+    allow_sender: string;
+    remove_from_allowlist: string;
+    block_sender: string;
+    unblock_sender: string;
+}
+interface SenderProfileCardViewProps extends SenderProfileBaseProps {
+    is_open: boolean;
+    on_open_change: (open: boolean) => void;
+    on_trigger_intent?: () => void;
+    trigger_className?: string;
+    children: ReactNode;
+    show_notes: boolean;
+    on_toggle_notes: () => void;
+    is_blocked: boolean;
+    strings: SenderProfileCardStrings;
+}
+declare function SenderProfileCardView({ email, display_name, domain, is_aster_user, render_avatar, on_copy_email, is_contact, is_contact_loading, contact_disabled, on_contact_action, on_messages_from, on_compose, is_allowlisted, is_allowlist_loading, allowlist_disabled, on_allowlist_action, is_blocking, on_block_action, notes, is_open, on_open_change, on_trigger_intent, trigger_className, children, show_notes, on_toggle_notes, is_blocked, strings, }: SenderProfileCardViewProps): react_jsx_runtime.JSX.Element;
+interface SenderProfileModalStrings {
+    add_to_contacts: string;
+    remove_from_contacts: string;
+    messages_from: string;
+    send_email: string;
+    allow_sender: string;
+    remove_from_allowlist: string;
+    block_sender: string;
+    close: string;
+}
+interface SenderProfileModalViewProps extends SenderProfileBaseProps {
+    is_open: boolean;
+    on_close: () => void;
+    reduce_motion?: boolean;
+    strings: SenderProfileModalStrings;
+}
+declare function SenderProfileModalView({ email, display_name, domain, is_aster_user, render_avatar, on_copy_email, is_contact, is_contact_loading, contact_disabled, on_contact_action, on_messages_from, on_compose, is_allowlisted, is_allowlist_loading, allowlist_disabled, on_allowlist_action, is_blocking, on_block_action, notes, is_open, on_close, reduce_motion, strings, }: SenderProfileModalViewProps): react_jsx_runtime.JSX.Element;
+
+export { ASTER_EMAIL_DOMAINS, Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, type AccordionVariantProps, type AccountAvatarButtonSize, AccountAvatarButtonView, type AccountAvatarButtonViewProps, type AccountSwitcherLabels, AccountSwitcherView, type AccountSwitcherViewProps, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, type AlertDialogContentProps, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger, type AliasContextMenuLabels, AliasContextMenuView, type AliasContextMenuViewProps, AliasIconView, type AliasIconViewProps, AllMailIcon, type AppEntry, type AppRailItem, type AppRailLabels, AppRailView, type AppRailViewProps, AppSwitcher, type AppSwitcherProps, ArchiveIcon, ArrowLeftIcon, AsterSecurityMark, type AsterSecurityMarkProps, type AsterUiStrings, AttachmentIcon, type AuthAlertKind, AuthCard, AuthCardBody, type AuthCardBodyProps, type AuthCardProps, AuthCheckIcon, AuthCheckbox, type AuthCheckboxProps, AuthDocumentIcon, AuthDownloadIcon, AuthEnvelopeIcon, AuthEyeIcon, AuthEyeSlashIcon, AuthFormLabel, AuthFourPointStar, AuthInputWrapper, type AuthInputWrapperProps, AuthLockClosedIcon, AuthLockIcon, AuthLogo, type AuthLogoProps, AuthShieldCheckIcon, AuthSparkleDecoration, AuthUserCircleIcon, AuthWarningIcon, Avatar, AvatarGroup, type AvatarGroupProps, AvatarNamed, type AvatarNamedProps, type AvatarProps, type AvatarVariantProps, AvatarWithStatus, type AvatarWithStatusProps, BADGE_VISUALS, BLOCKING_DIALOG_ICON_PATHS, Badge, BadgeChip, type BadgeChipData, type BadgeChipProps, type BadgeChipSize, BadgeDot, type BadgeDotProps, type BadgeIconComponent, type BadgeProps, type BadgeVariantProps, type BadgeVisual, Banner, type BannerProps, type BlockingDialogIcon, BlockingDialogView, type BlockingDialogViewProps, Button, type ButtonProps, ButtonSpinner, type ButtonSpinnerProps, type ButtonVariantProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, type CardIconProps, type CardProps, CardTitle, type CardVariantProps, CheckIcon, Checkbox, type CheckboxProps, ChunkRecoveryFallbackView, type ChunkRecoveryFallbackViewProps, ClockIcon, CloseIcon, CoinIcon, type CoinIconProps, ColorVisionFilters, type ColorVisionFiltersProps, type ColorVisionMode, ComposeErrorFallbackView, type ComposeErrorFallbackViewProps, ConfirmationModal, type ConfirmationModalProps, type ConfirmationVariant, ContactAvatarView, type ContactAvatarViewProps, ContextMenu, type ContextMenuItem, type ContextMenuPosition, type ContextMenuProps, CountBadge, type CountBadgeProps, CrownIcon, DEFAULT_TOAST_POSITION, DashboardSidebar, type DashboardSidebarAccountLike, type DashboardSidebarFilter, type DashboardSidebarProps, type DashboardSidebarTStrings, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, ENCRYPTED_LOCK_COLOR, EmailErrorFallbackView, type EmailErrorFallbackViewProps, EmailTag, type EmailTagProps, EmptyState, type EmptyStateProps, EncryptionInfoDropdownView, type EncryptionInfoDropdownViewProps, type EncryptionSenderVerification, ErrorBanner, type ErrorBannerProps, ErrorBoundaryView, type ErrorBoundaryViewProps, ErrorDetailsView, type ErrorDetailsViewProps, ExternalLinkWarningModal, type ExternalLinkWarningModalProps, Family2faDialogView, type Family2faDialogViewProps, FaviconOrInitial, type FaviconOrInitialProps, FeatureCard, type FeatureCardProps, FieldHint, type FieldHintProps, FieldLabel, type FieldLabelProps, FileIcon, FilterIcon, FullPageLoader, type IconSvgProps, InboxIcon, InfoPopover, type InfoPopoverProps, Input, type InputProps, Island, IslandBlock, type IslandBlockProps, type IslandBlockSize, IslandChip, type IslandChipProps, IslandCountPill, type IslandCountPillProps, type IslandCountPillSize, IslandDivider, type IslandDividerProps, IslandEmpty, type IslandEmptyProps, IslandGrid, type IslandGridProps, IslandIconButton, type IslandIconButtonProps, IslandLink, type IslandLinkProps, type IslandPadding, IslandPage, type IslandPageProps, type IslandPageWidth, type IslandProps, IslandRow, type IslandRowProps, type IslandRowToggle, IslandSection, type IslandSectionProps, IslandSections, type IslandSectionsProps, IslandStack, type IslandStackProps, type IslandTone, Kbd, type KbdProps, type KbdVariantProps, type KeyboardShortcutBadgeSize, type KeyboardShortcutBadgeVariant, KeyboardShortcutBadgeView, type KeyboardShortcutBadgeViewProps, type KeyboardShortcutEntry, type KeyboardShortcutModifier, type KeyboardShortcutSection, KeyboardShortcutsModal, type KeyboardShortcutsModalProps, type KeyboardShortcutsTStrings, LinkIcon, LockIcon, Logo, Marquee, MarqueeLogo, type MarqueeLogoProps, type MarqueeProps, MarqueeTrack, type MarqueeTrackProps, type MarqueeVariantProps, MobileActionSheet, type MobileActionSheetItem, type MobileActionSheetProps, MobileActionSheetShell, type MobileActionSheetShellProps, MobileAttachmentRow, type MobileAttachmentRowProps, MobileBottomSheet, type MobileBottomSheetProps, MobileContextMenuView, type MobileContextMenuViewProps, MobileDrawerShell, type MobileDrawerShellProps, MobileHeader, MobileHeaderIconButton, type MobileHeaderIconButtonProps, type MobileHeaderProps, MobileMenuButtonView, type MobileMenuButtonViewProps, MobileSidebarNavButton, type MobileSidebarNavButtonProps, Modal, ModalActions, type ModalActionsProps, ModalBody, type ModalBodyProps, ModalDescription, type ModalDescriptionProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, type ModalProps, type ModalSize, ModalTitle, type ModalTitleProps, MotionModal, MotionModalActions, type MotionModalActionsProps, MotionModalBody, type MotionModalBodyProps, MotionModalDescription, type MotionModalDescriptionProps, MotionModalFooter, type MotionModalFooterProps, MotionModalHeader, type MotionModalHeaderProps, type MotionModalProps, type MotionModalSize, MotionModalTitle, type MotionModalTitleProps, NavSectionSkeleton, type NavSectionSkeletonProps, Navbar, NavbarActions, type NavbarActionsProps, NavbarCta, type NavbarCtaProps, NavbarHamburger, type NavbarHamburgerProps, NavbarInner, type NavbarInnerProps, NavbarLink, type NavbarLinkProps, NavbarLinks, type NavbarLinksProps, NavbarLogo, type NavbarLogoProps, NavbarMega, NavbarMegaCol, type NavbarMegaColProps, NavbarMegaCols, type NavbarMegaColsProps, NavbarMegaItem, type NavbarMegaItemProps, NavbarMegaItemSimple, type NavbarMegaItemSimpleProps, NavbarMegaPanel, type NavbarMegaPanelProps, type NavbarMegaProps, NavbarMobileDivider, NavbarMobileLink, type NavbarMobileLinkProps, NavbarMobileMenu, type NavbarMobileMenuProps, type NavbarProps, NavbarSearch, type NavbarSearchProps, NavbarTrigger, type NavbarTriggerProps, type NavbarVariant, NotFoundPage, type NotFoundPageProps, type OfflineIndicatorPosition, OfflineIndicatorView, type OfflineIndicatorViewProps, OpenFullIcon, type OpenFullIconProps, OtpInput, type OtpInputProps, PROFILE_AVATAR_SIZE_MAP, PanelToggleIcon, PendingDeletionDialogView, type PendingDeletionDialogViewProps, PillButton, type PillButtonProps, type PillSize, type PillVariant, PinIcon, type PlanBadgeTier, PlanBadgeView, type PlanBadgeViewProps, Popover, PopoverAnchor, PopoverContent, PopoverTrigger, PricingCard, type PricingCardProps, type ProfileAvatarSize, ProfileAvatarView, type ProfileAvatarViewProps, type ProfileDropdownLabels, ProfileDropdownView, type ProfileDropdownViewProps, type ProfileNoteSaveStatus, ProfileNotesBoxView, type ProfileNotesBoxViewProps, ProfileNotesInlineView, type ProfileNotesInlineViewProps, type ProfileNotesStrings, Progress, Radio, RadioGroup, RadioGroupItem, type RadioProps, RadioRowWithDescription, RadixContextMenu, RadixContextMenuCheckboxItem, RadixContextMenuContent, RadixContextMenuGroup, RadixContextMenuItem, RadixContextMenuLabel, RadixContextMenuPortal, RadixContextMenuRadioGroup, RadixContextMenuRadioItem, RadixContextMenuSeparator, RadixContextMenuSub, RadixContextMenuSubContent, RadixContextMenuSubTrigger, RadixContextMenuTrigger, RailTipLayer, RailUnreadDot, type RailUnreadDotProps, type ResolvedToastPosition, STATUS_BANNER_DARK_TEXT, STATUS_BANNER_TONE_COLORS, type SaveStatus, SaveStatusIndicatorView, type SaveStatusIndicatorViewProps, SearchBar, type SearchBarProps, SearchIcon, type SegOption, SegmentedToggle, type SegmentedToggleProps, Select, SelectContent, type SelectContentProps, SelectGroup, type SelectGroupProps, SelectItem, type SelectItemProps, SelectLabel, type SelectLabelProps, type SelectProps, SelectScrollDownButton, type SelectScrollDownButtonProps, SelectScrollUpButton, type SelectScrollUpButtonProps, SelectSeparator, type SelectSeparatorProps, SelectTrigger, type SelectTriggerProps, SelectValue, type SelectValueProps, type SenderProfileAvatarRenderOptions, type SenderProfileAvatarRenderer, type SenderProfileCardStrings, SenderProfileCardView, type SenderProfileCardViewProps, type SenderProfileModalStrings, SenderProfileModalView, type SenderProfileModalViewProps, Separator, SettingControlRow, type SettingControlRowProps, SettingNote, type SettingNoteProps, type SettingNoteTone, SettingRow, SettingToggleRow, type SettingToggleRowProps, SettingsModalShell, type SettingsModalShellProps, SettingsNavGroup, type SettingsNavGroupData, type SettingsNavGroupProps, type SettingsNavItem, SettingsNavItemButton, type SettingsNavItemButtonProps, SettingsRow, type SettingsRowProps, SettingsSaveIndicator, type SettingsSaveIndicatorProps, type SettingsSaveStatus, SettingsSectionHeader, type SettingsSectionHeaderProps, SidebarAccountMenu, type SidebarAccountMenuItem, type SidebarAccountMenuProps, SidebarActionButton, type SidebarActionButtonProps, SidebarAsideView, type SidebarAsideViewProps, SidebarCloseButton, type SidebarCloseButtonProps, SidebarComposeButtonView, type SidebarComposeButtonViewProps, SidebarEmptyText, type SidebarEmptyTextProps, SidebarFolderRowView, type SidebarFolderRowViewProps, SidebarHeader, type SidebarHeaderProps, SidebarMoreToggle, type SidebarMoreToggleProps, SidebarNavRow, type SidebarNavRowProps, SidebarRailOpenButton, type SidebarRailOpenButtonProps, SidebarRailSectionButton, type SidebarRailSectionButtonProps, SidebarScrollAreaView, type SidebarScrollAreaViewProps, SidebarSectionAddButton, type SidebarSectionAddButtonProps, SidebarSectionHeader, type SidebarSectionHeaderProps, SidebarSectionToggle, type SidebarSectionToggleProps, SidebarTagRow, type SidebarTagRowProps, SidebarTopBarView, type SidebarTopBarViewProps, SimpleToast, type SimpleToastProps, Skeleton, type SkeletonProps, SkeletonText, type SkeletonTextProps, type SkeletonVariant, Slider, type SliderProps, SnoozeBadge, type SnoozeBadgeProps, SnoozeIcon, type SnoozeTimeUnits, SpamIcon, SparkleOverlay, type SparkleOverlayProps, Spinner, type SpinnerProps, type SpinnerSize, StarIcon, StatCard, type StatCardProps, type StatTrend, StatusBanner, type StatusBannerAction, type StatusBannerActionEmphasis, type StatusBannerContrast, type StatusBannerProps, type StatusBannerTone, type StatusBannerVariant, type StatusType, StorageIndicator, type StorageIndicatorProps, type StorageMeterLabels, StorageMeterView, type StorageMeterViewProps, SuspensionBannerView, type SuspensionBannerViewProps, type SwipeAction, SwipeActions, type SwipeActionsProps, Switch, type SwitchProps, type SwitchVariantProps, TAG_COLOR_PRESETS, TAG_ICONS, TAG_ICON_GROUPS, TOAST_BOTTOM_ISLAND_STYLE, TOAST_DURATION_BILLING_MS, TOAST_DURATION_DEFAULT_MS, TOAST_POSITION_LAYOUT, type TagColorVariant, TagIcon, type TagIconGroup, type TagIconName, type TagVariant, TestimonialCard, type TestimonialCardProps, TextRoller, type TextRollerItem, type TextRollerProps, ThemeCard, type ThemeCardProps, ThemeMockupDark, ThemeMockupLight, type ThemeMode, ThreeDotsHorizontal, type ToastAction, type ToastKind, type ToastPayload, type ToastPosition, type ToastPositionLayout, Tooltip, TooltipDotted, type TooltipDottedProps, type TooltipPosition, type TooltipProps, TooltipRich, type TooltipRichProps, TrashIcon, UiStringsProvider, type UiStringsProviderProps, UpgradeBtn, type UpgradeBtnProps, UpgradeOverlay, type UpgradeOverlayProps, ViewMockupFullpage, ViewMockupPopup, ViewMockupSplit, ViewModeCard, WarningIcon, type WorkspaceAccountBadge, type WorkspaceAccountRow, type WorkspaceHubAccountRow, type WorkspaceSwitcherLabels, WorkspaceSwitcherView, type WorkspaceSwitcherViewProps, accordion_variants, avatar_variants, badge_variants, button_tap, button_variants, card_variants, cn, default_snooze_time_units, default_ui_strings, dismiss_toast, email_tag_variants, fade_up_item, format_error_text, format_find_order, format_shortcut_key, format_shortcut_modifier, format_snooze_time_remaining, format_ui_string, get_auth_alert_styles, get_auth_primary_button_style, get_badge_visual, get_contact_avatar_font_size, has_open_overlay_layer, hex_to_variant, is_aster_email_address, is_top_overlay_layer, is_top_position, kbd_variants, lock_body_scroll, marquee_variants, motion_duration_base, motion_duration_fast, motion_duration_slow, motion_ease_standard, page_slide_transition, plan_badge_tier, push_overlay_layer, remove_overlay_layer, resolve_toast_layout, resolve_toast_position, set_toast_min_duration, show_toast, stagger_container, switch_variants, tag_color_label_key, tag_icon_label_key, tag_icon_map, unlock_body_scroll, use_backdrop_dismiss, use_body_scroll_lock, use_dialog_shell, use_escape_layer, use_focus_trap, use_overlay_layer, use_should_reduce_motion, use_ui_strings };

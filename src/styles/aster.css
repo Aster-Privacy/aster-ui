@@ -22,6 +22,7 @@
 @import "./island.css";
 @import "./tokens.css";
 @import "./account.css";
+@import "./shell.css";
 
 @source "../index.js";
 @source "../date_picker/index.js";

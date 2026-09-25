@@ -37,6 +37,11 @@ export interface AsterUiStrings {
   verification_code_digit: string;
   qr_code: string;
   learn_more: string;
+  actions: string;
+  back: string;
+  open_menu: string;
+  search: string;
+  download: string;
 }
 
 export const default_ui_strings: AsterUiStrings = {
@@ -55,6 +60,11 @@ export const default_ui_strings: AsterUiStrings = {
   verification_code_digit: "Digit {index} of {count}",
   qr_code: "QR code",
   learn_more: "Learn more",
+  actions: "Actions",
+  back: "Back",
+  open_menu: "Open menu",
+  search: "Search",
+  download: "Download",
 };
 
 const UI_STRINGS_CONTEXT_KEY = Symbol.for("aster_ui.ui_strings_context");

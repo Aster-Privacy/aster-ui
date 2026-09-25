@@ -30,6 +30,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var index_exports = {};
 __export(index_exports, {
+  ASTER_EMAIL_DOMAINS: () => ASTER_EMAIL_DOMAINS,
   Accordion: () => Accordion,
   AccordionContent: () => AccordionContent,
   AccordionItem: () => AccordionItem,
@@ -46,8 +47,15 @@ __export(index_exports, {
   AlertDialogPortal: () => AlertDialogPortal,
   AlertDialogTitle: () => AlertDialogTitle,
   AlertDialogTrigger: () => AlertDialogTrigger,
+  AliasContextMenuView: () => AliasContextMenuView,
+  AliasIconView: () => AliasIconView,
+  AllMailIcon: () => AllMailIcon,
   AppRailView: () => AppRailView,
   AppSwitcher: () => AppSwitcher,
+  ArchiveIcon: () => ArchiveIcon,
+  ArrowLeftIcon: () => ArrowLeftIcon,
+  AsterSecurityMark: () => AsterSecurityMark,
+  AttachmentIcon: () => AttachmentIcon,
   AuthCard: () => AuthCard,
   AuthCardBody: () => AuthCardBody,
   AuthCheckIcon: () => AuthCheckIcon,
@@ -72,10 +80,12 @@ __export(index_exports, {
   AvatarNamed: () => AvatarNamed,
   AvatarWithStatus: () => AvatarWithStatus,
   BADGE_VISUALS: () => BADGE_VISUALS,
+  BLOCKING_DIALOG_ICON_PATHS: () => BLOCKING_DIALOG_ICON_PATHS,
   Badge: () => Badge,
   BadgeChip: () => BadgeChip,
   BadgeDot: () => BadgeDot,
   Banner: () => Banner,
+  BlockingDialogView: () => BlockingDialogView,
   Button: () => Button,
   ButtonSpinner: () => ButtonSpinner,
   Card: () => Card,
@@ -85,15 +95,20 @@ __export(index_exports, {
   CardHeader: () => CardHeader,
   CardIcon: () => CardIcon,
   CardTitle: () => CardTitle,
+  CheckIcon: () => CheckIcon8,
   Checkbox: () => Checkbox,
   ChunkRecoveryFallbackView: () => ChunkRecoveryFallbackView,
+  ClockIcon: () => ClockIcon3,
+  CloseIcon: () => CloseIcon2,
   CoinIcon: () => CoinIcon,
   ColorVisionFilters: () => ColorVisionFilters,
   ComposeErrorFallbackView: () => ComposeErrorFallbackView,
   ConfirmationModal: () => ConfirmationModal,
+  ContactAvatarView: () => ContactAvatarView,
   ContextMenu: () => ContextMenu,
   CountBadge: () => CountBadge,
   CrownIcon: () => CrownIcon,
+  DEFAULT_TOAST_POSITION: () => DEFAULT_TOAST_POSITION,
   DashboardSidebar: () => DashboardSidebar,
   DropdownMenu: () => DropdownMenu,
   DropdownMenuCheckboxItem: () => DropdownMenuCheckboxItem,
@@ -110,18 +125,24 @@ __export(index_exports, {
   DropdownMenuSubContent: () => DropdownMenuSubContent,
   DropdownMenuSubTrigger: () => DropdownMenuSubTrigger,
   DropdownMenuTrigger: () => DropdownMenuTrigger,
+  ENCRYPTED_LOCK_COLOR: () => ENCRYPTED_LOCK_COLOR,
   EmailErrorFallbackView: () => EmailErrorFallbackView,
   EmailTag: () => EmailTag,
   EmptyState: () => EmptyState,
+  EncryptionInfoDropdownView: () => EncryptionInfoDropdownView,
   ErrorBanner: () => ErrorBanner,
   ErrorBoundaryView: () => ErrorBoundaryView,
   ErrorDetailsView: () => ErrorDetailsView,
   ExternalLinkWarningModal: () => ExternalLinkWarningModal,
+  Family2faDialogView: () => Family2faDialogView,
   FaviconOrInitial: () => FaviconOrInitial,
   FeatureCard: () => FeatureCard,
   FieldHint: () => FieldHint,
   FieldLabel: () => FieldLabel,
+  FileIcon: () => FileIcon,
+  FilterIcon: () => FilterIcon,
   FullPageLoader: () => FullPageLoader,
+  InboxIcon: () => InboxIcon,
   InfoPopover: () => InfoPopover,
   Input: () => Input,
   Island: () => Island,
@@ -139,14 +160,24 @@ __export(index_exports, {
   IslandSections: () => IslandSections,
   IslandStack: () => IslandStack,
   Kbd: () => Kbd,
+  KeyboardShortcutBadgeView: () => KeyboardShortcutBadgeView,
   KeyboardShortcutsModal: () => KeyboardShortcutsModal,
+  LinkIcon: () => LinkIcon2,
+  LockIcon: () => LockIcon,
+  Logo: () => Logo,
   Marquee: () => Marquee,
   MarqueeLogo: () => MarqueeLogo,
   MarqueeTrack: () => MarqueeTrack,
+  MobileActionSheet: () => MobileActionSheet,
   MobileActionSheetShell: () => MobileActionSheetShell,
+  MobileAttachmentRow: () => MobileAttachmentRow,
+  MobileBottomSheet: () => MobileBottomSheet,
+  MobileContextMenuView: () => MobileContextMenuView,
   MobileDrawerShell: () => MobileDrawerShell,
   MobileHeader: () => MobileHeader,
   MobileHeaderIconButton: () => MobileHeaderIconButton,
+  MobileMenuButtonView: () => MobileMenuButtonView,
+  MobileSidebarNavButton: () => MobileSidebarNavButton,
   Modal: () => Modal,
   ModalActions: () => ModalActions,
   ModalBody: () => ModalBody,
@@ -161,6 +192,7 @@ __export(index_exports, {
   MotionModalFooter: () => MotionModalFooter,
   MotionModalHeader: () => MotionModalHeader,
   MotionModalTitle: () => MotionModalTitle,
+  NavSectionSkeleton: () => NavSectionSkeleton,
   Navbar: () => Navbar,
   NavbarActions: () => NavbarActions,
   NavbarCta: () => NavbarCta,
@@ -181,10 +213,15 @@ __export(index_exports, {
   NavbarSearch: () => NavbarSearch,
   NavbarTrigger: () => NavbarTrigger,
   NotFoundPage: () => NotFoundPage,
+  OfflineIndicatorView: () => OfflineIndicatorView,
+  OpenFullIcon: () => OpenFullIcon,
   OtpInput: () => OtpInput,
   PROFILE_AVATAR_SIZE_MAP: () => PROFILE_AVATAR_SIZE_MAP,
   PanelToggleIcon: () => PanelToggleIcon,
+  PendingDeletionDialogView: () => PendingDeletionDialogView,
   PillButton: () => PillButton,
+  PinIcon: () => PinIcon,
+  PlanBadgeView: () => PlanBadgeView,
   Popover: () => Popover,
   PopoverAnchor: () => PopoverAnchor,
   PopoverContent: () => PopoverContent,
@@ -192,6 +229,8 @@ __export(index_exports, {
   PricingCard: () => PricingCard,
   ProfileAvatarView: () => ProfileAvatarView,
   ProfileDropdownView: () => ProfileDropdownView,
+  ProfileNotesBoxView: () => ProfileNotesBoxView,
+  ProfileNotesInlineView: () => ProfileNotesInlineView,
   Progress: () => Progress,
   Radio: () => Radio,
   RadioGroup: () => RadioGroup,
@@ -211,7 +250,13 @@ __export(index_exports, {
   RadixContextMenuSubContent: () => RadixContextMenuSubContent,
   RadixContextMenuSubTrigger: () => RadixContextMenuSubTrigger,
   RadixContextMenuTrigger: () => RadixContextMenuTrigger,
+  RailTipLayer: () => RailTipLayer,
+  RailUnreadDot: () => RailUnreadDot,
+  STATUS_BANNER_DARK_TEXT: () => STATUS_BANNER_DARK_TEXT,
+  STATUS_BANNER_TONE_COLORS: () => STATUS_BANNER_TONE_COLORS,
+  SaveStatusIndicatorView: () => SaveStatusIndicatorView,
   SearchBar: () => SearchBar,
+  SearchIcon: () => SearchIcon,
   SegmentedToggle: () => SegmentedToggle,
   Select: () => Select,
   SelectContent: () => SelectContent,
@@ -223,6 +268,8 @@ __export(index_exports, {
   SelectSeparator: () => SelectSeparator,
   SelectTrigger: () => SelectTrigger,
   SelectValue: () => SelectValue,
+  SenderProfileCardView: () => SenderProfileCardView,
+  SenderProfileModalView: () => SenderProfileModalView,
   Separator: () => Separator4,
   SettingControlRow: () => SettingControlRow,
   SettingNote: () => SettingNote,
@@ -236,34 +283,57 @@ __export(index_exports, {
   SettingsSectionHeader: () => SettingsSectionHeader,
   SidebarAccountMenu: () => SidebarAccountMenu,
   SidebarActionButton: () => SidebarActionButton,
+  SidebarAsideView: () => SidebarAsideView,
+  SidebarCloseButton: () => SidebarCloseButton,
+  SidebarComposeButtonView: () => SidebarComposeButtonView,
+  SidebarEmptyText: () => SidebarEmptyText,
+  SidebarFolderRowView: () => SidebarFolderRowView,
   SidebarHeader: () => SidebarHeader,
   SidebarMoreToggle: () => SidebarMoreToggle,
   SidebarNavRow: () => SidebarNavRow,
+  SidebarRailOpenButton: () => SidebarRailOpenButton,
+  SidebarRailSectionButton: () => SidebarRailSectionButton,
+  SidebarScrollAreaView: () => SidebarScrollAreaView,
+  SidebarSectionAddButton: () => SidebarSectionAddButton,
   SidebarSectionHeader: () => SidebarSectionHeader,
   SidebarSectionToggle: () => SidebarSectionToggle,
   SidebarTagRow: () => SidebarTagRow,
+  SidebarTopBarView: () => SidebarTopBarView,
   SimpleToast: () => SimpleToast,
   Skeleton: () => Skeleton,
   SkeletonText: () => SkeletonText,
   Slider: () => Slider,
   SnoozeBadge: () => SnoozeBadge,
+  SnoozeIcon: () => SnoozeIcon,
+  SpamIcon: () => SpamIcon,
   SparkleOverlay: () => SparkleOverlay,
   Spinner: () => Spinner,
+  StarIcon: () => StarIcon4,
   StatCard: () => StatCard,
+  StatusBanner: () => StatusBanner,
   StorageIndicator: () => StorageIndicator,
   StorageMeterView: () => StorageMeterView,
+  SuspensionBannerView: () => SuspensionBannerView,
+  SwipeActions: () => SwipeActions,
   Switch: () => Switch,
   TAG_COLOR_PRESETS: () => TAG_COLOR_PRESETS,
   TAG_ICONS: () => TAG_ICONS,
   TAG_ICON_GROUPS: () => TAG_ICON_GROUPS,
+  TOAST_BOTTOM_ISLAND_STYLE: () => TOAST_BOTTOM_ISLAND_STYLE,
+  TOAST_DURATION_BILLING_MS: () => TOAST_DURATION_BILLING_MS,
+  TOAST_DURATION_DEFAULT_MS: () => TOAST_DURATION_DEFAULT_MS,
+  TOAST_POSITION_LAYOUT: () => TOAST_POSITION_LAYOUT,
+  TagIcon: () => TagIcon3,
   TestimonialCard: () => TestimonialCard,
   TextRoller: () => TextRoller,
   ThemeCard: () => ThemeCard,
   ThemeMockupDark: () => ThemeMockupDark,
   ThemeMockupLight: () => ThemeMockupLight,
+  ThreeDotsHorizontal: () => ThreeDotsHorizontal,
   Tooltip: () => Tooltip,
   TooltipDotted: () => TooltipDotted,
   TooltipRich: () => TooltipRich,
+  TrashIcon: () => TrashIcon2,
   UiStringsProvider: () => UiStringsProvider,
   UpgradeBtn: () => UpgradeBtn,
   UpgradeOverlay: () => UpgradeOverlay,
@@ -271,6 +341,7 @@ __export(index_exports, {
   ViewMockupPopup: () => ViewMockupPopup,
   ViewMockupSplit: () => ViewMockupSplit,
   ViewModeCard: () => ViewModeCard,
+  WarningIcon: () => WarningIcon2,
   WorkspaceSwitcherView: () => WorkspaceSwitcherView,
   accordion_variants: () => accordion_variants,
   avatar_variants: () => avatar_variants,
@@ -286,14 +357,19 @@ __export(index_exports, {
   fade_up_item: () => fade_up_item,
   format_error_text: () => format_error_text,
   format_find_order: () => format_find_order,
+  format_shortcut_key: () => format_shortcut_key,
+  format_shortcut_modifier: () => format_shortcut_modifier,
   format_snooze_time_remaining: () => format_snooze_time_remaining,
   format_ui_string: () => format_ui_string,
   get_auth_alert_styles: () => get_auth_alert_styles,
   get_auth_primary_button_style: () => get_auth_primary_button_style,
   get_badge_visual: () => get_badge_visual,
+  get_contact_avatar_font_size: () => get_contact_avatar_font_size,
   has_open_overlay_layer: () => has_open_overlay_layer,
   hex_to_variant: () => hex_to_variant,
+  is_aster_email_address: () => is_aster_email_address,
   is_top_overlay_layer: () => is_top_overlay_layer,
+  is_top_position: () => is_top_position,
   kbd_variants: () => kbd_variants,
   lock_body_scroll: () => lock_body_scroll,
   marquee_variants: () => marquee_variants,
@@ -302,8 +378,12 @@ __export(index_exports, {
   motion_duration_slow: () => motion_duration_slow,
   motion_ease_standard: () => motion_ease_standard,
   page_slide_transition: () => page_slide_transition,
+  plan_badge_tier: () => plan_badge_tier,
   push_overlay_layer: () => push_overlay_layer,
   remove_overlay_layer: () => remove_overlay_layer,
+  resolve_toast_layout: () => resolve_toast_layout,
+  resolve_toast_position: () => resolve_toast_position,
+  set_toast_min_duration: () => set_toast_min_duration,
   show_toast: () => show_toast,
   stagger_container: () => stagger_container,
   switch_variants: () => switch_variants,
@@ -1334,6 +1414,64 @@ SkeletonText.displayName = "SkeletonText";
 // src/toast/simple_toast.tsx
 var import_react = require("react");
 var import_framer_motion = require("framer-motion");
+
+// src/toast/toast_position.ts
+var TOP_STYLE = { top: "calc(env(safe-area-inset-top, 0px) + 12px)" };
+var BOTTOM_STYLE = { bottom: "24px" };
+var TOAST_BOTTOM_ISLAND_STYLE = { bottom: "80px" };
+var TOAST_POSITION_LAYOUT = {
+  top: {
+    anchor: "inset-x-0 mx-auto w-fit max-w-[min(92vw,28rem)]",
+    align: "items-center",
+    column: "flex-col",
+    style: TOP_STYLE
+  },
+  bottom: {
+    anchor: "inset-x-0 mx-auto w-fit max-w-[min(92vw,28rem)]",
+    align: "items-center",
+    column: "flex-col-reverse",
+    style: BOTTOM_STYLE
+  },
+  "top-right": {
+    anchor: "right-4",
+    align: "items-end",
+    column: "flex-col",
+    style: TOP_STYLE
+  },
+  "top-left": {
+    anchor: "left-4",
+    align: "items-start",
+    column: "flex-col",
+    style: TOP_STYLE
+  },
+  "bottom-right": {
+    anchor: "right-4",
+    align: "items-end",
+    column: "flex-col-reverse",
+    style: BOTTOM_STYLE
+  },
+  "bottom-left": {
+    anchor: "left-4",
+    align: "items-start",
+    column: "flex-col-reverse",
+    style: BOTTOM_STYLE
+  }
+};
+var DEFAULT_TOAST_POSITION = "bottom";
+function is_top_position(position) {
+  return position.startsWith("top");
+}
+function resolve_toast_position(value) {
+  return value && value in TOAST_POSITION_LAYOUT ? value : DEFAULT_TOAST_POSITION;
+}
+function resolve_toast_layout(position, lift_above_island = false) {
+  const base_layout = TOAST_POSITION_LAYOUT[position];
+  const is_top = is_top_position(position);
+  const layout = lift_above_island && !is_top ? { ...base_layout, style: TOAST_BOTTOM_ISLAND_STYLE } : base_layout;
+  return { position, layout, is_top, y_offset: is_top ? -20 : 20 };
+}
+
+// src/toast/simple_toast.tsx
 var import_jsx_runtime14 = require("react/jsx-runtime");
 function CheckIcon3({ className }) {
   return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
@@ -1423,10 +1561,22 @@ function InformationCircleIcon({ className }) {
     }
   );
 }
-var MAX_TOASTS = 5;
+var MAX_TOASTS = 3;
+var TOAST_DURATION_DEFAULT_MS = 2e3;
+var TOAST_DURATION_BILLING_MS = 8e3;
+var toast_min_duration_ms = TOAST_DURATION_DEFAULT_MS;
+function set_toast_min_duration(duration_ms) {
+  toast_min_duration_ms = Math.max(
+    TOAST_DURATION_DEFAULT_MS,
+    Math.min(3e4, Math.round(duration_ms))
+  );
+}
 var toast_listeners = [];
 var toast_stack = [];
 var toast_timeouts = /* @__PURE__ */ new Map();
+function notify_toast_listeners() {
+  toast_listeners.forEach((listener) => listener([...toast_stack]));
+}
 function dismiss_toast(id) {
   const existing_timeout = toast_timeouts.get(id);
   if (existing_timeout) {
@@ -1434,12 +1584,37 @@ function dismiss_toast(id) {
     toast_timeouts.delete(id);
   }
   toast_stack = toast_stack.filter((t) => t.id !== id);
-  toast_listeners.forEach((listener) => listener([...toast_stack]));
+  notify_toast_listeners();
 }
-function show_toast(message, icon_type) {
+function schedule_toast_expiry(id, duration_ms) {
+  const timeout = setTimeout(() => {
+    toast_timeouts.delete(id);
+    toast_stack = toast_stack.filter((t) => t.id !== id);
+    notify_toast_listeners();
+  }, duration_ms);
+  toast_timeouts.set(id, timeout);
+}
+function show_toast(message, icon_type, duration = TOAST_DURATION_DEFAULT_MS, action) {
+  const effective_duration = Math.max(duration, toast_min_duration_ms);
+  const duplicate = toast_stack.find(
+    (t) => t.message === message && t.icon_type === icon_type
+  );
+  if (duplicate) {
+    toast_stack = toast_stack.map(
+      (t) => t.id === duplicate.id ? { ...t, repeat: (t.repeat ?? 0) + 1 } : t
+    );
+    notify_toast_listeners();
+    const existing_timeout = toast_timeouts.get(duplicate.id);
+    if (existing_timeout) {
+      clearTimeout(existing_timeout);
+    }
+    schedule_toast_expiry(duplicate.id, effective_duration);
+    return duplicate.id;
+  }
   const new_toast = {
     message,
     icon_type,
+    action,
     id: crypto.randomUUID()
   };
   toast_stack = [new_toast, ...toast_stack];
@@ -1454,13 +1629,8 @@ function show_toast(message, icon_type) {
     }
     toast_stack = toast_stack.slice(0, MAX_TOASTS);
   }
-  toast_listeners.forEach((listener) => listener([...toast_stack]));
-  const timeout = setTimeout(() => {
-    toast_timeouts.delete(new_toast.id);
-    toast_stack = toast_stack.filter((t) => t.id !== new_toast.id);
-    toast_listeners.forEach((listener) => listener([...toast_stack]));
-  }, 2e3);
-  toast_timeouts.set(new_toast.id, timeout);
+  notify_toast_listeners();
+  schedule_toast_expiry(new_toast.id, effective_duration);
   return new_toast.id;
 }
 function get_toast_icon(icon_type) {
@@ -1479,10 +1649,14 @@ function get_toast_icon(icon_type) {
   }
 }
 function SimpleToast({
-  position = "bottom",
-  dismiss_label = "Dismiss"
+  position,
+  dismiss_label = "Dismiss",
+  reduce_motion,
+  layout,
+  y_offset
 }) {
-  const reduce_motion = (0, import_framer_motion.useReducedMotion)() ?? false;
+  const system_reduce_motion = (0, import_framer_motion.useReducedMotion)() ?? false;
+  const should_reduce_motion = reduce_motion ?? system_reduce_motion;
   const [toasts, set_toasts] = (0, import_react.useState)([]);
   (0, import_react.useEffect)(() => {
     const listener = (new_toasts) => {
@@ -1493,35 +1667,64 @@ function SimpleToast({
       toast_listeners = toast_listeners.filter((l) => l !== listener);
     };
   }, []);
-  const is_top = position === "top";
-  const y_offset = is_top ? -20 : 20;
+  const resolved = resolve_toast_layout(resolve_toast_position(position));
+  const active_layout = layout ?? resolved.layout;
+  const active_y_offset = y_offset ?? resolved.y_offset;
   return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
     "div",
     {
-      className: `fixed left-1/2 -translate-x-1/2 z-[100] flex ${is_top ? "flex-col" : "flex-col-reverse"} gap-2 pointer-events-none`,
-      style: is_top ? { top: `calc(env(safe-area-inset-top, 0px) + 12px)` } : { bottom: "24px" },
+      "aria-atomic": "false",
+      "aria-live": "polite",
+      className: `fixed ${active_layout.anchor} z-[100] flex ${active_layout.column} ${active_layout.align} gap-2 pointer-events-none`,
+      role: "status",
+      style: active_layout.style,
       children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_framer_motion.AnimatePresence, { children: toasts.map((toast) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
         import_framer_motion.motion.div,
         {
           animate: { opacity: 1, y: 0, scale: 1 },
           className: "pointer-events-auto",
           exit: { opacity: 0, scale: 0.95 },
-          initial: reduce_motion ? false : { opacity: 0, y: y_offset, scale: 0.95 },
-          layout: !reduce_motion,
-          transition: { duration: reduce_motion ? 0 : 0.15 },
-          children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2 bg-modal-bg border border-edge-secondary", children: [
-            get_toast_icon(toast.icon_type) && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "flex-shrink-0 text-txt-primary", children: get_toast_icon(toast.icon_type) }),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "text-[13px] font-medium text-txt-primary whitespace-nowrap", children: toast.message }),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-              "button",
-              {
-                "aria-label": dismiss_label,
-                className: "ml-1 flex-shrink-0 text-txt-muted hover:text-txt-primary transition-colors",
-                onClick: () => dismiss_toast(toast.id),
-                children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(XMarkIcon, { className: "w-3.5 h-3.5" })
-              }
-            )
-          ] })
+          initial: should_reduce_motion ? false : { opacity: 0, y: active_y_offset, scale: 0.95 },
+          layout: should_reduce_motion ? false : "position",
+          transition: {
+            duration: should_reduce_motion ? 0 : 0.15,
+            layout: { duration: 0.2 }
+          },
+          children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+            import_framer_motion.motion.div,
+            {
+              animate: { x: toast.repeat ? [0, -5, 5, -3, 0] : 0 },
+              className: "px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2 bg-modal-bg border border-edge-secondary max-w-[min(92vw,28rem)]",
+              initial: { x: 0 },
+              transition: { duration: should_reduce_motion ? 0 : 0.32 },
+              children: [
+                get_toast_icon(toast.icon_type) && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "flex-shrink-0 text-txt-primary", children: get_toast_icon(toast.icon_type) }),
+                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "text-[13px] font-medium text-txt-primary min-w-0 break-words", children: toast.message }),
+                toast.action && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                  "button",
+                  {
+                    className: "flex-shrink-0 text-[13px] font-semibold text-brand hover:underline",
+                    onClick: () => {
+                      const run = toast.action?.on_click;
+                      dismiss_toast(toast.id);
+                      run?.();
+                    },
+                    children: toast.action.label
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                  "button",
+                  {
+                    "aria-label": dismiss_label,
+                    className: "flex-shrink-0 text-txt-muted hover:text-txt-primary transition-colors p-1.5 -m-1.5",
+                    onClick: () => dismiss_toast(toast.id),
+                    children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(XMarkIcon, { className: "w-3.5 h-3.5" })
+                  }
+                )
+              ]
+            },
+            toast.repeat ?? 0
+          )
         },
         toast.id
       )) })
@@ -2637,6 +2840,7 @@ TextRoller.displayName = "TextRoller";
 
 // src/sidebar/sidebar.tsx
 var React22 = __toESM(require("react"), 1);
+var import_outline2 = require("@heroicons/react/24/outline");
 var import_jsx_runtime24 = require("react/jsx-runtime");
 function join_classes2(...parts) {
   return parts.filter(Boolean).join(" ");
@@ -2718,10 +2922,27 @@ function SidebarSectionToggle({
   is_collapsed,
   section_collapsed,
   on_toggle,
-  right_slot
+  right_slot,
+  data_onboarding
 }) {
   if (is_collapsed) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "mt-5 mb-1 px-2.5", children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "w-full flex items-center justify-between", children: [
+  const chevron = section_collapsed ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_outline2.ChevronRightIcon, { className: "w-3 h-3 rtl:-scale-x-100" }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_outline2.ChevronDownIcon, { className: "w-3 h-3" });
+  const text = /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "text-[10px] font-semibold uppercase tracking-[0.05em]", children: label });
+  if (right_slot === void 0) {
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "mt-5 mb-1 px-2.5", "data-onboarding": data_onboarding, children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+      "button",
+      {
+        className: "w-full flex items-center gap-1 py-1 text-txt-muted opacity-70 hover:opacity-100",
+        type: "button",
+        onClick: on_toggle,
+        children: [
+          chevron,
+          text
+        ]
+      }
+    ) });
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "mt-5 mb-1 px-2.5", "data-onboarding": data_onboarding, children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: "w-full flex items-center justify-between", children: [
     /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
       "button",
       {
@@ -2729,16 +2950,8 @@ function SidebarSectionToggle({
         type: "button",
         onClick: on_toggle,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-            ChevronDown,
-            {
-              className: join_classes2(
-                "w-3 h-3",
-                section_collapsed ? "-rotate-90" : "rotate-0"
-              )
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "text-[10px] font-semibold uppercase tracking-[0.05em]", children: label })
+          chevron,
+          text
         ]
       }
     ),
@@ -2758,15 +2971,7 @@ function SidebarMoreToggle({
       type: "button",
       onClick: on_toggle,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-          ChevronDown,
-          {
-            className: join_classes2(
-              "w-3.5 h-3.5",
-              expanded ? "rotate-180" : "rotate-0"
-            )
-          }
-        ),
+        expanded ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_outline2.ChevronUpIcon, { className: "w-3.5 h-3.5" }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_outline2.ChevronDownIcon, { className: "w-3.5 h-3.5" }),
         /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { children: expanded ? less_label : more_label })
       ]
     }
@@ -2784,7 +2989,9 @@ var SidebarNavRow = React22.forwardRef(
     on_click,
     trailing,
     leading,
-    title
+    title,
+    rail_tip = false,
+    collapsed_slot
   }, ref) => {
     return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
       "button",
@@ -2801,7 +3008,8 @@ var SidebarNavRow = React22.forwardRef(
           color: selected ? "var(--text-primary)" : "var(--text-secondary)",
           backgroundColor: is_collapsed && selected ? "var(--indicator-bg)" : void 0
         },
-        title: title ?? (is_collapsed ? label : void 0),
+        "data-rail-tip": rail_tip && is_collapsed ? label : void 0,
+        title: title ?? (is_collapsed && !rail_tip ? label : void 0),
         type: "button",
         onClick: on_click,
         children: [
@@ -2811,11 +3019,12 @@ var SidebarNavRow = React22.forwardRef(
             {
               className: is_collapsed ? "w-5 h-5" : "w-4 h-4",
               style: {
-                color: selected ? "var(--text-primary)" : "var(--text-muted)"
+                color: selected ? "var(--icon-active)" : "var(--icon-muted)"
               }
             }
           ),
-          !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "flex-1 text-left", children: label }),
+          is_collapsed && collapsed_slot,
+          !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "flex-1 text-start", children: label }),
           !is_collapsed && trailing,
           !is_collapsed && show_count && !is_loading && count !== void 0 && count > 0 && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "ml-auto text-[11px] tabular-nums text-txt-muted", children: count })
         ]
@@ -2824,73 +3033,100 @@ var SidebarNavRow = React22.forwardRef(
   }
 );
 SidebarNavRow.displayName = "SidebarNavRow";
-function SidebarTagRow({
-  label,
-  count,
-  selected = false,
-  is_collapsed = false,
-  on_click,
-  color,
-  show_count = false,
-  button_ref,
-  drag_over = false,
-  on_drag_enter,
-  on_drag_leave,
-  on_drag_over,
-  on_drop,
-  tag_icon: TagIcon3
-}) {
-  return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
-    "button",
-    {
-      ref: button_ref,
-      className: join_classes2(
-        "sidebar-nav-btn group relative w-full flex items-center rounded-[12px] h-8 text-[14px]",
-        is_collapsed ? "justify-center px-0" : "gap-2.5 px-2.5",
-        selected && "sidebar-active",
-        is_collapsed && selected && "sidebar-selected",
-        drag_over && "ring-2 ring-blue-500/60 bg-blue-500/10"
-      ),
-      style: {
-        zIndex: 1,
-        color: selected ? "var(--text-primary)" : "var(--text-secondary)",
-        backgroundColor: drag_over ? void 0 : is_collapsed && selected ? "var(--indicator-bg)" : void 0
-      },
-      title: is_collapsed ? label : void 0,
-      type: "button",
-      onClick: on_click,
-      onDragEnter: on_drag_enter,
-      onDragLeave: on_drag_leave,
-      onDragOver: on_drag_over,
-      onDrop: on_drop,
-      children: [
-        TagIcon3 ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-          TagIcon3,
-          {
-            className: join_classes2(
-              "flex-shrink-0",
-              is_collapsed ? "w-5 h-5" : "w-4 h-4"
-            ),
-            style: { color: color ?? "var(--accent-color)" }
-          }
-        ) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
-          "span",
-          {
-            className: join_classes2(
-              "flex-shrink-0 rounded-full",
-              is_collapsed ? "w-3 h-3" : "w-2.5 h-2.5"
-            ),
-            style: { backgroundColor: color ?? "var(--accent-color)" }
-          }
-        ),
-        !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(import_jsx_runtime24.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "flex-1 text-left truncate leading-4", children: label }),
-          show_count && count !== void 0 && count > 0 && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "ml-auto text-[11px] tabular-nums text-txt-muted", children: count })
-        ] })
-      ]
-    }
-  );
+function assign_ref(ref, value) {
+  if (!ref) return;
+  if (typeof ref === "function") {
+    ref(value);
+  } else {
+    ref.current = value;
+  }
 }
+var SidebarTagRow = React22.forwardRef(
+  ({
+    label,
+    count,
+    selected = false,
+    is_collapsed = false,
+    on_click,
+    color,
+    show_count = false,
+    button_ref,
+    drag_over = false,
+    on_drag_enter,
+    on_drag_leave,
+    on_drag_over,
+    on_drop,
+    tag_icon: TagIcon4,
+    rail_tip = false,
+    icon_slot,
+    collapsed_slot,
+    trailing,
+    ...button_props
+  }, ref) => {
+    const set_refs = React22.useCallback(
+      (el) => {
+        assign_ref(ref, el);
+        assign_ref(button_ref, el);
+      },
+      [ref, button_ref]
+    );
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(
+      "button",
+      {
+        ...button_props,
+        ref: set_refs,
+        className: join_classes2(
+          "sidebar-nav-btn group relative w-full flex items-center rounded-[12px] h-8 text-[14px]",
+          is_collapsed ? "justify-center px-0" : "gap-2.5 px-2.5",
+          selected && "sidebar-active",
+          is_collapsed && selected && "sidebar-selected",
+          drag_over && "ring-2 ring-brand/60 bg-brand/10"
+        ),
+        "data-rail-tip": rail_tip && is_collapsed ? label : void 0,
+        style: {
+          zIndex: 1,
+          color: selected ? "var(--text-primary)" : "var(--text-secondary)",
+          backgroundColor: drag_over ? void 0 : is_collapsed && selected ? "var(--indicator-bg)" : void 0
+        },
+        title: is_collapsed && !rail_tip ? label : void 0,
+        type: "button",
+        onClick: on_click,
+        onDragEnter: on_drag_enter,
+        onDragLeave: on_drag_leave,
+        onDragOver: on_drag_over,
+        onDrop: on_drop,
+        children: [
+          icon_slot !== void 0 ? icon_slot : TagIcon4 ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+            TagIcon4,
+            {
+              className: join_classes2(
+                is_collapsed ? "w-5 h-5" : "w-4 h-4",
+                "flex-shrink-0"
+              ),
+              style: { color: color ?? "var(--accent-color)" }
+            }
+          ) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(
+            "div",
+            {
+              className: join_classes2(
+                is_collapsed ? "w-3 h-3" : "w-2.5 h-2.5",
+                "rounded-full flex-shrink-0"
+              ),
+              style: { backgroundColor: color ?? "var(--accent-color)" }
+            }
+          ),
+          is_collapsed && collapsed_slot,
+          !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(import_jsx_runtime24.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "flex-1 text-start truncate leading-5", children: label }),
+            trailing,
+            show_count && count !== void 0 && count > 0 && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", { className: "ml-auto text-[11px] tabular-nums text-txt-muted", children: count })
+          ] })
+        ]
+      }
+    );
+  }
+);
+SidebarTagRow.displayName = "SidebarTagRow";
 function SidebarActionButton({
   icon: Icon2,
   label,
@@ -2961,7 +3197,7 @@ function use_should_reduce_motion() {
 // src/sidebar/dashboard_sidebar.tsx
 var import_jsx_runtime25 = require("react/jsx-runtime");
 var SIDEBAR_EXPANDED_WIDTH = 256;
-function ChevronDownIcon2({ className }) {
+function ChevronDownIcon3({ className }) {
   return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(
     "svg",
     {
@@ -3484,7 +3720,7 @@ function DashboardSidebar({
                             /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", { className: "text-[15px] font-semibold text-txt-primary truncate w-full text-left", children: t_strings.app_name }),
                             t_strings.deck_subtitle && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", { className: "text-[11px] truncate w-full text-left text-txt-muted", children: t_strings.deck_subtitle })
                           ] }),
-                          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(ChevronDownIcon2, { className: "w-4 h-4 flex-shrink-0 text-txt-muted" })
+                          /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(ChevronDownIcon3, { className: "w-4 h-4 flex-shrink-0 text-txt-muted" })
                         ] })
                       ]
                     }
@@ -6126,7 +6362,7 @@ RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
 var React29 = __toESM(require("react"), 1);
 var import_react_dom = require("react-dom");
 var import_framer_motion6 = require("framer-motion");
-var import_outline2 = require("@heroicons/react/24/outline");
+var import_outline3 = require("@heroicons/react/24/outline");
 
 // src/lib/use_dialog_shell.ts
 var import_react7 = require("react");
@@ -6315,7 +6551,12 @@ var default_ui_strings = {
   next_month: "Next month",
   verification_code_digit: "Digit {index} of {count}",
   qr_code: "QR code",
-  learn_more: "Learn more"
+  learn_more: "Learn more",
+  actions: "Actions",
+  back: "Back",
+  open_menu: "Open menu",
+  search: "Search",
+  download: "Download"
 };
 var UI_STRINGS_CONTEXT_KEY = /* @__PURE__ */ Symbol.for("aster_ui.ui_strings_context");
 function resolve_ui_strings_context() {
@@ -6445,7 +6686,7 @@ function MotionModal({
                   type: "button",
                   onClick: on_close,
                   children: /* @__PURE__ */ (0, import_jsx_runtime42.jsx)(
-                    import_outline2.XMarkIcon,
+                    import_outline3.XMarkIcon,
                     {
                       className: "text-txt-secondary",
                       style: { width: 18, height: 18, flexShrink: 0 }
@@ -6945,7 +7186,7 @@ function KeyboardShortcutsModal({
 // src/dropdown_menu/dropdown_menu.tsx
 var React32 = __toESM(require("react"), 1);
 var DropdownMenuPrimitive = __toESM(require("@radix-ui/react-dropdown-menu"), 1);
-var import_outline3 = require("@heroicons/react/24/outline");
+var import_outline4 = require("@heroicons/react/24/outline");
 var import_jsx_runtime45 = require("react/jsx-runtime");
 var DropdownMenu = DropdownMenuPrimitive.Root;
 var DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
@@ -6965,7 +7206,7 @@ var DropdownMenuSubTrigger = React32.forwardRef(({ className, inset, children, .
     ...props,
     children: [
       children,
-      /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(import_outline3.ChevronRightIcon, { className: "ms-auto h-4 w-4 rtl:-scale-x-100" })
+      /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(import_outline4.ChevronRightIcon, { className: "ms-auto h-4 w-4 rtl:-scale-x-100" })
     ]
   }
 ));
@@ -7032,7 +7273,7 @@ var DropdownMenuCheckboxItem = React32.forwardRef(({ className, children, checke
     ),
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("span", { className: "absolute start-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(DropdownMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(import_outline3.CheckIcon, { className: "h-4 w-4" }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime45.jsx)("span", { className: "absolute start-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(DropdownMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime45.jsx)(import_outline4.CheckIcon, { className: "h-4 w-4" }) }) }),
       children
     ]
   }
@@ -7240,7 +7481,7 @@ function ContextMenu({
 // src/context_menu/radix_context_menu.tsx
 var React34 = __toESM(require("react"), 1);
 var ContextMenuPrimitive = __toESM(require("@radix-ui/react-context-menu"), 1);
-var import_outline4 = require("@heroicons/react/24/outline");
+var import_outline5 = require("@heroicons/react/24/outline");
 var import_jsx_runtime47 = require("react/jsx-runtime");
 var RadixContextMenu = ContextMenuPrimitive.Root;
 var RadixContextMenuTrigger = ContextMenuPrimitive.Trigger;
@@ -7260,7 +7501,7 @@ var RadixContextMenuSubTrigger = React34.forwardRef(({ className, inset, childre
     ...props,
     children: [
       children,
-      /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_outline4.ChevronRightIcon, { className: "ms-auto h-4 w-4 rtl:-scale-x-100" })
+      /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_outline5.ChevronRightIcon, { className: "ms-auto h-4 w-4 rtl:-scale-x-100" })
     ]
   }
 ));
@@ -7325,7 +7566,7 @@ var RadixContextMenuCheckboxItem = React34.forwardRef(({ className, children, ch
     ),
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("span", { className: "absolute start-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(ContextMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_outline4.CheckIcon, { className: "h-4 w-4" }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("span", { className: "absolute start-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(ContextMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_outline5.CheckIcon, { className: "h-4 w-4" }) }) }),
       children
     ]
   }
@@ -7341,7 +7582,7 @@ var RadixContextMenuRadioItem = React34.forwardRef(({ className, children, ...pr
     ),
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("span", { className: "absolute start-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(ContextMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_outline4.CheckIcon, { className: "h-4 w-4" }) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime47.jsx)("span", { className: "absolute start-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(ContextMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime47.jsx)(import_outline5.CheckIcon, { className: "h-4 w-4" }) }) }),
       children
     ]
   }
@@ -7419,7 +7660,8 @@ function CountBadge({
   show_zero = false,
   is_active = false,
   is_loading = false,
-  className = ""
+  className = "",
+  locale
 }) {
   if (is_loading) {
     return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
@@ -7429,10 +7671,11 @@ function CountBadge({
       }
     );
   }
-  if (count === 0 && !show_zero) {
+  const safe_count = Number.isFinite(count) && count > 0 ? Math.floor(count) : 0;
+  if (safe_count === 0 && !show_zero) {
     return null;
   }
-  const display_value = count.toLocaleString();
+  const display_value = safe_count.toLocaleString(locale);
   return /* @__PURE__ */ (0, import_jsx_runtime49.jsx)(
     "span",
     {
@@ -8004,7 +8247,9 @@ function ColorVisionFilters({ mode = "none" }) {
 
 // src/mobile/mobile_header.tsx
 var import_react11 = require("react");
+var import_outline6 = require("@heroicons/react/24/outline");
 var import_jsx_runtime57 = require("react/jsx-runtime");
+var HEADER_ICON_BUTTON_CLASS = "flex h-11 w-11 items-center justify-center rounded-full text-[var(--text-secondary)] active:bg-[var(--bg-tertiary)]";
 var MobileHeader = (0, import_react11.memo)(function MobileHeader2({
   title,
   left_action,
@@ -8012,8 +8257,17 @@ var MobileHeader = (0, import_react11.memo)(function MobileHeader2({
   safe_area_top = 0,
   height = 56,
   on_title_click,
-  center_content
+  center_content,
+  on_back,
+  on_menu,
+  on_search,
+  back_label,
+  menu_label,
+  search_label
 }) {
+  const strings = use_ui_strings();
+  const show_menu = Boolean(on_menu) && !on_back;
+  const title_click = on_title_click ?? (show_menu ? on_menu : void 0);
   return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)(
     "header",
     {
@@ -8023,17 +8277,51 @@ var MobileHeader = (0, import_react11.memo)(function MobileHeader2({
         height: typeof safe_area_top === "number" ? height + safe_area_top : `calc(${height}px + ${safe_area_top})`
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "flex items-center gap-1", children: left_action }),
-        /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "flex-1 min-w-0 flex items-center justify-center px-2", children: center_content ? center_content : on_title_click ? /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: "flex items-center gap-1", children: [
+          left_action,
+          on_back && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+            "button",
+            {
+              "aria-label": back_label ?? strings.back,
+              className: HEADER_ICON_BUTTON_CLASS,
+              type: "button",
+              onClick: on_back,
+              children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_outline6.ChevronLeftIcon, { className: "h-6 w-6 rtl:-scale-x-100" })
+            }
+          ),
+          show_menu && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+            "button",
+            {
+              "aria-label": menu_label ?? strings.open_menu,
+              className: HEADER_ICON_BUTTON_CLASS,
+              type: "button",
+              onClick: on_menu,
+              children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_outline6.Bars3Icon, { className: "h-6 w-6" })
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "flex-1 min-w-0 flex items-center justify-center px-2", children: center_content ? center_content : title_click ? /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
           "button",
           {
             className: "max-w-full truncate text-lg font-semibold text-[var(--text-primary)]",
             type: "button",
-            onClick: on_title_click,
+            onClick: title_click,
             children: title
           }
         ) : /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("h1", { className: "max-w-full truncate text-lg font-semibold text-[var(--text-primary)]", children: title }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "flex shrink-0 items-center gap-1", children: right_actions })
+        /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: "flex shrink-0 items-center gap-1", children: [
+          right_actions,
+          on_search && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+            "button",
+            {
+              "aria-label": search_label ?? strings.search,
+              className: HEADER_ICON_BUTTON_CLASS,
+              type: "button",
+              onClick: on_search,
+              children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_outline6.MagnifyingGlassIcon, { className: "h-6 w-6" })
+            }
+          )
+        ] })
       ]
     }
   );
@@ -8047,7 +8335,7 @@ var MobileHeaderIconButton = (0, import_react11.memo)(function MobileHeaderIconB
     "button",
     {
       "aria-label": aria_label,
-      className: "flex h-11 w-11 items-center justify-center rounded-full text-[var(--text-secondary)] active:bg-[var(--bg-tertiary)]",
+      className: HEADER_ICON_BUTTON_CLASS,
       type: "button",
       onClick: on_click,
       children
@@ -9312,7 +9600,7 @@ var PopoverContent = React39.forwardRef(
 PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
 // src/info_popover/info_popover.tsx
-var import_outline5 = require("@heroicons/react/24/outline");
+var import_outline7 = require("@heroicons/react/24/outline");
 var import_jsx_runtime70 = require("react/jsx-runtime");
 function InfoPopover({
   title,
@@ -9329,7 +9617,7 @@ function InfoPopover({
         "aria-label": strings.more_info,
         className: "-m-1 inline-flex items-center justify-center flex-shrink-0 p-1 text-txt-muted hover:text-txt-secondary transition-colors rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand",
         type: "button",
-        children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_outline5.InformationCircleIcon, { className: icon_class ?? "w-4 h-4" })
+        children: /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(import_outline7.InformationCircleIcon, { className: icon_class ?? "w-4 h-4" })
       }
     ) }),
     /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)(
@@ -9572,10 +9860,10 @@ function AccountAvatarButtonView({
 var React41 = __toESM(require("react"), 1);
 
 // src/badge_chip/badge_registry.ts
-var import_outline6 = require("@heroicons/react/24/outline");
+var import_outline8 = require("@heroicons/react/24/outline");
 var BADGE_VISUALS = {
   big_bang: {
-    icon: import_outline6.SparklesIcon,
+    icon: import_outline8.SparklesIcon,
     gradient_from: "#fbbf24",
     gradient_to: "#f97316",
     text_class: "text-amber-700 dark:text-amber-400",
@@ -9583,7 +9871,7 @@ var BADGE_VISUALS = {
     border_class: "border-amber-200 dark:border-amber-500/30"
   },
   event_horizon: {
-    icon: import_outline6.MoonIcon,
+    icon: import_outline8.MoonIcon,
     gradient_from: "#8b5cf6",
     gradient_to: "#6366f1",
     text_class: "text-violet-700 dark:text-violet-400",
@@ -9591,7 +9879,7 @@ var BADGE_VISUALS = {
     border_class: "border-violet-200 dark:border-violet-500/30"
   },
   black_hole: {
-    icon: import_outline6.GlobeAltIcon,
+    icon: import_outline8.GlobeAltIcon,
     gradient_from: "#6366f1",
     gradient_to: "#1e293b",
     text_class: "text-indigo-700 dark:text-indigo-400",
@@ -9599,7 +9887,7 @@ var BADGE_VISUALS = {
     border_class: "border-indigo-200 dark:border-indigo-500/30"
   },
   singularity: {
-    icon: import_outline6.LightBulbIcon,
+    icon: import_outline8.LightBulbIcon,
     gradient_from: "#94a3b8",
     gradient_to: "#e2e8f0",
     text_class: "text-slate-700 dark:text-slate-300",
@@ -9607,7 +9895,7 @@ var BADGE_VISUALS = {
     border_class: "border-slate-200 dark:border-slate-500/30"
   },
   supernova: {
-    icon: import_outline6.SunIcon,
+    icon: import_outline8.SunIcon,
     gradient_from: "#f97316",
     gradient_to: "#ef4444",
     text_class: "text-orange-700 dark:text-orange-400",
@@ -9615,7 +9903,7 @@ var BADGE_VISUALS = {
     border_class: "border-orange-200 dark:border-orange-500/30"
   },
   andromeda: {
-    icon: import_outline6.ArrowPathIcon,
+    icon: import_outline8.ArrowPathIcon,
     gradient_from: "#a855f7",
     gradient_to: "#ec4899",
     text_class: "text-purple-700 dark:text-purple-400",
@@ -9623,7 +9911,7 @@ var BADGE_VISUALS = {
     border_class: "border-purple-200 dark:border-purple-500/30"
   },
   nebula: {
-    icon: import_outline6.CloudIcon,
+    icon: import_outline8.CloudIcon,
     gradient_from: "#ec4899",
     gradient_to: "#8b5cf6",
     text_class: "text-pink-700 dark:text-pink-400",
@@ -9631,7 +9919,7 @@ var BADGE_VISUALS = {
     border_class: "border-pink-200 dark:border-pink-500/30"
   },
   comet: {
-    icon: import_outline6.RocketLaunchIcon,
+    icon: import_outline8.RocketLaunchIcon,
     gradient_from: "#0ea5e9",
     gradient_to: "#22d3ee",
     text_class: "text-sky-700 dark:text-sky-400",
@@ -9639,7 +9927,7 @@ var BADGE_VISUALS = {
     border_class: "border-sky-200 dark:border-sky-500/30"
   },
   pulsar: {
-    icon: import_outline6.BoltIcon,
+    icon: import_outline8.BoltIcon,
     gradient_from: "#3b82f6",
     gradient_to: "#06b6d4",
     text_class: "text-blue-700 dark:text-blue-400",
@@ -9647,7 +9935,7 @@ var BADGE_VISUALS = {
     border_class: "border-blue-200 dark:border-blue-500/30"
   },
   stargazer: {
-    icon: import_outline6.StarIcon,
+    icon: import_outline8.StarIcon,
     gradient_from: "#8b5cf6",
     gradient_to: "#3b82f6",
     text_class: "text-violet-700 dark:text-violet-400",
@@ -9655,7 +9943,7 @@ var BADGE_VISUALS = {
     border_class: "border-violet-200 dark:border-violet-500/30"
   },
   founding_member: {
-    icon: import_outline6.TrophyIcon,
+    icon: import_outline8.TrophyIcon,
     gradient_from: "#facc15",
     gradient_to: "#f59e0b",
     text_class: "text-yellow-700 dark:text-yellow-400",
@@ -9663,7 +9951,7 @@ var BADGE_VISUALS = {
     border_class: "border-yellow-200 dark:border-yellow-500/30"
   },
   early_supporter: {
-    icon: import_outline6.HeartIcon,
+    icon: import_outline8.HeartIcon,
     gradient_from: "#f43f5e",
     gradient_to: "#a855f7",
     text_class: "text-rose-700 dark:text-rose-400",
@@ -9672,7 +9960,7 @@ var BADGE_VISUALS = {
   }
 };
 var DEFAULT_VISUAL = {
-  icon: import_outline6.StarIcon,
+  icon: import_outline8.StarIcon,
   gradient_from: "#64748b",
   gradient_to: "#94a3b8",
   text_class: "text-slate-700 dark:text-slate-300",
@@ -10292,7 +10580,7 @@ function SnoozeBadge({
 }
 
 // src/error_boundary/error_boundary.tsx
-var import_outline7 = require("@heroicons/react/24/outline");
+var import_outline9 = require("@heroicons/react/24/outline");
 var import_jsx_runtime76 = require("react/jsx-runtime");
 function format_error_text(error) {
   return `${error.message}${error.stack ? `
@@ -10336,7 +10624,7 @@ function ErrorDetailsView({
                   type: "button",
                   onClick: () => on_copy?.(format_error_text(error)),
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(import_outline7.ClipboardDocumentIcon, { className: "w-3.5 h-3.5" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(import_outline9.ClipboardDocumentIcon, { className: "w-3.5 h-3.5" }),
                     /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("span", { children: copy_label })
                   ]
                 }
@@ -10505,7 +10793,7 @@ function ChunkRecoveryFallbackView({
 
 // src/profile_dropdown/profile_dropdown.tsx
 var React44 = __toESM(require("react"), 1);
-var import_outline8 = require("@heroicons/react/24/outline");
+var import_outline10 = require("@heroicons/react/24/outline");
 var import_jsx_runtime77 = require("react/jsx-runtime");
 function ProfileDropdownView({
   email,
@@ -10577,7 +10865,7 @@ function ProfileDropdownView({
                   title: labels.copy,
                   type: "button",
                   onClick: on_copy_email,
-                  children: /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline8.ClipboardDocumentIcon, { className: "w-3 h-3" })
+                  children: /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline10.ClipboardDocumentIcon, { className: "w-3 h-3" })
                 }
               )
             ] })
@@ -10590,10 +10878,10 @@ function ProfileDropdownView({
               disabled: is_contact_loading,
               onClick: on_contact_action,
               children: is_contact ? /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)(import_jsx_runtime77.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline8.UserMinusIcon, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline10.UserMinusIcon, { className: "w-4 h-4" }),
                 /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("span", { children: labels.remove_from_contacts })
               ] }) : /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)(import_jsx_runtime77.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline8.UserPlusIcon, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline10.UserPlusIcon, { className: "w-4 h-4" }),
                 /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("span", { children: labels.add_to_contacts })
               ] })
             }
@@ -10607,7 +10895,7 @@ function ProfileDropdownView({
                 on_toggle_notes();
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline8.DocumentTextIcon, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline10.DocumentTextIcon, { className: "w-4 h-4" }),
                 /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("span", { children: show_notes ? labels.hide_notes : labels.notes })
               ]
             }
@@ -10627,7 +10915,7 @@ function ProfileDropdownView({
               className: "gap-2 cursor-pointer",
               onClick: on_messages_from_sender,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline8.EnvelopeIcon, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline10.EnvelopeIcon, { className: "w-4 h-4" }),
                 /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("span", { children: labels.messages_from_sender })
               ]
             }
@@ -10640,7 +10928,7 @@ function ProfileDropdownView({
               disabled: is_blocking,
               onClick: on_block_sender,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline8.NoSymbolIcon, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline10.NoSymbolIcon, { className: "w-4 h-4" }),
                 /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("span", { children: labels.block_sender })
               ]
             }
@@ -10653,7 +10941,7 @@ function ProfileDropdownView({
 
 // src/account_switcher/account_switcher.tsx
 var React45 = __toESM(require("react"), 1);
-var import_outline9 = require("@heroicons/react/24/outline");
+var import_outline11 = require("@heroicons/react/24/outline");
 var import_jsx_runtime78 = require("react/jsx-runtime");
 function PanelToggleIcon({
   direction,
@@ -10716,7 +11004,7 @@ var AccountSwitcherView = React45.memo(function AccountSwitcherView2({
               className: "sidebar-rail-btn",
               type: "button",
               onClick: on_invite,
-              children: /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline9.UserGroupIcon, { className: "w-5 h-5" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline11.UserGroupIcon, { className: "w-5 h-5" })
             }
           ) }),
           on_toggle_collapse && /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(Tooltip, { tip: labels.expand_sidebar, children: /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
@@ -10737,7 +11025,7 @@ var AccountSwitcherView = React45.memo(function AccountSwitcherView2({
               type: "button",
               onClick: on_invite,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline9.UserGroupIcon, { className: "w-3.5 h-3.5 flex-shrink-0" }),
+                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline11.UserGroupIcon, { className: "w-3.5 h-3.5 flex-shrink-0" }),
                 /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("span", { className: "truncate", children: labels.invite })
               ]
             }
@@ -10766,7 +11054,7 @@ var AccountSwitcherView = React45.memo(function AccountSwitcherView2({
 
 // src/workspace_switcher/workspace_switcher.tsx
 var React46 = __toESM(require("react"), 1);
-var import_outline10 = require("@heroicons/react/24/outline");
+var import_outline12 = require("@heroicons/react/24/outline");
 var import_jsx_runtime79 = require("react/jsx-runtime");
 function account_badge(badge) {
   if (!badge) return null;
@@ -11023,7 +11311,7 @@ function WorkspaceSwitcherView({
                 type: "button",
                 onClick: on_resubscribe,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline10.ArrowPathIcon, { className: "w-[18px] h-[18px]" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline12.ArrowPathIcon, { className: "w-[18px] h-[18px]" }) }),
                   /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_label", children: labels.resubscribe })
                 ]
               }
@@ -11035,7 +11323,7 @@ function WorkspaceSwitcherView({
                 type: "button",
                 onClick: on_add_account,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline10.PlusIcon, { className: "w-[18px] h-[18px]" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline12.PlusIcon, { className: "w-[18px] h-[18px]" }) }),
                   /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_label", children: labels.add_account }),
                   add_account_meta == null ? null : /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_meta tabular-nums", children: add_account_meta })
                 ]
@@ -11049,7 +11337,7 @@ function WorkspaceSwitcherView({
                   type: "button",
                   onClick: on_sign_out,
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline10.ArrowRightStartOnRectangleIcon, { className: "w-[18px] h-[18px]" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline12.ArrowRightStartOnRectangleIcon, { className: "w-[18px] h-[18px]" }) }),
                     /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_label", children: labels.sign_out })
                   ]
                 }
@@ -11061,7 +11349,7 @@ function WorkspaceSwitcherView({
                   className: "account_menu_tile account_menu_tile_danger w-[54px] justify-center px-0",
                   type: "button",
                   onClick: on_sign_out_all,
-                  children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline10.PowerIcon, { className: "w-[18px] h-[18px]" }) })
+                  children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline12.PowerIcon, { className: "w-[18px] h-[18px]" }) })
                 }
               ) })
             ] })
@@ -11165,7 +11453,7 @@ var StorageMeterView = React47.memo(function StorageMeterView2({
 
 // src/app_rail/app_rail.tsx
 var React48 = __toESM(require("react"), 1);
-var import_outline11 = require("@heroicons/react/24/outline");
+var import_outline13 = require("@heroicons/react/24/outline");
 var import_jsx_runtime81 = require("react/jsx-runtime");
 function AppRailViewComponent({
   panel,
@@ -11199,7 +11487,7 @@ function AppRailViewComponent({
         "data-rail-tip-side": "left",
         type: "button",
         onClick: on_toggle_hidden,
-        children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(import_outline11.ChevronDoubleLeftIcon, { className: "h-4 w-4 rtl:rotate-180" })
+        children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(import_outline13.ChevronDoubleLeftIcon, { className: "h-4 w-4 rtl:rotate-180" })
       }
     ),
     /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)(
@@ -11249,7 +11537,7 @@ function AppRailViewComponent({
               tabIndex: is_hidden ? -1 : void 0,
               type: "button",
               onClick: on_toggle_hidden,
-              children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(import_outline11.ChevronRightIcon, { className: "h-4 w-4 rtl:rotate-180" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(import_outline13.ChevronRightIcon, { className: "h-4 w-4 rtl:rotate-180" })
             }
           )
         ]
@@ -11258,8 +11546,3170 @@ function AppRailViewComponent({
   ] });
 }
 var AppRailView = React48.memo(AppRailViewComponent);
+
+// src/icons/icons.tsx
+var import_jsx_runtime82 = require("react/jsx-runtime");
+var InboxIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M3 9l2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9H3Z" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M3 9h5.5a2 2 0 0 1 1.6.8l1.8 2.4a2 2 0 0 0 1.6.8h1a2 2 0 0 0 1.6-.8l1.8-2.4a2 2 0 0 1 1.6-.8H21" })
+    ]
+  }
+);
+var AllMailIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "none",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: 1.5,
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M7.25 4.75h9.5" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M5.25 7.75h13.5" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("rect", { height: "9.5", rx: "2.25", width: "18", x: "3", y: "10.25" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M3.6 11.35 11.13 16.2a1.6 1.6 0 0 0 1.74 0l7.53-4.85" })
+    ]
+  }
+);
+var ArchiveIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+        "path",
+        {
+          clipRule: "evenodd",
+          d: "M3.087 9l.54 9.176A3 3 0 006.62 21h10.757a3 3 0 002.995-2.824L20.913 9H3.087zm6.163 3.75A.75.75 0 0110 12h4a.75.75 0 010 1.5h-4a.75.75 0 01-.75-.75z",
+          fillRule: "evenodd"
+        }
+      )
+    ]
+  }
+);
+var SpamIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+      "path",
+      {
+        clipRule: "evenodd",
+        d: "M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z",
+        fillRule: "evenodd"
+      }
+    )
+  }
+);
+var TrashIcon2 = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+      "path",
+      {
+        clipRule: "evenodd",
+        d: "M16.5 4.478v.227a48.816 48.816 0 013.878.512.75.75 0 11-.256 1.478l-.209-.035-1.005 13.07a3 3 0 01-2.991 2.77H8.084a3 3 0 01-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 01-.256-1.478A48.567 48.567 0 017.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 013.369 0c1.603.051 2.815 1.387 2.815 2.951zm-6.136-1.452a51.196 51.196 0 013.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 00-6 0v-.113c0-.794.609-1.428 1.364-1.452zm-.355 5.945a.75.75 0 10-1.5.058l.347 9a.75.75 0 101.499-.058l-.346-9zm5.48.058a.75.75 0 10-1.498-.058l-.347 9a.75.75 0 001.5.058l.345-9z",
+        fillRule: "evenodd"
+      }
+    )
+  }
+);
+var TagIcon3 = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+      "path",
+      {
+        clipRule: "evenodd",
+        d: "M5.25 2.25a3 3 0 00-3 3v4.318a3 3 0 00.879 2.121l9.58 9.581c.92.92 2.39 1.186 3.548.428a18.849 18.849 0 005.441-5.44c.758-1.16.492-2.629-.428-3.548l-9.58-9.581a3 3 0 00-2.122-.879H5.25zM6.375 7.5a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z",
+        fillRule: "evenodd"
+      }
+    )
+  }
+);
+var ThreeDotsHorizontal = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    ...props,
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("circle", { cx: "5", cy: "12", fill: "currentColor", r: "2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("circle", { cx: "12", cy: "12", fill: "currentColor", r: "2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("circle", { cx: "19", cy: "12", fill: "currentColor", r: "2" })
+    ]
+  }
+);
+var Logo = ({
+  size = 36,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    fill: "none",
+    height: size || height,
+    viewBox: "0 0 32 32",
+    width: size || height,
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+      "path",
+      {
+        clipRule: "evenodd",
+        d: "M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z",
+        fill: "currentColor",
+        fillRule: "evenodd"
+      }
+    )
+  }
+);
+var SearchIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "none",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    ...props,
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+        "path",
+        {
+          d: "M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z",
+          stroke: "currentColor",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: "2"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+        "path",
+        {
+          d: "M22 22L20 20",
+          stroke: "currentColor",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: "2"
+        }
+      )
+    ]
+  }
+);
+var ArrowLeftIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" })
+  }
+);
+var ClockIcon3 = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+      "path",
+      {
+        clipRule: "evenodd",
+        d: "M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 6a.75.75 0 00-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 000-1.5h-3.75V6z",
+        fillRule: "evenodd"
+      }
+    )
+  }
+);
+var StarIcon4 = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "none",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    stroke: "currentColor",
+    strokeWidth: "2",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" })
+  }
+);
+var CloseIcon2 = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" })
+  }
+);
+var PinIcon = ({
+  size = 24,
+  width,
+  height,
+  filled = false,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "none",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+        "path",
+        {
+          d: "M9.4 3h5.2",
+          stroke: "currentColor",
+          strokeLinecap: "round",
+          strokeWidth: filled ? 2.6 : 1.5
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+        "path",
+        {
+          d: "M10.6 3.4v4.1a3.1 3.1 0 0 1-1.16 2.42l-1.9 1.53c-.62.5-.27 1.55.53 1.55h8.06c.8 0 1.15-1.05.53-1.55l-1.9-1.53A3.1 3.1 0 0 1 13.4 7.5V3.4Z",
+          fill: filled ? "currentColor" : "none",
+          stroke: "currentColor",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: filled ? 1.1 : 1.5
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+        "path",
+        {
+          d: "M12 13v7.4",
+          stroke: "currentColor",
+          strokeLinecap: "round",
+          strokeWidth: filled ? 2.2 : 1.5
+        }
+      )
+    ]
+  }
+);
+var AttachmentIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z" })
+  }
+);
+var LinkIcon2 = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" })
+  }
+);
+var FileIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" })
+  }
+);
+var LockIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" })
+  }
+);
+var CheckIcon8 = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" })
+  }
+);
+var WarningIcon2 = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" })
+  }
+);
+var SnoozeIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "currentColor",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("path", { d: "M7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM12 4c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-3-9h3.63L9 15.2V17h6v-2h-3.63L15 10.8V9H9v2z" })
+  }
+);
+var FilterIcon = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(
+  "svg",
+  {
+    "aria-hidden": "true",
+    fill: "none",
+    focusable: "false",
+    height: size || height,
+    role: "presentation",
+    stroke: "currentColor",
+    strokeLinecap: "round",
+    strokeLinejoin: "round",
+    strokeWidth: "2",
+    viewBox: "0 0 24 24",
+    width: size || width,
+    xmlns: "http://www.w3.org/2000/svg",
+    ...props,
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("line", { x1: "4", x2: "20", y1: "6", y2: "6" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("line", { x1: "4", x2: "20", y1: "12", y2: "12" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("line", { x1: "4", x2: "20", y1: "18", y2: "18" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("circle", { cx: "8", cy: "6", fill: "currentColor", r: "2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("circle", { cx: "16", cy: "12", fill: "currentColor", r: "2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("circle", { cx: "10", cy: "18", fill: "currentColor", r: "2" })
+    ]
+  }
+);
+
+// src/icons/open_full_icon.tsx
+var import_jsx_runtime83 = require("react/jsx-runtime");
+function OpenFullIcon({ className }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)(
+    "svg",
+    {
+      "aria-hidden": "true",
+      className,
+      fill: "none",
+      stroke: "currentColor",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeWidth: 1.6,
+      viewBox: "0 0 24 24",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("rect", { height: "15.5", rx: "3.25", width: "18.5", x: "2.75", y: "4.25" }),
+        /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M9.25 4.75v14.5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M13.5 12h5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "m16.25 9.5 2.5 2.5-2.5 2.5" })
+      ]
+    }
+  );
+}
+
+// src/icons/aster_security_mark.tsx
+var import_jsx_runtime84 = require("react/jsx-runtime");
+function AsterSecurityMark({
+  className = "h-5 w-5"
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(
+    "svg",
+    {
+      "aria-hidden": "true",
+      className,
+      fill: "none",
+      stroke: "currentColor",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeWidth: 1.7,
+      viewBox: "0 0 24 24",
+      xmlns: "http://www.w3.org/2000/svg",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M8 10.3V7.9a4 4 0 1 1 8 0v2.4" }),
+        /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("rect", { height: "9.7", rx: "3.3", width: "13.8", x: "5.1", y: "10.3" }),
+        /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("circle", { cx: "12", cy: "14.6", r: "1.15" }),
+        /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M12 15.7v1.6" })
+      ]
+    }
+  );
+}
+
+// src/status_banner/status_banner.tsx
+var import_framer_motion11 = require("framer-motion");
+var import_jsx_runtime85 = require("react/jsx-runtime");
+var STATUS_BANNER_TONE_COLORS = {
+  danger: "#dc2626",
+  warning: "#d97706",
+  accent: "var(--accent-color)"
+};
+var STATUS_BANNER_DARK_TEXT = "#111827";
+var LIGHT_ACTION_COLORS = {
+  primary: {
+    background: "rgba(255, 255, 255, 0.2)",
+    hover_background: "rgba(255, 255, 255, 0.3)"
+  },
+  secondary: {
+    background: "rgba(255, 255, 255, 0.1)",
+    hover_background: "rgba(255, 255, 255, 0.2)"
+  }
+};
+var DARK_ACTION_COLORS = {
+  primary: {
+    background: "rgba(0, 0, 0, 0.12)",
+    hover_background: "rgba(0, 0, 0, 0.2)"
+  },
+  secondary: {
+    background: "rgba(0, 0, 0, 0.06)",
+    hover_background: "rgba(0, 0, 0, 0.12)"
+  }
+};
+var VARIANT_CLASSES = {
+  status: {
+    inner: "flex items-center justify-between gap-2 px-4 py-1.5",
+    content: "flex min-w-0 items-center gap-1.5",
+    icon: "h-3.5 w-3.5 flex-shrink-0 opacity-90",
+    message: "truncate text-xs font-medium opacity-95",
+    actions: null,
+    action: "flex-shrink-0 rounded-[12px] px-2.5 py-0.5 text-xs font-medium transition-colors"
+  },
+  alert: {
+    inner: "flex items-center justify-between gap-4 px-4 py-1.5",
+    content: "flex items-center gap-1.5 min-w-0",
+    icon: "h-3.5 w-3.5 flex-shrink-0",
+    message: "text-xs font-semibold truncate",
+    actions: null,
+    action: "flex-shrink-0 rounded-[12px] px-2.5 py-0.5 text-xs font-semibold transition-colors"
+  },
+  prompt: {
+    inner: "flex items-center justify-between px-4 py-1.5",
+    content: "flex items-center gap-1.5 min-w-0",
+    icon: "h-3.5 w-3.5 flex-shrink-0 opacity-90",
+    message: "text-xs font-medium line-clamp-2 sm:truncate",
+    actions: "flex items-center gap-1.5 flex-shrink-0 ms-4",
+    action: "px-2.5 py-0.5 text-xs font-medium rounded-[12px] transition-colors"
+  }
+};
+function resolve_action_colors(action, variant, contrast) {
+  const emphasis = action.emphasis ?? "primary";
+  if (variant === "prompt") {
+    const palette = contrast === "dark" ? DARK_ACTION_COLORS : LIGHT_ACTION_COLORS;
+    return {
+      background: action.background ?? palette[emphasis].background,
+      hover_background: action.hover_background ?? palette[emphasis].hover_background
+    };
+  }
+  if (variant === "alert") {
+    return {
+      background: action.background ?? "rgba(255, 255, 255, 0.22)",
+      hover_background: action.hover_background ?? "rgba(255, 255, 255, 0.34)"
+    };
+  }
+  return {
+    background: action.background ?? "rgba(255, 255, 255, 0.2)",
+    hover_background: action.hover_background
+  };
+}
+function StatusBannerActionButton({
+  action,
+  variant,
+  contrast,
+  class_name
+}) {
+  const { background, hover_background } = resolve_action_colors(
+    action,
+    variant,
+    contrast
+  );
+  const style = variant === "prompt" ? { backgroundColor: background, color: "inherit" } : { backgroundColor: background };
+  return /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(
+    "button",
+    {
+      className: class_name,
+      style,
+      type: "button",
+      onClick: action.on_click,
+      onMouseEnter: hover_background ? (e) => e.currentTarget.style.backgroundColor = hover_background : void 0,
+      onMouseLeave: hover_background ? (e) => e.currentTarget.style.backgroundColor = background : void 0,
+      children: action.label
+    }
+  );
+}
+function StatusBanner({
+  message,
+  icon: Icon2,
+  actions = [],
+  is_visible = true,
+  animated = true,
+  reduce_motion = false,
+  tone = "danger",
+  variant = "status",
+  background,
+  text_color,
+  contrast,
+  role,
+  className
+}) {
+  const classes = VARIANT_CLASSES[variant];
+  const resolved_text_color = text_color ?? "#ffffff";
+  const resolved_contrast = contrast ?? (resolved_text_color === STATUS_BANNER_DARK_TEXT ? "dark" : "light");
+  const style = {
+    backgroundColor: background ?? STATUS_BANNER_TONE_COLORS[tone],
+    color: resolved_text_color
+  };
+  const action_buttons = actions.map((action, index) => /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(
+    StatusBannerActionButton,
+    {
+      action,
+      class_name: classes.action,
+      contrast: resolved_contrast,
+      variant
+    },
+    index
+  ));
+  const body = /* @__PURE__ */ (0, import_jsx_runtime85.jsxs)("div", { className: classes.inner, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime85.jsxs)("div", { className: classes.content, children: [
+      Icon2 && /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(Icon2, { className: classes.icon }),
+      /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("span", { className: classes.message, children: message })
+    ] }),
+    classes.actions ? /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("div", { className: classes.actions, children: action_buttons }) : action_buttons
+  ] });
+  if (!animated) {
+    if (!is_visible) return null;
+    return /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(
+      "div",
+      {
+        className: cn("w-full flex-shrink-0", className),
+        role,
+        style,
+        children: body
+      }
+    );
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(import_framer_motion11.AnimatePresence, { children: is_visible && /* @__PURE__ */ (0, import_jsx_runtime85.jsx)(
+    import_framer_motion11.motion.div,
+    {
+      animate: { opacity: 1, height: "auto" },
+      className: cn("w-full flex-shrink-0 overflow-hidden", className),
+      exit: { opacity: 0, height: 0, overflow: "hidden" },
+      initial: reduce_motion ? false : { opacity: 0, height: 0 },
+      role,
+      style,
+      transition: { duration: reduce_motion ? 0 : 0.2 },
+      children: body
+    }
+  ) });
+}
+
+// src/offline_indicator/offline_indicator.tsx
+var import_framer_motion12 = require("framer-motion");
+var import_outline14 = require("@heroicons/react/24/outline");
+var import_jsx_runtime86 = require("react/jsx-runtime");
+function OfflineIndicatorView({
+  is_online,
+  show_reconnected,
+  offline_label,
+  reconnected_label,
+  position = "bottom",
+  reduce_motion = false,
+  className
+}) {
+  const position_classes = position === "top" ? "top-0 left-0 right-0" : "bottom-0 left-0 right-0";
+  const hidden_y = position === "top" ? -20 : 20;
+  return /* @__PURE__ */ (0, import_jsx_runtime86.jsxs)(import_framer_motion12.AnimatePresence, { children: [
+    !is_online && /* @__PURE__ */ (0, import_jsx_runtime86.jsxs)(
+      import_framer_motion12.motion.div,
+      {
+        animate: { opacity: 1, y: 0 },
+        className: cn(
+          "fixed z-50 flex items-center justify-center gap-2 px-4 py-2",
+          "bg-amber-500 text-white text-sm font-medium shadow-lg",
+          position_classes,
+          className
+        ),
+        exit: { opacity: 0, y: hidden_y },
+        initial: reduce_motion ? false : { opacity: 0, y: hidden_y },
+        transition: { duration: reduce_motion ? 0 : 0.2 },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime86.jsx)(import_outline14.WifiIcon, { className: "h-4 w-4" }),
+          /* @__PURE__ */ (0, import_jsx_runtime86.jsx)("span", { children: offline_label })
+        ]
+      }
+    ),
+    is_online && show_reconnected && /* @__PURE__ */ (0, import_jsx_runtime86.jsxs)(
+      import_framer_motion12.motion.div,
+      {
+        animate: { opacity: 1, y: 0 },
+        className: cn(
+          "fixed z-50 flex items-center justify-center gap-2 px-4 py-2",
+          "bg-green-500 text-white text-sm font-medium shadow-lg",
+          position_classes,
+          className
+        ),
+        exit: { opacity: 0, y: hidden_y },
+        initial: reduce_motion ? false : { opacity: 0, y: hidden_y },
+        transition: { duration: reduce_motion ? 0 : 0.2 },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime86.jsx)(import_outline14.WifiIcon, { className: "h-4 w-4" }),
+          /* @__PURE__ */ (0, import_jsx_runtime86.jsx)("span", { children: reconnected_label })
+        ]
+      }
+    )
+  ] });
+}
+
+// src/save_status_indicator/save_status_indicator.tsx
+var import_framer_motion13 = require("framer-motion");
+var import_solid3 = require("@heroicons/react/24/solid");
+var import_jsx_runtime87 = require("react/jsx-runtime");
+function SaveStatusIndicatorView({
+  status,
+  saving_label,
+  saved_label,
+  error_label,
+  reduce_motion = false,
+  className = ""
+}) {
+  const fade = {
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+    initial: reduce_motion ? false : { opacity: 0 },
+    transition: { duration: reduce_motion ? 0 : 0.18, ease: "easeOut" }
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(
+    "div",
+    {
+      "aria-live": "polite",
+      className: `flex items-center justify-end ${className}`,
+      children: /* @__PURE__ */ (0, import_jsx_runtime87.jsxs)(import_framer_motion13.AnimatePresence, { initial: false, mode: "wait", children: [
+        status === "saving" && /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(
+          import_framer_motion13.motion.div,
+          {
+            "aria-label": saving_label,
+            className: "h-[3px] w-16 overflow-hidden rounded-full bg-edge-secondary",
+            role: "progressbar",
+            ...fade,
+            children: /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(
+              import_framer_motion13.motion.div,
+              {
+                animate: reduce_motion ? { x: "0%" } : { x: ["-100%", "250%"] },
+                className: "h-full w-2/5 rounded-full bg-blue-500",
+                transition: reduce_motion ? { duration: 0 } : { duration: 1.1, ease: "easeInOut", repeat: Infinity }
+              }
+            )
+          },
+          "saving"
+        ),
+        status === "saved" && /* @__PURE__ */ (0, import_jsx_runtime87.jsxs)(
+          import_framer_motion13.motion.div,
+          {
+            className: "flex items-center gap-1 text-blue-500",
+            ...fade,
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(import_solid3.CheckCircleIcon, { className: "h-3.5 w-3.5" }),
+              /* @__PURE__ */ (0, import_jsx_runtime87.jsx)("span", { className: "text-[11px]", children: saved_label })
+            ]
+          },
+          "saved"
+        ),
+        status === "error" && /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(
+          import_framer_motion13.motion.span,
+          {
+            className: "text-[11px] text-red-500",
+            ...fade,
+            children: error_label
+          },
+          "error"
+        )
+      ] })
+    }
+  );
+}
+
+// src/blocking_dialog/blocking_dialog.tsx
+var import_jsx_runtime88 = require("react/jsx-runtime");
+var WARNING_PATH = "M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495ZM10 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 10 5Zm0 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z";
+var LOCK_PATH = "M10 1a4.5 4.5 0 0 0-4.5 4.5V8H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 7V5.5a3 3 0 1 0-6 0V8h6Z";
+var BLOCKING_DIALOG_ICON_PATHS = {
+  warning: WARNING_PATH,
+  lock: LOCK_PATH
+};
+function BlockingDialogView({
+  title,
+  body,
+  primary_label,
+  secondary_label,
+  on_primary,
+  on_secondary,
+  title_id,
+  icon = "warning",
+  icon_color,
+  error_message,
+  is_busy = false
+}) {
+  const resolved_icon_color = icon_color ?? (icon === "lock" ? "var(--accent-color)" : "#ef4444");
+  return /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+    "div",
+    {
+      "aria-labelledby": title_id,
+      "aria-modal": "true",
+      className: "fixed inset-0 z-[9998] flex items-center justify-center p-4",
+      role: "dialog",
+      style: { backgroundColor: "var(--bg-primary)" },
+      children: /* @__PURE__ */ (0, import_jsx_runtime88.jsxs)(
+        "div",
+        {
+          className: "w-full max-w-md rounded-xl p-6 shadow-xl",
+          style: {
+            backgroundColor: "var(--bg-secondary, var(--bg-primary))",
+            border: "1px solid var(--border-primary)"
+          },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime88.jsxs)("div", { className: "flex items-start gap-3 mb-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+                "svg",
+                {
+                  className: "w-5 h-5 flex-shrink-0 mt-0.5",
+                  fill: "currentColor",
+                  style: { color: resolved_icon_color },
+                  viewBox: "0 0 20 20",
+                  xmlns: "http://www.w3.org/2000/svg",
+                  children: /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+                    "path",
+                    {
+                      clipRule: "evenodd",
+                      d: BLOCKING_DIALOG_ICON_PATHS[icon],
+                      fillRule: "evenodd"
+                    }
+                  )
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+                "p",
+                {
+                  className: "font-semibold text-base",
+                  id: title_id,
+                  style: { color: "var(--text-primary)" },
+                  children: title
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime88.jsx)("p", { className: "text-sm mb-6", style: { color: "var(--text-secondary)" }, children: body }),
+            error_message ? /* @__PURE__ */ (0, import_jsx_runtime88.jsx)("p", { className: "text-sm mb-4", style: { color: "#ef4444" }, children: error_message }) : null,
+            /* @__PURE__ */ (0, import_jsx_runtime88.jsxs)("div", { className: "flex flex-col gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+                "button",
+                {
+                  className: "w-full rounded-[14px] px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-50",
+                  disabled: is_busy,
+                  style: {
+                    backgroundColor: "var(--accent-color)",
+                    color: "var(--accent-fg, #ffffff)"
+                  },
+                  onClick: on_primary,
+                  children: primary_label
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+                "button",
+                {
+                  className: "w-full rounded-[14px] px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-80 disabled:opacity-50",
+                  disabled: is_busy,
+                  style: {
+                    backgroundColor: "transparent",
+                    color: "var(--text-muted)",
+                    border: "1px solid var(--border-secondary)"
+                  },
+                  onClick: on_secondary,
+                  children: secondary_label
+                }
+              )
+            ] })
+          ]
+        }
+      )
+    }
+  );
+}
+function PendingDeletionDialogView({
+  title,
+  body,
+  keep_label,
+  sign_out_label,
+  on_keep,
+  on_sign_out,
+  error_message,
+  is_busy = false,
+  title_id = "pending_deletion_title"
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+    BlockingDialogView,
+    {
+      body,
+      error_message,
+      icon: "warning",
+      is_busy,
+      on_primary: on_keep,
+      on_secondary: on_sign_out,
+      primary_label: keep_label,
+      secondary_label: sign_out_label,
+      title,
+      title_id
+    }
+  );
+}
+function Family2faDialogView({
+  title,
+  body,
+  action_label,
+  sign_out_label,
+  on_action,
+  on_sign_out,
+  is_busy = false,
+  title_id = "family_2fa_title"
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+    BlockingDialogView,
+    {
+      body,
+      icon: "lock",
+      is_busy,
+      on_primary: on_action,
+      on_secondary: on_sign_out,
+      primary_label: action_label,
+      secondary_label: sign_out_label,
+      title,
+      title_id
+    }
+  );
+}
+
+// src/suspension_banner/suspension_banner.tsx
+var import_jsx_runtime89 = require("react/jsx-runtime");
+function SuspensionBannerView({
+  label,
+  reason,
+  appeal_label,
+  appeal_href
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime89.jsxs)(
+    "div",
+    {
+      className: "flex items-center gap-3 px-4 py-2.5 text-sm border-b",
+      style: {
+        backgroundColor: "var(--bg-tertiary)",
+        borderColor: "var(--border-secondary)",
+        color: "var(--text-secondary)"
+      },
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+          "svg",
+          {
+            className: "w-4 h-4 flex-shrink-0",
+            fill: "currentColor",
+            style: { color: "var(--color-error, #ef4444)" },
+            viewBox: "0 0 20 20",
+            xmlns: "http://www.w3.org/2000/svg",
+            children: /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+              "path",
+              {
+                clipRule: "evenodd",
+                d: BLOCKING_DIALOG_ICON_PATHS.warning,
+                fillRule: "evenodd"
+              }
+            )
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime89.jsxs)("span", { className: "flex-1 min-w-0", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime89.jsx)("span", { className: "font-medium", style: { color: "var(--text-primary)" }, children: label }),
+          " ",
+          reason,
+          " ",
+          /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+            "a",
+            {
+              className: "hover:underline whitespace-nowrap",
+              href: appeal_href,
+              rel: "noopener noreferrer",
+              style: { color: "var(--accent-color)" },
+              target: "_blank",
+              children: appeal_label
+            }
+          )
+        ] })
+      ]
+    }
+  );
+}
+
+// src/encryption_info_dropdown/encryption_info_dropdown.tsx
+var import_react19 = require("react");
+var import_react_dom2 = require("react-dom");
+var import_framer_motion14 = require("framer-motion");
+var import_solid4 = require("@heroicons/react/24/solid");
+var import_jsx_runtime90 = require("react/jsx-runtime");
+var PANEL_WIDTH = 256;
+var PANEL_GAP = 8;
+var VIEWPORT_MARGIN = 8;
+var ENCRYPTED_LOCK_COLOR = "rgb(59, 130, 246)";
+function EncryptionInfoDropdownView({
+  is_open,
+  on_open_change,
+  is_encrypted,
+  has_pq_protection,
+  heading,
+  description,
+  size = 18,
+  label,
+  sender_verification,
+  sender_title,
+  sender_description,
+  sender_invalid_short_label,
+  reduce_motion = false
+}) {
+  const panel_id = (0, import_react19.useId)();
+  const container_ref = (0, import_react19.useRef)(null);
+  const panel_ref = (0, import_react19.useRef)(null);
+  const [panel_position, set_panel_position] = (0, import_react19.useState)({ top: 0, left: 0 });
+  const place_panel = (0, import_react19.useCallback)(() => {
+    const trigger = container_ref.current;
+    if (!trigger) return;
+    const rect = trigger.getBoundingClientRect();
+    const panel_width = panel_ref.current?.offsetWidth ?? PANEL_WIDTH;
+    const panel_height = panel_ref.current?.offsetHeight ?? 0;
+    const is_rtl = document.dir === "rtl";
+    const preferred_left = is_rtl ? rect.right - panel_width : rect.left;
+    const max_left = window.innerWidth - panel_width - VIEWPORT_MARGIN;
+    const left = Math.max(
+      VIEWPORT_MARGIN,
+      Math.min(preferred_left, Math.max(VIEWPORT_MARGIN, max_left))
+    );
+    const below = rect.bottom + PANEL_GAP;
+    const fits_below = below + panel_height + VIEWPORT_MARGIN <= window.innerHeight;
+    const top = fits_below ? below : Math.max(VIEWPORT_MARGIN, rect.top - PANEL_GAP - panel_height);
+    set_panel_position({ top, left });
+  }, []);
+  (0, import_react19.useEffect)(() => {
+    if (!is_open) return;
+    const handle_pointer_down = (event) => {
+      const target = event.target;
+      if (!target) return;
+      if (container_ref.current?.contains(target)) return;
+      if (panel_ref.current?.contains(target)) return;
+      on_open_change(false);
+    };
+    document.addEventListener("pointerdown", handle_pointer_down);
+    return () => {
+      document.removeEventListener("pointerdown", handle_pointer_down);
+    };
+  }, [is_open, on_open_change]);
+  (0, import_react19.useLayoutEffect)(() => {
+    if (!is_open) return;
+    place_panel();
+  }, [is_open, place_panel]);
+  (0, import_react19.useEffect)(() => {
+    if (!is_open) return;
+    const handle = () => place_panel();
+    window.addEventListener("resize", handle);
+    window.addEventListener("scroll", handle, true);
+    return () => {
+      window.removeEventListener("resize", handle);
+      window.removeEventListener("scroll", handle, true);
+    };
+  }, [is_open, place_panel]);
+  const lock_color = is_encrypted ? ENCRYPTED_LOCK_COLOR : "var(--text-muted)";
+  const show_sender = sender_verification !== void 0 && sender_verification !== "unknown";
+  return /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)("div", { ref: container_ref, className: "relative inline-flex", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)(
+      "button",
+      {
+        "aria-controls": is_open ? panel_id : void 0,
+        "aria-expanded": is_open,
+        "aria-haspopup": "dialog",
+        className: "flex-shrink-0 flex items-center gap-1 transition-colors hover:opacity-80",
+        style: { color: lock_color },
+        onClick: (e) => {
+          e.stopPropagation();
+          on_open_change(!is_open);
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(LockIcon, { size }),
+          label && /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("span", { className: "text-xs font-medium", children: label }),
+          sender_verification === "invalid" && /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)(
+            "span",
+            {
+              className: "flex items-center gap-0.5 text-red-500",
+              "data-testid": "sender-signature-mismatch",
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
+                  import_solid4.ShieldExclamationIcon,
+                  {
+                    "aria-hidden": "true",
+                    className: "w-3.5 h-3.5 flex-shrink-0"
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("span", { className: "text-xs font-medium", children: sender_invalid_short_label })
+              ]
+            }
+          )
+        ]
+      }
+    ),
+    (0, import_react_dom2.createPortal)(
+      /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(import_framer_motion14.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
+        import_framer_motion14.motion.div,
+        {
+          ref: panel_ref,
+          animate: { opacity: 1, y: 0 },
+          className: "fixed z-[200] w-64 rounded-lg border shadow-lg bg-surf-primary border-edge-secondary",
+          exit: { opacity: 0, y: -4 },
+          id: panel_id,
+          initial: reduce_motion ? false : { opacity: 0, y: -4 },
+          style: { top: panel_position.top, left: panel_position.left },
+          transition: {
+            duration: reduce_motion ? 0 : 0.15,
+            ease: "easeOut"
+          },
+          onClick: (e) => e.stopPropagation(),
+          children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("div", { className: "p-3", children: /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)("div", { className: "text-xs space-y-2 text-txt-secondary", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)("div", { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
+                "div",
+                {
+                  className: "flex-shrink-0",
+                  style: { color: lock_color },
+                  children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(LockIcon, { size: 16 })
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("p", { className: "font-medium text-txt-primary", children: heading })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("p", { className: "ps-6", children: description }),
+            /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)("p", { className: "ps-6 text-txt-muted", children: [
+              "AES-256-GCM \xB7 ",
+              has_pq_protection ? "ML-KEM-768" : "KEM-768"
+            ] }),
+            show_sender && /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)("div", { className: "pt-2 mt-2 border-t border-edge-secondary", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)("div", { className: "flex items-center gap-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)("div", { className: "flex-shrink-0", children: [
+                  sender_verification === "verified" && /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(import_solid4.CheckBadgeIcon, { className: "w-4 h-4 text-emerald-500" }),
+                  sender_verification === "invalid" && /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(import_solid4.ShieldExclamationIcon, { className: "w-4 h-4 text-red-500" }),
+                  (sender_verification === "no_keys" || sender_verification === "unsigned") && /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(import_solid4.QuestionMarkCircleIcon, { className: "w-4 h-4 text-amber-500" })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("p", { className: "font-medium text-txt-primary", children: sender_title })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("p", { className: "ps-6 mt-1", children: sender_description })
+            ] })
+          ] }) })
+        }
+      ) }),
+      document.body
+    )
+  ] });
+}
+
+// src/contact_avatar/contact_avatar.tsx
+var import_react20 = require("react");
+var import_jsx_runtime91 = require("react/jsx-runtime");
+function get_contact_avatar_font_size(size_px, initials) {
+  return Math.round(size_px * (initials.length > 1 ? 0.36 : 0.44));
+}
+function ContactAvatarView({
+  size_px,
+  initials,
+  background_color,
+  text_color,
+  aria_label,
+  avatar_url,
+  favicon_src,
+  favicon_key,
+  favicon_initially_failed = false,
+  on_favicon_failed,
+  on_favicon_loaded,
+  rounded = "rounded-full",
+  className = ""
+}) {
+  const resolved_favicon_key = favicon_key ?? favicon_src ?? "";
+  const [avatar_failed, set_avatar_failed] = (0, import_react20.useState)(false);
+  const [avatar_loaded, set_avatar_loaded] = (0, import_react20.useState)(false);
+  const [favicon_loaded, set_favicon_loaded] = (0, import_react20.useState)(false);
+  const [favicon_failed, set_favicon_failed] = (0, import_react20.useState)(
+    favicon_initially_failed
+  );
+  const [prev_favicon_key, set_prev_favicon_key] = (0, import_react20.useState)(resolved_favicon_key);
+  const [prev_avatar_url, set_prev_avatar_url] = (0, import_react20.useState)(avatar_url);
+  if (resolved_favicon_key !== prev_favicon_key) {
+    set_prev_favicon_key(resolved_favicon_key);
+    set_favicon_failed(favicon_initially_failed);
+    set_favicon_loaded(false);
+  }
+  if (avatar_url !== prev_avatar_url) {
+    set_prev_avatar_url(avatar_url);
+    set_avatar_failed(false);
+    set_avatar_loaded(false);
+  }
+  const base_style = {
+    width: size_px,
+    height: size_px,
+    minWidth: size_px,
+    minHeight: size_px
+  };
+  if (avatar_url && !avatar_failed) {
+    return /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+      "div",
+      {
+        className: `${rounded} overflow-hidden flex items-center justify-center ${avatar_loaded ? "" : "aster_skeleton"} ${className}`,
+        style: base_style,
+        children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+          "img",
+          {
+            alt: "",
+            className: "w-full h-full object-cover transition-opacity duration-200",
+            draggable: false,
+            src: avatar_url,
+            style: { opacity: avatar_loaded ? 1 : 0 },
+            onError: () => set_avatar_failed(true),
+            onLoad: () => set_avatar_loaded(true)
+          }
+        )
+      }
+    );
+  }
+  if (favicon_src && !favicon_failed) {
+    return /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+      "div",
+      {
+        className: `${rounded} overflow-hidden flex items-center justify-center ${favicon_loaded ? "" : "aster_skeleton"} ${className}`,
+        style: base_style,
+        children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+          "img",
+          {
+            alt: "",
+            className: "w-full h-full object-cover transition-opacity duration-200",
+            draggable: false,
+            referrerPolicy: "no-referrer",
+            src: favicon_src,
+            style: {
+              userSelect: "none",
+              opacity: favicon_loaded ? 1 : 0
+            },
+            onError: () => {
+              on_favicon_failed?.();
+              set_favicon_failed(true);
+            },
+            onLoad: (e) => {
+              const img = e.currentTarget;
+              if (img.naturalWidth <= 1 || img.naturalHeight <= 1) {
+                on_favicon_failed?.();
+                set_favicon_failed(true);
+              } else {
+                set_favicon_loaded(true);
+                on_favicon_loaded?.(img.src);
+              }
+            }
+          }
+        )
+      }
+    );
+  }
+  const font_size = get_contact_avatar_font_size(size_px, initials);
+  return /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+    "div",
+    {
+      "aria-label": aria_label || void 0,
+      className: `${rounded} overflow-hidden flex items-center justify-center ${className}`,
+      role: "img",
+      style: {
+        ...base_style,
+        backgroundColor: background_color
+      },
+      children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+        "span",
+        {
+          "aria-hidden": "true",
+          className: "font-semibold tracking-wide select-none",
+          style: { fontSize: font_size, lineHeight: 1, color: text_color },
+          children: initials
+        }
+      )
+    }
+  );
+}
+
+// src/rail_tip_layer/rail_tip_layer.tsx
+var import_react21 = require("react");
+var import_react_dom3 = require("react-dom");
+var import_jsx_runtime92 = require("react/jsx-runtime");
+var SHOW_DELAY_MS = 400;
+var GAP_PX = 10;
+var EDGE_PADDING_PX = 8;
+var ARROW_INSET_PX = 8;
+var TIP_ID = "aster_rail_tip";
+function RailTipLayer() {
+  const [tip, set_tip] = (0, import_react21.useState)(null);
+  const timer_ref = (0, import_react21.useRef)(null);
+  const target_ref = (0, import_react21.useRef)(null);
+  const node_ref = (0, import_react21.useRef)(null);
+  const tip_visible_ref = (0, import_react21.useRef)(false);
+  (0, import_react21.useEffect)(() => {
+    const clear_timer = () => {
+      if (timer_ref.current !== null) {
+        window.clearTimeout(timer_ref.current);
+        timer_ref.current = null;
+      }
+    };
+    let attr_observer = null;
+    const stop_watching = () => {
+      attr_observer?.disconnect();
+      attr_observer = null;
+    };
+    const clear_target = () => {
+      stop_watching();
+      if (target_ref.current?.getAttribute("aria-describedby") === TIP_ID) {
+        target_ref.current.removeAttribute("aria-describedby");
+      }
+      target_ref.current = null;
+    };
+    const hide = () => {
+      if (timer_ref.current === null && target_ref.current === null && !tip_visible_ref.current) {
+        return;
+      }
+      clear_timer();
+      clear_target();
+      tip_visible_ref.current = false;
+      set_tip(null);
+    };
+    const show_for = (el) => {
+      const text = el.getAttribute("data-rail-tip");
+      if (!text) return;
+      const rect = el.getBoundingClientRect();
+      const requested_side = el.getAttribute("data-rail-tip-side") === "left" ? "left" : "right";
+      const is_rtl = window.getComputedStyle(el).direction === "rtl" || el.ownerDocument.documentElement.dir === "rtl";
+      const side = is_rtl ? requested_side === "left" ? "right" : "left" : requested_side;
+      el.setAttribute("aria-describedby", TIP_ID);
+      tip_visible_ref.current = true;
+      set_tip({
+        text,
+        top: rect.top + rect.height / 2,
+        left: side === "left" ? rect.left - GAP_PX : rect.right + GAP_PX,
+        anchor_center: rect.top + rect.height / 2,
+        side
+      });
+    };
+    const watch_target = (el) => {
+      stop_watching();
+      if (typeof MutationObserver === "undefined") return;
+      attr_observer = new MutationObserver(() => {
+        if (!el.isConnected || !el.getAttribute("data-rail-tip")) hide();
+      });
+      attr_observer.observe(el, {
+        attributes: true,
+        attributeFilter: ["data-rail-tip"]
+      });
+    };
+    const target_from = (node) => node?.closest?.("[data-rail-tip]") ?? null;
+    const handle_over = (e) => {
+      const el = target_from(e.target);
+      if (!el || !el.getAttribute("data-rail-tip")) {
+        if (target_ref.current) hide();
+        return;
+      }
+      if (el === target_ref.current) return;
+      clear_timer();
+      clear_target();
+      target_ref.current = el;
+      watch_target(el);
+      set_tip(null);
+      timer_ref.current = window.setTimeout(() => {
+        if (target_ref.current === el && el.isConnected) show_for(el);
+      }, SHOW_DELAY_MS);
+    };
+    const handle_focus_in = (e) => {
+      const el = target_from(e.target);
+      if (!el || !el.getAttribute("data-rail-tip")) {
+        if (target_ref.current) hide();
+        return;
+      }
+      if (el === target_ref.current) return;
+      clear_timer();
+      clear_target();
+      target_ref.current = el;
+      watch_target(el);
+      show_for(el);
+    };
+    const handle_focus_out = (e) => {
+      if (target_ref.current && target_from(e.target) === target_ref.current) {
+        hide();
+      }
+    };
+    const rail_root = document;
+    rail_root.addEventListener("pointerover", handle_over);
+    rail_root.addEventListener("pointerleave", hide);
+    rail_root.addEventListener("focusin", handle_focus_in);
+    rail_root.addEventListener("focusout", handle_focus_out);
+    document.addEventListener("pointerdown", hide);
+    window.addEventListener("blur", hide);
+    window.addEventListener("scroll", hide, { capture: true, passive: true });
+    window.addEventListener("resize", hide);
+    return () => {
+      clear_timer();
+      clear_target();
+      rail_root.removeEventListener(
+        "pointerover",
+        handle_over
+      );
+      rail_root.removeEventListener("pointerleave", hide);
+      rail_root.removeEventListener(
+        "focusin",
+        handle_focus_in
+      );
+      rail_root.removeEventListener(
+        "focusout",
+        handle_focus_out
+      );
+      document.removeEventListener("pointerdown", hide);
+      window.removeEventListener("blur", hide);
+      window.removeEventListener("scroll", hide, { capture: true });
+      window.removeEventListener("resize", hide);
+    };
+  }, []);
+  (0, import_react21.useLayoutEffect)(() => {
+    if (!tip || !node_ref.current) return;
+    const rect = node_ref.current.getBoundingClientRect();
+    const max_left = window.innerWidth - rect.width - EDGE_PADDING_PX;
+    const max_top = window.innerHeight - rect.height - EDGE_PADDING_PX;
+    const desired_left = tip.side === "left" ? tip.left - rect.width : tip.left;
+    const next_left = Math.max(
+      EDGE_PADDING_PX,
+      Math.min(desired_left, Math.max(EDGE_PADDING_PX, max_left))
+    );
+    const next_top = Math.min(
+      Math.max(EDGE_PADDING_PX, tip.top - rect.height / 2),
+      Math.max(EDGE_PADDING_PX, max_top)
+    );
+    const arrow_top = Math.min(
+      Math.max(ARROW_INSET_PX, tip.anchor_center - next_top),
+      Math.max(ARROW_INSET_PX, rect.height - ARROW_INSET_PX)
+    );
+    node_ref.current.style.left = `${next_left}px`;
+    node_ref.current.style.top = `${next_top}px`;
+    node_ref.current.style.setProperty("--tip-arrow-top", `${arrow_top}px`);
+    node_ref.current.style.visibility = "visible";
+  }, [tip]);
+  if (!tip || typeof document === "undefined") return null;
+  return (0, import_react_dom3.createPortal)(
+    /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
+      "div",
+      {
+        ref: node_ref,
+        className: "aster_tip_portal",
+        "data-tip-arrow": tip.side,
+        id: TIP_ID,
+        role: "tooltip",
+        style: {
+          position: "fixed",
+          top: tip.top,
+          left: tip.left,
+          visibility: "hidden"
+        },
+        children: tip.text
+      }
+    ),
+    document.body
+  );
+}
+
+// src/rail_unread_dot/rail_unread_dot.tsx
+var import_jsx_runtime93 = require("react/jsx-runtime");
+function RailUnreadDot({ count, label, locale }) {
+  const safe_count = Number.isFinite(count) && count > 0 ? Math.floor(count) : 0;
+  if (safe_count === 0) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime93.jsxs)(import_jsx_runtime93.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
+      "span",
+      {
+        "aria-hidden": "true",
+        className: "mail_unread_dot absolute h-[7px] w-[7px] rounded-full pointer-events-none",
+        style: {
+          left: "calc(50% + 8px)",
+          top: "2px",
+          boxShadow: "0 0 0 2px var(--sidebar-bg, var(--bg-secondary, var(--bg-primary)))"
+        }
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime93.jsx)("span", { className: "sr-only", children: `${label}: ${safe_count.toLocaleString(locale)}` })
+  ] });
+}
+
+// src/nav_section_skeleton/nav_section_skeleton.tsx
+var import_jsx_runtime94 = require("react/jsx-runtime");
+function NavSectionSkeleton({
+  rows = 3,
+  row_height = "h-7"
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("div", { className: "space-y-1 px-2.5 py-1", children: Array.from({ length: rows }).map((_, index) => /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
+    "div",
+    {
+      className: `${row_height} w-full animate-pulse rounded-[12px] bg-black/[0.04] dark:bg-white/[0.06]`
+    },
+    index
+  )) });
+}
+
+// src/plan_badge/plan_badge.tsx
+var import_jsx_runtime95 = require("react/jsx-runtime");
+function plan_badge_tier(plan_code) {
+  const normalized = (plan_code ?? "").trim().toLowerCase();
+  if (normalized === "star") return "star";
+  if (normalized === "nova") return "nova";
+  if (normalized === "supernova") return "supernova";
+  return null;
+}
+function PlanBadgeView({
+  tier,
+  label,
+  aria_label,
+  title,
+  className
+}) {
+  if (!tier) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime95.jsx)(
+    "span",
+    {
+      "aria-label": aria_label,
+      className: cn("plan_badge", `plan_badge_tier_${tier}`, className),
+      title,
+      children: label
+    }
+  );
+}
+
+// src/keyboard_shortcut_badge/keyboard_shortcut_badge.tsx
+var import_react22 = require("react");
+var import_jsx_runtime96 = require("react/jsx-runtime");
+var KEYBOARD_SHORTCUT_SIZE_CLASSES = {
+  xs: "min-w-[14px] h-[14px] px-0.5 text-[8px]",
+  sm: "min-w-[18px] h-[18px] px-1 text-[10px]",
+  md: "min-w-[22px] h-[22px] px-1.5 text-[11px]",
+  lg: "min-w-[28px] h-[28px] px-2 text-[13px]"
+};
+var KEYBOARD_SHORTCUT_VARIANT_CLASSES = {
+  default: [
+    "bg-surf-tertiary text-txt-muted",
+    "border border-edge-secondary",
+    "shadow-[0_1px_0_var(--border-secondary)]"
+  ].join(" "),
+  outline: [
+    "bg-transparent text-txt-muted",
+    "border border-edge-secondary"
+  ].join(" "),
+  ghost: "bg-transparent text-txt-muted"
+};
+function format_shortcut_modifier(mod, is_mac2) {
+  if (is_mac2) {
+    if (mod === "cmd+shift" || mod === "ctrl+shift") return "\u2318\u21E7";
+    if (mod === "cmd" || mod === "ctrl") return "\u2318";
+    if (mod === "shift") return "\u21E7";
+    if (mod === "alt") return "\u2325";
+  } else {
+    if (mod === "cmd+shift" || mod === "ctrl+shift") return "Ctrl+Shift";
+    if (mod === "cmd" || mod === "ctrl") return "Ctrl";
+    if (mod === "shift") return "Shift";
+    if (mod === "alt") return "Alt";
+  }
+  return mod;
+}
+function format_shortcut_key(key) {
+  if (key === "Enter") return "\u21B5";
+  if (key === "Escape") return "Esc";
+  if (key === "Backspace") return "\u232B";
+  if (key === "Tab") return "\u21E5";
+  if (key === "ArrowUp") return "\u2191";
+  if (key === "ArrowDown") return "\u2193";
+  if (key === "ArrowLeft") return "\u2190";
+  if (key === "ArrowRight") return "\u2192";
+  if (key === " ") return "Space";
+  return key.toUpperCase();
+}
+function detect_touch() {
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0 || window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+}
+function KeyboardShortcutBadgeView({
+  shortcut_key,
+  modifier,
+  is_mac: is_mac2,
+  size = "sm",
+  variant = "default",
+  show_on_touch = false,
+  className,
+  format_aria_label
+}) {
+  const [is_touch, set_is_touch] = (0, import_react22.useState)(false);
+  (0, import_react22.useEffect)(() => {
+    set_is_touch(detect_touch());
+  }, []);
+  if (!shortcut_key) return null;
+  if (is_touch && !show_on_touch) return null;
+  const modifier_text = modifier ? format_shortcut_modifier(modifier, is_mac2) : "";
+  const key_text = format_shortcut_key(shortcut_key);
+  const combined = `${modifier_text ? modifier_text + " + " : ""}${key_text}`;
+  return /* @__PURE__ */ (0, import_jsx_runtime96.jsxs)(
+    "kbd",
+    {
+      "aria-label": format_aria_label ? format_aria_label(combined) : combined,
+      className: cn(
+        "inline-flex items-center justify-center gap-0.5 rounded font-mono font-medium select-none",
+        KEYBOARD_SHORTCUT_VARIANT_CLASSES[variant],
+        KEYBOARD_SHORTCUT_SIZE_CLASSES[size],
+        className
+      ),
+      children: [
+        modifier && /* @__PURE__ */ (0, import_jsx_runtime96.jsx)("span", { "aria-hidden": "true", children: modifier_text }),
+        /* @__PURE__ */ (0, import_jsx_runtime96.jsx)("span", { "aria-hidden": "true", children: key_text })
+      ]
+    }
+  );
+}
+
+// src/alias_context_menu/alias_context_menu.tsx
+var import_outline15 = require("@heroicons/react/24/outline");
+var import_jsx_runtime97 = require("react/jsx-runtime");
+function AliasContextMenuView({
+  children,
+  labels,
+  is_pinned,
+  is_enabled,
+  show_pin,
+  show_toggle_enabled,
+  pin_icon,
+  on_copy_address,
+  on_view_sent,
+  on_toggle_pin,
+  on_toggle_enabled,
+  on_manage
+}) {
+  const enabled_color = is_enabled ? "var(--color-red-500, #ef4444)" : "var(--color-green-500, #22c55e)";
+  return /* @__PURE__ */ (0, import_jsx_runtime97.jsxs)(RadixContextMenu, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(RadixContextMenuTrigger, { asChild: true, children }),
+    /* @__PURE__ */ (0, import_jsx_runtime97.jsxs)(RadixContextMenuContent, { className: "w-48", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime97.jsxs)(RadixContextMenuItem, { onClick: on_copy_address, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(import_outline15.ClipboardDocumentIcon, { className: "me-2 h-4 w-4" }),
+        labels.copy_address
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime97.jsxs)(RadixContextMenuItem, { onClick: on_view_sent, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(import_outline15.PaperAirplaneIcon, { className: "me-2 h-4 w-4" }),
+        labels.view_sent
+      ] }),
+      show_pin && /* @__PURE__ */ (0, import_jsx_runtime97.jsxs)(RadixContextMenuItem, { onClick: on_toggle_pin, children: [
+        pin_icon,
+        is_pinned ? labels.unpin : labels.pin
+      ] }),
+      show_toggle_enabled && /* @__PURE__ */ (0, import_jsx_runtime97.jsxs)(RadixContextMenuItem, { onClick: on_toggle_enabled, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(
+          import_outline15.PowerIcon,
+          {
+            className: "me-2 h-4 w-4",
+            style: { color: enabled_color }
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime97.jsx)("span", { style: { color: enabled_color }, children: is_enabled ? labels.disable : labels.enable })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(RadixContextMenuSeparator, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime97.jsxs)(RadixContextMenuItem, { onClick: on_manage, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(import_outline15.Cog6ToothIcon, { className: "me-2 h-4 w-4" }),
+        labels.manage
+      ] })
+    ] })
+  ] });
+}
+
+// src/sidebar_rows/sidebar_rows.tsx
+var import_outline16 = require("@heroicons/react/24/outline");
+var import_jsx_runtime98 = require("react/jsx-runtime");
+function join_classes8(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+function SidebarSectionAddButton({
+  label,
+  on_click,
+  rail_tip = false
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+    "button",
+    {
+      "aria-label": label,
+      className: "p-1 rounded-[14px] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-icon-muted",
+      "data-rail-tip": rail_tip ? label : void 0,
+      type: "button",
+      onClick: on_click,
+      children: /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_outline16.PlusIcon, { "aria-hidden": "true", className: "w-4 h-4" })
+    }
+  );
+}
+function SidebarRailSectionButton({
+  icon: Icon2,
+  label,
+  on_click,
+  icon_style
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime98.jsx)("div", { className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+    "button",
+    {
+      className: "sidebar-rail-btn",
+      "data-rail-tip": label,
+      type: "button",
+      onClick: on_click,
+      children: /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(Icon2, { className: "w-5 h-5", style: icon_style })
+    }
+  ) });
+}
+function SidebarEmptyText({
+  children
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime98.jsx)("p", { className: "text-[11px] px-2.5 py-2 text-txt-muted", children });
+}
+function AliasIconView({
+  background,
+  is_random,
+  size
+}) {
+  const icon_size = size >= 20 ? "w-4 h-4" : "w-3.5 h-3.5";
+  return /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+    "div",
+    {
+      className: "rounded-full flex items-center justify-center flex-shrink-0",
+      style: {
+        width: size,
+        height: size,
+        background,
+        boxShadow: "inset 0 1px 1px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.15)"
+      },
+      children: is_random ? /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_outline16.BoltIcon, { className: `${icon_size} text-white` }) : /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_outline16.AtSymbolIcon, { className: `${icon_size} text-white` })
+    }
+  );
+}
+function TreeGuideVertical({ left }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+    "svg",
+    {
+      "aria-hidden": "true",
+      className: "absolute pointer-events-none",
+      "data-tree-guide": "vertical",
+      fill: "none",
+      style: {
+        left: `${left}px`,
+        top: "-2px",
+        height: "calc(100% + 4px)"
+      },
+      width: 2,
+      xmlns: "http://www.w3.org/2000/svg",
+      children: /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+        "line",
+        {
+          stroke: "var(--border-primary)",
+          strokeWidth: 1.5,
+          x1: 0.75,
+          x2: 0.75,
+          y1: 0,
+          y2: "100%"
+        }
+      )
+    }
+  );
+}
+function SidebarFolderRowView({
+  label,
+  color,
+  is_collapsed,
+  selected,
+  depth,
+  has_children,
+  is_expanded,
+  is_locked_closed,
+  show_lock_badge,
+  guide_trail,
+  guide_has_next = false,
+  unread_count,
+  locale,
+  expand_label,
+  collapse_label,
+  drag_over = false,
+  button_ref,
+  on_click,
+  on_toggle_expanded,
+  on_drag_enter,
+  on_drag_leave,
+  on_drag_over,
+  on_drop
+}) {
+  const indent = is_collapsed ? 0 : depth * 16;
+  const row_inset = indent > 0 ? indent + 4 : 0;
+  const lock_badge = show_lock_badge ?? is_locked_closed;
+  return /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(import_jsx_runtime98.Fragment, { children: [
+    !is_collapsed && depth > 0 && /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(import_jsx_runtime98.Fragment, { children: [
+      Array.from(
+        { length: depth - 1 },
+        (_, level) => guide_trail?.[level + 1] && /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+          TreeGuideVertical,
+          {
+            left: level * 16 + 8
+          },
+          `guide-${level}`
+        )
+      ),
+      guide_has_next && /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(TreeGuideVertical, { left: (depth - 1) * 16 + 8 }),
+      /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+        "svg",
+        {
+          "aria-hidden": "true",
+          className: "absolute pointer-events-none",
+          "data-tree-guide": "elbow",
+          fill: "none",
+          height: 35,
+          style: {
+            left: `${(depth - 1) * 16 + 8}px`,
+            top: "-2px"
+          },
+          width: 13,
+          xmlns: "http://www.w3.org/2000/svg",
+          children: /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+            "path",
+            {
+              d: guide_has_next ? "M0.75 8 Q 0.75 18 8.75 18 H 12" : "M0.75 0 V 10 Q 0.75 18 8.75 18 H 12",
+              stroke: "var(--border-primary)",
+              strokeLinecap: "round",
+              strokeWidth: 1.5
+            }
+          )
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(
+      "button",
+      {
+        ref: button_ref,
+        className: join_classes8(
+          "sidebar-nav-btn group relative w-full flex items-center",
+          is_collapsed ? "justify-center" : "gap-2.5",
+          "rounded-[12px]",
+          is_collapsed && "px-0",
+          "h-8 text-[14px]",
+          selected && "sidebar-active",
+          is_collapsed && selected && "sidebar-selected",
+          drag_over && "ring-2 ring-brand/60 bg-brand/10"
+        ),
+        "data-rail-tip": is_collapsed ? label : void 0,
+        style: {
+          zIndex: 1,
+          marginInlineStart: is_collapsed ? void 0 : `${row_inset}px`,
+          width: is_collapsed ? void 0 : `calc(100% - ${row_inset}px)`,
+          paddingInlineStart: is_collapsed ? void 0 : `${has_children ? 18 : 10}px`,
+          paddingInlineEnd: is_collapsed ? void 0 : "10px",
+          color: selected ? "var(--text-primary)" : "var(--text-secondary)",
+          backgroundColor: drag_over ? void 0 : is_collapsed && selected ? "var(--indicator-bg)" : void 0
+        },
+        type: "button",
+        onClick: on_click,
+        onDragEnter: on_drag_enter,
+        onDragLeave: on_drag_leave,
+        onDragOver: on_drag_over,
+        onDrop: on_drop,
+        children: [
+          !is_collapsed && has_children && /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+            "span",
+            {
+              "aria-expanded": is_expanded,
+              "aria-label": is_expanded ? collapse_label : expand_label,
+              className: "absolute start-0 top-1/2 -translate-y-1/2 p-0.5 rounded hover:bg-black/[0.06] dark:hover:bg-white/[0.08]",
+              role: "button",
+              tabIndex: 0,
+              onClick: (e) => {
+                e.stopPropagation();
+                on_toggle_expanded();
+              },
+              onKeyDown: (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  on_toggle_expanded();
+                }
+              },
+              children: is_expanded ? /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_outline16.ChevronDownIcon, { className: "w-3 h-3" }) : /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_outline16.ChevronRightIcon, { className: "w-3 h-3 rtl:-scale-x-100" })
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)("div", { className: "relative", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+              import_outline16.FolderIcon,
+              {
+                className: is_collapsed ? "w-5 h-5" : "w-4 h-4",
+                style: { color }
+              }
+            ),
+            lock_badge && /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_outline16.LockClosedIcon, { className: "absolute -bottom-0.5 -end-0.5 w-2.5 h-2.5 p-0.5 rounded-full text-icon-active bg-surf-secondary" })
+          ] }),
+          is_collapsed && !is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(RailUnreadDot, { count: unread_count, label, locale }),
+          !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(import_jsx_runtime98.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime98.jsx)("span", { className: "flex-1 text-start truncate", children: label }),
+            is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_outline16.LockClosedIcon, { className: "w-3 h-3 ms-1 text-icon-muted" }),
+            !is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+              CountBadge,
+              {
+                count: unread_count,
+                is_active: selected,
+                locale
+              }
+            )
+          ] })
+        ]
+      }
+    )
+  ] });
+}
+
+// src/sidebar_shell/sidebar_shell.tsx
+var import_outline17 = require("@heroicons/react/24/outline");
+var import_jsx_runtime99 = require("react/jsx-runtime");
+function MobileMenuButtonView({
+  label,
+  on_click
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+    "button",
+    {
+      "aria-label": label,
+      className: "md:hidden flex items-center justify-center w-10 h-10 rounded-[10px] transition-colors hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-primary",
+      onClick: on_click,
+      children: /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline17.Bars3Icon, { className: "w-5 h-5" })
+    }
+  );
+}
+function SidebarAsideView({
+  label,
+  is_collapsed,
+  is_mobile,
+  expanded_width,
+  children
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+    "aside",
+    {
+      "aria-label": label,
+      className: `flex h-full flex-col flex-shrink-0 select-none transition-all duration-200 ease-out bg-sidebar-bg-custom ${is_collapsed ? "w-16 min-w-16 max-w-16" : ""}`,
+      "data-collapsed": is_collapsed ? "true" : "false",
+      "data-sidebar-root": "true",
+      role: "navigation",
+      style: is_collapsed ? void 0 : is_mobile ? { width: "100vw", minWidth: "100vw", maxWidth: "100vw" } : {
+        width: expanded_width,
+        minWidth: expanded_width,
+        maxWidth: expanded_width
+      },
+      children
+    }
+  );
+}
+function SidebarRailOpenButton({
+  label,
+  on_click
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)("div", { className: "px-2 pt-3 flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+    "button",
+    {
+      "aria-label": label,
+      className: "sidebar-rail-btn",
+      type: "button",
+      onClick: on_click,
+      children: /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline17.Bars3Icon, { className: "w-5 h-5" })
+    }
+  ) });
+}
+function SidebarTopBarView({
+  is_collapsed,
+  is_compact,
+  children
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+    "div",
+    {
+      className: `${is_collapsed ? "px-2" : "px-3"} ${is_compact ? "pe-12 pt-4 pb-3" : "pt-2"} relative`,
+      children
+    }
+  );
+}
+function SidebarCloseButton({
+  label,
+  on_click,
+  type
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+    "button",
+    {
+      "aria-label": label,
+      className: "absolute top-2 end-2 flex items-center justify-center w-8 h-8 rounded-[8px] transition-colors hover:bg-black/[0.06] dark:hover:bg-white/[0.08] z-10 text-icon-muted",
+      type,
+      onClick: on_click,
+      children: /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline17.XMarkIcon, { className: "w-5 h-5" })
+    }
+  );
+}
+function SidebarComposeButtonView({
+  label,
+  is_collapsed,
+  on_click
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+    "div",
+    {
+      className: `${is_collapsed ? "px-2 flex justify-center" : "px-2.5"} pb-3`,
+      children: /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(
+        Button,
+        {
+          className: is_collapsed ? "!rounded-[16px] w-14 h-14 min-w-14 !h-14 !p-0 flex items-center justify-center" : "w-full !rounded-[16px] gap-2",
+          "data-onboarding": "compose-button",
+          "data-rail-tip": is_collapsed ? label : void 0,
+          variant: "depth",
+          onClick: on_click,
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+              import_outline17.PencilSquareIcon,
+              {
+                className: is_collapsed ? "w-[22px] h-[22px]" : "w-[15px] h-[15px]"
+              }
+            ),
+            !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime99.jsx)("span", { children: label })
+          ]
+        }
+      )
+    }
+  );
+}
+function SidebarScrollAreaView({
+  is_collapsed,
+  show_indicator,
+  indicator_style,
+  container_ref,
+  children
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+    "div",
+    {
+      className: `min-h-0 flex-1 overflow-y-auto ${is_collapsed ? "px-2" : "px-2.5"} pt-0.5 pb-4 [mask-image:linear-gradient(to_bottom,black_calc(100%-28px),transparent)]`,
+      children: /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)("div", { ref: container_ref, className: "relative", children: [
+        show_indicator && /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+          "div",
+          {
+            className: "pointer-events-none absolute start-0 w-full rounded-md border-edge-primary",
+            style: {
+              ...indicator_style,
+              top: 0,
+              backgroundColor: "var(--indicator-bg)",
+              border: "1px solid var(--border-primary)",
+              zIndex: 0,
+              willChange: "transform, opacity",
+              transition: indicator_style.opacity === 0 ? "opacity 100ms ease" : "transform 200ms ease, height 200ms ease, opacity 200ms ease"
+            }
+          }
+        ),
+        children
+      ] })
+    }
+  );
+}
+
+// src/mobile/mobile_bottom_sheet.tsx
+var import_react23 = require("react");
+var import_framer_motion15 = require("framer-motion");
+var import_jsx_runtime100 = require("react/jsx-runtime");
+var MobileBottomSheet = (0, import_react23.memo)(function MobileBottomSheet2({
+  is_open,
+  on_close,
+  children,
+  aria_label,
+  safe_area_bottom = 0,
+  reduce_motion = false
+}) {
+  const drag_controls = (0, import_framer_motion15.useDragControls)();
+  const { dialog_ref, handle_backdrop_pointer_down } = use_dialog_shell(is_open, on_close, "bottom_sheet");
+  const handle_drag_end = (_, info) => {
+    if (info.offset.y > 100 || info.velocity.y > 300) {
+      on_close();
+    }
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_framer_motion15.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime100.jsxs)(import_jsx_runtime100.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+      import_framer_motion15.motion.div,
+      {
+        animate: { opacity: 1 },
+        className: "fixed inset-0 z-[60] bg-black/40",
+        exit: { opacity: 0 },
+        initial: reduce_motion ? false : { opacity: 0 },
+        transition: { duration: reduce_motion ? 0 : 0.2 },
+        onPointerDown: handle_backdrop_pointer_down
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime100.jsxs)(
+      import_framer_motion15.motion.div,
+      {
+        ref: dialog_ref,
+        animate: { y: 0 },
+        "aria-label": aria_label,
+        "aria-modal": "true",
+        className: "fixed inset-x-0 bottom-0 z-[61] flex max-h-[85vh] flex-col rounded-t-2xl bg-[var(--bg-primary)] outline-none",
+        drag: "y",
+        dragConstraints: { top: 0 },
+        dragControls: drag_controls,
+        dragElastic: 0.2,
+        dragListener: false,
+        exit: { y: "100%" },
+        initial: reduce_motion ? false : { y: "100%" },
+        role: "dialog",
+        style: { paddingBottom: safe_area_bottom },
+        tabIndex: -1,
+        transition: reduce_motion ? { duration: 0 } : { type: "tween", duration: 0.25, ease: "easeOut" },
+        onDragEnd: handle_drag_end,
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+            "div",
+            {
+              className: "flex shrink-0 cursor-grab justify-center py-2 active:cursor-grabbing",
+              style: { touchAction: "none" },
+              onPointerDown: (e) => drag_controls.start(e),
+              children: /* @__PURE__ */ (0, import_jsx_runtime100.jsx)("div", { className: "h-1 w-10 rounded-full bg-[var(--text-muted)] opacity-30" })
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+            "div",
+            {
+              className: "flex-1 overflow-y-auto overscroll-contain",
+              style: { WebkitOverflowScrolling: "touch" },
+              children
+            }
+          )
+        ]
+      }
+    )
+  ] }) });
+});
+
+// src/mobile/mobile_action_sheet.tsx
+var import_react24 = require("react");
+var import_jsx_runtime101 = require("react/jsx-runtime");
+var MobileActionSheet = (0, import_react24.memo)(function MobileActionSheet2({
+  is_open,
+  on_close,
+  items,
+  aria_label,
+  cancel_label,
+  title,
+  subtitle,
+  close_on_action = true,
+  safe_area_bottom,
+  reduce_motion
+}) {
+  const strings = use_ui_strings();
+  const handle_action = (0, import_react24.useCallback)(
+    (action) => {
+      action();
+      if (close_on_action) on_close();
+    },
+    [on_close, close_on_action]
+  );
+  const show_header = title !== void 0 || subtitle !== void 0;
+  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
+    MobileBottomSheet,
+    {
+      aria_label: aria_label ?? strings.actions,
+      is_open,
+      reduce_motion,
+      safe_area_bottom,
+      on_close,
+      children: /* @__PURE__ */ (0, import_jsx_runtime101.jsxs)("div", { className: "px-2 pb-2", children: [
+        show_header && /* @__PURE__ */ (0, import_jsx_runtime101.jsxs)("div", { className: "mb-2 px-4 pb-2 border-b border-[var(--border-primary)]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
+            "p",
+            {
+              className: "truncate text-[14px] font-medium text-[var(--text-primary)]",
+              dir: "auto",
+              children: title
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
+            "p",
+            {
+              className: "truncate text-[13px] text-[var(--text-muted)]",
+              dir: "auto",
+              children: subtitle
+            }
+          )
+        ] }),
+        items.map((item) => /* @__PURE__ */ (0, import_jsx_runtime101.jsxs)(
+          "button",
+          {
+            className: `flex w-full items-center gap-3 rounded-[16px] px-4 py-3 text-start active:bg-[var(--bg-tertiary)] ${item.destructive ? "text-[var(--color-danger,#ef4444)]" : "text-[var(--text-primary)]"}`,
+            type: "button",
+            onClick: () => handle_action(item.on_action),
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(item.icon, { className: "h-5 w-5 shrink-0" }),
+              /* @__PURE__ */ (0, import_jsx_runtime101.jsx)("span", { className: "text-[15px]", children: item.label })
+            ]
+          },
+          item.label
+        )),
+        /* @__PURE__ */ (0, import_jsx_runtime101.jsx)("div", { className: "mx-4 my-1 border-t border-[var(--border-primary)]" }),
+        /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
+          "button",
+          {
+            className: "flex w-full items-center justify-center rounded-[16px] px-4 py-3 text-[15px] font-medium text-[var(--text-secondary)] active:bg-[var(--bg-tertiary)]",
+            type: "button",
+            onClick: on_close,
+            children: cancel_label ?? strings.cancel
+          }
+        )
+      ] })
+    }
+  );
+});
+var MobileContextMenuView = (0, import_react24.memo)(function MobileContextMenuView2(props) {
+  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(MobileActionSheet, { ...props, close_on_action: false });
+});
+
+// src/mobile/mobile_attachment_row.tsx
+var import_react25 = require("react");
+var import_outline18 = require("@heroicons/react/24/outline");
+var import_jsx_runtime102 = require("react/jsx-runtime");
+function get_file_icon(content_type) {
+  if (content_type.startsWith("image/")) return import_outline18.PhotoIcon;
+  if (content_type.startsWith("video/")) return import_outline18.FilmIcon;
+  if (content_type.startsWith("audio/")) return import_outline18.MusicalNoteIcon;
+  return import_outline18.DocumentIcon;
+}
+var MobileAttachmentRow = (0, import_react25.memo)(function MobileAttachmentRow2({
+  filename,
+  content_type,
+  size_label,
+  on_download,
+  is_downloading = false,
+  download_label
+}) {
+  const strings = use_ui_strings();
+  const FileIcon2 = get_file_icon(content_type);
+  return /* @__PURE__ */ (0, import_jsx_runtime102.jsxs)("div", { className: "flex items-center gap-3 rounded-lg bg-[var(--bg-tertiary)] px-4 py-2.5", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(FileIcon2, { className: "h-5 w-5 shrink-0 text-[var(--text-muted)]" }),
+    /* @__PURE__ */ (0, import_jsx_runtime102.jsxs)("div", { className: "min-w-0 flex-1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime102.jsx)("p", { className: "truncate text-[14px] text-[var(--text-primary)]", children: filename }),
+      /* @__PURE__ */ (0, import_jsx_runtime102.jsx)("p", { className: "text-[12px] text-[var(--text-muted)]", children: size_label })
+    ] }),
+    on_download && /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(
+      "button",
+      {
+        "aria-label": download_label ?? strings.download,
+        className: "flex h-8 w-8 items-center justify-center rounded-full text-[var(--text-secondary)] active:bg-[var(--bg-secondary)] disabled:opacity-50",
+        disabled: is_downloading,
+        type: "button",
+        onClick: on_download,
+        children: /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(import_outline18.ArrowDownTrayIcon, { className: "h-4.5 w-4.5" })
+      }
+    )
+  ] });
+});
+
+// src/mobile/mobile_sidebar_nav_button.tsx
+var import_react26 = require("react");
+var import_jsx_runtime103 = require("react/jsx-runtime");
+var LONG_PRESS_MS = 500;
+var LONG_PRESS_MOVE_TOLERANCE = 8;
+var MAX_VISIBLE_COUNT = 999;
+function MobileSidebarNavButton({
+  icon,
+  label,
+  active,
+  count,
+  trailing,
+  on_click,
+  on_long_press,
+  locale
+}) {
+  const timer_ref = (0, import_react26.useRef)(null);
+  const did_long_press_ref = (0, import_react26.useRef)(false);
+  const touch_start_pos = (0, import_react26.useRef)(null);
+  const handle_touch_start = (0, import_react26.useCallback)(
+    (e) => {
+      if (!on_long_press) return;
+      did_long_press_ref.current = false;
+      touch_start_pos.current = {
+        x: e.touches[0].clientX,
+        y: e.touches[0].clientY
+      };
+      timer_ref.current = setTimeout(() => {
+        did_long_press_ref.current = true;
+        on_long_press();
+      }, LONG_PRESS_MS);
+    },
+    [on_long_press]
+  );
+  const handle_touch_move = (0, import_react26.useCallback)((e) => {
+    if (!timer_ref.current || !touch_start_pos.current) return;
+    const dx = Math.abs(e.touches[0].clientX - touch_start_pos.current.x);
+    const dy = Math.abs(e.touches[0].clientY - touch_start_pos.current.y);
+    if (dx > LONG_PRESS_MOVE_TOLERANCE || dy > LONG_PRESS_MOVE_TOLERANCE) {
+      clearTimeout(timer_ref.current);
+      timer_ref.current = null;
+      touch_start_pos.current = null;
+    }
+  }, []);
+  const handle_touch_end = (0, import_react26.useCallback)(() => {
+    if (timer_ref.current) {
+      clearTimeout(timer_ref.current);
+      timer_ref.current = null;
+    }
+    touch_start_pos.current = null;
+  }, []);
+  const handle_click = (0, import_react26.useCallback)(() => {
+    if (did_long_press_ref.current) {
+      did_long_press_ref.current = false;
+      return;
+    }
+    on_click();
+  }, [on_click]);
+  return /* @__PURE__ */ (0, import_jsx_runtime103.jsxs)(
+    "button",
+    {
+      className: "sidebar-nav-btn relative flex h-11 w-full items-center gap-3 rounded-[16px] px-3 text-[15px]",
+      "data-nav-active": active,
+      style: {
+        zIndex: 1,
+        color: active ? "var(--text-primary)" : "var(--text-secondary)",
+        WebkitTapHighlightColor: "transparent"
+      },
+      type: "button",
+      onClick: handle_click,
+      onContextMenu: on_long_press ? (e) => {
+        e.preventDefault();
+        on_long_press();
+      } : void 0,
+      onTouchCancel: handle_touch_end,
+      onTouchEnd: handle_touch_end,
+      onTouchMove: handle_touch_move,
+      onTouchStart: handle_touch_start,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(
+          "span",
+          {
+            className: "flex h-5 w-5 shrink-0 items-center justify-center",
+            style: { color: active ? "var(--text-primary)" : "var(--text-muted)" },
+            children: icon
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime103.jsx)("span", { className: "min-w-0 flex-1 truncate text-start", children: label }),
+        trailing,
+        count != null && count > 0 && /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(
+          "span",
+          {
+            className: "shrink-0 text-[13px] font-medium tabular-nums",
+            style: {
+              color: active ? "var(--text-secondary)" : "var(--text-muted)"
+            },
+            children: count > MAX_VISIBLE_COUNT ? `${MAX_VISIBLE_COUNT.toLocaleString(locale)}+` : count.toLocaleString(locale)
+          }
+        )
+      ]
+    }
+  );
+}
+
+// src/mobile/swipe_actions.tsx
+var import_react27 = require("react");
+var import_framer_motion16 = require("framer-motion");
+var import_jsx_runtime104 = require("react/jsx-runtime");
+var VELOCITY_THRESHOLD = 400;
+var ELASTIC_FACTOR = 0.3;
+var DEAD_ZONE = 15;
+var THRESHOLD_RATIO = 0.35;
+var FALLBACK_THRESHOLD = 80;
+var MIN_VELOCITY_DISTANCE = 30;
+var SwipeActions = (0, import_react27.memo)(function SwipeActions2({
+  left_action,
+  right_action,
+  disabled,
+  children,
+  reduce_motion = false,
+  on_threshold_cross
+}) {
+  const x = (0, import_framer_motion16.useMotionValue)(0);
+  const has_triggered_haptic = (0, import_react27.useRef)(false);
+  const container_ref = (0, import_react27.useRef)(null);
+  const [threshold, set_threshold] = (0, import_react27.useState)(FALLBACK_THRESHOLD);
+  (0, import_react27.useLayoutEffect)(() => {
+    if (!container_ref.current) return;
+    const width = container_ref.current.offsetWidth;
+    if (width > 0) {
+      set_threshold(Math.round(width * THRESHOLD_RATIO));
+    }
+  }, []);
+  const left_opacity = (0, import_framer_motion16.useTransform)(x, [-threshold, -DEAD_ZONE, 0], [1, 0, 0]);
+  const right_opacity = (0, import_framer_motion16.useTransform)(x, [0, DEAD_ZONE, threshold], [0, 0, 1]);
+  const handle_drag = (0, import_react27.useCallback)(
+    (_, info) => {
+      const offset = info.offset.x;
+      if (Math.abs(offset) > threshold && !has_triggered_haptic.current) {
+        has_triggered_haptic.current = true;
+        on_threshold_cross?.();
+      }
+      if (Math.abs(offset) < threshold) {
+        has_triggered_haptic.current = false;
+      }
+    },
+    [threshold, on_threshold_cross]
+  );
+  const handle_drag_end = (0, import_react27.useCallback)(
+    (_, info) => {
+      has_triggered_haptic.current = false;
+      const offset = info.offset.x;
+      const velocity = info.velocity.x;
+      const committed_by_distance_right = offset > threshold;
+      const committed_by_velocity_right = velocity > VELOCITY_THRESHOLD && offset > MIN_VELOCITY_DISTANCE;
+      if (right_action && offset > 0 && (committed_by_distance_right || committed_by_velocity_right)) {
+        right_action.on_trigger();
+        return;
+      }
+      const committed_by_distance_left = offset < -threshold;
+      const committed_by_velocity_left = velocity < -VELOCITY_THRESHOLD && offset < -MIN_VELOCITY_DISTANCE;
+      if (left_action && offset < 0 && (committed_by_distance_left || committed_by_velocity_left)) {
+        left_action.on_trigger();
+        return;
+      }
+    },
+    [left_action, right_action, threshold]
+  );
+  if (disabled || !left_action && !right_action) {
+    return /* @__PURE__ */ (0, import_jsx_runtime104.jsx)(import_jsx_runtime104.Fragment, { children });
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime104.jsxs)("div", { ref: container_ref, className: "relative overflow-hidden", children: [
+    right_action && /* @__PURE__ */ (0, import_jsx_runtime104.jsx)(
+      import_framer_motion16.motion.div,
+      {
+        className: "absolute inset-y-0 start-0 flex w-full items-center justify-start ps-6",
+        style: {
+          opacity: right_opacity,
+          backgroundColor: right_action.color
+        },
+        children: right_action.icon
+      }
+    ),
+    left_action && /* @__PURE__ */ (0, import_jsx_runtime104.jsx)(
+      import_framer_motion16.motion.div,
+      {
+        className: "absolute inset-y-0 end-0 flex w-full items-center justify-end pe-6",
+        style: { opacity: left_opacity, backgroundColor: left_action.color },
+        children: left_action.icon
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime104.jsx)(
+      import_framer_motion16.motion.div,
+      {
+        dragDirectionLock: true,
+        className: "relative bg-[var(--bg-primary)]",
+        drag: "x",
+        dragConstraints: { left: 0, right: 0 },
+        dragElastic: ELASTIC_FACTOR,
+        style: { x },
+        transition: reduce_motion ? { duration: 0 } : { type: "tween", duration: 0.2, ease: "easeOut" },
+        onDrag: handle_drag,
+        onDragEnd: handle_drag_end,
+        children
+      }
+    )
+  ] });
+});
+
+// src/profile_notes/profile_notes.tsx
+var import_outline19 = require("@heroicons/react/24/outline");
+var import_jsx_runtime105 = require("react/jsx-runtime");
+var DEFAULT_MAX_LENGTH = 5e4;
+function ProfileNotesBoxView({
+  note,
+  is_loading,
+  load_failed,
+  save_status,
+  status_indicator,
+  strings,
+  on_change,
+  on_blur,
+  max_length = DEFAULT_MAX_LENGTH,
+  className = ""
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime105.jsxs)(
+    "div",
+    {
+      className: `rounded-xl border bg-surf-secondary border-edge-secondary ${className}`,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime105.jsxs)("div", { className: "flex items-center justify-between px-3 py-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime105.jsxs)("div", { className: "flex items-center gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime105.jsx)(import_outline19.DocumentTextIcon, { className: "w-4 h-4 text-txt-muted" }),
+            /* @__PURE__ */ (0, import_jsx_runtime105.jsx)("span", { className: "text-[11px] font-medium uppercase tracking-wider text-txt-muted", children: strings.notes })
+          ] }),
+          save_status === "too_long" ? /* @__PURE__ */ (0, import_jsx_runtime105.jsx)("span", { className: "text-[11px] text-red-500", children: strings.too_long }) : status_indicator
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime105.jsx)("div", { className: "px-3 pb-3", children: is_loading ? /* @__PURE__ */ (0, import_jsx_runtime105.jsx)(Skeleton, { className: "h-16 rounded-lg" }) : load_failed ? /* @__PURE__ */ (0, import_jsx_runtime105.jsx)("p", { className: "text-[13px] text-txt-muted", children: strings.load_failed }) : /* @__PURE__ */ (0, import_jsx_runtime105.jsx)(
+          "textarea",
+          {
+            className: "w-full min-h-[64px] max-h-[160px] text-[13px] leading-relaxed bg-transparent outline-none resize-none placeholder:text-txt-muted text-txt-primary",
+            maxLength: max_length,
+            placeholder: strings.placeholder,
+            value: note,
+            onBlur: on_blur,
+            onChange: (e) => on_change(e.target.value)
+          }
+        ) })
+      ]
+    }
+  );
+}
+function ProfileNotesInlineView({
+  note,
+  is_loading,
+  load_failed,
+  save_status,
+  status_indicator,
+  strings,
+  on_change,
+  on_blur,
+  max_length = DEFAULT_MAX_LENGTH,
+  textarea_ref
+}) {
+  const show_indicator = save_status === "error" || save_status === "saving" || save_status === "saved";
+  return /* @__PURE__ */ (0, import_jsx_runtime105.jsxs)(
+    "div",
+    {
+      className: "p-2 bg-surf-secondary",
+      onClick: (e) => e.stopPropagation(),
+      onKeyDown: (e) => e.stopPropagation(),
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime105.jsxs)("div", { className: "flex items-center justify-between mb-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime105.jsx)("span", { className: "text-[10px] font-medium uppercase tracking-wider text-txt-muted", children: strings.notes }),
+          show_indicator ? status_indicator : null,
+          save_status === "too_long" && /* @__PURE__ */ (0, import_jsx_runtime105.jsx)("span", { className: "text-[10px] text-red-500", children: strings.too_long })
+        ] }),
+        is_loading ? /* @__PURE__ */ (0, import_jsx_runtime105.jsx)("div", { className: "h-14 rounded animate-pulse bg-surf-tertiary" }) : load_failed ? /* @__PURE__ */ (0, import_jsx_runtime105.jsx)("p", { className: "h-14 text-[12px] text-txt-muted", children: strings.load_failed }) : /* @__PURE__ */ (0, import_jsx_runtime105.jsx)(
+          "textarea",
+          {
+            ref: textarea_ref,
+            className: "w-full h-14 text-[12px] leading-relaxed bg-transparent outline-none resize-none placeholder:text-txt-muted text-txt-primary",
+            maxLength: max_length,
+            placeholder: strings.placeholder,
+            value: note,
+            onBlur: on_blur,
+            onChange: (e) => on_change(e.target.value),
+            onClick: (e) => e.stopPropagation(),
+            onKeyDown: (e) => {
+              e.stopPropagation();
+              if (e["key"] === "Escape") {
+                e.target.blur();
+              }
+            }
+          }
+        )
+      ]
+    }
+  );
+}
+
+// src/sender_profile/sender_profile.tsx
+var import_react28 = require("react");
+var import_framer_motion17 = require("framer-motion");
+var import_outline20 = require("@heroicons/react/24/outline");
+var import_solid5 = require("@heroicons/react/24/solid");
+var import_jsx_runtime106 = require("react/jsx-runtime");
+var ASTER_EMAIL_DOMAINS = /* @__PURE__ */ new Set([
+  "astermail.org",
+  "aster.cx",
+  "astermail.me",
+  "astermail.net"
+]);
+function extract_root_domain(email) {
+  const match = email.match(/@([^@]+)$/);
+  if (!match) return "";
+  const parts = match[1].toLowerCase().split(".");
+  if (parts.length >= 2) return parts.slice(-2).join(".");
+  return match[1].toLowerCase();
+}
+function is_aster_email_address(email) {
+  return ASTER_EMAIL_DOMAINS.has(extract_root_domain(email));
+}
+var CARD_AVATAR_CLASS = "ring-1 ring-black/5 dark:ring-white/10 flex-shrink-0";
+var INLINE_SPINNER_CLASS = "w-3 h-3 border-2 border-blue-500 border-t-transparent rounded-full animate-spin flex-shrink-0";
+function SenderProfileCardView({
+  email,
+  display_name,
+  domain,
+  is_aster_user,
+  render_avatar,
+  on_copy_email,
+  is_contact,
+  is_contact_loading,
+  contact_disabled,
+  on_contact_action,
+  on_messages_from,
+  on_compose,
+  is_allowlisted,
+  is_allowlist_loading,
+  allowlist_disabled,
+  on_allowlist_action,
+  is_blocking,
+  on_block_action,
+  notes,
+  is_open,
+  on_open_change,
+  on_trigger_intent,
+  trigger_className,
+  children,
+  show_notes,
+  on_toggle_notes,
+  is_blocked,
+  strings
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(DropdownMenu, { open: is_open, onOpenChange: on_open_change, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+      DropdownMenuTrigger,
+      {
+        asChild: true,
+        onFocus: on_trigger_intent,
+        onPointerDown: on_trigger_intent,
+        onPointerEnter: on_trigger_intent,
+        children: /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+          "button",
+          {
+            className: `outline-none${trigger_className ? ` ${trigger_className}` : ""}`,
+            type: "button",
+            onClick: (e) => e.stopPropagation(),
+            children
+          }
+        )
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+      DropdownMenuContent,
+      {
+        align: "start",
+        className: "w-72 p-0 overflow-hidden",
+        onClick: (e) => e.stopPropagation(),
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "px-3 pt-3 pb-2 border-b border-edge-secondary", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "flex items-center gap-3", children: [
+              render_avatar({ size: "md", className: CARD_AVATAR_CLASS }),
+              /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "flex-1 min-w-0", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("p", { className: "text-[13px] font-medium truncate text-txt-primary", children: display_name }),
+                is_aster_user ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("p", { className: "text-[11px] truncate text-txt-muted", children: email }) : domain && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("p", { className: "text-[11px] truncate text-txt-muted", children: domain })
+              ] })
+            ] }),
+            !is_aster_user && /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+              "button",
+              {
+                className: "mt-2 w-full flex items-center justify-center gap-1.5 py-1.5 rounded-[12px] text-[12px] transition-colors border text-txt-secondary border-edge-secondary bg-surf-secondary hover:bg-surf-hover",
+                type: "button",
+                onClick: on_copy_email,
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { className: "truncate", children: email }),
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.ClipboardDocumentIcon, { className: "w-3 h-3 flex-shrink-0 opacity-60" })
+                ]
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "p-1", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+              DropdownMenuItem,
+              {
+                className: "gap-2 cursor-pointer",
+                disabled: contact_disabled,
+                onSelect: (e) => {
+                  e.preventDefault();
+                  on_contact_action();
+                },
+                children: [
+                  is_contact ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.UserMinusIcon, { className: "w-4 h-4 flex-shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.UserPlusIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { className: "flex-1", children: is_contact ? strings.remove_from_contacts : strings.add_to_contacts }),
+                  is_contact_loading && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("div", { className: INLINE_SPINNER_CLASS })
+                ]
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+              DropdownMenuItem,
+              {
+                className: "gap-2 cursor-pointer",
+                onSelect: (e) => {
+                  e.preventDefault();
+                  on_toggle_notes();
+                },
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.DocumentTextIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { children: show_notes ? strings.hide_notes : strings.notes })
+                ]
+              }
+            ),
+            show_notes && notes && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+              "div",
+              {
+                className: "mx-1 my-1 rounded-md overflow-hidden",
+                onClick: (e) => e.stopPropagation(),
+                children: notes
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(DropdownMenuSeparator, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+              DropdownMenuItem,
+              {
+                className: "gap-2 cursor-pointer",
+                onSelect: on_messages_from,
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.EnvelopeIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { children: strings.messages_from })
+                ]
+              }
+            ),
+            on_compose && /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+              DropdownMenuItem,
+              {
+                className: "gap-2 cursor-pointer",
+                onSelect: on_compose,
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.EnvelopeIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { children: strings.send_email })
+                ]
+              }
+            ),
+            !is_aster_user && /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(import_jsx_runtime106.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(DropdownMenuSeparator, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+                DropdownMenuItem,
+                {
+                  className: "gap-2 cursor-pointer",
+                  disabled: allowlist_disabled,
+                  onSelect: (e) => {
+                    e.preventDefault();
+                    on_allowlist_action();
+                  },
+                  children: [
+                    is_allowlisted ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_solid5.ShieldCheckIcon, { className: "w-4 h-4 flex-shrink-0 text-emerald-500" }) : /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.ShieldCheckIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+                      "span",
+                      {
+                        className: `flex-1 ${is_allowlisted ? "text-emerald-600 dark:text-emerald-400" : ""}`,
+                        children: is_allowlisted ? strings.remove_from_allowlist : strings.allow_sender
+                      }
+                    ),
+                    is_allowlist_loading && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("div", { className: INLINE_SPINNER_CLASS })
+                  ]
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+                DropdownMenuItem,
+                {
+                  className: `gap-2 cursor-pointer ${is_blocked ? "" : "text-red-500 focus:text-red-500 focus:bg-red-500/10"}`,
+                  disabled: is_blocking,
+                  onSelect: (e) => {
+                    e.preventDefault();
+                    on_block_action();
+                  },
+                  children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.NoSymbolIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { className: "flex-1", children: is_blocked ? strings.unblock_sender : strings.block_sender }),
+                    is_blocking && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+                      "div",
+                      {
+                        className: `w-3 h-3 border-2 ${is_blocked ? "border-blue-500" : "border-red-500"} border-t-transparent rounded-full animate-spin flex-shrink-0`
+                      }
+                    )
+                  ]
+                }
+              )
+            ] })
+          ] })
+        ]
+      }
+    )
+  ] });
+}
+var ROW_ICON_CLASS = "w-[18px] h-[18px] text-txt-muted flex-shrink-0";
+function SenderProfileModalView({
+  email,
+  display_name,
+  domain,
+  is_aster_user,
+  render_avatar,
+  on_copy_email,
+  is_contact,
+  is_contact_loading,
+  contact_disabled,
+  on_contact_action,
+  on_messages_from,
+  on_compose,
+  is_allowlisted,
+  is_allowlist_loading,
+  allowlist_disabled,
+  on_allowlist_action,
+  is_blocking,
+  on_block_action,
+  notes,
+  is_open,
+  on_close,
+  reduce_motion = false,
+  strings
+}) {
+  (0, import_react28.useEffect)(() => {
+    if (!is_open) return;
+    const on_key = (e) => {
+      if (e["key"] === "Escape") on_close();
+    };
+    window.addEventListener("keydown", on_key);
+    return () => window.removeEventListener("keydown", on_key);
+  }, [is_open, on_close]);
+  return /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_framer_motion17.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+    import_framer_motion17.motion.div,
+    {
+      animate: { opacity: 1 },
+      className: "fixed inset-0 z-[80] flex items-center justify-center p-4",
+      exit: { opacity: 0 },
+      initial: reduce_motion ? false : { opacity: 0 },
+      transition: { duration: reduce_motion ? 0 : 0.15 },
+      onClick: on_close,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+          import_framer_motion17.motion.div,
+          {
+            animate: { opacity: 1 },
+            className: "absolute inset-0 bg-black/60",
+            exit: { opacity: 0 },
+            initial: reduce_motion ? false : { opacity: 0 }
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+          import_framer_motion17.motion.div,
+          {
+            animate: { scale: 1, opacity: 1, y: 0 },
+            className: "relative w-full max-w-[400px] rounded-2xl overflow-hidden bg-modal-bg border border-edge-primary shadow-[0_25px_60px_-12px_rgba(0,0,0,0.45)]",
+            exit: { scale: 0.96, opacity: 0, y: 8 },
+            initial: reduce_motion ? false : { scale: 0.96, opacity: 0, y: 8 },
+            transition: {
+              duration: reduce_motion ? 0 : 0.15,
+              ease: [0.19, 1, 0.22, 1]
+            },
+            onClick: (e) => e.stopPropagation(),
+            children: [
+              is_aster_user ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+                ModalInternalHeader,
+                {
+                  close_label: strings.close,
+                  display_name,
+                  email,
+                  on_close,
+                  render_avatar
+                }
+              ) : /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+                ModalExternalHeader,
+                {
+                  close_label: strings.close,
+                  display_name,
+                  domain,
+                  email,
+                  on_close,
+                  on_copy_email,
+                  render_avatar
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "py-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+                  ModalActionRow,
+                  {
+                    disabled: contact_disabled,
+                    icon: is_contact ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.UserMinusIcon, { className: ROW_ICON_CLASS }) : /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.UserPlusIcon, { className: ROW_ICON_CLASS }),
+                    label: is_contact ? strings.remove_from_contacts : strings.add_to_contacts,
+                    loading: is_contact_loading,
+                    on_click: on_contact_action
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+                  ModalActionRow,
+                  {
+                    icon: /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.EnvelopeIcon, { className: ROW_ICON_CLASS }),
+                    label: strings.messages_from,
+                    on_click: on_messages_from
+                  }
+                ),
+                on_compose && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+                  ModalActionRow,
+                  {
+                    icon: /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.EnvelopeIcon, { className: ROW_ICON_CLASS }),
+                    label: strings.send_email,
+                    on_click: on_compose
+                  }
+                ),
+                !is_aster_user && /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(import_jsx_runtime106.Fragment, { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("div", { className: "my-1 mx-4 border-t border-edge-secondary" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+                    ModalActionRow,
+                    {
+                      disabled: allowlist_disabled,
+                      icon: is_allowlisted ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_solid5.ShieldCheckIcon, { className: "w-[18px] h-[18px] text-emerald-500 flex-shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.ShieldCheckIcon, { className: ROW_ICON_CLASS }),
+                      label: is_allowlisted ? strings.remove_from_allowlist : strings.allow_sender,
+                      loading: is_allowlist_loading,
+                      on_click: on_allowlist_action
+                    }
+                  ),
+                  /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+                    ModalActionRow,
+                    {
+                      danger: true,
+                      disabled: is_blocking,
+                      icon: /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.NoSymbolIcon, { className: "w-[18px] h-[18px] text-red-500 flex-shrink-0" }),
+                      label: strings.block_sender,
+                      loading: is_blocking,
+                      on_click: on_block_action
+                    }
+                  )
+                ] })
+              ] }),
+              notes && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("div", { className: "px-4 pb-4 pt-1 border-t border-edge-secondary", children: notes })
+            ]
+          }
+        )
+      ]
+    }
+  ) });
+}
+function ModalInternalHeader({
+  display_name,
+  email,
+  on_close,
+  close_label,
+  render_avatar
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+    "div",
+    {
+      className: "relative px-5 pt-6 pb-5",
+      style: {
+        background: "linear-gradient(135deg, #4f46e5 0%, #1e1b4b 100%)"
+      },
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+          "button",
+          {
+            "aria-label": close_label,
+            className: "absolute top-3 end-3 p-1.5 rounded-[14px] text-white/50 hover:text-white hover:bg-white/10 transition-colors",
+            type: "button",
+            onClick: on_close,
+            children: /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.XMarkIcon, { className: "w-4 h-4" })
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "flex flex-col items-center text-center", children: [
+          render_avatar({
+            size: "xl",
+            className: "mb-3 ring-2 ring-white/20 shadow-lg"
+          }),
+          /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("h2", { className: "text-[17px] font-semibold text-white leading-tight", children: display_name }),
+          /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("p", { className: "text-[12px] mt-0.5 text-indigo-200 break-all", children: email })
+        ] })
+      ]
+    }
+  );
+}
+function ModalExternalHeader({
+  display_name,
+  email,
+  domain,
+  on_close,
+  on_copy_email,
+  close_label,
+  render_avatar
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "relative px-5 pt-5 pb-4 border-b border-edge-secondary", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+      "button",
+      {
+        "aria-label": close_label,
+        className: "absolute top-3 end-3 p-1.5 rounded-[14px] text-txt-muted hover:text-txt-primary hover:bg-surf-hover transition-colors",
+        type: "button",
+        onClick: on_close,
+        children: /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.XMarkIcon, { className: "w-4 h-4" })
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "flex items-center gap-4 pe-8", children: [
+      render_avatar({ size: "lg", className: CARD_AVATAR_CLASS }),
+      /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "flex-1 min-w-0", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("h2", { className: "text-[16px] font-semibold text-txt-primary leading-tight", children: display_name }),
+        domain && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("p", { className: "text-[12px] mt-0.5 text-txt-muted", children: domain }),
+        /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+          "button",
+          {
+            className: "mt-1 flex items-center gap-1 text-[11px] text-txt-muted hover:text-txt-secondary transition-colors group",
+            type: "button",
+            onClick: on_copy_email,
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { className: "truncate max-w-[220px]", children: email }),
+              /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline20.ClipboardDocumentIcon, { className: "w-3 h-3 flex-shrink-0 opacity-0 group-hover:opacity-60 transition-opacity" })
+            ]
+          }
+        )
+      ] })
+    ] })
+  ] });
+}
+function ModalActionRow({
+  icon,
+  label,
+  on_click,
+  disabled = false,
+  loading = false,
+  danger = false
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+    "button",
+    {
+      className: `w-full flex items-center gap-3 px-4 py-2.5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${danger ? "hover:bg-red-500/8 dark:hover:bg-red-500/10" : "hover:bg-surf-hover"}`,
+      disabled,
+      type: "button",
+      onClick: on_click,
+      children: [
+        icon,
+        /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+          "span",
+          {
+            className: `flex-1 text-start text-[14px] ${danger ? "text-red-500" : "text-txt-primary"}`,
+            children: label
+          }
+        ),
+        loading && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(ButtonSpinner, { size: "xs" })
+      ]
+    }
+  );
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+  ASTER_EMAIL_DOMAINS,
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -11276,8 +14726,15 @@ var AppRailView = React48.memo(AppRailViewComponent);
   AlertDialogPortal,
   AlertDialogTitle,
   AlertDialogTrigger,
+  AliasContextMenuView,
+  AliasIconView,
+  AllMailIcon,
   AppRailView,
   AppSwitcher,
+  ArchiveIcon,
+  ArrowLeftIcon,
+  AsterSecurityMark,
+  AttachmentIcon,
   AuthCard,
   AuthCardBody,
   AuthCheckIcon,
@@ -11302,10 +14759,12 @@ var AppRailView = React48.memo(AppRailViewComponent);
   AvatarNamed,
   AvatarWithStatus,
   BADGE_VISUALS,
+  BLOCKING_DIALOG_ICON_PATHS,
   Badge,
   BadgeChip,
   BadgeDot,
   Banner,
+  BlockingDialogView,
   Button,
   ButtonSpinner,
   Card,
@@ -11315,15 +14774,20 @@ var AppRailView = React48.memo(AppRailViewComponent);
   CardHeader,
   CardIcon,
   CardTitle,
+  CheckIcon,
   Checkbox,
   ChunkRecoveryFallbackView,
+  ClockIcon,
+  CloseIcon,
   CoinIcon,
   ColorVisionFilters,
   ComposeErrorFallbackView,
   ConfirmationModal,
+  ContactAvatarView,
   ContextMenu,
   CountBadge,
   CrownIcon,
+  DEFAULT_TOAST_POSITION,
   DashboardSidebar,
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -11340,18 +14804,24 @@ var AppRailView = React48.memo(AppRailViewComponent);
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
+  ENCRYPTED_LOCK_COLOR,
   EmailErrorFallbackView,
   EmailTag,
   EmptyState,
+  EncryptionInfoDropdownView,
   ErrorBanner,
   ErrorBoundaryView,
   ErrorDetailsView,
   ExternalLinkWarningModal,
+  Family2faDialogView,
   FaviconOrInitial,
   FeatureCard,
   FieldHint,
   FieldLabel,
+  FileIcon,
+  FilterIcon,
   FullPageLoader,
+  InboxIcon,
   InfoPopover,
   Input,
   Island,
@@ -11369,14 +14839,24 @@ var AppRailView = React48.memo(AppRailViewComponent);
   IslandSections,
   IslandStack,
   Kbd,
+  KeyboardShortcutBadgeView,
   KeyboardShortcutsModal,
+  LinkIcon,
+  LockIcon,
+  Logo,
   Marquee,
   MarqueeLogo,
   MarqueeTrack,
+  MobileActionSheet,
   MobileActionSheetShell,
+  MobileAttachmentRow,
+  MobileBottomSheet,
+  MobileContextMenuView,
   MobileDrawerShell,
   MobileHeader,
   MobileHeaderIconButton,
+  MobileMenuButtonView,
+  MobileSidebarNavButton,
   Modal,
   ModalActions,
   ModalBody,
@@ -11391,6 +14871,7 @@ var AppRailView = React48.memo(AppRailViewComponent);
   MotionModalFooter,
   MotionModalHeader,
   MotionModalTitle,
+  NavSectionSkeleton,
   Navbar,
   NavbarActions,
   NavbarCta,
@@ -11411,10 +14892,15 @@ var AppRailView = React48.memo(AppRailViewComponent);
   NavbarSearch,
   NavbarTrigger,
   NotFoundPage,
+  OfflineIndicatorView,
+  OpenFullIcon,
   OtpInput,
   PROFILE_AVATAR_SIZE_MAP,
   PanelToggleIcon,
+  PendingDeletionDialogView,
   PillButton,
+  PinIcon,
+  PlanBadgeView,
   Popover,
   PopoverAnchor,
   PopoverContent,
@@ -11422,6 +14908,8 @@ var AppRailView = React48.memo(AppRailViewComponent);
   PricingCard,
   ProfileAvatarView,
   ProfileDropdownView,
+  ProfileNotesBoxView,
+  ProfileNotesInlineView,
   Progress,
   Radio,
   RadioGroup,
@@ -11441,7 +14929,13 @@ var AppRailView = React48.memo(AppRailViewComponent);
   RadixContextMenuSubContent,
   RadixContextMenuSubTrigger,
   RadixContextMenuTrigger,
+  RailTipLayer,
+  RailUnreadDot,
+  STATUS_BANNER_DARK_TEXT,
+  STATUS_BANNER_TONE_COLORS,
+  SaveStatusIndicatorView,
   SearchBar,
+  SearchIcon,
   SegmentedToggle,
   Select,
   SelectContent,
@@ -11453,6 +14947,8 @@ var AppRailView = React48.memo(AppRailViewComponent);
   SelectSeparator,
   SelectTrigger,
   SelectValue,
+  SenderProfileCardView,
+  SenderProfileModalView,
   Separator,
   SettingControlRow,
   SettingNote,
@@ -11466,34 +14962,57 @@ var AppRailView = React48.memo(AppRailViewComponent);
   SettingsSectionHeader,
   SidebarAccountMenu,
   SidebarActionButton,
+  SidebarAsideView,
+  SidebarCloseButton,
+  SidebarComposeButtonView,
+  SidebarEmptyText,
+  SidebarFolderRowView,
   SidebarHeader,
   SidebarMoreToggle,
   SidebarNavRow,
+  SidebarRailOpenButton,
+  SidebarRailSectionButton,
+  SidebarScrollAreaView,
+  SidebarSectionAddButton,
   SidebarSectionHeader,
   SidebarSectionToggle,
   SidebarTagRow,
+  SidebarTopBarView,
   SimpleToast,
   Skeleton,
   SkeletonText,
   Slider,
   SnoozeBadge,
+  SnoozeIcon,
+  SpamIcon,
   SparkleOverlay,
   Spinner,
+  StarIcon,
   StatCard,
+  StatusBanner,
   StorageIndicator,
   StorageMeterView,
+  SuspensionBannerView,
+  SwipeActions,
   Switch,
   TAG_COLOR_PRESETS,
   TAG_ICONS,
   TAG_ICON_GROUPS,
+  TOAST_BOTTOM_ISLAND_STYLE,
+  TOAST_DURATION_BILLING_MS,
+  TOAST_DURATION_DEFAULT_MS,
+  TOAST_POSITION_LAYOUT,
+  TagIcon,
   TestimonialCard,
   TextRoller,
   ThemeCard,
   ThemeMockupDark,
   ThemeMockupLight,
+  ThreeDotsHorizontal,
   Tooltip,
   TooltipDotted,
   TooltipRich,
+  TrashIcon,
   UiStringsProvider,
   UpgradeBtn,
   UpgradeOverlay,
@@ -11501,6 +15020,7 @@ var AppRailView = React48.memo(AppRailViewComponent);
   ViewMockupPopup,
   ViewMockupSplit,
   ViewModeCard,
+  WarningIcon,
   WorkspaceSwitcherView,
   accordion_variants,
   avatar_variants,
@@ -11516,14 +15036,19 @@ var AppRailView = React48.memo(AppRailViewComponent);
   fade_up_item,
   format_error_text,
   format_find_order,
+  format_shortcut_key,
+  format_shortcut_modifier,
   format_snooze_time_remaining,
   format_ui_string,
   get_auth_alert_styles,
   get_auth_primary_button_style,
   get_badge_visual,
+  get_contact_avatar_font_size,
   has_open_overlay_layer,
   hex_to_variant,
+  is_aster_email_address,
   is_top_overlay_layer,
+  is_top_position,
   kbd_variants,
   lock_body_scroll,
   marquee_variants,
@@ -11532,8 +15057,12 @@ var AppRailView = React48.memo(AppRailViewComponent);
   motion_duration_slow,
   motion_ease_standard,
   page_slide_transition,
+  plan_badge_tier,
   push_overlay_layer,
   remove_overlay_layer,
+  resolve_toast_layout,
+  resolve_toast_position,
+  set_toast_min_duration,
   show_toast,
   stagger_container,
   switch_variants,
