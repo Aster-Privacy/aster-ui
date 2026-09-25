@@ -934,7 +934,7 @@ declare function CountBadge({ count, show_zero, is_active, is_loading, className
 interface SettingRowProps {
     label: string;
     description: string;
-    children: React.ReactNode;
+    children: React$1.ReactNode;
 }
 declare function SettingRow({ label, description, children }: SettingRowProps): react_jsx_runtime.JSX.Element;
 
@@ -1068,4 +1068,142 @@ interface MobileActionSheetShellProps {
 }
 declare const MobileActionSheetShell: React$1.NamedExoticComponent<MobileActionSheetShellProps>;
 
-export { Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, type AccordionVariantProps, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, type AlertDialogContentProps, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger, type AppEntry, AppSwitcher, type AppSwitcherProps, type AuthAlertKind, AuthCard, AuthCardBody, type AuthCardBodyProps, type AuthCardProps, AuthCheckIcon, AuthCheckbox, type AuthCheckboxProps, AuthDocumentIcon, AuthDownloadIcon, AuthEnvelopeIcon, AuthEyeIcon, AuthEyeSlashIcon, AuthFormLabel, AuthFourPointStar, AuthInputWrapper, type AuthInputWrapperProps, AuthLockClosedIcon, AuthLockIcon, AuthLogo, type AuthLogoProps, AuthShieldCheckIcon, AuthSparkleDecoration, AuthUserCircleIcon, AuthWarningIcon, Avatar, AvatarGroup, type AvatarGroupProps, AvatarNamed, type AvatarNamedProps, type AvatarProps, type AvatarVariantProps, AvatarWithStatus, type AvatarWithStatusProps, Badge, BadgeDot, type BadgeDotProps, type BadgeProps, type BadgeVariantProps, Banner, type BannerProps, Button, type ButtonProps, type ButtonVariantProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, type CardIconProps, type CardProps, CardTitle, type CardVariantProps, Checkbox, type CheckboxProps, ColorVisionFilters, type ColorVisionFiltersProps, type ColorVisionMode, ConfirmationModal, type ConfirmationModalProps, type ConfirmationVariant, ContextMenu, type ContextMenuItem, type ContextMenuPosition, type ContextMenuProps, CountBadge, DashboardSidebar, type DashboardSidebarAccountLike, type DashboardSidebarFilter, type DashboardSidebarProps, type DashboardSidebarTStrings, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, EmptyState, type EmptyStateProps, ErrorBanner, type ErrorBannerProps, ExternalLinkWarningModal, type ExternalLinkWarningModalProps, FeatureCard, type FeatureCardProps, FieldHint, type FieldHintProps, FieldLabel, type FieldLabelProps, FullPageLoader, Input, type InputProps, Kbd, type KbdProps, type KbdVariantProps, type KeyboardShortcutEntry, type KeyboardShortcutSection, KeyboardShortcutsModal, type KeyboardShortcutsModalProps, type KeyboardShortcutsTStrings, Marquee, MarqueeLogo, type MarqueeLogoProps, type MarqueeProps, MarqueeTrack, type MarqueeTrackProps, type MarqueeVariantProps, MobileActionSheetShell, type MobileActionSheetShellProps, MobileDrawerShell, type MobileDrawerShellProps, MobileHeader, MobileHeaderIconButton, type MobileHeaderIconButtonProps, type MobileHeaderProps, Modal, ModalActions, type ModalActionsProps, ModalBody, type ModalBodyProps, ModalDescription, type ModalDescriptionProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, type ModalProps, type ModalSize, ModalTitle, type ModalTitleProps, MotionModal, MotionModalActions, type MotionModalActionsProps, MotionModalBody, type MotionModalBodyProps, MotionModalDescription, type MotionModalDescriptionProps, MotionModalFooter, type MotionModalFooterProps, MotionModalHeader, type MotionModalHeaderProps, type MotionModalProps, type MotionModalSize, MotionModalTitle, type MotionModalTitleProps, Navbar, NavbarActions, type NavbarActionsProps, NavbarCta, type NavbarCtaProps, NavbarHamburger, type NavbarHamburgerProps, NavbarInner, type NavbarInnerProps, NavbarLink, type NavbarLinkProps, NavbarLinks, type NavbarLinksProps, NavbarLogo, type NavbarLogoProps, NavbarMega, NavbarMegaCol, type NavbarMegaColProps, NavbarMegaCols, type NavbarMegaColsProps, NavbarMegaItem, type NavbarMegaItemProps, NavbarMegaItemSimple, type NavbarMegaItemSimpleProps, NavbarMegaPanel, type NavbarMegaPanelProps, type NavbarMegaProps, NavbarMobileDivider, NavbarMobileLink, type NavbarMobileLinkProps, NavbarMobileMenu, type NavbarMobileMenuProps, type NavbarProps, NavbarSearch, type NavbarSearchProps, NavbarTrigger, type NavbarTriggerProps, type NavbarVariant, NotFoundPage, type NotFoundPageProps, PricingCard, type PricingCardProps, Radio, RadioGroup, RadioGroupItem, type RadioProps, RadioRowWithDescription, SearchBar, type SearchBarProps, type SegOption, SegmentedToggle, type SegmentedToggleProps, Select, SelectContent, type SelectContentProps, SelectGroup, type SelectGroupProps, SelectItem, type SelectItemProps, type SelectProps, SelectTrigger, type SelectTriggerProps, SelectValue, type SelectValueProps, SettingRow, SettingsModalShell, type SettingsModalShellProps, SettingsNavGroup, type SettingsNavGroupData, type SettingsNavGroupProps, type SettingsNavItem, SettingsNavItemButton, type SettingsNavItemButtonProps, SettingsRow, type SettingsRowProps, SettingsSaveIndicator, type SettingsSaveIndicatorProps, type SettingsSaveStatus, SettingsSectionHeader, type SettingsSectionHeaderProps, SidebarAccountMenu, type SidebarAccountMenuItem, type SidebarAccountMenuProps, SidebarActionButton, type SidebarActionButtonProps, SidebarHeader, type SidebarHeaderProps, SidebarMoreToggle, type SidebarMoreToggleProps, SidebarNavRow, type SidebarNavRowProps, SidebarSectionHeader, type SidebarSectionHeaderProps, SidebarSectionToggle, type SidebarSectionToggleProps, SidebarTagRow, type SidebarTagRowProps, SimpleToast, type SimpleToastProps, Skeleton, type SkeletonProps, SkeletonText, type SkeletonTextProps, type SkeletonVariant, Spinner, type SpinnerProps, type SpinnerSize, StatCard, type StatCardProps, type StatTrend, type StatusType, StorageIndicator, type StorageIndicatorProps, Switch, type SwitchProps, type SwitchVariantProps, TestimonialCard, type TestimonialCardProps, TextRoller, type TextRollerItem, type TextRollerProps, ThemeCard, type ThemeCardProps, ThemeMockupDark, ThemeMockupLight, type ThemeMode, type ToastKind, type ToastPayload, Tooltip, TooltipDotted, type TooltipDottedProps, type TooltipPosition, type TooltipProps, TooltipRich, type TooltipRichProps, UpgradeBtn, type UpgradeBtnProps, UpgradeOverlay, type UpgradeOverlayProps, ViewMockupFullpage, ViewMockupPopup, ViewMockupSplit, ViewModeCard, accordion_variants, avatar_variants, badge_variants, button_tap, button_variants, card_variants, dismiss_toast, fade_up_item, get_auth_alert_styles, get_auth_primary_button_style, kbd_variants, marquee_variants, motion_duration_base, motion_duration_fast, motion_duration_slow, motion_ease_standard, page_slide_transition, show_toast, stagger_container, switch_variants, use_should_reduce_motion };
+type IslandPadding = "none" | "sm" | "md" | "lg";
+type IslandTone = "default" | "danger" | "accent";
+interface IslandProps extends React$1.HTMLAttributes<HTMLDivElement> {
+    padding?: IslandPadding;
+    tone?: IslandTone;
+    divided?: boolean;
+    interactive?: boolean;
+    selected?: boolean;
+    as?: "div" | "section" | "article" | "li" | "ul" | "ol" | "form";
+}
+declare const Island: React$1.ForwardRefExoticComponent<IslandProps & React$1.RefAttributes<HTMLDivElement>>;
+interface IslandSectionProps extends Omit<React$1.HTMLAttributes<HTMLElement>, "title"> {
+    title?: React$1.ReactNode;
+    icon?: React$1.ReactNode;
+    description?: React$1.ReactNode;
+    trailing?: React$1.ReactNode;
+    footer?: React$1.ReactNode;
+    divided?: boolean;
+    padding?: IslandPadding;
+    tone?: IslandTone;
+    bare?: boolean;
+    island_class_name?: string;
+}
+declare const IslandSection: React$1.ForwardRefExoticComponent<IslandSectionProps & React$1.RefAttributes<HTMLElement>>;
+type IslandSectionsProps = React$1.HTMLAttributes<HTMLDivElement>;
+declare const IslandSections: React$1.ForwardRefExoticComponent<IslandSectionsProps & React$1.RefAttributes<HTMLDivElement>>;
+interface IslandRowToggle {
+    checked: boolean;
+    on_change: (checked: boolean) => void;
+    disabled?: boolean;
+    size?: "sm" | "md" | "lg";
+    aria_label?: string;
+}
+interface IslandRowProps extends Omit<React$1.HTMLAttributes<HTMLElement>, "title" | "onChange"> {
+    label: React$1.ReactNode;
+    description?: React$1.ReactNode;
+    icon?: React$1.ReactNode;
+    value?: React$1.ReactNode;
+    trailing?: React$1.ReactNode;
+    chevron?: boolean;
+    destructive?: boolean;
+    disabled?: boolean;
+    on_press?: () => void;
+    href?: string;
+    target?: string;
+    rel?: string;
+    toggle?: IslandRowToggle;
+    layout?: "inline" | "stacked" | "block";
+}
+declare const IslandRow: React$1.ForwardRefExoticComponent<IslandRowProps & React$1.RefAttributes<HTMLElement>>;
+interface IslandDividerProps extends React$1.HTMLAttributes<HTMLHRElement> {
+    inset?: number;
+}
+declare function IslandDivider({ inset, className, style, ...props }: IslandDividerProps): react_jsx_runtime.JSX.Element;
+interface IslandStackProps extends React$1.HTMLAttributes<HTMLDivElement> {
+    grouped?: boolean;
+    as?: "div" | "ul" | "ol";
+}
+declare const IslandStack: React$1.ForwardRefExoticComponent<IslandStackProps & React$1.RefAttributes<HTMLDivElement>>;
+interface IslandGridProps extends React$1.HTMLAttributes<HTMLDivElement> {
+    min_column_width?: number;
+}
+declare function IslandGrid({ min_column_width, className, style, ...props }: IslandGridProps): react_jsx_runtime.JSX.Element;
+type IslandPageWidth = "narrow" | "default" | "wide" | "full";
+interface IslandPageProps extends Omit<React$1.HTMLAttributes<HTMLDivElement>, "title"> {
+    title?: React$1.ReactNode;
+    description?: React$1.ReactNode;
+    breadcrumb?: React$1.ReactNode;
+    actions?: React$1.ReactNode;
+    width?: IslandPageWidth;
+}
+declare const IslandPage: React$1.ForwardRefExoticComponent<IslandPageProps & React$1.RefAttributes<HTMLDivElement>>;
+
+type PillVariant = "filled" | "outline" | "tonal" | "neutral" | "ghost" | "danger";
+type PillSize = "sm" | "md" | "lg";
+interface PillButtonProps extends React$1.ButtonHTMLAttributes<HTMLButtonElement> {
+    variant?: PillVariant;
+    size?: PillSize;
+    block?: boolean;
+    leading?: React$1.ReactNode;
+    trailing?: React$1.ReactNode;
+}
+declare const PillButton: React$1.ForwardRefExoticComponent<PillButtonProps & React$1.RefAttributes<HTMLButtonElement>>;
+interface IslandIconButtonProps extends React$1.ButtonHTMLAttributes<HTMLButtonElement> {
+    label: string;
+    size?: PillSize;
+    active?: boolean;
+}
+declare const IslandIconButton: React$1.ForwardRefExoticComponent<IslandIconButtonProps & React$1.RefAttributes<HTMLButtonElement>>;
+interface IslandChipProps extends Omit<React$1.HTMLAttributes<HTMLElement>, "title"> {
+    name: React$1.ReactNode;
+    meta?: React$1.ReactNode;
+    leading?: React$1.ReactNode;
+    trailing?: React$1.ReactNode;
+    on_press?: () => void;
+    title?: string;
+}
+declare const IslandChip: React$1.ForwardRefExoticComponent<IslandChipProps & React$1.RefAttributes<HTMLElement>>;
+interface IslandCountPillProps extends React$1.ButtonHTMLAttributes<HTMLButtonElement> {
+    count: number;
+    label: string;
+}
+declare const IslandCountPill: React$1.ForwardRefExoticComponent<IslandCountPillProps & React$1.RefAttributes<HTMLButtonElement>>;
+
+type SettingNoteTone = "muted" | "warning";
+interface SettingNoteProps {
+    tone?: SettingNoteTone;
+    icon?: React$1.ReactNode;
+    children: React$1.ReactNode;
+}
+declare function SettingNote({ tone, icon, children }: SettingNoteProps): react_jsx_runtime.JSX.Element;
+interface SettingToggleRowProps {
+    label: string;
+    description?: React$1.ReactNode;
+    info?: React$1.ReactNode;
+    note?: React$1.ReactNode;
+    icon?: React$1.ReactNode;
+    checked: boolean;
+    on_change: (checked: boolean) => void;
+    disabled?: boolean;
+    size?: "sm" | "md" | "lg";
+    className?: string;
+}
+declare function SettingToggleRow({ label, description, info, note, icon, checked, on_change, disabled, size, className, }: SettingToggleRowProps): react_jsx_runtime.JSX.Element;
+interface SettingControlRowProps {
+    label: React$1.ReactNode;
+    description?: React$1.ReactNode;
+    info?: React$1.ReactNode;
+    note?: React$1.ReactNode;
+    icon?: React$1.ReactNode;
+    control: React$1.ReactNode;
+    layout?: "inline" | "stacked" | "block";
+    control_width?: number;
+    disabled?: boolean;
+    className?: string;
+}
+declare function SettingControlRow({ label, description, info, note, icon, control, layout, control_width, disabled, className, }: SettingControlRowProps): react_jsx_runtime.JSX.Element;
+
+export { Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, type AccordionProps, AccordionTrigger, type AccordionTriggerProps, type AccordionVariantProps, AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, type AlertDialogContentProps, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogPortal, AlertDialogTitle, AlertDialogTrigger, type AppEntry, AppSwitcher, type AppSwitcherProps, type AuthAlertKind, AuthCard, AuthCardBody, type AuthCardBodyProps, type AuthCardProps, AuthCheckIcon, AuthCheckbox, type AuthCheckboxProps, AuthDocumentIcon, AuthDownloadIcon, AuthEnvelopeIcon, AuthEyeIcon, AuthEyeSlashIcon, AuthFormLabel, AuthFourPointStar, AuthInputWrapper, type AuthInputWrapperProps, AuthLockClosedIcon, AuthLockIcon, AuthLogo, type AuthLogoProps, AuthShieldCheckIcon, AuthSparkleDecoration, AuthUserCircleIcon, AuthWarningIcon, Avatar, AvatarGroup, type AvatarGroupProps, AvatarNamed, type AvatarNamedProps, type AvatarProps, type AvatarVariantProps, AvatarWithStatus, type AvatarWithStatusProps, Badge, BadgeDot, type BadgeDotProps, type BadgeProps, type BadgeVariantProps, Banner, type BannerProps, Button, type ButtonProps, type ButtonVariantProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardIcon, type CardIconProps, type CardProps, CardTitle, type CardVariantProps, Checkbox, type CheckboxProps, ColorVisionFilters, type ColorVisionFiltersProps, type ColorVisionMode, ConfirmationModal, type ConfirmationModalProps, type ConfirmationVariant, ContextMenu, type ContextMenuItem, type ContextMenuPosition, type ContextMenuProps, CountBadge, DashboardSidebar, type DashboardSidebarAccountLike, type DashboardSidebarFilter, type DashboardSidebarProps, type DashboardSidebarTStrings, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, EmptyState, type EmptyStateProps, ErrorBanner, type ErrorBannerProps, ExternalLinkWarningModal, type ExternalLinkWarningModalProps, FeatureCard, type FeatureCardProps, FieldHint, type FieldHintProps, FieldLabel, type FieldLabelProps, FullPageLoader, Input, type InputProps, Island, IslandChip, type IslandChipProps, IslandCountPill, type IslandCountPillProps, IslandDivider, type IslandDividerProps, IslandGrid, type IslandGridProps, IslandIconButton, type IslandIconButtonProps, type IslandPadding, IslandPage, type IslandPageProps, type IslandPageWidth, type IslandProps, IslandRow, type IslandRowProps, type IslandRowToggle, IslandSection, type IslandSectionProps, IslandSections, type IslandSectionsProps, IslandStack, type IslandStackProps, type IslandTone, Kbd, type KbdProps, type KbdVariantProps, type KeyboardShortcutEntry, type KeyboardShortcutSection, KeyboardShortcutsModal, type KeyboardShortcutsModalProps, type KeyboardShortcutsTStrings, Marquee, MarqueeLogo, type MarqueeLogoProps, type MarqueeProps, MarqueeTrack, type MarqueeTrackProps, type MarqueeVariantProps, MobileActionSheetShell, type MobileActionSheetShellProps, MobileDrawerShell, type MobileDrawerShellProps, MobileHeader, MobileHeaderIconButton, type MobileHeaderIconButtonProps, type MobileHeaderProps, Modal, ModalActions, type ModalActionsProps, ModalBody, type ModalBodyProps, ModalDescription, type ModalDescriptionProps, ModalFooter, type ModalFooterProps, ModalHeader, type ModalHeaderProps, type ModalProps, type ModalSize, ModalTitle, type ModalTitleProps, MotionModal, MotionModalActions, type MotionModalActionsProps, MotionModalBody, type MotionModalBodyProps, MotionModalDescription, type MotionModalDescriptionProps, MotionModalFooter, type MotionModalFooterProps, MotionModalHeader, type MotionModalHeaderProps, type MotionModalProps, type MotionModalSize, MotionModalTitle, type MotionModalTitleProps, Navbar, NavbarActions, type NavbarActionsProps, NavbarCta, type NavbarCtaProps, NavbarHamburger, type NavbarHamburgerProps, NavbarInner, type NavbarInnerProps, NavbarLink, type NavbarLinkProps, NavbarLinks, type NavbarLinksProps, NavbarLogo, type NavbarLogoProps, NavbarMega, NavbarMegaCol, type NavbarMegaColProps, NavbarMegaCols, type NavbarMegaColsProps, NavbarMegaItem, type NavbarMegaItemProps, NavbarMegaItemSimple, type NavbarMegaItemSimpleProps, NavbarMegaPanel, type NavbarMegaPanelProps, type NavbarMegaProps, NavbarMobileDivider, NavbarMobileLink, type NavbarMobileLinkProps, NavbarMobileMenu, type NavbarMobileMenuProps, type NavbarProps, NavbarSearch, type NavbarSearchProps, NavbarTrigger, type NavbarTriggerProps, type NavbarVariant, NotFoundPage, type NotFoundPageProps, PillButton, type PillButtonProps, type PillSize, type PillVariant, PricingCard, type PricingCardProps, Radio, RadioGroup, RadioGroupItem, type RadioProps, RadioRowWithDescription, SearchBar, type SearchBarProps, type SegOption, SegmentedToggle, type SegmentedToggleProps, Select, SelectContent, type SelectContentProps, SelectGroup, type SelectGroupProps, SelectItem, type SelectItemProps, type SelectProps, SelectTrigger, type SelectTriggerProps, SelectValue, type SelectValueProps, SettingControlRow, type SettingControlRowProps, SettingNote, type SettingNoteProps, type SettingNoteTone, SettingRow, SettingToggleRow, type SettingToggleRowProps, SettingsModalShell, type SettingsModalShellProps, SettingsNavGroup, type SettingsNavGroupData, type SettingsNavGroupProps, type SettingsNavItem, SettingsNavItemButton, type SettingsNavItemButtonProps, SettingsRow, type SettingsRowProps, SettingsSaveIndicator, type SettingsSaveIndicatorProps, type SettingsSaveStatus, SettingsSectionHeader, type SettingsSectionHeaderProps, SidebarAccountMenu, type SidebarAccountMenuItem, type SidebarAccountMenuProps, SidebarActionButton, type SidebarActionButtonProps, SidebarHeader, type SidebarHeaderProps, SidebarMoreToggle, type SidebarMoreToggleProps, SidebarNavRow, type SidebarNavRowProps, SidebarSectionHeader, type SidebarSectionHeaderProps, SidebarSectionToggle, type SidebarSectionToggleProps, SidebarTagRow, type SidebarTagRowProps, SimpleToast, type SimpleToastProps, Skeleton, type SkeletonProps, SkeletonText, type SkeletonTextProps, type SkeletonVariant, Spinner, type SpinnerProps, type SpinnerSize, StatCard, type StatCardProps, type StatTrend, type StatusType, StorageIndicator, type StorageIndicatorProps, Switch, type SwitchProps, type SwitchVariantProps, TestimonialCard, type TestimonialCardProps, TextRoller, type TextRollerItem, type TextRollerProps, ThemeCard, type ThemeCardProps, ThemeMockupDark, ThemeMockupLight, type ThemeMode, type ToastKind, type ToastPayload, Tooltip, TooltipDotted, type TooltipDottedProps, type TooltipPosition, type TooltipProps, TooltipRich, type TooltipRichProps, UpgradeBtn, type UpgradeBtnProps, UpgradeOverlay, type UpgradeOverlayProps, ViewMockupFullpage, ViewMockupPopup, ViewMockupSplit, ViewModeCard, accordion_variants, avatar_variants, badge_variants, button_tap, button_variants, card_variants, dismiss_toast, fade_up_item, get_auth_alert_styles, get_auth_primary_button_style, kbd_variants, marquee_variants, motion_duration_base, motion_duration_fast, motion_duration_slow, motion_ease_standard, page_slide_transition, show_toast, stagger_container, switch_variants, use_should_reduce_motion };

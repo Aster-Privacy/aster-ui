@@ -3279,10 +3279,315 @@ function DashboardSidebar({
 }
 
 // src/settings/settings_shell.tsx
-import * as React23 from "react";
+import * as React24 from "react";
 import { AnimatePresence as AnimatePresence4, motion as motion4 } from "framer-motion";
+
+// src/island/island.tsx
+import * as React23 from "react";
 import { Fragment as Fragment7, jsx as jsx26, jsxs as jsxs22 } from "react/jsx-runtime";
 function join_classes5(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+var Island = React23.forwardRef(
+  ({
+    padding = "none",
+    tone = "default",
+    divided = false,
+    interactive = false,
+    selected = false,
+    as = "div",
+    className,
+    ...props
+  }, ref) => {
+    const Component = as;
+    return /* @__PURE__ */ jsx26(
+      Component,
+      {
+        ref,
+        className: join_classes5(
+          "aster_island",
+          padding !== "none" && `aster_island_pad_${padding}`,
+          tone !== "default" && `aster_island_tone_${tone}`,
+          divided && "aster_island_divided",
+          interactive && "aster_island_interactive",
+          selected && "aster_island_selected",
+          className
+        ),
+        ...props
+      }
+    );
+  }
+);
+Island.displayName = "Island";
+var IslandSection = React23.forwardRef(
+  ({
+    title,
+    icon,
+    description,
+    trailing,
+    footer,
+    divided = false,
+    padding = "none",
+    tone = "default",
+    bare = false,
+    island_class_name,
+    className,
+    children,
+    ...props
+  }, ref) => {
+    const heading_id = React23.useId();
+    const has_header = Boolean(title || description || trailing);
+    return /* @__PURE__ */ jsxs22(
+      "section",
+      {
+        ref,
+        "aria-labelledby": title ? heading_id : void 0,
+        className: join_classes5("aster_island_section", className),
+        ...props,
+        children: [
+          has_header && /* @__PURE__ */ jsxs22("div", { className: "aster_island_section_header", children: [
+            /* @__PURE__ */ jsxs22("div", { className: "aster_island_section_heading", children: [
+              title && /* @__PURE__ */ jsxs22("h3", { className: "aster_island_section_title", id: heading_id, children: [
+                icon,
+                /* @__PURE__ */ jsx26("span", { children: title })
+              ] }),
+              description && /* @__PURE__ */ jsx26("p", { className: "aster_island_section_description", children: description })
+            ] }),
+            trailing && /* @__PURE__ */ jsx26("div", { className: "aster_island_section_trailing", children: trailing })
+          ] }),
+          bare ? /* @__PURE__ */ jsx26("div", { className: "aster_island_section_body", children }) : /* @__PURE__ */ jsx26(
+            Island,
+            {
+              className: island_class_name,
+              divided,
+              padding,
+              tone,
+              children
+            }
+          ),
+          footer && /* @__PURE__ */ jsx26("p", { className: "aster_island_section_footer", children: footer })
+        ]
+      }
+    );
+  }
+);
+IslandSection.displayName = "IslandSection";
+var IslandSections = React23.forwardRef(
+  ({ className, ...props }, ref) => /* @__PURE__ */ jsx26("div", { ref, className: join_classes5("aster_island_sections", className), ...props })
+);
+IslandSections.displayName = "IslandSections";
+function ChevronIcon({ className }) {
+  return /* @__PURE__ */ jsx26(
+    "svg",
+    {
+      "aria-hidden": "true",
+      className,
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: 2,
+      viewBox: "0 0 24 24",
+      children: /* @__PURE__ */ jsx26("path", { d: "M9 6l6 6-6 6", strokeLinecap: "round", strokeLinejoin: "round" })
+    }
+  );
+}
+var INTERACTIVE_SELECTOR = "button, a, input, select, textarea, label, [role='button'], [role='combobox'], [role='switch'], [role='menuitem']";
+var IslandRow = React23.forwardRef(
+  ({
+    label,
+    description,
+    icon,
+    value,
+    trailing,
+    chevron,
+    destructive = false,
+    disabled = false,
+    on_press,
+    href,
+    target,
+    rel,
+    toggle,
+    layout = "inline",
+    className,
+    ...props
+  }, ref) => {
+    const label_id = React23.useId();
+    const description_id = React23.useId();
+    const is_toggle = Boolean(toggle);
+    const toggle_disabled = disabled || Boolean(toggle?.disabled);
+    const is_link = Boolean(href) && !disabled;
+    const is_button = !is_link && !is_toggle && Boolean(on_press);
+    const is_pressable = is_link || is_button || is_toggle && !toggle_disabled;
+    const show_chevron = chevron ?? (is_link || is_button && !trailing && !value);
+    const handle_toggle_click = (event) => {
+      if (!toggle || toggle_disabled) return;
+      const origin = event.target;
+      const interactive = origin?.closest?.(INTERACTIVE_SELECTOR);
+      if (interactive && interactive !== event.currentTarget) return;
+      toggle.on_change(!toggle.checked);
+    };
+    const classes = join_classes5(
+      "aster_island_row",
+      is_pressable && "aster_island_row_pressable",
+      disabled && "aster_island_row_disabled",
+      destructive && "aster_island_row_destructive",
+      layout === "stacked" && "aster_island_row_stacked",
+      layout === "block" && "aster_island_row_block",
+      className
+    );
+    const text = /* @__PURE__ */ jsxs22("span", { className: "aster_island_row_text", children: [
+      /* @__PURE__ */ jsx26("span", { className: "aster_island_row_label", id: label_id, children: label }),
+      description && /* @__PURE__ */ jsx26("span", { className: "aster_island_row_description", id: description_id, children: description })
+    ] });
+    const icon_node = icon ? /* @__PURE__ */ jsx26("span", { "aria-hidden": "true", className: "aster_island_row_icon", children: icon }) : null;
+    const trailing_node = value || trailing || toggle || show_chevron ? /* @__PURE__ */ jsxs22("span", { className: "aster_island_row_trailing", children: [
+      value && /* @__PURE__ */ jsx26("span", { className: "aster_island_row_value", children: value }),
+      trailing,
+      toggle && /* @__PURE__ */ jsx26(
+        "span",
+        {
+          className: "aster_island_toggle_stop",
+          onClick: (event) => event.stopPropagation(),
+          children: /* @__PURE__ */ jsx26(
+            Switch,
+            {
+              "aria-describedby": description ? description_id : void 0,
+              "aria-label": toggle.aria_label,
+              "aria-labelledby": toggle.aria_label ? void 0 : label_id,
+              checked: toggle.checked,
+              size: toggle.size,
+              disabled: toggle_disabled,
+              onCheckedChange: (next) => toggle.on_change(next)
+            }
+          )
+        }
+      ),
+      show_chevron && /* @__PURE__ */ jsx26(ChevronIcon, { className: "aster_island_row_chevron" })
+    ] }) : null;
+    const content = layout === "block" ? /* @__PURE__ */ jsxs22(Fragment7, { children: [
+      /* @__PURE__ */ jsxs22("span", { className: "aster_island_row_head", children: [
+        icon_node,
+        text
+      ] }),
+      trailing_node
+    ] }) : /* @__PURE__ */ jsxs22(Fragment7, { children: [
+      icon_node,
+      text,
+      trailing_node
+    ] });
+    if (is_link) {
+      return /* @__PURE__ */ jsx26(
+        "a",
+        {
+          ref,
+          className: classes,
+          href,
+          rel: rel ?? (target === "_blank" ? "noopener noreferrer" : void 0),
+          target,
+          onClick: on_press,
+          ...props,
+          children: content
+        }
+      );
+    }
+    if (is_button) {
+      return /* @__PURE__ */ jsx26(
+        "button",
+        {
+          ref,
+          className: classes,
+          disabled,
+          type: "button",
+          onClick: on_press,
+          ...props,
+          children: content
+        }
+      );
+    }
+    return /* @__PURE__ */ jsx26(
+      "div",
+      {
+        ref,
+        "aria-disabled": disabled || void 0,
+        className: classes,
+        onClick: is_toggle ? handle_toggle_click : void 0,
+        ...props,
+        children: content
+      }
+    );
+  }
+);
+IslandRow.displayName = "IslandRow";
+function IslandDivider({ inset, className, style, ...props }) {
+  return /* @__PURE__ */ jsx26(
+    "hr",
+    {
+      className: join_classes5("aster_island_divider", className),
+      style: inset === void 0 ? style : { ...style, "--aster-island-divider-inset": `${inset}px` },
+      ...props
+    }
+  );
+}
+var IslandStack = React23.forwardRef(
+  ({ grouped = false, as = "div", className, ...props }, ref) => {
+    const Component = as;
+    return /* @__PURE__ */ jsx26(
+      Component,
+      {
+        ref,
+        className: join_classes5(
+          "aster_island_stack",
+          grouped && "aster_island_stack_grouped",
+          className
+        ),
+        ...props
+      }
+    );
+  }
+);
+IslandStack.displayName = "IslandStack";
+function IslandGrid({ min_column_width, className, style, ...props }) {
+  return /* @__PURE__ */ jsx26(
+    "div",
+    {
+      className: join_classes5("aster_island_grid", className),
+      style: min_column_width === void 0 ? style : { ...style, "--aster-island-grid-min": `${min_column_width}px` },
+      ...props
+    }
+  );
+}
+var IslandPage = React23.forwardRef(
+  ({ title, description, breadcrumb, actions, width = "default", className, children, ...props }, ref) => {
+    const has_header = Boolean(title || description || breadcrumb || actions);
+    return /* @__PURE__ */ jsxs22(
+      "div",
+      {
+        ref,
+        className: join_classes5(
+          "aster_island_page",
+          width !== "default" && `aster_island_page_${width}`,
+          className
+        ),
+        ...props,
+        children: [
+          has_header && /* @__PURE__ */ jsxs22("header", { className: "aster_island_page_header", children: [
+            /* @__PURE__ */ jsxs22("div", { className: "aster_island_page_heading", children: [
+              breadcrumb && /* @__PURE__ */ jsx26("nav", { className: "aster_island_page_breadcrumb", children: breadcrumb }),
+              title && /* @__PURE__ */ jsx26("h1", { className: "aster_island_page_title", children: title }),
+              description && /* @__PURE__ */ jsx26("p", { className: "aster_island_page_description", children: description })
+            ] }),
+            actions && /* @__PURE__ */ jsx26("div", { className: "aster_island_page_actions", children: actions })
+          ] }),
+          children
+        ]
+      }
+    );
+  }
+);
+IslandPage.displayName = "IslandPage";
+
+// src/settings/settings_shell.tsx
+import { Fragment as Fragment8, jsx as jsx27, jsxs as jsxs23 } from "react/jsx-runtime";
+function join_classes6(...parts) {
   return parts.filter(Boolean).join(" ");
 }
 function get_reduce_motion() {
@@ -3290,7 +3595,7 @@ function get_reduce_motion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 function XIcon({ className }) {
-  return /* @__PURE__ */ jsx26(
+  return /* @__PURE__ */ jsx27(
     "svg",
     {
       "aria-hidden": "true",
@@ -3299,12 +3604,12 @@ function XIcon({ className }) {
       stroke: "currentColor",
       strokeWidth: 2,
       viewBox: "0 0 24 24",
-      children: /* @__PURE__ */ jsx26("path", { d: "M6 6l12 12M18 6l-12 12", strokeLinecap: "round", strokeLinejoin: "round" })
+      children: /* @__PURE__ */ jsx27("path", { d: "M6 6l12 12M18 6l-12 12", strokeLinecap: "round", strokeLinejoin: "round" })
     }
   );
 }
 function CheckIcon4({ className }) {
-  return /* @__PURE__ */ jsx26(
+  return /* @__PURE__ */ jsx27(
     "svg",
     {
       "aria-hidden": "true",
@@ -3313,12 +3618,12 @@ function CheckIcon4({ className }) {
       stroke: "currentColor",
       strokeWidth: 2,
       viewBox: "0 0 24 24",
-      children: /* @__PURE__ */ jsx26("path", { d: "M5 12l5 5L20 7", strokeLinecap: "round", strokeLinejoin: "round" })
+      children: /* @__PURE__ */ jsx27("path", { d: "M5 12l5 5L20 7", strokeLinecap: "round", strokeLinejoin: "round" })
     }
   );
 }
 function SpinnerIcon({ className }) {
-  return /* @__PURE__ */ jsx26(
+  return /* @__PURE__ */ jsx27(
     "svg",
     {
       "aria-hidden": "true",
@@ -3327,12 +3632,12 @@ function SpinnerIcon({ className }) {
       stroke: "currentColor",
       strokeWidth: 2,
       viewBox: "0 0 24 24",
-      children: /* @__PURE__ */ jsx26("path", { d: "M4 12a8 8 0 018-8M20 12a8 8 0 01-8 8", strokeLinecap: "round" })
+      children: /* @__PURE__ */ jsx27("path", { d: "M4 12a8 8 0 018-8M20 12a8 8 0 01-8 8", strokeLinecap: "round" })
     }
   );
 }
 function WarningIcon({ className }) {
-  return /* @__PURE__ */ jsx26(
+  return /* @__PURE__ */ jsx27(
     "svg",
     {
       "aria-hidden": "true",
@@ -3341,7 +3646,7 @@ function WarningIcon({ className }) {
       stroke: "currentColor",
       strokeWidth: 2,
       viewBox: "0 0 24 24",
-      children: /* @__PURE__ */ jsx26(
+      children: /* @__PURE__ */ jsx27(
         "path",
         {
           d: "M12 3l10 18H2L12 3zM12 10v4M12 17h.01",
@@ -3361,15 +3666,15 @@ function SettingsSaveIndicator({ status }) {
   };
   const entry = map[status];
   const Icon2 = entry.Icon;
-  return /* @__PURE__ */ jsx26(
+  return /* @__PURE__ */ jsx27(
     "div",
     {
       className: "flex items-center gap-1.5 text-[12px]",
       style: { color: entry.color },
-      children: /* @__PURE__ */ jsx26(
+      children: /* @__PURE__ */ jsx27(
         Icon2,
         {
-          className: join_classes5("w-3.5 h-3.5", entry.spin && "animate-spin")
+          className: join_classes6("w-3.5 h-3.5", entry.spin && "animate-spin")
         }
       )
     }
@@ -3381,26 +3686,27 @@ function SettingsSectionHeader({
   description,
   trailing
 }) {
-  return /* @__PURE__ */ jsxs22("div", { className: "mb-4", children: [
-    /* @__PURE__ */ jsxs22("div", { className: "flex items-start justify-between gap-3", children: [
-      /* @__PURE__ */ jsxs22("h3", { className: "text-base font-semibold text-txt-primary flex items-center gap-2 min-w-0", children: [
-        Icon2 && /* @__PURE__ */ jsx26(Icon2, { className: "w-[18px] h-[18px] text-txt-primary flex-shrink-0" }),
-        /* @__PURE__ */ jsx26("span", { className: "truncate", children: title })
+  return /* @__PURE__ */ jsxs23("div", { className: "aster_island_section_header", children: [
+    /* @__PURE__ */ jsxs23("div", { className: "aster_island_section_heading", children: [
+      /* @__PURE__ */ jsxs23("h3", { className: "aster_island_section_title", children: [
+        Icon2 && /* @__PURE__ */ jsx27(Icon2, { "aria-hidden": "true" }),
+        /* @__PURE__ */ jsx27("span", { children: title })
       ] }),
-      trailing && /* @__PURE__ */ jsx26("div", { className: "flex-shrink-0", children: trailing })
+      description && /* @__PURE__ */ jsx27("p", { className: "aster_island_section_description", children: description })
     ] }),
-    /* @__PURE__ */ jsx26("div", { className: "mt-2 h-px bg-edge-secondary" }),
-    description && /* @__PURE__ */ jsx26("p", { className: "text-sm mt-2 text-txt-muted", children: description })
+    trailing && /* @__PURE__ */ jsx27("div", { className: "aster_island_section_trailing", children: trailing })
   ] });
 }
 function SettingsRow({ label, description, children }) {
-  return /* @__PURE__ */ jsxs22("div", { className: "flex items-center justify-between py-4", children: [
-    /* @__PURE__ */ jsxs22("div", { className: "flex-1 pr-4", children: [
-      /* @__PURE__ */ jsx26("p", { className: "text-sm font-medium text-txt-primary", children: label }),
-      description && /* @__PURE__ */ jsx26("p", { className: "text-sm mt-0.5 text-txt-muted", children: description })
-    ] }),
-    /* @__PURE__ */ jsx26("div", { className: "flex-shrink-0", children })
-  ] });
+  return /* @__PURE__ */ jsx27(
+    IslandRow,
+    {
+      description,
+      label,
+      layout: "stacked",
+      trailing: children
+    }
+  );
 }
 function SettingsNavItemButton({
   item,
@@ -3409,7 +3715,7 @@ function SettingsNavItemButton({
   data_nav_id
 }) {
   const Icon2 = item.icon;
-  return /* @__PURE__ */ jsxs22(
+  return /* @__PURE__ */ jsxs23(
     "button",
     {
       className: "w-full flex items-center gap-2.5 px-2.5 h-8 rounded-[12px] text-[13px] transition-colors duration-150 relative z-[1]",
@@ -3420,8 +3726,8 @@ function SettingsNavItemButton({
       type: "button",
       onClick: () => on_select(item.id),
       children: [
-        /* @__PURE__ */ jsx26(Icon2, { className: "w-5 h-5 flex-shrink-0" }),
-        /* @__PURE__ */ jsx26("span", { className: "truncate text-left", children: item.label })
+        /* @__PURE__ */ jsx27(Icon2, { className: "w-5 h-5 flex-shrink-0" }),
+        /* @__PURE__ */ jsx27("span", { className: "truncate text-left", children: item.label })
       ]
     }
   );
@@ -3431,9 +3737,9 @@ function SettingsNavGroup({
   selected_id,
   on_select
 }) {
-  return /* @__PURE__ */ jsxs22("div", { className: "mb-4 last:mb-0", children: [
-    group.label && /* @__PURE__ */ jsx26("div", { className: "text-[10px] font-semibold uppercase tracking-wider px-2.5 mb-2 text-txt-muted select-none", children: group.label }),
-    /* @__PURE__ */ jsx26("div", { className: "space-y-0.5", children: group.items.map((item) => /* @__PURE__ */ jsx26(
+  return /* @__PURE__ */ jsxs23("div", { className: "mb-4 last:mb-0", children: [
+    group.label && /* @__PURE__ */ jsx27("div", { className: "text-[10px] font-semibold uppercase tracking-wider px-2.5 mb-2 text-txt-muted select-none", children: group.label }),
+    /* @__PURE__ */ jsx27("div", { className: "space-y-0.5", children: group.items.map((item) => /* @__PURE__ */ jsx27(
       SettingsNavItemButton,
       {
         is_selected: selected_id === item.id,
@@ -3470,15 +3776,15 @@ function SettingsModalShell({
   children
 }) {
   void header_extra;
-  const [show_mobile_nav, set_show_mobile_nav] = React23.useState(true);
-  const content_scroll_ref = React23.useRef(null);
-  React23.useEffect(() => {
+  const [show_mobile_nav, set_show_mobile_nav] = React24.useState(true);
+  const content_scroll_ref = React24.useRef(null);
+  React24.useEffect(() => {
     content_scroll_ref.current?.scrollTo(0, 0);
   }, [selected_id, content_key]);
-  React23.useEffect(() => {
+  React24.useEffect(() => {
     if (is_open) set_show_mobile_nav(true);
   }, [is_open]);
-  const active_section_label = React23.useMemo(() => {
+  const active_section_label = React24.useMemo(() => {
     for (const g of groups) {
       for (const it of g.items) {
         if (it.id === selected_id) return it.label;
@@ -3486,24 +3792,24 @@ function SettingsModalShell({
     }
     return title;
   }, [groups, selected_id, title]);
-  const handle_select_internal = React23.useCallback(
+  const handle_select_internal = React24.useCallback(
     (id) => {
       on_select(id);
       if (enable_mobile_drilldown) set_show_mobile_nav(false);
     },
     [on_select, enable_mobile_drilldown]
   );
-  const [reduce_motion_state, set_reduce_motion] = React23.useState(get_reduce_motion);
+  const [reduce_motion_state, set_reduce_motion] = React24.useState(get_reduce_motion);
   const reduce_motion = reduce_motion_prop ?? reduce_motion_state;
-  const nav_container_ref = React23.useRef(null);
-  const [indicator_style, set_indicator_style] = React23.useState({ top: 0, height: 0, opacity: 0 });
-  React23.useEffect(() => {
+  const nav_container_ref = React24.useRef(null);
+  const [indicator_style, set_indicator_style] = React24.useState({ top: 0, height: 0, opacity: 0 });
+  React24.useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const handle = () => set_reduce_motion(mq.matches);
     mq.addEventListener("change", handle);
     return () => mq.removeEventListener("change", handle);
   }, []);
-  React23.useEffect(() => {
+  React24.useEffect(() => {
     if (!is_open) return;
     const handle = (e) => {
       if (e.key === "Escape") on_close();
@@ -3511,7 +3817,7 @@ function SettingsModalShell({
     document.addEventListener("keydown", handle);
     return () => document.removeEventListener("keydown", handle);
   }, [is_open, on_close]);
-  const recalculate_indicator = React23.useCallback(() => {
+  const recalculate_indicator = React24.useCallback(() => {
     const container = nav_container_ref.current;
     if (!container) return;
     const target = container.querySelector(
@@ -3527,10 +3833,10 @@ function SettingsModalShell({
       opacity: 1
     });
   }, [selected_id]);
-  React23.useLayoutEffect(() => {
+  React24.useLayoutEffect(() => {
     recalculate_indicator();
   }, [recalculate_indicator, groups, is_open]);
-  React23.useEffect(() => {
+  React24.useEffect(() => {
     if (!nav_container_ref.current) return;
     let raf_id = 0;
     const observer = new ResizeObserver(() => {
@@ -3544,8 +3850,8 @@ function SettingsModalShell({
     };
   }, [recalculate_indicator]);
   void active_label;
-  return /* @__PURE__ */ jsx26(AnimatePresence4, { children: is_open && /* @__PURE__ */ jsxs22("div", { className: "fixed inset-0 z-[60] flex items-center justify-center p-0 md:p-4", children: [
-    /* @__PURE__ */ jsx26(
+  return /* @__PURE__ */ jsx27(AnimatePresence4, { children: is_open && /* @__PURE__ */ jsxs23("div", { className: "fixed inset-0 z-[60] flex items-center justify-center p-0 md:p-4", children: [
+    /* @__PURE__ */ jsx27(
       motion4.div,
       {
         animate: { opacity: 1 },
@@ -3557,7 +3863,7 @@ function SettingsModalShell({
         onClick: on_close
       }
     ),
-    /* @__PURE__ */ jsxs22(
+    /* @__PURE__ */ jsxs23(
       motion4.div,
       {
         animate: { scale: 1, opacity: 1, y: 0 },
@@ -3573,7 +3879,7 @@ function SettingsModalShell({
         },
         onClick: (e) => e.stopPropagation(),
         children: [
-          /* @__PURE__ */ jsxs22(
+          /* @__PURE__ */ jsxs23(
             "nav",
             {
               className: "hidden md:flex w-52 px-3 py-4 flex-col overflow-y-auto flex-shrink-0",
@@ -3582,9 +3888,9 @@ function SettingsModalShell({
                 borderRight: "1px solid var(--border-primary)"
               },
               children: [
-                header_slot && /* @__PURE__ */ jsx26("div", { className: "mb-3 px-1", children: header_slot }),
-                /* @__PURE__ */ jsxs22("div", { ref: nav_container_ref, className: "relative", children: [
-                  /* @__PURE__ */ jsx26(
+                header_slot && /* @__PURE__ */ jsx27("div", { className: "mb-3 px-1", children: header_slot }),
+                /* @__PURE__ */ jsxs23("div", { ref: nav_container_ref, className: "relative", children: [
+                  /* @__PURE__ */ jsx27(
                     "div",
                     {
                       className: "pointer-events-none absolute left-0 w-full rounded-md",
@@ -3599,7 +3905,7 @@ function SettingsModalShell({
                       }
                     }
                   ),
-                  groups.map((group, idx) => /* @__PURE__ */ jsx26(
+                  groups.map((group, idx) => /* @__PURE__ */ jsx27(
                     SettingsNavGroup,
                     {
                       group,
@@ -3612,24 +3918,24 @@ function SettingsModalShell({
               ]
             }
           ),
-          /* @__PURE__ */ jsxs22("div", { className: "flex-1 overflow-y-auto flex flex-col min-h-0 bg-surf-primary", children: [
-            /* @__PURE__ */ jsxs22("header", { className: "flex items-center justify-between px-4 md:px-6 py-4 flex-shrink-0 border-b border-b-edge-secondary", children: [
-              /* @__PURE__ */ jsxs22("div", { className: "flex items-center gap-3 min-w-0", children: [
-                enable_mobile_drilldown && !show_mobile_nav && (mobile_back_button ? /* @__PURE__ */ jsx26(
+          /* @__PURE__ */ jsxs23("div", { className: "flex-1 overflow-y-auto flex flex-col min-h-0 bg-surf-primary", children: [
+            /* @__PURE__ */ jsxs23("header", { className: "flex items-center justify-between px-4 md:px-6 py-4 flex-shrink-0 border-b border-b-edge-secondary", children: [
+              /* @__PURE__ */ jsxs23("div", { className: "flex items-center gap-3 min-w-0", children: [
+                enable_mobile_drilldown && !show_mobile_nav && (mobile_back_button ? /* @__PURE__ */ jsx27(
                   "span",
                   {
                     className: "md:hidden -ml-1.5",
                     onClick: () => set_show_mobile_nav(true),
                     children: mobile_back_button
                   }
-                ) : /* @__PURE__ */ jsx26(
+                ) : /* @__PURE__ */ jsx27(
                   "button",
                   {
                     "aria-label": back_label,
                     className: "md:hidden -ml-1.5 flex items-center justify-center w-8 h-8 rounded-[10px] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-muted",
                     type: "button",
                     onClick: () => set_show_mobile_nav(true),
-                    children: /* @__PURE__ */ jsx26(
+                    children: /* @__PURE__ */ jsx27(
                       "svg",
                       {
                         "aria-hidden": "true",
@@ -3638,7 +3944,7 @@ function SettingsModalShell({
                         stroke: "currentColor",
                         strokeWidth: 2,
                         viewBox: "0 0 24 24",
-                        children: /* @__PURE__ */ jsx26(
+                        children: /* @__PURE__ */ jsx27(
                           "path",
                           {
                             d: "M15 18l-6-6 6-6",
@@ -3650,28 +3956,28 @@ function SettingsModalShell({
                     )
                   }
                 )),
-                /* @__PURE__ */ jsx26("h2", { className: "text-[17px] font-semibold text-txt-primary truncate", children: enable_mobile_drilldown ? /* @__PURE__ */ jsxs22(Fragment7, { children: [
-                  /* @__PURE__ */ jsx26("span", { className: "hidden md:inline", children: title }),
-                  /* @__PURE__ */ jsx26("span", { className: "md:hidden", children: show_mobile_nav ? title : active_section_label })
+                /* @__PURE__ */ jsx27("h2", { className: "text-[17px] font-semibold text-txt-primary truncate", children: enable_mobile_drilldown ? /* @__PURE__ */ jsxs23(Fragment8, { children: [
+                  /* @__PURE__ */ jsx27("span", { className: "hidden md:inline", children: title }),
+                  /* @__PURE__ */ jsx27("span", { className: "md:hidden", children: show_mobile_nav ? title : active_section_label })
                 ] }) : title }),
-                /* @__PURE__ */ jsx26(SettingsSaveIndicator, { status: save_status })
+                /* @__PURE__ */ jsx27(SettingsSaveIndicator, { status: save_status })
               ] }),
-              close_button ? /* @__PURE__ */ jsx26("span", { onClick: on_close, children: close_button }) : /* @__PURE__ */ jsx26(
+              close_button ? /* @__PURE__ */ jsx27("span", { onClick: on_close, children: close_button }) : /* @__PURE__ */ jsx27(
                 "button",
                 {
                   "aria-label": close_label,
                   className: "flex items-center justify-center w-8 h-8 rounded-[10px] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-muted",
                   type: "button",
                   onClick: on_close,
-                  children: /* @__PURE__ */ jsx26(XIcon, { className: "w-5 h-5" })
+                  children: /* @__PURE__ */ jsx27(XIcon, { className: "w-5 h-5" })
                 }
               )
             ] }),
-            enable_mobile_drilldown && show_mobile_nav && /* @__PURE__ */ jsx26("div", { className: "md:hidden flex-1 overflow-y-auto", children: groups.map((group, idx) => /* @__PURE__ */ jsxs22("div", { children: [
-              group.label && /* @__PURE__ */ jsx26(
+            enable_mobile_drilldown && show_mobile_nav && /* @__PURE__ */ jsx27("div", { className: "md:hidden flex-1 overflow-y-auto", children: groups.map((group, idx) => /* @__PURE__ */ jsxs23("div", { children: [
+              group.label && /* @__PURE__ */ jsx27(
                 "div",
                 {
-                  className: join_classes5(
+                  className: join_classes6(
                     "text-[11px] font-semibold uppercase tracking-wider px-4 py-3 text-txt-muted",
                     mobile_group_spacing && idx > 0 && "mt-2"
                   ),
@@ -3680,36 +3986,36 @@ function SettingsModalShell({
               ),
               group.items.map((item) => {
                 const Icon2 = item.icon;
-                return /* @__PURE__ */ jsxs22(
+                return /* @__PURE__ */ jsxs23(
                   "button",
                   {
-                    className: join_classes5(
+                    className: join_classes6(
                       "w-full flex items-center gap-3 px-4 py-3 text-[15px] transition-colors duration-150 text-txt-primary border-b border-b-edge-primary",
                       mobile_item_full_border && "border border-edge-primary"
                     ),
                     type: "button",
                     onClick: () => handle_select_internal(item.id),
                     children: [
-                      /* @__PURE__ */ jsx26(Icon2, { className: "w-5 h-5 flex-shrink-0 text-txt-secondary" }),
-                      /* @__PURE__ */ jsx26("span", { children: item.label })
+                      /* @__PURE__ */ jsx27(Icon2, { className: "w-5 h-5 flex-shrink-0 text-txt-secondary" }),
+                      /* @__PURE__ */ jsx27("span", { children: item.label })
                     ]
                   },
                   item.id
                 );
               })
             ] }, group.id ?? group.label ?? idx)) }),
-            /* @__PURE__ */ jsxs22(
+            /* @__PURE__ */ jsxs23(
               "div",
               {
                 ref: content_scroll_ref,
-                className: join_classes5(
+                className: join_classes6(
                   "flex-1 overflow-y-auto p-4 md:p-6 relative",
                   enable_mobile_drilldown && show_mobile_nav && "hidden md:block"
                 ),
                 style: stable_scrollbar_gutter ? { scrollbarGutter: "stable" } : void 0,
                 children: [
                   overlay_content,
-                  /* @__PURE__ */ jsx26(
+                  /* @__PURE__ */ jsx27(
                     "div",
                     {
                       style: content_dimmed ? { opacity: 0.4, pointerEvents: "none" } : void 0,
@@ -3728,7 +4034,7 @@ function SettingsModalShell({
 }
 
 // src/view_mode_mockups/view_mode_mockups.tsx
-import { jsx as jsx27, jsxs as jsxs23 } from "react/jsx-runtime";
+import { jsx as jsx28, jsxs as jsxs24 } from "react/jsx-runtime";
 function get_colors(theme) {
   if (theme === "light") {
     return {
@@ -3780,7 +4086,7 @@ function get_colors(theme) {
   };
 }
 function MockupSidebar({ c }) {
-  return /* @__PURE__ */ jsxs23(
+  return /* @__PURE__ */ jsxs24(
     "div",
     {
       className: "w-[52px] h-full flex flex-col p-1.5 gap-1.5 flex-shrink-0",
@@ -3789,9 +4095,9 @@ function MockupSidebar({ c }) {
         borderRight: `1px solid ${c.sidebar_border}`
       },
       children: [
-        /* @__PURE__ */ jsxs23("div", { className: "flex items-center gap-1.5 px-1", children: [
-          /* @__PURE__ */ jsx27("div", { className: "w-4 h-4 rounded", style: { backgroundColor: c.brand } }),
-          /* @__PURE__ */ jsx27(
+        /* @__PURE__ */ jsxs24("div", { className: "flex items-center gap-1.5 px-1", children: [
+          /* @__PURE__ */ jsx28("div", { className: "w-4 h-4 rounded", style: { backgroundColor: c.brand } }),
+          /* @__PURE__ */ jsx28(
             "div",
             {
               className: "flex-1 h-1.5 rounded-sm",
@@ -3799,7 +4105,7 @@ function MockupSidebar({ c }) {
             }
           )
         ] }),
-        /* @__PURE__ */ jsx27(
+        /* @__PURE__ */ jsx28(
           "div",
           {
             className: "h-5 rounded flex items-center justify-center",
@@ -3808,19 +4114,19 @@ function MockupSidebar({ c }) {
               borderTop: `1px solid ${c.compose_border_top}`,
               borderBottom: `1px solid ${c.compose_border_bottom}`
             },
-            children: /* @__PURE__ */ jsx27("div", { className: "w-2.5 h-2.5 rounded-sm bg-white/80" })
+            children: /* @__PURE__ */ jsx28("div", { className: "w-2.5 h-2.5 rounded-sm bg-white/80" })
           }
         ),
-        /* @__PURE__ */ jsxs23("div", { className: "flex-1 flex flex-col mt-0.5", children: [
-          /* @__PURE__ */ jsx27("div", { className: "px-1 mb-0.5", children: /* @__PURE__ */ jsx27(
+        /* @__PURE__ */ jsxs24("div", { className: "flex-1 flex flex-col mt-0.5", children: [
+          /* @__PURE__ */ jsx28("div", { className: "px-1 mb-0.5", children: /* @__PURE__ */ jsx28(
             "div",
             {
               className: "w-3.5 h-0.5 rounded-sm",
               style: { backgroundColor: c.text_muted, opacity: 0.5 }
             }
           ) }),
-          /* @__PURE__ */ jsxs23("div", { className: "space-y-px", children: [
-            /* @__PURE__ */ jsxs23(
+          /* @__PURE__ */ jsxs24("div", { className: "space-y-px", children: [
+            /* @__PURE__ */ jsxs24(
               "div",
               {
                 className: "h-4 rounded px-1.5 flex items-center gap-1",
@@ -3829,21 +4135,21 @@ function MockupSidebar({ c }) {
                   border: `1px solid ${c.indicator_border}`
                 },
                 children: [
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-2 h-2 rounded-sm",
                       style: { backgroundColor: c.text_primary }
                     }
                   ),
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "flex-1 h-1 rounded-sm",
                       style: { backgroundColor: c.text_primary }
                     }
                   ),
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-1 h-1 rounded-full",
@@ -3853,15 +4159,15 @@ function MockupSidebar({ c }) {
                 ]
               }
             ),
-            /* @__PURE__ */ jsxs23("div", { className: "h-4 rounded px-1.5 flex items-center gap-1", children: [
-              /* @__PURE__ */ jsx27(
+            /* @__PURE__ */ jsxs24("div", { className: "h-4 rounded px-1.5 flex items-center gap-1", children: [
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-2 h-2 rounded-sm",
                   style: { backgroundColor: c.text_muted }
                 }
               ),
-              /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "flex-1 h-1 rounded-sm",
@@ -3869,15 +4175,15 @@ function MockupSidebar({ c }) {
                 }
               )
             ] }),
-            /* @__PURE__ */ jsxs23("div", { className: "h-4 rounded px-1.5 flex items-center gap-1", children: [
-              /* @__PURE__ */ jsx27(
+            /* @__PURE__ */ jsxs24("div", { className: "h-4 rounded px-1.5 flex items-center gap-1", children: [
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-2 h-2 rounded-sm",
                   style: { backgroundColor: c.text_muted }
                 }
               ),
-              /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "flex-1 h-1 rounded-sm",
@@ -3886,22 +4192,22 @@ function MockupSidebar({ c }) {
               )
             ] })
           ] }),
-          /* @__PURE__ */ jsx27("div", { className: "px-1 mt-1.5 mb-0.5", children: /* @__PURE__ */ jsx27(
+          /* @__PURE__ */ jsx28("div", { className: "px-1 mt-1.5 mb-0.5", children: /* @__PURE__ */ jsx28(
             "div",
             {
               className: "w-3 h-0.5 rounded-sm",
               style: { backgroundColor: c.text_muted, opacity: 0.5 }
             }
           ) }),
-          /* @__PURE__ */ jsxs23("div", { className: "h-4 rounded px-1.5 flex items-center gap-1", children: [
-            /* @__PURE__ */ jsx27(
+          /* @__PURE__ */ jsxs24("div", { className: "h-4 rounded px-1.5 flex items-center gap-1", children: [
+            /* @__PURE__ */ jsx28(
               "div",
               {
                 className: "w-2 h-2 rounded-sm",
                 style: { backgroundColor: c.text_muted }
               }
             ),
-            /* @__PURE__ */ jsx27(
+            /* @__PURE__ */ jsx28(
               "div",
               {
                 className: "flex-1 h-1 rounded-sm",
@@ -3909,13 +4215,13 @@ function MockupSidebar({ c }) {
               }
             )
           ] }),
-          /* @__PURE__ */ jsx27("div", { className: "flex-1" }),
-          /* @__PURE__ */ jsx27("div", { className: "px-0.5", children: /* @__PURE__ */ jsx27(
+          /* @__PURE__ */ jsx28("div", { className: "flex-1" }),
+          /* @__PURE__ */ jsx28("div", { className: "px-0.5", children: /* @__PURE__ */ jsx28(
             "div",
             {
               className: "w-full h-1 rounded-full overflow-hidden",
               style: { backgroundColor: c.storage_track },
-              children: /* @__PURE__ */ jsx27(
+              children: /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "h-full rounded-full",
@@ -3933,27 +4239,27 @@ function MockupEmailList({
   c,
   full_width = false
 }) {
-  return /* @__PURE__ */ jsxs23(
+  return /* @__PURE__ */ jsxs24(
     "div",
     {
       className: full_width ? "flex-1 flex flex-col" : "w-[55%] flex flex-col",
       style: full_width ? void 0 : { borderRight: `1px solid ${c.border}` },
       children: [
-        /* @__PURE__ */ jsxs23(
+        /* @__PURE__ */ jsxs24(
           "div",
           {
             className: "h-4 flex items-center justify-between px-1.5 flex-shrink-0",
             style: { borderBottom: `1px solid ${c.border_secondary}` },
             children: [
-              /* @__PURE__ */ jsxs23("div", { className: "flex items-center gap-1", children: [
-                /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsxs24("div", { className: "flex items-center gap-1", children: [
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-2 h-2 rounded-sm",
                     style: { border: `1.5px solid ${c.text_muted}` }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "h-1.5 rounded-sm w-5",
@@ -3961,15 +4267,15 @@ function MockupEmailList({
                   }
                 )
               ] }),
-              /* @__PURE__ */ jsxs23("div", { className: "flex items-center gap-0.5", children: [
-                /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsxs24("div", { className: "flex items-center gap-0.5", children: [
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-1.5 h-1.5 rounded-full",
                     style: { backgroundColor: c.text_muted }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "h-0.5 rounded-sm w-4",
@@ -3980,8 +4286,8 @@ function MockupEmailList({
             ]
           }
         ),
-        /* @__PURE__ */ jsxs23("div", { className: "flex-1", children: [
-          /* @__PURE__ */ jsxs23(
+        /* @__PURE__ */ jsxs24("div", { className: "flex-1", children: [
+          /* @__PURE__ */ jsxs24(
             "div",
             {
               className: "h-6 flex items-center gap-1 px-1.5",
@@ -3990,35 +4296,35 @@ function MockupEmailList({
                 borderBottom: `1px solid ${c.border_secondary}`
               },
               children: [
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-3 h-3 rounded-full flex-shrink-0",
                     style: { backgroundColor: c.brand }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "h-1 rounded-sm flex-shrink-0",
                     style: { width: "28%", backgroundColor: c.text_primary }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "flex-1 h-1 rounded-sm",
                     style: { backgroundColor: c.text_secondary }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-2 h-0.5 rounded-sm flex-shrink-0",
                     style: { backgroundColor: c.text_muted }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-1.5 h-1.5 rounded-full flex-shrink-0",
@@ -4028,34 +4334,34 @@ function MockupEmailList({
               ]
             }
           ),
-          /* @__PURE__ */ jsxs23(
+          /* @__PURE__ */ jsxs24(
             "div",
             {
               className: "h-6 flex items-center gap-1 px-1.5",
               style: { borderBottom: `1px solid ${c.border_secondary}` },
               children: [
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-3 h-3 rounded-full flex-shrink-0",
                     style: { backgroundColor: c.avatar_read }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "h-1 rounded-sm flex-shrink-0",
                     style: { width: "24%", backgroundColor: c.text_secondary }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "flex-1 h-1 rounded-sm",
                     style: { backgroundColor: c.text_tertiary }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-2 h-0.5 rounded-sm flex-shrink-0",
@@ -4065,34 +4371,34 @@ function MockupEmailList({
               ]
             }
           ),
-          /* @__PURE__ */ jsxs23(
+          /* @__PURE__ */ jsxs24(
             "div",
             {
               className: "h-6 flex items-center gap-1 px-1.5",
               style: { borderBottom: `1px solid ${c.border_secondary}` },
               children: [
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-3 h-3 rounded-full flex-shrink-0",
                     style: { backgroundColor: c.avatar_read }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "h-1 rounded-sm flex-shrink-0",
                     style: { width: "32%", backgroundColor: c.text_secondary }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "flex-1 h-1 rounded-sm",
                     style: { backgroundColor: c.text_tertiary }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-2 h-0.5 rounded-sm flex-shrink-0",
@@ -4102,34 +4408,34 @@ function MockupEmailList({
               ]
             }
           ),
-          /* @__PURE__ */ jsxs23(
+          /* @__PURE__ */ jsxs24(
             "div",
             {
               className: "h-6 flex items-center gap-1 px-1.5",
               style: { borderBottom: `1px solid ${c.border_secondary}` },
               children: [
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-3 h-3 rounded-full flex-shrink-0",
                     style: { backgroundColor: c.avatar_read }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "h-1 rounded-sm flex-shrink-0",
                     style: { width: "26%", backgroundColor: c.text_secondary }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "flex-1 h-1 rounded-sm",
                     style: { backgroundColor: c.text_tertiary }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-2 h-0.5 rounded-sm flex-shrink-0",
@@ -4146,45 +4452,45 @@ function MockupEmailList({
 }
 function ViewMockupSplit({ theme }) {
   const c = get_colors(theme);
-  return /* @__PURE__ */ jsxs23(
+  return /* @__PURE__ */ jsxs24(
     "div",
     {
       className: "w-full h-full rounded-md overflow-hidden flex",
       style: { backgroundColor: c.bg },
       children: [
-        /* @__PURE__ */ jsx27(MockupSidebar, { c }),
-        /* @__PURE__ */ jsxs23("div", { className: "flex-1 flex", style: { backgroundColor: c.bg }, children: [
-          /* @__PURE__ */ jsx27(MockupEmailList, { c }),
-          /* @__PURE__ */ jsxs23("div", { className: "flex-1 flex flex-col", children: [
-            /* @__PURE__ */ jsxs23(
+        /* @__PURE__ */ jsx28(MockupSidebar, { c }),
+        /* @__PURE__ */ jsxs24("div", { className: "flex-1 flex", style: { backgroundColor: c.bg }, children: [
+          /* @__PURE__ */ jsx28(MockupEmailList, { c }),
+          /* @__PURE__ */ jsxs24("div", { className: "flex-1 flex flex-col", children: [
+            /* @__PURE__ */ jsxs24(
               "div",
               {
                 className: "h-3.5 flex items-center gap-0.5 px-1.5 flex-shrink-0",
                 style: { borderBottom: `1px solid ${c.border_secondary}` },
                 children: [
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-1.5 h-1.5 rounded-sm",
                       style: { backgroundColor: c.text_muted }
                     }
                   ),
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-1.5 h-1.5 rounded-sm",
                       style: { backgroundColor: c.text_muted }
                     }
                   ),
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-1.5 h-1.5 rounded-sm",
                       style: { backgroundColor: c.text_muted }
                     }
                   ),
-                  /* @__PURE__ */ jsx27("div", { className: "flex-1" }),
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28("div", { className: "flex-1" }),
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-1.5 h-1.5 rounded-sm",
@@ -4194,31 +4500,31 @@ function ViewMockupSplit({ theme }) {
                 ]
               }
             ),
-            /* @__PURE__ */ jsxs23("div", { className: "flex-1 p-2", children: [
-              /* @__PURE__ */ jsx27(
+            /* @__PURE__ */ jsxs24("div", { className: "flex-1 p-2", children: [
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-[75%] h-1.5 rounded-sm mb-1",
                   style: { backgroundColor: c.text_primary }
                 }
               ),
-              /* @__PURE__ */ jsxs23("div", { className: "flex items-center gap-1 mb-1.5", children: [
-                /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsxs24("div", { className: "flex items-center gap-1 mb-1.5", children: [
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-2.5 h-2.5 rounded-full flex-shrink-0",
                     style: { backgroundColor: c.brand }
                   }
                 ),
-                /* @__PURE__ */ jsxs23("div", { children: [
-                  /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsxs24("div", { children: [
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-6 h-0.5 rounded-sm mb-0.5",
                       style: { backgroundColor: c.text_secondary }
                     }
                   ),
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-10 h-0.5 rounded-sm",
@@ -4227,36 +4533,36 @@ function ViewMockupSplit({ theme }) {
                   )
                 ] })
               ] }),
-              /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-full mb-1.5",
                   style: { height: "1px", backgroundColor: c.border_secondary }
                 }
               ),
-              /* @__PURE__ */ jsxs23("div", { className: "space-y-1", children: [
-                /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsxs24("div", { className: "space-y-1", children: [
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-full h-1 rounded-sm",
                     style: { backgroundColor: c.body_line }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-[92%] h-1 rounded-sm",
                     style: { backgroundColor: c.body_line }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-[85%] h-1 rounded-sm",
                     style: { backgroundColor: c.body_line }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-[78%] h-1 rounded-sm",
@@ -4273,20 +4579,20 @@ function ViewMockupSplit({ theme }) {
 }
 function ViewMockupPopup({ theme }) {
   const c = get_colors(theme);
-  return /* @__PURE__ */ jsxs23(
+  return /* @__PURE__ */ jsxs24(
     "div",
     {
       className: "w-full h-full rounded-md overflow-hidden flex relative",
       style: { backgroundColor: c.bg },
       children: [
-        /* @__PURE__ */ jsx27(MockupSidebar, { c }),
-        /* @__PURE__ */ jsx27("div", { className: "flex-1 flex", style: { backgroundColor: c.bg }, children: /* @__PURE__ */ jsx27(MockupEmailList, { full_width: true, c }) }),
-        /* @__PURE__ */ jsx27(
+        /* @__PURE__ */ jsx28(MockupSidebar, { c }),
+        /* @__PURE__ */ jsx28("div", { className: "flex-1 flex", style: { backgroundColor: c.bg }, children: /* @__PURE__ */ jsx28(MockupEmailList, { full_width: true, c }) }),
+        /* @__PURE__ */ jsx28(
           "div",
           {
             className: "absolute inset-0 flex items-center justify-center",
             style: { backgroundColor: c.modal_overlay },
-            children: /* @__PURE__ */ jsxs23(
+            children: /* @__PURE__ */ jsxs24(
               "div",
               {
                 className: "w-[56%] rounded-lg flex flex-col overflow-hidden",
@@ -4297,42 +4603,42 @@ function ViewMockupPopup({ theme }) {
                   height: "70%"
                 },
                 children: [
-                  /* @__PURE__ */ jsxs23(
+                  /* @__PURE__ */ jsxs24(
                     "div",
                     {
                       className: "h-3.5 flex items-center px-1.5 flex-shrink-0 gap-0.5",
                       style: { borderBottom: `1px solid ${c.border_secondary}` },
                       children: [
-                        /* @__PURE__ */ jsx27(
+                        /* @__PURE__ */ jsx28(
                           "div",
                           {
                             className: "w-1.5 h-1.5 rounded-sm",
                             style: { backgroundColor: c.text_muted }
                           }
                         ),
-                        /* @__PURE__ */ jsx27(
+                        /* @__PURE__ */ jsx28(
                           "div",
                           {
                             className: "w-1.5 h-1.5 rounded-sm",
                             style: { backgroundColor: c.text_muted }
                           }
                         ),
-                        /* @__PURE__ */ jsx27("div", { className: "flex-1" }),
-                        /* @__PURE__ */ jsx27(
+                        /* @__PURE__ */ jsx28("div", { className: "flex-1" }),
+                        /* @__PURE__ */ jsx28(
                           "div",
                           {
                             className: "w-1.5 h-1.5 rounded-sm",
                             style: { backgroundColor: c.text_muted }
                           }
                         ),
-                        /* @__PURE__ */ jsx27(
+                        /* @__PURE__ */ jsx28(
                           "div",
                           {
                             className: "w-1.5 h-1.5 rounded-sm",
                             style: { backgroundColor: c.text_muted }
                           }
                         ),
-                        /* @__PURE__ */ jsx27(
+                        /* @__PURE__ */ jsx28(
                           "div",
                           {
                             className: "w-1.5 h-1.5 rounded-sm",
@@ -4342,31 +4648,31 @@ function ViewMockupPopup({ theme }) {
                       ]
                     }
                   ),
-                  /* @__PURE__ */ jsxs23("div", { className: "flex-1 p-2 overflow-hidden", children: [
-                    /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsxs24("div", { className: "flex-1 p-2 overflow-hidden", children: [
+                    /* @__PURE__ */ jsx28(
                       "div",
                       {
                         className: "w-[75%] h-1.5 rounded-sm mb-1",
                         style: { backgroundColor: c.text_primary }
                       }
                     ),
-                    /* @__PURE__ */ jsxs23("div", { className: "flex items-center gap-1 mb-1.5", children: [
-                      /* @__PURE__ */ jsx27(
+                    /* @__PURE__ */ jsxs24("div", { className: "flex items-center gap-1 mb-1.5", children: [
+                      /* @__PURE__ */ jsx28(
                         "div",
                         {
                           className: "w-2.5 h-2.5 rounded-full flex-shrink-0",
                           style: { backgroundColor: c.brand }
                         }
                       ),
-                      /* @__PURE__ */ jsxs23("div", { children: [
-                        /* @__PURE__ */ jsx27(
+                      /* @__PURE__ */ jsxs24("div", { children: [
+                        /* @__PURE__ */ jsx28(
                           "div",
                           {
                             className: "w-6 h-0.5 rounded-sm mb-0.5",
                             style: { backgroundColor: c.text_secondary }
                           }
                         ),
-                        /* @__PURE__ */ jsx27(
+                        /* @__PURE__ */ jsx28(
                           "div",
                           {
                             className: "w-10 h-0.5 rounded-sm",
@@ -4375,29 +4681,29 @@ function ViewMockupPopup({ theme }) {
                         )
                       ] })
                     ] }),
-                    /* @__PURE__ */ jsx27(
+                    /* @__PURE__ */ jsx28(
                       "div",
                       {
                         className: "w-full mb-1.5",
                         style: { height: "1px", backgroundColor: c.border_secondary }
                       }
                     ),
-                    /* @__PURE__ */ jsxs23("div", { className: "space-y-1", children: [
-                      /* @__PURE__ */ jsx27(
+                    /* @__PURE__ */ jsxs24("div", { className: "space-y-1", children: [
+                      /* @__PURE__ */ jsx28(
                         "div",
                         {
                           className: "w-full h-1 rounded-sm",
                           style: { backgroundColor: c.body_line }
                         }
                       ),
-                      /* @__PURE__ */ jsx27(
+                      /* @__PURE__ */ jsx28(
                         "div",
                         {
                           className: "w-[90%] h-1 rounded-sm",
                           style: { backgroundColor: c.body_line }
                         }
                       ),
-                      /* @__PURE__ */ jsx27(
+                      /* @__PURE__ */ jsx28(
                         "div",
                         {
                           className: "w-[75%] h-1 rounded-sm",
@@ -4417,22 +4723,22 @@ function ViewMockupPopup({ theme }) {
 }
 function ViewMockupFullpage({ theme }) {
   const c = get_colors(theme);
-  return /* @__PURE__ */ jsxs23(
+  return /* @__PURE__ */ jsxs24(
     "div",
     {
       className: "w-full h-full rounded-md overflow-hidden flex",
       style: { backgroundColor: c.bg },
       children: [
-        /* @__PURE__ */ jsx27(MockupSidebar, { c }),
-        /* @__PURE__ */ jsxs23("div", { className: "flex-1 flex flex-col", style: { backgroundColor: c.bg }, children: [
-          /* @__PURE__ */ jsxs23(
+        /* @__PURE__ */ jsx28(MockupSidebar, { c }),
+        /* @__PURE__ */ jsxs24("div", { className: "flex-1 flex flex-col", style: { backgroundColor: c.bg }, children: [
+          /* @__PURE__ */ jsxs24(
             "div",
             {
               className: "h-4 flex items-center justify-between px-2 flex-shrink-0",
               style: { borderBottom: `1px solid ${c.border_secondary}` },
               children: [
-                /* @__PURE__ */ jsxs23("div", { className: "flex items-center gap-0.5", children: [
-                  /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsxs24("div", { className: "flex items-center gap-0.5", children: [
+                  /* @__PURE__ */ jsx28(
                     "svg",
                     {
                       className: "w-2 h-2",
@@ -4441,10 +4747,10 @@ function ViewMockupFullpage({ theme }) {
                       strokeLinecap: "round",
                       strokeWidth: 2.5,
                       viewBox: "0 0 8 8",
-                      children: /* @__PURE__ */ jsx27("path", { d: "M5 1L2 4L5 7" })
+                      children: /* @__PURE__ */ jsx28("path", { d: "M5 1L2 4L5 7" })
                     }
                   ),
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-3.5 h-1 rounded-sm",
@@ -4452,22 +4758,22 @@ function ViewMockupFullpage({ theme }) {
                     }
                   )
                 ] }),
-                /* @__PURE__ */ jsxs23("div", { className: "flex items-center gap-0.5", children: [
-                  /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsxs24("div", { className: "flex items-center gap-0.5", children: [
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "h-0.5 w-3 rounded-sm",
                       style: { backgroundColor: c.text_muted }
                     }
                   ),
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-1.5 h-1.5 rounded-sm",
                       style: { backgroundColor: c.text_muted }
                     }
                   ),
-                  /* @__PURE__ */ jsx27(
+                  /* @__PURE__ */ jsx28(
                     "div",
                     {
                       className: "w-1.5 h-1.5 rounded-sm",
@@ -4478,31 +4784,31 @@ function ViewMockupFullpage({ theme }) {
               ]
             }
           ),
-          /* @__PURE__ */ jsxs23("div", { className: "flex-1 p-2.5", children: [
-            /* @__PURE__ */ jsx27(
+          /* @__PURE__ */ jsxs24("div", { className: "flex-1 p-2.5", children: [
+            /* @__PURE__ */ jsx28(
               "div",
               {
                 className: "w-[65%] h-2 rounded-sm mb-1.5",
                 style: { backgroundColor: c.text_primary }
               }
             ),
-            /* @__PURE__ */ jsxs23("div", { className: "flex items-center gap-1.5 mb-2", children: [
-              /* @__PURE__ */ jsx27(
+            /* @__PURE__ */ jsxs24("div", { className: "flex items-center gap-1.5 mb-2", children: [
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-3.5 h-3.5 rounded-full flex-shrink-0",
                   style: { backgroundColor: c.brand }
                 }
               ),
-              /* @__PURE__ */ jsxs23("div", { children: [
-                /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsxs24("div", { children: [
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-8 h-1 rounded-sm mb-0.5",
                     style: { backgroundColor: c.text_secondary }
                   }
                 ),
-                /* @__PURE__ */ jsx27(
+                /* @__PURE__ */ jsx28(
                   "div",
                   {
                     className: "w-14 h-0.5 rounded-sm",
@@ -4511,50 +4817,50 @@ function ViewMockupFullpage({ theme }) {
                 )
               ] })
             ] }),
-            /* @__PURE__ */ jsx27(
+            /* @__PURE__ */ jsx28(
               "div",
               {
                 className: "w-full mb-2",
                 style: { height: "1px", backgroundColor: c.border_secondary }
               }
             ),
-            /* @__PURE__ */ jsxs23("div", { className: "space-y-1", children: [
-              /* @__PURE__ */ jsx27(
+            /* @__PURE__ */ jsxs24("div", { className: "space-y-1", children: [
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-full h-1 rounded-sm",
                   style: { backgroundColor: c.body_line }
                 }
               ),
-              /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-[94%] h-1 rounded-sm",
                   style: { backgroundColor: c.body_line }
                 }
               ),
-              /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-[88%] h-1 rounded-sm",
                   style: { backgroundColor: c.body_line }
                 }
               ),
-              /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-[82%] h-1 rounded-sm",
                   style: { backgroundColor: c.body_line }
                 }
               ),
-              /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-[75%] h-1 rounded-sm",
                   style: { backgroundColor: c.body_line }
                 }
               ),
-              /* @__PURE__ */ jsx27(
+              /* @__PURE__ */ jsx28(
                 "div",
                 {
                   className: "w-[90%] h-1 rounded-sm",
@@ -4570,20 +4876,20 @@ function ViewMockupFullpage({ theme }) {
 }
 
 // src/theme_mockups/theme_mockups.tsx
-import { jsx as jsx28 } from "react/jsx-runtime";
+import { jsx as jsx29 } from "react/jsx-runtime";
 function ThemeMockupLight() {
-  return /* @__PURE__ */ jsx28(ViewMockupSplit, { theme: "light" });
+  return /* @__PURE__ */ jsx29(ViewMockupSplit, { theme: "light" });
 }
 function ThemeMockupDark() {
-  return /* @__PURE__ */ jsx28(ViewMockupSplit, { theme: "dark" });
+  return /* @__PURE__ */ jsx29(ViewMockupSplit, { theme: "dark" });
 }
 
 // src/theme_card/theme_card.tsx
-import { jsx as jsx29, jsxs as jsxs24 } from "react/jsx-runtime";
+import { jsx as jsx30, jsxs as jsxs25 } from "react/jsx-runtime";
 function ThemeMockupSystem() {
-  return /* @__PURE__ */ jsxs24("div", { className: "w-full h-full flex overflow-hidden", children: [
-    /* @__PURE__ */ jsx29("div", { className: "w-1/2 h-full overflow-hidden", children: /* @__PURE__ */ jsx29(ThemeMockupLight, {}) }),
-    /* @__PURE__ */ jsx29("div", { className: "w-1/2 h-full overflow-hidden", children: /* @__PURE__ */ jsx29(ThemeMockupDark, {}) })
+  return /* @__PURE__ */ jsxs25("div", { className: "w-full h-full flex overflow-hidden", children: [
+    /* @__PURE__ */ jsx30("div", { className: "w-1/2 h-full overflow-hidden", children: /* @__PURE__ */ jsx30(ThemeMockupLight, {}) }),
+    /* @__PURE__ */ jsx30("div", { className: "w-1/2 h-full overflow-hidden", children: /* @__PURE__ */ jsx30(ThemeMockupDark, {}) })
   ] });
 }
 function ThemeCard({
@@ -4593,23 +4899,23 @@ function ThemeCard({
   on_select
 }) {
   const get_mockup = () => {
-    if (mode === "light") return /* @__PURE__ */ jsx29(ThemeMockupLight, {});
-    if (mode === "dark") return /* @__PURE__ */ jsx29(ThemeMockupDark, {});
-    return /* @__PURE__ */ jsx29(ThemeMockupSystem, {});
+    if (mode === "light") return /* @__PURE__ */ jsx30(ThemeMockupLight, {});
+    if (mode === "dark") return /* @__PURE__ */ jsx30(ThemeMockupDark, {});
+    return /* @__PURE__ */ jsx30(ThemeMockupSystem, {});
   };
   const get_border_color = () => {
     if (mode === "light") return "1px solid #e5e5e5";
     if (mode === "dark") return "1px solid #1a1a1a";
     return "1px solid #1a1a1a";
   };
-  return /* @__PURE__ */ jsxs24(
+  return /* @__PURE__ */ jsxs25(
     "button",
     {
       className: `flex-1 p-3 rounded-[14px] border-2 transition-all cursor-pointer ${is_selected ? "border-brand bg-surf-selected" : "border-edge-secondary bg-transparent"}`,
       type: "button",
       onClick: on_select,
       children: [
-        /* @__PURE__ */ jsx29(
+        /* @__PURE__ */ jsx30(
           "div",
           {
             className: "w-full aspect-[4/3] rounded-lg overflow-hidden mb-3",
@@ -4617,9 +4923,9 @@ function ThemeCard({
             children: get_mockup()
           }
         ),
-        /* @__PURE__ */ jsxs24("div", { className: "flex items-center justify-between", children: [
-          /* @__PURE__ */ jsx29("span", { className: "text-sm font-medium text-txt-primary", children: label }),
-          /* @__PURE__ */ jsx29("span", { className: "pointer-events-none flex-shrink-0", children: /* @__PURE__ */ jsx29(Radio, { readOnly: true, checked: is_selected }) })
+        /* @__PURE__ */ jsxs25("div", { className: "flex items-center justify-between", children: [
+          /* @__PURE__ */ jsx30("span", { className: "text-sm font-medium text-txt-primary", children: label }),
+          /* @__PURE__ */ jsx30("span", { className: "pointer-events-none flex-shrink-0", children: /* @__PURE__ */ jsx30(Radio, { readOnly: true, checked: is_selected }) })
         ] })
       ]
     }
@@ -4627,8 +4933,8 @@ function ThemeCard({
 }
 
 // src/storage_indicator/storage_indicator.tsx
-import { Fragment as Fragment8, jsx as jsx30, jsxs as jsxs25 } from "react/jsx-runtime";
-function join_classes6(...parts) {
+import { Fragment as Fragment9, jsx as jsx31, jsxs as jsxs26 } from "react/jsx-runtime";
+function join_classes7(...parts) {
   return parts.filter(Boolean).join(" ");
 }
 function StorageIndicator({
@@ -4646,15 +4952,15 @@ function StorageIndicator({
   const show_metric = typeof percentage === "number" && !!usage_text;
   const clamped = Math.min(100, Math.max(0, percentage ?? 0));
   if (is_collapsed) {
-    return /* @__PURE__ */ jsxs25("div", { className: "px-2 pt-2 pb-3 border-t border-edge-primary flex flex-col items-center gap-2", children: [
-      /* @__PURE__ */ jsx30(
+    return /* @__PURE__ */ jsxs26("div", { className: "px-2 pt-2 pb-3 border-t border-edge-primary flex flex-col items-center gap-2", children: [
+      /* @__PURE__ */ jsx31(
         "button",
         {
           "aria-label": logo_alt,
           className: "w-8 h-8 flex items-center justify-center rounded-[10px] hover:bg-black/[0.04] dark:hover:bg-white/[0.04]",
           type: "button",
           onClick: on_logo_click,
-          children: /* @__PURE__ */ jsx30(
+          children: /* @__PURE__ */ jsx31(
             "img",
             {
               alt: logo_alt,
@@ -4669,16 +4975,16 @@ function StorageIndicator({
       collapsed_footer_slot
     ] });
   }
-  return /* @__PURE__ */ jsxs25("div", { className: "px-3 pt-3 pb-3 border-t border-edge-primary", children: [
-    /* @__PURE__ */ jsxs25("div", { className: "flex items-center justify-between gap-2 mb-2", children: [
-      /* @__PURE__ */ jsx30(
+  return /* @__PURE__ */ jsxs26("div", { className: "px-3 pt-3 pb-3 border-t border-edge-primary", children: [
+    /* @__PURE__ */ jsxs26("div", { className: "flex items-center justify-between gap-2 mb-2", children: [
+      /* @__PURE__ */ jsx31(
         "button",
         {
           "aria-label": logo_alt,
           className: "flex items-center rounded-[8px] px-1 py-1 -mx-1 hover:bg-black/[0.04] dark:hover:bg-white/[0.04]",
           type: "button",
           onClick: on_logo_click,
-          children: /* @__PURE__ */ jsx30(
+          children: /* @__PURE__ */ jsx31(
             "img",
             {
               alt: logo_alt,
@@ -4692,22 +4998,22 @@ function StorageIndicator({
       ),
       actions_slot
     ] }),
-    show_metric && /* @__PURE__ */ jsxs25(Fragment8, { children: [
-      /* @__PURE__ */ jsxs25("div", { className: "flex items-center justify-between text-[10px] text-txt-muted mb-1", children: [
-        storage_used_label && /* @__PURE__ */ jsx30("span", { children: storage_used_label }),
-        /* @__PURE__ */ jsxs25("span", { className: "tabular-nums", children: [
+    show_metric && /* @__PURE__ */ jsxs26(Fragment9, { children: [
+      /* @__PURE__ */ jsxs26("div", { className: "flex items-center justify-between text-[10px] text-txt-muted mb-1", children: [
+        storage_used_label && /* @__PURE__ */ jsx31("span", { children: storage_used_label }),
+        /* @__PURE__ */ jsxs26("span", { className: "tabular-nums", children: [
           Math.round(clamped),
           "%"
         ] })
       ] }),
-      /* @__PURE__ */ jsx30(
+      /* @__PURE__ */ jsx31(
         "div",
         {
-          className: join_classes6(
+          className: join_classes7(
             "h-1 w-full rounded-full overflow-hidden",
             "bg-black/[0.06] dark:bg-white/[0.06]"
           ),
-          children: /* @__PURE__ */ jsx30(
+          children: /* @__PURE__ */ jsx31(
             "div",
             {
               className: "h-full rounded-full",
@@ -4719,17 +5025,17 @@ function StorageIndicator({
           )
         }
       ),
-      /* @__PURE__ */ jsx30("div", { className: "text-[10px] text-txt-muted mt-1 tabular-nums", children: usage_text })
+      /* @__PURE__ */ jsx31("div", { className: "text-[10px] text-txt-muted mt-1 tabular-nums", children: usage_text })
     ] }),
-    footer_slot && /* @__PURE__ */ jsx30("div", { className: "mt-2", children: footer_slot })
+    footer_slot && /* @__PURE__ */ jsx31("div", { className: "mt-2", children: footer_slot })
   ] });
 }
 
 // src/upgrade_btn/upgrade_btn.tsx
-import * as React24 from "react";
-import { jsx as jsx31, jsxs as jsxs26 } from "react/jsx-runtime";
+import * as React25 from "react";
+import { jsx as jsx32, jsxs as jsxs27 } from "react/jsx-runtime";
 function SparkleIcon() {
-  return /* @__PURE__ */ jsxs26(
+  return /* @__PURE__ */ jsxs27(
     "svg",
     {
       width: "13",
@@ -4742,17 +5048,17 @@ function SparkleIcon() {
       strokeLinejoin: "round",
       "aria-hidden": "true",
       children: [
-        /* @__PURE__ */ jsx31("path", { d: "M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" }),
-        /* @__PURE__ */ jsx31("path", { d: "M5 17l.75 2.25L8 20l-2.25.75L5 23l-.75-2.25L2 20l2.25-.75L5 17z" }),
-        /* @__PURE__ */ jsx31("path", { d: "M19 3l.5 1.5L21 5l-1.5.5L19 7l-.5-1.5L17 5l1.5-.5L19 3z" })
+        /* @__PURE__ */ jsx32("path", { d: "M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" }),
+        /* @__PURE__ */ jsx32("path", { d: "M5 17l.75 2.25L8 20l-2.25.75L5 23l-.75-2.25L2 20l2.25-.75L5 17z" }),
+        /* @__PURE__ */ jsx32("path", { d: "M19 3l.5 1.5L21 5l-1.5.5L19 7l-.5-1.5L17 5l1.5-.5L19 3z" })
       ]
     }
   );
 }
-var UpgradeBtn = React24.forwardRef(
+var UpgradeBtn = React25.forwardRef(
   ({ label, children, size = "md", ...props }, ref) => {
-    return /* @__PURE__ */ jsxs26(Button, { ref, variant: "upgrade", size, ...props, children: [
-      /* @__PURE__ */ jsx31(SparkleIcon, {}),
+    return /* @__PURE__ */ jsxs27(Button, { ref, variant: "upgrade", size, ...props, children: [
+      /* @__PURE__ */ jsx32(SparkleIcon, {}),
       children ?? label ?? "Upgrade"
     ] });
   }
@@ -4760,7 +5066,7 @@ var UpgradeBtn = React24.forwardRef(
 UpgradeBtn.displayName = "UpgradeBtn";
 
 // src/upgrade_overlay/upgrade_overlay.tsx
-import { jsx as jsx32, jsxs as jsxs27 } from "react/jsx-runtime";
+import { jsx as jsx33, jsxs as jsxs28 } from "react/jsx-runtime";
 function UpgradeOverlay({
   badge_label = "Upgrade plan",
   message,
@@ -4768,15 +5074,15 @@ function UpgradeOverlay({
   on_upgrade,
   className
 }) {
-  return /* @__PURE__ */ jsxs27("div", { className: ["aster_upgrade_overlay", className].filter(Boolean).join(" "), children: [
-    /* @__PURE__ */ jsx32(Badge, { color: "blue", children: badge_label }),
-    /* @__PURE__ */ jsx32("p", { className: "aster_upgrade_overlay_message", children: message }),
-    /* @__PURE__ */ jsx32(UpgradeBtn, { size: "sm", onClick: on_upgrade, children: cta_label })
+  return /* @__PURE__ */ jsxs28("div", { className: ["aster_upgrade_overlay", className].filter(Boolean).join(" "), children: [
+    /* @__PURE__ */ jsx33(Badge, { color: "blue", children: badge_label }),
+    /* @__PURE__ */ jsx33("p", { className: "aster_upgrade_overlay_message", children: message }),
+    /* @__PURE__ */ jsx33(UpgradeBtn, { size: "sm", onClick: on_upgrade, children: cta_label })
   ] });
 }
 
 // src/empty_state/empty_state.tsx
-import { jsx as jsx33, jsxs as jsxs28 } from "react/jsx-runtime";
+import { jsx as jsx34, jsxs as jsxs29 } from "react/jsx-runtime";
 function EmptyState({
   icon,
   title,
@@ -4787,18 +5093,18 @@ function EmptyState({
 }) {
   const base = "relative flex flex-col items-center justify-center h-full px-4";
   const merged = [base, min_height ? min_height : "", className || ""].filter(Boolean).join(" ");
-  return /* @__PURE__ */ jsxs28("div", { className: merged, children: [
-    icon && /* @__PURE__ */ jsx33("div", { className: "mb-4", children: icon }),
-    /* @__PURE__ */ jsxs28("div", { className: "text-center", children: [
-      /* @__PURE__ */ jsx33("p", { className: "text-sm sm:text-base font-medium text-txt-primary mb-1", children: title }),
-      description && /* @__PURE__ */ jsx33("p", { className: "text-xs sm:text-sm text-txt-muted max-w-[260px] mx-auto", children: description }),
-      action && /* @__PURE__ */ jsx33("div", { className: "mt-6 flex justify-center", children: action })
+  return /* @__PURE__ */ jsxs29("div", { className: merged, children: [
+    icon && /* @__PURE__ */ jsx34("div", { className: "mb-4", children: icon }),
+    /* @__PURE__ */ jsxs29("div", { className: "text-center", children: [
+      /* @__PURE__ */ jsx34("p", { className: "text-sm sm:text-base font-medium text-txt-primary mb-1", children: title }),
+      description && /* @__PURE__ */ jsx34("p", { className: "text-xs sm:text-sm text-txt-muted max-w-[260px] mx-auto", children: description }),
+      action && /* @__PURE__ */ jsx34("div", { className: "mt-6 flex justify-center", children: action })
     ] })
   ] });
 }
 
 // src/search_bar/search_bar.tsx
-import { jsx as jsx34, jsxs as jsxs29 } from "react/jsx-runtime";
+import { jsx as jsx35, jsxs as jsxs30 } from "react/jsx-runtime";
 function SearchBar({
   value,
   on_change,
@@ -4808,9 +5114,9 @@ function SearchBar({
   search_icon,
   clear_icon
 }) {
-  return /* @__PURE__ */ jsx34("div", { className: className ?? "mb-5", children: /* @__PURE__ */ jsxs29("div", { className: "flex items-center gap-3 px-4 h-11 rounded-xl bg-surf-secondary border border-edge-secondary transition-colors duration-150", children: [
-    search_icon && /* @__PURE__ */ jsx34("span", { className: "shrink-0 text-txt-muted", children: search_icon }),
-    /* @__PURE__ */ jsx34(
+  return /* @__PURE__ */ jsx35("div", { className: className ?? "mb-5", children: /* @__PURE__ */ jsxs30("div", { className: "flex items-center gap-3 px-4 h-11 rounded-xl bg-surf-secondary border border-edge-secondary transition-colors duration-150", children: [
+    search_icon && /* @__PURE__ */ jsx35("span", { className: "shrink-0 text-txt-muted", children: search_icon }),
+    /* @__PURE__ */ jsx35(
       "input",
       {
         type: "text",
@@ -4820,7 +5126,7 @@ function SearchBar({
         className: "flex-1 bg-transparent outline-none text-sm text-txt-primary placeholder:text-txt-muted"
       }
     ),
-    value && /* @__PURE__ */ jsx34(
+    value && /* @__PURE__ */ jsx35(
       "button",
       {
         type: "button",
@@ -4836,8 +5142,8 @@ function SearchBar({
 // src/app_switcher/app_switcher.tsx
 import { useEffect as useEffect10, useRef as useRef8, useState as useState10 } from "react";
 import { motion as motion5, AnimatePresence as AnimatePresence5 } from "framer-motion";
-import { jsx as jsx35, jsxs as jsxs30 } from "react/jsx-runtime";
-var GridIcon = () => /* @__PURE__ */ jsx35(
+import { jsx as jsx36, jsxs as jsxs31 } from "react/jsx-runtime";
+var GridIcon = () => /* @__PURE__ */ jsx36(
   "svg",
   {
     className: "w-5 h-5",
@@ -4845,7 +5151,7 @@ var GridIcon = () => /* @__PURE__ */ jsx35(
     stroke: "currentColor",
     strokeWidth: 1.5,
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx35(
+    children: /* @__PURE__ */ jsx36(
       "path",
       {
         strokeLinecap: "round",
@@ -4855,7 +5161,7 @@ var GridIcon = () => /* @__PURE__ */ jsx35(
     )
   }
 );
-var CheckIcon5 = () => /* @__PURE__ */ jsx35(
+var CheckIcon5 = () => /* @__PURE__ */ jsx36(
   "svg",
   {
     className: "w-3.5 h-3.5 text-txt-muted flex-shrink-0",
@@ -4863,7 +5169,7 @@ var CheckIcon5 = () => /* @__PURE__ */ jsx35(
     stroke: "currentColor",
     strokeWidth: 2,
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx35(
+    children: /* @__PURE__ */ jsx36(
       "path",
       {
         strokeLinecap: "round",
@@ -4893,8 +5199,8 @@ function AppSwitcher({ apps, current_app_id, title }) {
       document.removeEventListener("keydown", handle_key);
     };
   }, [is_open]);
-  return /* @__PURE__ */ jsxs30("div", { ref: wrapper_ref, className: "relative", children: [
-    /* @__PURE__ */ jsx35(
+  return /* @__PURE__ */ jsxs31("div", { ref: wrapper_ref, className: "relative", children: [
+    /* @__PURE__ */ jsx36(
       "button",
       {
         type: "button",
@@ -4902,10 +5208,10 @@ function AppSwitcher({ apps, current_app_id, title }) {
         title,
         onClick: () => set_is_open((v) => !v),
         className: "flex items-center justify-center w-9 h-9 rounded-[10px] text-txt-muted hover:bg-black/[0.06] dark:hover:bg-white/[0.08]",
-        children: /* @__PURE__ */ jsx35(GridIcon, {})
+        children: /* @__PURE__ */ jsx36(GridIcon, {})
       }
     ),
-    /* @__PURE__ */ jsx35(AnimatePresence5, { children: is_open && /* @__PURE__ */ jsxs30(
+    /* @__PURE__ */ jsx36(AnimatePresence5, { children: is_open && /* @__PURE__ */ jsxs31(
       motion5.div,
       {
         initial: { opacity: 0, y: -4 },
@@ -4918,10 +5224,10 @@ function AppSwitcher({ apps, current_app_id, title }) {
           border: "1px solid var(--border-primary)"
         },
         children: [
-          /* @__PURE__ */ jsx35("div", { className: "px-3 py-2 border-b border-edge-primary", children: /* @__PURE__ */ jsx35("p", { className: "text-[11px] uppercase tracking-wider text-txt-muted", children: title }) }),
-          /* @__PURE__ */ jsx35("div", { className: "py-1", children: apps.map((app) => {
+          /* @__PURE__ */ jsx36("div", { className: "px-3 py-2 border-b border-edge-primary", children: /* @__PURE__ */ jsx36("p", { className: "text-[11px] uppercase tracking-wider text-txt-muted", children: title }) }),
+          /* @__PURE__ */ jsx36("div", { className: "py-1", children: apps.map((app) => {
             const is_current = app.id === current_app_id;
-            return /* @__PURE__ */ jsxs30(
+            return /* @__PURE__ */ jsxs31(
               "a",
               {
                 href: app.url,
@@ -4929,7 +5235,7 @@ function AppSwitcher({ apps, current_app_id, title }) {
                 rel: is_current ? void 0 : "noopener noreferrer",
                 className: "flex items-start gap-3 px-3 py-2 hover:bg-black/[0.04] dark:hover:bg-white/[0.04]",
                 children: [
-                  /* @__PURE__ */ jsx35(
+                  /* @__PURE__ */ jsx36(
                     "img",
                     {
                       alt: "",
@@ -4939,12 +5245,12 @@ function AppSwitcher({ apps, current_app_id, title }) {
                       draggable: false
                     }
                   ),
-                  /* @__PURE__ */ jsxs30("div", { className: "flex-1 min-w-0", children: [
-                    /* @__PURE__ */ jsxs30("div", { className: "flex items-center gap-2", children: [
-                      /* @__PURE__ */ jsx35("span", { className: "text-[13px] font-medium text-txt-primary truncate", children: app.name }),
-                      is_current && /* @__PURE__ */ jsx35(CheckIcon5, {})
+                  /* @__PURE__ */ jsxs31("div", { className: "flex-1 min-w-0", children: [
+                    /* @__PURE__ */ jsxs31("div", { className: "flex items-center gap-2", children: [
+                      /* @__PURE__ */ jsx36("span", { className: "text-[13px] font-medium text-txt-primary truncate", children: app.name }),
+                      is_current && /* @__PURE__ */ jsx36(CheckIcon5, {})
                     ] }),
-                    app.description && /* @__PURE__ */ jsx35("p", { className: "text-[11px] text-txt-muted truncate", children: app.description })
+                    app.description && /* @__PURE__ */ jsx36("p", { className: "text-[11px] text-txt-muted truncate", children: app.description })
                   ] })
                 ]
               },
@@ -4958,13 +5264,13 @@ function AppSwitcher({ apps, current_app_id, title }) {
 }
 
 // src/auth/auth.tsx
-import { jsx as jsx36, jsxs as jsxs31 } from "react/jsx-runtime";
+import { jsx as jsx37, jsxs as jsxs32 } from "react/jsx-runtime";
 var AuthLogo = ({
   src = "/text_logo.png",
   alt = "Aster",
   className = "h-12"
-}) => /* @__PURE__ */ jsx36("img", { alt, className, decoding: "async", src });
-var AuthEyeIcon = () => /* @__PURE__ */ jsxs31(
+}) => /* @__PURE__ */ jsx37("img", { alt, className, decoding: "async", src });
+var AuthEyeIcon = () => /* @__PURE__ */ jsxs32(
   "svg",
   {
     className: "h-5 w-5 text-txt-muted",
@@ -4973,7 +5279,7 @@ var AuthEyeIcon = () => /* @__PURE__ */ jsxs31(
     strokeWidth: 2,
     viewBox: "0 0 24 24",
     children: [
-      /* @__PURE__ */ jsx36(
+      /* @__PURE__ */ jsx37(
         "path",
         {
           d: "M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z",
@@ -4981,7 +5287,7 @@ var AuthEyeIcon = () => /* @__PURE__ */ jsxs31(
           strokeLinejoin: "round"
         }
       ),
-      /* @__PURE__ */ jsx36(
+      /* @__PURE__ */ jsx37(
         "path",
         {
           d: "M15 12a3 3 0 11-6 0 3 3 0 016 0z",
@@ -4992,7 +5298,7 @@ var AuthEyeIcon = () => /* @__PURE__ */ jsxs31(
     ]
   }
 );
-var AuthEyeSlashIcon = () => /* @__PURE__ */ jsx36(
+var AuthEyeSlashIcon = () => /* @__PURE__ */ jsx37(
   "svg",
   {
     className: "h-5 w-5 text-txt-muted",
@@ -5000,7 +5306,7 @@ var AuthEyeSlashIcon = () => /* @__PURE__ */ jsx36(
     stroke: "currentColor",
     strokeWidth: 2,
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx36(
+    children: /* @__PURE__ */ jsx37(
       "path",
       {
         d: "M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88",
@@ -5014,13 +5320,13 @@ var AuthInputWrapper = ({
   end_content,
   wrapper_class,
   children
-}) => /* @__PURE__ */ jsxs31("div", { className: `relative ${wrapper_class ?? ""}`, children: [
+}) => /* @__PURE__ */ jsxs32("div", { className: `relative ${wrapper_class ?? ""}`, children: [
   children,
-  end_content && /* @__PURE__ */ jsx36("div", { className: "absolute right-3 top-1/2 -translate-y-1/2", children: end_content })
+  end_content && /* @__PURE__ */ jsx37("div", { className: "absolute right-3 top-1/2 -translate-y-1/2", children: end_content })
 ] });
 var AuthCheckIcon = ({
   className = "h-3 w-3"
-}) => /* @__PURE__ */ jsx36(
+}) => /* @__PURE__ */ jsx37(
   "svg",
   {
     className: `${className} text-white`,
@@ -5028,14 +5334,14 @@ var AuthCheckIcon = ({
     stroke: "currentColor",
     strokeWidth: 3,
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx36("path", { d: "M5 13l4 4L19 7", strokeLinecap: "round", strokeLinejoin: "round" })
+    children: /* @__PURE__ */ jsx37("path", { d: "M5 13l4 4L19 7", strokeLinecap: "round", strokeLinejoin: "round" })
   }
 );
 var AuthCheckbox = ({
   checked,
   disabled,
   onChange
-}) => /* @__PURE__ */ jsx36(
+}) => /* @__PURE__ */ jsx37(
   "button",
   {
     "aria-checked": checked,
@@ -5044,17 +5350,17 @@ var AuthCheckbox = ({
     role: "checkbox",
     type: "button",
     onClick: () => onChange(!checked),
-    children: checked && /* @__PURE__ */ jsx36(AuthCheckIcon, {})
+    children: checked && /* @__PURE__ */ jsx37(AuthCheckIcon, {})
   }
 );
 var AuthCard = ({
   children,
   className = "max-w-md"
-}) => /* @__PURE__ */ jsx36("div", { className: `flex w-full ${className} flex-col items-center gap-6`, children });
+}) => /* @__PURE__ */ jsx37("div", { className: `flex w-full ${className} flex-col items-center gap-6`, children });
 var AuthCardBody = ({
   children,
   padding = "px-10 py-10"
-}) => /* @__PURE__ */ jsx36(
+}) => /* @__PURE__ */ jsx37(
   "div",
   {
     className: `w-full rounded-xl border ${padding} transition-colors duration-200 bg-surf-card border-edge-primary`,
@@ -5063,25 +5369,25 @@ var AuthCardBody = ({
 );
 var AuthFormLabel = ({
   children
-}) => /* @__PURE__ */ jsx36("label", { className: "mb-2 block text-sm font-medium text-txt-primary", children });
+}) => /* @__PURE__ */ jsx37("label", { className: "mb-2 block text-sm font-medium text-txt-primary", children });
 var AuthFourPointStar = ({
   className = "h-7 w-7"
-}) => /* @__PURE__ */ jsx36("svg", { className, fill: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsx36("path", { d: "M12 0L13.2 10.8L24 12L13.2 13.2L12 24L10.8 13.2L0 12L10.8 10.8Z" }) });
-var AuthSparkleDecoration = () => /* @__PURE__ */ jsxs31(
+}) => /* @__PURE__ */ jsx37("svg", { className, fill: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ jsx37("path", { d: "M12 0L13.2 10.8L24 12L13.2 13.2L12 24L10.8 13.2L0 12L10.8 10.8Z" }) });
+var AuthSparkleDecoration = () => /* @__PURE__ */ jsxs32(
   "svg",
   {
     className: "ml-1 -mt-0.5 inline-block h-6 w-6",
     fill: "none",
     viewBox: "0 0 24 24",
     children: [
-      /* @__PURE__ */ jsx36(
+      /* @__PURE__ */ jsx37(
         "path",
         {
           d: "M9.5 2L10.9 8.1L17 9.5L10.9 10.9L9.5 17L8.1 10.9L2 9.5L8.1 8.1L9.5 2Z",
           fill: "#FBBF24"
         }
       ),
-      /* @__PURE__ */ jsx36(
+      /* @__PURE__ */ jsx37(
         "path",
         {
           d: "M18.5 11L19.3 14.2L22.5 15L19.3 15.8L18.5 19L17.7 15.8L14.5 15L17.7 14.2L18.5 11Z",
@@ -5092,7 +5398,7 @@ var AuthSparkleDecoration = () => /* @__PURE__ */ jsxs31(
     ]
   }
 );
-var AuthShieldCheckIcon = ({ color }) => /* @__PURE__ */ jsx36(
+var AuthShieldCheckIcon = ({ color }) => /* @__PURE__ */ jsx37(
   "svg",
   {
     className: "h-5 w-5 flex-shrink-0 mt-0.5",
@@ -5101,7 +5407,7 @@ var AuthShieldCheckIcon = ({ color }) => /* @__PURE__ */ jsx36(
     strokeWidth: 2,
     style: { color },
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx36(
+    children: /* @__PURE__ */ jsx37(
       "path",
       {
         d: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
@@ -5111,7 +5417,7 @@ var AuthShieldCheckIcon = ({ color }) => /* @__PURE__ */ jsx36(
     )
   }
 );
-var AuthLockIcon = ({ color }) => /* @__PURE__ */ jsx36(
+var AuthLockIcon = ({ color }) => /* @__PURE__ */ jsx37(
   "svg",
   {
     className: "h-5 w-5 flex-shrink-0",
@@ -5120,7 +5426,7 @@ var AuthLockIcon = ({ color }) => /* @__PURE__ */ jsx36(
     strokeWidth: 2,
     style: { color },
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx36(
+    children: /* @__PURE__ */ jsx37(
       "path",
       {
         d: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z",
@@ -5130,7 +5436,7 @@ var AuthLockIcon = ({ color }) => /* @__PURE__ */ jsx36(
     )
   }
 );
-var AuthWarningIcon = ({ color }) => /* @__PURE__ */ jsx36(
+var AuthWarningIcon = ({ color }) => /* @__PURE__ */ jsx37(
   "svg",
   {
     className: "h-5 w-5 flex-shrink-0 mt-0.5",
@@ -5139,7 +5445,7 @@ var AuthWarningIcon = ({ color }) => /* @__PURE__ */ jsx36(
     strokeWidth: 2,
     style: { color },
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx36(
+    children: /* @__PURE__ */ jsx37(
       "path",
       {
         d: "M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z",
@@ -5149,7 +5455,7 @@ var AuthWarningIcon = ({ color }) => /* @__PURE__ */ jsx36(
     )
   }
 );
-var AuthDocumentIcon = () => /* @__PURE__ */ jsx36(
+var AuthDocumentIcon = () => /* @__PURE__ */ jsx37(
   "svg",
   {
     className: "h-4 w-4 mr-2",
@@ -5157,7 +5463,7 @@ var AuthDocumentIcon = () => /* @__PURE__ */ jsx36(
     stroke: "currentColor",
     strokeWidth: 2,
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx36(
+    children: /* @__PURE__ */ jsx37(
       "path",
       {
         d: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
@@ -5167,7 +5473,7 @@ var AuthDocumentIcon = () => /* @__PURE__ */ jsx36(
     )
   }
 );
-var AuthDownloadIcon = () => /* @__PURE__ */ jsx36(
+var AuthDownloadIcon = () => /* @__PURE__ */ jsx37(
   "svg",
   {
     className: "h-4 w-4 mr-2",
@@ -5175,7 +5481,7 @@ var AuthDownloadIcon = () => /* @__PURE__ */ jsx36(
     stroke: "currentColor",
     strokeWidth: 2,
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx36(
+    children: /* @__PURE__ */ jsx37(
       "path",
       {
         d: "M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
@@ -5185,7 +5491,7 @@ var AuthDownloadIcon = () => /* @__PURE__ */ jsx36(
     )
   }
 );
-var AuthUserCircleIcon = () => /* @__PURE__ */ jsx36(
+var AuthUserCircleIcon = () => /* @__PURE__ */ jsx37(
   "svg",
   {
     className: "h-5 w-5",
@@ -5193,7 +5499,7 @@ var AuthUserCircleIcon = () => /* @__PURE__ */ jsx36(
     stroke: "currentColor",
     strokeWidth: "1.5",
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx36(
+    children: /* @__PURE__ */ jsx37(
       "path",
       {
         d: "M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z",
@@ -5203,7 +5509,7 @@ var AuthUserCircleIcon = () => /* @__PURE__ */ jsx36(
     )
   }
 );
-var AuthLockClosedIcon = () => /* @__PURE__ */ jsx36(
+var AuthLockClosedIcon = () => /* @__PURE__ */ jsx37(
   "svg",
   {
     className: "h-5 w-5",
@@ -5211,7 +5517,7 @@ var AuthLockClosedIcon = () => /* @__PURE__ */ jsx36(
     stroke: "currentColor",
     strokeWidth: "1.5",
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx36(
+    children: /* @__PURE__ */ jsx37(
       "path",
       {
         d: "M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z",
@@ -5221,7 +5527,7 @@ var AuthLockClosedIcon = () => /* @__PURE__ */ jsx36(
     )
   }
 );
-var AuthEnvelopeIcon = () => /* @__PURE__ */ jsx36(
+var AuthEnvelopeIcon = () => /* @__PURE__ */ jsx37(
   "svg",
   {
     className: "h-5 w-5",
@@ -5229,7 +5535,7 @@ var AuthEnvelopeIcon = () => /* @__PURE__ */ jsx36(
     stroke: "currentColor",
     strokeWidth: "1.5",
     viewBox: "0 0 24 24",
-    children: /* @__PURE__ */ jsx36(
+    children: /* @__PURE__ */ jsx37(
       "path",
       {
         d: "M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75",
@@ -5254,9 +5560,9 @@ var get_auth_primary_button_style = (is_dark, is_disabled) => ({
 });
 
 // src/form/form.tsx
-import { jsx as jsx37 } from "react/jsx-runtime";
+import { jsx as jsx38 } from "react/jsx-runtime";
 function FieldLabel({ children, className, htmlFor }) {
-  return /* @__PURE__ */ jsx37(
+  return /* @__PURE__ */ jsx38(
     "label",
     {
       htmlFor,
@@ -5266,10 +5572,10 @@ function FieldLabel({ children, className, htmlFor }) {
   );
 }
 function FieldHint({ children, className }) {
-  return /* @__PURE__ */ jsx37("p", { className: `text-xs mt-1.5 text-txt-muted ${className ?? ""}`, children });
+  return /* @__PURE__ */ jsx38("p", { className: `text-xs mt-1.5 text-txt-muted ${className ?? ""}`, children });
 }
 function ErrorBanner({ message, className }) {
-  return /* @__PURE__ */ jsx37(
+  return /* @__PURE__ */ jsx38(
     "div",
     {
       className: `p-3 rounded-[10px] text-sm border border-red-500/30 bg-red-500/10 text-red-600 dark:text-red-400 ${className ?? ""}`,
@@ -5279,8 +5585,8 @@ function ErrorBanner({ message, className }) {
 }
 
 // src/input/input.tsx
-import * as React25 from "react";
-import { jsx as jsx38 } from "react/jsx-runtime";
+import * as React26 from "react";
+import { jsx as jsx39 } from "react/jsx-runtime";
 var SIZE_CLASSES = {
   sm: "aster_input_sm",
   md: "aster_input_md",
@@ -5292,16 +5598,16 @@ var STATUS_CLASSES = {
   success: "aster_input_success",
   error: "aster_input_error"
 };
-function join_classes7(...parts) {
+function join_classes8(...parts) {
   return parts.filter(Boolean).join(" ");
 }
-var Input = React25.forwardRef(
+var Input = React26.forwardRef(
   ({ className, type, size = "lg", status = "default", ...props }, ref) => {
-    return /* @__PURE__ */ jsx38(
+    return /* @__PURE__ */ jsx39(
       "input",
       {
         ref,
-        className: join_classes7(
+        className: join_classes8(
           "aster_input",
           SIZE_CLASSES[size],
           STATUS_CLASSES[status],
@@ -5316,39 +5622,39 @@ var Input = React25.forwardRef(
 Input.displayName = "Input";
 
 // src/radio_group/radio_group.tsx
-import * as React26 from "react";
+import * as React27 from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import { jsx as jsx39 } from "react/jsx-runtime";
-function join_classes8(...parts) {
+import { jsx as jsx40 } from "react/jsx-runtime";
+function join_classes9(...parts) {
   return parts.filter(Boolean).join(" ");
 }
-var RadioGroup = React26.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx39(
+var RadioGroup = React27.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx40(
   RadioGroupPrimitive.Root,
   {
     ref,
-    className: join_classes8("flex gap-3", className),
+    className: join_classes9("flex gap-3", className),
     ...props
   }
 ));
 RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
-var RadioGroupItem = React26.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx39(
+var RadioGroupItem = React27.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx40(
   RadioGroupPrimitive.Item,
   {
     ref,
-    className: join_classes8(
+    className: join_classes9(
       "flex items-center justify-center h-5 w-5 shrink-0 rounded-full border-2 transition-colors focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 border-edge-secondary bg-transparent data-[state=checked]:border-brand data-[state=checked]:bg-brand",
       className
     ),
     ...props,
-    children: /* @__PURE__ */ jsx39(RadioGroupPrimitive.Indicator, { className: "flex items-center justify-center", children: /* @__PURE__ */ jsx39("span", { className: "h-2 w-2 rounded-full bg-white" }) })
+    children: /* @__PURE__ */ jsx40(RadioGroupPrimitive.Indicator, { className: "flex items-center justify-center", children: /* @__PURE__ */ jsx40("span", { className: "h-2 w-2 rounded-full bg-white" }) })
   }
 ));
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
 
 // src/motion_modal/motion_modal.tsx
-import * as React27 from "react";
+import * as React28 from "react";
 import { AnimatePresence as AnimatePresence6, motion as motion6 } from "framer-motion";
-import { jsx as jsx40, jsxs as jsxs32 } from "react/jsx-runtime";
+import { jsx as jsx41, jsxs as jsxs33 } from "react/jsx-runtime";
 var cn2 = (...classes) => classes.filter(Boolean).join(" ");
 var SIZE_MAX_WIDTH = {
   sm: "max-w-[360px]",
@@ -5362,7 +5668,7 @@ function get_reduce_motion2() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 function XMarkIcon3({ className, style }) {
-  return /* @__PURE__ */ jsx40(
+  return /* @__PURE__ */ jsx41(
     "svg",
     {
       className,
@@ -5372,7 +5678,7 @@ function XMarkIcon3({ className, style }) {
       style,
       viewBox: "0 0 24 24",
       xmlns: "http://www.w3.org/2000/svg",
-      children: /* @__PURE__ */ jsx40(
+      children: /* @__PURE__ */ jsx41(
         "path",
         {
           d: "M6 18 18 6M6 6l12 12",
@@ -5393,14 +5699,14 @@ function MotionModal({
   className,
   children
 }) {
-  const [reduce_motion, set_reduce_motion] = React27.useState(get_reduce_motion2);
-  React27.useEffect(() => {
+  const [reduce_motion, set_reduce_motion] = React28.useState(get_reduce_motion2);
+  React28.useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const handle = () => set_reduce_motion(mq.matches);
     mq.addEventListener("change", handle);
     return () => mq.removeEventListener("change", handle);
   }, []);
-  React27.useEffect(() => {
+  React28.useEffect(() => {
     if (!is_open) return;
     const handle = (e) => {
       if (e.key === "Escape") on_close();
@@ -5408,13 +5714,13 @@ function MotionModal({
     document.addEventListener("keydown", handle);
     return () => document.removeEventListener("keydown", handle);
   }, [is_open, on_close]);
-  return /* @__PURE__ */ jsx40(AnimatePresence6, { children: is_open && /* @__PURE__ */ jsxs32(
+  return /* @__PURE__ */ jsx41(AnimatePresence6, { children: is_open && /* @__PURE__ */ jsxs33(
     "div",
     {
       className: "fixed inset-0 flex items-center justify-center",
       style: { zIndex: z_index ?? 60 },
       children: [
-        /* @__PURE__ */ jsx40(
+        /* @__PURE__ */ jsx41(
           motion6.div,
           {
             animate: { opacity: 1 },
@@ -5426,7 +5732,7 @@ function MotionModal({
             onClick: close_on_overlay ? on_close : void 0
           }
         ),
-        /* @__PURE__ */ jsxs32(
+        /* @__PURE__ */ jsxs33(
           motion6.div,
           {
             animate: { opacity: 1, scale: 1, y: 0 },
@@ -5448,7 +5754,7 @@ function MotionModal({
             },
             onClick: (e) => e.stopPropagation(),
             children: [
-              show_close_button && /* @__PURE__ */ jsx40(
+              show_close_button && /* @__PURE__ */ jsx41(
                 "button",
                 {
                   "aria-label": "Close",
@@ -5456,7 +5762,7 @@ function MotionModal({
                   style: { width: 28, height: 28, padding: 0 },
                   type: "button",
                   onClick: on_close,
-                  children: /* @__PURE__ */ jsx40(
+                  children: /* @__PURE__ */ jsx41(
                     XMarkIcon3,
                     {
                       className: "text-txt-secondary",
@@ -5478,7 +5784,7 @@ function MotionModalHeader({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ jsx40(
+  return /* @__PURE__ */ jsx41(
     "div",
     {
       className: cn2(
@@ -5495,7 +5801,7 @@ function MotionModalTitle({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ jsx40(
+  return /* @__PURE__ */ jsx41(
     "h3",
     {
       className: cn2(
@@ -5512,7 +5818,7 @@ function MotionModalDescription({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ jsx40(
+  return /* @__PURE__ */ jsx41(
     "p",
     {
       className: cn2(
@@ -5529,7 +5835,7 @@ function MotionModalBody({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ jsx40(
+  return /* @__PURE__ */ jsx41(
     "div",
     {
       className: cn2("aster_modal_body px-5 pb-5", className),
@@ -5543,7 +5849,7 @@ function MotionModalFooter({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ jsx40(
+  return /* @__PURE__ */ jsx41(
     "div",
     {
       className: cn2(
@@ -5560,7 +5866,7 @@ function MotionModalActions({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ jsx40(
+  return /* @__PURE__ */ jsx41(
     "div",
     {
       className: cn2(
@@ -5574,8 +5880,8 @@ function MotionModalActions({
 }
 
 // src/confirmation_modal/confirmation_modal.tsx
-import * as React28 from "react";
-import { jsx as jsx41, jsxs as jsxs33 } from "react/jsx-runtime";
+import * as React29 from "react";
+import { jsx as jsx42, jsxs as jsxs34 } from "react/jsx-runtime";
 var VARIANT_MAP = {
   danger: "destructive",
   warning: "destructive",
@@ -5596,9 +5902,9 @@ function ConfirmationModal({
   saving_text
 }) {
   const button_variant = VARIANT_MAP[variant];
-  const [dont_ask, set_dont_ask] = React28.useState(false);
-  const [is_saving, set_is_saving] = React28.useState(false);
-  React28.useEffect(() => {
+  const [dont_ask, set_dont_ask] = React29.useState(false);
+  const [is_saving, set_is_saving] = React29.useState(false);
+  React29.useEffect(() => {
     if (!is_open) {
       set_dont_ask(false);
       set_is_saving(false);
@@ -5615,7 +5921,7 @@ function ConfirmationModal({
     }
     on_confirm();
   };
-  return /* @__PURE__ */ jsxs33(
+  return /* @__PURE__ */ jsxs34(
     Modal,
     {
       is_open,
@@ -5623,17 +5929,17 @@ function ConfirmationModal({
       show_close_button: false,
       size: "sm",
       children: [
-        /* @__PURE__ */ jsxs33(ModalHeader, { children: [
-          /* @__PURE__ */ jsx41(ModalTitle, { children: title }),
-          /* @__PURE__ */ jsx41(ModalDescription, { children: message })
+        /* @__PURE__ */ jsxs34(ModalHeader, { children: [
+          /* @__PURE__ */ jsx42(ModalTitle, { children: title }),
+          /* @__PURE__ */ jsx42(ModalDescription, { children: message })
         ] }),
-        show_dont_ask_again && dont_ask_again_label && /* @__PURE__ */ jsx41("div", { className: "px-6 pb-2", children: /* @__PURE__ */ jsxs33(
+        show_dont_ask_again && dont_ask_again_label && /* @__PURE__ */ jsx42("div", { className: "px-6 pb-2", children: /* @__PURE__ */ jsxs34(
           "label",
           {
             className: "inline-flex items-center gap-2 cursor-pointer select-none",
             htmlFor: "aster-ui-dont-ask-again",
             children: [
-              /* @__PURE__ */ jsx41(
+              /* @__PURE__ */ jsx42(
                 Checkbox,
                 {
                   checked: dont_ask,
@@ -5641,7 +5947,7 @@ function ConfirmationModal({
                   onCheckedChange: (checked) => set_dont_ask(checked === true)
                 }
               ),
-              /* @__PURE__ */ jsx41(
+              /* @__PURE__ */ jsx42(
                 "span",
                 {
                   className: "text-[13px]",
@@ -5652,8 +5958,8 @@ function ConfirmationModal({
             ]
           }
         ) }),
-        /* @__PURE__ */ jsxs33(ModalFooter, { children: [
-          /* @__PURE__ */ jsx41(
+        /* @__PURE__ */ jsxs34(ModalFooter, { children: [
+          /* @__PURE__ */ jsx42(
             Button,
             {
               className: "max-sm:flex-1",
@@ -5663,7 +5969,7 @@ function ConfirmationModal({
               children: cancel_text
             }
           ),
-          /* @__PURE__ */ jsx41(
+          /* @__PURE__ */ jsx42(
             Button,
             {
               className: "max-sm:flex-1",
@@ -5680,15 +5986,15 @@ function ConfirmationModal({
 }
 
 // src/keyboard_shortcuts/keyboard_shortcuts_modal.tsx
-import * as React29 from "react";
+import * as React30 from "react";
 import { AnimatePresence as AnimatePresence7, motion as motion7 } from "framer-motion";
-import { jsx as jsx42, jsxs as jsxs34 } from "react/jsx-runtime";
+import { jsx as jsx43, jsxs as jsxs35 } from "react/jsx-runtime";
 function get_reduce_motion3() {
   if (typeof window === "undefined") return false;
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 function CloseIcon({ className }) {
-  return /* @__PURE__ */ jsx42(
+  return /* @__PURE__ */ jsx43(
     "svg",
     {
       "aria-hidden": "true",
@@ -5697,7 +6003,7 @@ function CloseIcon({ className }) {
       stroke: "currentColor",
       strokeWidth: 2,
       viewBox: "0 0 24 24",
-      children: /* @__PURE__ */ jsx42("path", { d: "M6 6l12 12M18 6l-12 12", strokeLinecap: "round", strokeLinejoin: "round" })
+      children: /* @__PURE__ */ jsx43("path", { d: "M6 6l12 12M18 6l-12 12", strokeLinecap: "round", strokeLinejoin: "round" })
     }
   );
 }
@@ -5715,18 +6021,18 @@ function KeyboardShortcutsModal({
   use_two_column_grid,
   render_entry_extra
 }) {
-  const [reduce_motion_state, set_reduce_motion] = React29.useState(get_reduce_motion3);
+  const [reduce_motion_state, set_reduce_motion] = React30.useState(get_reduce_motion3);
   const reduce_motion = reduce_motion_prop ?? reduce_motion_state;
-  const modal_ref = React29.useRef(null);
-  const close_button_ref = React29.useRef(null);
-  const previous_active_element = React29.useRef(null);
-  React29.useEffect(() => {
+  const modal_ref = React30.useRef(null);
+  const close_button_ref = React30.useRef(null);
+  const previous_active_element = React30.useRef(null);
+  React30.useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     const handle = () => set_reduce_motion(mq.matches);
     mq.addEventListener("change", handle);
     return () => mq.removeEventListener("change", handle);
   }, []);
-  React29.useEffect(() => {
+  React30.useEffect(() => {
     if (is_open) {
       previous_active_element.current = document.activeElement;
       close_button_ref.current?.focus();
@@ -5734,7 +6040,7 @@ function KeyboardShortcutsModal({
       previous_active_element.current.focus();
     }
   }, [is_open]);
-  React29.useEffect(() => {
+  React30.useEffect(() => {
     if (!is_open) return;
     const handle_keydown = (e) => {
       if (e.key === "Escape") {
@@ -5764,12 +6070,12 @@ function KeyboardShortcutsModal({
       document.removeEventListener("keydown", handle_keydown, { capture: true });
     };
   }, [is_open, on_close]);
-  const sections = React29.useMemo(() => {
+  const sections = React30.useMemo(() => {
     if (is_section_list(shortcuts)) return shortcuts;
     return [{ title: "", shortcuts }];
   }, [shortcuts]);
   const has_section_titles = sections.some((s) => s.title);
-  return /* @__PURE__ */ jsx42(AnimatePresence7, { children: is_open && /* @__PURE__ */ jsxs34(
+  return /* @__PURE__ */ jsx43(AnimatePresence7, { children: is_open && /* @__PURE__ */ jsxs35(
     motion7.div,
     {
       animate: { opacity: 1 },
@@ -5781,7 +6087,7 @@ function KeyboardShortcutsModal({
       role: "dialog",
       transition: { duration: reduce_motion ? 0 : 0.15 },
       children: [
-        /* @__PURE__ */ jsx42(
+        /* @__PURE__ */ jsx43(
           motion7.div,
           {
             "aria-hidden": "true",
@@ -5790,7 +6096,7 @@ function KeyboardShortcutsModal({
             onClick: on_close
           }
         ),
-        /* @__PURE__ */ jsxs34(
+        /* @__PURE__ */ jsxs35(
           motion7.div,
           {
             ref: modal_ref,
@@ -5805,13 +6111,13 @@ function KeyboardShortcutsModal({
             },
             transition: { duration: reduce_motion ? 0 : 0.15, ease: "easeOut" },
             children: [
-              /* @__PURE__ */ jsxs34(
+              /* @__PURE__ */ jsxs35(
                 "div",
                 {
                   className: "flex items-center justify-between px-6 py-4",
                   style: { borderBottom: "1px solid var(--border-secondary)" },
                   children: [
-                    /* @__PURE__ */ jsx42(
+                    /* @__PURE__ */ jsx43(
                       "h2",
                       {
                         className: "text-[16px] font-semibold",
@@ -5820,9 +6126,9 @@ function KeyboardShortcutsModal({
                         children: t_strings.title
                       }
                     ),
-                    /* @__PURE__ */ jsxs34("div", { className: "flex items-center gap-4", children: [
+                    /* @__PURE__ */ jsxs35("div", { className: "flex items-center gap-4", children: [
                       header_right_slot,
-                      /* @__PURE__ */ jsx42(
+                      /* @__PURE__ */ jsx43(
                         "button",
                         {
                           ref: close_button_ref,
@@ -5831,14 +6137,14 @@ function KeyboardShortcutsModal({
                           style: { color: "var(--text-muted)" },
                           onClick: on_close,
                           type: "button",
-                          children: /* @__PURE__ */ jsx42(CloseIcon, { className: "w-5 h-5" })
+                          children: /* @__PURE__ */ jsx43(CloseIcon, { className: "w-5 h-5" })
                         }
                       )
                     ] })
                   ]
                 }
               ),
-              /* @__PURE__ */ jsxs34(
+              /* @__PURE__ */ jsxs35(
                 "div",
                 {
                   className: "relative overflow-y-auto px-6 py-5",
@@ -5848,12 +6154,12 @@ function KeyboardShortcutsModal({
                   },
                   children: [
                     disabled_overlay,
-                    /* @__PURE__ */ jsx42(
+                    /* @__PURE__ */ jsx43(
                       "div",
                       {
                         className: use_two_column_grid ?? has_section_titles ? "grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-6" : "space-y-1",
-                        children: sections.map((section, idx) => /* @__PURE__ */ jsxs34("div", { children: [
-                          section.title && /* @__PURE__ */ jsx42(
+                        children: sections.map((section, idx) => /* @__PURE__ */ jsxs35("div", { children: [
+                          section.title && /* @__PURE__ */ jsx43(
                             "h3",
                             {
                               className: "text-[11px] font-semibold uppercase tracking-wider mb-3 pb-2",
@@ -5864,12 +6170,12 @@ function KeyboardShortcutsModal({
                               children: section.title
                             }
                           ),
-                          /* @__PURE__ */ jsx42("div", { className: "space-y-1", children: section.shortcuts.map((entry, eidx) => /* @__PURE__ */ jsxs34(
+                          /* @__PURE__ */ jsx43("div", { className: "space-y-1", children: section.shortcuts.map((entry, eidx) => /* @__PURE__ */ jsxs35(
                             "div",
                             {
                               className: "flex items-center justify-between py-1.5",
                               children: [
-                                /* @__PURE__ */ jsx42(
+                                /* @__PURE__ */ jsx43(
                                   "span",
                                   {
                                     className: "text-[13px]",
@@ -5877,8 +6183,8 @@ function KeyboardShortcutsModal({
                                     children: entry.label
                                   }
                                 ),
-                                /* @__PURE__ */ jsxs34("div", { className: "flex items-center gap-2 ml-4", children: [
-                                  /* @__PURE__ */ jsx42("div", { className: "flex items-center gap-0.5", children: entry.keys.map((key, kidx) => /* @__PURE__ */ jsx42(
+                                /* @__PURE__ */ jsxs35("div", { className: "flex items-center gap-2 ml-4", children: [
+                                  /* @__PURE__ */ jsx43("div", { className: "flex items-center gap-0.5", children: entry.keys.map((key, kidx) => /* @__PURE__ */ jsx43(
                                     "kbd",
                                     {
                                       className: "min-w-[22px] h-[22px] px-1.5 rounded flex items-center justify-center text-[11px] font-medium",
@@ -5904,7 +6210,7 @@ function KeyboardShortcutsModal({
                   ]
                 }
               ),
-              (t_strings.press_label || t_strings.platform_label) && /* @__PURE__ */ jsxs34(
+              (t_strings.press_label || t_strings.platform_label) && /* @__PURE__ */ jsxs35(
                 "div",
                 {
                   className: "px-6 py-3 flex items-center justify-between text-[12px]",
@@ -5914,9 +6220,9 @@ function KeyboardShortcutsModal({
                     backgroundColor: "var(--bg-secondary)"
                   },
                   children: [
-                    /* @__PURE__ */ jsx42("div", { className: "flex items-center gap-4", children: t_strings.press_label && t_strings.anywhere_to_open && /* @__PURE__ */ jsxs34("span", { className: "flex items-center gap-2", children: [
+                    /* @__PURE__ */ jsx43("div", { className: "flex items-center gap-4", children: t_strings.press_label && t_strings.anywhere_to_open && /* @__PURE__ */ jsxs35("span", { className: "flex items-center gap-2", children: [
                       t_strings.press_label,
-                      /* @__PURE__ */ jsx42(
+                      /* @__PURE__ */ jsx43(
                         "kbd",
                         {
                           className: "min-w-[20px] h-[18px] px-1.5 rounded flex items-center justify-center text-[10px] font-medium",
@@ -5930,9 +6236,9 @@ function KeyboardShortcutsModal({
                       ),
                       t_strings.anywhere_to_open
                     ] }) }),
-                    t_strings.platform_label && /* @__PURE__ */ jsxs34("div", { className: "flex items-center gap-2", children: [
-                      t_strings.platform_prefix && /* @__PURE__ */ jsx42("span", { children: t_strings.platform_prefix }),
-                      /* @__PURE__ */ jsx42(
+                    t_strings.platform_label && /* @__PURE__ */ jsxs35("div", { className: "flex items-center gap-2", children: [
+                      t_strings.platform_prefix && /* @__PURE__ */ jsx43("span", { children: t_strings.platform_prefix }),
+                      /* @__PURE__ */ jsx43(
                         "span",
                         {
                           className: "px-2 py-0.5 rounded font-medium",
@@ -5953,10 +6259,10 @@ function KeyboardShortcutsModal({
 }
 
 // src/dropdown_menu/dropdown_menu.tsx
-import * as React30 from "react";
+import * as React31 from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { CheckIcon as CheckIcon6, ChevronRightIcon } from "@heroicons/react/24/outline";
-import { jsx as jsx43, jsxs as jsxs35 } from "react/jsx-runtime";
+import { jsx as jsx44, jsxs as jsxs36 } from "react/jsx-runtime";
 function cn3(...parts) {
   return parts.filter(Boolean).join(" ");
 }
@@ -5966,7 +6272,7 @@ var DropdownMenuGroup = DropdownMenuPrimitive.Group;
 var DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 var DropdownMenuSub = DropdownMenuPrimitive.Sub;
 var DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
-var DropdownMenuSubTrigger = React30.forwardRef(({ className, inset, children, ...props }, ref) => /* @__PURE__ */ jsxs35(
+var DropdownMenuSubTrigger = React31.forwardRef(({ className, inset, children, ...props }, ref) => /* @__PURE__ */ jsxs36(
   DropdownMenuPrimitive.SubTrigger,
   {
     ref,
@@ -5978,12 +6284,12 @@ var DropdownMenuSubTrigger = React30.forwardRef(({ className, inset, children, .
     ...props,
     children: [
       children,
-      /* @__PURE__ */ jsx43(ChevronRightIcon, { className: "ml-auto h-4 w-4" })
+      /* @__PURE__ */ jsx44(ChevronRightIcon, { className: "ml-auto h-4 w-4" })
     ]
   }
 ));
 DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
-var DropdownMenuSubContent = React30.forwardRef(({ className, style, ...props }, ref) => /* @__PURE__ */ jsx43(
+var DropdownMenuSubContent = React31.forwardRef(({ className, style, ...props }, ref) => /* @__PURE__ */ jsx44(
   DropdownMenuPrimitive.SubContent,
   {
     ref,
@@ -6001,7 +6307,7 @@ var DropdownMenuSubContent = React30.forwardRef(({ className, style, ...props },
   }
 ));
 DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
-var DropdownMenuContent = React30.forwardRef(({ className, sideOffset = 4, style, ...props }, ref) => /* @__PURE__ */ jsx43(DropdownMenuPrimitive.Portal, { children: /* @__PURE__ */ jsx43(
+var DropdownMenuContent = React31.forwardRef(({ className, sideOffset = 4, style, ...props }, ref) => /* @__PURE__ */ jsx44(DropdownMenuPrimitive.Portal, { children: /* @__PURE__ */ jsx44(
   DropdownMenuPrimitive.Content,
   {
     ref,
@@ -6020,7 +6326,7 @@ var DropdownMenuContent = React30.forwardRef(({ className, sideOffset = 4, style
   }
 ) }));
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
-var DropdownMenuItem = React30.forwardRef(({ className, inset, ...props }, ref) => /* @__PURE__ */ jsx43(
+var DropdownMenuItem = React31.forwardRef(({ className, inset, ...props }, ref) => /* @__PURE__ */ jsx44(
   DropdownMenuPrimitive.Item,
   {
     ref,
@@ -6033,7 +6339,7 @@ var DropdownMenuItem = React30.forwardRef(({ className, inset, ...props }, ref) 
   }
 ));
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
-var DropdownMenuCheckboxItem = React30.forwardRef(({ className, children, checked, ...props }, ref) => /* @__PURE__ */ jsxs35(
+var DropdownMenuCheckboxItem = React31.forwardRef(({ className, children, checked, ...props }, ref) => /* @__PURE__ */ jsxs36(
   DropdownMenuPrimitive.CheckboxItem,
   {
     ref,
@@ -6044,13 +6350,13 @@ var DropdownMenuCheckboxItem = React30.forwardRef(({ className, children, checke
     ),
     ...props,
     children: [
-      /* @__PURE__ */ jsx43("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx43(DropdownMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx43(CheckIcon6, { className: "h-4 w-4" }) }) }),
+      /* @__PURE__ */ jsx44("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx44(DropdownMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx44(CheckIcon6, { className: "h-4 w-4" }) }) }),
       children
     ]
   }
 ));
 DropdownMenuCheckboxItem.displayName = DropdownMenuPrimitive.CheckboxItem.displayName;
-var DropdownMenuRadioItem = React30.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxs35(
+var DropdownMenuRadioItem = React31.forwardRef(({ className, children, ...props }, ref) => /* @__PURE__ */ jsxs36(
   DropdownMenuPrimitive.RadioItem,
   {
     ref,
@@ -6060,13 +6366,13 @@ var DropdownMenuRadioItem = React30.forwardRef(({ className, children, ...props 
     ),
     ...props,
     children: [
-      /* @__PURE__ */ jsx43("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx43(DropdownMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx43("span", { className: "h-2 w-2 rounded-full bg-current" }) }) }),
+      /* @__PURE__ */ jsx44("span", { className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center", children: /* @__PURE__ */ jsx44(DropdownMenuPrimitive.ItemIndicator, { children: /* @__PURE__ */ jsx44("span", { className: "h-2 w-2 rounded-full bg-current" }) }) }),
       children
     ]
   }
 ));
 DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
-var DropdownMenuLabel = React30.forwardRef(({ className, inset, ...props }, ref) => /* @__PURE__ */ jsx43(
+var DropdownMenuLabel = React31.forwardRef(({ className, inset, ...props }, ref) => /* @__PURE__ */ jsx44(
   DropdownMenuPrimitive.Label,
   {
     ref,
@@ -6079,7 +6385,7 @@ var DropdownMenuLabel = React30.forwardRef(({ className, inset, ...props }, ref)
   }
 ));
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
-var DropdownMenuSeparator = React30.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx43(
+var DropdownMenuSeparator = React31.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx44(
   DropdownMenuPrimitive.Separator,
   {
     ref,
@@ -6093,7 +6399,7 @@ var DropdownMenuShortcut = ({
   className,
   ...props
 }) => {
-  return /* @__PURE__ */ jsx43(
+  return /* @__PURE__ */ jsx44(
     "span",
     {
       className: cn3("ml-auto text-xs tracking-widest opacity-60", className),
@@ -6104,9 +6410,9 @@ var DropdownMenuShortcut = ({
 DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
 
 // src/context_menu/context_menu.tsx
-import * as React31 from "react";
+import * as React32 from "react";
 import { AnimatePresence as AnimatePresence8, motion as motion8 } from "framer-motion";
-import { jsx as jsx44, jsxs as jsxs36 } from "react/jsx-runtime";
+import { jsx as jsx45, jsxs as jsxs37 } from "react/jsx-runtime";
 function ContextMenu({
   items,
   position,
@@ -6114,13 +6420,13 @@ function ContextMenu({
   min_width = 180,
   origin = "top-left"
 }) {
-  const menu_ref = React31.useRef(null);
-  const [focused_index, set_focused_index] = React31.useState(-1);
-  const [resolved, set_resolved] = React31.useState({
+  const menu_ref = React32.useRef(null);
+  const [focused_index, set_focused_index] = React32.useState(-1);
+  const [resolved, set_resolved] = React32.useState({
     left: position.x,
     top: position.y
   });
-  React31.useEffect(() => {
+  React32.useEffect(() => {
     if (typeof window === "undefined") return;
     const el = menu_ref.current;
     if (!el) return;
@@ -6138,7 +6444,7 @@ function ContextMenu({
     if (top < 8) top = 8;
     set_resolved({ left, top });
   }, [position.x, position.y, origin]);
-  React31.useEffect(() => {
+  React32.useEffect(() => {
     const handle_mousedown = (e) => {
       if (menu_ref.current && !menu_ref.current.contains(e.target)) {
         on_close();
@@ -6201,7 +6507,7 @@ function ContextMenu({
       document.removeEventListener("keydown", handle_keydown);
     };
   }, [items, focused_index, on_close]);
-  return /* @__PURE__ */ jsx44(AnimatePresence8, { children: /* @__PURE__ */ jsx44(
+  return /* @__PURE__ */ jsx45(AnimatePresence8, { children: /* @__PURE__ */ jsx45(
     motion8.div,
     {
       ref: menu_ref,
@@ -6218,7 +6524,7 @@ function ContextMenu({
       },
       transition: { duration: 0.12, ease: "easeOut" },
       onContextMenu: (e) => e.preventDefault(),
-      children: items.map((item, idx) => /* @__PURE__ */ jsxs36(
+      children: items.map((item, idx) => /* @__PURE__ */ jsxs37(
         "button",
         {
           className: "w-full px-3 py-2 text-left text-sm flex items-center gap-2 hover:bg-[var(--bg-hover)] disabled:opacity-50 disabled:cursor-not-allowed",
@@ -6238,9 +6544,9 @@ function ContextMenu({
           },
           onMouseEnter: () => set_focused_index(idx),
           children: [
-            item.icon && /* @__PURE__ */ jsx44("span", { className: "flex items-center justify-center w-4 h-4 flex-shrink-0", children: item.icon }),
-            /* @__PURE__ */ jsx44("span", { className: "flex-1 truncate", children: item.label }),
-            item.trailing && /* @__PURE__ */ jsx44("span", { className: "ml-auto", children: item.trailing })
+            item.icon && /* @__PURE__ */ jsx45("span", { className: "flex items-center justify-center w-4 h-4 flex-shrink-0", children: item.icon }),
+            /* @__PURE__ */ jsx45("span", { className: "flex-1 truncate", children: item.label }),
+            item.trailing && /* @__PURE__ */ jsx45("span", { className: "ml-auto", children: item.trailing })
           ]
         },
         item.id
@@ -6251,7 +6557,7 @@ function ContextMenu({
 
 // src/full_page_loader/full_page_loader.tsx
 import { useEffect as useEffect15, useState as useState15 } from "react";
-import { jsx as jsx45, jsxs as jsxs37 } from "react/jsx-runtime";
+import { jsx as jsx46, jsxs as jsxs38 } from "react/jsx-runtime";
 var active_count = 0;
 function dismiss_loader() {
   const el = document.getElementById("initial-loader");
@@ -6276,8 +6582,8 @@ function FullPageLoader() {
     };
   }, []);
   if (has_static) return null;
-  return /* @__PURE__ */ jsx45("div", { className: "full-page-loader bg-surf-secondary", children: /* @__PURE__ */ jsxs37("div", { className: "full-page-loader-content", children: [
-    /* @__PURE__ */ jsx45(
+  return /* @__PURE__ */ jsx46("div", { className: "full-page-loader bg-surf-secondary", children: /* @__PURE__ */ jsxs38("div", { className: "full-page-loader-content", children: [
+    /* @__PURE__ */ jsx46(
       "img",
       {
         alt: "Aster",
@@ -6286,12 +6592,12 @@ function FullPageLoader() {
         src: "/text_logo.png"
       }
     ),
-    /* @__PURE__ */ jsx45("div", { className: "loader-spinner" })
+    /* @__PURE__ */ jsx46("div", { className: "loader-spinner" })
   ] }) });
 }
 
 // src/count_badge/count_badge.tsx
-import { jsx as jsx46 } from "react/jsx-runtime";
+import { jsx as jsx47 } from "react/jsx-runtime";
 function CountBadge({
   count,
   show_zero = false,
@@ -6300,7 +6606,7 @@ function CountBadge({
   className = ""
 }) {
   if (is_loading) {
-    return /* @__PURE__ */ jsx46(
+    return /* @__PURE__ */ jsx47(
       "span",
       {
         className: `inline-block w-5 h-3 rounded-sm animate-pulse bg-current opacity-10 ${className}`
@@ -6311,7 +6617,7 @@ function CountBadge({
     return null;
   }
   const display_value = count.toLocaleString();
-  return /* @__PURE__ */ jsx46(
+  return /* @__PURE__ */ jsx47(
     "span",
     {
       className: `text-[12px] font-medium tabular-nums ${is_active ? "text-txt-secondary" : "text-txt-muted"} ${className}`,
@@ -6321,19 +6627,21 @@ function CountBadge({
 }
 
 // src/setting_row/setting_row.tsx
-import { jsx as jsx47, jsxs as jsxs38 } from "react/jsx-runtime";
+import { jsx as jsx48 } from "react/jsx-runtime";
 function SettingRow({ label, description, children }) {
-  return /* @__PURE__ */ jsxs38("div", { className: "flex items-center justify-between py-4", children: [
-    /* @__PURE__ */ jsxs38("div", { className: "flex-1 pr-4", children: [
-      /* @__PURE__ */ jsx47("p", { className: "text-sm font-medium text-txt-primary", children: label }),
-      /* @__PURE__ */ jsx47("p", { className: "text-sm mt-0.5 text-txt-muted", children: description })
-    ] }),
-    /* @__PURE__ */ jsx47("div", { className: "flex-shrink-0", children })
-  ] });
+  return /* @__PURE__ */ jsx48(
+    IslandRow,
+    {
+      description,
+      label,
+      layout: "stacked",
+      trailing: children
+    }
+  );
 }
 
 // src/radio_row_with_description/radio_row_with_description.tsx
-import { jsx as jsx48, jsxs as jsxs39 } from "react/jsx-runtime";
+import { jsx as jsx49, jsxs as jsxs39 } from "react/jsx-runtime";
 function RadioRowWithDescription({
   label,
   description,
@@ -6348,17 +6656,17 @@ function RadioRowWithDescription({
       onClick: on_select,
       children: [
         /* @__PURE__ */ jsxs39("div", { className: "text-left", children: [
-          /* @__PURE__ */ jsx48("span", { className: "text-sm font-medium block text-txt-primary", children: label }),
-          /* @__PURE__ */ jsx48("span", { className: "text-xs mt-0.5 block text-txt-muted", children: description })
+          /* @__PURE__ */ jsx49("span", { className: "text-sm font-medium block text-txt-primary", children: label }),
+          /* @__PURE__ */ jsx49("span", { className: "text-xs mt-0.5 block text-txt-muted", children: description })
         ] }),
-        /* @__PURE__ */ jsx48("span", { className: "pointer-events-none flex-shrink-0 ml-3", children: /* @__PURE__ */ jsx48(Radio, { readOnly: true, checked: is_selected }) })
+        /* @__PURE__ */ jsx49("span", { className: "pointer-events-none flex-shrink-0 ml-3", children: /* @__PURE__ */ jsx49(Radio, { readOnly: true, checked: is_selected }) })
       ]
     }
   );
 }
 
 // src/view_mode_card/view_mode_card.tsx
-import { jsx as jsx49, jsxs as jsxs40 } from "react/jsx-runtime";
+import { jsx as jsx50, jsxs as jsxs40 } from "react/jsx-runtime";
 function ViewModeCard({
   mode,
   label,
@@ -6367,9 +6675,9 @@ function ViewModeCard({
   theme
 }) {
   const get_mockup = () => {
-    if (mode === "popup") return /* @__PURE__ */ jsx49(ViewMockupPopup, { theme });
-    if (mode === "split") return /* @__PURE__ */ jsx49(ViewMockupSplit, { theme });
-    return /* @__PURE__ */ jsx49(ViewMockupFullpage, { theme });
+    if (mode === "popup") return /* @__PURE__ */ jsx50(ViewMockupPopup, { theme });
+    if (mode === "split") return /* @__PURE__ */ jsx50(ViewMockupSplit, { theme });
+    return /* @__PURE__ */ jsx50(ViewMockupFullpage, { theme });
   };
   const get_border_color = () => {
     if (theme === "light") return "1px solid #e5e5e5";
@@ -6382,7 +6690,7 @@ function ViewModeCard({
       type: "button",
       onClick: on_select,
       children: [
-        /* @__PURE__ */ jsx49(
+        /* @__PURE__ */ jsx50(
           "div",
           {
             className: "w-full aspect-[4/3] rounded-lg overflow-hidden mb-3",
@@ -6391,8 +6699,8 @@ function ViewModeCard({
           }
         ),
         /* @__PURE__ */ jsxs40("div", { className: "flex items-center justify-between", children: [
-          /* @__PURE__ */ jsx49("span", { className: "text-sm font-medium text-txt-primary", children: label }),
-          /* @__PURE__ */ jsx49("span", { className: "pointer-events-none flex-shrink-0", children: /* @__PURE__ */ jsx49(Radio, { readOnly: true, checked: is_selected }) })
+          /* @__PURE__ */ jsx50("span", { className: "text-sm font-medium text-txt-primary", children: label }),
+          /* @__PURE__ */ jsx50("span", { className: "pointer-events-none flex-shrink-0", children: /* @__PURE__ */ jsx50(Radio, { readOnly: true, checked: is_selected }) })
         ] })
       ]
     }
@@ -6400,15 +6708,15 @@ function ViewModeCard({
 }
 
 // src/alert_dialog/alert_dialog.tsx
-import * as React32 from "react";
+import * as React33 from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
-import { jsx as jsx50, jsxs as jsxs41 } from "react/jsx-runtime";
+import { jsx as jsx51, jsxs as jsxs41 } from "react/jsx-runtime";
 var cn4 = (...classes) => classes.filter(Boolean).join(" ");
 var AlertDialog = AlertDialogPrimitive.Root;
 var AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 var AlertDialogPortal = AlertDialogPrimitive.Portal;
-var AlertDialogContent = React32.forwardRef(({ className, on_overlay_click, ...props }, ref) => /* @__PURE__ */ jsxs41(AlertDialogPortal, { children: [
-  /* @__PURE__ */ jsx50(
+var AlertDialogContent = React33.forwardRef(({ className, on_overlay_click, ...props }, ref) => /* @__PURE__ */ jsxs41(AlertDialogPortal, { children: [
+  /* @__PURE__ */ jsx51(
     AlertDialogPrimitive.Overlay,
     {
       className: "fixed inset-0 z-[60] backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 duration-150",
@@ -6416,7 +6724,7 @@ var AlertDialogContent = React32.forwardRef(({ className, on_overlay_click, ...p
       onClick: on_overlay_click
     }
   ),
-  /* @__PURE__ */ jsx50(
+  /* @__PURE__ */ jsx51(
     AlertDialogPrimitive.Content,
     {
       ref,
@@ -6439,7 +6747,7 @@ AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
 var AlertDialogHeader = ({
   className,
   ...props
-}) => /* @__PURE__ */ jsx50(
+}) => /* @__PURE__ */ jsx51(
   "div",
   {
     className: cn4("flex flex-col gap-3 text-center sm:text-left", className),
@@ -6450,7 +6758,7 @@ AlertDialogHeader.displayName = "AlertDialogHeader";
 var AlertDialogFooter = ({
   className,
   ...props
-}) => /* @__PURE__ */ jsx50(
+}) => /* @__PURE__ */ jsx51(
   "div",
   {
     className: cn4(
@@ -6461,7 +6769,7 @@ var AlertDialogFooter = ({
   }
 );
 AlertDialogFooter.displayName = "AlertDialogFooter";
-var AlertDialogTitle = React32.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx50(
+var AlertDialogTitle = React33.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx51(
   AlertDialogPrimitive.Title,
   {
     ref,
@@ -6471,7 +6779,7 @@ var AlertDialogTitle = React32.forwardRef(({ className, ...props }, ref) => /* @
   }
 ));
 AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName;
-var AlertDialogDescription = React32.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx50(
+var AlertDialogDescription = React33.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx51(
   AlertDialogPrimitive.Description,
   {
     ref,
@@ -6481,7 +6789,7 @@ var AlertDialogDescription = React32.forwardRef(({ className, ...props }, ref) =
   }
 ));
 AlertDialogDescription.displayName = AlertDialogPrimitive.Description.displayName;
-var AlertDialogAction = React32.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx50(
+var AlertDialogAction = React33.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx51(
   AlertDialogPrimitive.Action,
   {
     ref,
@@ -6490,7 +6798,7 @@ var AlertDialogAction = React32.forwardRef(({ className, ...props }, ref) => /* 
   }
 ));
 AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
-var AlertDialogCancel = React32.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx50(
+var AlertDialogCancel = React33.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsx51(
   AlertDialogPrimitive.Cancel,
   {
     ref,
@@ -6502,7 +6810,7 @@ AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;
 
 // src/external_link_warning_modal/external_link_warning_modal.tsx
 import { useState as useState16, useEffect as useEffect16, useRef as useRef11 } from "react";
-import { jsx as jsx51, jsxs as jsxs42 } from "react/jsx-runtime";
+import { jsx as jsx52, jsxs as jsxs42 } from "react/jsx-runtime";
 var ANIMATION_DURATION = 150;
 function ExternalLinkWarningModal({
   is_open,
@@ -6553,14 +6861,14 @@ function ExternalLinkWarningModal({
       return url.length > 50 ? url.slice(0, 50) + "..." : url;
     }
   };
-  return /* @__PURE__ */ jsx51(
+  return /* @__PURE__ */ jsx52(
     AlertDialog,
     {
       open: internal_open,
       onOpenChange: (open) => {
         if (!open) handle_cancel();
       },
-      children: /* @__PURE__ */ jsx51(
+      children: /* @__PURE__ */ jsx52(
         AlertDialogContent,
         {
           className: "gap-0 p-0 overflow-hidden max-w-[420px] max-sm:max-w-none max-sm:w-full max-sm:h-full max-sm:rounded-none max-sm:left-0 max-sm:top-0 max-sm:translate-x-0 max-sm:translate-y-0",
@@ -6569,7 +6877,7 @@ function ExternalLinkWarningModal({
             /* @__PURE__ */ jsxs42("div", { className: "flex-1 px-6 pt-6 pb-5 max-sm:pt-[env(safe-area-inset-top,0px)]", children: [
               /* @__PURE__ */ jsxs42(AlertDialogHeader, { className: "space-y-2", children: [
                 /* @__PURE__ */ jsxs42(AlertDialogTitle, { className: "text-[16px] font-semibold flex items-center gap-2", children: [
-                  /* @__PURE__ */ jsx51(
+                  /* @__PURE__ */ jsx52(
                     "svg",
                     {
                       xmlns: "http://www.w3.org/2000/svg",
@@ -6580,7 +6888,7 @@ function ExternalLinkWarningModal({
                       className: "w-5 h-5",
                       style: { color: "var(--text-muted)" },
                       "aria-hidden": "true",
-                      children: /* @__PURE__ */ jsx51(
+                      children: /* @__PURE__ */ jsx52(
                         "path",
                         {
                           strokeLinecap: "round",
@@ -6592,7 +6900,7 @@ function ExternalLinkWarningModal({
                   ),
                   title
                 ] }),
-                /* @__PURE__ */ jsx51(AlertDialogDescription, { className: "text-[14px] leading-normal", children: description })
+                /* @__PURE__ */ jsx52(AlertDialogDescription, { className: "text-[14px] leading-normal", children: description })
               ] }),
               /* @__PURE__ */ jsxs42(
                 "div",
@@ -6603,7 +6911,7 @@ function ExternalLinkWarningModal({
                     border: "1px solid var(--border-secondary)"
                   },
                   children: [
-                    /* @__PURE__ */ jsx51(
+                    /* @__PURE__ */ jsx52(
                       "p",
                       {
                         className: "text-[13px] font-medium",
@@ -6611,7 +6919,7 @@ function ExternalLinkWarningModal({
                         children: get_display_hostname()
                       }
                     ),
-                    /* @__PURE__ */ jsx51(
+                    /* @__PURE__ */ jsx52(
                       "p",
                       {
                         className: "text-[12px] break-all mt-1.5 max-h-[30vh] overflow-y-auto",
@@ -6628,7 +6936,7 @@ function ExternalLinkWarningModal({
                   className: "inline-flex items-center gap-2 cursor-pointer select-none mt-5",
                   htmlFor: "external-link-dont-show-checkbox",
                   children: [
-                    /* @__PURE__ */ jsx51(
+                    /* @__PURE__ */ jsx52(
                       Checkbox,
                       {
                         checked: dont_show_again,
@@ -6636,7 +6944,7 @@ function ExternalLinkWarningModal({
                         onCheckedChange: (checked) => set_dont_show_again(checked === true)
                       }
                     ),
-                    /* @__PURE__ */ jsx51(
+                    /* @__PURE__ */ jsx52(
                       "span",
                       {
                         className: "text-[13px]",
@@ -6649,7 +6957,7 @@ function ExternalLinkWarningModal({
               )
             ] }),
             /* @__PURE__ */ jsxs42(AlertDialogFooter, { className: "flex-row gap-3 px-6 pb-6 pt-2 sm:justify-end max-sm:pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)]", children: [
-              /* @__PURE__ */ jsx51(
+              /* @__PURE__ */ jsx52(
                 Button,
                 {
                   className: "mt-0 max-sm:flex-1",
@@ -6659,7 +6967,7 @@ function ExternalLinkWarningModal({
                   children: cancel_label
                 }
               ),
-              /* @__PURE__ */ jsx51(
+              /* @__PURE__ */ jsx52(
                 Button,
                 {
                   className: "max-sm:flex-1",
@@ -6717,7 +7025,7 @@ var button_tap = {
 
 // src/motion/color_vision_filters.tsx
 import { useEffect as useEffect17 } from "react";
-import { jsx as jsx52, jsxs as jsxs43 } from "react/jsx-runtime";
+import { jsx as jsx53, jsxs as jsxs43 } from "react/jsx-runtime";
 function ColorVisionFilters({ mode = "none" }) {
   useEffect17(() => {
     if (typeof document === "undefined") return;
@@ -6730,7 +7038,7 @@ function ColorVisionFilters({ mode = "none" }) {
       document.body.style.filter = "";
     };
   }, [mode]);
-  return /* @__PURE__ */ jsx52(
+  return /* @__PURE__ */ jsx53(
     "svg",
     {
       "aria-hidden": "true",
@@ -6742,7 +7050,7 @@ function ColorVisionFilters({ mode = "none" }) {
         pointerEvents: "none"
       },
       children: /* @__PURE__ */ jsxs43("defs", { children: [
-        /* @__PURE__ */ jsx52("filter", { colorInterpolationFilters: "linearRGB", id: "cv-protanopia", children: /* @__PURE__ */ jsx52(
+        /* @__PURE__ */ jsx53("filter", { colorInterpolationFilters: "linearRGB", id: "cv-protanopia", children: /* @__PURE__ */ jsx53(
           "feColorMatrix",
           {
             in: "SourceGraphic",
@@ -6750,7 +7058,7 @@ function ColorVisionFilters({ mode = "none" }) {
             values: "0.567, 0.433, 0,     0, 0\r\n                    0.558, 0.442, 0,     0, 0\r\n                    0,     0.242, 0.758, 0, 0\r\n                    0,     0,     0,     1, 0"
           }
         ) }),
-        /* @__PURE__ */ jsx52("filter", { colorInterpolationFilters: "linearRGB", id: "cv-deuteranopia", children: /* @__PURE__ */ jsx52(
+        /* @__PURE__ */ jsx53("filter", { colorInterpolationFilters: "linearRGB", id: "cv-deuteranopia", children: /* @__PURE__ */ jsx53(
           "feColorMatrix",
           {
             in: "SourceGraphic",
@@ -6758,7 +7066,7 @@ function ColorVisionFilters({ mode = "none" }) {
             values: "0.625, 0.375, 0,   0, 0\r\n                    0.7,   0.3,   0,   0, 0\r\n                    0,     0.3,   0.7, 0, 0\r\n                    0,     0,     0,   1, 0"
           }
         ) }),
-        /* @__PURE__ */ jsx52("filter", { colorInterpolationFilters: "linearRGB", id: "cv-tritanopia", children: /* @__PURE__ */ jsx52(
+        /* @__PURE__ */ jsx53("filter", { colorInterpolationFilters: "linearRGB", id: "cv-tritanopia", children: /* @__PURE__ */ jsx53(
           "feColorMatrix",
           {
             in: "SourceGraphic",
@@ -6766,7 +7074,7 @@ function ColorVisionFilters({ mode = "none" }) {
             values: "0.95, 0.05,  0,     0, 0\r\n                    0,    0.433, 0.567, 0, 0\r\n                    0,    0.475, 0.525, 0, 0\r\n                    0,    0,     0,     1, 0"
           }
         ) }),
-        /* @__PURE__ */ jsx52("filter", { colorInterpolationFilters: "linearRGB", id: "cv-achromatopsia", children: /* @__PURE__ */ jsx52(
+        /* @__PURE__ */ jsx53("filter", { colorInterpolationFilters: "linearRGB", id: "cv-achromatopsia", children: /* @__PURE__ */ jsx53(
           "feColorMatrix",
           {
             in: "SourceGraphic",
@@ -6781,7 +7089,7 @@ function ColorVisionFilters({ mode = "none" }) {
 
 // src/mobile/mobile_header.tsx
 import { memo } from "react";
-import { jsx as jsx53, jsxs as jsxs44 } from "react/jsx-runtime";
+import { jsx as jsx54, jsxs as jsxs44 } from "react/jsx-runtime";
 var MobileHeader = memo(function MobileHeader2({
   title,
   left_action,
@@ -6800,8 +7108,8 @@ var MobileHeader = memo(function MobileHeader2({
         height: typeof safe_area_top === "number" ? height + safe_area_top : `calc(${height}px + ${safe_area_top})`
       },
       children: [
-        /* @__PURE__ */ jsx53("div", { className: "flex items-center gap-1", children: left_action }),
-        /* @__PURE__ */ jsx53("div", { className: "flex-1 min-w-0 flex items-center justify-center px-2", children: center_content ? center_content : on_title_click ? /* @__PURE__ */ jsx53(
+        /* @__PURE__ */ jsx54("div", { className: "flex items-center gap-1", children: left_action }),
+        /* @__PURE__ */ jsx54("div", { className: "flex-1 min-w-0 flex items-center justify-center px-2", children: center_content ? center_content : on_title_click ? /* @__PURE__ */ jsx54(
           "button",
           {
             className: "max-w-full truncate text-lg font-semibold text-[var(--text-primary)]",
@@ -6809,8 +7117,8 @@ var MobileHeader = memo(function MobileHeader2({
             onClick: on_title_click,
             children: title
           }
-        ) : /* @__PURE__ */ jsx53("h1", { className: "max-w-full truncate text-lg font-semibold text-[var(--text-primary)]", children: title }) }),
-        /* @__PURE__ */ jsx53("div", { className: "flex shrink-0 items-center gap-1", children: right_actions })
+        ) : /* @__PURE__ */ jsx54("h1", { className: "max-w-full truncate text-lg font-semibold text-[var(--text-primary)]", children: title }) }),
+        /* @__PURE__ */ jsx54("div", { className: "flex shrink-0 items-center gap-1", children: right_actions })
       ]
     }
   );
@@ -6820,7 +7128,7 @@ var MobileHeaderIconButton = memo(function MobileHeaderIconButton2({
   children,
   "aria-label": aria_label
 }) {
-  return /* @__PURE__ */ jsx53(
+  return /* @__PURE__ */ jsx54(
     "button",
     {
       "aria-label": aria_label,
@@ -6835,7 +7143,7 @@ var MobileHeaderIconButton = memo(function MobileHeaderIconButton2({
 // src/mobile/mobile_drawer_shell.tsx
 import { useEffect as useEffect18 } from "react";
 import { motion as motion9, AnimatePresence as AnimatePresence9 } from "framer-motion";
-import { Fragment as Fragment9, jsx as jsx54, jsxs as jsxs45 } from "react/jsx-runtime";
+import { Fragment as Fragment10, jsx as jsx55, jsxs as jsxs45 } from "react/jsx-runtime";
 function MobileDrawerShell({
   is_open,
   on_close,
@@ -6861,8 +7169,8 @@ function MobileDrawerShell({
     };
   }, [is_open, lock_body_scroll]);
   const closed_x = side === "left" ? -width : width;
-  return /* @__PURE__ */ jsxs45(Fragment9, { children: [
-    /* @__PURE__ */ jsx54(AnimatePresence9, { children: is_open && /* @__PURE__ */ jsx54(
+  return /* @__PURE__ */ jsxs45(Fragment10, { children: [
+    /* @__PURE__ */ jsx55(AnimatePresence9, { children: is_open && /* @__PURE__ */ jsx55(
       motion9.div,
       {
         animate: { opacity: 1 },
@@ -6873,7 +7181,7 @@ function MobileDrawerShell({
         onClick: on_close
       }
     ) }),
-    /* @__PURE__ */ jsx54(
+    /* @__PURE__ */ jsx55(
       motion9.nav,
       {
         animate: { x: is_open ? 0 : closed_x },
@@ -6903,7 +7211,7 @@ import {
   AnimatePresence as AnimatePresence10,
   useDragControls
 } from "framer-motion";
-import { Fragment as Fragment10, jsx as jsx55, jsxs as jsxs46 } from "react/jsx-runtime";
+import { Fragment as Fragment11, jsx as jsx56, jsxs as jsxs46 } from "react/jsx-runtime";
 var MobileActionSheetShell = memo2(function MobileActionSheetShell2({
   is_open,
   on_close,
@@ -6934,8 +7242,8 @@ var MobileActionSheetShell = memo2(function MobileActionSheetShell2({
       on_close();
     }
   };
-  return /* @__PURE__ */ jsx55(AnimatePresence10, { children: is_open && /* @__PURE__ */ jsxs46(Fragment10, { children: [
-    /* @__PURE__ */ jsx55(
+  return /* @__PURE__ */ jsx56(AnimatePresence10, { children: is_open && /* @__PURE__ */ jsxs46(Fragment11, { children: [
+    /* @__PURE__ */ jsx56(
       motion10.div,
       {
         animate: { opacity: 1 },
@@ -6968,16 +7276,16 @@ var MobileActionSheetShell = memo2(function MobileActionSheetShell2({
         transition: reduce_motion ? { duration: 0 } : { type: "tween", duration: 0.25, ease: "easeOut" },
         onDragEnd: handle_drag_end,
         children: [
-          show_handle && /* @__PURE__ */ jsx55(
+          show_handle && /* @__PURE__ */ jsx56(
             "div",
             {
               className: "flex shrink-0 cursor-grab justify-center py-2 active:cursor-grabbing",
               style: { touchAction: "none" },
               onPointerDown: (e) => drag_controls.start(e),
-              children: /* @__PURE__ */ jsx55("div", { className: "h-1 w-10 rounded-full bg-[var(--text-muted)] opacity-30" })
+              children: /* @__PURE__ */ jsx56("div", { className: "h-1 w-10 rounded-full bg-[var(--text-muted)] opacity-30" })
             }
           ),
-          /* @__PURE__ */ jsx55(
+          /* @__PURE__ */ jsx56(
             "div",
             {
               className: "flex-1 overflow-y-auto overscroll-contain",
@@ -6990,6 +7298,232 @@ var MobileActionSheetShell = memo2(function MobileActionSheetShell2({
     )
   ] }) });
 });
+
+// src/island/island_controls.tsx
+import * as React34 from "react";
+import { Fragment as Fragment12, jsx as jsx57, jsxs as jsxs47 } from "react/jsx-runtime";
+function join_classes10(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+var PillButton = React34.forwardRef(
+  ({
+    variant = "filled",
+    size = "md",
+    block = false,
+    leading,
+    trailing,
+    className,
+    type = "button",
+    children,
+    ...props
+  }, ref) => /* @__PURE__ */ jsxs47(
+    "button",
+    {
+      ref,
+      className: join_classes10(
+        "aster_pill",
+        `aster_pill_${variant}`,
+        size !== "md" && `aster_pill_${size}`,
+        block && "aster_pill_block",
+        className
+      ),
+      type,
+      ...props,
+      children: [
+        leading,
+        children,
+        trailing
+      ]
+    }
+  )
+);
+PillButton.displayName = "PillButton";
+var IslandIconButton = React34.forwardRef(
+  ({ label, size = "md", active = false, className, type = "button", children, ...props }, ref) => /* @__PURE__ */ jsx57(
+    "button",
+    {
+      ref,
+      "aria-label": label,
+      "aria-pressed": active || void 0,
+      className: join_classes10(
+        "aster_island_icon_btn",
+        size !== "md" && `aster_island_icon_btn_${size}`,
+        active && "aster_island_icon_btn_active",
+        className
+      ),
+      type,
+      ...props,
+      children
+    }
+  )
+);
+IslandIconButton.displayName = "IslandIconButton";
+var IslandChip = React34.forwardRef(
+  ({ name, meta, leading, trailing, on_press, className, title, ...props }, ref) => {
+    const inner = /* @__PURE__ */ jsxs47(Fragment12, { children: [
+      leading && /* @__PURE__ */ jsx57("span", { className: "aster_island_chip_leading", children: leading }),
+      /* @__PURE__ */ jsxs47("span", { className: "aster_island_chip_text", children: [
+        /* @__PURE__ */ jsx57("span", { className: "aster_island_chip_name", children: name }),
+        meta && /* @__PURE__ */ jsx57("span", { className: "aster_island_chip_meta", children: meta })
+      ] })
+    ] });
+    if (on_press && !trailing) {
+      return /* @__PURE__ */ jsx57(
+        "button",
+        {
+          ref,
+          className: join_classes10("aster_island_chip aster_island_chip_pressable", className),
+          title,
+          type: "button",
+          onClick: on_press,
+          ...props,
+          children: inner
+        }
+      );
+    }
+    return /* @__PURE__ */ jsxs47(
+      "div",
+      {
+        ref,
+        className: join_classes10(
+          "aster_island_chip",
+          on_press && "aster_island_chip_pressable",
+          className
+        ),
+        role: on_press ? "button" : void 0,
+        tabIndex: on_press ? 0 : void 0,
+        title,
+        onClick: on_press,
+        onKeyDown: on_press ? (event) => {
+          if (event.target !== event.currentTarget) return;
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            on_press();
+          }
+        } : void 0,
+        ...props,
+        children: [
+          inner,
+          trailing && /* @__PURE__ */ jsx57(
+            "span",
+            {
+              className: "aster_island_chip_trailing",
+              onClick: (event) => event.stopPropagation(),
+              children: trailing
+            }
+          )
+        ]
+      }
+    );
+  }
+);
+IslandChip.displayName = "IslandChip";
+var IslandCountPill = React34.forwardRef(
+  ({ count, label, className, type = "button", ...props }, ref) => /* @__PURE__ */ jsx57(
+    "button",
+    {
+      ref,
+      "aria-label": label,
+      className: join_classes10("aster_island_count", className),
+      type,
+      ...props,
+      children: /* @__PURE__ */ jsx57("span", { className: "aster_island_count_pill", children: count })
+    }
+  )
+);
+IslandCountPill.displayName = "IslandCountPill";
+
+// src/island/setting_rows.tsx
+import { Fragment as Fragment13, jsx as jsx58, jsxs as jsxs48 } from "react/jsx-runtime";
+function join_classes11(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+function SettingNote({ tone = "muted", icon, children }) {
+  return /* @__PURE__ */ jsxs48(
+    "span",
+    {
+      className: join_classes11(
+        "aster_island_row_note",
+        tone === "warning" && "aster_island_row_note_warning"
+      ),
+      children: [
+        icon,
+        children
+      ]
+    }
+  );
+}
+function render_label(label, info) {
+  if (!info) return label;
+  return /* @__PURE__ */ jsxs48("span", { className: "aster_island_row_label_group", children: [
+    label,
+    info
+  ] });
+}
+function render_description(description, note) {
+  if (!note) return description;
+  return /* @__PURE__ */ jsxs48(Fragment13, { children: [
+    description,
+    note
+  ] });
+}
+function SettingToggleRow({
+  label,
+  description,
+  info,
+  note,
+  icon,
+  checked,
+  on_change,
+  disabled,
+  size = "lg",
+  className
+}) {
+  return /* @__PURE__ */ jsx58(
+    IslandRow,
+    {
+      className,
+      description: render_description(description, note),
+      disabled,
+      icon,
+      label: render_label(label, info),
+      toggle: { checked, on_change, size, aria_label: label }
+    }
+  );
+}
+function SettingControlRow({
+  label,
+  description,
+  info,
+  note,
+  icon,
+  control,
+  layout = "stacked",
+  control_width,
+  disabled,
+  className
+}) {
+  const control_node = layout === "block" ? control : /* @__PURE__ */ jsx58(
+    "span",
+    {
+      className: "aster_island_row_control",
+      style: control_width === void 0 ? void 0 : { "--aster-island-control-width": `${control_width}px` },
+      children: control
+    }
+  );
+  return /* @__PURE__ */ jsx58(
+    IslandRow,
+    {
+      className,
+      description: render_description(description, note),
+      disabled,
+      icon,
+      label: render_label(label, info),
+      layout,
+      trailing: control_node
+    }
+  );
+}
 export {
   Accordion,
   AccordionContent,
@@ -7069,6 +7603,17 @@ export {
   FieldLabel,
   FullPageLoader,
   Input,
+  Island,
+  IslandChip,
+  IslandCountPill,
+  IslandDivider,
+  IslandGrid,
+  IslandIconButton,
+  IslandPage,
+  IslandRow,
+  IslandSection,
+  IslandSections,
+  IslandStack,
   Kbd,
   KeyboardShortcutsModal,
   Marquee,
@@ -7112,6 +7657,7 @@ export {
   NavbarSearch,
   NavbarTrigger,
   NotFoundPage,
+  PillButton,
   PricingCard,
   Radio,
   RadioGroup,
@@ -7125,7 +7671,10 @@ export {
   SelectItem,
   SelectTrigger,
   SelectValue,
+  SettingControlRow,
+  SettingNote,
   SettingRow,
+  SettingToggleRow,
   SettingsModalShell,
   SettingsNavGroup,
   SettingsNavItemButton,
