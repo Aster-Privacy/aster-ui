@@ -441,7 +441,7 @@ var Button = React2.forwardRef(
     size,
     as_child = false,
     is_loading = false,
-    loading_position,
+    loading_position: _loading_position,
     disabled,
     children,
     ...props
@@ -451,8 +451,6 @@ var Button = React2.forwardRef(
     if (!is_loading || as_child) {
       return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(Comp, { className: class_name, disabled, ref, ...props, children });
     }
-    const has_label = React2.Children.toArray(children).length > 0;
-    const keep_centered = !has_label || size === "icon" || loading_position === "replace";
     return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
       Comp,
       {
@@ -463,14 +461,8 @@ var Button = React2.forwardRef(
         "data-loading": true,
         disabled: disabled || is_loading,
         children: [
-          keep_centered ? null : children,
-          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-            ButtonSpinner,
-            {
-              centered: keep_centered,
-              size: size === "sm" ? "xs" : "sm"
-            }
-          )
+          children,
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(ButtonSpinner, { centered: true, size: size === "sm" ? "xs" : "sm" })
         ]
       }
     );
@@ -1180,13 +1172,10 @@ var SelectTrigger = React12.forwardRef(({ className, children, style, ...props }
   {
     ref,
     className: cn(
-      "group flex h-10 w-full items-center justify-between gap-2 overflow-hidden rounded-lg border border-[var(--border-secondary)] bg-[var(--input-bg)] px-3 py-1.5 text-[13px] font-medium text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-hover)] hover:border-[var(--border-primary)] active:bg-[var(--bg-secondary)] data-[state=open]:bg-[var(--bg-secondary)] data-[state=open]:border-[var(--border-primary)] data-[placeholder]:font-normal data-[placeholder]:text-[var(--text-muted)] outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 disabled:cursor-not-allowed disabled:opacity-50",
+      "aster_select_trigger group flex h-10 w-full items-center justify-between gap-2 overflow-hidden rounded-full border-0 ps-4 pe-3 text-[13px] font-medium text-[var(--text-primary)] data-[placeholder]:font-normal data-[placeholder]:text-[var(--text-muted)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color)]/50 disabled:cursor-not-allowed disabled:opacity-50",
       className
     ),
-    style: {
-      boxShadow: "var(--select-shadow)",
-      ...style
-    },
+    style,
     ...props,
     children: [
       /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "min-w-0 truncate", children }),
@@ -1228,7 +1217,7 @@ var SelectContent = React12.forwardRef(({ className, children, position = "poppe
     {
       ref,
       className: cn(
-        "relative z-[70] max-h-96 min-w-[8rem] overflow-hidden rounded-xl border border-[var(--border-secondary)] bg-[var(--dropdown-bg)] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-1 data-[side=top]:slide-in-from-bottom-1",
+        "relative z-[70] max-h-96 min-w-[8rem] overflow-hidden rounded-[20px] border border-[var(--border-secondary)] bg-[var(--dropdown-bg)] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[side=bottom]:slide-in-from-top-1 data-[side=top]:slide-in-from-bottom-1",
         position === "popper" && "translate-y-1",
         className
       ),
@@ -1244,7 +1233,7 @@ var SelectContent = React12.forwardRef(({ className, children, position = "poppe
           {
             ref: viewport_ref,
             className: cn(
-              "p-1.5 max-h-[inherit] overflow-y-auto overscroll-contain",
+              "p-2 max-h-[inherit] overflow-y-auto overscroll-contain",
               position === "popper" && "w-full min-w-[var(--radix-select-trigger-width)]"
             ),
             children
@@ -1261,7 +1250,7 @@ var SelectItem = React12.forwardRef(({ className, children, ...props }, ref) => 
   {
     ref,
     className: cn(
-      "relative flex min-h-[36px] w-full cursor-pointer select-none items-center rounded-lg py-2 ps-3 pe-9 text-[13px] text-[var(--text-secondary)] outline-none transition-colors hover:bg-black/[0.06] dark:hover:bg-white/[0.06] focus:bg-black/[0.06] dark:focus:bg-white/[0.06] data-[highlighted]:bg-black/[0.06] dark:data-[highlighted]:bg-white/[0.06] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[state=checked]:text-txt-primary data-[state=checked]:font-medium",
+      "relative flex min-h-[40px] w-full cursor-pointer select-none items-center rounded-xl py-2 ps-3 pe-9 text-[13px] text-[var(--text-secondary)] outline-none transition-colors duration-100 hover:bg-black/[0.06] dark:hover:bg-white/[0.07] focus:bg-black/[0.06] dark:focus:bg-white/[0.07] data-[highlighted]:bg-black/[0.06] dark:data-[highlighted]:bg-white/[0.07] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[state=checked]:text-[var(--text-primary)] data-[state=checked]:font-medium",
       className
     ),
     ...props,
@@ -6969,7 +6958,7 @@ var DropdownMenuSubTrigger = React32.forwardRef(({ className, inset, children, .
   {
     ref,
     className: cn(
-      "flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-[var(--dropdown-hover)] data-[state=open]:bg-[var(--dropdown-hover)] [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+      "flex cursor-pointer select-none items-center gap-2.5 rounded-[10px] px-2.5 py-2 text-sm outline-none focus:bg-[var(--dropdown-hover)] data-[state=open]:bg-[var(--dropdown-hover)] [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
       inset && "ps-8",
       className
     ),
@@ -6986,7 +6975,7 @@ var DropdownMenuSubContent = React32.forwardRef(({ className, style, ...props },
   {
     ref,
     className: cn(
-      "z-[200] min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-dropdown-menu-content-transform-origin]",
+      "z-[200] min-w-[8rem] overflow-hidden rounded-[18px] border p-1.5 shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-dropdown-menu-content-transform-origin]",
       className
     ),
     style: {
@@ -7004,8 +6993,8 @@ var DropdownMenuContent = React32.forwardRef(({ className, sideOffset = 4, style
   {
     ref,
     className: cn(
-      "z-[200] max-h-[var(--radix-dropdown-menu-content-available-height)] min-w-[8rem] overflow-y-auto overflow-x-hidden rounded-md border p-1 shadow-md",
-      "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-dropdown-menu-content-transform-origin]",
+      "z-[200] max-h-[var(--radix-dropdown-menu-content-available-height)] min-w-[8rem] overflow-y-auto overflow-x-hidden rounded-[18px] border p-1.5 shadow-lg",
+      "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-dropdown-menu-content-transform-origin]",
       className
     ),
     sideOffset,
@@ -7024,7 +7013,7 @@ var DropdownMenuItem = React32.forwardRef(({ className, inset, ...props }, ref) 
   {
     ref,
     className: cn(
-      "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-[var(--dropdown-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0",
+      "relative flex cursor-pointer select-none items-center gap-2.5 rounded-[10px] px-2.5 py-2 text-sm outline-none transition-colors focus:bg-[var(--dropdown-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0",
       inset && "ps-8",
       className
     ),
@@ -7038,7 +7027,7 @@ var DropdownMenuCheckboxItem = React32.forwardRef(({ className, children, checke
     ref,
     checked,
     className: cn(
-      "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 ps-8 pe-2 text-sm outline-none transition-colors focus:bg-[var(--dropdown-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-[10px] py-2 ps-8 pe-2.5 text-sm outline-none transition-colors focus:bg-[var(--dropdown-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     ),
     ...props,
@@ -7054,7 +7043,7 @@ var DropdownMenuRadioItem = React32.forwardRef(({ className, children, ...props 
   {
     ref,
     className: cn(
-      "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 ps-8 pe-2 text-sm outline-none transition-colors focus:bg-[var(--dropdown-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-[10px] py-2 ps-8 pe-2.5 text-sm outline-none transition-colors focus:bg-[var(--dropdown-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     ),
     ...props,
@@ -9274,7 +9263,7 @@ function Slider({
             "aria-valuemin": min,
             "aria-valuenow": display_value,
             className: cn(
-              "absolute top-1/2 w-5 h-5 rounded-full border-0 bg-[var(--accent-blue)] shadow-[0_1px_3px_rgba(0,0,0,0.4)] ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 cursor-grab active:cursor-grabbing hover:scale-125 hover:shadow-[0_2px_8px_rgba(0,0,0,0.45)] active:scale-110 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--accent-blue)]/30",
+              "absolute top-1/2 w-5 h-5 rounded-full border-0 bg-[var(--accent-blue)] shadow-[0_1px_3px_rgba(0,0,0,0.4)] ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 cursor-grab active:cursor-grabbing hover:shadow-[0_2px_8px_rgba(0,0,0,0.45)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[var(--accent-blue)]/30",
               thumb_transition
             ),
             role: "slider",
@@ -9307,7 +9296,7 @@ var PopoverContent = React39.forwardRef(
         ref,
         align,
         className: cn(
-          "z-[200] w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+          "z-[200] w-72 rounded-[18px] border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
           className
         ),
         sideOffset,
