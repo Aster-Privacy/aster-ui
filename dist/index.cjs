@@ -36,6 +36,7 @@ __export(index_exports, {
   AccordionItem: () => AccordionItem,
   AccordionTrigger: () => AccordionTrigger,
   AccountAvatarButtonView: () => AccountAvatarButtonView,
+  AccountMenuSheetView: () => AccountMenuSheetView,
   AccountSwitcherView: () => AccountSwitcherView,
   AlertDialog: () => AlertDialog,
   AlertDialogAction: () => AlertDialogAction,
@@ -107,9 +108,13 @@ __export(index_exports, {
   ContactAvatarView: () => ContactAvatarView,
   ContextMenu: () => ContextMenu,
   CountBadge: () => CountBadge,
+  CreateAliasSheetView: () => CreateAliasSheetView,
+  CreateFolderSheetView: () => CreateFolderSheetView,
+  CreateLabelSheetView: () => CreateLabelSheetView,
   CrownIcon: () => CrownIcon,
   DEFAULT_TOAST_POSITION: () => DEFAULT_TOAST_POSITION,
   DashboardSidebar: () => DashboardSidebar,
+  DrawerColorSwatches: () => DrawerColorSwatches,
   DropdownMenu: () => DropdownMenu,
   DropdownMenuCheckboxItem: () => DropdownMenuCheckboxItem,
   DropdownMenuContent: () => DropdownMenuContent,
@@ -126,6 +131,8 @@ __export(index_exports, {
   DropdownMenuSubTrigger: () => DropdownMenuSubTrigger,
   DropdownMenuTrigger: () => DropdownMenuTrigger,
   ENCRYPTED_LOCK_COLOR: () => ENCRYPTED_LOCK_COLOR,
+  EditFolderSheetView: () => EditFolderSheetView,
+  EditTagSheetView: () => EditTagSheetView,
   EmailErrorFallbackView: () => EmailErrorFallbackView,
   EmailTag: () => EmailTag,
   EmptyState: () => EmptyState,
@@ -173,7 +180,15 @@ __export(index_exports, {
   MobileAttachmentRow: () => MobileAttachmentRow,
   MobileBottomSheet: () => MobileBottomSheet,
   MobileContextMenuView: () => MobileContextMenuView,
+  MobileDrawerBackButton: () => MobileDrawerBackButton,
+  MobileDrawerFolderRow: () => MobileDrawerFolderRow,
+  MobileDrawerHeaderView: () => MobileDrawerHeaderView,
+  MobileDrawerNavIndicator: () => MobileDrawerNavIndicator,
+  MobileDrawerScrollArea: () => MobileDrawerScrollArea,
+  MobileDrawerSectionHeader: () => MobileDrawerSectionHeader,
+  MobileDrawerSectionPlaceholder: () => MobileDrawerSectionPlaceholder,
   MobileDrawerShell: () => MobileDrawerShell,
+  MobileDrawerTagIcon: () => MobileDrawerTagIcon,
   MobileHeader: () => MobileHeader,
   MobileHeaderIconButton: () => MobileHeaderIconButton,
   MobileMenuButtonView: () => MobileMenuButtonView,
@@ -220,7 +235,11 @@ __export(index_exports, {
   PanelToggleIcon: () => PanelToggleIcon,
   PendingDeletionDialogView: () => PendingDeletionDialogView,
   PillButton: () => PillButton,
+  PinDots: () => PinDots,
   PinIcon: () => PinIcon,
+  PinLockDuressView: () => PinLockDuressView,
+  PinLockOverlayView: () => PinLockOverlayView,
+  PinPad: () => PinPad,
   PlanBadgeView: () => PlanBadgeView,
   Popover: () => Popover,
   PopoverAnchor: () => PopoverAnchor,
@@ -394,6 +413,7 @@ __export(index_exports, {
   use_backdrop_dismiss: () => use_backdrop_dismiss,
   use_body_scroll_lock: () => use_body_scroll_lock,
   use_dialog_shell: () => use_dialog_shell,
+  use_drawer_nav_indicator: () => use_drawer_nav_indicator,
   use_escape_layer: () => use_escape_layer,
   use_focus_trap: () => use_focus_trap,
   use_overlay_layer: () => use_overlay_layer,
@@ -6556,7 +6576,8 @@ var default_ui_strings = {
   back: "Back",
   open_menu: "Open menu",
   search: "Search",
-  download: "Download"
+  download: "Download",
+  delete: "Delete"
 };
 var UI_STRINGS_CONTEXT_KEY = /* @__PURE__ */ Symbol.for("aster_ui.ui_strings_context");
 function resolve_ui_strings_context() {
@@ -8347,6 +8368,14 @@ var MobileHeaderIconButton = (0, import_react11.memo)(function MobileHeaderIconB
 var import_react12 = require("react");
 var import_framer_motion9 = require("framer-motion");
 var import_jsx_runtime58 = require("react/jsx-runtime");
+function assign_ref2(ref, value) {
+  if (!ref) return;
+  if (typeof ref === "function") {
+    ref(value);
+    return;
+  }
+  ref.current = value;
+}
 function MobileDrawerShell({
   is_open,
   on_close,
@@ -8358,8 +8387,15 @@ function MobileDrawerShell({
   reduce_motion = false,
   lock_body_scroll: lock_body_scroll2 = true,
   side = "left",
-  background_color = "var(--mobile-sidebar-bg, var(--bg-primary))"
+  background_color = "var(--mobile-sidebar-bg, var(--bg-primary))",
+  panel_ref,
+  panel_class_name,
+  width_class_name,
+  focusable = false,
+  hide_when_closed = false,
+  on_backdrop_pointer_down
 }) {
+  const nav_ref = (0, import_react12.useRef)(null);
   (0, import_react12.useEffect)(() => {
     if (!lock_body_scroll2) return;
     if (is_open) {
@@ -8371,7 +8407,15 @@ function MobileDrawerShell({
       document.body.style.overflow = "";
     };
   }, [is_open, lock_body_scroll2]);
-  const closed_x = side === "left" ? -width : width;
+  const set_nav_ref = (0, import_react12.useCallback)(
+    (node) => {
+      nav_ref.current = node;
+      assign_ref2(panel_ref, node);
+    },
+    [panel_ref]
+  );
+  const closed_x = side === "right" ? width : -width;
+  const is_start = side === "start";
   return /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)(import_jsx_runtime58.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(import_framer_motion9.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
       import_framer_motion9.motion.div,
@@ -8381,26 +8425,44 @@ function MobileDrawerShell({
         exit: { opacity: 0 },
         initial: reduce_motion ? false : { opacity: 0 },
         transition: { duration: reduce_motion ? 0 : 0.2 },
-        onClick: on_close
+        onClick: on_backdrop_pointer_down ? void 0 : on_close,
+        onPointerDown: on_backdrop_pointer_down
       }
     ) }),
     /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
       import_framer_motion9.motion.nav,
       {
+        ref: set_nav_ref,
         animate: { x: is_open ? 0 : closed_x },
-        className: "fixed inset-y-0 z-50 flex flex-col",
+        className: cn(
+          "fixed inset-y-0 z-50 flex flex-col",
+          is_start && "start-0",
+          width_class_name,
+          focusable && "outline-none",
+          panel_class_name
+        ),
         initial: false,
         style: {
-          [side]: 0,
-          width,
-          maxWidth: `${max_width_vw}vw`,
+          ...is_start ? {} : { [side]: 0 },
+          ...width_class_name ? {} : { width, maxWidth: `${max_width_vw}vw` },
           paddingTop: safe_area_top,
           paddingBottom: safe_area_bottom,
           backgroundColor: background_color,
           willChange: "transform",
           pointerEvents: is_open ? "auto" : "none"
         },
+        tabIndex: focusable ? -1 : void 0,
         transition: reduce_motion ? { duration: 0 } : { type: "tween", duration: 0.25, ease: "easeOut" },
+        onAnimationComplete: (definition) => {
+          if (!hide_when_closed) return;
+          if (typeof definition === "object" && definition !== null && "x" in definition && definition.x === closed_x && nav_ref.current) {
+            nav_ref.current.style.visibility = "hidden";
+          }
+        },
+        onAnimationStart: () => {
+          if (!hide_when_closed) return;
+          if (nav_ref.current) nav_ref.current.style.visibility = "visible";
+        },
         children
       }
     )
@@ -13396,9 +13458,10 @@ function SidebarEmptyText({
 function AliasIconView({
   background,
   is_random,
-  size
+  size,
+  icon_class_name
 }) {
-  const icon_size = size >= 20 ? "w-4 h-4" : "w-3.5 h-3.5";
+  const icon_size = icon_class_name ?? (size >= 20 ? "w-4 h-4" : "w-3.5 h-3.5");
   return /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
     "div",
     {
@@ -14707,6 +14770,1120 @@ function ModalActionRow({
     }
   );
 }
+
+// src/mobile_drawer/mobile_drawer_view.tsx
+var import_react29 = require("react");
+var import_outline21 = require("@heroicons/react/24/outline");
+var import_jsx_runtime107 = require("react/jsx-runtime");
+function MobileDrawerHeaderView({
+  logo_src,
+  logo_alt = "Aster",
+  title,
+  subtitle,
+  on_click
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("div", { className: "px-4 pb-4 pt-5", children: /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+    "button",
+    {
+      className: "flex w-full items-center gap-3.5",
+      type: "button",
+      onClick: on_click,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("div", { className: "relative h-11 w-11 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+          "img",
+          {
+            alt: logo_alt,
+            className: "h-full w-full select-none rounded-xl",
+            draggable: false,
+            src: logo_src
+          }
+        ) }),
+        /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "min-w-0 flex-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { className: "block truncate text-start text-[17px] font-semibold text-[var(--text-primary)]", children: title }),
+          /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { className: "block truncate text-start text-[13px] text-[var(--text-muted)]", children: subtitle })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline21.ChevronDownIcon, { className: "h-5 w-5 shrink-0 text-[var(--text-muted)]" })
+      ]
+    }
+  ) });
+}
+var BOUNCE_RELEASE_TRANSITION = "transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+function MobileDrawerScrollArea({
+  children
+}) {
+  const scroll_ref = (0, import_react29.useRef)(null);
+  const content_ref = (0, import_react29.useRef)(null);
+  const origin_y = (0, import_react29.useRef)(0);
+  const last_touch_y = (0, import_react29.useRef)(0);
+  const is_bouncing = (0, import_react29.useRef)(false);
+  const handle_touch_start = (0, import_react29.useCallback)((e) => {
+    last_touch_y.current = e.touches[0].clientY;
+    is_bouncing.current = false;
+  }, []);
+  const handle_touch_move = (0, import_react29.useCallback)((e) => {
+    const el = scroll_ref.current;
+    const content = content_ref.current;
+    if (!el || !content) return;
+    const current_y = e.touches[0].clientY;
+    const incremental_delta = current_y - last_touch_y.current;
+    last_touch_y.current = current_y;
+    const at_top = el.scrollTop <= 0;
+    const at_bottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+    if (at_top && incremental_delta > 0) {
+      if (!is_bouncing.current) {
+        is_bouncing.current = true;
+        origin_y.current = current_y;
+      }
+      const overscroll = (current_y - origin_y.current) * 0.4;
+      content.style.transform = `translateY(${Math.min(Math.max(overscroll, 0), 80)}px)`;
+      content.style.transition = "none";
+    } else if (at_bottom && incremental_delta < 0) {
+      if (!is_bouncing.current) {
+        is_bouncing.current = true;
+        origin_y.current = current_y;
+      }
+      const overscroll = (current_y - origin_y.current) * 0.4;
+      content.style.transform = `translateY(${Math.max(Math.min(overscroll, 0), -80)}px)`;
+      content.style.transition = "none";
+    } else if (is_bouncing.current) {
+      is_bouncing.current = false;
+      content.style.transform = "translateY(0)";
+      content.style.transition = BOUNCE_RELEASE_TRANSITION;
+    }
+  }, []);
+  const handle_touch_end = (0, import_react29.useCallback)(() => {
+    const content = content_ref.current;
+    if (!content || !is_bouncing.current) return;
+    is_bouncing.current = false;
+    content.style.transform = "translateY(0)";
+    content.style.transition = BOUNCE_RELEASE_TRANSITION;
+  }, []);
+  return /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+    "div",
+    {
+      ref: scroll_ref,
+      className: "flex-1 overflow-y-auto overscroll-y-auto px-2.5 pb-2 pt-0.5",
+      style: { WebkitOverflowScrolling: "touch" },
+      onTouchEnd: handle_touch_end,
+      onTouchMove: handle_touch_move,
+      onTouchStart: handle_touch_start,
+      children: /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("div", { ref: content_ref, children })
+    }
+  );
+}
+function use_drawer_nav_indicator(container_ref, is_open, active_key) {
+  const [indicator_style, set_indicator_style] = (0, import_react29.useState)({ y: 0, height: 0, opacity: 0 });
+  (0, import_react29.useLayoutEffect)(() => {
+    if (!is_open || !container_ref.current) return;
+    const container = container_ref.current;
+    const active_btn = container.querySelector(
+      "[data-nav-active='true']"
+    );
+    if (!active_btn) {
+      set_indicator_style((prev) => ({ ...prev, opacity: 0 }));
+      return;
+    }
+    const container_rect = container.getBoundingClientRect();
+    const btn_rect = active_btn.getBoundingClientRect();
+    const y = Math.round(
+      btn_rect.top - container_rect.top + container.scrollTop
+    );
+    const height = Math.round(btn_rect.height);
+    set_indicator_style({ y, height, opacity: 1 });
+  }, [is_open, active_key]);
+  return indicator_style;
+}
+function MobileDrawerNavIndicator({
+  indicator_style
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+    "div",
+    {
+      className: "pointer-events-none absolute start-0 w-full rounded-lg",
+      style: {
+        top: 0,
+        transform: `translateY(${indicator_style.y}px)`,
+        height: indicator_style.height,
+        opacity: indicator_style.opacity,
+        backgroundColor: "var(--mobile-indicator-bg, var(--indicator-bg))",
+        boxShadow: "inset 0 0 0 1px var(--border-primary)",
+        zIndex: 0,
+        transition: "opacity 150ms ease"
+      }
+    }
+  );
+}
+
+// src/mobile_drawer/mobile_drawer_nav_view.tsx
+var import_outline22 = require("@heroicons/react/24/outline");
+var import_jsx_runtime108 = require("react/jsx-runtime");
+var SECTION_LABEL_CLASS = "text-[10px] font-semibold uppercase tracking-[0.05em] text-[var(--text-muted)] opacity-70";
+function MobileDrawerSectionHeader({
+  label,
+  is_first = false,
+  add_label,
+  on_add
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("div", { className: is_first ? "mb-1 px-2.5" : "mb-1 mt-5 px-2.5", children: on_add ? /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "flex w-full items-center justify-between", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { className: SECTION_LABEL_CLASS, children: label }),
+    /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
+      "button",
+      {
+        className: "-m-1 flex min-h-6 min-w-6 items-center justify-center rounded p-1.5 text-[var(--text-muted)] transition-all duration-150 active:bg-[var(--bg-tertiary)]",
+        type: "button",
+        "aria-label": add_label,
+        onClick: on_add,
+        children: /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline22.PlusIcon, { className: "h-3.5 w-3.5" })
+      }
+    )
+  ] }) : /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { className: SECTION_LABEL_CLASS, children: label }) });
+}
+function MobileDrawerBackButton({
+  label,
+  on_click
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
+    "button",
+    {
+      className: "relative flex w-full items-center gap-2 rounded-xl px-3 py-2.5 mb-2 active:bg-[var(--bg-tertiary)]",
+      style: { zIndex: 1, color: "var(--accent-color, #3b82f6)" },
+      type: "button",
+      onClick: on_click,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline22.ChevronLeftIcon, { className: "h-4 w-4 shrink-0 rtl:-scale-x-100" }),
+        /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { className: "text-[14px] font-medium", children: label })
+      ]
+    }
+  );
+}
+function MobileDrawerSectionPlaceholder({
+  is_loading,
+  skeleton_rows,
+  failed_notice,
+  empty_text
+}) {
+  if (is_loading) return /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(NavSectionSkeleton, { rows: skeleton_rows });
+  if (failed_notice) return /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("div", { className: "px-2.5 py-1", children: failed_notice });
+  return /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("p", { className: "px-2.5 py-2 text-[11px] text-[var(--text-muted)]", children: empty_text });
+}
+function MobileDrawerFolderRow({
+  label,
+  color,
+  depth,
+  guide_trail,
+  guide_has_next = false,
+  active,
+  count,
+  locale,
+  show_lock_toggle = false,
+  lock_closed = false,
+  on_click,
+  on_long_press,
+  on_toggle_lock
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "relative", style: { paddingInlineStart: depth * 16 }, children: [
+    depth > 0 && /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(import_jsx_runtime108.Fragment, { children: [
+      Array.from(
+        { length: depth - 1 },
+        (_, level) => guide_trail?.[level + 1] && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
+          "span",
+          {
+            "aria-hidden": "true",
+            className: "pointer-events-none absolute top-0 bottom-0 w-px",
+            style: {
+              left: `${level * 16 + 10}px`,
+              backgroundColor: "var(--border-primary)"
+            }
+          },
+          `guide-${level}`
+        )
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
+        "span",
+        {
+          "aria-hidden": "true",
+          className: "pointer-events-none absolute top-0",
+          style: {
+            left: `${(depth - 1) * 16 + 10}px`,
+            height: "50%",
+            width: "9px",
+            borderLeft: "1px solid var(--border-primary)",
+            borderBottom: "1px solid var(--border-primary)",
+            borderBottomLeftRadius: "7px"
+          }
+        }
+      ),
+      guide_has_next && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
+        "span",
+        {
+          "aria-hidden": "true",
+          className: "pointer-events-none absolute top-0 bottom-0 w-px",
+          style: {
+            left: `${(depth - 1) * 16 + 10}px`,
+            backgroundColor: "var(--border-primary)"
+          }
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
+      MobileSidebarNavButton,
+      {
+        active,
+        count,
+        icon: /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline22.FolderIcon, { className: "h-5 w-5", style: { color } }),
+        label,
+        locale,
+        on_click,
+        on_long_press,
+        trailing: show_lock_toggle ? /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
+          "button",
+          {
+            className: "flex h-7 w-7 items-center justify-center rounded-[8px] text-[var(--text-muted)] active:bg-[var(--bg-tertiary)]",
+            type: "button",
+            onClick: (e) => {
+              e.stopPropagation();
+              on_toggle_lock?.();
+            },
+            children: lock_closed ? /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline22.LockClosedIcon, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline22.LockOpenIcon, { className: "h-4 w-4" })
+          }
+        ) : void 0
+      }
+    )
+  ] });
+}
+function MobileDrawerTagIcon({ icon, color }) {
+  const TagIconComponent = icon ? tag_icon_map[icon] : void 0;
+  if (TagIconComponent) {
+    return /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(TagIconComponent, { className: "h-4 w-4", style: { color } });
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
+    "span",
+    {
+      className: "h-3 w-3 shrink-0 rounded-full",
+      style: { backgroundColor: color }
+    }
+  );
+}
+
+// src/mobile_drawer/mobile_drawer_sheets_view.tsx
+var import_outline23 = require("@heroicons/react/24/outline");
+
+// src/lib/is_composing.ts
+function is_composing(event) {
+  const native = event.nativeEvent ?? event;
+  return native.isComposing === true || native.keyCode === 229;
+}
+
+// src/mobile_drawer/mobile_drawer_sheets_view.tsx
+var import_jsx_runtime109 = require("react/jsx-runtime");
+function DrawerColorSwatches({
+  colors = TAG_COLOR_PRESETS,
+  selected,
+  on_select
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { className: "mb-3 flex flex-wrap gap-2", children: colors.map((color) => /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+    "button",
+    {
+      className: "h-7 w-7 rounded-full",
+      style: {
+        backgroundColor: color.hex,
+        boxShadow: selected === color.hex ? `0 0 0 2px var(--bg-primary), 0 0 0 4px ${color.hex}` : "none"
+      },
+      type: "button",
+      onClick: () => on_select(color.hex)
+    },
+    color.hex
+  )) });
+}
+function DrawerSheetTitle({ children }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("p", { className: "mb-4 text-[16px] font-semibold text-[var(--text-primary)]", children });
+}
+function DrawerSheetCaption({ children }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("p", { className: "mb-1.5 text-[12px] font-medium text-[var(--text-muted)]", children });
+}
+function DrawerTagIconPreview({
+  icon,
+  color
+}) {
+  const Icon2 = icon ? tag_icon_map[icon] : void 0;
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("span", { className: "flex h-6 w-6 shrink-0 items-center justify-center", children: Icon2 ? /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(Icon2, { className: "h-5 w-5", style: { color } }) : /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+    "span",
+    {
+      className: "h-3 w-3 rounded-full",
+      style: { backgroundColor: color }
+    }
+  ) });
+}
+function DrawerSaveDeleteRow({
+  save_label,
+  delete_label,
+  on_save,
+  on_delete
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "flex gap-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      Button,
+      {
+        className: "flex-1 rounded-[16px] py-3 text-[15px] font-medium",
+        type: "button",
+        variant: "depth",
+        onClick: on_save,
+        children: save_label
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      "button",
+      {
+        className: "rounded-[16px] px-5 py-3 text-[15px] font-medium text-white transition-all ",
+        style: {
+          background: "linear-gradient(180deg, #ef4444 0%, #dc2626 100%)"
+        },
+        type: "button",
+        onClick: on_delete,
+        children: delete_label
+      }
+    )
+  ] });
+}
+function storage_tone(storage_pct, fallback) {
+  if (storage_pct > 90) return "var(--color-danger)";
+  if (storage_pct > 70) return "var(--color-warning)";
+  return fallback;
+}
+function AccountMenuSheetView({
+  logo_src,
+  logo_alt = "Aster",
+  name,
+  email,
+  storage_label,
+  storage_pct,
+  storage_detail,
+  upgrade_label,
+  on_upgrade,
+  settings_label,
+  on_settings,
+  sign_out_label,
+  on_sign_out
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "flex items-center gap-3 pb-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { className: "relative h-9 w-9 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        "img",
+        {
+          alt: logo_alt,
+          className: "h-full w-full select-none rounded-lg",
+          draggable: false,
+          src: logo_src
+        }
+      ) }),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "min-w-0 flex-1", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("p", { className: "truncate text-[15px] font-semibold text-[var(--text-primary)]", children: name }),
+        /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("p", { className: "truncate text-[12px] text-[var(--text-muted)]", children: email })
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "mb-3 px-1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "mb-1 flex items-center justify-between", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("span", { className: "text-[11px] font-medium tracking-wide text-[var(--text-muted)]", children: storage_label }),
+        /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)(
+          "span",
+          {
+            className: "text-[11px] font-medium tabular-nums",
+            style: {
+              color: storage_tone(
+                storage_pct,
+                "var(--text-tertiary, var(--text-muted))"
+              )
+            },
+            children: [
+              storage_pct,
+              "%"
+            ]
+          }
+        )
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { className: "h-1.5 w-full overflow-hidden rounded-full bg-black/[0.05] dark:bg-white/[0.06]", children: /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        "div",
+        {
+          className: "h-full rounded-full transition-all duration-300",
+          style: {
+            width: `${Math.min(storage_pct, 100)}%`,
+            backgroundColor: storage_tone(storage_pct, "var(--color-info)")
+          }
+        }
+      ) }),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("p", { className: "mt-1 text-[10px] text-[var(--text-muted)]", children: storage_detail })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "space-y-1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        Button,
+        {
+          className: "flex w-full items-center justify-center gap-2 rounded-[14px] px-3 py-2.5 text-[14px] font-medium",
+          type: "button",
+          variant: "depth",
+          onClick: on_upgrade,
+          children: upgrade_label
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)(
+        "button",
+        {
+          className: "flex w-full items-center gap-3 rounded-[16px] px-3 py-3 text-start active:bg-[var(--bg-tertiary)]",
+          type: "button",
+          onClick: on_settings,
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(import_outline23.Cog6ToothIcon, { className: "h-5 w-5 text-[var(--text-muted)]" }),
+            /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("span", { className: "text-[15px] text-[var(--text-primary)]", children: settings_label })
+          ]
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)(
+        "button",
+        {
+          className: "flex w-full items-center gap-3 rounded-[16px] px-3 py-3 text-start active:bg-[var(--bg-tertiary)]",
+          type: "button",
+          onClick: on_sign_out,
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(import_outline23.ArrowRightStartOnRectangleIcon, { className: "h-5 w-5 text-[var(--color-danger,#ef4444)]" }),
+            /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("span", { className: "text-[15px] text-[var(--color-danger,#ef4444)]", children: sign_out_label })
+          ]
+        }
+      )
+    ] })
+  ] });
+}
+function CreateFolderSheetView({
+  title,
+  placeholder,
+  submit_label,
+  name,
+  on_name_change,
+  color,
+  on_color_change,
+  colors,
+  input_ref,
+  is_creating,
+  on_submit
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerSheetTitle, { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(import_outline23.FolderIcon, { className: "h-6 w-6 shrink-0", style: { color } }),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        Input,
+        {
+          ref: input_ref,
+          className: "flex-1",
+          placeholder,
+          value: name,
+          onChange: (e) => on_name_change(e.target.value),
+          onKeyDown: (e) => {
+            if (e.key === "Enter" && !is_composing(e)) on_submit();
+          }
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      DrawerColorSwatches,
+      {
+        colors,
+        selected: color,
+        on_select: on_color_change
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      Button,
+      {
+        className: "mt-1 w-full rounded-[16px] py-3 text-[15px] font-medium",
+        disabled: is_creating || !name.trim(),
+        type: "button",
+        variant: "depth",
+        onClick: on_submit,
+        children: submit_label
+      }
+    )
+  ] });
+}
+function CreateLabelSheetView({
+  title,
+  placeholder,
+  color_label,
+  icon_label,
+  submit_label,
+  name,
+  on_name_change,
+  color,
+  on_color_change,
+  colors,
+  icon,
+  icon_picker,
+  input_ref,
+  is_creating,
+  on_submit
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerSheetTitle, { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerTagIconPreview, { color, icon }),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        Input,
+        {
+          ref: input_ref,
+          className: "flex-1",
+          placeholder,
+          value: name,
+          onChange: (e) => on_name_change(e.target.value),
+          onKeyDown: (e) => {
+            if (e.key === "Enter" && !is_composing(e)) on_submit();
+          }
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerSheetCaption, { children: color_label }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      DrawerColorSwatches,
+      {
+        colors,
+        selected: color,
+        on_select: on_color_change
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerSheetCaption, { children: icon_label }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { className: "mb-3", children: icon_picker }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      Button,
+      {
+        className: "mt-1 w-full rounded-[16px] py-3 text-[15px] font-medium",
+        disabled: is_creating || !name.trim(),
+        type: "button",
+        variant: "depth",
+        onClick: on_submit,
+        children: submit_label
+      }
+    )
+  ] });
+}
+function EditFolderSheetView({
+  title,
+  placeholder,
+  notifications_label,
+  save_label,
+  delete_label,
+  name,
+  on_name_change,
+  color,
+  on_color_change,
+  colors,
+  notifications_enabled,
+  on_toggle_notifications,
+  on_save,
+  on_delete
+}) {
+  const strings = use_ui_strings();
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerSheetTitle, { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(import_outline23.FolderIcon, { className: "h-6 w-6 shrink-0", style: { color } }),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        Input,
+        {
+          className: "flex-1",
+          placeholder,
+          value: name,
+          onChange: (e) => on_name_change(e.target.value),
+          onKeyDown: (e) => {
+            if (e.key === "Enter" && !is_composing(e)) on_save();
+          }
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      DrawerColorSwatches,
+      {
+        colors,
+        selected: color,
+        on_select: on_color_change
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "mb-3 flex items-center justify-between py-1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("span", { className: "text-[15px] text-[var(--text-primary)]", children: notifications_label }),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        Switch,
+        {
+          "aria-label": notifications_label,
+          checked: notifications_enabled,
+          onCheckedChange: on_toggle_notifications
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      DrawerSaveDeleteRow,
+      {
+        delete_label: delete_label ?? strings.delete,
+        save_label,
+        on_delete,
+        on_save
+      }
+    )
+  ] });
+}
+function EditTagSheetView({
+  title,
+  placeholder,
+  color_label,
+  icon_label,
+  save_label,
+  delete_label,
+  name,
+  on_name_change,
+  color,
+  on_color_change,
+  colors,
+  icon,
+  icon_picker,
+  on_save,
+  on_delete
+}) {
+  const strings = use_ui_strings();
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerSheetTitle, { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerTagIconPreview, { color, icon }),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        Input,
+        {
+          className: "flex-1",
+          placeholder,
+          value: name,
+          onChange: (e) => on_name_change(e.target.value),
+          onKeyDown: (e) => {
+            if (e.key === "Enter" && !is_composing(e)) on_save();
+          }
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerSheetCaption, { children: color_label }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      DrawerColorSwatches,
+      {
+        colors,
+        selected: color,
+        on_select: on_color_change
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerSheetCaption, { children: icon_label }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { className: "mb-3", children: icon_picker }),
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      DrawerSaveDeleteRow,
+      {
+        delete_label: delete_label ?? strings.delete,
+        save_label,
+        on_delete,
+        on_save
+      }
+    )
+  ] });
+}
+function CreateAliasSheetView({
+  title,
+  at_limit = false,
+  limit_message,
+  upgrade_label,
+  on_upgrade,
+  placeholder,
+  submit_label,
+  local_part,
+  on_local_part_change,
+  error,
+  domain,
+  is_creating,
+  submit_blocked = false,
+  turnstile,
+  on_submit
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(DrawerSheetTitle, { children: title }),
+    at_limit ? /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)(import_jsx_runtime109.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("p", { className: "mb-4 text-[14px] text-[var(--text-secondary)]", children: limit_message }),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        UpgradeBtn,
+        {
+          className: "w-full rounded-[16px] py-3 text-[15px] font-medium",
+          onClick: on_upgrade,
+          children: upgrade_label
+        }
+      )
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)(import_jsx_runtime109.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "mb-3 flex items-center gap-0", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+          Input,
+          {
+            autoCapitalize: "none",
+            autoCorrect: "off",
+            className: "flex-1 !rounded-e-none",
+            disabled: is_creating,
+            placeholder,
+            spellCheck: false,
+            status: error ? "error" : "default",
+            value: local_part,
+            onChange: (e) => on_local_part_change(e.target.value),
+            onKeyDown: (e) => {
+              if (e.key === "Enter") on_submit();
+            }
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("span", { className: "rounded-e-xl bg-[var(--bg-tertiary)] px-3 py-3 text-[15px] text-[var(--text-muted)] select-none", children: [
+          "@",
+          domain
+        ] })
+      ] }),
+      local_part.trim() && /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("p", { className: "mb-3 break-all text-[13px] text-[var(--text-secondary)]", children: [
+        local_part.trim().toLowerCase(),
+        "@",
+        domain
+      ] }),
+      error && /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("p", { className: "mb-3 text-[13px] text-red-500", children: error }),
+      turnstile && /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { className: "mb-3 flex justify-center", children: turnstile }),
+      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        Button,
+        {
+          className: "w-full rounded-[16px] py-3 text-[15px] font-medium",
+          disabled: !local_part.trim() || is_creating || submit_blocked,
+          is_loading: is_creating,
+          type: "button",
+          variant: "depth",
+          onClick: on_submit,
+          children: submit_label
+        }
+      )
+    ] })
+  ] });
+}
+
+// src/app_lock/pin_lock.tsx
+var import_react30 = require("react");
+var import_framer_motion18 = require("framer-motion");
+var import_outline24 = require("@heroicons/react/24/outline");
+var import_jsx_runtime110 = require("react/jsx-runtime");
+function PinDots({ digits, filled, shake_key }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    import_framer_motion18.motion.div,
+    {
+      animate: shake_key > 0 ? { x: [0, -10, 10, -10, 10, 0] } : { x: 0 },
+      className: "flex items-center gap-3",
+      transition: { duration: 0.4 },
+      children: Array.from({ length: digits }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+        "div",
+        {
+          className: cn(
+            "w-4 h-4 rounded-full border-2 transition-all duration-150",
+            i < filled ? "bg-[var(--primary,var(--accent-color))] border-[var(--primary,var(--accent-color))]" : "border-[color-mix(in_oklab,var(--muted-foreground,var(--text-muted))_40%,transparent)] bg-transparent"
+          )
+        },
+        i
+      ))
+    },
+    shake_key
+  );
+}
+var PIN_BTN_BASE = "h-14 w-14 mx-auto rounded-full flex items-center justify-center transition-all duration-75";
+var PIN_BTN_SURFACE = "bg-[var(--muted,var(--bg-tertiary))] hover:bg-[color-mix(in_oklab,var(--muted,var(--bg-tertiary))_70%,transparent)] focus:outline-none";
+var PIN_BTN_PRESSED = "scale-90 bg-[color-mix(in_oklab,var(--muted,var(--bg-tertiary))_50%,transparent)]";
+function PinPad({
+  on_digit,
+  on_backspace,
+  on_check,
+  can_check,
+  pressed_key,
+  delete_label,
+  confirm_label
+}) {
+  const strings = use_ui_strings();
+  const digit_cls = (k) => cn(
+    PIN_BTN_BASE,
+    "text-xl font-medium",
+    PIN_BTN_SURFACE,
+    pressed_key === k && PIN_BTN_PRESSED
+  );
+  return /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "grid grid-cols-3 gap-2.5", children: [
+    ["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((k) => /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+      "button",
+      {
+        className: digit_cls(k),
+        type: "button",
+        onClick: () => on_digit(k),
+        children: k
+      },
+      k
+    )),
+    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+      "button",
+      {
+        className: cn(
+          PIN_BTN_BASE,
+          PIN_BTN_SURFACE,
+          pressed_key === "Backspace" && PIN_BTN_PRESSED
+        ),
+        "aria-label": delete_label ?? strings.delete,
+        type: "button",
+        onClick: on_backspace,
+        children: /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline24.BackspaceIcon, { className: "h-5 w-5 text-txt-primary" })
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+      "button",
+      {
+        className: digit_cls("0"),
+        type: "button",
+        onClick: () => on_digit("0"),
+        children: "0"
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+      "button",
+      {
+        className: cn(
+          PIN_BTN_BASE,
+          PIN_BTN_SURFACE,
+          pressed_key === "Enter" && PIN_BTN_PRESSED,
+          !can_check && "opacity-40"
+        ),
+        "aria-label": confirm_label ?? strings.confirm,
+        disabled: !can_check,
+        type: "button",
+        onClick: on_check,
+        children: /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline24.CheckIcon, { className: "h-5 w-5 text-txt-primary" })
+      }
+    )
+  ] });
+}
+var OVERLAY_CLASS = "fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[var(--background,var(--bg-primary))] select-none";
+function PinLockDuressView({
+  logo_src,
+  logo_alt,
+  reduce_motion,
+  subtitle,
+  title,
+  description,
+  detail,
+  proceed_label,
+  cancel_label,
+  is_wiping,
+  on_proceed,
+  on_cancel
+}) {
+  const strings = use_ui_strings();
+  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    import_framer_motion18.motion.div,
+    {
+      animate: { opacity: 1 },
+      className: cn(OVERLAY_CLASS, "px-6"),
+      exit: { opacity: 0 },
+      initial: reduce_motion ? false : { opacity: 0 },
+      children: /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(
+        import_framer_motion18.motion.div,
+        {
+          animate: { scale: 1, opacity: 1 },
+          className: "flex flex-col items-center gap-5 max-w-sm w-full text-center",
+          initial: reduce_motion ? false : { scale: 0.9, opacity: 0 },
+          transition: { delay: 0.05 },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+              "img",
+              {
+                alt: logo_alt,
+                className: "h-7 opacity-90",
+                draggable: false,
+                src: logo_src
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "flex flex-col gap-1.5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "text-xs font-semibold uppercase tracking-widest text-red-500/80", children: subtitle }),
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("h1", { className: "text-xl font-semibold text-txt-primary", children: title })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "w-full rounded-2xl bg-surf-secondary border border-edge-secondary px-4 py-3.5 flex flex-col gap-2 text-start", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "text-sm text-txt-primary font-medium", children: description }),
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "text-xs text-txt-muted leading-relaxed", children: detail })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "flex flex-col gap-2 w-full", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(
+                Button,
+                {
+                  className: "w-full",
+                  disabled: is_wiping,
+                  variant: "depth_destructive",
+                  onClick: on_proceed,
+                  children: [
+                    proceed_label,
+                    is_wiping && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(ButtonSpinner, {})
+                  ]
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+                Button,
+                {
+                  className: "w-full",
+                  disabled: is_wiping,
+                  variant: "outline",
+                  onClick: on_cancel,
+                  children: cancel_label ?? strings.cancel
+                }
+              )
+            ] })
+          ]
+        }
+      )
+    }
+  );
+}
+function PinLockOverlayView({
+  logo_src,
+  logo_alt,
+  reduce_motion,
+  title,
+  lockout_text,
+  pin_type,
+  digits,
+  value,
+  on_value_change,
+  shake_key,
+  message,
+  is_verifying,
+  is_locked_out,
+  pressed_key,
+  on_digit,
+  on_backspace,
+  on_submit,
+  passphrase_placeholder,
+  unlock_label,
+  sign_out_label,
+  on_sign_out,
+  delete_label,
+  confirm_label
+}) {
+  const [show_passphrase, set_show_passphrase] = (0, import_react30.useState)(false);
+  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    import_framer_motion18.motion.div,
+    {
+      animate: { opacity: 1 },
+      className: OVERLAY_CLASS,
+      exit: { opacity: 0 },
+      initial: reduce_motion ? false : { opacity: 0 },
+      children: /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(
+        import_framer_motion18.motion.div,
+        {
+          animate: { scale: 1, opacity: 1 },
+          className: cn(
+            "flex flex-col items-center",
+            pin_type === "text" ? "gap-3" : "gap-4"
+          ),
+          initial: reduce_motion ? false : { scale: 0.9, opacity: 0 },
+          transition: { delay: 0.05 },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+              "img",
+              {
+                alt: logo_alt,
+                className: "h-7 opacity-90",
+                draggable: false,
+                src: logo_src
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "text-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("h1", { className: "text-lg font-semibold text-txt-primary", children: title }),
+              lockout_text && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "mt-0.5 text-sm text-txt-muted", children: lockout_text })
+            ] }),
+            pin_type === "numeric" ? /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(import_jsx_runtime110.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "flex flex-col items-center gap-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+                  PinDots,
+                  {
+                    digits,
+                    filled: value.length,
+                    shake_key
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "h-4 flex items-center justify-center", children: [
+                  message && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "text-xs text-red-500", children: message }),
+                  is_verifying && !message && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("div", { className: "h-3.5 w-3.5 animate-spin rounded-full border-2 border-[var(--primary,var(--accent-color))] border-t-transparent" })
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+                PinPad,
+                {
+                  can_check: value.length >= digits,
+                  confirm_label,
+                  delete_label,
+                  on_backspace,
+                  on_check: on_submit,
+                  on_digit,
+                  pressed_key
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(Button, { variant: "outline", onClick: on_sign_out, children: sign_out_label })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "flex flex-col items-center gap-2 w-72", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+                import_framer_motion18.motion.div,
+                {
+                  animate: shake_key > 0 ? { x: [0, -10, 10, -10, 10, 0] } : { x: 0 },
+                  className: "w-full",
+                  transition: { duration: 0.4 },
+                  children: /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "relative w-full", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+                      "input",
+                      {
+                        autoFocus: true,
+                        autoComplete: "off",
+                        className: "w-full px-4 py-2.5 pe-10 rounded-xl bg-surf-secondary border border-edge-secondary text-sm text-txt-primary focus:outline-none focus:border-brand transition-colors text-center",
+                        disabled: is_verifying || is_locked_out,
+                        placeholder: passphrase_placeholder,
+                        type: show_passphrase ? "text" : "password",
+                        value,
+                        onChange: (e) => {
+                          if (!is_verifying && !is_locked_out)
+                            on_value_change(e.target.value);
+                        },
+                        onKeyDown: (e) => {
+                          if (e.key === "Enter" && !is_composing(e) && value.length >= 1)
+                            on_submit();
+                        }
+                      }
+                    ),
+                    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+                      "button",
+                      {
+                        className: "absolute end-3 top-1/2 -translate-y-1/2 text-txt-muted hover:text-txt-primary transition-colors",
+                        tabIndex: -1,
+                        type: "button",
+                        onClick: () => set_show_passphrase((v) => !v),
+                        children: show_passphrase ? /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline24.EyeSlashIcon, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline24.EyeIcon, { className: "h-4 w-4" })
+                      }
+                    )
+                  ] })
+                },
+                shake_key
+              ),
+              message && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "text-xs text-red-500 -mt-1", children: message }),
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(
+                Button,
+                {
+                  className: "w-full",
+                  disabled: is_verifying || is_locked_out || value.length < 1,
+                  variant: "depth",
+                  onClick: on_submit,
+                  children: [
+                    unlock_label,
+                    is_verifying && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(ButtonSpinner, {})
+                  ]
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(Button, { className: "w-full", variant: "outline", onClick: on_sign_out, children: sign_out_label })
+            ] })
+          ]
+        }
+      )
+    }
+  );
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   ASTER_EMAIL_DOMAINS,
@@ -14715,6 +15892,7 @@ function ModalActionRow({
   AccordionItem,
   AccordionTrigger,
   AccountAvatarButtonView,
+  AccountMenuSheetView,
   AccountSwitcherView,
   AlertDialog,
   AlertDialogAction,
@@ -14786,9 +15964,13 @@ function ModalActionRow({
   ContactAvatarView,
   ContextMenu,
   CountBadge,
+  CreateAliasSheetView,
+  CreateFolderSheetView,
+  CreateLabelSheetView,
   CrownIcon,
   DEFAULT_TOAST_POSITION,
   DashboardSidebar,
+  DrawerColorSwatches,
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
@@ -14805,6 +15987,8 @@ function ModalActionRow({
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
   ENCRYPTED_LOCK_COLOR,
+  EditFolderSheetView,
+  EditTagSheetView,
   EmailErrorFallbackView,
   EmailTag,
   EmptyState,
@@ -14852,7 +16036,15 @@ function ModalActionRow({
   MobileAttachmentRow,
   MobileBottomSheet,
   MobileContextMenuView,
+  MobileDrawerBackButton,
+  MobileDrawerFolderRow,
+  MobileDrawerHeaderView,
+  MobileDrawerNavIndicator,
+  MobileDrawerScrollArea,
+  MobileDrawerSectionHeader,
+  MobileDrawerSectionPlaceholder,
   MobileDrawerShell,
+  MobileDrawerTagIcon,
   MobileHeader,
   MobileHeaderIconButton,
   MobileMenuButtonView,
@@ -14899,7 +16091,11 @@ function ModalActionRow({
   PanelToggleIcon,
   PendingDeletionDialogView,
   PillButton,
+  PinDots,
   PinIcon,
+  PinLockDuressView,
+  PinLockOverlayView,
+  PinPad,
   PlanBadgeView,
   Popover,
   PopoverAnchor,
@@ -15073,6 +16269,7 @@ function ModalActionRow({
   use_backdrop_dismiss,
   use_body_scroll_lock,
   use_dialog_shell,
+  use_drawer_nav_indicator,
   use_escape_layer,
   use_focus_trap,
   use_overlay_layer,

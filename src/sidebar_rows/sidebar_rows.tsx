@@ -106,14 +106,16 @@ export interface AliasIconViewProps {
   background: string;
   is_random: boolean;
   size: number;
+  icon_class_name?: string;
 }
 
 export function AliasIconView({
   background,
   is_random,
   size,
+  icon_class_name,
 }: AliasIconViewProps): React.ReactElement {
-  const icon_size = size >= 20 ? "w-4 h-4" : "w-3.5 h-3.5";
+  const icon_size = icon_class_name ?? (size >= 20 ? "w-4 h-4" : "w-3.5 h-3.5");
 
   return (
     <div

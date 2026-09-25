@@ -25,7 +25,8 @@ var default_ui_strings = {
   back: "Back",
   open_menu: "Open menu",
   search: "Search",
-  download: "Download"
+  download: "Download",
+  delete: "Delete"
 };
 var UI_STRINGS_CONTEXT_KEY = /* @__PURE__ */ Symbol.for("aster_ui.ui_strings_context");
 function resolve_ui_strings_context() {

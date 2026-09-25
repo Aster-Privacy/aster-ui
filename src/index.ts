@@ -574,3 +574,4 @@ export * from "./index_account";
 export * from "./index_shell";
 export * from "./index_sidebar";
 export * from "./index_mobile";
+export * from "./index_drawer";

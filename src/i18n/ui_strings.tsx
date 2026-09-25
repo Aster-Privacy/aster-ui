@@ -42,6 +42,7 @@ export interface AsterUiStrings {
   open_menu: string;
   search: string;
   download: string;
+  delete: string;
 }
 
 export const default_ui_strings: AsterUiStrings = {
@@ -65,6 +66,7 @@ export const default_ui_strings: AsterUiStrings = {
   open_menu: "Open menu",
   search: "Search",
   download: "Download",
+  delete: "Delete",
 };
 
 const UI_STRINGS_CONTEXT_KEY = Symbol.for("aster_ui.ui_strings_context");
