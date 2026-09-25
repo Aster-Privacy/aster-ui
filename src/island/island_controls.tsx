@@ -179,22 +179,37 @@ export const IslandChip = React.forwardRef<HTMLElement, IslandChipProps>(
 
 IslandChip.displayName = "IslandChip";
 
+export type IslandCountPillSize = "sm" | "md";
+
 export interface IslandCountPillProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   count: number;
   label: string;
+  trailing?: React.ReactNode;
+  size?: IslandCountPillSize;
 }
 
 export const IslandCountPill = React.forwardRef<HTMLButtonElement, IslandCountPillProps>(
-  ({ count, label, className, type = "button", ...props }, ref) => (
+  ({ count, label, trailing, size = "sm", className, type = "button", ...props }, ref) => (
     <button
       ref={ref}
       aria-label={label}
-      className={join_classes("aster_island_count", className)}
+      className={join_classes(
+        "aster_island_count",
+        size === "md" && "aster_island_count_md",
+        className,
+      )}
       type={type}
       {...props}
     >
-      <span className="aster_island_count_pill">{count}</span>
+      <span className="aster_island_count_pill">
+        {count}
+        {trailing ? (
+          <span aria-hidden="true" className="aster_island_count_trailing">
+            {trailing}
+          </span>
+        ) : null}
+      </span>
     </button>
   ),
 );

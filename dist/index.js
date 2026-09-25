@@ -8032,15 +8032,22 @@ var IslandChip = React36.forwardRef(
 );
 IslandChip.displayName = "IslandChip";
 var IslandCountPill = React36.forwardRef(
-  ({ count, label, className, type = "button", ...props }, ref) => /* @__PURE__ */ jsx60(
+  ({ count, label, trailing, size = "sm", className, type = "button", ...props }, ref) => /* @__PURE__ */ jsx60(
     "button",
     {
       ref,
       "aria-label": label,
-      className: join_classes7("aster_island_count", className),
+      className: join_classes7(
+        "aster_island_count",
+        size === "md" && "aster_island_count_md",
+        className
+      ),
       type,
       ...props,
-      children: /* @__PURE__ */ jsx60("span", { className: "aster_island_count_pill", children: count })
+      children: /* @__PURE__ */ jsxs49("span", { className: "aster_island_count_pill", children: [
+        count,
+        trailing ? /* @__PURE__ */ jsx60("span", { "aria-hidden": "true", className: "aster_island_count_trailing", children: trailing }) : null
+      ] })
     }
   )
 );

@@ -887,6 +887,29 @@
   transition: background-color 0.14s var(--aster-island-ease), color 0.14s var(--aster-island-ease);
 }
 
+.aster_island_count_md {
+  height: 48px;
+}
+
+.aster_island_count_md .aster_island_count_pill {
+  min-width: 56px;
+  height: 40px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.aster_island_count_trailing {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  margin-inline-start: 6px;
+}
+
+.aster_island_count_trailing > svg {
+  width: 100%;
+  height: 100%;
+}
+
 .aster_island_count:hover .aster_island_count_pill {
   background: color-mix(in srgb, var(--text-primary, #111827) 6%, var(--bg-primary, #ffffff));
   color: var(--text-primary, #111827);

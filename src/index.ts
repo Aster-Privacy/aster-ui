@@ -490,6 +490,7 @@ export type {
   IslandIconButtonProps,
   IslandChipProps,
   IslandCountPillProps,
+  IslandCountPillSize,
   SettingToggleRowProps,
   SettingControlRowProps,
   SettingNoteProps,

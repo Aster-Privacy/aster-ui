@@ -64,6 +64,7 @@ export type {
   IslandIconButtonProps,
   IslandChipProps,
   IslandCountPillProps,
+  IslandCountPillSize,
 } from "./island_controls";
 
 export { SettingToggleRow, SettingControlRow, SettingNote } from "./setting_rows";
