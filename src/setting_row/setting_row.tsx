@@ -21,21 +21,24 @@
 
 import * as React from "react";
 
-import { IslandRow } from "../island/island";
+import { SettingControlRow } from "../island/setting_rows";
 
 interface SettingRowProps {
   label: string;
-  description: string;
-  children: React.ReactNode;
+  description?: string;
+  children?: React.ReactNode;
+  className?: string;
 }
 
-export function SettingRow({ label, description, children }: SettingRowProps) {
+export function SettingRow({ label, description, children, className }: SettingRowProps) {
   return (
-    <IslandRow
+    <SettingControlRow
+      className={className}
+      control={children}
+      control_width="auto"
       description={description}
       label={label}
       layout="stacked"
-      trailing={children}
     />
   );
 }

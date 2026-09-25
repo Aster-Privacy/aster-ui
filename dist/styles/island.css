@@ -470,6 +470,17 @@
   width: 100%;
 }
 
+.aster_island_row_control_auto {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  width: auto;
+}
+
+.aster_island_row_control_auto > * {
+  width: auto;
+}
+
 .aster_island_stack {
   display: flex;
   flex-direction: column;
@@ -846,6 +857,10 @@
 
   .aster_island_row_stacked .aster_island_row_control {
     width: 100%;
+  }
+
+  .aster_island_row_stacked .aster_island_row_control_auto {
+    justify-content: flex-start;
   }
 
   .aster_pill {

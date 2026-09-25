@@ -112,9 +112,9 @@ export interface SettingControlRowProps {
   info?: React.ReactNode;
   note?: React.ReactNode;
   icon?: React.ReactNode;
-  control: React.ReactNode;
+  control?: React.ReactNode;
   layout?: "inline" | "stacked" | "block";
-  control_width?: number;
+  control_width?: number | "auto";
   disabled?: boolean;
   className?: string;
 }
@@ -131,21 +131,24 @@ export function SettingControlRow({
   disabled,
   className,
 }: SettingControlRowProps) {
-  const control_node =
-    layout === "block" ? (
-      control
-    ) : (
-      <span
-        className="aster_island_row_control"
-        style={
-          control_width === undefined
-            ? undefined
-            : ({ "--aster-island-control-width": `${control_width}px` } as React.CSSProperties)
-        }
-      >
-        {control}
-      </span>
-    );
+  const has_control = control !== undefined && control !== null && control !== false;
+  const control_node = !has_control ? undefined : layout === "block" ? (
+    control
+  ) : (
+    <span
+      className={join_classes(
+        "aster_island_row_control",
+        control_width === "auto" && "aster_island_row_control_auto",
+      )}
+      style={
+        typeof control_width === "number"
+          ? ({ "--aster-island-control-width": `${control_width}px` } as React.CSSProperties)
+          : undefined
+      }
+    >
+      {control}
+    </span>
+  );
 
   return (
     <IslandRow

@@ -933,10 +933,11 @@ declare function CountBadge({ count, show_zero, is_active, is_loading, className
 
 interface SettingRowProps {
     label: string;
-    description: string;
-    children: React$1.ReactNode;
+    description?: string;
+    children?: React$1.ReactNode;
+    className?: string;
 }
-declare function SettingRow({ label, description, children }: SettingRowProps): react_jsx_runtime.JSX.Element;
+declare function SettingRow({ label, description, children, className }: SettingRowProps): react_jsx_runtime.JSX.Element;
 
 interface RadioRowWithDescriptionProps {
     label: string;
@@ -1198,9 +1199,9 @@ interface SettingControlRowProps {
     info?: React$1.ReactNode;
     note?: React$1.ReactNode;
     icon?: React$1.ReactNode;
-    control: React$1.ReactNode;
+    control?: React$1.ReactNode;
     layout?: "inline" | "stacked" | "block";
-    control_width?: number;
+    control_width?: number | "auto";
     disabled?: boolean;
     className?: string;
 }
