@@ -7530,6 +7530,57 @@ var IslandCountPill = React34.forwardRef(
   )
 );
 IslandCountPill.displayName = "IslandCountPill";
+
+// src/lib/cn.ts
+import { clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+function cn5(...inputs) {
+  return twMerge(clsx(inputs));
+}
+
+// src/i18n/ui_strings.tsx
+import * as React35 from "react";
+import { jsx as jsx59 } from "react/jsx-runtime";
+var default_ui_strings = {
+  close: "Close",
+  cancel: "Cancel",
+  confirm: "Confirm",
+  loading: "Loading",
+  more_info: "More info",
+  copy: "Copy",
+  copied: "Copied",
+  retry: "Try again",
+  show_password: "Show password",
+  hide_password: "Hide password",
+  previous_month: "Previous month",
+  next_month: "Next month",
+  verification_code_digit: "Digit {index} of {count}",
+  qr_code: "QR code"
+};
+var UI_STRINGS_CONTEXT_KEY = /* @__PURE__ */ Symbol.for("aster_ui.ui_strings_context");
+function resolve_ui_strings_context() {
+  const registry = globalThis;
+  const existing = registry[UI_STRINGS_CONTEXT_KEY];
+  if (existing) return existing;
+  const created = React35.createContext(default_ui_strings);
+  registry[UI_STRINGS_CONTEXT_KEY] = created;
+  return created;
+}
+var UiStringsContext = resolve_ui_strings_context();
+function UiStringsProvider({ strings, children }) {
+  const parent = React35.useContext(UiStringsContext);
+  const value = React35.useMemo(() => ({ ...parent, ...strings }), [parent, strings]);
+  return /* @__PURE__ */ jsx59(UiStringsContext.Provider, { value, children });
+}
+function use_ui_strings() {
+  return React35.useContext(UiStringsContext);
+}
+function format_ui_string(template, values) {
+  return template.replace(
+    /\{(\w+)\}/g,
+    (match, key) => key in values ? String(values[key]) : match
+  );
+}
 export {
   Accordion,
   AccordionContent,
@@ -7710,6 +7761,7 @@ export {
   Tooltip,
   TooltipDotted,
   TooltipRich,
+  UiStringsProvider,
   UpgradeBtn,
   UpgradeOverlay,
   ViewMockupFullpage,
@@ -7722,8 +7774,11 @@ export {
   button_tap,
   button_variants,
   card_variants,
+  cn5 as cn,
+  default_ui_strings,
   dismiss_toast,
   fade_up_item,
+  format_ui_string,
   get_auth_alert_styles,
   get_auth_primary_button_style,
   kbd_variants,
@@ -7736,5 +7791,6 @@ export {
   show_toast,
   stagger_container,
   switch_variants,
-  use_should_reduce_motion
+  use_should_reduce_motion,
+  use_ui_strings
 };

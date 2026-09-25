@@ -209,6 +209,7 @@ __export(index_exports, {
   Tooltip: () => Tooltip,
   TooltipDotted: () => TooltipDotted,
   TooltipRich: () => TooltipRich,
+  UiStringsProvider: () => UiStringsProvider,
   UpgradeBtn: () => UpgradeBtn,
   UpgradeOverlay: () => UpgradeOverlay,
   ViewMockupFullpage: () => ViewMockupFullpage,
@@ -221,8 +222,11 @@ __export(index_exports, {
   button_tap: () => button_tap,
   button_variants: () => button_variants,
   card_variants: () => card_variants,
+  cn: () => cn5,
+  default_ui_strings: () => default_ui_strings,
   dismiss_toast: () => dismiss_toast,
   fade_up_item: () => fade_up_item,
+  format_ui_string: () => format_ui_string,
   get_auth_alert_styles: () => get_auth_alert_styles,
   get_auth_primary_button_style: () => get_auth_primary_button_style,
   kbd_variants: () => kbd_variants,
@@ -235,7 +239,8 @@ __export(index_exports, {
   show_toast: () => show_toast,
   stagger_container: () => stagger_container,
   switch_variants: () => switch_variants,
-  use_should_reduce_motion: () => use_should_reduce_motion
+  use_should_reduce_motion: () => use_should_reduce_motion,
+  use_ui_strings: () => use_ui_strings
 });
 module.exports = __toCommonJS(index_exports);
 
@@ -7760,6 +7765,57 @@ var IslandCountPill = React34.forwardRef(
   )
 );
 IslandCountPill.displayName = "IslandCountPill";
+
+// src/lib/cn.ts
+var import_clsx = require("clsx");
+var import_tailwind_merge = require("tailwind-merge");
+function cn5(...inputs) {
+  return (0, import_tailwind_merge.twMerge)((0, import_clsx.clsx)(inputs));
+}
+
+// src/i18n/ui_strings.tsx
+var React35 = __toESM(require("react"), 1);
+var import_jsx_runtime59 = require("react/jsx-runtime");
+var default_ui_strings = {
+  close: "Close",
+  cancel: "Cancel",
+  confirm: "Confirm",
+  loading: "Loading",
+  more_info: "More info",
+  copy: "Copy",
+  copied: "Copied",
+  retry: "Try again",
+  show_password: "Show password",
+  hide_password: "Hide password",
+  previous_month: "Previous month",
+  next_month: "Next month",
+  verification_code_digit: "Digit {index} of {count}",
+  qr_code: "QR code"
+};
+var UI_STRINGS_CONTEXT_KEY = /* @__PURE__ */ Symbol.for("aster_ui.ui_strings_context");
+function resolve_ui_strings_context() {
+  const registry = globalThis;
+  const existing = registry[UI_STRINGS_CONTEXT_KEY];
+  if (existing) return existing;
+  const created = React35.createContext(default_ui_strings);
+  registry[UI_STRINGS_CONTEXT_KEY] = created;
+  return created;
+}
+var UiStringsContext = resolve_ui_strings_context();
+function UiStringsProvider({ strings, children }) {
+  const parent = React35.useContext(UiStringsContext);
+  const value = React35.useMemo(() => ({ ...parent, ...strings }), [parent, strings]);
+  return /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(UiStringsContext.Provider, { value, children });
+}
+function use_ui_strings() {
+  return React35.useContext(UiStringsContext);
+}
+function format_ui_string(template, values) {
+  return template.replace(
+    /\{(\w+)\}/g,
+    (match, key) => key in values ? String(values[key]) : match
+  );
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Accordion,
@@ -7941,6 +7997,7 @@ IslandCountPill.displayName = "IslandCountPill";
   Tooltip,
   TooltipDotted,
   TooltipRich,
+  UiStringsProvider,
   UpgradeBtn,
   UpgradeOverlay,
   ViewMockupFullpage,
@@ -7953,8 +8010,11 @@ IslandCountPill.displayName = "IslandCountPill";
   button_tap,
   button_variants,
   card_variants,
+  cn,
+  default_ui_strings,
   dismiss_toast,
   fade_up_item,
+  format_ui_string,
   get_auth_alert_styles,
   get_auth_primary_button_style,
   kbd_variants,
@@ -7967,5 +8027,6 @@ IslandCountPill.displayName = "IslandCountPill";
   show_toast,
   stagger_container,
   switch_variants,
-  use_should_reduce_motion
+  use_should_reduce_motion,
+  use_ui_strings
 });

@@ -488,3 +488,11 @@ export type {
   SettingNoteProps,
   SettingNoteTone,
 } from "./island";
+export { cn } from "./lib/cn";
+export {
+  UiStringsProvider,
+  use_ui_strings,
+  format_ui_string,
+  default_ui_strings,
+} from "./i18n/ui_strings";
+export type { AsterUiStrings, UiStringsProviderProps } from "./i18n/ui_strings";

@@ -21,6 +21,10 @@
 
 @import "./island.css";
 
+@source "../index.js";
+@source "../date_picker/index.js";
+@source "../qr_code/index.js";
+
 .aster_btn {
   display: inline-flex;
   align-items: center;
