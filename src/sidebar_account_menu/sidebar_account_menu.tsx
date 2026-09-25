@@ -122,7 +122,7 @@ export function SidebarAccountMenu({
 
             <div className="px-1.5 pb-1.5">
               <div
-                className="w-full px-2.5 py-2 rounded-[14px] flex items-center gap-2.5"
+                className="w-full px-2.5 py-2 rounded-[var(--aster-radius-item)] flex items-center gap-2.5"
                 style={{ backgroundColor: "var(--surf-tertiary, transparent)" }}
               >
                 <div className="relative">

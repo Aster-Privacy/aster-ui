@@ -62,7 +62,7 @@ export interface EncryptionInfoDropdownViewProps {
   reduce_motion?: boolean;
 }
 
-const PANEL_WIDTH = 256;
+const PANEL_WIDTH = 288;
 const PANEL_GAP = 8;
 const VIEWPORT_MARGIN = 8;
 
@@ -193,7 +193,7 @@ export function EncryptionInfoDropdownView({
             <motion.div
               ref={panel_ref}
               animate={{ opacity: 1, y: 0 }}
-              className="fixed z-[200] w-64 rounded-lg border shadow-lg bg-surf-primary border-edge-secondary"
+              className="aster_floating fixed z-[200] w-72 max-w-[calc(100vw-24px)]"
               exit={{ opacity: 0, y: -4 }}
               id={panel_id}
               initial={reduce_motion ? false : { opacity: 0, y: -4 }}
@@ -204,8 +204,8 @@ export function EncryptionInfoDropdownView({
               }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="p-3">
-                <div className="text-xs space-y-2 text-txt-secondary">
+              <div className="p-4">
+                <div className="text-[13px] leading-[19px] space-y-2 text-txt-muted">
                   <div className="flex items-center gap-2">
                     <div
                       className="flex-shrink-0"
@@ -213,14 +213,14 @@ export function EncryptionInfoDropdownView({
                     >
                       <LockIcon size={16} />
                     </div>
-                    <p className="font-medium text-txt-primary">{heading}</p>
+                    <p className="text-[14px] leading-5 font-semibold text-txt-primary">{heading}</p>
                   </div>
                   <p className="ps-6">{description}</p>
                   <p className="ps-6 text-txt-muted">
                     AES-256-GCM · {has_pq_protection ? "ML-KEM-768" : "KEM-768"}
                   </p>
                   {show_sender && (
-                    <div className="pt-2 mt-2 border-t border-edge-secondary">
+                    <div className="pt-3 mt-3 border-t border-[var(--aster-floating-divider)]">
                       <div className="flex items-center gap-2">
                         <div className="flex-shrink-0">
                           {sender_verification === "verified" && (

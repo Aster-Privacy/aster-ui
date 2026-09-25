@@ -47,7 +47,7 @@ const RadixContextMenuSubTrigger = React.forwardRef<
   <ContextMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-[var(--dropdown-hover)] data-[state=open]:bg-[var(--dropdown-hover)] [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+      "flex cursor-pointer select-none items-center gap-2 rounded-[var(--aster-radius-item)] px-2 py-1.5 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[state=open]:bg-[var(--aster-floating-hover)] [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
       inset && "ps-8",
       className,
     )}
@@ -68,13 +68,10 @@ const RadixContextMenuSubContent = React.forwardRef<
     <ContextMenuPrimitive.SubContent
       ref={ref}
       className={cn(
-        "z-50 min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-lg",
+        "z-50 min-w-[8rem] overflow-hidden aster_floating p-1.5",
         className,
       )}
       style={{
-        backgroundColor: "var(--dropdown-bg)",
-        borderColor: "var(--border-secondary)",
-        color: "var(--text-primary)",
         ...style,
       }}
       {...props}
@@ -92,13 +89,10 @@ const RadixContextMenuContent = React.forwardRef<
     <ContextMenuPrimitive.Content
       ref={ref}
       className={cn(
-        "z-50 min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-md",
+        "z-50 min-w-[8rem] overflow-hidden aster_floating p-1.5",
         className,
       )}
       style={{
-        backgroundColor: "var(--dropdown-bg)",
-        borderColor: "var(--border-secondary)",
-        color: "var(--text-primary)",
         ...style,
       }}
       {...props}
@@ -117,7 +111,7 @@ const RadixContextMenuItem = React.forwardRef<
   <ContextMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-[var(--dropdown-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0",
+      "relative flex cursor-pointer select-none items-center gap-2 rounded-[var(--aster-radius-item)] px-2 py-1.5 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0",
       inset && "ps-8",
       className,
     )}
@@ -135,7 +129,7 @@ const RadixContextMenuCheckboxItem = React.forwardRef<
     ref={ref}
     checked={checked}
     className={cn(
-      "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 ps-8 pe-2 text-sm outline-none focus:bg-[var(--dropdown-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex w-full cursor-pointer select-none items-center rounded-[var(--aster-radius-item)] py-1.5 ps-8 pe-2 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
     )}
     {...props}
@@ -159,7 +153,7 @@ const RadixContextMenuRadioItem = React.forwardRef<
   <ContextMenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "relative flex cursor-pointer select-none items-center rounded-sm py-1.5 ps-8 pe-2 text-sm outline-none focus:bg-[var(--dropdown-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-[var(--aster-radius-item)] py-1.5 ps-8 pe-2 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className,
     )}
     {...props}
@@ -200,8 +194,8 @@ const RadixContextMenuSeparator = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ContextMenuPrimitive.Separator
     ref={ref}
-    className={cn("-mx-1 my-1 h-px", className)}
-    style={{ backgroundColor: "var(--border-secondary)" }}
+    className={cn("-mx-1.5 my-1 h-px", className)}
+    style={{ backgroundColor: "var(--aster-floating-divider)" }}
     {...props}
   />
 ));

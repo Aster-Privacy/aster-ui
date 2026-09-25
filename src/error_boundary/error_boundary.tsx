@@ -179,7 +179,7 @@ export function EmailErrorFallbackView({
       <div className="text-sm mb-4 max-w-md">{description}</div>
       {on_retry && (
         <button
-          className="px-4 py-2 text-sm rounded-[14px] transition-colors"
+          className="px-4 py-2 text-sm rounded-[var(--aster-radius-field)] transition-colors"
           style={{
             backgroundColor: "var(--accent-color)",
             color: "white",

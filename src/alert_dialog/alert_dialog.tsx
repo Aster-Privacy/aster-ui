@@ -23,7 +23,8 @@
 import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { button_variants } from "../button";
-import { cn } from "../lib/cn";
+
+import { cn } from "../lib/cn";
 
 const AlertDialog = AlertDialogPrimitive.Root;
 
@@ -49,16 +50,11 @@ const AlertDialogContent = React.forwardRef<
     <AlertDialogPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed left-[50%] top-[50%] z-[60] grid w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 p-6 border rounded-xl",
+        "fixed left-[50%] top-[50%] z-[60] grid w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 p-6 aster_floating aster_dialog_surface",
         "data-[state=open]:animate-in data-[state=closed]:animate-out",
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
         className,
       )}
-      style={{
-        backgroundColor: "var(--modal-bg)",
-        borderColor: "var(--border-primary)",
-        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.35)",
-      }}
       {...props}
     />
   </AlertDialogPortal>
@@ -141,7 +137,7 @@ const AlertDialogCancel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Cancel
     ref={ref}
-    className={cn(button_variants({ variant: "outline" }), className)}
+    className={cn(button_variants({ variant: "secondary" }), className)}
     {...props}
   />
 ));

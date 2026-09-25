@@ -147,7 +147,7 @@ export function ContextMenu({
       <motion.div
         ref={menu_ref}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="fixed z-[9999] py-1 rounded-xl overflow-hidden bg-modal-bg border border-edge-secondary shadow-lg"
+        className="aster_floating fixed z-[9999] p-1.5 overflow-hidden"
         exit={{ opacity: 0, scale: 0.95, y: -4 }}
         initial={{ opacity: 0, scale: 0.95, y: -8 }}
         role="menu"
@@ -163,12 +163,12 @@ export function ContextMenu({
         {items.map((item, idx) => (
           <button
             key={item.id}
-            className="w-full px-3 py-2 text-left text-sm flex items-center gap-2 hover:bg-[var(--bg-hover)] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-[var(--aster-radius-item)] px-2.5 py-2 text-left text-sm flex items-center gap-2 hover:bg-[var(--aster-floating-hover)] disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={item.disabled}
             role="menuitem"
             style={{
-              color: item.danger ? "#ef4444" : "var(--text-primary)",
-              backgroundColor: focused_index === idx ? "var(--bg-hover)" : undefined,
+              color: item.danger ? "var(--color-danger, #ef4444)" : "var(--text-primary)",
+              backgroundColor: focused_index === idx ? "var(--aster-floating-hover)" : undefined,
             }}
             tabIndex={-1}
             type="button"

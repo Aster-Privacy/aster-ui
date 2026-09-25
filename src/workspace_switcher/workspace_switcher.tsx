@@ -152,7 +152,7 @@ export function WorkspaceSwitcherView({
         <PopoverContent
           ref={popover_ref}
           align={align}
-          className="account_menu_surface w-[352px] max-w-[calc(100vw-24px)] p-2 rounded-[24px] data-[state=closed]:animate-none data-[state=closed]:zoom-out-100 data-[state=closed]:slide-in-from-top-0"
+          className="account_menu_surface w-[352px] max-w-[calc(100vw-24px)] p-2 rounded-[var(--aster-island-radius)] data-[state=closed]:animate-none data-[state=closed]:zoom-out-100 data-[state=closed]:slide-in-from-top-0"
           sideOffset={8}
           style={{
             boxShadow:

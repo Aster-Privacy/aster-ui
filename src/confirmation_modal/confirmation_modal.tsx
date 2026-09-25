@@ -125,7 +125,7 @@ export function ConfirmationModal({
         <Button
           className="max-sm:flex-1"
           disabled={is_saving}
-          variant="outline"
+          variant="secondary"
           onClick={on_cancel}
         >
           {cancel_text}

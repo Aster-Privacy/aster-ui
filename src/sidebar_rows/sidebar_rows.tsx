@@ -52,7 +52,7 @@ export function SidebarSectionAddButton({
   return (
     <button
       aria-label={label}
-      className="p-1 rounded-[14px] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-icon-muted"
+      className="p-1 rounded-[var(--aster-radius-item)] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-icon-muted"
       data-rail-tip={rail_tip ? label : undefined}
       type="button"
       onClick={on_click}

@@ -57,7 +57,7 @@ const SelectSeparator = React.forwardRef<
   <SelectPrimitive.Separator
     ref={ref}
     className={cn(
-      "-mx-1.5 my-1.5 h-px bg-[var(--border-secondary)]",
+      "-mx-1.5 my-1 h-px bg-[var(--aster-floating-divider)]",
       className,
     )}
     {...props}
@@ -110,7 +110,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "aster_select_trigger group flex h-10 w-full items-center justify-between gap-2 overflow-hidden rounded-full border-0 ps-4 pe-3 text-[13px] font-medium text-[var(--text-primary)] data-[placeholder]:font-normal data-[placeholder]:text-[var(--text-muted)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color)]/50 disabled:cursor-not-allowed disabled:opacity-50",
+      "aster_select_trigger group flex h-10 w-full items-center justify-between gap-2 overflow-hidden border-0 ps-3.5 pe-3 text-[13px] font-medium text-[var(--text-primary)] data-[placeholder]:font-normal data-[placeholder]:text-[var(--text-muted)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color)]/50 disabled:cursor-not-allowed disabled:opacity-50",
       className,
     )}
     style={style}
@@ -175,21 +175,20 @@ const SelectContent = React.forwardRef<
       <SelectPrimitive.Content
         ref={ref}
         className={cn(
-          "relative z-[70] max-h-96 min-w-[8rem] overflow-hidden rounded-[20px] border border-[var(--border-secondary)] bg-[var(--dropdown-bg)] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[side=bottom]:slide-in-from-top-1 data-[side=top]:slide-in-from-bottom-1",
+          "relative z-[70] max-h-96 min-w-[8rem] overflow-hidden aster_floating data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[side=bottom]:slide-in-from-top-1 data-[side=top]:slide-in-from-bottom-1",
           position === "popper" && "translate-y-1",
           className,
         )}
         collisionPadding={12}
         position={position}
         sideOffset={6}
-        style={{ boxShadow: "var(--dropdown-shadow)" }}
         {...props}
       >
         <SelectScrollUpButton />
         <SelectPrimitive.Viewport
           ref={viewport_ref}
           className={cn(
-            "p-2 max-h-[inherit] overflow-y-auto overscroll-contain",
+            "p-1.5 max-h-[inherit] overflow-y-auto overscroll-contain",
             position === "popper" &&
               "w-full min-w-[var(--radix-select-trigger-width)]",
           )}
@@ -211,7 +210,7 @@ const SelectItem = React.forwardRef<
   <SelectPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex min-h-[40px] w-full cursor-pointer select-none items-center rounded-xl py-2 ps-3 pe-9 text-[13px] text-[var(--text-secondary)] outline-none transition-colors duration-100 hover:bg-black/[0.06] dark:hover:bg-white/[0.07] focus:bg-black/[0.06] dark:focus:bg-white/[0.07] data-[highlighted]:bg-black/[0.06] dark:data-[highlighted]:bg-white/[0.07] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[state=checked]:text-[var(--text-primary)] data-[state=checked]:font-medium",
+      "relative flex min-h-[40px] w-full cursor-pointer select-none items-center rounded-[var(--aster-radius-item)] py-2 ps-2.5 pe-9 text-[13px] text-[var(--text-secondary)] outline-none transition-colors duration-100 hover:bg-[var(--aster-floating-hover)] focus:bg-[var(--aster-floating-hover)] data-[highlighted]:bg-[var(--aster-floating-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[state=checked]:text-[var(--text-primary)] data-[state=checked]:font-medium",
       className,
     )}
     {...props}

@@ -198,7 +198,7 @@ export function KeyboardShortcutsModal({
                 <button
                   ref={close_button_ref}
                   aria-label={t_strings.close}
-                  className="p-1.5 rounded-[14px] transition-colors hover:bg-black/[0.05] dark:hover:bg-white/[0.05]"
+                  className="p-1.5 rounded-[var(--aster-radius-item)] transition-colors hover:bg-black/[0.05] dark:hover:bg-white/[0.05]"
                   style={{ color: "var(--text-muted)" }}
                   onClick={on_close}
                   type="button"

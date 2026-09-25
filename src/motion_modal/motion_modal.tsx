@@ -130,7 +130,7 @@ export function MotionModal({
             aria-labelledby={label_ids.title_id}
             aria-modal="true"
             className={cn(
-              "relative w-full mx-4 my-4 rounded-xl border flex flex-col max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain outline-none focus:outline-none focus-visible:outline-none",
+              "relative w-full mx-4 my-4 rounded-[var(--aster-radius-panel)] flex flex-col max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain outline-none focus:outline-none focus-visible:outline-none",
               SIZE_MAX_WIDTH[size],
               className,
               panel_class_name,
@@ -142,8 +142,7 @@ export function MotionModal({
             role="dialog"
             style={{
               backgroundColor: "var(--modal-bg)",
-              borderColor: "var(--border-primary)",
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.35)",
+              boxShadow: "var(--aster-dialog-shadow)",
               outline: "none",
             }}
             tabIndex={-1}
@@ -156,7 +155,7 @@ export function MotionModal({
             {show_close_button && (
               <button
                 aria-label={resolved_close_label}
-                className="aster_modal_close absolute end-5 top-5 z-10 flex items-center justify-center rounded-[14px] transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+                className="aster_modal_close absolute end-5 top-5 z-10 flex items-center justify-center rounded-[var(--aster-radius-item)] transition-colors hover:bg-[var(--aster-floating-hover)]"
                 style={{ width: 28, height: 28, padding: 0 }}
                 type="button"
                 onClick={on_close}

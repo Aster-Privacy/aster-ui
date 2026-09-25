@@ -54,21 +54,21 @@ export function InfoPopover({
       </PopoverTrigger>
       <PopoverContent
         align="start"
-        className="w-80 max-w-[calc(100vw-24px)] border border-edge-primary bg-modal-bg shadow-lg rounded-xl p-4 z-[200]"
+        className="aster_info_popover w-80 max-w-[calc(100vw-24px)] p-4 z-[200]"
         collisionPadding={12}
         sideOffset={6}
       >
         {title && (
-          <p className="text-sm font-semibold text-txt-primary mb-1.5 break-words">
+          <p className="text-[14px] leading-5 font-semibold text-txt-primary mb-1 break-words">
             {title}
           </p>
         )}
-        <p className="text-sm text-txt-muted leading-relaxed break-words">
+        <p className="text-[13px] leading-[19px] text-txt-muted break-words">
           {description}
         </p>
         {learn_more_url && (
           <a
-            className="inline-block mt-2.5 text-xs text-brand hover:underline"
+            className="inline-block mt-3 text-[13px] font-medium text-brand hover:underline"
             href={learn_more_url}
             rel="noopener noreferrer"
             target="_blank"

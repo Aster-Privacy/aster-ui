@@ -65,7 +65,7 @@ export function ThemeCard({
 
   return (
     <button
-      className={`flex-1 p-3 rounded-[14px] border-2 transition-all cursor-pointer ${
+      className={`flex-1 p-3 rounded-[var(--aster-radius-panel)] border-2 transition-all cursor-pointer ${
         is_selected
           ? "border-brand bg-surf-selected"
           : "border-edge-secondary bg-transparent"

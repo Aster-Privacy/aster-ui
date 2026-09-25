@@ -925,7 +925,7 @@
 .aster_modal {
   position: relative;
   background: #fff;
-  border-radius: 14px;
+  border-radius: var(--aster-radius-panel, 12px);
   padding: 24px;
   width: 100%;
   max-width: 400px;
@@ -2706,4 +2706,50 @@ button:has(> .aster_btn_spinner) > :not(.aster_btn_spinner),
 a:has(> .aster_btn_spinner) > :not(.aster_btn_spinner),
 label:has(> .aster_btn_spinner) > :not(.aster_btn_spinner) {
   opacity: 0;
+}
+
+.aster_island .aster_input {
+  border-radius: var(--aster-radius-field, 10px);
+  background-color: var(--aster-field-bg);
+}
+
+.aster_island .aster_input:not(.aster_input_error):not(.aster_input_success):not(:focus) {
+  border-color: transparent;
+}
+
+.aster_island .aster_input:hover:not(:disabled):not(:focus) {
+  background-color: var(--aster-field-hover);
+}
+
+.aster_tip_portal,
+.dark .aster_tip_portal,
+.aster_tip_top::after,
+.aster_tip_bottom::after,
+.aster_tip_left::after,
+.aster_tip_right::after,
+.aster_tip_dotted::after,
+.dark [data-tip]::after,
+.dark .aster_tip_dotted::after {
+  background: var(--aster-floating-bg, #ffffff);
+  color: var(--text-secondary, #374151);
+  border: 0;
+  border-radius: var(--aster-radius-item, 8px);
+  box-shadow: var(--aster-floating-shadow);
+}
+
+.aster_tip_portal_dark,
+.dark .aster_tip_portal_dark,
+.aster_tip_dark::after,
+.dark .aster_tip_dark::after {
+  background: var(--text-primary, #1a1a1a);
+  color: var(--bg-primary, #ffffff);
+  border: 0;
+}
+
+.aster_tip_rich,
+.dark .aster_tip_rich {
+  background: var(--aster-floating-bg, #ffffff);
+  border: 0;
+  border-radius: var(--aster-radius-panel, 12px);
+  box-shadow: var(--aster-floating-shadow);
 }

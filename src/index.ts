@@ -497,6 +497,8 @@ export type {
   SettingNoteTone,
 } from "./island";
 export { cn } from "./lib/cn";
+export { ThreadHiddenRow } from "./thread";
+export type { ThreadHiddenRowProps } from "./thread";
 export {
   UiStringsProvider,
   use_ui_strings,

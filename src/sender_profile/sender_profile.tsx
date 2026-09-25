@@ -538,7 +538,7 @@ function ModalInternalHeader({
     >
       <button
         aria-label={close_label}
-        className="absolute top-3 end-3 p-1.5 rounded-[14px] text-white/50 hover:text-white hover:bg-white/10 transition-colors"
+        className="absolute top-3 end-3 p-1.5 rounded-[var(--aster-radius-item)] text-white/50 hover:text-white hover:bg-white/10 transition-colors"
         type="button"
         onClick={on_close}
       >
@@ -582,7 +582,7 @@ function ModalExternalHeader({
     <div className="relative px-5 pt-5 pb-4 border-b border-edge-secondary">
       <button
         aria-label={close_label}
-        className="absolute top-3 end-3 p-1.5 rounded-[14px] text-txt-muted hover:text-txt-primary hover:bg-surf-hover transition-colors"
+        className="absolute top-3 end-3 p-1.5 rounded-[var(--aster-radius-item)] text-txt-muted hover:text-txt-primary hover:bg-surf-hover transition-colors"
         type="button"
         onClick={on_close}
       >

@@ -578,7 +578,7 @@ export function DashboardSidebar({
 
   const footer_collapsed_slot: ReactNode = (
     <button
-      className="p-2 rounded-[14px] hover:bg-black/[0.04] dark:hover:bg-white/[0.04] text-txt-muted"
+      className="p-2 rounded-[var(--aster-radius-item)] hover:bg-black/[0.04] dark:hover:bg-white/[0.04] text-txt-muted"
       title={t_strings.settings}
       type="button"
       onClick={on_settings_click}
@@ -676,7 +676,7 @@ export function DashboardSidebar({
 
       <div className={`${collapsed ? "px-2" : "px-2.5"} pb-3`}>
         <Button
-          className={`w-full !rounded-[14px] ${collapsed ? "" : "gap-2"}`}
+          className={`w-full !rounded-[var(--aster-radius-field)] ${collapsed ? "" : "gap-2"}`}
           variant="depth"
           onClick={() => {
             on_add_account();
@@ -786,7 +786,7 @@ export function DashboardSidebar({
               on_toggle={toggle_tags_section}
               right_slot={
                 <button
-                  className="p-1 rounded-[14px] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-muted"
+                  className="p-1 rounded-[var(--aster-radius-item)] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-muted"
                   title={t_strings.create_tag}
                   type="button"
                   onClick={() => {

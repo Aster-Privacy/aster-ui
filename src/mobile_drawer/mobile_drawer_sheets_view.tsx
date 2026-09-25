@@ -235,7 +235,7 @@ export function AccountMenuSheetView({
 
       <div className="space-y-1">
         <Button
-          className="flex w-full items-center justify-center gap-2 rounded-[14px] px-3 py-2.5 text-[14px] font-medium"
+          className="flex w-full items-center justify-center gap-2 rounded-[var(--aster-radius-field)] px-3 py-2.5 text-[14px] font-medium"
           type="button"
           variant="depth"
           onClick={on_upgrade}
