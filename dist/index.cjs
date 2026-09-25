@@ -1273,7 +1273,7 @@ var SelectTrigger = React12.forwardRef(({ className, children, style, ...props }
   {
     ref,
     className: cn(
-      "aster_select_trigger group flex h-10 w-full items-center justify-between gap-2 overflow-hidden border-0 ps-3.5 pe-3 text-[13px] font-medium text-[var(--text-primary)] data-[placeholder]:font-normal data-[placeholder]:text-[var(--text-muted)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color)]/50 disabled:cursor-not-allowed disabled:opacity-50",
+      "aster_select_trigger group flex h-10 w-full items-center justify-between gap-2 overflow-hidden border-0 ps-4 pe-3.5 text-[13px] font-medium text-[var(--text-primary)] data-[placeholder]:font-normal data-[placeholder]:text-[var(--text-muted)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color)]/50 disabled:cursor-not-allowed disabled:opacity-50",
       className
     ),
     style,
@@ -8687,35 +8687,19 @@ IslandCountPill.displayName = "IslandCountPill";
 var React37 = __toESM(require("react"), 1);
 var import_jsx_runtime61 = require("react/jsx-runtime");
 var ThreadHiddenRow = React37.forwardRef(
-  ({ label, icon, className, type = "button", ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)("div", { className: cn("flex w-full items-center gap-3 px-6 py-2", className), children: [
-    /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-      "span",
-      {
-        "aria-hidden": "true",
-        className: "h-px flex-1 bg-[color-mix(in_srgb,var(--text-primary,#111827)_12%,transparent)]"
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)(
-      "button",
-      {
-        ref,
-        className: "group inline-flex h-8 shrink-0 items-center gap-1.5 rounded-full bg-[var(--aster-island-fill,var(--bg-primary))] px-3.5 text-[13px] font-medium text-[var(--text-secondary,#374151)] transition-colors duration-150 hover:bg-[color-mix(in_srgb,var(--text-primary,#111827)_8%,var(--aster-island-fill,var(--bg-primary)))] hover:text-[var(--text-primary,#111827)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color,#3b82f6)] motion-reduce:transition-none",
-        type,
-        ...props,
-        children: [
-          icon ? /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { "aria-hidden": "true", className: "inline-flex h-4 w-4 items-center justify-center", children: icon }) : null,
-          /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { children: label })
-        ]
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
-      "span",
-      {
-        "aria-hidden": "true",
-        className: "h-px flex-1 bg-[color-mix(in_srgb,var(--text-primary,#111827)_12%,transparent)]"
-      }
-    )
-  ] })
+  ({ label, icon, className, type = "button", ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("div", { className: cn("aster_thread_hidden_row", className), children: /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)(
+    "button",
+    {
+      ref,
+      className: "aster_thread_hidden_button",
+      type,
+      ...props,
+      children: [
+        icon ? /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { "aria-hidden": "true", className: "aster_thread_hidden_icon", children: icon }) : null,
+        /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { children: label })
+      ]
+    }
+  ) })
 );
 ThreadHiddenRow.displayName = "ThreadHiddenRow";
 
