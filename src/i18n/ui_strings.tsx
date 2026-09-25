@@ -36,6 +36,7 @@ export interface AsterUiStrings {
   next_month: string;
   verification_code_digit: string;
   qr_code: string;
+  learn_more: string;
 }
 
 export const default_ui_strings: AsterUiStrings = {
@@ -53,6 +54,7 @@ export const default_ui_strings: AsterUiStrings = {
   next_month: "Next month",
   verification_code_digit: "Digit {index} of {count}",
   qr_code: "QR code",
+  learn_more: "Learn more",
 };
 
 const UI_STRINGS_CONTEXT_KEY = Symbol.for("aster_ui.ui_strings_context");

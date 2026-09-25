@@ -496,3 +496,28 @@ export {
   default_ui_strings,
 } from "./i18n/ui_strings";
 export type { AsterUiStrings, UiStringsProviderProps } from "./i18n/ui_strings";
+
+export { Separator } from "./separator";
+export { Progress } from "./progress";
+export { CrownIcon } from "./crown_icon";
+export { CoinIcon } from "./coin_icon";
+export type { CoinIconProps } from "./coin_icon";
+export { FaviconOrInitial } from "./favicon_or_initial";
+export type { FaviconOrInitialProps } from "./favicon_or_initial";
+export { SparkleOverlay } from "./sparkle_overlay";
+export type { SparkleOverlayProps } from "./sparkle_overlay";
+export { OtpInput } from "./otp_input";
+export type { OtpInputProps } from "./otp_input";
+export { Slider } from "./slider";
+export type { SliderProps } from "./slider";
+export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor } from "./popover";
+export { InfoPopover } from "./info_popover";
+export type { InfoPopoverProps } from "./info_popover";
+export {
+  push_overlay_layer,
+  remove_overlay_layer,
+  is_top_overlay_layer,
+  has_open_overlay_layer,
+  use_overlay_layer,
+  use_escape_layer,
+} from "./lib/overlay_layer_stack";

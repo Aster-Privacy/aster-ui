@@ -19,7 +19,8 @@ var default_ui_strings = {
   previous_month: "Previous month",
   next_month: "Next month",
   verification_code_digit: "Digit {index} of {count}",
-  qr_code: "QR code"
+  qr_code: "QR code",
+  learn_more: "Learn more"
 };
 var UI_STRINGS_CONTEXT_KEY = /* @__PURE__ */ Symbol.for("aster_ui.ui_strings_context");
 function resolve_ui_strings_context() {

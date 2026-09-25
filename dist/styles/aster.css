@@ -20,6 +20,7 @@
  */
 
 @import "./island.css";
+@import "./tokens.css";
 
 @source "../index.js";
 @source "../date_picker/index.js";

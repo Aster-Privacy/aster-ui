@@ -1,0 +1,51 @@
+/*
+ * Aster Communications Inc.
+ *
+ * Copyright (c) 2026 Aster Communications Inc.
+ *
+ * This file is part of this project.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+@theme inline {
+  --color-txt-primary: var(--text-primary);
+  --color-txt-secondary: var(--text-secondary);
+  --color-txt-tertiary: var(--text-tertiary);
+  --color-txt-muted: var(--text-muted);
+  --color-icon-muted: var(--icon-muted);
+  --color-icon-secondary: var(--icon-secondary);
+  --color-icon-active: var(--icon-active);
+  --color-surf-primary: var(--bg-primary);
+  --color-surf-secondary: var(--bg-secondary);
+  --color-surf-tertiary: var(--bg-tertiary);
+  --color-surf-hover: var(--bg-hover);
+  --color-surf-selected: var(--bg-selected);
+  --color-surf-card: var(--bg-card);
+  --color-edge-primary: var(--border-primary);
+  --color-edge-secondary: var(--border-secondary);
+  --color-brand: var(--accent-color);
+  --color-brand-hover: var(--accent-color-hover);
+  --color-aster-danger: var(--color-danger);
+  --color-aster-warning: var(--color-warning);
+  --color-aster-success: var(--color-success);
+  --color-aster-info: var(--color-info);
+  --color-modal-bg: var(--modal-bg);
+  --color-modal-overlay: var(--modal-overlay);
+  --color-dropdown-bg: var(--dropdown-bg);
+  --color-dropdown-hover: var(--dropdown-hover);
+  --color-input-bg: var(--input-bg);
+  --color-input-border: var(--input-border);
+  --color-sidebar-bg-custom: var(--sidebar-bg);
+}
