@@ -67,7 +67,7 @@
 
   .aster_island {
     --aster-field-bg: var(--bg-primary, #ffffff);
-    --aster-field-hover: color-mix(in srgb, var(--text-primary, #111827) 4%, var(--bg-primary, #ffffff));
+    --aster-field-hover: color-mix(in srgb, var(--text-primary, #111827) 9%, var(--bg-primary, #ffffff));
   }
 
   .aster_floating {
@@ -409,8 +409,14 @@
     outline-offset: -2px;
   }
 
-  .aster_island_selected {
+  .aster_island_selected::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
     box-shadow: inset 0 0 0 2px var(--accent-color, #3b82f6);
+    pointer-events: none;
+    z-index: 1;
   }
 
   .aster_island_page {
@@ -891,9 +897,13 @@
     min-width: var(--aster-select-min-width, 220px);
   }
 
-  .aster_select_trigger:hover:not(:disabled),
+  .aster_select_trigger:hover:not(:disabled) {
+    background: var(--aster-field-hover);
+  }
+
   .aster_select_trigger[data-state="open"] {
     background: var(--aster-field-hover);
+    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent-color, #3b82f6) 55%, transparent);
   }
 
   .aster_pill {
