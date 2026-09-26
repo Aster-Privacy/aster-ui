@@ -2856,6 +2856,8 @@ label:has(> .aster_btn_spinner) > :not(.aster_btn_spinner) {
   border: 0;
   border-radius: var(--aster-radius-panel, 12px);
   box-shadow: var(--aster-floating-shadow);
+}
+
 .aster_compose_toolbar {
   position: relative;
   flex-shrink: 0;
