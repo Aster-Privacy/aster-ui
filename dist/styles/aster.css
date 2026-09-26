@@ -169,9 +169,15 @@
   outline-offset: 2px;
 }
 
+@layer components {
+  :where(.aster_input) {
+    width: 100%;
+    padding: 0 14px;
+  }
+}
+
 .aster_input {
   display: flex;
-  width: 100%;
   border-radius: var(--aster-radius-control, 14px);
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: #ffffff;
@@ -179,7 +185,6 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  padding: 0 14px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
   outline: none;
 }
@@ -223,31 +228,51 @@
   cursor: not-allowed;
 }
 
+@layer components {
+  :where(.aster_input_xl) {
+    height: 44px;
+    padding: 0 16px;
+  }
+}
+
 .aster_input_xl {
-  height: 44px;
   font-size: 16px;
-  padding: 0 16px;
   border-radius: var(--aster-radius-control, 14px);
+}
+
+@layer components {
+  :where(.aster_input_lg) {
+    height: 40px;
+    padding: 0 14px;
+  }
 }
 
 .aster_input_lg {
-  height: 40px;
   font-size: 14px;
-  padding: 0 14px;
   border-radius: var(--aster-radius-control, 14px);
+}
+
+@layer components {
+  :where(.aster_input_md) {
+    height: 36px;
+    padding: 0 12px;
+  }
 }
 
 .aster_input_md {
-  height: 36px;
   font-size: 13px;
-  padding: 0 12px;
   border-radius: var(--aster-radius-control, 14px);
 }
 
+@layer components {
+  :where(.aster_input_sm) {
+    height: 32px;
+    padding: 0 10px;
+  }
+}
+
 .aster_input_sm {
-  height: 32px;
   font-size: 12px;
-  padding: 0 10px;
   border-radius: var(--aster-radius-control, 14px);
 }
 
