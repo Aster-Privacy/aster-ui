@@ -506,7 +506,7 @@
 
   .aster_island_section_header {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     gap: 12px;
     padding: 0 4px 8px;
