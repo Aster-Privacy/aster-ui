@@ -43,16 +43,14 @@ const AlertDialogContent = React.forwardRef<
 >(({ className, on_overlay_click, ...props }, ref) => (
   <AlertDialogPortal>
     <AlertDialogPrimitive.Overlay
-      className="fixed inset-0 z-[60] backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 duration-150"
+      className="fixed inset-0 z-[60] backdrop-blur-md aster_overlay_anim"
       style={{ backgroundColor: "var(--modal-overlay)" }}
       onClick={on_overlay_click}
     />
     <AlertDialogPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed left-[50%] top-[50%] z-[60] grid w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 p-6 aster_floating aster_dialog_surface",
-        "data-[state=open]:animate-in data-[state=closed]:animate-out",
-        "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+        "fixed left-[50%] top-[50%] z-[60] grid w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 p-6 aster_floating aster_dialog_surface aster_dialog_anim",
         className,
       )}
       {...props}

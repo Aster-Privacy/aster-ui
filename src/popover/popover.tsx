@@ -51,7 +51,7 @@ const PopoverContent = React.forwardRef<
           ref={ref}
           align={align}
           className={cn(
-            "aster_floating z-[200] w-72 p-4 outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+            "aster_floating aster_floating_anim z-[200] w-72 p-4 outline-none",
             className,
           )}
           sideOffset={sideOffset}

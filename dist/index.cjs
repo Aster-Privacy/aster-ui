@@ -1318,7 +1318,7 @@ var SelectContent = React12.forwardRef(({ className, children, position = "poppe
     {
       ref,
       className: cn(
-        "relative z-[70] max-h-96 min-w-[8rem] overflow-hidden aster_floating data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[side=bottom]:slide-in-from-top-1 data-[side=top]:slide-in-from-bottom-1",
+        "relative z-[70] max-h-96 min-w-[8rem] overflow-hidden aster_floating aster_floating_anim",
         position === "popper" && "translate-y-1",
         className
       ),
@@ -7236,7 +7236,7 @@ var DropdownMenuSubContent = React32.forwardRef(({ className, style, ...props },
   {
     ref,
     className: cn(
-      "z-[200] min-w-[8rem] overflow-hidden aster_floating px-1.5 py-2 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-dropdown-menu-content-transform-origin]",
+      "z-[200] min-w-[8rem] overflow-hidden aster_floating aster_floating_anim px-1.5 py-2",
       className
     ),
     style: {
@@ -7251,8 +7251,8 @@ var DropdownMenuContent = React32.forwardRef(({ className, sideOffset = 4, style
   {
     ref,
     className: cn(
-      "z-[200] max-h-[var(--radix-dropdown-menu-content-available-height)] min-w-[8rem] overflow-y-auto overflow-x-hidden aster_floating px-1.5 py-2",
-      "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 origin-[--radix-dropdown-menu-content-transform-origin]",
+      "z-[200] max-h-[var(--radix-dropdown-menu-content-available-height)] min-w-[8rem] overflow-y-auto overflow-x-hidden aster_floating aster_floating_anim px-1.5 py-2",
+      "",
       className
     ),
     sideOffset,
@@ -7885,7 +7885,7 @@ var AlertDialogContent = React35.forwardRef(({ className, on_overlay_click, ...p
   /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
     AlertDialogPrimitive.Overlay,
     {
-      className: "fixed inset-0 z-[60] backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 duration-150",
+      className: "fixed inset-0 z-[60] backdrop-blur-md aster_overlay_anim",
       style: { backgroundColor: "var(--modal-overlay)" },
       onClick: on_overlay_click
     }
@@ -7895,9 +7895,7 @@ var AlertDialogContent = React35.forwardRef(({ className, on_overlay_click, ...p
     {
       ref,
       className: cn(
-        "fixed left-[50%] top-[50%] z-[60] grid w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 p-6 aster_floating aster_dialog_surface",
-        "data-[state=open]:animate-in data-[state=closed]:animate-out",
-        "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+        "fixed left-[50%] top-[50%] z-[60] grid w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 p-6 aster_floating aster_dialog_surface aster_dialog_anim",
         className
       ),
       ...props
@@ -9648,7 +9646,7 @@ var PopoverContent = React40.forwardRef(
         ref,
         align,
         className: cn(
-          "aster_floating z-[200] w-72 p-4 outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+          "aster_floating aster_floating_anim z-[200] w-72 p-4 outline-none",
           className
         ),
         sideOffset,
@@ -9688,16 +9686,19 @@ function InfoPopover({
       PopoverContent,
       {
         align: "start",
-        className: "aster_info_popover w-80 max-w-[calc(100vw-24px)] p-4 z-[200]",
+        className: "aster_info_popover z-[200]",
         collisionPadding: 12,
         sideOffset: 6,
         children: [
-          title && /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("p", { className: "text-[14px] leading-5 font-semibold text-txt-primary mb-1 break-words", children: title }),
-          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("p", { className: "text-[13px] leading-[19px] text-txt-muted break-words", children: description }),
+          title && /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("p", { className: "aster_info_popover_title", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(import_outline7.InformationCircleIcon, { "aria-hidden": "true" }),
+            /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("span", { children: title })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("p", { className: "aster_info_popover_body", children: description }),
           learn_more_url && /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(
             "a",
             {
-              className: "inline-block mt-3 text-[13px] font-medium text-brand hover:underline",
+              className: "aster_info_popover_link",
               href: learn_more_url,
               rel: "noopener noreferrer",
               target: "_blank",
