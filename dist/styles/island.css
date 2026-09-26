@@ -266,6 +266,12 @@
     border-radius: var(--aster-island-radius);
     box-shadow: none;
     color: var(--text-primary, #111827);
+    overflow: clip;
+    overflow-clip-margin: 0;
+  }
+
+  .aster_island_overflow_visible {
+    overflow: visible;
   }
 
   .dark .aster_island,
@@ -844,6 +850,15 @@
     width: 100%;
   }
 
+  .aster_island_row_control:has(> .aster_select_trigger) {
+    width: auto;
+    max-width: min(100%, 320px);
+  }
+
+  .aster_island_row_control:has(> .aster_select_trigger) > .aster_select_trigger {
+    width: auto;
+  }
+
   .aster_island_row_control_auto {
     flex-wrap: wrap;
     align-items: center;
@@ -888,22 +903,30 @@
 
   .aster_select_trigger {
     background: var(--aster-field-bg);
-    border-radius: 14px;
+    border: 0;
+    border-radius: var(--aster-radius-control, 14px);
+    box-shadow: none;
+    outline: none;
     transition: background-color 0.14s var(--aster-island-ease);
   }
 
   .aster_island_row_trailing > .aster_select_trigger,
   .aster_island_row_control > .aster_select_trigger {
-    min-width: var(--aster-select-min-width, 220px);
+    min-width: var(--aster-select-min-width, 160px);
   }
 
   .aster_select_trigger:hover:not(:disabled) {
     background: var(--aster-field-hover);
   }
 
-  .aster_select_trigger[data-state="open"] {
-    background: var(--aster-field-hover);
-    box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--accent-color, #3b82f6) 55%, transparent);
+  .aster_select_trigger[data-state="open"],
+  .aster_select_trigger:active:not(:disabled) {
+    background: var(--aster-field-press, color-mix(in srgb, var(--text-primary, #111827) 13%, transparent));
+    box-shadow: none;
+  }
+
+  .aster_select_trigger:focus-visible {
+    box-shadow: 0 0 0 2px var(--bg-primary, #ffffff), 0 0 0 4px var(--accent-color, #3b82f6);
   }
 
   .aster_pill {

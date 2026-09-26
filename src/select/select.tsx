@@ -110,7 +110,7 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "aster_select_trigger group flex h-10 w-full items-center justify-between gap-2 overflow-hidden border-0 ps-4 pe-3.5 text-[13px] font-medium text-[var(--text-primary)] data-[placeholder]:font-normal data-[placeholder]:text-[var(--text-muted)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color)]/50 disabled:cursor-not-allowed disabled:opacity-50",
+      "aster_select_trigger group flex h-10 w-full items-center justify-between gap-2 overflow-hidden border-0 ps-4 pe-3.5 text-[13px] font-medium text-[var(--text-primary)] data-[placeholder]:font-normal data-[placeholder]:text-[var(--text-muted)] outline-none disabled:cursor-not-allowed disabled:opacity-50",
       className,
     )}
     style={style}

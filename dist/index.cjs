@@ -1273,7 +1273,7 @@ var SelectTrigger = React12.forwardRef(({ className, children, style, ...props }
   {
     ref,
     className: cn(
-      "aster_select_trigger group flex h-10 w-full items-center justify-between gap-2 overflow-hidden border-0 ps-4 pe-3.5 text-[13px] font-medium text-[var(--text-primary)] data-[placeholder]:font-normal data-[placeholder]:text-[var(--text-muted)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color)]/50 disabled:cursor-not-allowed disabled:opacity-50",
+      "aster_select_trigger group flex h-10 w-full items-center justify-between gap-2 overflow-hidden border-0 ps-4 pe-3.5 text-[13px] font-medium text-[var(--text-primary)] data-[placeholder]:font-normal data-[placeholder]:text-[var(--text-muted)] outline-none disabled:cursor-not-allowed disabled:opacity-50",
       className
     ),
     style,
@@ -5767,33 +5767,9 @@ function StorageIndicator({
 // src/upgrade_btn/upgrade_btn.tsx
 var React25 = __toESM(require("react"), 1);
 var import_jsx_runtime32 = require("react/jsx-runtime");
-function SparkleIcon() {
-  return /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(
-    "svg",
-    {
-      width: "13",
-      height: "13",
-      viewBox: "0 0 24 24",
-      fill: "none",
-      stroke: "currentColor",
-      strokeWidth: "2",
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-      "aria-hidden": "true",
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("path", { d: "M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("path", { d: "M5 17l.75 2.25L8 20l-2.25.75L5 23l-.75-2.25L2 20l2.25-.75L5 17z" }),
-        /* @__PURE__ */ (0, import_jsx_runtime32.jsx)("path", { d: "M19 3l.5 1.5L21 5l-1.5.5L19 7l-.5-1.5L17 5l1.5-.5L19 3z" })
-      ]
-    }
-  );
-}
 var UpgradeBtn = React25.forwardRef(
   ({ label, children, size = "md", ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime32.jsxs)(Button, { ref, variant: "upgrade", size, ...props, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(SparkleIcon, {}),
-      children ?? label ?? "Upgrade"
-    ] });
+    return /* @__PURE__ */ (0, import_jsx_runtime32.jsx)(Button, { ref, variant: "depth", size, ...props, children: children ?? label ?? "Upgrade" });
   }
 );
 UpgradeBtn.displayName = "UpgradeBtn";
