@@ -20,27 +20,10 @@
 //
 
 export {
-  Avatar,
-  AvatarWithStatus,
-  AvatarGroup,
-  AvatarNamed,
-  avatar_variants,
-} from "./avatar";
-export type {
-  AvatarProps,
-  AvatarVariantProps,
-  AvatarWithStatusProps,
-  AvatarGroupProps,
-  AvatarNamedProps,
-  StatusType,
-} from "./avatar";
-export {
-  AVATAR_COLORS,
-  get_active_locale,
-  get_avatar_color,
-  get_avatar_color_index,
-  get_avatar_key,
-  get_contrast_text,
-  get_initials,
-  hash_utf16,
-} from "./identity";
+  push_overlay_layer,
+  remove_overlay_layer,
+  is_top_overlay_layer,
+  has_open_overlay_layer,
+  use_overlay_layer,
+  use_escape_layer,
+} from "../lib/overlay_layer_stack";

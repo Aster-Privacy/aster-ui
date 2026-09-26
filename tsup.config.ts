@@ -28,6 +28,7 @@ export default defineConfig({
     "src/crypto/index.ts",
     "src/date_picker/index.ts",
     "src/qr_code/index.ts",
+    "src/compose_core/index.ts",
   ],
   format: ["esm", "cjs"],
   dts: true,

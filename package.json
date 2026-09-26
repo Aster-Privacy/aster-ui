@@ -1,6 +1,6 @@
 {
   "name": "@aster-privacy/ui",
-  "version": "0.1.2",
+  "version": "0.2.1",
   "description": "Aster UI component library: buttons, badges, cards, banners, avatars, modals, tooltips, and more.",
   "type": "module",
   "license": "AGPL-3.0-or-later",
@@ -65,6 +65,16 @@
         "default": "./dist/qr_code/index.cjs"
       }
     },
+    "./compose_core": {
+      "import": {
+        "types": "./dist/compose_core/index.d.ts",
+        "default": "./dist/compose_core/index.js"
+      },
+      "require": {
+        "types": "./dist/compose_core/index.d.cts",
+        "default": "./dist/compose_core/index.cjs"
+      }
+    },
     "./styles": "./dist/styles/aster.css"
   },
   "files": [
@@ -99,7 +109,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
+    "@types/react-dom": "^18.3.7",
     "framer-motion": "^11.18.2",
     "openpgp": "^6.3.0",
     "qr-code-styling": "^1.9.2",

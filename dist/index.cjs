@@ -31,6 +31,7 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 var index_exports = {};
 __export(index_exports, {
   ASTER_EMAIL_DOMAINS: () => ASTER_EMAIL_DOMAINS,
+  AVATAR_COLORS: () => AVATAR_COLORS,
   Accordion: () => Accordion,
   AccordionContent: () => AccordionContent,
   AccordionItem: () => AccordionItem,
@@ -89,6 +90,7 @@ __export(index_exports, {
   BlockingDialogView: () => BlockingDialogView,
   Button: () => Button,
   ButtonSpinner: () => ButtonSpinner,
+  COMPOSE_ICON_PATHS: () => COMPOSE_ICON_PATHS,
   Card: () => Card,
   CardContent: () => CardContent,
   CardDescription: () => CardDescription,
@@ -104,6 +106,8 @@ __export(index_exports, {
   CoinIcon: () => CoinIcon,
   ColorVisionFilters: () => ColorVisionFilters,
   ComposeErrorFallbackView: () => ComposeErrorFallbackView,
+  ComposeIcon: () => ComposeIcon,
+  ComposeToolbarLayout: () => ComposeToolbarLayout,
   ConfirmationModal: () => ConfirmationModal,
   ContactAvatarView: () => ContactAvatarView,
   ContextMenu: () => ContextMenu,
@@ -114,6 +118,7 @@ __export(index_exports, {
   CrownIcon: () => CrownIcon,
   DEFAULT_TOAST_POSITION: () => DEFAULT_TOAST_POSITION,
   DashboardSidebar: () => DashboardSidebar,
+  DraftStatusIndicator: () => DraftStatusIndicator,
   DrawerColorSwatches: () => DrawerColorSwatches,
   DropdownMenu: () => DropdownMenu,
   DropdownMenuCheckboxItem: () => DropdownMenuCheckboxItem,
@@ -130,17 +135,22 @@ __export(index_exports, {
   DropdownMenuSubContent: () => DropdownMenuSubContent,
   DropdownMenuSubTrigger: () => DropdownMenuSubTrigger,
   DropdownMenuTrigger: () => DropdownMenuTrigger,
+  EMOJI_PICKER_MAX_HEIGHT: () => EMOJI_PICKER_MAX_HEIGHT,
+  EMOJI_PICKER_WIDTH: () => EMOJI_PICKER_WIDTH,
   ENCRYPTED_LOCK_COLOR: () => ENCRYPTED_LOCK_COLOR,
   EditFolderSheetView: () => EditFolderSheetView,
   EditTagSheetView: () => EditTagSheetView,
   EmailErrorFallbackView: () => EmailErrorFallbackView,
   EmailTag: () => EmailTag,
+  EmojiPicker: () => EmojiPicker,
+  EmojiPopover: () => EmojiPopover,
   EmptyState: () => EmptyState,
   EncryptionInfoDropdownView: () => EncryptionInfoDropdownView,
   ErrorBanner: () => ErrorBanner,
   ErrorBoundaryView: () => ErrorBoundaryView,
   ErrorDetailsView: () => ErrorDetailsView,
   ExternalLinkWarningModal: () => ExternalLinkWarningModal,
+  FORMAT_BAR_STORAGE_KEY: () => FORMAT_BAR_STORAGE_KEY,
   Family2faDialogView: () => Family2faDialogView,
   FaviconOrInitial: () => FaviconOrInitial,
   FeatureCard: () => FeatureCard,
@@ -170,6 +180,7 @@ __export(index_exports, {
   KeyboardShortcutBadgeView: () => KeyboardShortcutBadgeView,
   KeyboardShortcutsModal: () => KeyboardShortcutsModal,
   LinkIcon: () => LinkIcon2,
+  LinkPopover: () => LinkPopover,
   LockIcon: () => LockIcon,
   Logo: () => Logo,
   Marquee: () => Marquee,
@@ -350,11 +361,14 @@ __export(index_exports, {
   ThemeMockupLight: () => ThemeMockupLight,
   ThreadHiddenRow: () => ThreadHiddenRow,
   ThreeDotsHorizontal: () => ThreeDotsHorizontal,
+  ToolbarButton: () => ToolbarButton,
+  ToolbarDivider: () => ToolbarDivider,
   Tooltip: () => Tooltip,
   TooltipDotted: () => TooltipDotted,
   TooltipRich: () => TooltipRich,
   TrashIcon: () => TrashIcon2,
   UiStringsProvider: () => UiStringsProvider,
+  UnderlineTabs: () => UnderlineTabs,
   UpgradeBtn: () => UpgradeBtn,
   UpgradeOverlay: () => UpgradeOverlay,
   ViewMockupFullpage: () => ViewMockupFullpage,
@@ -364,16 +378,19 @@ __export(index_exports, {
   WarningIcon: () => WarningIcon2,
   WorkspaceSwitcherView: () => WorkspaceSwitcherView,
   accordion_variants: () => accordion_variants,
+  apply_skin_tone: () => apply_skin_tone,
   avatar_variants: () => avatar_variants,
   badge_variants: () => badge_variants,
   button_tap: () => button_tap,
   button_variants: () => button_variants,
   card_variants: () => card_variants,
+  clamp_emoji_picker_position: () => clamp_emoji_picker_position,
   cn: () => cn,
   default_snooze_time_units: () => default_snooze_time_units,
   default_ui_strings: () => default_ui_strings,
   dismiss_toast: () => dismiss_toast,
   email_tag_variants: () => email_tag_variants,
+  emoji_categories: () => emoji_categories,
   fade_up_item: () => fade_up_item,
   format_error_text: () => format_error_text,
   format_find_order: () => format_find_order,
@@ -381,13 +398,24 @@ __export(index_exports, {
   format_shortcut_modifier: () => format_shortcut_modifier,
   format_snooze_time_remaining: () => format_snooze_time_remaining,
   format_ui_string: () => format_ui_string,
+  get_active_locale: () => get_active_locale,
+  get_all_emojis: () => get_all_emojis,
   get_auth_alert_styles: () => get_auth_alert_styles,
   get_auth_primary_button_style: () => get_auth_primary_button_style,
+  get_avatar_color: () => get_avatar_color,
+  get_avatar_color_index: () => get_avatar_color_index,
+  get_avatar_key: () => get_avatar_key,
   get_badge_visual: () => get_badge_visual,
   get_contact_avatar_font_size: () => get_contact_avatar_font_size,
+  get_contrast_text: () => get_contrast_text,
+  get_initials: () => get_initials,
   has_open_overlay_layer: () => has_open_overlay_layer,
+  hash_utf16: () => hash_utf16,
   hex_to_variant: () => hex_to_variant,
   is_aster_email_address: () => is_aster_email_address,
+  is_composing: () => is_composing2,
+  is_emoji_renderable: () => is_emoji_renderable,
+  is_tone_capable: () => is_tone_capable,
   is_top_overlay_layer: () => is_top_overlay_layer,
   is_top_position: () => is_top_position,
   kbd_variants: () => kbd_variants,
@@ -397,20 +425,29 @@ __export(index_exports, {
   motion_duration_fast: () => motion_duration_fast,
   motion_duration_slow: () => motion_duration_slow,
   motion_ease_standard: () => motion_ease_standard,
+  normalize_link_url: () => normalize_link_url,
   page_slide_transition: () => page_slide_transition,
   plan_badge_tier: () => plan_badge_tier,
   push_overlay_layer: () => push_overlay_layer,
+  read_format_bar_preference: () => read_format_bar_preference,
   remove_overlay_layer: () => remove_overlay_layer,
   resolve_toast_layout: () => resolve_toast_layout,
   resolve_toast_position: () => resolve_toast_position,
+  search_emojis: () => search_emojis,
   set_toast_min_duration: () => set_toast_min_duration,
   show_toast: () => show_toast,
+  skin_tone_modifiers: () => skin_tone_modifiers,
+  skin_tone_swatches: () => skin_tone_swatches,
+  skin_tones: () => skin_tones,
   stagger_container: () => stagger_container,
+  store_format_bar_preference: () => store_format_bar_preference,
   switch_variants: () => switch_variants,
   tag_color_label_key: () => tag_color_label_key,
   tag_icon_label_key: () => tag_icon_label_key,
   tag_icon_map: () => tag_icon_map,
+  tone_capable_emoji: () => tone_capable_emoji,
   unlock_body_scroll: () => unlock_body_scroll,
+  use_anchored_layer: () => use_anchored_layer,
   use_backdrop_dismiss: () => use_backdrop_dismiss,
   use_body_scroll_lock: () => use_body_scroll_lock,
   use_dialog_shell: () => use_dialog_shell,
@@ -489,24 +526,22 @@ var Spinner = React.forwardRef(
   }
 );
 Spinner.displayName = "Spinner";
-function ButtonSpinner({
-  size = "sm",
-  centered = false,
-  className
-}) {
+var ButtonSpinner = React.forwardRef(({ size = "sm", centered = false, className, ...props }, ref) => {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
     "span",
     {
-      "aria-hidden": "true",
+      ref,
       className: cn(
         "aster_btn_spinner",
         centered && "aster_btn_spinner_centered",
         className
       ),
+      ...props,
       children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Spinner, { size })
     }
   );
-}
+});
+ButtonSpinner.displayName = "ButtonSpinner";
 
 // src/button/button.tsx
 var import_jsx_runtime2 = require("react/jsx-runtime");
@@ -1019,6 +1054,97 @@ var AvatarNamed = React10.forwardRef(
   }
 );
 AvatarNamed.displayName = "AvatarNamed";
+
+// src/avatar/identity.ts
+var AVATAR_COLORS = [
+  "#1e88e5",
+  "#e53935",
+  "#43a047",
+  "#fb8c00",
+  "#8e24aa",
+  "#d81b60",
+  "#00acc1",
+  "#5e35b1",
+  "#f4511e",
+  "#00897b",
+  "#3949ab",
+  "#c0ca33",
+  "#6d4c41",
+  "#039be5",
+  "#7cb342",
+  "#ff6f00"
+];
+function hash_utf16(value) {
+  let hash = 0;
+  for (let i = 0; i < value.length; i++) {
+    hash = (hash << 5) - hash + value.charCodeAt(i) | 0;
+  }
+  return hash;
+}
+function get_avatar_key(email, name) {
+  return email || name || "?";
+}
+function get_avatar_color_index(identifier) {
+  return Math.abs(hash_utf16(identifier)) % AVATAR_COLORS.length;
+}
+function get_avatar_color(identifier) {
+  return AVATAR_COLORS[get_avatar_color_index(identifier)];
+}
+function to_linear(channel) {
+  return channel <= 0.03928 ? channel / 12.92 : Math.pow((channel + 0.055) / 1.055, 2.4);
+}
+var AVATAR_LUMINANCE_CROSSOVER = 0.55;
+function get_relative_luminance(hex) {
+  const normalized = hex.replace("#", "");
+  const full = normalized.length === 3 ? normalized.split("").map((c) => c + c).join("") : normalized;
+  if (full.length !== 6 || /[^0-9a-fA-F]/.test(full)) return null;
+  const r = parseInt(full.slice(0, 2), 16) / 255;
+  const g = parseInt(full.slice(2, 4), 16) / 255;
+  const b = parseInt(full.slice(4, 6), 16) / 255;
+  return 0.2126 * to_linear(r) + 0.7152 * to_linear(g) + 0.0722 * to_linear(b);
+}
+function get_contrast_text(hex) {
+  const luminance = get_relative_luminance(hex);
+  if (luminance === null) return "#ffffff";
+  return luminance > AVATAR_LUMINANCE_CROSSOVER ? "#111827" : "#ffffff";
+}
+function get_active_locale() {
+  if (typeof document === "undefined") return void 0;
+  return document.documentElement.lang || void 0;
+}
+function to_graphemes(value, locale) {
+  const segmenter_ctor = Intl.Segmenter;
+  if (typeof segmenter_ctor === "function") {
+    const segmenter = new segmenter_ctor(locale, { granularity: "grapheme" });
+    const out = [];
+    for (const part of segmenter.segment(value)) {
+      out.push(part.segment);
+    }
+    return out;
+  }
+  return Array.from(value);
+}
+function first_grapheme(value, locale) {
+  const graphemes = to_graphemes(value, locale);
+  return graphemes.length > 0 ? graphemes[0] : "";
+}
+function get_initials(name, email, locale) {
+  const from_name = (name || "").trim();
+  if (from_name) {
+    const words = from_name.split(/\s+/).filter(Boolean);
+    if (words.length >= 2) {
+      const first = first_grapheme(words[0], locale);
+      const last = first_grapheme(words[words.length - 1], locale);
+      return (first + last).toLocaleUpperCase(locale);
+    }
+    return first_grapheme(words[0], locale).toLocaleUpperCase(locale);
+  }
+  const local_part = (email || "").trim().split("@")[0];
+  if (local_part) {
+    return first_grapheme(local_part, locale).toLocaleUpperCase(locale);
+  }
+  return "?";
+}
 
 // src/modal/modal.tsx
 var React11 = __toESM(require("react"), 1);
@@ -7669,13 +7795,54 @@ function CountBadge({
   );
 }
 
-// src/island/setting_rows.tsx
+// src/tabs/underline_tabs.tsx
 var import_jsx_runtime50 = require("react/jsx-runtime");
+function UnderlineTabs({
+  items,
+  active,
+  on_change,
+  label,
+  className = "",
+  format_count = (value) => value.toLocaleString()
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
+    "div",
+    {
+      "aria-label": label,
+      className: `aster_tabs ${className}`.trim(),
+      role: "group",
+      children: items.map((item) => {
+        const is_active = item.key === active;
+        return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(
+          "button",
+          {
+            "aria-pressed": is_active,
+            className: "aster_tab",
+            "data-active": is_active ? "" : void 0,
+            type: "button",
+            onClick: () => on_change(item.key),
+            onMouseDown: (event) => event.preventDefault(),
+            children: [
+              item.icon ? /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("span", { "aria-hidden": "true", className: "aster_tab_icon", children: item.icon }) : null,
+              /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("span", { className: "aster_tab_label", children: item.label }),
+              typeof item.count === "number" ? /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("span", { className: "aster_tab_count", children: format_count(item.count) }) : null,
+              is_active ? /* @__PURE__ */ (0, import_jsx_runtime50.jsx)("span", { "aria-hidden": "true", className: "aster_tab_bar" }) : null
+            ]
+          },
+          item.key
+        );
+      })
+    }
+  );
+}
+
+// src/island/setting_rows.tsx
+var import_jsx_runtime51 = require("react/jsx-runtime");
 function join_classes6(...parts) {
   return parts.filter(Boolean).join(" ");
 }
 function SettingNote({ tone = "muted", icon, children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)(
     "span",
     {
       className: join_classes6(
@@ -7691,14 +7858,14 @@ function SettingNote({ tone = "muted", icon, children }) {
 }
 function render_label(label, info) {
   if (!info) return label;
-  return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)("span", { className: "aster_island_row_label_group", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)("span", { className: "aster_island_row_label_group", children: [
     label,
     info
   ] });
 }
 function render_description(description, note) {
   if (!note) return description;
-  return /* @__PURE__ */ (0, import_jsx_runtime50.jsxs)(import_jsx_runtime50.Fragment, { children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime51.jsxs)(import_jsx_runtime51.Fragment, { children: [
     description,
     note
   ] });
@@ -7716,7 +7883,7 @@ function SettingToggleRow({
   size = "lg",
   className
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
     IslandRow,
     {
       className,
@@ -7742,7 +7909,7 @@ function SettingControlRow({
   className
 }) {
   const has_control = control !== void 0 && control !== null && control !== false;
-  const control_node = !has_control ? void 0 : layout === "block" ? control : /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
+  const control_node = !has_control ? void 0 : layout === "block" ? control : /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
     "span",
     {
       className: join_classes6(
@@ -7753,7 +7920,7 @@ function SettingControlRow({
       children: control
     }
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime50.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
     IslandRow,
     {
       className,
@@ -7768,9 +7935,9 @@ function SettingControlRow({
 }
 
 // src/setting_row/setting_row.tsx
-var import_jsx_runtime51 = require("react/jsx-runtime");
+var import_jsx_runtime52 = require("react/jsx-runtime");
 function SettingRow({ label, description, children, className }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime51.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(
     SettingControlRow,
     {
       className,
@@ -7784,32 +7951,32 @@ function SettingRow({ label, description, children, className }) {
 }
 
 // src/radio_row_with_description/radio_row_with_description.tsx
-var import_jsx_runtime52 = require("react/jsx-runtime");
+var import_jsx_runtime53 = require("react/jsx-runtime");
 function RadioRowWithDescription({
   label,
   description,
   is_selected,
   on_select
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)(
     "button",
     {
       className: `w-full flex items-center justify-between px-4 py-3 rounded-[16px] border transition-colors ${is_selected ? "border-brand bg-surf-selected" : "border-edge-secondary bg-transparent"}`,
       type: "button",
       onClick: on_select,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime52.jsxs)("div", { className: "text-left", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("span", { className: "text-sm font-medium block text-txt-primary", children: label }),
-          /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("span", { className: "text-xs mt-0.5 block text-txt-muted", children: description })
+        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "text-left", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("span", { className: "text-sm font-medium block text-txt-primary", children: label }),
+          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("span", { className: "text-xs mt-0.5 block text-txt-muted", children: description })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime52.jsx)("span", { className: "pointer-events-none flex-shrink-0 ml-3", children: /* @__PURE__ */ (0, import_jsx_runtime52.jsx)(Radio, { readOnly: true, checked: is_selected }) })
+        /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("span", { className: "pointer-events-none flex-shrink-0 ml-3", children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(Radio, { readOnly: true, checked: is_selected }) })
       ]
     }
   );
 }
 
 // src/view_mode_card/view_mode_card.tsx
-var import_jsx_runtime53 = require("react/jsx-runtime");
+var import_jsx_runtime54 = require("react/jsx-runtime");
 function ViewModeCard({
   mode,
   label,
@@ -7818,22 +7985,22 @@ function ViewModeCard({
   theme
 }) {
   const get_mockup = () => {
-    if (mode === "popup") return /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(ViewMockupPopup, { theme });
-    if (mode === "split") return /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(ViewMockupSplit, { theme });
-    return /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(ViewMockupFullpage, { theme });
+    if (mode === "popup") return /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(ViewMockupPopup, { theme });
+    if (mode === "split") return /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(ViewMockupSplit, { theme });
+    return /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(ViewMockupFullpage, { theme });
   };
   const get_border_color = () => {
     if (theme === "light") return "1px solid #e5e5e5";
     return "1px solid #1a1a1a";
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime54.jsxs)(
     "button",
     {
       className: `flex-1 p-3 rounded-[var(--aster-radius-panel)] border-2 transition-all cursor-pointer ${is_selected ? "border-brand bg-surf-selected" : "border-edge-secondary bg-transparent"}`,
       type: "button",
       onClick: on_select,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
           "div",
           {
             className: "w-full aspect-[4/3] rounded-lg overflow-hidden mb-3",
@@ -7841,9 +8008,9 @@ function ViewModeCard({
             children: get_mockup()
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime53.jsxs)("div", { className: "flex items-center justify-between", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("span", { className: "text-sm font-medium text-txt-primary", children: label }),
-          /* @__PURE__ */ (0, import_jsx_runtime53.jsx)("span", { className: "pointer-events-none flex-shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime53.jsx)(Radio, { readOnly: true, checked: is_selected }) })
+        /* @__PURE__ */ (0, import_jsx_runtime54.jsxs)("div", { className: "flex items-center justify-between", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime54.jsx)("span", { className: "text-sm font-medium text-txt-primary", children: label }),
+          /* @__PURE__ */ (0, import_jsx_runtime54.jsx)("span", { className: "pointer-events-none flex-shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(Radio, { readOnly: true, checked: is_selected }) })
         ] })
       ]
     }
@@ -7853,12 +8020,12 @@ function ViewModeCard({
 // src/alert_dialog/alert_dialog.tsx
 var React35 = __toESM(require("react"), 1);
 var AlertDialogPrimitive = __toESM(require("@radix-ui/react-alert-dialog"), 1);
-var import_jsx_runtime54 = require("react/jsx-runtime");
+var import_jsx_runtime55 = require("react/jsx-runtime");
 var AlertDialog = AlertDialogPrimitive.Root;
 var AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 var AlertDialogPortal = AlertDialogPrimitive.Portal;
-var AlertDialogContent = React35.forwardRef(({ className, on_overlay_click, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime54.jsxs)(AlertDialogPortal, { children: [
-  /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
+var AlertDialogContent = React35.forwardRef(({ className, on_overlay_click, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(AlertDialogPortal, { children: [
+  /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
     AlertDialogPrimitive.Overlay,
     {
       className: "fixed inset-0 z-[60] backdrop-blur-md aster_overlay_anim",
@@ -7866,7 +8033,7 @@ var AlertDialogContent = React35.forwardRef(({ className, on_overlay_click, ...p
       onClick: on_overlay_click
     }
   ),
-  /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
+  /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
     AlertDialogPrimitive.Content,
     {
       ref,
@@ -7882,7 +8049,7 @@ AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
 var AlertDialogHeader = ({
   className,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
   "div",
   {
     className: cn("flex flex-col gap-3 text-center sm:text-start", className),
@@ -7893,7 +8060,7 @@ AlertDialogHeader.displayName = "AlertDialogHeader";
 var AlertDialogFooter = ({
   className,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
   "div",
   {
     className: cn(
@@ -7904,7 +8071,7 @@ var AlertDialogFooter = ({
   }
 );
 AlertDialogFooter.displayName = "AlertDialogFooter";
-var AlertDialogTitle = React35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
+var AlertDialogTitle = React35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
   AlertDialogPrimitive.Title,
   {
     ref,
@@ -7914,7 +8081,7 @@ var AlertDialogTitle = React35.forwardRef(({ className, ...props }, ref) => /* @
   }
 ));
 AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName;
-var AlertDialogDescription = React35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
+var AlertDialogDescription = React35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
   AlertDialogPrimitive.Description,
   {
     ref,
@@ -7924,7 +8091,7 @@ var AlertDialogDescription = React35.forwardRef(({ className, ...props }, ref) =
   }
 ));
 AlertDialogDescription.displayName = AlertDialogPrimitive.Description.displayName;
-var AlertDialogAction = React35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
+var AlertDialogAction = React35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
   AlertDialogPrimitive.Action,
   {
     ref,
@@ -7933,7 +8100,7 @@ var AlertDialogAction = React35.forwardRef(({ className, ...props }, ref) => /* 
   }
 ));
 AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
-var AlertDialogCancel = React35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime54.jsx)(
+var AlertDialogCancel = React35.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
   AlertDialogPrimitive.Cancel,
   {
     ref,
@@ -7945,7 +8112,7 @@ AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;
 
 // src/external_link_warning_modal/external_link_warning_modal.tsx
 var import_react9 = require("react");
-var import_jsx_runtime55 = require("react/jsx-runtime");
+var import_jsx_runtime56 = require("react/jsx-runtime");
 var ANIMATION_DURATION = 150;
 function ExternalLinkWarningModal({
   is_open,
@@ -7996,23 +8163,23 @@ function ExternalLinkWarningModal({
       return url.length > 50 ? url.slice(0, 50) + "..." : url;
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
     AlertDialog,
     {
       open: internal_open,
       onOpenChange: (open) => {
         if (!open) handle_cancel();
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
         AlertDialogContent,
         {
           className: "gap-0 p-0 overflow-hidden max-w-[420px] max-sm:max-w-none max-sm:w-full max-sm:h-full max-sm:rounded-none max-sm:left-0 max-sm:top-0 max-sm:translate-x-0 max-sm:translate-y-0",
           on_overlay_click: handle_cancel,
-          children: /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("div", { className: "flex h-full flex-col", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)("div", { className: "flex-1 px-6 pt-6 pb-5 max-sm:pt-[env(safe-area-inset-top,0px)]", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(AlertDialogHeader, { className: "space-y-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(AlertDialogTitle, { className: "text-[16px] font-semibold flex items-center gap-2", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)("div", { className: "flex h-full flex-col", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)("div", { className: "flex-1 px-6 pt-6 pb-5 max-sm:pt-[env(safe-area-inset-top,0px)]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(AlertDialogHeader, { className: "space-y-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(AlertDialogTitle, { className: "text-[16px] font-semibold flex items-center gap-2", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
                     "svg",
                     {
                       xmlns: "http://www.w3.org/2000/svg",
@@ -8023,7 +8190,7 @@ function ExternalLinkWarningModal({
                       className: "w-5 h-5",
                       style: { color: "var(--text-muted)" },
                       "aria-hidden": "true",
-                      children: /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+                      children: /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
                         "path",
                         {
                           strokeLinecap: "round",
@@ -8035,9 +8202,9 @@ function ExternalLinkWarningModal({
                   ),
                   title
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(AlertDialogDescription, { className: "text-[14px] leading-normal", children: description })
+                /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(AlertDialogDescription, { className: "text-[14px] leading-normal", children: description })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(
                 "div",
                 {
                   className: "mt-4 p-3 rounded-lg",
@@ -8046,7 +8213,7 @@ function ExternalLinkWarningModal({
                     border: "1px solid var(--border-secondary)"
                   },
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+                    /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
                       "p",
                       {
                         className: "text-[13px] font-medium",
@@ -8054,7 +8221,7 @@ function ExternalLinkWarningModal({
                         children: get_display_hostname()
                       }
                     ),
-                    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+                    /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
                       "p",
                       {
                         className: "text-[12px] break-all mt-1.5 max-h-[30vh] overflow-y-auto",
@@ -8065,13 +8232,13 @@ function ExternalLinkWarningModal({
                   ]
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(
                 "label",
                 {
                   className: "inline-flex items-center gap-2 cursor-pointer select-none mt-5",
                   htmlFor: "external-link-dont-show-checkbox",
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+                    /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
                       Checkbox,
                       {
                         checked: dont_show_again,
@@ -8079,7 +8246,7 @@ function ExternalLinkWarningModal({
                         onCheckedChange: (checked) => set_dont_show_again(checked === true)
                       }
                     ),
-                    /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+                    /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
                       "span",
                       {
                         className: "text-[13px]",
@@ -8091,8 +8258,8 @@ function ExternalLinkWarningModal({
                 }
               )
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime55.jsxs)(AlertDialogFooter, { className: "flex-row gap-3 px-6 pb-6 pt-2 sm:justify-end max-sm:pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)]", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)(AlertDialogFooter, { className: "flex-row gap-3 px-6 pb-6 pt-2 sm:justify-end max-sm:pb-[calc(env(safe-area-inset-bottom,0px)+1.5rem)]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
                 Button,
                 {
                   className: "mt-0 max-sm:flex-1",
@@ -8102,7 +8269,7 @@ function ExternalLinkWarningModal({
                   children: cancel_label
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime55.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
                 Button,
                 {
                   className: "max-sm:flex-1",
@@ -8160,7 +8327,7 @@ var button_tap = {
 
 // src/motion/color_vision_filters.tsx
 var import_react10 = require("react");
-var import_jsx_runtime56 = require("react/jsx-runtime");
+var import_jsx_runtime57 = require("react/jsx-runtime");
 function ColorVisionFilters({ mode = "none" }) {
   (0, import_react10.useEffect)(() => {
     if (typeof document === "undefined") return;
@@ -8173,7 +8340,7 @@ function ColorVisionFilters({ mode = "none" }) {
       document.body.style.filter = "";
     };
   }, [mode]);
-  return /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
     "svg",
     {
       "aria-hidden": "true",
@@ -8184,8 +8351,8 @@ function ColorVisionFilters({ mode = "none" }) {
         overflow: "hidden",
         pointerEvents: "none"
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime56.jsxs)("defs", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime56.jsx)("filter", { colorInterpolationFilters: "linearRGB", id: "cv-protanopia", children: /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("defs", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("filter", { colorInterpolationFilters: "linearRGB", id: "cv-protanopia", children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
           "feColorMatrix",
           {
             in: "SourceGraphic",
@@ -8193,7 +8360,7 @@ function ColorVisionFilters({ mode = "none" }) {
             values: "0.567, 0.433, 0,     0, 0\r\n                    0.558, 0.442, 0,     0, 0\r\n                    0,     0.242, 0.758, 0, 0\r\n                    0,     0,     0,     1, 0"
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime56.jsx)("filter", { colorInterpolationFilters: "linearRGB", id: "cv-deuteranopia", children: /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("filter", { colorInterpolationFilters: "linearRGB", id: "cv-deuteranopia", children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
           "feColorMatrix",
           {
             in: "SourceGraphic",
@@ -8201,7 +8368,7 @@ function ColorVisionFilters({ mode = "none" }) {
             values: "0.625, 0.375, 0,   0, 0\r\n                    0.7,   0.3,   0,   0, 0\r\n                    0,     0.3,   0.7, 0, 0\r\n                    0,     0,     0,   1, 0"
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime56.jsx)("filter", { colorInterpolationFilters: "linearRGB", id: "cv-tritanopia", children: /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("filter", { colorInterpolationFilters: "linearRGB", id: "cv-tritanopia", children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
           "feColorMatrix",
           {
             in: "SourceGraphic",
@@ -8209,7 +8376,7 @@ function ColorVisionFilters({ mode = "none" }) {
             values: "0.95, 0.05,  0,     0, 0\r\n                    0,    0.433, 0.567, 0, 0\r\n                    0,    0.475, 0.525, 0, 0\r\n                    0,    0,     0,     1, 0"
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime56.jsx)("filter", { colorInterpolationFilters: "linearRGB", id: "cv-achromatopsia", children: /* @__PURE__ */ (0, import_jsx_runtime56.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("filter", { colorInterpolationFilters: "linearRGB", id: "cv-achromatopsia", children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
           "feColorMatrix",
           {
             in: "SourceGraphic",
@@ -8225,7 +8392,7 @@ function ColorVisionFilters({ mode = "none" }) {
 // src/mobile/mobile_header.tsx
 var import_react11 = require("react");
 var import_outline6 = require("@heroicons/react/24/outline");
-var import_jsx_runtime57 = require("react/jsx-runtime");
+var import_jsx_runtime58 = require("react/jsx-runtime");
 var HEADER_ICON_BUTTON_CLASS = "flex h-11 w-11 items-center justify-center rounded-full text-[var(--text-secondary)] active:bg-[var(--bg-tertiary)]";
 var MobileHeader = (0, import_react11.memo)(function MobileHeader2({
   title,
@@ -8245,7 +8412,7 @@ var MobileHeader = (0, import_react11.memo)(function MobileHeader2({
   const strings = use_ui_strings();
   const show_menu = Boolean(on_menu) && !on_back;
   const title_click = on_title_click ?? (show_menu ? on_menu : void 0);
-  return /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)(
     "header",
     {
       className: "sticky top-0 z-40 shrink-0 bg-[var(--bg-primary)] px-3 relative flex items-center isolate",
@@ -8254,30 +8421,30 @@ var MobileHeader = (0, import_react11.memo)(function MobileHeader2({
         height: typeof safe_area_top === "number" ? height + safe_area_top : `calc(${height}px + ${safe_area_top})`
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: "flex items-center gap-1", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: "flex items-center gap-1", children: [
           left_action,
-          on_back && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+          on_back && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
             "button",
             {
               "aria-label": back_label ?? strings.back,
               className: HEADER_ICON_BUTTON_CLASS,
               type: "button",
               onClick: on_back,
-              children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_outline6.ChevronLeftIcon, { className: "h-6 w-6 rtl:-scale-x-100" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(import_outline6.ChevronLeftIcon, { className: "h-6 w-6 rtl:-scale-x-100" })
             }
           ),
-          show_menu && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+          show_menu && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
             "button",
             {
               "aria-label": menu_label ?? strings.open_menu,
               className: HEADER_ICON_BUTTON_CLASS,
               type: "button",
               onClick: on_menu,
-              children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_outline6.Bars3Icon, { className: "h-6 w-6" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(import_outline6.Bars3Icon, { className: "h-6 w-6" })
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("div", { className: "flex-1 min-w-0 flex items-center justify-center px-2", children: center_content ? center_content : title_click ? /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("div", { className: "flex-1 min-w-0 flex items-center justify-center px-2", children: center_content ? center_content : title_click ? /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
           "button",
           {
             className: "max-w-full truncate text-lg font-semibold text-[var(--text-primary)]",
@@ -8285,17 +8452,17 @@ var MobileHeader = (0, import_react11.memo)(function MobileHeader2({
             onClick: title_click,
             children: title
           }
-        ) : /* @__PURE__ */ (0, import_jsx_runtime57.jsx)("h1", { className: "max-w-full truncate text-lg font-semibold text-[var(--text-primary)]", children: title }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime57.jsxs)("div", { className: "flex shrink-0 items-center gap-1", children: [
+        ) : /* @__PURE__ */ (0, import_jsx_runtime58.jsx)("h1", { className: "max-w-full truncate text-lg font-semibold text-[var(--text-primary)]", children: title }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)("div", { className: "flex shrink-0 items-center gap-1", children: [
           right_actions,
-          on_search && /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+          on_search && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
             "button",
             {
               "aria-label": search_label ?? strings.search,
               className: HEADER_ICON_BUTTON_CLASS,
               type: "button",
               onClick: on_search,
-              children: /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(import_outline6.MagnifyingGlassIcon, { className: "h-6 w-6" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(import_outline6.MagnifyingGlassIcon, { className: "h-6 w-6" })
             }
           )
         ] })
@@ -8308,7 +8475,7 @@ var MobileHeaderIconButton = (0, import_react11.memo)(function MobileHeaderIconB
   children,
   "aria-label": aria_label
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime57.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
     "button",
     {
       "aria-label": aria_label,
@@ -8323,7 +8490,7 @@ var MobileHeaderIconButton = (0, import_react11.memo)(function MobileHeaderIconB
 // src/mobile/mobile_drawer_shell.tsx
 var import_react12 = require("react");
 var import_framer_motion9 = require("framer-motion");
-var import_jsx_runtime58 = require("react/jsx-runtime");
+var import_jsx_runtime59 = require("react/jsx-runtime");
 function assign_ref2(ref, value) {
   if (!ref) return;
   if (typeof ref === "function") {
@@ -8372,8 +8539,8 @@ function MobileDrawerShell({
   );
   const closed_x = side === "right" ? width : -width;
   const is_start = side === "start";
-  return /* @__PURE__ */ (0, import_jsx_runtime58.jsxs)(import_jsx_runtime58.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(import_framer_motion9.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(import_jsx_runtime59.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(import_framer_motion9.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
       import_framer_motion9.motion.div,
       {
         animate: { opacity: 1 },
@@ -8385,7 +8552,7 @@ function MobileDrawerShell({
         onPointerDown: on_backdrop_pointer_down
       }
     ) }),
-    /* @__PURE__ */ (0, import_jsx_runtime58.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
       import_framer_motion9.motion.nav,
       {
         ref: set_nav_ref,
@@ -8428,7 +8595,7 @@ function MobileDrawerShell({
 // src/mobile/action_sheet.tsx
 var import_react13 = require("react");
 var import_framer_motion10 = require("framer-motion");
-var import_jsx_runtime59 = require("react/jsx-runtime");
+var import_jsx_runtime60 = require("react/jsx-runtime");
 var MobileActionSheetShell = (0, import_react13.memo)(function MobileActionSheetShell2({
   is_open,
   on_close,
@@ -8459,8 +8626,8 @@ var MobileActionSheetShell = (0, import_react13.memo)(function MobileActionSheet
       on_close();
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(import_framer_motion10.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(import_jsx_runtime59.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(import_framer_motion10.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)(import_jsx_runtime60.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
       import_framer_motion10.motion.div,
       {
         animate: { opacity: 1 },
@@ -8472,7 +8639,7 @@ var MobileActionSheetShell = (0, import_react13.memo)(function MobileActionSheet
         onClick: on_close
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)(
       import_framer_motion10.motion.div,
       {
         animate: { y: 0 },
@@ -8493,16 +8660,16 @@ var MobileActionSheetShell = (0, import_react13.memo)(function MobileActionSheet
         transition: reduce_motion ? { duration: 0 } : { type: "tween", duration: 0.25, ease: "easeOut" },
         onDragEnd: handle_drag_end,
         children: [
-          show_handle && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
+          show_handle && /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
             "div",
             {
               className: "flex shrink-0 cursor-grab justify-center py-2 active:cursor-grabbing",
               style: { touchAction: "none" },
               onPointerDown: (e) => drag_controls.start(e),
-              children: /* @__PURE__ */ (0, import_jsx_runtime59.jsx)("div", { className: "h-1 w-10 rounded-full bg-[var(--text-muted)] opacity-30" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("div", { className: "h-1 w-10 rounded-full bg-[var(--text-muted)] opacity-30" })
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
             "div",
             {
               className: "flex-1 overflow-y-auto overscroll-contain",
@@ -8518,7 +8685,7 @@ var MobileActionSheetShell = (0, import_react13.memo)(function MobileActionSheet
 
 // src/island/island_controls.tsx
 var React36 = __toESM(require("react"), 1);
-var import_jsx_runtime60 = require("react/jsx-runtime");
+var import_jsx_runtime61 = require("react/jsx-runtime");
 function join_classes7(...parts) {
   return parts.filter(Boolean).join(" ");
 }
@@ -8533,7 +8700,7 @@ var PillButton = React36.forwardRef(
     type = "button",
     children,
     ...props
-  }, ref) => /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)(
+  }, ref) => /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)(
     "button",
     {
       ref,
@@ -8556,7 +8723,7 @@ var PillButton = React36.forwardRef(
 );
 PillButton.displayName = "PillButton";
 var IslandIconButton = React36.forwardRef(
-  ({ label, size = "md", active = false, className, type = "button", children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
+  ({ label, size = "md", active = false, className, type = "button", children, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
     "button",
     {
       ref,
@@ -8577,15 +8744,15 @@ var IslandIconButton = React36.forwardRef(
 IslandIconButton.displayName = "IslandIconButton";
 var IslandChip = React36.forwardRef(
   ({ name, meta, leading, trailing, on_press, className, title, ...props }, ref) => {
-    const inner = /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)(import_jsx_runtime60.Fragment, { children: [
-      leading && /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("span", { className: "aster_island_chip_leading", children: leading }),
-      /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)("span", { className: "aster_island_chip_text", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("span", { className: "aster_island_chip_name", children: name }),
-        meta && /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("span", { className: "aster_island_chip_meta", children: meta })
+    const inner = /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)(import_jsx_runtime61.Fragment, { children: [
+      leading && /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { className: "aster_island_chip_leading", children: leading }),
+      /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)("span", { className: "aster_island_chip_text", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { className: "aster_island_chip_name", children: name }),
+        meta && /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { className: "aster_island_chip_meta", children: meta })
       ] })
     ] });
     if (on_press && !trailing) {
-      return /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
         "button",
         {
           ref,
@@ -8598,7 +8765,7 @@ var IslandChip = React36.forwardRef(
         }
       );
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)(
       "div",
       {
         ref,
@@ -8621,7 +8788,7 @@ var IslandChip = React36.forwardRef(
         ...props,
         children: [
           inner,
-          trailing && /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
+          trailing && /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
             "span",
             {
               className: "aster_island_chip_trailing",
@@ -8636,7 +8803,7 @@ var IslandChip = React36.forwardRef(
 );
 IslandChip.displayName = "IslandChip";
 var IslandCountPill = React36.forwardRef(
-  ({ count, label, trailing, size = "sm", className, type = "button", ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime60.jsx)(
+  ({ count, label, trailing, size = "sm", className, type = "button", ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
     "button",
     {
       ref,
@@ -8648,9 +8815,9 @@ var IslandCountPill = React36.forwardRef(
       ),
       type,
       ...props,
-      children: /* @__PURE__ */ (0, import_jsx_runtime60.jsxs)("span", { className: "aster_island_count_pill", children: [
+      children: /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)("span", { className: "aster_island_count_pill", children: [
         count,
-        trailing ? /* @__PURE__ */ (0, import_jsx_runtime60.jsx)("span", { "aria-hidden": "true", className: "aster_island_count_trailing", children: trailing }) : null
+        trailing ? /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { "aria-hidden": "true", className: "aster_island_count_trailing", children: trailing }) : null
       ] })
     }
   )
@@ -8659,9 +8826,9 @@ IslandCountPill.displayName = "IslandCountPill";
 
 // src/thread/thread_hidden_row.tsx
 var React37 = __toESM(require("react"), 1);
-var import_jsx_runtime61 = require("react/jsx-runtime");
+var import_jsx_runtime62 = require("react/jsx-runtime");
 var ThreadHiddenRow = React37.forwardRef(
-  ({ label, icon, className, type = "button", ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("div", { className: cn("aster_thread_hidden_row", className), children: /* @__PURE__ */ (0, import_jsx_runtime61.jsxs)(
+  ({ label, icon, className, type = "button", ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime62.jsx)("div", { className: cn("aster_thread_hidden_row", className), children: /* @__PURE__ */ (0, import_jsx_runtime62.jsxs)(
     "button",
     {
       ref,
@@ -8669,8 +8836,8 @@ var ThreadHiddenRow = React37.forwardRef(
       type,
       ...props,
       children: [
-        icon ? /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { "aria-hidden": "true", className: "aster_thread_hidden_icon", children: icon }) : null,
-        /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { children: label })
+        icon ? /* @__PURE__ */ (0, import_jsx_runtime62.jsx)("span", { "aria-hidden": "true", className: "aster_thread_hidden_icon", children: icon }) : null,
+        /* @__PURE__ */ (0, import_jsx_runtime62.jsx)("span", { children: label })
       ]
     }
   ) })
@@ -8680,9 +8847,9 @@ ThreadHiddenRow.displayName = "ThreadHiddenRow";
 // src/separator/separator.tsx
 var React38 = __toESM(require("react"), 1);
 var SeparatorPrimitive = __toESM(require("@radix-ui/react-separator"), 1);
-var import_jsx_runtime62 = require("react/jsx-runtime");
+var import_jsx_runtime63 = require("react/jsx-runtime");
 var Separator4 = React38.forwardRef(
-  ({ className, orientation = "horizontal", decorative = true, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime62.jsx)(
+  ({ className, orientation = "horizontal", decorative = true, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime63.jsx)(
     SeparatorPrimitive.Root,
     {
       ref,
@@ -8702,8 +8869,8 @@ Separator4.displayName = SeparatorPrimitive.Root.displayName;
 // src/progress/progress.tsx
 var React39 = __toESM(require("react"), 1);
 var ProgressPrimitive = __toESM(require("@radix-ui/react-progress"), 1);
-var import_jsx_runtime63 = require("react/jsx-runtime");
-var Progress = React39.forwardRef(({ className, value, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime63.jsx)(
+var import_jsx_runtime64 = require("react/jsx-runtime");
+var Progress = React39.forwardRef(({ className, value, ...props }, ref) => /* @__PURE__ */ (0, import_jsx_runtime64.jsx)(
   ProgressPrimitive.Root,
   {
     ref,
@@ -8712,7 +8879,7 @@ var Progress = React39.forwardRef(({ className, value, ...props }, ref) => /* @_
       className
     ),
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime63.jsx)(
+    children: /* @__PURE__ */ (0, import_jsx_runtime64.jsx)(
       ProgressPrimitive.Indicator,
       {
         className: "h-full w-full flex-1 bg-primary transition-all",
@@ -8724,9 +8891,9 @@ var Progress = React39.forwardRef(({ className, value, ...props }, ref) => /* @_
 Progress.displayName = ProgressPrimitive.Root.displayName;
 
 // src/crown_icon/crown_icon.tsx
-var import_jsx_runtime64 = require("react/jsx-runtime");
+var import_jsx_runtime65 = require("react/jsx-runtime");
 function CrownIcon(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime64.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)(
     "svg",
     {
       "aria-hidden": "true",
@@ -8737,7 +8904,7 @@ function CrownIcon(props) {
       xmlns: "http://www.w3.org/2000/svg",
       ...props,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime64.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
           "path",
           {
             d: "M3.75 18.75h16.5L21.75 8.25l-5.25 4.5L12 5.25l-4.5 7.5-5.25-4.5z",
@@ -8745,7 +8912,7 @@ function CrownIcon(props) {
             strokeLinejoin: "round"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime64.jsx)("path", { d: "M4.5 15.75h15", strokeLinecap: "round", strokeLinejoin: "round" })
+        /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("path", { d: "M4.5 15.75h15", strokeLinecap: "round", strokeLinejoin: "round" })
       ]
     }
   );
@@ -8753,7 +8920,7 @@ function CrownIcon(props) {
 
 // src/coin_icon/coin_icon.tsx
 var import_react14 = require("react");
-var import_jsx_runtime65 = require("react/jsx-runtime");
+var import_jsx_runtime66 = require("react/jsx-runtime");
 var CURRENCY_MARKS = {
   btc: "btc",
   xbt: "btc",
@@ -8802,15 +8969,15 @@ var BADGE_RADIUS = BADGE_CUTOUT_RADIUS - BADGE_RING;
 var BADGE_ORIGIN = BADGE_CENTER - BADGE_RADIUS;
 var BADGE_SIZE = BADGE_RADIUS * 2;
 function btc_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M31.519 19.871C29.382 28.442 20.701 33.658 12.128 31.521 3.56 29.384-1.657 20.702 0.481 12.131 2.617 3.559 11.298-1.658 19.868 0.479 28.44 2.616 33.656 11.299 31.519 19.871Z",
         fill: "#f7931a"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M23.054 13.721C23.373 11.592 21.752 10.447 19.535 9.684L20.254 6.8 18.499 6.362 17.799 9.17C17.337 9.055 16.863 8.947 16.392 8.839L17.097 6.013 15.343 5.575 14.623 8.458C14.241 8.371 13.866 8.285 13.502 8.195L13.504 8.186 11.083 7.581 10.616 9.456S11.919 9.755 11.891 9.773C12.602 9.951 12.731 10.421 12.709 10.794L11.89 14.08C11.939 14.092 12.003 14.11 12.073 14.138 12.014 14.124 11.952 14.108 11.887 14.092L10.739 18.695C10.652 18.911 10.432 19.235 9.935 19.112 9.952 19.137 8.659 18.793 8.659 18.793L7.788 20.803 10.072 21.372C10.497 21.479 10.913 21.59 11.323 21.695L10.597 24.612 12.35 25.05 13.07 22.164C13.549 22.294 14.014 22.414 14.469 22.527L13.752 25.399 15.507 25.837 16.234 22.925C19.227 23.492 21.478 23.263 22.426 20.556 23.189 18.376 22.388 17.118 20.813 16.298 21.96 16.034 22.824 15.279 23.054 13.721ZM19.043 19.345C18.501 21.525 14.83 20.347 13.64 20.051L14.604 16.187C15.794 16.484 19.61 17.072 19.043 19.345ZM19.586 13.689C19.091 15.672 16.036 14.665 15.045 14.418L15.919 10.913C16.91 11.16 20.102 11.621 19.586 13.689Z",
@@ -8820,9 +8987,9 @@ function btc_mark() {
   ] });
 }
 function eth_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#627eea" }),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#627eea" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16.498 4V12.87L23.995 16.22Z",
@@ -8830,8 +8997,8 @@ function eth_mark() {
         fillOpacity: "0.602"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("path", { d: "M16.498 4L9 16.22 16.498 12.87Z", fill: "#ffffff" }),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("path", { d: "M16.498 4L9 16.22 16.498 12.87Z", fill: "#ffffff" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16.498 21.968V27.995L24 17.616Z",
@@ -8839,8 +9006,8 @@ function eth_mark() {
         fillOpacity: "0.602"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("path", { d: "M16.498 27.995V21.967L9 17.616Z", fill: "#ffffff" }),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("path", { d: "M16.498 27.995V21.967L9 17.616Z", fill: "#ffffff" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16.498 20.573L23.995 16.22 16.498 12.872Z",
@@ -8848,7 +9015,7 @@ function eth_mark() {
         fillOpacity: "0.2"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M9 16.22L16.498 20.573V12.872Z",
@@ -8859,29 +9026,29 @@ function eth_mark() {
   ] });
 }
 function usdc_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16 32C24.837 32 32 24.837 32 16 32 7.163 24.837 0 16 0 7.163 0 0 7.163 0 16 0 24.837 7.163 32 16 32Z",
         fill: "#0b53bf"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M18.88 4.35V6.41C22.99 7.65 26 11.47 26 16 26 20.53 22.99 24.35 18.88 25.59V27.65C24.12 26.37 28 21.64 28 16 28 10.36 24.12 5.63 18.88 4.35Z",
         fill: "#ffffff"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M6 16C6 11.47 9.01 7.65 13.12 6.41V4.35C7.88 5.63 4 10.36 4 16 4 21.64 7.88 26.37 13.12 27.65V25.59C9.01 24.36 6 20.53 6 16Z",
         fill: "#ffffff"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M20.3 18.23C20.3 14.14 13.89 15.82 13.89 13.56 13.89 12.75 14.54 12.23 15.78 12.23 17.26 12.23 17.77 12.95 17.93 13.92H19.97C19.788 12.1 18.743 10.95 17 10.608V9H15V10.55C13.091 10.794 11.89 11.906 11.89 13.56 11.89 17.67 18.31 16.13 18.31 18.35 18.31 19.19 17.5 19.75 16.13 19.75 14.34 19.75 13.75 18.96 13.53 17.87H11.54C11.669 19.864 12.899 21.112 15 21.423V23H17V21.444C19.051 21.179 20.3 19.986 20.3 18.23Z",
@@ -8891,9 +9058,9 @@ function usdc_mark() {
   ] });
 }
 function usdt_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#009393" }),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#009393" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16.02 17.144C18.771 17.144 21.071 16.678 21.633 16.057 21.156 15.53 19.43 15.114 17.238 15.001V16.314C16.845 16.334 16.437 16.344 16.019 16.344S15.193 16.334 14.8 16.314V15.001C12.609 15.114 10.882 15.53 10.405 16.057 10.968 16.678 13.268 17.144 16.019 17.144ZM20.908 10.962V12.771H17.238V14.025C19.816 14.159 21.751 14.71 21.765 15.37V16.745C21.751 17.404 19.816 17.954 17.238 18.089V21.166H14.8V18.089C12.222 17.955 10.288 17.404 10.274 16.745V15.37C10.288 14.71 12.222 14.159 14.8 14.025V12.771H11.13V10.962H20.909ZM9.686 8.084H22.572C22.88 8.084 23.164 8.246 23.318 8.51L27.072 14.956C27.266 15.29 27.208 15.712 26.931 15.983L16.597 26.07C16.262 26.397 15.724 26.397 15.389 26.07L5.068 15.997C4.785 15.719 4.731 15.285 4.94 14.949L8.954 8.49C9.11 8.238 9.388 8.085 9.686 8.085Z",
@@ -8904,15 +9071,15 @@ function usdt_mark() {
   ] });
 }
 function dai_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16 0C24.837 0 32 7.164 32 16 32 24.837 24.837 32 16 32 7.164 32 0 24.837 0 16 0 7.164 7.164 0 16 0Z",
         fill: "#f5ac37"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16.59 17.13L22.669 17.13C22.799 17.13 22.86 17.13 22.87 16.96 22.919 16.341 22.919 15.719 22.87 15.1 22.87 14.98 22.81 14.93 22.68 14.93L10.58 14.93C10.43 14.93 10.39 14.98 10.39 15.12L10.39 16.9C10.39 17.13 10.39 17.13 10.629 17.13L16.59 17.13ZM22.191 12.85C22.208 12.805 22.208 12.755 22.191 12.71 22.089 12.489 21.969 12.278 21.829 12.08 21.619 11.742 21.371 11.43 21.089 11.15 20.956 10.981 20.802 10.829 20.629 10.7 19.763 9.963 18.735 9.442 17.629 9.18 17.071 9.055 16.5 8.995 15.929 9L10.559 9C10.409 9 10.389 9.06 10.389 9.19L10.389 12.74C10.389 12.89 10.389 12.93 10.579 12.93L22.119 12.93C22.119 12.93 22.219 12.91 22.239 12.85L22.19 12.85ZM22.191 19.21C22.021 19.191 21.849 19.191 21.679 19.21L10.59 19.21C10.44 19.21 10.39 19.21 10.39 19.41L10.39 22.88C10.39 23.04 10.39 23.081 10.59 23.081L15.71 23.081C15.955 23.099 16.199 23.082 16.439 23.031 17.182 22.978 17.913 22.816 18.61 22.551 18.863 22.463 19.108 22.348 19.339 22.211L19.409 22.211C20.609 21.587 21.584 20.606 22.199 19.402 22.199 19.402 22.269 19.251 22.191 19.211ZM8.38 24.88L8.38 24.82 8.38 22.49 8.38 21.7 8.38 19.35C8.38 19.22 8.38 19.2 8.22 19.2L6.05 19.2C5.93 19.2 5.88 19.2 5.88 19.041L5.88 17.14 8.2 17.14C8.33 17.14 8.38 17.14 8.38 16.971L8.38 15.091C8.38 14.97 8.38 14.941 8.22 14.941L6.05 14.941C5.93 14.941 5.88 14.941 5.88 14.781L5.88 13.021C5.88 12.911 5.88 12.882 6.04 12.882L8.19 12.882C8.34 12.882 8.38 12.882 8.38 12.692L8.38 7.302C8.38 7.142 8.38 7.101 8.58 7.101L16.08 7.101C16.624 7.123 17.165 7.183 17.7 7.281 18.802 7.485 19.861 7.879 20.83 8.441 21.472 8.819 22.063 9.276 22.59 9.801 22.986 10.213 23.343 10.658 23.659 11.131 23.974 11.612 24.235 12.125 24.441 12.661 24.466 12.801 24.6 12.895 24.739 12.872L26.529 12.872C26.759 12.872 26.759 12.872 26.769 13.092L26.769 14.732C26.769 14.892 26.709 14.932 26.549 14.932L25.169 14.932C25.029 14.932 24.989 14.932 24.999 15.112 25.053 15.721 25.053 16.333 24.999 16.942 24.999 17.112 24.999 17.132 25.189 17.132L26.768 17.132C26.838 17.222 26.768 17.312 26.768 17.403 26.779 17.518 26.779 17.636 26.768 17.752L26.768 18.962C26.768 19.132 26.719 19.182 26.568 19.182L24.678 19.182C24.546 19.157 24.418 19.241 24.388 19.373 23.938 20.543 23.218 21.592 22.288 22.433 21.948 22.739 21.591 23.027 21.218 23.292 20.818 23.523 20.428 23.762 20.018 23.952 19.262 24.292 18.47 24.543 17.657 24.702 16.886 24.84 16.103 24.903 15.317 24.892L8.377 24.892 8.377 24.882Z",
@@ -8922,15 +9089,15 @@ function dai_mark() {
   ] });
 }
 function ltc_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M1.732 16A14.268 14.268 0 1 0 30.268 16 14.268 14.268 0 1 0 1.732 16Z",
         fill: "#ffffff"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16 0A16 16 0 1 0 32 16H32A15.954 15.954 0 0 0 16.093 0ZM16.271 16.542L14.605 22.16H23.516A0.449 0.449 0 0 1 23.981 22.594V22.741L23.206 25.414A0.577 0.577 0 0 1 22.625 25.84H8.988L11.274 18.053 8.717 18.828 9.298 17.046 11.855 16.271 15.07 5.346A0.585 0.585 0 0 1 15.651 4.92H19.099A0.449 0.449 0 0 1 19.564 5.354V5.501L16.852 14.722 19.409 13.947 18.867 15.806Z",
@@ -8940,9 +9107,9 @@ function ltc_mark() {
   ] });
 }
 function bch_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#0ac18e" }),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#0ac18e" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M20.991 10.627C20.187 8.804 18.339 8.414 16.077 8.792L15.35 5.974 13.637 6.416 14.351 9.226C13.901 9.34 13.438 9.438 12.979 9.568L12.264 6.774 10.55 7.216 11.277 10.035C10.908 10.14 7.817 10.932 7.817 10.932L8.288 12.768C8.288 12.768 9.547 12.414 9.535 12.443 10.234 12.26 10.562 12.609 10.717 12.938L12.715 20.662C12.739 20.885 12.698 21.267 12.219 21.397 12.248 21.413 10.973 21.718 10.973 21.718L11.159 23.858C11.159 23.858 14.221 23.074 14.623 22.973L15.358 25.823 17.072 25.381 16.337 22.51C16.808 22.4 17.267 22.286 17.714 22.169L18.445 25.023 20.158 24.581 19.423 21.734C22.063 21.092 23.927 19.427 23.545 16.881 23.302 15.346 21.624 14.087 20.231 13.945 21.088 13.186 21.523 12.077 20.991 10.627L20.991 10.627ZM20.166 17.348C20.508 19.87 17.003 20.179 15.846 20.483L14.839 16.711C16 16.406 19.59 15.127 20.166 17.348ZM18.055 12.211C18.416 14.453 15.419 14.713 14.453 14.96L13.535 11.537C14.506 11.297 17.32 10.136 18.055 12.211Z",
@@ -8952,8 +9119,8 @@ function bch_mark() {
   ] });
 }
 function sol_mark(gradient_id) {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)(
       "linearGradient",
       {
         gradientUnits: "userSpaceOnUse",
@@ -8963,17 +9130,17 @@ function sol_mark(gradient_id) {
         y1: "24.398",
         y2: "7.435",
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("stop", { offset: "0.08", stopColor: "#9945ff" }),
-          /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("stop", { offset: "0.3", stopColor: "#8752f3" }),
-          /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("stop", { offset: "0.5", stopColor: "#5497d5" }),
-          /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("stop", { offset: "0.6", stopColor: "#43b4ca" }),
-          /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("stop", { offset: "0.72", stopColor: "#28e0b9" }),
-          /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("stop", { offset: "0.97", stopColor: "#19fb9b" })
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("stop", { offset: "0.08", stopColor: "#9945ff" }),
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("stop", { offset: "0.3", stopColor: "#8752f3" }),
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("stop", { offset: "0.5", stopColor: "#5497d5" }),
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("stop", { offset: "0.6", stopColor: "#43b4ca" }),
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("stop", { offset: "0.72", stopColor: "#28e0b9" }),
+          /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("stop", { offset: "0.97", stopColor: "#19fb9b" })
         ]
       }
     ) }),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#000000" }),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#000000" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M25.105 20.624L22.068 23.798C22.002 23.866 21.922 23.921 21.833 23.959 21.744 23.997 21.649 24.016 21.552 24.016H7.153C7.084 24.016 7.017 23.996 6.959 23.96 6.902 23.923 6.857 23.871 6.829 23.809 6.802 23.748 6.793 23.68 6.805 23.614 6.817 23.548 6.848 23.487 6.895 23.438L9.935 20.264C10 20.196 10.08 20.141 10.169 20.103 10.257 20.066 10.353 20.046 10.449 20.046H24.847C24.916 20.046 24.983 20.066 25.041 20.102 25.098 20.139 25.143 20.191 25.171 20.253 25.198 20.314 25.207 20.382 25.195 20.448 25.183 20.514 25.152 20.575 25.105 20.624ZM22.068 14.233C22.002 14.165 21.922 14.11 21.833 14.072 21.744 14.034 21.649 14.015 21.552 14.015H7.153C7.084 14.015 7.017 14.035 6.959 14.071 6.902 14.108 6.857 14.16 6.829 14.222 6.802 14.283 6.793 14.351 6.805 14.417 6.817 14.483 6.848 14.544 6.895 14.593L9.935 17.767C10 17.835 10.08 17.89 10.169 17.928 10.257 17.965 10.353 17.985 10.449 17.985H24.847C24.916 17.985 24.983 17.965 25.041 17.929 25.098 17.892 25.143 17.84 25.171 17.778 25.198 17.717 25.207 17.649 25.195 17.583 25.183 17.517 25.152 17.456 25.105 17.407L22.068 14.233ZM7.153 11.954H21.552C21.649 11.954 21.744 11.935 21.833 11.897 21.922 11.859 22.002 11.805 22.068 11.736L25.105 8.562C25.152 8.513 25.183 8.452 25.195 8.386 25.207 8.32 25.198 8.252 25.171 8.191 25.143 8.129 25.098 8.077 25.041 8.04 24.983 8.004 24.916 7.984 24.847 7.984L10.449 7.984C10.353 7.984 10.257 8.004 10.169 8.041 10.08 8.079 10 8.134 9.935 8.202L6.896 11.376C6.849 11.425 6.818 11.486 6.806 11.552 6.794 11.618 6.803 11.686 6.83 11.747 6.857 11.808 6.902 11.861 6.96 11.897 7.017 11.934 7.084 11.954 7.153 11.954Z",
@@ -8983,22 +9150,22 @@ function sol_mark(gradient_id) {
   ] });
 }
 function xmr_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M32 16C32 24.836 24.837 32 16 32S0 24.836 0 16 7.163 0 16 0 32 7.163 32 16Z",
         fill: "#ffffff"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16 0C7.166 0-0.009 7.174 0.002 15.999 0.004 17.765 0.286 19.464 0.814 21.053H5.601V7.593L16 17.992 26.398 7.593V21.053H31.186C31.716 19.464 31.996 17.766 31.999 16 32.014 7.165 24.835 0.002 16 0.002Z",
         fill: "#f26822"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M13.609 20.382L9.07 15.844V24.313H5.601L2.327 24.314C5.135 28.921 10.21 32.003 16 32.003S26.865 28.921 29.674 24.313H22.929V15.844L18.39 20.382 15.999 22.773 13.609 20.382H13.609Z",
@@ -9008,9 +9175,9 @@ function xmr_mark() {
   ] });
 }
 function stable_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#0d9488" }),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#0d9488" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M3.4 16A12.6 12.6 0 1 0 28.6 16 12.6 12.6 0 1 0 3.4 16Z",
@@ -9022,7 +9189,7 @@ function stable_mark() {
         strokeWidth: "1.3"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16 6.9V25.1",
@@ -9033,7 +9200,7 @@ function stable_mark() {
         strokeWidth: "2.2"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M19.6 11.9C19.6 10 17.9 9 16 9 13.9 9 12.3 10.2 12.3 12.1 12.3 14.3 14.2 15 16 15.5 18.2 16.1 19.8 17 19.8 19.2 19.8 21.1 18 22.3 16 22.3S12.3 21.3 12.3 19.4",
@@ -9047,9 +9214,9 @@ function stable_mark() {
   ] });
 }
 function generic_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)("g", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#6b7280" }),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)("g", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("path", { d: "M0 16A16 16 0 1 0 32 16 16 16 0 1 0 0 16Z", fill: "#6b7280" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "path",
       {
         d: "M16 8A8 8 0 1 0 16 24 8 8 0 1 0 16 8ZM16 11.2A1.2 1.2 0 1 1 16 13.6 1.2 1.2 0 1 1 16 11.2ZM17.4 20.8H14.6V15.2H17.4Z",
@@ -9060,7 +9227,7 @@ function generic_mark() {
   ] });
 }
 function base_mark() {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("g", { children: /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("g", { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
     "path",
     {
       d: "M5 6.738C5 6.143 5 5.845 5.112 5.616 5.22 5.397 5.397 5.219 5.616 5.112 5.845 5 6.143 5 6.738 5H25.262C25.857 5 26.155 5 26.384 5.112 26.603 5.22 26.78 5.397 26.888 5.616 27 5.845 27 6.143 27 6.738V25.262C27 25.857 27 26.155 26.888 26.384 26.78 26.603 26.603 26.781 26.384 26.888 26.155 27 25.857 27 25.262 27H6.738C6.143 27 5.845 27 5.616 26.888 5.397 26.781 5.219 26.603 5.112 26.384 5 26.155 5 25.857 5 25.262V6.738Z",
@@ -9104,9 +9271,9 @@ function chain_letter(chain) {
   return /^[A-Z0-9]$/.test(first) ? first : null;
 }
 function letter_chain_mark(letter) {
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)(import_jsx_runtime65.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("circle", { cx: "16", cy: "16", fill: "#3d3d47", r: "16" }),
-    /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)(import_jsx_runtime66.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("circle", { cx: "16", cy: "16", fill: "#3d3d47", r: "16" }),
+    /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
       "text",
       {
         dominantBaseline: "central",
@@ -9139,7 +9306,7 @@ function CoinIcon({
   const show_badge = show_chain && !is_native_chain && (chain_mark !== "generic" || chain_initial !== null);
   const show_letter_badge = show_badge && chain_mark === "generic";
   const cutout_id = `coin_icon_cutout_${instance_id}`;
-  return /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)(
     "svg",
     {
       "aria-hidden": "true",
@@ -9151,7 +9318,7 @@ function CoinIcon({
       width: size,
       xmlns: "http://www.w3.org/2000/svg",
       children: [
-        show_badge && /* @__PURE__ */ (0, import_jsx_runtime65.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime65.jsxs)(
+        show_badge && /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("defs", { children: /* @__PURE__ */ (0, import_jsx_runtime66.jsxs)(
           "mask",
           {
             height: VIEW_SIZE,
@@ -9161,7 +9328,7 @@ function CoinIcon({
             x: "0",
             y: "0",
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
                 "rect",
                 {
                   fill: "#ffffff",
@@ -9171,7 +9338,7 @@ function CoinIcon({
                   y: "0"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
                 "circle",
                 {
                   cx: BADGE_CENTER,
@@ -9183,7 +9350,7 @@ function CoinIcon({
             ]
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
           "svg",
           {
             height: VIEW_SIZE,
@@ -9196,7 +9363,7 @@ function CoinIcon({
             children: mark_for(currency_mark, `coin_icon_coin_gradient_${instance_id}`)
           }
         ),
-        show_badge && /* @__PURE__ */ (0, import_jsx_runtime65.jsx)(
+        show_badge && /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
           "svg",
           {
             height: BADGE_SIZE,
@@ -9218,7 +9385,7 @@ function CoinIcon({
 
 // src/favicon_or_initial/favicon_or_initial.tsx
 var import_react15 = require("react");
-var import_jsx_runtime66 = require("react/jsx-runtime");
+var import_jsx_runtime67 = require("react/jsx-runtime");
 function FaviconOrInitial({
   src,
   initial,
@@ -9231,9 +9398,9 @@ function FaviconOrInitial({
     set_failed(false);
   }, [src]);
   if (!src || failed) {
-    return /* @__PURE__ */ (0, import_jsx_runtime66.jsx)("span", { className: initial_class_name, style: initial_style, children: initial });
+    return /* @__PURE__ */ (0, import_jsx_runtime67.jsx)("span", { className: initial_class_name, style: initial_style, children: initial });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime66.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime67.jsx)(
     "img",
     {
       alt: "",
@@ -9246,7 +9413,7 @@ function FaviconOrInitial({
 
 // src/sparkle_overlay/sparkle_overlay.tsx
 var import_react16 = require("react");
-var import_jsx_runtime67 = require("react/jsx-runtime");
+var import_jsx_runtime68 = require("react/jsx-runtime");
 function SparkleOverlay({ is_active }) {
   const canvas_ref = (0, import_react16.useRef)(null);
   const animation_ref = (0, import_react16.useRef)(0);
@@ -9329,7 +9496,7 @@ function SparkleOverlay({ is_active }) {
       cancelAnimationFrame(animation_ref.current);
     };
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime67.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(
     "canvas",
     {
       ref: canvas_ref,
@@ -9350,7 +9517,7 @@ function SparkleOverlay({ is_active }) {
 
 // src/otp_input/otp_input.tsx
 var import_react17 = require("react");
-var import_jsx_runtime68 = require("react/jsx-runtime");
+var import_jsx_runtime69 = require("react/jsx-runtime");
 function OtpInput({
   length = 6,
   value,
@@ -9424,14 +9591,14 @@ function OtpInput({
     e.preventDefault();
     handle_change(index, e.clipboardData.getData("text"));
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(
     "div",
     {
       className: cn(
         "flex flex-wrap items-center gap-2",
         align === "left" ? "justify-start" : "justify-center"
       ),
-      children: digits.map((digit, index) => /* @__PURE__ */ (0, import_jsx_runtime68.jsx)(
+      children: digits.map((digit, index) => /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(
         "input",
         {
           ref: (el) => {
@@ -9463,7 +9630,7 @@ function OtpInput({
 
 // src/slider/slider.tsx
 var import_react18 = require("react");
-var import_jsx_runtime69 = require("react/jsx-runtime");
+var import_jsx_runtime70 = require("react/jsx-runtime");
 function Slider({
   value,
   min,
@@ -9536,7 +9703,7 @@ function Slider({
   const display_value = is_dragging && drag_percent !== null ? percent_to_stepped_value(drag_percent) : value;
   const fill_transition = is_dragging ? "" : "transition-[width] duration-150 ease-out";
   const thumb_transition = is_dragging ? "transition-[transform,box-shadow] duration-100" : "transition-[left,transform,box-shadow] duration-150 ease-out";
-  return /* @__PURE__ */ (0, import_jsx_runtime69.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)(
     "div",
     {
       ref: track_ref,
@@ -9549,7 +9716,7 @@ function Slider({
       onPointerMove: handle_pointer_move,
       onPointerUp: handle_pointer_up,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(
           "div",
           {
             "aria-hidden": "true",
@@ -9559,7 +9726,7 @@ function Slider({
             }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(
           "div",
           {
             "aria-hidden": "true",
@@ -9573,7 +9740,7 @@ function Slider({
             }
           }
         ),
-        is_dragging && format_tooltip && /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(
+        is_dragging && format_tooltip && /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(
           "div",
           {
             className: "absolute -top-8 ltr:-translate-x-1/2 rtl:translate-x-1/2 px-2 py-1 rounded-md text-xs font-medium text-[var(--accent-fg,#ffffff)] bg-[var(--accent-blue)] shadow-lg pointer-events-none whitespace-nowrap",
@@ -9581,7 +9748,7 @@ function Slider({
             children: format_tooltip(display_value)
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime69.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(
           "div",
           {
             "aria-label": ariaLabel,
@@ -9606,7 +9773,7 @@ function Slider({
 // src/popover/popover.tsx
 var React40 = __toESM(require("react"), 1);
 var PopoverPrimitive = __toESM(require("@radix-ui/react-popover"), 1);
-var import_jsx_runtime70 = require("react/jsx-runtime");
+var import_jsx_runtime71 = require("react/jsx-runtime");
 var Popover = PopoverPrimitive.Root;
 var PopoverTrigger = PopoverPrimitive.Trigger;
 var PopoverAnchor = PopoverPrimitive.Anchor;
@@ -9616,7 +9783,7 @@ var PopoverOverlayLayer = () => {
 };
 var PopoverContent = React40.forwardRef(
   ({ className, align = "center", sideOffset = 4, children, ...props }, ref) => {
-    return /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(PopoverPrimitive.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime70.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(PopoverPrimitive.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)(
       PopoverPrimitive.Content,
       {
         ref,
@@ -9628,7 +9795,7 @@ var PopoverContent = React40.forwardRef(
         sideOffset,
         ...props,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime70.jsx)(PopoverOverlayLayer, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(PopoverOverlayLayer, {}),
           children
         ]
       }
@@ -9639,7 +9806,7 @@ PopoverContent.displayName = PopoverPrimitive.Content.displayName;
 
 // src/info_popover/info_popover.tsx
 var import_outline7 = require("@heroicons/react/24/outline");
-var import_jsx_runtime71 = require("react/jsx-runtime");
+var import_jsx_runtime72 = require("react/jsx-runtime");
 function InfoPopover({
   title,
   description,
@@ -9648,17 +9815,17 @@ function InfoPopover({
   icon_class
 }) {
   const strings = use_ui_strings();
-  return /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)(Popover, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(PopoverTrigger, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)(Popover, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(PopoverTrigger, { asChild: true, children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(
       "button",
       {
         "aria-label": strings.more_info,
         className: "-m-1 inline-flex items-center justify-center flex-shrink-0 p-1 text-txt-muted hover:text-txt-secondary transition-colors rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-brand",
         type: "button",
-        children: /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(import_outline7.InformationCircleIcon, { className: icon_class ?? "w-4 h-4" })
+        children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_outline7.InformationCircleIcon, { className: icon_class ?? "w-4 h-4" })
       }
     ) }),
-    /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)(
       PopoverContent,
       {
         align: "start",
@@ -9666,12 +9833,12 @@ function InfoPopover({
         collisionPadding: 12,
         sideOffset: 6,
         children: [
-          title && /* @__PURE__ */ (0, import_jsx_runtime71.jsxs)("p", { className: "aster_info_popover_title", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(import_outline7.InformationCircleIcon, { "aria-hidden": "true" }),
-            /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("span", { children: title })
+          title && /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)("p", { className: "aster_info_popover_title", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(import_outline7.InformationCircleIcon, { "aria-hidden": "true" }),
+            /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("span", { children: title })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime71.jsx)("p", { className: "aster_info_popover_body", children: description }),
-          learn_more_url && /* @__PURE__ */ (0, import_jsx_runtime71.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime72.jsx)("p", { className: "aster_info_popover_body", children: description }),
+          learn_more_url && /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(
             "a",
             {
               className: "aster_info_popover_link",
@@ -9689,7 +9856,7 @@ function InfoPopover({
 
 // src/profile_avatar/profile_avatar.tsx
 var React41 = __toESM(require("react"), 1);
-var import_jsx_runtime72 = require("react/jsx-runtime");
+var import_jsx_runtime73 = require("react/jsx-runtime");
 var PROFILE_AVATAR_SIZE_MAP = {
   xs: 24,
   sm_compact: 28,
@@ -9718,7 +9885,7 @@ var ProfileAvatarView = React41.memo(function ProfileAvatarView2({
   const pixel_size = PROFILE_AVATAR_SIZE_MAP[size];
   if (!src) {
     if (pending) {
-      return /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(
+      return /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
         Skeleton,
         {
           className: `rounded-full flex-shrink-0 ${className}`,
@@ -9734,7 +9901,7 @@ var ProfileAvatarView = React41.memo(function ProfileAvatarView2({
     const font_size = Math.round(
       pixel_size * (initials.length > 1 ? 0.36 : 0.44)
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
       "div",
       {
         "aria-label": name || email || void 0,
@@ -9748,7 +9915,7 @@ var ProfileAvatarView = React41.memo(function ProfileAvatarView2({
           backgroundColor: background_color,
           userSelect: "none"
         },
-        children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
           "svg",
           {
             "aria-hidden": "true",
@@ -9756,7 +9923,7 @@ var ProfileAvatarView = React41.memo(function ProfileAvatarView2({
             style: { display: "block", pointerEvents: "none" },
             viewBox: `0 0 ${pixel_size} ${pixel_size}`,
             width: pixel_size,
-            children: /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
               "text",
               {
                 dominantBaseline: "central",
@@ -9778,7 +9945,7 @@ var ProfileAvatarView = React41.memo(function ProfileAvatarView2({
       }
     );
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime72.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)(
     "div",
     {
       className: `rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden relative ${className}`,
@@ -9791,8 +9958,8 @@ var ProfileAvatarView = React41.memo(function ProfileAvatarView2({
         userSelect: "none"
       },
       children: [
-        show_placeholder && /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(Skeleton, { className: "absolute inset-0 rounded-full" }),
-        /* @__PURE__ */ (0, import_jsx_runtime72.jsx)(
+        show_placeholder && /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(Skeleton, { className: "absolute inset-0 rounded-full" }),
+        /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
           "img",
           {
             alt: name,
@@ -9819,7 +9986,7 @@ var ProfileAvatarView = React41.memo(function ProfileAvatarView2({
 
 // src/account_avatar_button/account_avatar_button.tsx
 var import_solid = require("@heroicons/react/24/solid");
-var import_jsx_runtime73 = require("react/jsx-runtime");
+var import_jsx_runtime74 = require("react/jsx-runtime");
 var OVERLAY_ICON_SIZE = {
   sm: "w-3.5 h-3.5",
   md: "w-4 h-4",
@@ -9839,8 +10006,8 @@ function AccountAvatarButtonView({
   on_file_change,
   on_open_picker
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)("div", { className: `relative flex-shrink-0 ${className}`, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime74.jsxs)("div", { className: `relative flex-shrink-0 ${className}`, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(
       "input",
       {
         ref: file_input_ref,
@@ -9850,7 +10017,7 @@ function AccountAvatarButtonView({
         onChange: on_file_change
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(
       "button",
       {
         "aria-label": label,
@@ -9860,27 +10027,27 @@ function AccountAvatarButtonView({
         title: label,
         type: "button",
         onClick: on_open_picker,
-        children: /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(
           "span",
           {
             className: is_paid_plan ? "plan_ring" : "inline-flex leading-none",
-            children: /* @__PURE__ */ (0, import_jsx_runtime73.jsxs)("span", { className: "relative flex rounded-full leading-none", children: [
+            children: /* @__PURE__ */ (0, import_jsx_runtime74.jsxs)("span", { className: "relative flex rounded-full leading-none", children: [
               avatar,
-              /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(
                 "span",
                 {
                   "aria-hidden": "true",
                   className: "absolute inset-0 flex items-center justify-center rounded-full opacity-0 transition-opacity duration-150 group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100 motion-reduce:transition-none",
                   style: { backgroundColor: "rgba(0, 0, 0, 0.55)" },
-                  children: /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(import_solid.CameraIcon, { className: `${OVERLAY_ICON_SIZE[size]} text-white` })
+                  children: /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(import_solid.CameraIcon, { className: `${OVERLAY_ICON_SIZE[size]} text-white` })
                 }
               ),
-              uploading && /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
+              uploading && /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(
                 "span",
                 {
                   className: "absolute inset-0 rounded-full flex items-center justify-center",
                   style: { backgroundColor: "rgba(0, 0, 0, 0.55)" },
-                  children: /* @__PURE__ */ (0, import_jsx_runtime73.jsx)(
+                  children: /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(
                     "span",
                     {
                       className: "rounded-full border-2 border-white border-t-transparent animate-spin motion-reduce:animate-none",
@@ -10017,7 +10184,7 @@ function format_find_order(find_order, locale) {
 }
 
 // src/badge_chip/badge_chip.tsx
-var import_jsx_runtime74 = require("react/jsx-runtime");
+var import_jsx_runtime75 = require("react/jsx-runtime");
 var size_classes2 = {
   xs: "text-[9px] px-1 py-[1px] gap-0.5 rounded",
   sm: "text-[10px] px-1.5 py-0.5 gap-1 rounded",
@@ -10040,7 +10207,7 @@ var BadgeChip = React42.memo(function BadgeChip2({
   const visual = get_badge_visual(badge.slug);
   const Icon2 = visual.icon;
   const find_label = show_find_order ? format_find_order(badge.find_order, locale) : null;
-  return /* @__PURE__ */ (0, import_jsx_runtime74.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)(
     "span",
     {
       className: cn(
@@ -10053,9 +10220,9 @@ var BadgeChip = React42.memo(function BadgeChip2({
       ),
       title: title ?? badge.display_name,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime74.jsx)(Icon2, { className: cn(icon_size_classes[size], "flex-shrink-0") }),
-        show_label && /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("span", { className: "truncate", children: badge.display_name }),
-        find_label && /* @__PURE__ */ (0, import_jsx_runtime74.jsx)("span", { className: "tabular-nums opacity-70", children: find_label })
+        /* @__PURE__ */ (0, import_jsx_runtime75.jsx)(Icon2, { className: cn(icon_size_classes[size], "flex-shrink-0") }),
+        show_label && /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("span", { className: "truncate", children: badge.display_name }),
+        find_label && /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("span", { className: "tabular-nums opacity-70", children: find_label })
       ]
     }
   );
@@ -10065,12 +10232,12 @@ var BadgeChip = React42.memo(function BadgeChip2({
 var React43 = __toESM(require("react"), 1);
 var import_class_variance_authority9 = require("class-variance-authority");
 var import_solid2 = require("@heroicons/react/16/solid");
-var import_jsx_runtime75 = require("react/jsx-runtime");
+var import_jsx_runtime76 = require("react/jsx-runtime");
 function BitcoinGlyph({
   className,
   style
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime75.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(
     "svg",
     {
       "aria-hidden": "true",
@@ -10083,7 +10250,7 @@ function BitcoinGlyph({
       viewBox: "0 0 512 512",
       width: "1em",
       xmlns: "http://www.w3.org/2000/svg",
-      children: /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("path", { d: "M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zm-141.651-35.33c4.937-32.999-20.191-50.739-54.55-62.573l11.146-44.702-27.213-6.781-10.851 43.524c-7.154-1.783-14.502-3.464-21.803-5.13l10.929-43.81-27.198-6.781-11.153 44.686c-5.922-1.349-11.735-2.682-17.377-4.084l.031-.14-37.53-9.37-7.239 29.062s20.191 4.627 19.765 4.913c11.022 2.751 13.014 10.044 12.68 15.825l-12.696 50.925c.76.194 1.744.473 2.829.907-.907-.225-1.876-.473-2.876-.713l-17.796 71.338c-1.349 3.348-4.767 8.37-12.471 6.464.271.395-19.78-4.937-19.78-4.937l-13.51 31.147 35.414 8.827c6.588 1.651 13.045 3.379 19.4 5.006l-11.262 45.213 27.182 6.781 11.153-44.733a1038.209 1038.209 0 0 0 21.687 5.627l-11.115 44.523 27.213 6.781 11.262-45.128c46.404 8.781 81.299 5.239 95.986-36.727 11.836-33.79-.589-53.281-25.004-65.991 17.78-4.098 31.174-15.792 34.747-39.949zm-62.177 87.179c-8.41 33.79-65.308 15.523-83.755 10.943l14.944-59.899c18.446 4.603 77.6 13.717 68.811 48.956zm8.417-87.667c-7.673 30.736-55.031 15.12-70.393 11.292l13.548-54.327c15.363 3.828 64.836 10.973 56.845 43.035z" })
+      children: /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("path", { d: "M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zm-141.651-35.33c4.937-32.999-20.191-50.739-54.55-62.573l11.146-44.702-27.213-6.781-10.851 43.524c-7.154-1.783-14.502-3.464-21.803-5.13l10.929-43.81-27.198-6.781-11.153 44.686c-5.922-1.349-11.735-2.682-17.377-4.084l.031-.14-37.53-9.37-7.239 29.062s20.191 4.627 19.765 4.913c11.022 2.751 13.014 10.044 12.68 15.825l-12.696 50.925c.76.194 1.744.473 2.829.907-.907-.225-1.876-.473-2.876-.713l-17.796 71.338c-1.349 3.348-4.767 8.37-12.471 6.464.271.395-19.78-4.937-19.78-4.937l-13.51 31.147 35.414 8.827c6.588 1.651 13.045 3.379 19.4 5.006l-11.262 45.213 27.182 6.781 11.153-44.733a1038.209 1038.209 0 0 0 21.687 5.627l-11.115 44.523 27.213 6.781 11.262-45.128c46.404 8.781 81.299 5.239 95.986-36.727 11.836-33.79-.589-53.281-25.004-65.991 17.78-4.098 31.174-15.792 34.747-39.949zm-62.177 87.179c-8.41 33.79-65.308 15.523-83.755 10.943l14.944-59.899c18.446 4.603 77.6 13.717 68.811 48.956zm8.417-87.667c-7.673 30.736-55.031 15.12-70.393 11.292l13.548-54.327c15.363 3.828 64.836 10.973 56.845 43.035z" })
     }
   );
 }
@@ -10431,7 +10598,7 @@ var EmailTag = React43.forwardRef(
       lg: "w-4 h-4"
     };
     const custom_styles = variant === "custom" && custom_color ? get_custom_color_styles(custom_color) : {};
-    return /* @__PURE__ */ (0, import_jsx_runtime75.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime76.jsxs)(
       "span",
       {
         ref,
@@ -10443,7 +10610,7 @@ var EmailTag = React43.forwardRef(
         style: { ...custom_styles, ...style },
         ...props,
         children: [
-          show_icon && resolved_icon && /* @__PURE__ */ (0, import_jsx_runtime75.jsx)(import_jsx_runtime75.Fragment, { children: IconComponent ? /* @__PURE__ */ (0, import_jsx_runtime75.jsx)(
+          show_icon && resolved_icon && /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(import_jsx_runtime76.Fragment, { children: IconComponent ? /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(
             IconComponent,
             {
               className: cn(
@@ -10451,7 +10618,7 @@ var EmailTag = React43.forwardRef(
                 "flex-shrink-0 -ml-0.5"
               )
             }
-          ) : /* @__PURE__ */ (0, import_jsx_runtime75.jsx)(
+          ) : /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(
             "span",
             {
               className: cn(
@@ -10461,7 +10628,7 @@ var EmailTag = React43.forwardRef(
               children: resolved_icon
             }
           ) }),
-          /* @__PURE__ */ (0, import_jsx_runtime75.jsx)("span", { className: "truncate", children: label })
+          /* @__PURE__ */ (0, import_jsx_runtime76.jsx)("span", { className: "truncate", children: label })
         ]
       }
     );
@@ -10519,7 +10686,7 @@ function hex_to_variant(hex) {
 
 // src/snooze_badge/snooze_badge.tsx
 var React44 = __toESM(require("react"), 1);
-var import_jsx_runtime76 = require("react/jsx-runtime");
+var import_jsx_runtime77 = require("react/jsx-runtime");
 var default_snooze_time_units = {
   now: "Now",
   days_short: "d",
@@ -10608,7 +10775,7 @@ function SnoozeBadge({
       }
     };
   }, [target_date, units]);
-  return /* @__PURE__ */ (0, import_jsx_runtime76.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(
     EmailTag,
     {
       className: cn(className),
@@ -10622,7 +10789,7 @@ function SnoozeBadge({
 
 // src/error_boundary/error_boundary.tsx
 var import_outline9 = require("@heroicons/react/24/outline");
-var import_jsx_runtime77 = require("react/jsx-runtime");
+var import_jsx_runtime78 = require("react/jsx-runtime");
 function format_error_text(error) {
   return `${error.message}${error.stack ? `
 
@@ -10634,7 +10801,7 @@ function ErrorDetailsView({
   copy_label,
   on_copy
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
     "div",
     {
       className: "mt-6 max-w-lg w-full rounded-lg overflow-hidden",
@@ -10643,13 +10810,13 @@ function ErrorDetailsView({
         border: "1px solid var(--border-secondary)"
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
           "div",
           {
             className: "px-3 py-2 flex items-center justify-between",
             style: { borderBottom: "1px solid var(--border-secondary)" },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
                 "span",
                 {
                   className: "text-xs font-medium",
@@ -10657,7 +10824,7 @@ function ErrorDetailsView({
                   children: title
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("div", { className: "flex items-center gap-1", children: /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("div", { className: "flex items-center gap-1", children: /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
                 "button",
                 {
                   className: "flex items-center gap-1.5 px-2 py-1 rounded-[12px] text-xs transition-colors hover:bg-black/[0.04] dark:hover:bg-white/[0.06]",
@@ -10665,15 +10832,15 @@ function ErrorDetailsView({
                   type: "button",
                   onClick: () => on_copy?.(format_error_text(error)),
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(import_outline9.ClipboardDocumentIcon, { className: "w-3.5 h-3.5" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("span", { children: copy_label })
+                    /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline9.ClipboardDocumentIcon, { className: "w-3.5 h-3.5" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("span", { children: copy_label })
                   ]
                 }
               ) })
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("div", { className: "p-3 overflow-auto max-h-40", children: /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("div", { className: "p-3 overflow-auto max-h-40", children: /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
           "pre",
           {
             className: "text-xs whitespace-pre-wrap break-words font-mono",
@@ -10704,13 +10871,13 @@ function ErrorBoundaryView({
   on_view_status,
   on_copy_error
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
     "div",
     {
       className: "absolute inset-0 flex flex-col items-center justify-center p-6 text-center",
       style: { color: "var(--text-secondary)" },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
           "img",
           {
             alt: logo_alt,
@@ -10719,7 +10886,7 @@ function ErrorBoundaryView({
             src: logo_src
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
           "div",
           {
             className: "text-[15px] font-semibold mb-1.5",
@@ -10727,12 +10894,12 @@ function ErrorBoundaryView({
             children: title
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("div", { className: "text-[13px] leading-relaxed max-w-[420px] mb-5", children: description }),
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)("div", { className: "flex gap-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(Button, { size: "md", variant: "depth", onClick: on_retry, children: retry_label }),
-          /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(Button, { size: "md", variant: "secondary", onClick: on_view_status, children: status_label })
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("div", { className: "text-[13px] leading-relaxed max-w-[420px] mb-5", children: description }),
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)("div", { className: "flex gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(Button, { size: "md", variant: "depth", onClick: on_retry, children: retry_label }),
+          /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(Button, { size: "md", variant: "secondary", onClick: on_view_status, children: status_label })
         ] }),
-        error && /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(
+        error && /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
           ErrorDetailsView,
           {
             copy_label,
@@ -10751,13 +10918,13 @@ function EmailErrorFallbackView({
   retry_label,
   on_retry
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
     "div",
     {
       className: "flex flex-col items-center justify-center h-full p-8 text-center",
       style: { color: "var(--text-secondary)" },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
           "div",
           {
             className: "text-base font-medium mb-2",
@@ -10765,8 +10932,8 @@ function EmailErrorFallbackView({
             children: title
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("div", { className: "text-sm mb-4 max-w-md", children: description }),
-        on_retry && /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("div", { className: "text-sm mb-4 max-w-md", children: description }),
+        on_retry && /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
           "button",
           {
             className: "px-4 py-2 text-sm rounded-[var(--aster-radius-field)] transition-colors",
@@ -10786,13 +10953,13 @@ function ComposeErrorFallbackView({
   title,
   description
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
     "div",
     {
       className: "flex flex-col items-center justify-center h-64 p-8 text-center",
       style: { color: "var(--text-secondary)" },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
           "div",
           {
             className: "text-base font-medium mb-2",
@@ -10800,7 +10967,7 @@ function ComposeErrorFallbackView({
             children: title
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("div", { className: "text-sm mb-4 max-w-md", children: description })
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("div", { className: "text-sm mb-4 max-w-md", children: description })
       ]
     }
   );
@@ -10808,13 +10975,13 @@ function ComposeErrorFallbackView({
 function ChunkRecoveryFallbackView({
   label
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime77.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
     "div",
     {
       className: "absolute inset-0 flex flex-col items-center justify-center gap-3 p-6 text-center",
       style: { color: "var(--text-secondary)" },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
           "span",
           {
             className: "rounded-full border-2 border-t-transparent animate-spin motion-reduce:animate-none",
@@ -10826,7 +10993,7 @@ function ChunkRecoveryFallbackView({
             }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime77.jsx)("div", { className: "text-[13px]", children: label })
+        /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("div", { className: "text-[13px]", children: label })
       ]
     }
   );
@@ -10835,7 +11002,7 @@ function ChunkRecoveryFallbackView({
 // src/profile_dropdown/profile_dropdown.tsx
 var React45 = __toESM(require("react"), 1);
 var import_outline10 = require("@heroicons/react/24/outline");
-var import_jsx_runtime78 = require("react/jsx-runtime");
+var import_jsx_runtime79 = require("react/jsx-runtime");
 function ProfileDropdownView({
   email,
   display_name,
@@ -10861,8 +11028,8 @@ function ProfileDropdownView({
   React45.useEffect(() => {
     set_address_expanded(false);
   }, [email, open]);
-  return /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(DropdownMenu, { open, onOpenChange: on_open_change, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)(DropdownMenu, { open, onOpenChange: on_open_change, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
       DropdownMenuTrigger,
       {
         asChild: true,
@@ -10872,23 +11039,23 @@ function ProfileDropdownView({
         children
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)(
       DropdownMenuContent,
       {
         align: "start",
         className: "w-64",
         onClick: (e) => e.stopPropagation(),
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)("div", { className: "px-3 pt-3 pb-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)("div", { className: "flex items-center gap-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)("div", { className: "px-3 pt-3 pb-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)("div", { className: "flex items-center gap-3", children: [
               avatar,
-              /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)("div", { className: "flex-1 min-w-0", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("p", { className: "text-[13px] font-medium truncate text-txt-primary", children: display_name }),
-                domain && /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("p", { className: "text-[11px] truncate text-txt-muted", children: domain })
+              /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)("div", { className: "flex-1 min-w-0", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("p", { className: "text-[13px] font-medium truncate text-txt-primary", children: display_name }),
+                domain && /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("p", { className: "text-[11px] truncate text-txt-muted", children: domain })
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)("div", { className: "mt-2 w-full flex items-center gap-1.5 px-2 py-1.5 rounded-[12px] text-[12px] border text-txt-secondary border-edge-secondary bg-surf-secondary", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)("div", { className: "mt-2 w-full flex items-center gap-1.5 px-2 py-1.5 rounded-[12px] text-[12px] border text-txt-secondary border-edge-secondary bg-surf-secondary", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
                 "button",
                 {
                   className: `flex-1 min-w-0 text-start ${address_expanded ? "whitespace-normal break-all" : "truncate"}`,
@@ -10898,7 +11065,7 @@ function ProfileDropdownView({
                   children: email
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
                 "button",
                 {
                   "aria-label": labels.copy,
@@ -10906,28 +11073,28 @@ function ProfileDropdownView({
                   title: labels.copy,
                   type: "button",
                   onClick: on_copy_email,
-                  children: /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline10.ClipboardDocumentIcon, { className: "w-3 h-3" })
+                  children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline10.ClipboardDocumentIcon, { className: "w-3 h-3" })
                 }
               )
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(DropdownMenuSeparator, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(DropdownMenuSeparator, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
             DropdownMenuItem,
             {
               className: "gap-2 cursor-pointer",
               disabled: is_contact_loading,
               onClick: on_contact_action,
-              children: is_contact ? /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(import_jsx_runtime78.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline10.UserMinusIcon, { className: "w-4 h-4" }),
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("span", { children: labels.remove_from_contacts })
-              ] }) : /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(import_jsx_runtime78.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline10.UserPlusIcon, { className: "w-4 h-4" }),
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("span", { children: labels.add_to_contacts })
+              children: is_contact ? /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)(import_jsx_runtime79.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline10.UserMinusIcon, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { children: labels.remove_from_contacts })
+              ] }) : /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)(import_jsx_runtime79.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline10.UserPlusIcon, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { children: labels.add_to_contacts })
               ] })
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)(
             DropdownMenuItem,
             {
               className: "gap-2 cursor-pointer",
@@ -10936,12 +11103,12 @@ function ProfileDropdownView({
                 on_toggle_notes();
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline10.DocumentTextIcon, { className: "w-4 h-4" }),
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("span", { children: show_notes ? labels.hide_notes : labels.notes })
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline10.DocumentTextIcon, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { children: show_notes ? labels.hide_notes : labels.notes })
               ]
             }
           ),
-          show_notes && /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(
+          show_notes && /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
             "div",
             {
               className: "mx-1 my-1 rounded-md overflow-hidden",
@@ -10949,28 +11116,28 @@ function ProfileDropdownView({
               children: notes
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(DropdownMenuSeparator, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(DropdownMenuSeparator, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)(
             DropdownMenuItem,
             {
               className: "gap-2 cursor-pointer",
               onClick: on_messages_from_sender,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline10.EnvelopeIcon, { className: "w-4 h-4" }),
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("span", { children: labels.messages_from_sender })
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline10.EnvelopeIcon, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { children: labels.messages_from_sender })
               ]
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(DropdownMenuSeparator, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime78.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(DropdownMenuSeparator, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)(
             DropdownMenuItem,
             {
               className: "gap-2 cursor-pointer text-red-500 focus:text-red-500 focus:bg-red-500/10",
               disabled: is_blocking,
               onClick: on_block_sender,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)(import_outline10.NoSymbolIcon, { className: "w-4 h-4" }),
-                /* @__PURE__ */ (0, import_jsx_runtime78.jsx)("span", { children: labels.block_sender })
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline10.NoSymbolIcon, { className: "w-4 h-4" }),
+                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { children: labels.block_sender })
               ]
             }
           )
@@ -10983,12 +11150,12 @@ function ProfileDropdownView({
 // src/account_switcher/account_switcher.tsx
 var React46 = __toESM(require("react"), 1);
 var import_outline11 = require("@heroicons/react/24/outline");
-var import_jsx_runtime79 = require("react/jsx-runtime");
+var import_jsx_runtime80 = require("react/jsx-runtime");
 function PanelToggleIcon({
   direction,
   className
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(
     "svg",
     {
       "aria-hidden": "true",
@@ -10997,7 +11164,7 @@ function PanelToggleIcon({
       viewBox: "0 0 24 24",
       xmlns: "http://www.w3.org/2000/svg",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
           "rect",
           {
             height: "16",
@@ -11009,8 +11176,8 @@ function PanelToggleIcon({
             y: "4"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("path", { d: "M9.5 4.8V19.2", stroke: "currentColor", strokeWidth: "1.6" }),
-        /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("path", { d: "M9.5 4.8V19.2", stroke: "currentColor", strokeWidth: "1.6" }),
+        /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
           "path",
           {
             d: direction === "collapse" ? "M17 9.5 14 12l3 2.5" : "M14 9.5l3 2.5-3 2.5",
@@ -11031,54 +11198,54 @@ var AccountSwitcherView = React46.memo(function AccountSwitcherView2({
   on_invite,
   on_toggle_collapse
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("div", { className: "mt-auto flex-shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("div", { className: "mt-auto flex-shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(
     "div",
     {
       className: `${is_collapsed ? "px-2" : "px-3"} pb-[max(0.75rem,env(safe-area-inset-bottom))]`,
       children: [
         !is_collapsed && storage,
-        is_collapsed ? /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)("div", { className: "flex flex-col items-center gap-0.5", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(Tooltip, { tip: labels.invite, children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
+        is_collapsed ? /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "flex flex-col items-center gap-0.5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(Tooltip, { tip: labels.invite, children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
             "button",
             {
               "aria-label": labels.invite,
               className: "sidebar-rail-btn",
               type: "button",
               onClick: on_invite,
-              children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline11.UserGroupIcon, { className: "w-5 h-5" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(import_outline11.UserGroupIcon, { className: "w-5 h-5" })
             }
           ) }),
-          on_toggle_collapse && /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(Tooltip, { tip: labels.expand_sidebar, children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
+          on_toggle_collapse && /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(Tooltip, { tip: labels.expand_sidebar, children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
             "button",
             {
               "aria-label": labels.expand_sidebar,
               className: "sidebar-rail-btn",
               type: "button",
               onClick: on_toggle_collapse,
-              children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(PanelToggleIcon, { className: "w-5 h-5", direction: "expand" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(PanelToggleIcon, { className: "w-5 h-5", direction: "expand" })
             }
           ) })
-        ] }) : /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)("div", { className: "flex items-center gap-1", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime79.jsxs)(
+        ] }) : /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "flex items-center gap-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(
             "button",
             {
               className: "flex-1 flex items-center gap-2 px-2 py-1.5 rounded-[12px] text-[12px] hover:bg-black/[0.04] dark:hover:bg-white/[0.04] text-txt-muted",
               type: "button",
               onClick: on_invite,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(import_outline11.UserGroupIcon, { className: "w-3.5 h-3.5 flex-shrink-0" }),
-                /* @__PURE__ */ (0, import_jsx_runtime79.jsx)("span", { className: "truncate", children: labels.invite })
+                /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(import_outline11.UserGroupIcon, { className: "w-3.5 h-3.5 flex-shrink-0" }),
+                /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("span", { className: "truncate", children: labels.invite })
               ]
             }
           ),
-          on_toggle_collapse && /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(Tooltip, { tip: labels.collapse_sidebar, children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
+          on_toggle_collapse && /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(Tooltip, { tip: labels.collapse_sidebar, children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
             "button",
             {
               "aria-label": labels.collapse_sidebar,
               className: "flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-[10px] hover:bg-black/[0.06] dark:hover:bg-white/[0.06] text-txt-muted transition-colors",
               type: "button",
               onClick: on_toggle_collapse,
-              children: /* @__PURE__ */ (0, import_jsx_runtime79.jsx)(
+              children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
                 PanelToggleIcon,
                 {
                   className: "w-[18px] h-[18px]",
@@ -11096,10 +11263,10 @@ var AccountSwitcherView = React46.memo(function AccountSwitcherView2({
 // src/workspace_switcher/workspace_switcher.tsx
 var React47 = __toESM(require("react"), 1);
 var import_outline12 = require("@heroicons/react/24/outline");
-var import_jsx_runtime80 = require("react/jsx-runtime");
+var import_jsx_runtime81 = require("react/jsx-runtime");
 function account_badge(badge) {
   if (!badge) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
     "span",
     {
       className: badge.muted ? "account_menu_badge account_menu_badge_muted" : "account_menu_badge",
@@ -11140,9 +11307,9 @@ function WorkspaceSwitcherView({
   const popover_ref = React47.useRef(null);
   const pointer_close_ref = React47.useRef(false);
   const row_count = accounts.length + hub_accounts.length;
-  return /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(import_jsx_runtime80.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(Popover, { open: is_open, onOpenChange: on_open_change, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(PopoverTrigger, { asChild: true, children: trigger }),
-    /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(import_jsx_runtime81.Fragment, { children: /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)(Popover, { open: is_open, onOpenChange: on_open_change, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(PopoverTrigger, { asChild: true, children: trigger }),
+    /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)(
       PopoverContent,
       {
         ref: popover_ref,
@@ -11165,11 +11332,11 @@ function WorkspaceSwitcherView({
           pointer_close_ref.current = true;
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "account_menu_card rounded-[18px] px-4 py-4", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "flex items-center gap-3.5", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "account_menu_card rounded-[18px] px-4 py-4", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "flex items-center gap-3.5", children: [
               header_avatar,
-              /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "flex flex-col min-w-0 flex-1 gap-0.5", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "flex flex-col min-w-0 flex-1 gap-0.5", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                   "span",
                   {
                     className: "text-[12px] leading-tight",
@@ -11177,8 +11344,8 @@ function WorkspaceSwitcherView({
                     children: greeting
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("span", { className: "flex items-center gap-1.5 min-w-0", children: [
-                  is_official && /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("span", { className: "flex items-center gap-1.5 min-w-0", children: [
+                  is_official && /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                     "img",
                     {
                       alt: labels.official_sender,
@@ -11188,7 +11355,7 @@ function WorkspaceSwitcherView({
                       title: labels.official_sender
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                     "span",
                     {
                       className: "min-w-0 flex-1 text-[15px] font-semibold leading-tight truncate",
@@ -11199,7 +11366,7 @@ function WorkspaceSwitcherView({
                   ),
                   plan_badge
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                   "button",
                   {
                     className: "text-[12px] leading-tight truncate text-start transition-colors hover:text-[var(--text-secondary)]",
@@ -11211,7 +11378,7 @@ function WorkspaceSwitcherView({
                 )
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
               "button",
               {
                 className: "account_menu_manage mt-3.5 w-full h-9 rounded-full text-[13px] font-medium transition-colors",
@@ -11220,9 +11387,9 @@ function WorkspaceSwitcherView({
                 children: labels.manage_account
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "mt-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "flex items-baseline justify-between mb-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "mt-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "flex items-baseline justify-between mb-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                   "span",
                   {
                     className: "whitespace-nowrap text-[12px] font-medium",
@@ -11230,23 +11397,23 @@ function WorkspaceSwitcherView({
                     children: labels.storage_used
                   }
                 ),
-                storage_used_text ? /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+                storage_used_text ? /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                   "span",
                   {
                     className: "truncate text-[12px] tabular-nums",
                     style: { color: "var(--text-muted)" },
                     children: storage_used_text
                   }
-                ) : /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(Skeleton, { className: "h-3 w-[92px] rounded-full" })
+                ) : /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(Skeleton, { className: "h-3 w-[92px] rounded-full" })
               ] }),
-              storage_used_text ? /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+              storage_used_text ? /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                 "div",
                 {
                   className: "h-1.5 w-full rounded-full overflow-hidden",
                   style: {
                     backgroundColor: "color-mix(in srgb, var(--text-primary) 18%, transparent)"
                   },
-                  children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+                  children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                     "div",
                     {
                       className: "h-full rounded-full",
@@ -11258,16 +11425,16 @@ function WorkspaceSwitcherView({
                     }
                   )
                 }
-              ) : /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(Skeleton, { className: "h-1.5 w-full rounded-full" })
+              ) : /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(Skeleton, { className: "h-1.5 w-full rounded-full" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "mt-2 flex flex-col gap-2", children: [
-            row_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "mt-2 flex flex-col gap-2", children: [
+            row_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)(
               "div",
               {
                 className: `flex flex-col gap-1.5 ${row_count > 4 ? "aster_scrollbar_thin max-h-[min(52vh,420px)] overflow-y-auto pe-0.5" : ""}`,
                 children: [
-                  accounts.map((acc) => /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(
+                  accounts.map((acc) => /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)(
                     "a",
                     {
                       draggable: true,
@@ -11281,15 +11448,15 @@ function WorkspaceSwitcherView({
                         on_switch_account(acc.id);
                       },
                       children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+                        /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                           "span",
                           {
                             className: `inline-flex leading-none flex-shrink-0 ${acc.has_plan_ring ? "plan_ring" : ""}`,
                             children: acc.avatar
                           }
                         ),
-                        /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "flex flex-col min-w-0 flex-1 gap-0.5", children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+                        /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "flex flex-col min-w-0 flex-1 gap-0.5", children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                             "span",
                             {
                               className: "text-[13px] font-medium leading-tight truncate",
@@ -11297,7 +11464,7 @@ function WorkspaceSwitcherView({
                               children: acc.name
                             }
                           ),
-                          /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+                          /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                             "span",
                             {
                               className: "text-[11px] leading-tight truncate",
@@ -11311,16 +11478,16 @@ function WorkspaceSwitcherView({
                     },
                     acc.id
                   )),
-                  hub_accounts.map((acc) => /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(
+                  hub_accounts.map((acc) => /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)(
                     "button",
                     {
                       className: "account_menu_row group relative w-full h-[60px] flex-shrink-0 px-3.5 flex items-center gap-3.5 rounded-[16px]",
                       type: "button",
                       onClick: () => on_hub_account?.(acc.id),
                       children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("span", { className: "inline-flex leading-none flex-shrink-0", children: acc.avatar }),
-                        /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "flex flex-col min-w-0 flex-1 gap-0.5 text-start", children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+                        /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("span", { className: "inline-flex leading-none flex-shrink-0", children: acc.avatar }),
+                        /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "flex flex-col min-w-0 flex-1 gap-0.5 text-start", children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                             "span",
                             {
                               className: "text-[13px] font-medium leading-tight truncate",
@@ -11328,7 +11495,7 @@ function WorkspaceSwitcherView({
                               children: acc.name
                             }
                           ),
-                          /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+                          /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                             "span",
                             {
                               className: "text-[11px] leading-tight truncate",
@@ -11345,52 +11512,52 @@ function WorkspaceSwitcherView({
                 ]
               }
             ),
-            show_resubscribe && /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(
+            show_resubscribe && /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)(
               "button",
               {
                 className: "account_menu_tile account_menu_tile_accent",
                 type: "button",
                 onClick: on_resubscribe,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(import_outline12.ArrowPathIcon, { className: "w-[18px] h-[18px]" }) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("span", { className: "account_menu_tile_label", children: labels.resubscribe })
+                  /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(import_outline12.ArrowPathIcon, { className: "w-[18px] h-[18px]" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("span", { className: "account_menu_tile_label", children: labels.resubscribe })
                 ]
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)(
               "button",
               {
                 className: `account_menu_tile ${add_account_dimmed ? "opacity-60" : ""}`,
                 type: "button",
                 onClick: on_add_account,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(import_outline12.PlusIcon, { className: "w-[18px] h-[18px]" }) }),
-                  /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("span", { className: "account_menu_tile_label", children: labels.add_account }),
-                  add_account_meta == null ? null : /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("span", { className: "account_menu_tile_meta tabular-nums", children: add_account_meta })
+                  /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(import_outline12.PlusIcon, { className: "w-[18px] h-[18px]" }) }),
+                  /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("span", { className: "account_menu_tile_label", children: labels.add_account }),
+                  add_account_meta == null ? null : /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("span", { className: "account_menu_tile_meta tabular-nums", children: add_account_meta })
                 ]
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)("div", { className: "flex items-center gap-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime80.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)(
                 "button",
                 {
                   className: "account_menu_tile account_menu_tile_danger flex-1",
                   type: "button",
                   onClick: on_sign_out,
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(import_outline12.ArrowRightStartOnRectangleIcon, { className: "w-[18px] h-[18px]" }) }),
-                    /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("span", { className: "account_menu_tile_label", children: labels.sign_out })
+                    /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(import_outline12.ArrowRightStartOnRectangleIcon, { className: "w-[18px] h-[18px]" }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("span", { className: "account_menu_tile_label", children: labels.sign_out })
                   ]
                 }
               ),
-              show_sign_out_all && /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(Tooltip, { position: "top", tip: labels.sign_out_all, children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(
+              show_sign_out_all && /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(Tooltip, { position: "top", tip: labels.sign_out_all, children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
                 "button",
                 {
                   "aria-label": labels.sign_out_all,
                   className: "account_menu_tile account_menu_tile_danger w-[54px] justify-center px-0",
                   type: "button",
                   onClick: on_sign_out_all,
-                  children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime80.jsx)(import_outline12.PowerIcon, { className: "w-[18px] h-[18px]" }) })
+                  children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("span", { className: "account_menu_tile_icon", children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(import_outline12.PowerIcon, { className: "w-[18px] h-[18px]" }) })
                 }
               ) })
             ] })
@@ -11403,7 +11570,7 @@ function WorkspaceSwitcherView({
 
 // src/storage_meter/storage_meter.tsx
 var React48 = __toESM(require("react"), 1);
-var import_jsx_runtime81 = require("react/jsx-runtime");
+var import_jsx_runtime82 = require("react/jsx-runtime");
 var StorageMeterView = React48.memo(function StorageMeterView2({
   storage_percentage,
   used_text,
@@ -11416,13 +11583,13 @@ var StorageMeterView = React48.memo(function StorageMeterView2({
   className = ""
 }) {
   if (is_loading) {
-    return /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("div", { className, children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(Skeleton, { className: "h-1.5 w-full rounded-full" }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("div", { className, children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(Skeleton, { className: "h-1.5 w-full rounded-full" }) });
   }
   const is_critical = storage_percentage >= 90;
-  const meter_body = /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)(import_jsx_runtime81.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "flex items-center justify-between mb-1", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime81.jsx)("span", { className: "text-[10px] font-medium tracking-wide text-txt-muted", children: labels.storage_used }),
-      /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
+  const meter_body = /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(import_jsx_runtime82.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "flex items-center justify-between mb-1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)("span", { className: "text-[10px] font-medium tracking-wide text-txt-muted", children: labels.storage_used }),
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
         "span",
         {
           className: "text-[10px] tabular-nums font-medium",
@@ -11433,7 +11600,7 @@ var StorageMeterView = React48.memo(function StorageMeterView2({
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
       "div",
       {
         "aria-label": labels.storage_used,
@@ -11445,7 +11612,7 @@ var StorageMeterView = React48.memo(function StorageMeterView2({
         style: {
           backgroundColor: "color-mix(in srgb, var(--text-muted) 26%, transparent)"
         },
-        children: /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
           "div",
           {
             className: "h-full rounded-full transition-all duration-300",
@@ -11459,8 +11626,8 @@ var StorageMeterView = React48.memo(function StorageMeterView2({
       }
     )
   ] });
-  return /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className, children: [
-    on_open ? /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className, children: [
+    on_open ? /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
       "button",
       {
         "aria-label": labels.open,
@@ -11471,15 +11638,15 @@ var StorageMeterView = React48.memo(function StorageMeterView2({
         children: meter_body
       }
     ) : meter_body,
-    /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("div", { className: "flex items-center justify-between mt-1.5 gap-2", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime81.jsxs)("p", { className: "text-[9px] text-txt-muted truncate", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("div", { className: "flex items-center justify-between mt-1.5 gap-2", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)("p", { className: "text-[9px] text-txt-muted truncate", children: [
         used_text,
         " ",
         labels.of,
         " ",
         total_text
       ] }),
-      on_buy_more && /* @__PURE__ */ (0, import_jsx_runtime81.jsx)(
+      on_buy_more && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
         "button",
         {
           className: "text-[9px] flex-shrink-0 text-txt-muted transition-colors hover:text-brand hover:underline focus:outline-none",
@@ -11495,7 +11662,7 @@ var StorageMeterView = React48.memo(function StorageMeterView2({
 // src/app_rail/app_rail.tsx
 var React49 = __toESM(require("react"), 1);
 var import_outline13 = require("@heroicons/react/24/outline");
-var import_jsx_runtime82 = require("react/jsx-runtime");
+var import_jsx_runtime83 = require("react/jsx-runtime");
 function AppRailViewComponent({
   panel,
   is_panel_visible,
@@ -11511,15 +11678,15 @@ function AppRailViewComponent({
       (current) => current[key] ? current : { ...current, [key]: true }
     );
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(import_jsx_runtime82.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)(import_jsx_runtime83.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
       "div",
       {
         className: `quick_panel_slot relative flex-shrink-0 ${is_panel_visible ? `mb-1 me-1 w-[min(320px,78vw)] md:mb-2 md:me-2 md:w-[clamp(272px,23vw,320px)] ${is_settings_view ? "mt-1 md:mt-2" : ""}` : "pointer-events-none w-0"}`,
         children: panel
       }
     ),
-    is_hidden && /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+    is_hidden && /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
       "button",
       {
         "aria-label": labels.expand,
@@ -11528,16 +11695,16 @@ function AppRailViewComponent({
         "data-rail-tip-side": "left",
         type: "button",
         onClick: on_toggle_hidden,
-        children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(import_outline13.ChevronDoubleLeftIcon, { className: "h-4 w-4 rtl:rotate-180" })
+        children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(import_outline13.ChevronDoubleLeftIcon, { className: "h-4 w-4 rtl:rotate-180" })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime82.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)(
       "div",
       {
         "aria-hidden": is_hidden,
         className: `app_rail_column flex shrink-0 flex-col items-center overflow-hidden pb-2 pt-2.5 ${is_hidden ? "pointer-events-none w-0 opacity-0" : "w-[52px] md:-ms-2"}`,
         children: [
-          items.map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+          items.map((item, index) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
             "button",
             {
               "aria-expanded": item.selected,
@@ -11549,7 +11716,7 @@ function AppRailViewComponent({
               tabIndex: is_hidden ? -1 : void 0,
               type: "button",
               onClick: item.on_click,
-              children: item.icon_src && !failed_icons[item.key] ? /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+              children: item.icon_src && !failed_icons[item.key] ? /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
                 "img",
                 {
                   alt: "",
@@ -11568,7 +11735,7 @@ function AppRailViewComponent({
             },
             item.key
           )),
-          /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
             "button",
             {
               "aria-label": labels.collapse,
@@ -11578,7 +11745,7 @@ function AppRailViewComponent({
               tabIndex: is_hidden ? -1 : void 0,
               type: "button",
               onClick: on_toggle_hidden,
-              children: /* @__PURE__ */ (0, import_jsx_runtime82.jsx)(import_outline13.ChevronRightIcon, { className: "h-4 w-4 rtl:rotate-180" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(import_outline13.ChevronRightIcon, { className: "h-4 w-4 rtl:rotate-180" })
             }
           )
         ]
@@ -11589,13 +11756,13 @@ function AppRailViewComponent({
 var AppRailView = React49.memo(AppRailViewComponent);
 
 // src/icons/icons.tsx
-var import_jsx_runtime83 = require("react/jsx-runtime");
+var import_jsx_runtime84 = require("react/jsx-runtime");
 var InboxIcon = ({
   size = 24,
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11608,9 +11775,9 @@ var InboxIcon = ({
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M3 9l2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9H3Z" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M3 9h5.5a2 2 0 0 1 1.6.8l1.8 2.4a2 2 0 0 0 1.6.8h1a2 2 0 0 0 1.6-.8l1.8-2.4a2 2 0 0 1 1.6-.8H21" })
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M3 9l2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.8 1.1L21 9H3Z" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M3 9h5.5a2 2 0 0 1 1.6.8l1.8 2.4a2 2 0 0 0 1.6.8h1a2 2 0 0 0 1.6-.8l1.8-2.4a2 2 0 0 1 1.6-.8H21" })
     ]
   }
 );
@@ -11619,7 +11786,7 @@ var AllMailIcon = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11636,10 +11803,10 @@ var AllMailIcon = ({
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M7.25 4.75h9.5" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M5.25 7.75h13.5" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("rect", { height: "9.5", rx: "2.25", width: "18", x: "3", y: "10.25" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M3.6 11.35 11.13 16.2a1.6 1.6 0 0 0 1.74 0l7.53-4.85" })
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M7.25 4.75h9.5" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M5.25 7.75h13.5" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("rect", { height: "9.5", rx: "2.25", width: "18", x: "3", y: "10.25" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M3.6 11.35 11.13 16.2a1.6 1.6 0 0 0 1.74 0l7.53-4.85" })
     ]
   }
 );
@@ -11648,7 +11815,7 @@ var ArchiveIcon = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11661,8 +11828,8 @@ var ArchiveIcon = ({
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
         "path",
         {
           clipRule: "evenodd",
@@ -11678,7 +11845,7 @@ var SpamIcon = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11690,7 +11857,7 @@ var SpamIcon = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
       "path",
       {
         clipRule: "evenodd",
@@ -11705,7 +11872,7 @@ var TrashIcon2 = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11717,7 +11884,7 @@ var TrashIcon2 = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
       "path",
       {
         clipRule: "evenodd",
@@ -11732,7 +11899,7 @@ var TagIcon3 = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11744,7 +11911,7 @@ var TagIcon3 = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
       "path",
       {
         clipRule: "evenodd",
@@ -11759,7 +11926,7 @@ var ThreeDotsHorizontal = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11770,9 +11937,9 @@ var ThreeDotsHorizontal = ({
     width: size || width,
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("circle", { cx: "5", cy: "12", fill: "currentColor", r: "2" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("circle", { cx: "12", cy: "12", fill: "currentColor", r: "2" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("circle", { cx: "19", cy: "12", fill: "currentColor", r: "2" })
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("circle", { cx: "5", cy: "12", fill: "currentColor", r: "2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("circle", { cx: "12", cy: "12", fill: "currentColor", r: "2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("circle", { cx: "19", cy: "12", fill: "currentColor", r: "2" })
     ]
   }
 );
@@ -11780,7 +11947,7 @@ var Logo = ({
   size = 36,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     fill: "none",
@@ -11788,7 +11955,7 @@ var Logo = ({
     viewBox: "0 0 32 32",
     width: size || height,
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
       "path",
       {
         clipRule: "evenodd",
@@ -11804,7 +11971,7 @@ var SearchIcon = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11816,7 +11983,7 @@ var SearchIcon = ({
     width: size || width,
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
         "path",
         {
           d: "M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z",
@@ -11826,7 +11993,7 @@ var SearchIcon = ({
           strokeWidth: "2"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
         "path",
         {
           d: "M22 22L20 20",
@@ -11844,7 +12011,7 @@ var ArrowLeftIcon = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11856,7 +12023,7 @@ var ArrowLeftIcon = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" })
   }
 );
 var ClockIcon3 = ({
@@ -11864,7 +12031,7 @@ var ClockIcon3 = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11876,7 +12043,7 @@ var ClockIcon3 = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
       "path",
       {
         clipRule: "evenodd",
@@ -11891,7 +12058,7 @@ var StarIcon4 = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11905,7 +12072,7 @@ var StarIcon4 = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" })
   }
 );
 var CloseIcon2 = ({
@@ -11913,7 +12080,7 @@ var CloseIcon2 = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11925,7 +12092,7 @@ var CloseIcon2 = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" })
   }
 );
 var PinIcon = ({
@@ -11934,7 +12101,7 @@ var PinIcon = ({
   height,
   filled = false,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11947,7 +12114,7 @@ var PinIcon = ({
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
         "path",
         {
           d: "M9.4 3h5.2",
@@ -11956,7 +12123,7 @@ var PinIcon = ({
           strokeWidth: filled ? 2.6 : 1.5
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
         "path",
         {
           d: "M10.6 3.4v4.1a3.1 3.1 0 0 1-1.16 2.42l-1.9 1.53c-.62.5-.27 1.55.53 1.55h8.06c.8 0 1.15-1.05.53-1.55l-1.9-1.53A3.1 3.1 0 0 1 13.4 7.5V3.4Z",
@@ -11967,7 +12134,7 @@ var PinIcon = ({
           strokeWidth: filled ? 1.1 : 1.5
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
         "path",
         {
           d: "M12 13v7.4",
@@ -11984,7 +12151,7 @@ var AttachmentIcon = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -11996,7 +12163,7 @@ var AttachmentIcon = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z" })
   }
 );
 var LinkIcon2 = ({
@@ -12004,7 +12171,7 @@ var LinkIcon2 = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -12016,7 +12183,7 @@ var LinkIcon2 = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" })
   }
 );
 var FileIcon = ({
@@ -12024,7 +12191,7 @@ var FileIcon = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -12036,7 +12203,7 @@ var FileIcon = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z" })
   }
 );
 var LockIcon = ({
@@ -12044,7 +12211,7 @@ var LockIcon = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -12056,7 +12223,7 @@ var LockIcon = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" })
   }
 );
 var CheckIcon8 = ({
@@ -12064,7 +12231,7 @@ var CheckIcon8 = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -12076,7 +12243,7 @@ var CheckIcon8 = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" })
   }
 );
 var WarningIcon2 = ({
@@ -12084,7 +12251,7 @@ var WarningIcon2 = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -12096,7 +12263,7 @@ var WarningIcon2 = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" })
   }
 );
 var SnoozeIcon = ({
@@ -12104,7 +12271,7 @@ var SnoozeIcon = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsx)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsx)(
   "svg",
   {
     "aria-hidden": "true",
@@ -12116,7 +12283,7 @@ var SnoozeIcon = ({
     width: size || width,
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
-    children: /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("path", { d: "M7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM12 4c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-3-9h3.63L9 15.2V17h6v-2h-3.63L15 10.8V9H9v2z" })
+    children: /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM12 4c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-3-9h3.63L9 15.2V17h6v-2h-3.63L15 10.8V9H9v2z" })
   }
 );
 var FilterIcon = ({
@@ -12124,7 +12291,7 @@ var FilterIcon = ({
   width,
   height,
   ...props
-}) => /* @__PURE__ */ (0, import_jsx_runtime83.jsxs)(
+}) => /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(
   "svg",
   {
     "aria-hidden": "true",
@@ -12141,20 +12308,20 @@ var FilterIcon = ({
     xmlns: "http://www.w3.org/2000/svg",
     ...props,
     children: [
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("line", { x1: "4", x2: "20", y1: "6", y2: "6" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("line", { x1: "4", x2: "20", y1: "12", y2: "12" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("line", { x1: "4", x2: "20", y1: "18", y2: "18" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("circle", { cx: "8", cy: "6", fill: "currentColor", r: "2" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("circle", { cx: "16", cy: "12", fill: "currentColor", r: "2" }),
-      /* @__PURE__ */ (0, import_jsx_runtime83.jsx)("circle", { cx: "10", cy: "18", fill: "currentColor", r: "2" })
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("line", { x1: "4", x2: "20", y1: "6", y2: "6" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("line", { x1: "4", x2: "20", y1: "12", y2: "12" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("line", { x1: "4", x2: "20", y1: "18", y2: "18" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("circle", { cx: "8", cy: "6", fill: "currentColor", r: "2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("circle", { cx: "16", cy: "12", fill: "currentColor", r: "2" }),
+      /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("circle", { cx: "10", cy: "18", fill: "currentColor", r: "2" })
     ]
   }
 );
 
 // src/icons/open_full_icon.tsx
-var import_jsx_runtime84 = require("react/jsx-runtime");
+var import_jsx_runtime85 = require("react/jsx-runtime");
 function OpenFullIcon({ className }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime84.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime85.jsxs)(
     "svg",
     {
       "aria-hidden": "true",
@@ -12166,21 +12333,21 @@ function OpenFullIcon({ className }) {
       strokeWidth: 1.6,
       viewBox: "0 0 24 24",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("rect", { height: "15.5", rx: "3.25", width: "18.5", x: "2.75", y: "4.25" }),
-        /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M9.25 4.75v14.5" }),
-        /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "M13.5 12h5" }),
-        /* @__PURE__ */ (0, import_jsx_runtime84.jsx)("path", { d: "m16.25 9.5 2.5 2.5-2.5 2.5" })
+        /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("rect", { height: "15.5", rx: "3.25", width: "18.5", x: "2.75", y: "4.25" }),
+        /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("path", { d: "M9.25 4.75v14.5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("path", { d: "M13.5 12h5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("path", { d: "m16.25 9.5 2.5 2.5-2.5 2.5" })
       ]
     }
   );
 }
 
 // src/icons/aster_security_mark.tsx
-var import_jsx_runtime85 = require("react/jsx-runtime");
+var import_jsx_runtime86 = require("react/jsx-runtime");
 function AsterSecurityMark({
   className = "h-5 w-5"
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime85.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime86.jsxs)(
     "svg",
     {
       "aria-hidden": "true",
@@ -12193,10 +12360,10 @@ function AsterSecurityMark({
       viewBox: "0 0 24 24",
       xmlns: "http://www.w3.org/2000/svg",
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("path", { d: "M8 10.3V7.9a4 4 0 1 1 8 0v2.4" }),
-        /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("rect", { height: "9.7", rx: "3.3", width: "13.8", x: "5.1", y: "10.3" }),
-        /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("circle", { cx: "12", cy: "14.6", r: "1.15" }),
-        /* @__PURE__ */ (0, import_jsx_runtime85.jsx)("path", { d: "M12 15.7v1.6" })
+        /* @__PURE__ */ (0, import_jsx_runtime86.jsx)("path", { d: "M8 10.3V7.9a4 4 0 1 1 8 0v2.4" }),
+        /* @__PURE__ */ (0, import_jsx_runtime86.jsx)("rect", { height: "9.7", rx: "3.3", width: "13.8", x: "5.1", y: "10.3" }),
+        /* @__PURE__ */ (0, import_jsx_runtime86.jsx)("circle", { cx: "12", cy: "14.6", r: "1.15" }),
+        /* @__PURE__ */ (0, import_jsx_runtime86.jsx)("path", { d: "M12 15.7v1.6" })
       ]
     }
   );
@@ -12204,7 +12371,7 @@ function AsterSecurityMark({
 
 // src/status_banner/status_banner.tsx
 var import_framer_motion11 = require("framer-motion");
-var import_jsx_runtime86 = require("react/jsx-runtime");
+var import_jsx_runtime87 = require("react/jsx-runtime");
 var STATUS_BANNER_TONE_COLORS = {
   danger: "#dc2626",
   warning: "#d97706",
@@ -12289,7 +12456,7 @@ function StatusBannerActionButton({
     contrast
   );
   const style = variant === "prompt" ? { backgroundColor: background, color: "inherit" } : { backgroundColor: background };
-  return /* @__PURE__ */ (0, import_jsx_runtime86.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(
     "button",
     {
       className: class_name,
@@ -12324,7 +12491,7 @@ function StatusBanner({
     backgroundColor: background ?? STATUS_BANNER_TONE_COLORS[tone],
     color: resolved_text_color
   };
-  const action_buttons = actions.map((action, index) => /* @__PURE__ */ (0, import_jsx_runtime86.jsx)(
+  const action_buttons = actions.map((action, index) => /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(
     StatusBannerActionButton,
     {
       action,
@@ -12334,16 +12501,16 @@ function StatusBanner({
     },
     index
   ));
-  const body = /* @__PURE__ */ (0, import_jsx_runtime86.jsxs)("div", { className: classes.inner, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime86.jsxs)("div", { className: classes.content, children: [
-      Icon2 && /* @__PURE__ */ (0, import_jsx_runtime86.jsx)(Icon2, { className: classes.icon }),
-      /* @__PURE__ */ (0, import_jsx_runtime86.jsx)("span", { className: classes.message, children: message })
+  const body = /* @__PURE__ */ (0, import_jsx_runtime87.jsxs)("div", { className: classes.inner, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime87.jsxs)("div", { className: classes.content, children: [
+      Icon2 && /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(Icon2, { className: classes.icon }),
+      /* @__PURE__ */ (0, import_jsx_runtime87.jsx)("span", { className: classes.message, children: message })
     ] }),
-    classes.actions ? /* @__PURE__ */ (0, import_jsx_runtime86.jsx)("div", { className: classes.actions, children: action_buttons }) : action_buttons
+    classes.actions ? /* @__PURE__ */ (0, import_jsx_runtime87.jsx)("div", { className: classes.actions, children: action_buttons }) : action_buttons
   ] });
   if (!animated) {
     if (!is_visible) return null;
-    return /* @__PURE__ */ (0, import_jsx_runtime86.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(
       "div",
       {
         className: cn("w-full flex-shrink-0", className),
@@ -12353,7 +12520,7 @@ function StatusBanner({
       }
     );
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime86.jsx)(import_framer_motion11.AnimatePresence, { children: is_visible && /* @__PURE__ */ (0, import_jsx_runtime86.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(import_framer_motion11.AnimatePresence, { children: is_visible && /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(
     import_framer_motion11.motion.div,
     {
       animate: { opacity: 1, height: "auto" },
@@ -12371,7 +12538,7 @@ function StatusBanner({
 // src/offline_indicator/offline_indicator.tsx
 var import_framer_motion12 = require("framer-motion");
 var import_outline14 = require("@heroicons/react/24/outline");
-var import_jsx_runtime87 = require("react/jsx-runtime");
+var import_jsx_runtime88 = require("react/jsx-runtime");
 function OfflineIndicatorView({
   is_online,
   show_reconnected,
@@ -12383,8 +12550,8 @@ function OfflineIndicatorView({
 }) {
   const position_classes = position === "top" ? "top-0 left-0 right-0" : "bottom-0 left-0 right-0";
   const hidden_y = position === "top" ? -20 : 20;
-  return /* @__PURE__ */ (0, import_jsx_runtime87.jsxs)(import_framer_motion12.AnimatePresence, { children: [
-    !is_online && /* @__PURE__ */ (0, import_jsx_runtime87.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime88.jsxs)(import_framer_motion12.AnimatePresence, { children: [
+    !is_online && /* @__PURE__ */ (0, import_jsx_runtime88.jsxs)(
       import_framer_motion12.motion.div,
       {
         animate: { opacity: 1, y: 0 },
@@ -12398,12 +12565,12 @@ function OfflineIndicatorView({
         initial: reduce_motion ? false : { opacity: 0, y: hidden_y },
         transition: { duration: reduce_motion ? 0 : 0.2 },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(import_outline14.WifiIcon, { className: "h-4 w-4" }),
-          /* @__PURE__ */ (0, import_jsx_runtime87.jsx)("span", { children: offline_label })
+          /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(import_outline14.WifiIcon, { className: "h-4 w-4" }),
+          /* @__PURE__ */ (0, import_jsx_runtime88.jsx)("span", { children: offline_label })
         ]
       }
     ),
-    is_online && show_reconnected && /* @__PURE__ */ (0, import_jsx_runtime87.jsxs)(
+    is_online && show_reconnected && /* @__PURE__ */ (0, import_jsx_runtime88.jsxs)(
       import_framer_motion12.motion.div,
       {
         animate: { opacity: 1, y: 0 },
@@ -12417,8 +12584,8 @@ function OfflineIndicatorView({
         initial: reduce_motion ? false : { opacity: 0, y: hidden_y },
         transition: { duration: reduce_motion ? 0 : 0.2 },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime87.jsx)(import_outline14.WifiIcon, { className: "h-4 w-4" }),
-          /* @__PURE__ */ (0, import_jsx_runtime87.jsx)("span", { children: reconnected_label })
+          /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(import_outline14.WifiIcon, { className: "h-4 w-4" }),
+          /* @__PURE__ */ (0, import_jsx_runtime88.jsx)("span", { children: reconnected_label })
         ]
       }
     )
@@ -12428,7 +12595,7 @@ function OfflineIndicatorView({
 // src/save_status_indicator/save_status_indicator.tsx
 var import_framer_motion13 = require("framer-motion");
 var import_solid3 = require("@heroicons/react/24/solid");
-var import_jsx_runtime88 = require("react/jsx-runtime");
+var import_jsx_runtime89 = require("react/jsx-runtime");
 function SaveStatusIndicatorView({
   status,
   saving_label,
@@ -12443,20 +12610,20 @@ function SaveStatusIndicatorView({
     initial: reduce_motion ? false : { opacity: 0 },
     transition: { duration: reduce_motion ? 0 : 0.18, ease: "easeOut" }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
     "div",
     {
       "aria-live": "polite",
       className: `flex items-center justify-end ${className}`,
-      children: /* @__PURE__ */ (0, import_jsx_runtime88.jsxs)(import_framer_motion13.AnimatePresence, { initial: false, mode: "wait", children: [
-        status === "saving" && /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime89.jsxs)(import_framer_motion13.AnimatePresence, { initial: false, mode: "wait", children: [
+        status === "saving" && /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
           import_framer_motion13.motion.div,
           {
             "aria-label": saving_label,
             className: "h-[3px] w-16 overflow-hidden rounded-full bg-edge-secondary",
             role: "progressbar",
             ...fade,
-            children: /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
               import_framer_motion13.motion.div,
               {
                 animate: reduce_motion ? { x: "0%" } : { x: ["-100%", "250%"] },
@@ -12467,19 +12634,19 @@ function SaveStatusIndicatorView({
           },
           "saving"
         ),
-        status === "saved" && /* @__PURE__ */ (0, import_jsx_runtime88.jsxs)(
+        status === "saved" && /* @__PURE__ */ (0, import_jsx_runtime89.jsxs)(
           import_framer_motion13.motion.div,
           {
             className: "flex items-center gap-1 text-blue-500",
             ...fade,
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(import_solid3.CheckCircleIcon, { className: "h-3.5 w-3.5" }),
-              /* @__PURE__ */ (0, import_jsx_runtime88.jsx)("span", { className: "text-[11px]", children: saved_label })
+              /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(import_solid3.CheckCircleIcon, { className: "h-3.5 w-3.5" }),
+              /* @__PURE__ */ (0, import_jsx_runtime89.jsx)("span", { className: "text-[11px]", children: saved_label })
             ]
           },
           "saved"
         ),
-        status === "error" && /* @__PURE__ */ (0, import_jsx_runtime88.jsx)(
+        status === "error" && /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
           import_framer_motion13.motion.span,
           {
             className: "text-[11px] text-red-500",
@@ -12494,7 +12661,7 @@ function SaveStatusIndicatorView({
 }
 
 // src/blocking_dialog/blocking_dialog.tsx
-var import_jsx_runtime89 = require("react/jsx-runtime");
+var import_jsx_runtime90 = require("react/jsx-runtime");
 var WARNING_PATH = "M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495ZM10 5a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 10 5Zm0 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z";
 var LOCK_PATH = "M10 1a4.5 4.5 0 0 0-4.5 4.5V8H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 7V5.5a3 3 0 1 0-6 0V8h6Z";
 var BLOCKING_DIALOG_ICON_PATHS = {
@@ -12515,7 +12682,7 @@ function BlockingDialogView({
   is_busy = false
 }) {
   const resolved_icon_color = icon_color ?? (icon === "lock" ? "var(--accent-color)" : "#ef4444");
-  return /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
     "div",
     {
       "aria-labelledby": title_id,
@@ -12523,7 +12690,7 @@ function BlockingDialogView({
       className: "fixed inset-0 z-[9998] flex items-center justify-center p-4",
       role: "dialog",
       style: { backgroundColor: "var(--bg-primary)" },
-      children: /* @__PURE__ */ (0, import_jsx_runtime89.jsxs)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)(
         "div",
         {
           className: "w-full max-w-md rounded-xl p-6 shadow-xl",
@@ -12532,8 +12699,8 @@ function BlockingDialogView({
             border: "1px solid var(--border-primary)"
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime89.jsxs)("div", { className: "flex items-start gap-3 mb-4", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)("div", { className: "flex items-start gap-3 mb-4", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
                 "svg",
                 {
                   className: "w-5 h-5 flex-shrink-0 mt-0.5",
@@ -12541,7 +12708,7 @@ function BlockingDialogView({
                   style: { color: resolved_icon_color },
                   viewBox: "0 0 20 20",
                   xmlns: "http://www.w3.org/2000/svg",
-                  children: /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+                  children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
                     "path",
                     {
                       clipRule: "evenodd",
@@ -12551,7 +12718,7 @@ function BlockingDialogView({
                   )
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
                 "p",
                 {
                   className: "font-semibold text-base",
@@ -12561,10 +12728,10 @@ function BlockingDialogView({
                 }
               )
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime89.jsx)("p", { className: "text-sm mb-6", style: { color: "var(--text-secondary)" }, children: body }),
-            error_message ? /* @__PURE__ */ (0, import_jsx_runtime89.jsx)("p", { className: "text-sm mb-4", style: { color: "#ef4444" }, children: error_message }) : null,
-            /* @__PURE__ */ (0, import_jsx_runtime89.jsxs)("div", { className: "flex flex-col gap-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("p", { className: "text-sm mb-6", style: { color: "var(--text-secondary)" }, children: body }),
+            error_message ? /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("p", { className: "text-sm mb-4", style: { color: "#ef4444" }, children: error_message }) : null,
+            /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)("div", { className: "flex flex-col gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
                 "button",
                 {
                   className: "w-full rounded-[var(--aster-radius-field)] px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-50",
@@ -12577,7 +12744,7 @@ function BlockingDialogView({
                   children: primary_label
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
                 "button",
                 {
                   className: "w-full rounded-[var(--aster-radius-field)] px-4 py-2.5 text-sm font-medium transition-opacity hover:opacity-80 disabled:opacity-50",
@@ -12609,7 +12776,7 @@ function PendingDeletionDialogView({
   is_busy = false,
   title_id = "pending_deletion_title"
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
     BlockingDialogView,
     {
       body,
@@ -12635,7 +12802,7 @@ function Family2faDialogView({
   is_busy = false,
   title_id = "family_2fa_title"
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime89.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
     BlockingDialogView,
     {
       body,
@@ -12652,14 +12819,14 @@ function Family2faDialogView({
 }
 
 // src/suspension_banner/suspension_banner.tsx
-var import_jsx_runtime90 = require("react/jsx-runtime");
+var import_jsx_runtime91 = require("react/jsx-runtime");
 function SuspensionBannerView({
   label,
   reason,
   appeal_label,
   appeal_href
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(
     "div",
     {
       className: "flex items-center gap-3 px-4 py-2.5 text-sm border-b",
@@ -12669,7 +12836,7 @@ function SuspensionBannerView({
         color: "var(--text-secondary)"
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
           "svg",
           {
             className: "w-4 h-4 flex-shrink-0",
@@ -12677,7 +12844,7 @@ function SuspensionBannerView({
             style: { color: "var(--color-error, #ef4444)" },
             viewBox: "0 0 20 20",
             xmlns: "http://www.w3.org/2000/svg",
-            children: /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
               "path",
               {
                 clipRule: "evenodd",
@@ -12687,12 +12854,12 @@ function SuspensionBannerView({
             )
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime90.jsxs)("span", { className: "flex-1 min-w-0", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)("span", { className: "font-medium", style: { color: "var(--text-primary)" }, children: label }),
+        /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("span", { className: "flex-1 min-w-0", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("span", { className: "font-medium", style: { color: "var(--text-primary)" }, children: label }),
           " ",
           reason,
           " ",
-          /* @__PURE__ */ (0, import_jsx_runtime90.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
             "a",
             {
               className: "hover:underline whitespace-nowrap",
@@ -12714,7 +12881,7 @@ var import_react19 = require("react");
 var import_react_dom2 = require("react-dom");
 var import_framer_motion14 = require("framer-motion");
 var import_solid4 = require("@heroicons/react/24/solid");
-var import_jsx_runtime91 = require("react/jsx-runtime");
+var import_jsx_runtime92 = require("react/jsx-runtime");
 var PANEL_WIDTH = 288;
 var PANEL_GAP = 8;
 var VIEWPORT_MARGIN = 8;
@@ -12786,8 +12953,8 @@ function EncryptionInfoDropdownView({
   }, [is_open, place_panel]);
   const lock_color = is_encrypted ? ENCRYPTED_LOCK_COLOR : "var(--text-muted)";
   const show_sender = sender_verification !== void 0 && sender_verification !== "unknown";
-  return /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("div", { ref: container_ref, className: "relative inline-flex", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)("div", { ref: container_ref, className: "relative inline-flex", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)(
       "button",
       {
         "aria-controls": is_open ? panel_id : void 0,
@@ -12800,22 +12967,22 @@ function EncryptionInfoDropdownView({
           on_open_change(!is_open);
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(LockIcon, { size }),
-          label && /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("span", { className: "text-xs font-medium", children: label }),
-          sender_verification === "invalid" && /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(LockIcon, { size }),
+          label && /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("span", { className: "text-xs font-medium", children: label }),
+          sender_verification === "invalid" && /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)(
             "span",
             {
               className: "flex items-center gap-0.5 text-red-500",
               "data-testid": "sender-signature-mismatch",
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
                   import_solid4.ShieldExclamationIcon,
                   {
                     "aria-hidden": "true",
                     className: "w-3.5 h-3.5 flex-shrink-0"
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("span", { className: "text-xs font-medium", children: sender_invalid_short_label })
+                /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("span", { className: "text-xs font-medium", children: sender_invalid_short_label })
               ]
             }
           )
@@ -12823,7 +12990,7 @@ function EncryptionInfoDropdownView({
       }
     ),
     (0, import_react_dom2.createPortal)(
-      /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(import_framer_motion14.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(import_framer_motion14.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
         import_framer_motion14.motion.div,
         {
           ref: panel_ref,
@@ -12838,33 +13005,33 @@ function EncryptionInfoDropdownView({
             ease: "easeOut"
           },
           onClick: (e) => e.stopPropagation(),
-          children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("div", { className: "p-4", children: /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("div", { className: "text-[13px] leading-[19px] space-y-2 text-txt-muted", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("div", { className: "flex items-center gap-2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("div", { className: "p-4", children: /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)("div", { className: "text-[13px] leading-[19px] space-y-2 text-txt-muted", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)("div", { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
                 "div",
                 {
                   className: "flex-shrink-0",
                   style: { color: lock_color },
-                  children: /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(LockIcon, { size: 16 })
+                  children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(LockIcon, { size: 16 })
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { className: "text-[14px] leading-5 font-semibold text-txt-primary", children: heading })
+              /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("p", { className: "text-[14px] leading-5 font-semibold text-txt-primary", children: heading })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { className: "ps-6", children: description }),
-            /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("p", { className: "ps-6 text-txt-muted", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("p", { className: "ps-6", children: description }),
+            /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)("p", { className: "ps-6 text-txt-muted", children: [
               "AES-256-GCM \xB7 ",
               has_pq_protection ? "ML-KEM-768" : "KEM-768"
             ] }),
-            show_sender && /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("div", { className: "pt-3 mt-3 border-t border-[var(--aster-floating-divider)]", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("div", { className: "flex items-center gap-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime91.jsxs)("div", { className: "flex-shrink-0", children: [
-                  sender_verification === "verified" && /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(import_solid4.CheckBadgeIcon, { className: "w-4 h-4 text-emerald-500" }),
-                  sender_verification === "invalid" && /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(import_solid4.ShieldExclamationIcon, { className: "w-4 h-4 text-red-500" }),
-                  (sender_verification === "no_keys" || sender_verification === "unsigned") && /* @__PURE__ */ (0, import_jsx_runtime91.jsx)(import_solid4.QuestionMarkCircleIcon, { className: "w-4 h-4 text-amber-500" })
+            show_sender && /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)("div", { className: "pt-3 mt-3 border-t border-[var(--aster-floating-divider)]", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)("div", { className: "flex items-center gap-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime92.jsxs)("div", { className: "flex-shrink-0", children: [
+                  sender_verification === "verified" && /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(import_solid4.CheckBadgeIcon, { className: "w-4 h-4 text-emerald-500" }),
+                  sender_verification === "invalid" && /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(import_solid4.ShieldExclamationIcon, { className: "w-4 h-4 text-red-500" }),
+                  (sender_verification === "no_keys" || sender_verification === "unsigned") && /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(import_solid4.QuestionMarkCircleIcon, { className: "w-4 h-4 text-amber-500" })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { className: "font-medium text-txt-primary", children: sender_title })
+                /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("p", { className: "font-medium text-txt-primary", children: sender_title })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime91.jsx)("p", { className: "ps-6 mt-1", children: sender_description })
+              /* @__PURE__ */ (0, import_jsx_runtime92.jsx)("p", { className: "ps-6 mt-1", children: sender_description })
             ] })
           ] }) })
         }
@@ -12876,7 +13043,7 @@ function EncryptionInfoDropdownView({
 
 // src/contact_avatar/contact_avatar.tsx
 var import_react20 = require("react");
-var import_jsx_runtime92 = require("react/jsx-runtime");
+var import_jsx_runtime93 = require("react/jsx-runtime");
 function get_contact_avatar_font_size(size_px, initials) {
   return Math.round(size_px * (initials.length > 1 ? 0.36 : 0.44));
 }
@@ -12921,12 +13088,12 @@ function ContactAvatarView({
     minHeight: size_px
   };
   if (avatar_url && !avatar_failed) {
-    return /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
       "div",
       {
         className: `${rounded} overflow-hidden flex items-center justify-center ${avatar_loaded ? "" : "aster_skeleton"} ${className}`,
         style: base_style,
-        children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
           "img",
           {
             alt: "",
@@ -12942,12 +13109,12 @@ function ContactAvatarView({
     );
   }
   if (favicon_src && !favicon_failed) {
-    return /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
+    return /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
       "div",
       {
         className: `${rounded} overflow-hidden flex items-center justify-center ${favicon_loaded ? "" : "aster_skeleton"} ${className}`,
         style: base_style,
-        children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
           "img",
           {
             alt: "",
@@ -12979,7 +13146,7 @@ function ContactAvatarView({
     );
   }
   const font_size = get_contact_avatar_font_size(size_px, initials);
-  return /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
     "div",
     {
       "aria-label": aria_label || void 0,
@@ -12989,7 +13156,7 @@ function ContactAvatarView({
         ...base_style,
         backgroundColor: background_color
       },
-      children: /* @__PURE__ */ (0, import_jsx_runtime92.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
         "span",
         {
           "aria-hidden": "true",
@@ -13005,7 +13172,7 @@ function ContactAvatarView({
 // src/rail_tip_layer/rail_tip_layer.tsx
 var import_react21 = require("react");
 var import_react_dom3 = require("react-dom");
-var import_jsx_runtime93 = require("react/jsx-runtime");
+var import_jsx_runtime94 = require("react/jsx-runtime");
 var SHOW_DELAY_MS = 400;
 var GAP_PX = 10;
 var EDGE_PADDING_PX = 8;
@@ -13164,7 +13331,7 @@ function RailTipLayer() {
   }, [tip]);
   if (!tip || typeof document === "undefined") return null;
   return (0, import_react_dom3.createPortal)(
-    /* @__PURE__ */ (0, import_jsx_runtime93.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
       "div",
       {
         ref: node_ref,
@@ -13186,12 +13353,12 @@ function RailTipLayer() {
 }
 
 // src/rail_unread_dot/rail_unread_dot.tsx
-var import_jsx_runtime94 = require("react/jsx-runtime");
+var import_jsx_runtime95 = require("react/jsx-runtime");
 function RailUnreadDot({ count, label, locale }) {
   const safe_count = Number.isFinite(count) && count > 0 ? Math.floor(count) : 0;
   if (safe_count === 0) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime94.jsxs)(import_jsx_runtime94.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime94.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime95.jsxs)(import_jsx_runtime95.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime95.jsx)(
       "span",
       {
         "aria-hidden": "true",
@@ -13203,17 +13370,17 @@ function RailUnreadDot({ count, label, locale }) {
         }
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime94.jsx)("span", { className: "sr-only", children: `${label}: ${safe_count.toLocaleString(locale)}` })
+    /* @__PURE__ */ (0, import_jsx_runtime95.jsx)("span", { className: "sr-only", children: `${label}: ${safe_count.toLocaleString(locale)}` })
   ] });
 }
 
 // src/nav_section_skeleton/nav_section_skeleton.tsx
-var import_jsx_runtime95 = require("react/jsx-runtime");
+var import_jsx_runtime96 = require("react/jsx-runtime");
 function NavSectionSkeleton({
   rows = 3,
   row_height = "h-7"
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime95.jsx)("div", { className: "space-y-1 px-2.5 py-1", children: Array.from({ length: rows }).map((_, index) => /* @__PURE__ */ (0, import_jsx_runtime95.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime96.jsx)("div", { className: "space-y-1 px-2.5 py-1", children: Array.from({ length: rows }).map((_, index) => /* @__PURE__ */ (0, import_jsx_runtime96.jsx)(
     "div",
     {
       className: `${row_height} w-full animate-pulse rounded-[12px] bg-black/[0.04] dark:bg-white/[0.06]`
@@ -13223,7 +13390,7 @@ function NavSectionSkeleton({
 }
 
 // src/plan_badge/plan_badge.tsx
-var import_jsx_runtime96 = require("react/jsx-runtime");
+var import_jsx_runtime97 = require("react/jsx-runtime");
 function plan_badge_tier(plan_code) {
   const normalized = (plan_code ?? "").trim().toLowerCase();
   if (normalized === "star") return "star";
@@ -13239,7 +13406,7 @@ function PlanBadgeView({
   className
 }) {
   if (!tier) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime96.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime97.jsx)(
     "span",
     {
       "aria-label": aria_label,
@@ -13252,7 +13419,7 @@ function PlanBadgeView({
 
 // src/keyboard_shortcut_badge/keyboard_shortcut_badge.tsx
 var import_react22 = require("react");
-var import_jsx_runtime97 = require("react/jsx-runtime");
+var import_jsx_runtime98 = require("react/jsx-runtime");
 var KEYBOARD_SHORTCUT_SIZE_CLASSES = {
   xs: "min-w-[14px] h-[14px] px-0.5 text-[8px]",
   sm: "min-w-[18px] h-[18px] px-1 text-[10px]",
@@ -13319,7 +13486,7 @@ function KeyboardShortcutBadgeView({
   const modifier_text = modifier ? format_shortcut_modifier(modifier, is_mac2) : "";
   const key_text = format_shortcut_key(shortcut_key);
   const combined = `${modifier_text ? modifier_text + " + " : ""}${key_text}`;
-  return /* @__PURE__ */ (0, import_jsx_runtime97.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(
     "kbd",
     {
       "aria-label": format_aria_label ? format_aria_label(combined) : combined,
@@ -13330,8 +13497,8 @@ function KeyboardShortcutBadgeView({
         className
       ),
       children: [
-        modifier && /* @__PURE__ */ (0, import_jsx_runtime97.jsx)("span", { "aria-hidden": "true", children: modifier_text }),
-        /* @__PURE__ */ (0, import_jsx_runtime97.jsx)("span", { "aria-hidden": "true", children: key_text })
+        modifier && /* @__PURE__ */ (0, import_jsx_runtime98.jsx)("span", { "aria-hidden": "true", children: modifier_text }),
+        /* @__PURE__ */ (0, import_jsx_runtime98.jsx)("span", { "aria-hidden": "true", children: key_text })
       ]
     }
   );
@@ -13339,7 +13506,7 @@ function KeyboardShortcutBadgeView({
 
 // src/alias_context_menu/alias_context_menu.tsx
 var import_outline15 = require("@heroicons/react/24/outline");
-var import_jsx_runtime98 = require("react/jsx-runtime");
+var import_jsx_runtime99 = require("react/jsx-runtime");
 function AliasContextMenuView({
   children,
   labels,
@@ -13355,34 +13522,34 @@ function AliasContextMenuView({
   on_manage
 }) {
   const enabled_color = is_enabled ? "var(--color-red-500, #ef4444)" : "var(--color-green-500, #22c55e)";
-  return /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(RadixContextMenu, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(RadixContextMenuTrigger, { asChild: true, children }),
-    /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(RadixContextMenuContent, { className: "w-48", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(RadixContextMenuItem, { onClick: on_copy_address, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_outline15.ClipboardDocumentIcon, { className: "me-2 h-4 w-4" }),
+  return /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(RadixContextMenu, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(RadixContextMenuTrigger, { asChild: true, children }),
+    /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(RadixContextMenuContent, { className: "w-48", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(RadixContextMenuItem, { onClick: on_copy_address, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline15.ClipboardDocumentIcon, { className: "me-2 h-4 w-4" }),
         labels.copy_address
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(RadixContextMenuItem, { onClick: on_view_sent, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_outline15.PaperAirplaneIcon, { className: "me-2 h-4 w-4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(RadixContextMenuItem, { onClick: on_view_sent, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline15.PaperAirplaneIcon, { className: "me-2 h-4 w-4" }),
         labels.view_sent
       ] }),
-      show_pin && /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(RadixContextMenuItem, { onClick: on_toggle_pin, children: [
+      show_pin && /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(RadixContextMenuItem, { onClick: on_toggle_pin, children: [
         pin_icon,
         is_pinned ? labels.unpin : labels.pin
       ] }),
-      show_toggle_enabled && /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(RadixContextMenuItem, { onClick: on_toggle_enabled, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(
+      show_toggle_enabled && /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(RadixContextMenuItem, { onClick: on_toggle_enabled, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
           import_outline15.PowerIcon,
           {
             className: "me-2 h-4 w-4",
             style: { color: enabled_color }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime98.jsx)("span", { style: { color: enabled_color }, children: is_enabled ? labels.disable : labels.enable })
+        /* @__PURE__ */ (0, import_jsx_runtime99.jsx)("span", { style: { color: enabled_color }, children: is_enabled ? labels.disable : labels.enable })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(RadixContextMenuSeparator, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime98.jsxs)(RadixContextMenuItem, { onClick: on_manage, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime98.jsx)(import_outline15.Cog6ToothIcon, { className: "me-2 h-4 w-4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(RadixContextMenuSeparator, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(RadixContextMenuItem, { onClick: on_manage, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline15.Cog6ToothIcon, { className: "me-2 h-4 w-4" }),
         labels.manage
       ] })
     ] })
@@ -13391,7 +13558,7 @@ function AliasContextMenuView({
 
 // src/sidebar_rows/sidebar_rows.tsx
 var import_outline16 = require("@heroicons/react/24/outline");
-var import_jsx_runtime99 = require("react/jsx-runtime");
+var import_jsx_runtime100 = require("react/jsx-runtime");
 function join_classes8(...parts) {
   return parts.filter(Boolean).join(" ");
 }
@@ -13400,7 +13567,7 @@ function SidebarSectionAddButton({
   on_click,
   rail_tip = false
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
     "button",
     {
       "aria-label": label,
@@ -13408,7 +13575,7 @@ function SidebarSectionAddButton({
       "data-rail-tip": rail_tip ? label : void 0,
       type: "button",
       onClick: on_click,
-      children: /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline16.PlusIcon, { "aria-hidden": "true", className: "w-4 h-4" })
+      children: /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline16.PlusIcon, { "aria-hidden": "true", className: "w-4 h-4" })
     }
   );
 }
@@ -13418,21 +13585,21 @@ function SidebarRailSectionButton({
   on_click,
   icon_style
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)("div", { className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)("div", { className: "mt-3", children: /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
     "button",
     {
       className: "sidebar-rail-btn",
       "data-rail-tip": label,
       type: "button",
       onClick: on_click,
-      children: /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(Icon2, { className: "w-5 h-5", style: icon_style })
+      children: /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(Icon2, { className: "w-5 h-5", style: icon_style })
     }
   ) });
 }
 function SidebarEmptyText({
   children
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)("p", { className: "text-[11px] px-2.5 py-2 text-txt-muted", children });
+  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)("p", { className: "text-[11px] px-2.5 py-2 text-txt-muted", children });
 }
 function AliasIconView({
   background,
@@ -13441,7 +13608,7 @@ function AliasIconView({
   icon_class_name
 }) {
   const icon_size = icon_class_name ?? (size >= 20 ? "w-4 h-4" : "w-3.5 h-3.5");
-  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
     "div",
     {
       className: "rounded-full flex items-center justify-center flex-shrink-0",
@@ -13451,12 +13618,12 @@ function AliasIconView({
         background,
         boxShadow: "inset 0 1px 1px rgba(255,255,255,0.2), inset 0 -1px 1px rgba(0,0,0,0.15)"
       },
-      children: is_random ? /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline16.BoltIcon, { className: `${icon_size} text-white` }) : /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline16.AtSymbolIcon, { className: `${icon_size} text-white` })
+      children: is_random ? /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline16.BoltIcon, { className: `${icon_size} text-white` }) : /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline16.AtSymbolIcon, { className: `${icon_size} text-white` })
     }
   );
 }
 function TreeGuideVertical({ left }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
     "svg",
     {
       "aria-hidden": "true",
@@ -13470,7 +13637,7 @@ function TreeGuideVertical({ left }) {
       },
       width: 2,
       xmlns: "http://www.w3.org/2000/svg",
-      children: /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
         "line",
         {
           stroke: "var(--border-primary)",
@@ -13512,11 +13679,11 @@ function SidebarFolderRowView({
   const indent = is_collapsed ? 0 : depth * 16;
   const row_inset = indent > 0 ? indent + 4 : 0;
   const lock_badge = show_lock_badge ?? is_locked_closed;
-  return /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(import_jsx_runtime99.Fragment, { children: [
-    !is_collapsed && depth > 0 && /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(import_jsx_runtime99.Fragment, { children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime100.jsxs)(import_jsx_runtime100.Fragment, { children: [
+    !is_collapsed && depth > 0 && /* @__PURE__ */ (0, import_jsx_runtime100.jsxs)(import_jsx_runtime100.Fragment, { children: [
       Array.from(
         { length: depth - 1 },
-        (_, level) => guide_trail?.[level + 1] && /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+        (_, level) => guide_trail?.[level + 1] && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
           TreeGuideVertical,
           {
             left: level * 16 + 8
@@ -13524,8 +13691,8 @@ function SidebarFolderRowView({
           `guide-${level}`
         )
       ),
-      guide_has_next && /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(TreeGuideVertical, { left: (depth - 1) * 16 + 8 }),
-      /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+      guide_has_next && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(TreeGuideVertical, { left: (depth - 1) * 16 + 8 }),
+      /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
         "svg",
         {
           "aria-hidden": "true",
@@ -13539,7 +13706,7 @@ function SidebarFolderRowView({
           },
           width: 13,
           xmlns: "http://www.w3.org/2000/svg",
-          children: /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+          children: /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
             "path",
             {
               d: guide_has_next ? "M0.75 8 Q 0.75 18 8.75 18 H 12" : "M0.75 0 V 10 Q 0.75 18 8.75 18 H 12",
@@ -13551,7 +13718,7 @@ function SidebarFolderRowView({
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime100.jsxs)(
       "button",
       {
         ref: button_ref,
@@ -13582,7 +13749,7 @@ function SidebarFolderRowView({
         onDragOver: on_drag_over,
         onDrop: on_drop,
         children: [
-          !is_collapsed && has_children && /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+          !is_collapsed && has_children && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
             "span",
             {
               "aria-expanded": is_expanded,
@@ -13601,24 +13768,24 @@ function SidebarFolderRowView({
                   on_toggle_expanded();
                 }
               },
-              children: is_expanded ? /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline16.ChevronDownIcon, { className: "w-3 h-3" }) : /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline16.ChevronRightIcon, { className: "w-3 h-3 rtl:-scale-x-100" })
+              children: is_expanded ? /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline16.ChevronDownIcon, { className: "w-3 h-3" }) : /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline16.ChevronRightIcon, { className: "w-3 h-3 rtl:-scale-x-100" })
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)("div", { className: "relative", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime100.jsxs)("div", { className: "relative", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
               import_outline16.FolderIcon,
               {
                 className: is_collapsed ? "w-5 h-5" : "w-4 h-4",
                 style: { color }
               }
             ),
-            lock_badge && /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline16.LockClosedIcon, { className: "absolute -bottom-0.5 -end-0.5 w-2.5 h-2.5 p-0.5 rounded-full text-icon-active bg-surf-secondary" })
+            lock_badge && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline16.LockClosedIcon, { className: "absolute -bottom-0.5 -end-0.5 w-2.5 h-2.5 p-0.5 rounded-full text-icon-active bg-surf-secondary" })
           ] }),
-          is_collapsed && !is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(RailUnreadDot, { count: unread_count, label, locale }),
-          !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime99.jsxs)(import_jsx_runtime99.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime99.jsx)("span", { className: "flex-1 text-start truncate", children: label }),
-            is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(import_outline16.LockClosedIcon, { className: "w-3 h-3 ms-1 text-icon-muted" }),
-            !is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime99.jsx)(
+          is_collapsed && !is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(RailUnreadDot, { count: unread_count, label, locale }),
+          !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime100.jsxs)(import_jsx_runtime100.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime100.jsx)("span", { className: "flex-1 text-start truncate", children: label }),
+            is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline16.LockClosedIcon, { className: "w-3 h-3 ms-1 text-icon-muted" }),
+            !is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
               CountBadge,
               {
                 count: unread_count,
@@ -13635,18 +13802,18 @@ function SidebarFolderRowView({
 
 // src/sidebar_shell/sidebar_shell.tsx
 var import_outline17 = require("@heroicons/react/24/outline");
-var import_jsx_runtime100 = require("react/jsx-runtime");
+var import_jsx_runtime101 = require("react/jsx-runtime");
 function MobileMenuButtonView({
   label,
   on_click
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
     "button",
     {
       "aria-label": label,
       className: "md:hidden flex items-center justify-center w-10 h-10 rounded-[10px] transition-colors hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-primary",
       onClick: on_click,
-      children: /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline17.Bars3Icon, { className: "w-5 h-5" })
+      children: /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(import_outline17.Bars3Icon, { className: "w-5 h-5" })
     }
   );
 }
@@ -13657,7 +13824,7 @@ function SidebarAsideView({
   expanded_width,
   children
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
     "aside",
     {
       "aria-label": label,
@@ -13678,14 +13845,14 @@ function SidebarRailOpenButton({
   label,
   on_click
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)("div", { className: "px-2 pt-3 flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)("div", { className: "px-2 pt-3 flex justify-center", children: /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
     "button",
     {
       "aria-label": label,
       className: "sidebar-rail-btn",
       type: "button",
       onClick: on_click,
-      children: /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline17.Bars3Icon, { className: "w-5 h-5" })
+      children: /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(import_outline17.Bars3Icon, { className: "w-5 h-5" })
     }
   ) });
 }
@@ -13694,7 +13861,7 @@ function SidebarTopBarView({
   is_compact,
   children
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
     "div",
     {
       className: `${is_collapsed ? "px-2" : "px-3"} ${is_compact ? "pe-12 pt-4 pb-3" : "pt-2"} relative`,
@@ -13707,14 +13874,14 @@ function SidebarCloseButton({
   on_click,
   type
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
     "button",
     {
       "aria-label": label,
       className: "absolute top-2 end-2 flex items-center justify-center w-8 h-8 rounded-[8px] transition-colors hover:bg-black/[0.06] dark:hover:bg-white/[0.08] z-10 text-icon-muted",
       type,
       onClick: on_click,
-      children: /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline17.XMarkIcon, { className: "w-5 h-5" })
+      children: /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(import_outline17.XMarkIcon, { className: "w-5 h-5" })
     }
   );
 }
@@ -13723,11 +13890,11 @@ function SidebarComposeButtonView({
   is_collapsed,
   on_click
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
     "div",
     {
       className: `${is_collapsed ? "px-2 flex justify-center" : "px-2.5"} pb-3`,
-      children: /* @__PURE__ */ (0, import_jsx_runtime100.jsxs)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime101.jsxs)(
         Button,
         {
           className: is_collapsed ? "!rounded-[16px] w-14 h-14 min-w-14 !h-14 !p-0 flex items-center justify-center" : "w-full !rounded-[16px] gap-2",
@@ -13736,13 +13903,13 @@ function SidebarComposeButtonView({
           variant: "depth",
           onClick: on_click,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
               import_outline17.PencilSquareIcon,
               {
                 className: is_collapsed ? "w-[22px] h-[22px]" : "w-[15px] h-[15px]"
               }
             ),
-            !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)("span", { children: label })
+            !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime101.jsx)("span", { children: label })
           ]
         }
       )
@@ -13756,12 +13923,12 @@ function SidebarScrollAreaView({
   container_ref,
   children
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
     "div",
     {
       className: `min-h-0 flex-1 overflow-y-auto ${is_collapsed ? "px-2" : "px-2.5"} pt-0.5 pb-4 [mask-image:linear-gradient(to_bottom,black_calc(100%-28px),transparent)]`,
-      children: /* @__PURE__ */ (0, import_jsx_runtime100.jsxs)("div", { ref: container_ref, className: "relative", children: [
-        show_indicator && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime101.jsxs)("div", { ref: container_ref, className: "relative", children: [
+        show_indicator && /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
           "div",
           {
             className: "pointer-events-none absolute start-0 w-full rounded-md border-edge-primary",
@@ -13785,7 +13952,7 @@ function SidebarScrollAreaView({
 // src/mobile/mobile_bottom_sheet.tsx
 var import_react23 = require("react");
 var import_framer_motion15 = require("framer-motion");
-var import_jsx_runtime101 = require("react/jsx-runtime");
+var import_jsx_runtime102 = require("react/jsx-runtime");
 var MobileBottomSheet = (0, import_react23.memo)(function MobileBottomSheet2({
   is_open,
   on_close,
@@ -13801,8 +13968,8 @@ var MobileBottomSheet = (0, import_react23.memo)(function MobileBottomSheet2({
       on_close();
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(import_framer_motion15.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime101.jsxs)(import_jsx_runtime101.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(import_framer_motion15.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime102.jsxs)(import_jsx_runtime102.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(
       import_framer_motion15.motion.div,
       {
         animate: { opacity: 1 },
@@ -13813,7 +13980,7 @@ var MobileBottomSheet = (0, import_react23.memo)(function MobileBottomSheet2({
         onPointerDown: handle_backdrop_pointer_down
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime101.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime102.jsxs)(
       import_framer_motion15.motion.div,
       {
         ref: dialog_ref,
@@ -13834,16 +14001,16 @@ var MobileBottomSheet = (0, import_react23.memo)(function MobileBottomSheet2({
         transition: reduce_motion ? { duration: 0 } : { type: "tween", duration: 0.25, ease: "easeOut" },
         onDragEnd: handle_drag_end,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(
             "div",
             {
               className: "flex shrink-0 cursor-grab justify-center py-2 active:cursor-grabbing",
               style: { touchAction: "none" },
               onPointerDown: (e) => drag_controls.start(e),
-              children: /* @__PURE__ */ (0, import_jsx_runtime101.jsx)("div", { className: "h-1 w-10 rounded-full bg-[var(--text-muted)] opacity-30" })
+              children: /* @__PURE__ */ (0, import_jsx_runtime102.jsx)("div", { className: "h-1 w-10 rounded-full bg-[var(--text-muted)] opacity-30" })
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime101.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(
             "div",
             {
               className: "flex-1 overflow-y-auto overscroll-contain",
@@ -13859,7 +14026,7 @@ var MobileBottomSheet = (0, import_react23.memo)(function MobileBottomSheet2({
 
 // src/mobile/mobile_action_sheet.tsx
 var import_react24 = require("react");
-var import_jsx_runtime102 = require("react/jsx-runtime");
+var import_jsx_runtime103 = require("react/jsx-runtime");
 var MobileActionSheet = (0, import_react24.memo)(function MobileActionSheet2({
   is_open,
   on_close,
@@ -13881,7 +14048,7 @@ var MobileActionSheet = (0, import_react24.memo)(function MobileActionSheet2({
     [on_close, close_on_action]
   );
   const show_header = title !== void 0 || subtitle !== void 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(
     MobileBottomSheet,
     {
       aria_label: aria_label ?? strings.actions,
@@ -13889,9 +14056,9 @@ var MobileActionSheet = (0, import_react24.memo)(function MobileActionSheet2({
       reduce_motion,
       safe_area_bottom,
       on_close,
-      children: /* @__PURE__ */ (0, import_jsx_runtime102.jsxs)("div", { className: "px-2 pb-2", children: [
-        show_header && /* @__PURE__ */ (0, import_jsx_runtime102.jsxs)("div", { className: "mb-2 px-4 pb-2 border-b border-[var(--border-primary)]", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime103.jsxs)("div", { className: "px-2 pb-2", children: [
+        show_header && /* @__PURE__ */ (0, import_jsx_runtime103.jsxs)("div", { className: "mb-2 px-4 pb-2 border-b border-[var(--border-primary)]", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(
             "p",
             {
               className: "truncate text-[14px] font-medium text-[var(--text-primary)]",
@@ -13899,7 +14066,7 @@ var MobileActionSheet = (0, import_react24.memo)(function MobileActionSheet2({
               children: title
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(
             "p",
             {
               className: "truncate text-[13px] text-[var(--text-muted)]",
@@ -13908,21 +14075,21 @@ var MobileActionSheet = (0, import_react24.memo)(function MobileActionSheet2({
             }
           )
         ] }),
-        items.map((item) => /* @__PURE__ */ (0, import_jsx_runtime102.jsxs)(
+        items.map((item) => /* @__PURE__ */ (0, import_jsx_runtime103.jsxs)(
           "button",
           {
             className: `flex w-full items-center gap-3 rounded-[16px] px-4 py-3 text-start active:bg-[var(--bg-tertiary)] ${item.destructive ? "text-[var(--color-danger,#ef4444)]" : "text-[var(--text-primary)]"}`,
             type: "button",
             onClick: () => handle_action(item.on_action),
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(item.icon, { className: "h-5 w-5 shrink-0" }),
-              /* @__PURE__ */ (0, import_jsx_runtime102.jsx)("span", { className: "text-[15px]", children: item.label })
+              /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(item.icon, { className: "h-5 w-5 shrink-0" }),
+              /* @__PURE__ */ (0, import_jsx_runtime103.jsx)("span", { className: "text-[15px]", children: item.label })
             ]
           },
           item.label
         )),
-        /* @__PURE__ */ (0, import_jsx_runtime102.jsx)("div", { className: "mx-4 my-1 border-t border-[var(--border-primary)]" }),
-        /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime103.jsx)("div", { className: "mx-4 my-1 border-t border-[var(--border-primary)]" }),
+        /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(
           "button",
           {
             className: "flex w-full items-center justify-center rounded-[16px] px-4 py-3 text-[15px] font-medium text-[var(--text-secondary)] active:bg-[var(--bg-tertiary)]",
@@ -13936,13 +14103,13 @@ var MobileActionSheet = (0, import_react24.memo)(function MobileActionSheet2({
   );
 });
 var MobileContextMenuView = (0, import_react24.memo)(function MobileContextMenuView2(props) {
-  return /* @__PURE__ */ (0, import_jsx_runtime102.jsx)(MobileActionSheet, { ...props, close_on_action: false });
+  return /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(MobileActionSheet, { ...props, close_on_action: false });
 });
 
 // src/mobile/mobile_attachment_row.tsx
 var import_react25 = require("react");
 var import_outline18 = require("@heroicons/react/24/outline");
-var import_jsx_runtime103 = require("react/jsx-runtime");
+var import_jsx_runtime104 = require("react/jsx-runtime");
 function get_file_icon(content_type) {
   if (content_type.startsWith("image/")) return import_outline18.PhotoIcon;
   if (content_type.startsWith("video/")) return import_outline18.FilmIcon;
@@ -13959,13 +14126,13 @@ var MobileAttachmentRow = (0, import_react25.memo)(function MobileAttachmentRow2
 }) {
   const strings = use_ui_strings();
   const FileIcon2 = get_file_icon(content_type);
-  return /* @__PURE__ */ (0, import_jsx_runtime103.jsxs)("div", { className: "flex items-center gap-3 rounded-lg bg-[var(--bg-tertiary)] px-4 py-2.5", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(FileIcon2, { className: "h-5 w-5 shrink-0 text-[var(--text-muted)]" }),
-    /* @__PURE__ */ (0, import_jsx_runtime103.jsxs)("div", { className: "min-w-0 flex-1", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime103.jsx)("p", { className: "truncate text-[14px] text-[var(--text-primary)]", children: filename }),
-      /* @__PURE__ */ (0, import_jsx_runtime103.jsx)("p", { className: "text-[12px] text-[var(--text-muted)]", children: size_label })
+  return /* @__PURE__ */ (0, import_jsx_runtime104.jsxs)("div", { className: "flex items-center gap-3 rounded-lg bg-[var(--bg-tertiary)] px-4 py-2.5", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime104.jsx)(FileIcon2, { className: "h-5 w-5 shrink-0 text-[var(--text-muted)]" }),
+    /* @__PURE__ */ (0, import_jsx_runtime104.jsxs)("div", { className: "min-w-0 flex-1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime104.jsx)("p", { className: "truncate text-[14px] text-[var(--text-primary)]", children: filename }),
+      /* @__PURE__ */ (0, import_jsx_runtime104.jsx)("p", { className: "text-[12px] text-[var(--text-muted)]", children: size_label })
     ] }),
-    on_download && /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(
+    on_download && /* @__PURE__ */ (0, import_jsx_runtime104.jsx)(
       "button",
       {
         "aria-label": download_label ?? strings.download,
@@ -13973,7 +14140,7 @@ var MobileAttachmentRow = (0, import_react25.memo)(function MobileAttachmentRow2
         disabled: is_downloading,
         type: "button",
         onClick: on_download,
-        children: /* @__PURE__ */ (0, import_jsx_runtime103.jsx)(import_outline18.ArrowDownTrayIcon, { className: "h-4.5 w-4.5" })
+        children: /* @__PURE__ */ (0, import_jsx_runtime104.jsx)(import_outline18.ArrowDownTrayIcon, { className: "h-4.5 w-4.5" })
       }
     )
   ] });
@@ -13981,7 +14148,7 @@ var MobileAttachmentRow = (0, import_react25.memo)(function MobileAttachmentRow2
 
 // src/mobile/mobile_sidebar_nav_button.tsx
 var import_react26 = require("react");
-var import_jsx_runtime104 = require("react/jsx-runtime");
+var import_jsx_runtime105 = require("react/jsx-runtime");
 var LONG_PRESS_MS = 500;
 var LONG_PRESS_MOVE_TOLERANCE = 8;
 var MAX_VISIBLE_COUNT = 999;
@@ -14037,7 +14204,7 @@ function MobileSidebarNavButton({
     }
     on_click();
   }, [on_click]);
-  return /* @__PURE__ */ (0, import_jsx_runtime104.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime105.jsxs)(
     "button",
     {
       className: "sidebar-nav-btn relative flex h-11 w-full items-center gap-3 rounded-[16px] px-3 text-[15px]",
@@ -14058,7 +14225,7 @@ function MobileSidebarNavButton({
       onTouchMove: handle_touch_move,
       onTouchStart: handle_touch_start,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime104.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime105.jsx)(
           "span",
           {
             className: "flex h-5 w-5 shrink-0 items-center justify-center",
@@ -14066,9 +14233,9 @@ function MobileSidebarNavButton({
             children: icon
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime104.jsx)("span", { className: "min-w-0 flex-1 truncate text-start", children: label }),
+        /* @__PURE__ */ (0, import_jsx_runtime105.jsx)("span", { className: "min-w-0 flex-1 truncate text-start", children: label }),
         trailing,
-        count != null && count > 0 && /* @__PURE__ */ (0, import_jsx_runtime104.jsx)(
+        count != null && count > 0 && /* @__PURE__ */ (0, import_jsx_runtime105.jsx)(
           "span",
           {
             className: "shrink-0 text-[13px] font-medium tabular-nums",
@@ -14086,7 +14253,7 @@ function MobileSidebarNavButton({
 // src/mobile/swipe_actions.tsx
 var import_react27 = require("react");
 var import_framer_motion16 = require("framer-motion");
-var import_jsx_runtime105 = require("react/jsx-runtime");
+var import_jsx_runtime106 = require("react/jsx-runtime");
 var VELOCITY_THRESHOLD = 400;
 var ELASTIC_FACTOR = 0.3;
 var DEAD_ZONE = 15;
@@ -14148,10 +14315,10 @@ var SwipeActions = (0, import_react27.memo)(function SwipeActions2({
     [left_action, right_action, threshold]
   );
   if (disabled || !left_action && !right_action) {
-    return /* @__PURE__ */ (0, import_jsx_runtime105.jsx)(import_jsx_runtime105.Fragment, { children });
+    return /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_jsx_runtime106.Fragment, { children });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime105.jsxs)("div", { ref: container_ref, className: "relative overflow-hidden", children: [
-    right_action && /* @__PURE__ */ (0, import_jsx_runtime105.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { ref: container_ref, className: "relative overflow-hidden", children: [
+    right_action && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
       import_framer_motion16.motion.div,
       {
         className: "absolute inset-y-0 start-0 flex w-full items-center justify-start ps-6",
@@ -14162,7 +14329,7 @@ var SwipeActions = (0, import_react27.memo)(function SwipeActions2({
         children: right_action.icon
       }
     ),
-    left_action && /* @__PURE__ */ (0, import_jsx_runtime105.jsx)(
+    left_action && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
       import_framer_motion16.motion.div,
       {
         className: "absolute inset-y-0 end-0 flex w-full items-center justify-end pe-6",
@@ -14170,7 +14337,7 @@ var SwipeActions = (0, import_react27.memo)(function SwipeActions2({
         children: left_action.icon
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime105.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
       import_framer_motion16.motion.div,
       {
         dragDirectionLock: true,
@@ -14190,7 +14357,7 @@ var SwipeActions = (0, import_react27.memo)(function SwipeActions2({
 
 // src/profile_notes/profile_notes.tsx
 var import_outline19 = require("@heroicons/react/24/outline");
-var import_jsx_runtime106 = require("react/jsx-runtime");
+var import_jsx_runtime107 = require("react/jsx-runtime");
 var DEFAULT_MAX_LENGTH = 5e4;
 function ProfileNotesBoxView({
   note,
@@ -14204,19 +14371,19 @@ function ProfileNotesBoxView({
   max_length = DEFAULT_MAX_LENGTH,
   className = ""
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
     "div",
     {
       className: `rounded-xl border bg-surf-secondary border-edge-secondary ${className}`,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "flex items-center justify-between px-3 py-2", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "flex items-center gap-2", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(import_outline19.DocumentTextIcon, { className: "w-4 h-4 text-txt-muted" }),
-            /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { className: "text-[11px] font-medium uppercase tracking-wider text-txt-muted", children: strings.notes })
+        /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "flex items-center justify-between px-3 py-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "flex items-center gap-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline19.DocumentTextIcon, { className: "w-4 h-4 text-txt-muted" }),
+            /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { className: "text-[11px] font-medium uppercase tracking-wider text-txt-muted", children: strings.notes })
           ] }),
-          save_status === "too_long" ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { className: "text-[11px] text-red-500", children: strings.too_long }) : status_indicator
+          save_status === "too_long" ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { className: "text-[11px] text-red-500", children: strings.too_long }) : status_indicator
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("div", { className: "px-3 pb-3", children: is_loading ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(Skeleton, { className: "h-16 rounded-lg" }) : load_failed ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("p", { className: "text-[13px] text-txt-muted", children: strings.load_failed }) : /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("div", { className: "px-3 pb-3", children: is_loading ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(Skeleton, { className: "h-16 rounded-lg" }) : load_failed ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("p", { className: "text-[13px] text-txt-muted", children: strings.load_failed }) : /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
           "textarea",
           {
             className: "w-full min-h-[64px] max-h-[160px] text-[13px] leading-relaxed bg-transparent outline-none resize-none placeholder:text-txt-muted text-txt-primary",
@@ -14244,19 +14411,19 @@ function ProfileNotesInlineView({
   textarea_ref
 }) {
   const show_indicator = save_status === "error" || save_status === "saving" || save_status === "saved";
-  return /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
     "div",
     {
       className: "p-2 bg-surf-secondary",
       onClick: (e) => e.stopPropagation(),
       onKeyDown: (e) => e.stopPropagation(),
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime106.jsxs)("div", { className: "flex items-center justify-between mb-1", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { className: "text-[10px] font-medium uppercase tracking-wider text-txt-muted", children: strings.notes }),
+        /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "flex items-center justify-between mb-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { className: "text-[10px] font-medium uppercase tracking-wider text-txt-muted", children: strings.notes }),
           show_indicator ? status_indicator : null,
-          save_status === "too_long" && /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("span", { className: "text-[10px] text-red-500", children: strings.too_long })
+          save_status === "too_long" && /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { className: "text-[10px] text-red-500", children: strings.too_long })
         ] }),
-        is_loading ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("div", { className: "h-14 rounded animate-pulse bg-surf-tertiary" }) : load_failed ? /* @__PURE__ */ (0, import_jsx_runtime106.jsx)("p", { className: "h-14 text-[12px] text-txt-muted", children: strings.load_failed }) : /* @__PURE__ */ (0, import_jsx_runtime106.jsx)(
+        is_loading ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("div", { className: "h-14 rounded animate-pulse bg-surf-tertiary" }) : load_failed ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("p", { className: "h-14 text-[12px] text-txt-muted", children: strings.load_failed }) : /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
           "textarea",
           {
             ref: textarea_ref,
@@ -14285,7 +14452,7 @@ var import_react28 = require("react");
 var import_framer_motion17 = require("framer-motion");
 var import_outline20 = require("@heroicons/react/24/outline");
 var import_solid5 = require("@heroicons/react/24/solid");
-var import_jsx_runtime107 = require("react/jsx-runtime");
+var import_jsx_runtime108 = require("react/jsx-runtime");
 var ASTER_EMAIL_DOMAINS = /* @__PURE__ */ new Set([
   "astermail.org",
   "aster.cx",
@@ -14334,15 +14501,15 @@ function SenderProfileCardView({
   is_blocked,
   strings
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(DropdownMenu, { open: is_open, onOpenChange: on_open_change, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(DropdownMenu, { open: is_open, onOpenChange: on_open_change, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
       DropdownMenuTrigger,
       {
         asChild: true,
         onFocus: on_trigger_intent,
         onPointerDown: on_trigger_intent,
         onPointerEnter: on_trigger_intent,
-        children: /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+        children: /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
           "button",
           {
             className: `outline-none${trigger_className ? ` ${trigger_className}` : ""}`,
@@ -14353,36 +14520,36 @@ function SenderProfileCardView({
         )
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
       DropdownMenuContent,
       {
         align: "start",
         className: "w-72 p-0 overflow-hidden",
         onClick: (e) => e.stopPropagation(),
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "px-3 pt-3 pb-2 border-b border-edge-secondary", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "flex items-center gap-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "px-3 pt-3 pb-2 border-b border-edge-secondary", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "flex items-center gap-3", children: [
               render_avatar({ size: "md", className: CARD_AVATAR_CLASS }),
-              /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "flex-1 min-w-0", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("p", { className: "text-[13px] font-medium truncate text-txt-primary", children: display_name }),
-                is_aster_user ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("p", { className: "text-[11px] truncate text-txt-muted", children: email }) : domain && /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("p", { className: "text-[11px] truncate text-txt-muted", children: domain })
+              /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "flex-1 min-w-0", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("p", { className: "text-[13px] font-medium truncate text-txt-primary", children: display_name }),
+                is_aster_user ? /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("p", { className: "text-[11px] truncate text-txt-muted", children: email }) : domain && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("p", { className: "text-[11px] truncate text-txt-muted", children: domain })
               ] })
             ] }),
-            !is_aster_user && /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+            !is_aster_user && /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
               "button",
               {
                 className: "mt-2 w-full flex items-center justify-center gap-1.5 py-1.5 rounded-[12px] text-[12px] transition-colors border text-txt-secondary border-edge-secondary bg-surf-secondary hover:bg-surf-hover",
                 type: "button",
                 onClick: on_copy_email,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { className: "truncate", children: email }),
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.ClipboardDocumentIcon, { className: "w-3 h-3 flex-shrink-0 opacity-60" })
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { className: "truncate", children: email }),
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.ClipboardDocumentIcon, { className: "w-3 h-3 flex-shrink-0 opacity-60" })
                 ]
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "p-1", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "p-1", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
               DropdownMenuItem,
               {
                 className: "gap-2 cursor-pointer",
@@ -14392,13 +14559,13 @@ function SenderProfileCardView({
                   on_contact_action();
                 },
                 children: [
-                  is_contact ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.UserMinusIcon, { className: "w-4 h-4 flex-shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.UserPlusIcon, { className: "w-4 h-4 flex-shrink-0" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { className: "flex-1", children: is_contact ? strings.remove_from_contacts : strings.add_to_contacts }),
-                  is_contact_loading && /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("div", { className: INLINE_SPINNER_CLASS })
+                  is_contact ? /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.UserMinusIcon, { className: "w-4 h-4 flex-shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.UserPlusIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { className: "flex-1", children: is_contact ? strings.remove_from_contacts : strings.add_to_contacts }),
+                  is_contact_loading && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("div", { className: INLINE_SPINNER_CLASS })
                 ]
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
               DropdownMenuItem,
               {
                 className: "gap-2 cursor-pointer",
@@ -14407,12 +14574,12 @@ function SenderProfileCardView({
                   on_toggle_notes();
                 },
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.DocumentTextIcon, { className: "w-4 h-4 flex-shrink-0" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { children: show_notes ? strings.hide_notes : strings.notes })
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.DocumentTextIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { children: show_notes ? strings.hide_notes : strings.notes })
                 ]
               }
             ),
-            show_notes && notes && /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+            show_notes && notes && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
               "div",
               {
                 className: "mx-1 my-1 rounded-md overflow-hidden",
@@ -14420,32 +14587,32 @@ function SenderProfileCardView({
                 children: notes
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(DropdownMenuSeparator, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(DropdownMenuSeparator, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
               DropdownMenuItem,
               {
                 className: "gap-2 cursor-pointer",
                 onSelect: on_messages_from,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.EnvelopeIcon, { className: "w-4 h-4 flex-shrink-0" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { children: strings.messages_from })
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.EnvelopeIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { children: strings.messages_from })
                 ]
               }
             ),
-            on_compose && /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+            on_compose && /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
               DropdownMenuItem,
               {
                 className: "gap-2 cursor-pointer",
                 onSelect: on_compose,
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.EnvelopeIcon, { className: "w-4 h-4 flex-shrink-0" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { children: strings.send_email })
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.EnvelopeIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { children: strings.send_email })
                 ]
               }
             ),
-            !is_aster_user && /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(import_jsx_runtime107.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(DropdownMenuSeparator, {}),
-              /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+            !is_aster_user && /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(import_jsx_runtime108.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(DropdownMenuSeparator, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
                 DropdownMenuItem,
                 {
                   className: "gap-2 cursor-pointer",
@@ -14455,19 +14622,19 @@ function SenderProfileCardView({
                     on_allowlist_action();
                   },
                   children: [
-                    is_allowlisted ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_solid5.ShieldCheckIcon, { className: "w-4 h-4 flex-shrink-0 text-emerald-500" }) : /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.ShieldCheckIcon, { className: "w-4 h-4 flex-shrink-0" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+                    is_allowlisted ? /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_solid5.ShieldCheckIcon, { className: "w-4 h-4 flex-shrink-0 text-emerald-500" }) : /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.ShieldCheckIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
                       "span",
                       {
                         className: `flex-1 ${is_allowlisted ? "text-emerald-600 dark:text-emerald-400" : ""}`,
                         children: is_allowlisted ? strings.remove_from_allowlist : strings.allow_sender
                       }
                     ),
-                    is_allowlist_loading && /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("div", { className: INLINE_SPINNER_CLASS })
+                    is_allowlist_loading && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("div", { className: INLINE_SPINNER_CLASS })
                   ]
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
                 DropdownMenuItem,
                 {
                   className: `gap-2 cursor-pointer ${is_blocked ? "" : "text-red-500 focus:text-red-500 focus:bg-red-500/10"}`,
@@ -14477,9 +14644,9 @@ function SenderProfileCardView({
                     on_block_action();
                   },
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.NoSymbolIcon, { className: "w-4 h-4 flex-shrink-0" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { className: "flex-1", children: is_blocked ? strings.unblock_sender : strings.block_sender }),
-                    is_blocking && /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+                    /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.NoSymbolIcon, { className: "w-4 h-4 flex-shrink-0" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { className: "flex-1", children: is_blocked ? strings.unblock_sender : strings.block_sender }),
+                    is_blocking && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
                       "div",
                       {
                         className: `w-3 h-3 border-2 ${is_blocked ? "border-blue-500" : "border-red-500"} border-t-transparent rounded-full animate-spin flex-shrink-0`
@@ -14529,7 +14696,7 @@ function SenderProfileModalView({
     window.addEventListener("keydown", on_key);
     return () => window.removeEventListener("keydown", on_key);
   }, [is_open, on_close]);
-  return /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_framer_motion17.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_framer_motion17.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
     import_framer_motion17.motion.div,
     {
       animate: { opacity: 1 },
@@ -14539,7 +14706,7 @@ function SenderProfileModalView({
       transition: { duration: reduce_motion ? 0 : 0.15 },
       onClick: on_close,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
           import_framer_motion17.motion.div,
           {
             animate: { opacity: 1 },
@@ -14548,7 +14715,7 @@ function SenderProfileModalView({
             initial: reduce_motion ? false : { opacity: 0 }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
           import_framer_motion17.motion.div,
           {
             animate: { scale: 1, opacity: 1, y: 0 },
@@ -14561,7 +14728,7 @@ function SenderProfileModalView({
             },
             onClick: (e) => e.stopPropagation(),
             children: [
-              is_aster_user ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+              is_aster_user ? /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
                 ModalInternalHeader,
                 {
                   close_label: strings.close,
@@ -14570,7 +14737,7 @@ function SenderProfileModalView({
                   on_close,
                   render_avatar
                 }
-              ) : /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+              ) : /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
                 ModalExternalHeader,
                 {
                   close_label: strings.close,
@@ -14582,51 +14749,51 @@ function SenderProfileModalView({
                   render_avatar
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "py-1", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "py-1", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
                   ModalActionRow,
                   {
                     disabled: contact_disabled,
-                    icon: is_contact ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.UserMinusIcon, { className: ROW_ICON_CLASS }) : /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.UserPlusIcon, { className: ROW_ICON_CLASS }),
+                    icon: is_contact ? /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.UserMinusIcon, { className: ROW_ICON_CLASS }) : /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.UserPlusIcon, { className: ROW_ICON_CLASS }),
                     label: is_contact ? strings.remove_from_contacts : strings.add_to_contacts,
                     loading: is_contact_loading,
                     on_click: on_contact_action
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
                   ModalActionRow,
                   {
-                    icon: /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.EnvelopeIcon, { className: ROW_ICON_CLASS }),
+                    icon: /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.EnvelopeIcon, { className: ROW_ICON_CLASS }),
                     label: strings.messages_from,
                     on_click: on_messages_from
                   }
                 ),
-                on_compose && /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+                on_compose && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
                   ModalActionRow,
                   {
-                    icon: /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.EnvelopeIcon, { className: ROW_ICON_CLASS }),
+                    icon: /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.EnvelopeIcon, { className: ROW_ICON_CLASS }),
                     label: strings.send_email,
                     on_click: on_compose
                   }
                 ),
-                !is_aster_user && /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(import_jsx_runtime107.Fragment, { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("div", { className: "my-1 mx-4 border-t border-edge-secondary" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+                !is_aster_user && /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(import_jsx_runtime108.Fragment, { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("div", { className: "my-1 mx-4 border-t border-edge-secondary" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
                     ModalActionRow,
                     {
                       disabled: allowlist_disabled,
-                      icon: is_allowlisted ? /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_solid5.ShieldCheckIcon, { className: "w-[18px] h-[18px] text-emerald-500 flex-shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.ShieldCheckIcon, { className: ROW_ICON_CLASS }),
+                      icon: is_allowlisted ? /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_solid5.ShieldCheckIcon, { className: "w-[18px] h-[18px] text-emerald-500 flex-shrink-0" }) : /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.ShieldCheckIcon, { className: ROW_ICON_CLASS }),
                       label: is_allowlisted ? strings.remove_from_allowlist : strings.allow_sender,
                       loading: is_allowlist_loading,
                       on_click: on_allowlist_action
                     }
                   ),
-                  /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
                     ModalActionRow,
                     {
                       danger: true,
                       disabled: is_blocking,
-                      icon: /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.NoSymbolIcon, { className: "w-[18px] h-[18px] text-red-500 flex-shrink-0" }),
+                      icon: /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.NoSymbolIcon, { className: "w-[18px] h-[18px] text-red-500 flex-shrink-0" }),
                       label: strings.block_sender,
                       loading: is_blocking,
                       on_click: on_block_action
@@ -14634,7 +14801,7 @@ function SenderProfileModalView({
                   )
                 ] })
               ] }),
-              notes && /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("div", { className: "px-4 pb-4 pt-1 border-t border-edge-secondary", children: notes })
+              notes && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("div", { className: "px-4 pb-4 pt-1 border-t border-edge-secondary", children: notes })
             ]
           }
         )
@@ -14649,7 +14816,7 @@ function ModalInternalHeader({
   close_label,
   render_avatar
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
     "div",
     {
       className: "relative px-5 pt-6 pb-5",
@@ -14657,23 +14824,23 @@ function ModalInternalHeader({
         background: "linear-gradient(135deg, #4f46e5 0%, #1e1b4b 100%)"
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
           "button",
           {
             "aria-label": close_label,
             className: "absolute top-3 end-3 p-1.5 rounded-[var(--aster-radius-item)] text-white/50 hover:text-white hover:bg-white/10 transition-colors",
             type: "button",
             onClick: on_close,
-            children: /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.XMarkIcon, { className: "w-4 h-4" })
+            children: /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.XMarkIcon, { className: "w-4 h-4" })
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "flex flex-col items-center text-center", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "flex flex-col items-center text-center", children: [
           render_avatar({
             size: "xl",
             className: "mb-3 ring-2 ring-white/20 shadow-lg"
           }),
-          /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("h2", { className: "text-[17px] font-semibold text-white leading-tight", children: display_name }),
-          /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("p", { className: "text-[12px] mt-0.5 text-indigo-200 break-all", children: email })
+          /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("h2", { className: "text-[17px] font-semibold text-white leading-tight", children: display_name }),
+          /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("p", { className: "text-[12px] mt-0.5 text-indigo-200 break-all", children: email })
         ] })
       ]
     }
@@ -14688,31 +14855,31 @@ function ModalExternalHeader({
   close_label,
   render_avatar
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "relative px-5 pt-5 pb-4 border-b border-edge-secondary", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "relative px-5 pt-5 pb-4 border-b border-edge-secondary", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
       "button",
       {
         "aria-label": close_label,
         className: "absolute top-3 end-3 p-1.5 rounded-[var(--aster-radius-item)] text-txt-muted hover:text-txt-primary hover:bg-surf-hover transition-colors",
         type: "button",
         onClick: on_close,
-        children: /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.XMarkIcon, { className: "w-4 h-4" })
+        children: /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.XMarkIcon, { className: "w-4 h-4" })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "flex items-center gap-4 pe-8", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "flex items-center gap-4 pe-8", children: [
       render_avatar({ size: "lg", className: CARD_AVATAR_CLASS }),
-      /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)("div", { className: "flex-1 min-w-0", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("h2", { className: "text-[16px] font-semibold text-txt-primary leading-tight", children: display_name }),
-        domain && /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("p", { className: "text-[12px] mt-0.5 text-txt-muted", children: domain }),
-        /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "flex-1 min-w-0", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("h2", { className: "text-[16px] font-semibold text-txt-primary leading-tight", children: display_name }),
+        domain && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("p", { className: "text-[12px] mt-0.5 text-txt-muted", children: domain }),
+        /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
           "button",
           {
             className: "mt-1 flex items-center gap-1 text-[11px] text-txt-muted hover:text-txt-secondary transition-colors group",
             type: "button",
             onClick: on_copy_email,
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime107.jsx)("span", { className: "truncate max-w-[220px]", children: email }),
-              /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(import_outline20.ClipboardDocumentIcon, { className: "w-3 h-3 flex-shrink-0 opacity-0 group-hover:opacity-60 transition-opacity" })
+              /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { className: "truncate max-w-[220px]", children: email }),
+              /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline20.ClipboardDocumentIcon, { className: "w-3 h-3 flex-shrink-0 opacity-0 group-hover:opacity-60 transition-opacity" })
             ]
           }
         )
@@ -14728,7 +14895,7 @@ function ModalActionRow({
   loading = false,
   danger = false
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime107.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
     "button",
     {
       className: `w-full flex items-center gap-3 px-4 py-2.5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${danger ? "hover:bg-red-500/8 dark:hover:bg-red-500/10" : "hover:bg-surf-hover"}`,
@@ -14737,14 +14904,14 @@ function ModalActionRow({
       onClick: on_click,
       children: [
         icon,
-        /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
           "span",
           {
             className: `flex-1 text-start text-[14px] ${danger ? "text-red-500" : "text-txt-primary"}`,
             children: label
           }
         ),
-        loading && /* @__PURE__ */ (0, import_jsx_runtime107.jsx)(ButtonSpinner, { size: "xs" })
+        loading && /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(ButtonSpinner, { size: "xs" })
       ]
     }
   );
@@ -14753,7 +14920,7 @@ function ModalActionRow({
 // src/mobile_drawer/mobile_drawer_view.tsx
 var import_react29 = require("react");
 var import_outline21 = require("@heroicons/react/24/outline");
-var import_jsx_runtime108 = require("react/jsx-runtime");
+var import_jsx_runtime109 = require("react/jsx-runtime");
 function MobileDrawerHeaderView({
   logo_src,
   logo_alt = "Aster",
@@ -14761,14 +14928,14 @@ function MobileDrawerHeaderView({
   subtitle,
   on_click
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("div", { className: "px-4 pb-4 pt-5", children: /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { className: "px-4 pb-4 pt-5", children: /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)(
     "button",
     {
       className: "flex w-full items-center gap-3.5",
       type: "button",
       onClick: on_click,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("div", { className: "relative h-11 w-11 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { className: "relative h-11 w-11 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
           "img",
           {
             alt: logo_alt,
@@ -14777,11 +14944,11 @@ function MobileDrawerHeaderView({
             src: logo_src
           }
         ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime108.jsxs)("div", { className: "min-w-0 flex-1", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { className: "block truncate text-start text-[17px] font-semibold text-[var(--text-primary)]", children: title }),
-          /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("span", { className: "block truncate text-start text-[13px] text-[var(--text-muted)]", children: subtitle })
+        /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "min-w-0 flex-1", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("span", { className: "block truncate text-start text-[17px] font-semibold text-[var(--text-primary)]", children: title }),
+          /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("span", { className: "block truncate text-start text-[13px] text-[var(--text-muted)]", children: subtitle })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(import_outline21.ChevronDownIcon, { className: "h-5 w-5 shrink-0 text-[var(--text-muted)]" })
+        /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(import_outline21.ChevronDownIcon, { className: "h-5 w-5 shrink-0 text-[var(--text-muted)]" })
       ]
     }
   ) });
@@ -14837,7 +15004,7 @@ function MobileDrawerScrollArea({
     content.style.transform = "translateY(0)";
     content.style.transition = BOUNCE_RELEASE_TRANSITION;
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
     "div",
     {
       ref: scroll_ref,
@@ -14846,7 +15013,7 @@ function MobileDrawerScrollArea({
       onTouchEnd: handle_touch_end,
       onTouchMove: handle_touch_move,
       onTouchStart: handle_touch_start,
-      children: /* @__PURE__ */ (0, import_jsx_runtime108.jsx)("div", { ref: content_ref, children })
+      children: /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { ref: content_ref, children })
     }
   );
 }
@@ -14875,7 +15042,7 @@ function use_drawer_nav_indicator(container_ref, is_open, active_key) {
 function MobileDrawerNavIndicator({
   indicator_style
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime108.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
     "div",
     {
       className: "pointer-events-none absolute start-0 w-full rounded-lg",
@@ -14895,7 +15062,7 @@ function MobileDrawerNavIndicator({
 
 // src/mobile_drawer/mobile_drawer_nav_view.tsx
 var import_outline22 = require("@heroicons/react/24/outline");
-var import_jsx_runtime109 = require("react/jsx-runtime");
+var import_jsx_runtime110 = require("react/jsx-runtime");
 var SECTION_LABEL_CLASS = "text-[10px] font-semibold uppercase tracking-[0.05em] text-[var(--text-muted)] opacity-70";
 function MobileDrawerSectionHeader({
   label,
@@ -14903,25 +15070,25 @@ function MobileDrawerSectionHeader({
   add_label,
   on_add
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { className: is_first ? "mb-1 px-2.5" : "mb-1 mt-5 px-2.5", children: on_add ? /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "flex w-full items-center justify-between", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("span", { className: SECTION_LABEL_CLASS, children: label }),
-    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("div", { className: is_first ? "mb-1 px-2.5" : "mb-1 mt-5 px-2.5", children: on_add ? /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "flex w-full items-center justify-between", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("span", { className: SECTION_LABEL_CLASS, children: label }),
+    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
       "button",
       {
         className: "-m-1 flex min-h-6 min-w-6 items-center justify-center rounded p-1.5 text-[var(--text-muted)] transition-all duration-150 active:bg-[var(--bg-tertiary)]",
         type: "button",
         "aria-label": add_label,
         onClick: on_add,
-        children: /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(import_outline22.PlusIcon, { className: "h-3.5 w-3.5" })
+        children: /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline22.PlusIcon, { className: "h-3.5 w-3.5" })
       }
     )
-  ] }) : /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("span", { className: SECTION_LABEL_CLASS, children: label }) });
+  ] }) : /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("span", { className: SECTION_LABEL_CLASS, children: label }) });
 }
 function MobileDrawerBackButton({
   label,
   on_click
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(
     "button",
     {
       className: "relative flex w-full items-center gap-2 rounded-xl px-3 py-2.5 mb-2 active:bg-[var(--bg-tertiary)]",
@@ -14929,8 +15096,8 @@ function MobileDrawerBackButton({
       type: "button",
       onClick: on_click,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(import_outline22.ChevronLeftIcon, { className: "h-4 w-4 shrink-0 rtl:-scale-x-100" }),
-        /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("span", { className: "text-[14px] font-medium", children: label })
+        /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline22.ChevronLeftIcon, { className: "h-4 w-4 shrink-0 rtl:-scale-x-100" }),
+        /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("span", { className: "text-[14px] font-medium", children: label })
       ]
     }
   );
@@ -14941,9 +15108,9 @@ function MobileDrawerSectionPlaceholder({
   failed_notice,
   empty_text
 }) {
-  if (is_loading) return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(NavSectionSkeleton, { rows: skeleton_rows });
-  if (failed_notice) return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("div", { className: "px-2.5 py-1", children: failed_notice });
-  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)("p", { className: "px-2.5 py-2 text-[11px] text-[var(--text-muted)]", children: empty_text });
+  if (is_loading) return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(NavSectionSkeleton, { rows: skeleton_rows });
+  if (failed_notice) return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("div", { className: "px-2.5 py-1", children: failed_notice });
+  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "px-2.5 py-2 text-[11px] text-[var(--text-muted)]", children: empty_text });
 }
 function MobileDrawerFolderRow({
   label,
@@ -14960,11 +15127,11 @@ function MobileDrawerFolderRow({
   on_long_press,
   on_toggle_lock
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)("div", { className: "relative", style: { paddingInlineStart: depth * 16 }, children: [
-    depth > 0 && /* @__PURE__ */ (0, import_jsx_runtime109.jsxs)(import_jsx_runtime109.Fragment, { children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "relative", style: { paddingInlineStart: depth * 16 }, children: [
+    depth > 0 && /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(import_jsx_runtime110.Fragment, { children: [
       Array.from(
         { length: depth - 1 },
-        (_, level) => guide_trail?.[level + 1] && /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        (_, level) => guide_trail?.[level + 1] && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
           "span",
           {
             "aria-hidden": "true",
@@ -14977,7 +15144,7 @@ function MobileDrawerFolderRow({
           `guide-${level}`
         )
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
         "span",
         {
           "aria-hidden": "true",
@@ -14992,7 +15159,7 @@ function MobileDrawerFolderRow({
           }
         }
       ),
-      guide_has_next && /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+      guide_has_next && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
         "span",
         {
           "aria-hidden": "true",
@@ -15004,17 +15171,17 @@ function MobileDrawerFolderRow({
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
       MobileSidebarNavButton,
       {
         active,
         count,
-        icon: /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(import_outline22.FolderIcon, { className: "h-5 w-5", style: { color } }),
+        icon: /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline22.FolderIcon, { className: "h-5 w-5", style: { color } }),
         label,
         locale,
         on_click,
         on_long_press,
-        trailing: show_lock_toggle ? /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+        trailing: show_lock_toggle ? /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
           "button",
           {
             className: "flex h-7 w-7 items-center justify-center rounded-[8px] text-[var(--text-muted)] active:bg-[var(--bg-tertiary)]",
@@ -15023,7 +15190,7 @@ function MobileDrawerFolderRow({
               e.stopPropagation();
               on_toggle_lock?.();
             },
-            children: lock_closed ? /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(import_outline22.LockClosedIcon, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(import_outline22.LockOpenIcon, { className: "h-4 w-4" })
+            children: lock_closed ? /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline22.LockClosedIcon, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline22.LockOpenIcon, { className: "h-4 w-4" })
           }
         ) : void 0
       }
@@ -15033,9 +15200,9 @@ function MobileDrawerFolderRow({
 function MobileDrawerTagIcon({ icon, color }) {
   const TagIconComponent = icon ? tag_icon_map[icon] : void 0;
   if (TagIconComponent) {
-    return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(TagIconComponent, { className: "h-4 w-4", style: { color } });
+    return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(TagIconComponent, { className: "h-4 w-4", style: { color } });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime109.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
     "span",
     {
       className: "h-3 w-3 shrink-0 rounded-full",
@@ -15054,13 +15221,13 @@ function is_composing(event) {
 }
 
 // src/mobile_drawer/mobile_drawer_sheets_view.tsx
-var import_jsx_runtime110 = require("react/jsx-runtime");
+var import_jsx_runtime111 = require("react/jsx-runtime");
 function DrawerColorSwatches({
   colors = TAG_COLOR_PRESETS,
   selected,
   on_select
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("div", { className: "mb-3 flex flex-wrap gap-2", children: colors.map((color) => /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("div", { className: "mb-3 flex flex-wrap gap-2", children: colors.map((color) => /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
     "button",
     {
       className: "h-7 w-7 rounded-full",
@@ -15075,17 +15242,17 @@ function DrawerColorSwatches({
   )) });
 }
 function DrawerSheetTitle({ children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "mb-4 text-[16px] font-semibold text-[var(--text-primary)]", children });
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "mb-4 text-[16px] font-semibold text-[var(--text-primary)]", children });
 }
 function DrawerSheetCaption({ children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "mb-1.5 text-[12px] font-medium text-[var(--text-muted)]", children });
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "mb-1.5 text-[12px] font-medium text-[var(--text-muted)]", children });
 }
 function DrawerTagIconPreview({
   icon,
   color
 }) {
   const Icon2 = icon ? tag_icon_map[icon] : void 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("span", { className: "flex h-6 w-6 shrink-0 items-center justify-center", children: Icon2 ? /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(Icon2, { className: "h-5 w-5", style: { color } }) : /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("span", { className: "flex h-6 w-6 shrink-0 items-center justify-center", children: Icon2 ? /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(Icon2, { className: "h-5 w-5", style: { color } }) : /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
     "span",
     {
       className: "h-3 w-3 rounded-full",
@@ -15099,8 +15266,8 @@ function DrawerSaveDeleteRow({
   on_save,
   on_delete
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "flex gap-2", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "flex gap-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
       Button,
       {
         className: "flex-1 rounded-[16px] py-3 text-[15px] font-medium",
@@ -15110,7 +15277,7 @@ function DrawerSaveDeleteRow({
         children: save_label
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
       "button",
       {
         className: "rounded-[16px] px-5 py-3 text-[15px] font-medium text-white transition-all ",
@@ -15144,9 +15311,9 @@ function AccountMenuSheetView({
   sign_out_label,
   on_sign_out
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "px-4 pb-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "flex items-center gap-3 pb-4", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("div", { className: "relative h-9 w-9 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "flex items-center gap-3 pb-4", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("div", { className: "relative h-9 w-9 shrink-0", children: /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
         "img",
         {
           alt: logo_alt,
@@ -15155,15 +15322,15 @@ function AccountMenuSheetView({
           src: logo_src
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "min-w-0 flex-1", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "truncate text-[15px] font-semibold text-[var(--text-primary)]", children: name }),
-        /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "truncate text-[12px] text-[var(--text-muted)]", children: email })
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "min-w-0 flex-1", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "truncate text-[15px] font-semibold text-[var(--text-primary)]", children: name }),
+        /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "truncate text-[12px] text-[var(--text-muted)]", children: email })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "mb-3 px-1", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "mb-1 flex items-center justify-between", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("span", { className: "text-[11px] font-medium tracking-wide text-[var(--text-muted)]", children: storage_label }),
-        /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "mb-3 px-1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "mb-1 flex items-center justify-between", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("span", { className: "text-[11px] font-medium tracking-wide text-[var(--text-muted)]", children: storage_label }),
+        /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)(
           "span",
           {
             className: "text-[11px] font-medium tabular-nums",
@@ -15180,7 +15347,7 @@ function AccountMenuSheetView({
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("div", { className: "h-1.5 w-full overflow-hidden rounded-full bg-black/[0.05] dark:bg-white/[0.06]", children: /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("div", { className: "h-1.5 w-full overflow-hidden rounded-full bg-black/[0.05] dark:bg-white/[0.06]", children: /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
         "div",
         {
           className: "h-full rounded-full transition-all duration-300",
@@ -15190,10 +15357,10 @@ function AccountMenuSheetView({
           }
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "mt-1 text-[10px] text-[var(--text-muted)]", children: storage_detail })
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "mt-1 text-[10px] text-[var(--text-muted)]", children: storage_detail })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "space-y-1", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "space-y-1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
         Button,
         {
           className: "flex w-full items-center justify-center gap-2 rounded-[var(--aster-radius-field)] px-3 py-2.5 text-[14px] font-medium",
@@ -15203,27 +15370,27 @@ function AccountMenuSheetView({
           children: upgrade_label
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)(
         "button",
         {
           className: "flex w-full items-center gap-3 rounded-[16px] px-3 py-3 text-start active:bg-[var(--bg-tertiary)]",
           type: "button",
           onClick: on_settings,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline23.Cog6ToothIcon, { className: "h-5 w-5 text-[var(--text-muted)]" }),
-            /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("span", { className: "text-[15px] text-[var(--text-primary)]", children: settings_label })
+            /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(import_outline23.Cog6ToothIcon, { className: "h-5 w-5 text-[var(--text-muted)]" }),
+            /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("span", { className: "text-[15px] text-[var(--text-primary)]", children: settings_label })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)(
         "button",
         {
           className: "flex w-full items-center gap-3 rounded-[16px] px-3 py-3 text-start active:bg-[var(--bg-tertiary)]",
           type: "button",
           onClick: on_sign_out,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline23.ArrowRightStartOnRectangleIcon, { className: "h-5 w-5 text-[var(--color-danger,#ef4444)]" }),
-            /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("span", { className: "text-[15px] text-[var(--color-danger,#ef4444)]", children: sign_out_label })
+            /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(import_outline23.ArrowRightStartOnRectangleIcon, { className: "h-5 w-5 text-[var(--color-danger,#ef4444)]" }),
+            /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("span", { className: "text-[15px] text-[var(--color-danger,#ef4444)]", children: sign_out_label })
           ]
         }
       )
@@ -15243,11 +15410,11 @@ function CreateFolderSheetView({
   is_creating,
   on_submit
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "px-4 pb-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerSheetTitle, { children: title }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline23.FolderIcon, { className: "h-6 w-6 shrink-0", style: { color } }),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerSheetTitle, { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(import_outline23.FolderIcon, { className: "h-6 w-6 shrink-0", style: { color } }),
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
         Input,
         {
           ref: input_ref,
@@ -15261,7 +15428,7 @@ function CreateFolderSheetView({
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
       DrawerColorSwatches,
       {
         colors,
@@ -15269,7 +15436,7 @@ function CreateFolderSheetView({
         on_select: on_color_change
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
       Button,
       {
         className: "mt-1 w-full rounded-[16px] py-3 text-[15px] font-medium",
@@ -15299,11 +15466,11 @@ function CreateLabelSheetView({
   is_creating,
   on_submit
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "px-4 pb-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerSheetTitle, { children: title }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerTagIconPreview, { color, icon }),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerSheetTitle, { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerTagIconPreview, { color, icon }),
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
         Input,
         {
           ref: input_ref,
@@ -15317,8 +15484,8 @@ function CreateLabelSheetView({
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerSheetCaption, { children: color_label }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerSheetCaption, { children: color_label }),
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
       DrawerColorSwatches,
       {
         colors,
@@ -15326,9 +15493,9 @@ function CreateLabelSheetView({
         on_select: on_color_change
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerSheetCaption, { children: icon_label }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("div", { className: "mb-3", children: icon_picker }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerSheetCaption, { children: icon_label }),
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("div", { className: "mb-3", children: icon_picker }),
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
       Button,
       {
         className: "mt-1 w-full rounded-[16px] py-3 text-[15px] font-medium",
@@ -15358,11 +15525,11 @@ function EditFolderSheetView({
   on_delete
 }) {
   const strings = use_ui_strings();
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "px-4 pb-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerSheetTitle, { children: title }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline23.FolderIcon, { className: "h-6 w-6 shrink-0", style: { color } }),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerSheetTitle, { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(import_outline23.FolderIcon, { className: "h-6 w-6 shrink-0", style: { color } }),
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
         Input,
         {
           className: "flex-1",
@@ -15375,7 +15542,7 @@ function EditFolderSheetView({
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
       DrawerColorSwatches,
       {
         colors,
@@ -15383,9 +15550,9 @@ function EditFolderSheetView({
         on_select: on_color_change
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "mb-3 flex items-center justify-between py-1", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("span", { className: "text-[15px] text-[var(--text-primary)]", children: notifications_label }),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "mb-3 flex items-center justify-between py-1", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("span", { className: "text-[15px] text-[var(--text-primary)]", children: notifications_label }),
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
         Switch,
         {
           "aria-label": notifications_label,
@@ -15394,7 +15561,7 @@ function EditFolderSheetView({
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
       DrawerSaveDeleteRow,
       {
         delete_label: delete_label ?? strings.delete,
@@ -15423,11 +15590,11 @@ function EditTagSheetView({
   on_delete
 }) {
   const strings = use_ui_strings();
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "px-4 pb-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerSheetTitle, { children: title }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerTagIconPreview, { color, icon }),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerSheetTitle, { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "mb-3 flex items-center gap-3", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerTagIconPreview, { color, icon }),
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
         Input,
         {
           className: "flex-1",
@@ -15440,8 +15607,8 @@ function EditTagSheetView({
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerSheetCaption, { children: color_label }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerSheetCaption, { children: color_label }),
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
       DrawerColorSwatches,
       {
         colors,
@@ -15449,9 +15616,9 @@ function EditTagSheetView({
         on_select: on_color_change
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerSheetCaption, { children: icon_label }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("div", { className: "mb-3", children: icon_picker }),
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerSheetCaption, { children: icon_label }),
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("div", { className: "mb-3", children: icon_picker }),
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
       DrawerSaveDeleteRow,
       {
         delete_label: delete_label ?? strings.delete,
@@ -15479,11 +15646,11 @@ function CreateAliasSheetView({
   turnstile,
   on_submit
 }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "px-4 pb-4", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(DrawerSheetTitle, { children: title }),
-    at_limit ? /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(import_jsx_runtime110.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "mb-4 text-[14px] text-[var(--text-secondary)]", children: limit_message }),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "px-4 pb-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(DrawerSheetTitle, { children: title }),
+    at_limit ? /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)(import_jsx_runtime111.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "mb-4 text-[14px] text-[var(--text-secondary)]", children: limit_message }),
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
         UpgradeBtn,
         {
           className: "w-full rounded-[16px] py-3 text-[15px] font-medium",
@@ -15491,9 +15658,9 @@ function CreateAliasSheetView({
           children: upgrade_label
         }
       )
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(import_jsx_runtime110.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("div", { className: "mb-3 flex items-center gap-0", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)(import_jsx_runtime111.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "mb-3 flex items-center gap-0", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
           Input,
           {
             autoCapitalize: "none",
@@ -15510,19 +15677,19 @@ function CreateAliasSheetView({
             }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("span", { className: "rounded-e-xl bg-[var(--bg-tertiary)] px-3 py-3 text-[15px] text-[var(--text-muted)] select-none", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("span", { className: "rounded-e-xl bg-[var(--bg-tertiary)] px-3 py-3 text-[15px] text-[var(--text-muted)] select-none", children: [
           "@",
           domain
         ] })
       ] }),
-      local_part.trim() && /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)("p", { className: "mb-3 break-all text-[13px] text-[var(--text-secondary)]", children: [
+      local_part.trim() && /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("p", { className: "mb-3 break-all text-[13px] text-[var(--text-secondary)]", children: [
         local_part.trim().toLowerCase(),
         "@",
         domain
       ] }),
-      error && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("p", { className: "mb-3 text-[13px] text-red-500", children: error }),
-      turnstile && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)("div", { className: "mb-3 flex justify-center", children: turnstile }),
-      /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+      error && /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "mb-3 text-[13px] text-red-500", children: error }),
+      turnstile && /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("div", { className: "mb-3 flex justify-center", children: turnstile }),
+      /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
         Button,
         {
           className: "w-full rounded-[16px] py-3 text-[15px] font-medium",
@@ -15542,15 +15709,15 @@ function CreateAliasSheetView({
 var import_react30 = require("react");
 var import_framer_motion18 = require("framer-motion");
 var import_outline24 = require("@heroicons/react/24/outline");
-var import_jsx_runtime111 = require("react/jsx-runtime");
+var import_jsx_runtime112 = require("react/jsx-runtime");
 function PinDots({ digits, filled, shake_key }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
     import_framer_motion18.motion.div,
     {
       animate: shake_key > 0 ? { x: [0, -10, 10, -10, 10, 0] } : { x: 0 },
       className: "flex items-center gap-3",
       transition: { duration: 0.4 },
-      children: Array.from({ length: digits }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+      children: Array.from({ length: digits }).map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
         "div",
         {
           className: cn(
@@ -15583,8 +15750,8 @@ function PinPad({
     PIN_BTN_SURFACE,
     pressed_key === k && PIN_BTN_PRESSED
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "grid grid-cols-3 gap-2.5", children: [
-    ["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((k) => /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)("div", { className: "grid grid-cols-3 gap-2.5", children: [
+    ["1", "2", "3", "4", "5", "6", "7", "8", "9"].map((k) => /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
       "button",
       {
         className: digit_cls(k),
@@ -15594,7 +15761,7 @@ function PinPad({
       },
       k
     )),
-    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
       "button",
       {
         className: cn(
@@ -15605,10 +15772,10 @@ function PinPad({
         "aria-label": delete_label ?? strings.delete,
         type: "button",
         onClick: on_backspace,
-        children: /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(import_outline24.BackspaceIcon, { className: "h-5 w-5 text-txt-primary" })
+        children: /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(import_outline24.BackspaceIcon, { className: "h-5 w-5 text-txt-primary" })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
       "button",
       {
         className: digit_cls("0"),
@@ -15617,7 +15784,7 @@ function PinPad({
         children: "0"
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
       "button",
       {
         className: cn(
@@ -15630,7 +15797,7 @@ function PinPad({
         disabled: !can_check,
         type: "button",
         onClick: on_check,
-        children: /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(import_outline24.CheckIcon, { className: "h-5 w-5 text-txt-primary" })
+        children: /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(import_outline24.CheckIcon, { className: "h-5 w-5 text-txt-primary" })
       }
     )
   ] });
@@ -15651,14 +15818,14 @@ function PinLockDuressView({
   on_cancel
 }) {
   const strings = use_ui_strings();
-  return /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
     import_framer_motion18.motion.div,
     {
       animate: { opacity: 1 },
       className: cn(OVERLAY_CLASS, "px-6"),
       exit: { opacity: 0 },
       initial: reduce_motion ? false : { opacity: 0 },
-      children: /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)(
         import_framer_motion18.motion.div,
         {
           animate: { scale: 1, opacity: 1 },
@@ -15666,7 +15833,7 @@ function PinLockDuressView({
           initial: reduce_motion ? false : { scale: 0.9, opacity: 0 },
           transition: { delay: 0.05 },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
               "img",
               {
                 alt: logo_alt,
@@ -15675,16 +15842,16 @@ function PinLockDuressView({
                 src: logo_src
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "flex flex-col gap-1.5", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "text-xs font-semibold uppercase tracking-widest text-red-500/80", children: subtitle }),
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("h1", { className: "text-xl font-semibold text-txt-primary", children: title })
+            /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)("div", { className: "flex flex-col gap-1.5", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsx)("p", { className: "text-xs font-semibold uppercase tracking-widest text-red-500/80", children: subtitle }),
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsx)("h1", { className: "text-xl font-semibold text-txt-primary", children: title })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "w-full rounded-2xl bg-surf-secondary border border-edge-secondary px-4 py-3.5 flex flex-col gap-2 text-start", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "text-sm text-txt-primary font-medium", children: description }),
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "text-xs text-txt-muted leading-relaxed", children: detail })
+            /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)("div", { className: "w-full rounded-2xl bg-surf-secondary border border-edge-secondary px-4 py-3.5 flex flex-col gap-2 text-start", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsx)("p", { className: "text-sm text-txt-primary font-medium", children: description }),
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsx)("p", { className: "text-xs text-txt-muted leading-relaxed", children: detail })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "flex flex-col gap-2 w-full", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)("div", { className: "flex flex-col gap-2 w-full", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)(
                 Button,
                 {
                   className: "w-full",
@@ -15693,11 +15860,11 @@ function PinLockDuressView({
                   onClick: on_proceed,
                   children: [
                     proceed_label,
-                    is_wiping && /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(ButtonSpinner, {})
+                    is_wiping && /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(ButtonSpinner, {})
                   ]
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
                 Button,
                 {
                   className: "w-full",
@@ -15740,14 +15907,14 @@ function PinLockOverlayView({
   confirm_label
 }) {
   const [show_passphrase, set_show_passphrase] = (0, import_react30.useState)(false);
-  return /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
     import_framer_motion18.motion.div,
     {
       animate: { opacity: 1 },
       className: OVERLAY_CLASS,
       exit: { opacity: 0 },
       initial: reduce_motion ? false : { opacity: 0 },
-      children: /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)(
+      children: /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)(
         import_framer_motion18.motion.div,
         {
           animate: { scale: 1, opacity: 1 },
@@ -15758,7 +15925,7 @@ function PinLockOverlayView({
           initial: reduce_motion ? false : { scale: 0.9, opacity: 0 },
           transition: { delay: 0.05 },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
               "img",
               {
                 alt: logo_alt,
@@ -15767,13 +15934,13 @@ function PinLockOverlayView({
                 src: logo_src
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "text-center", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("h1", { className: "text-lg font-semibold text-txt-primary", children: title }),
-              lockout_text && /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "mt-0.5 text-sm text-txt-muted", children: lockout_text })
+            /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)("div", { className: "text-center", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsx)("h1", { className: "text-lg font-semibold text-txt-primary", children: title }),
+              lockout_text && /* @__PURE__ */ (0, import_jsx_runtime112.jsx)("p", { className: "mt-0.5 text-sm text-txt-muted", children: lockout_text })
             ] }),
-            pin_type === "numeric" ? /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)(import_jsx_runtime111.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "flex flex-col items-center gap-2", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+            pin_type === "numeric" ? /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)(import_jsx_runtime112.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)("div", { className: "flex flex-col items-center gap-2", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
                   PinDots,
                   {
                     digits,
@@ -15781,12 +15948,12 @@ function PinLockOverlayView({
                     shake_key
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "h-4 flex items-center justify-center", children: [
-                  message && /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "text-xs text-red-500", children: message }),
-                  is_verifying && !message && /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("div", { className: "h-3.5 w-3.5 animate-spin rounded-full border-2 border-[var(--primary,var(--accent-color))] border-t-transparent" })
+                /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)("div", { className: "h-4 flex items-center justify-center", children: [
+                  message && /* @__PURE__ */ (0, import_jsx_runtime112.jsx)("p", { className: "text-xs text-red-500", children: message }),
+                  is_verifying && !message && /* @__PURE__ */ (0, import_jsx_runtime112.jsx)("div", { className: "h-3.5 w-3.5 animate-spin rounded-full border-2 border-[var(--primary,var(--accent-color))] border-t-transparent" })
                 ] })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
                 PinPad,
                 {
                   can_check: value.length >= digits,
@@ -15798,16 +15965,16 @@ function PinLockOverlayView({
                   pressed_key
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(Button, { variant: "outline", onClick: on_sign_out, children: sign_out_label })
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "flex flex-col items-center gap-2 w-72", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(Button, { variant: "outline", onClick: on_sign_out, children: sign_out_label })
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)("div", { className: "flex flex-col items-center gap-2 w-72", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
                 import_framer_motion18.motion.div,
                 {
                   animate: shake_key > 0 ? { x: [0, -10, 10, -10, 10, 0] } : { x: 0 },
                   className: "w-full",
                   transition: { duration: 0.4 },
-                  children: /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("div", { className: "relative w-full", children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+                  children: /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)("div", { className: "relative w-full", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
                       "input",
                       {
                         autoFocus: true,
@@ -15827,22 +15994,22 @@ function PinLockOverlayView({
                         }
                       }
                     ),
-                    /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
+                    /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(
                       "button",
                       {
                         className: "absolute end-3 top-1/2 -translate-y-1/2 text-txt-muted hover:text-txt-primary transition-colors",
                         tabIndex: -1,
                         type: "button",
                         onClick: () => set_show_passphrase((v) => !v),
-                        children: show_passphrase ? /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(import_outline24.EyeSlashIcon, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(import_outline24.EyeIcon, { className: "h-4 w-4" })
+                        children: show_passphrase ? /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(import_outline24.EyeSlashIcon, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(import_outline24.EyeIcon, { className: "h-4 w-4" })
                       }
                     )
                   ] })
                 },
                 shake_key
               ),
-              message && /* @__PURE__ */ (0, import_jsx_runtime111.jsx)("p", { className: "text-xs text-red-500 -mt-1", children: message }),
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)(
+              message && /* @__PURE__ */ (0, import_jsx_runtime112.jsx)("p", { className: "text-xs text-red-500 -mt-1", children: message }),
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsxs)(
                 Button,
                 {
                   className: "w-full",
@@ -15851,11 +16018,11 @@ function PinLockOverlayView({
                   onClick: on_submit,
                   children: [
                     unlock_label,
-                    is_verifying && /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(ButtonSpinner, {})
+                    is_verifying && /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(ButtonSpinner, {})
                   ]
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(Button, { className: "w-full", variant: "outline", onClick: on_sign_out, children: sign_out_label })
+              /* @__PURE__ */ (0, import_jsx_runtime112.jsx)(Button, { className: "w-full", variant: "outline", onClick: on_sign_out, children: sign_out_label })
             ] })
           ]
         }
@@ -15863,9 +16030,2526 @@ function PinLockOverlayView({
     }
   );
 }
+
+// src/compose/toolbar.tsx
+var React50 = __toESM(require("react"), 1);
+var import_jsx_runtime113 = require("react/jsx-runtime");
+var COMPOSE_ICON_PATHS = {
+  formatting: "M5 17v2h14v-2H5zm4.5-4.2h5l.9 2.2h2.1L12.75 4h-1.5L6.5 15h2.1l.9-2.2zm2.5-6.13L13.87 11h-3.74L12 6.67z",
+  plain_text: "M4 5h16v2H4V5zm0 4h16v2H4V9zm0 4h10v2H4v-2zm0 4h10v2H4v-2z",
+  attach: "M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z",
+  link: "M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z",
+  emoji: "M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z",
+  trash: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z",
+  bold: "M15.6 10.79c.97-.67 1.65-1.77 1.65-2.79 0-2.26-1.75-4-4-4H7v14h7.04c2.09 0 3.71-1.7 3.71-3.79 0-1.52-.86-2.82-2.15-3.42zM10 6.5h3c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-3v-3zm3.5 9H10v-3h3.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5z",
+  italic: "M10 4v3h2.21l-3.42 8H6v3h8v-3h-2.21l3.42-8H18V4z",
+  underline: "M12 17c3.31 0 6-2.69 6-6V3h-2.5v8c0 1.93-1.57 3.5-3.5 3.5S8.5 12.93 8.5 11V3H6v8c0 3.31 2.69 6 6 6zm-7 2v2h14v-2H5z",
+  strikethrough: "M10 19h4v-3h-4v3zM5 4v3h5v3h4V7h5V4H5zM3 14h18v-2H3v2z",
+  bullet_list: "M4 10.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm0-6c-.83 0-1.5.67-1.5 1.5S3.17 7.5 4 7.5 5.5 6.83 5.5 6 4.83 4.5 4 4.5zm0 12c-.83 0-1.5.68-1.5 1.5s.68 1.5 1.5 1.5 1.5-.68 1.5-1.5-.67-1.5-1.5-1.5zM7 19h14v-2H7v2zm0-6h14v-2H7v2zm0-8v2h14V5H7z",
+  numbered_list: "M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1zm5-6v2h14V5H7zm0 14h14v-2H7v2zm0-6h14v-2H7v2z",
+  quote: "M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z",
+  remove_formatting: "M3.27 5L2 6.27l6.97 6.97L6.5 19h3l1.57-3.66L16.73 21 18 19.73 3.27 5zM6 5v.18L8.82 8h2.4l-.72 1.68 2.1 2.1L14.21 8H20V5H6z",
+  saved: "M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+};
+function ComposeIcon({ name, className, ...props }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime113.jsx)(
+    "svg",
+    {
+      "aria-hidden": "true",
+      className: className ? `aster_compose_icon ${className}` : "aster_compose_icon",
+      fill: "currentColor",
+      focusable: "false",
+      viewBox: "0 0 24 24",
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime113.jsx)("path", { d: COMPOSE_ICON_PATHS[name] })
+    }
+  );
+}
+var ToolbarButton = React50.forwardRef(
+  ({ onClick, children, disabled, active, title, tooltip_position = "top", className, ...props }, ref) => {
+    const button = /* @__PURE__ */ (0, import_jsx_runtime113.jsx)(
+      "button",
+      {
+        ref,
+        className: className ? `aster_compose_tool ${className}` : "aster_compose_tool",
+        "data-active": active || void 0,
+        disabled,
+        type: "button",
+        onClick,
+        onMouseDown: (e) => e.preventDefault(),
+        ...props,
+        children
+      }
+    );
+    if (!title) return button;
+    return /* @__PURE__ */ (0, import_jsx_runtime113.jsx)(Tooltip, { position: tooltip_position, tip: title, children: button });
+  }
+);
+ToolbarButton.displayName = "ToolbarButton";
+function ToolbarDivider() {
+  return /* @__PURE__ */ (0, import_jsx_runtime113.jsx)("div", { className: "aster_compose_divider" });
+}
+function ComposeToolbarLayout({
+  format_bar,
+  format_bar_label,
+  primary,
+  tools,
+  end,
+  className
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime113.jsxs)("div", { className: className ? `aster_compose_toolbar ${className}` : "aster_compose_toolbar", children: [
+    format_bar ? /* @__PURE__ */ (0, import_jsx_runtime113.jsx)("div", { "aria-label": format_bar_label, className: "aster_compose_format_row", role: "toolbar", children: format_bar }) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime113.jsxs)("div", { className: "aster_compose_bar", children: [
+      primary,
+      /* @__PURE__ */ (0, import_jsx_runtime113.jsx)("div", { className: "aster_compose_tools", children: tools }),
+      /* @__PURE__ */ (0, import_jsx_runtime113.jsx)("div", { className: "aster_compose_end", children: end })
+    ] })
+  ] });
+}
+
+// src/compose/anchored_layer.ts
+var import_react31 = require("react");
+var FORMAT_BAR_STORAGE_KEY = "aster_compose_format_bar_open";
+function use_anchored_layer(open, anchor_ref, reposition, on_dismiss) {
+  const reposition_ref = (0, import_react31.useRef)(reposition);
+  const dismiss_ref = (0, import_react31.useRef)(on_dismiss);
+  (0, import_react31.useEffect)(() => {
+    reposition_ref.current = reposition;
+    dismiss_ref.current = on_dismiss;
+  });
+  (0, import_react31.useLayoutEffect)(() => {
+    if (!open) return;
+    const update = () => {
+      const node = anchor_ref.current;
+      if (!node) return;
+      const rect = node.getBoundingClientRect();
+      const off_screen = rect.bottom <= 0 || rect.top >= window.innerHeight || rect.right <= 0 || rect.left >= window.innerWidth;
+      if (off_screen) {
+        dismiss_ref.current();
+        return;
+      }
+      reposition_ref.current(rect);
+    };
+    let frame = 0;
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", schedule, true);
+    window.addEventListener("resize", schedule);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule, true);
+      window.removeEventListener("resize", schedule);
+    };
+  }, [open, anchor_ref]);
+}
+function read_format_bar_preference() {
+  try {
+    return localStorage.getItem(FORMAT_BAR_STORAGE_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+function store_format_bar_preference(open) {
+  try {
+    localStorage.setItem(FORMAT_BAR_STORAGE_KEY, open ? "1" : "0");
+  } catch {
+    return;
+  }
+}
+
+// src/compose/link_url.ts
+var SCHEME_PREFIX = /^[a-z][a-z0-9+.-]*:/i;
+var ALLOWED_PROTOCOLS = ["http:", "https:", "mailto:"];
+function parse_allowed(candidate) {
+  try {
+    const parsed = new URL(candidate);
+    return ALLOWED_PROTOCOLS.includes(parsed.protocol) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+function normalize_link_url(raw) {
+  const value = raw.trim();
+  if (!value) return null;
+  if (SCHEME_PREFIX.test(value)) {
+    return parse_allowed(value) ? value : null;
+  }
+  if (value.includes("@") && !value.includes("/") && !value.includes(" ")) {
+    return parse_allowed(`mailto:${value}`) ? `mailto:${value}` : null;
+  }
+  return parse_allowed(`https://${value}`) ? `https://${value}` : null;
+}
+function is_composing2(event) {
+  const native = event.nativeEvent ?? event;
+  return native.isComposing === true || native.keyCode === 229;
+}
+
+// src/compose/emoji_picker.tsx
+var import_react32 = require("react");
+var import_framer_motion19 = require("framer-motion");
+
+// src/compose/emoji/smileys.ts
+var smileys = {
+  label: "Smileys & People",
+  icon: "\u{1F60A}",
+  entries: [
+    { emoji: "\u{1F600}", keywords: ["grinning", "happy", "smile"] },
+    { emoji: "\u{1F603}", keywords: ["grinning", "big eyes", "happy"] },
+    { emoji: "\u{1F604}", keywords: ["grinning", "squinting", "happy", "laugh"] },
+    { emoji: "\u{1F601}", keywords: ["beaming", "grin", "happy"] },
+    { emoji: "\u{1F606}", keywords: ["squinting", "laugh", "happy"] },
+    { emoji: "\u{1F605}", keywords: ["sweat", "grinning", "nervous"] },
+    { emoji: "\u{1F923}", keywords: ["rofl", "rolling", "laughing", "lol"] },
+    { emoji: "\u{1F602}", keywords: ["joy", "crying", "laughing", "tears", "lol"] },
+    { emoji: "\u{1F642}", keywords: ["slightly smiling", "ok"] },
+    { emoji: "\u{1F643}", keywords: ["upside down", "sarcasm"] },
+    { emoji: "\u{1F609}", keywords: ["wink", "winking"] },
+    { emoji: "\u{1F60A}", keywords: ["blush", "smiling", "happy", "warm"] },
+    { emoji: "\u{1F607}", keywords: ["angel", "halo", "innocent"] },
+    { emoji: "\u{1F970}", keywords: ["love", "hearts", "adore", "smiling"] },
+    { emoji: "\u{1F60D}", keywords: ["heart eyes", "love", "crush"] },
+    { emoji: "\u{1F929}", keywords: ["star struck", "excited", "wow"] },
+    { emoji: "\u{1F618}", keywords: ["kiss", "blowing kiss", "love"] },
+    { emoji: "\u{1F617}", keywords: ["kissing", "pucker"] },
+    { emoji: "\u263A\uFE0F", keywords: ["smiling", "relaxed", "happy"] },
+    { emoji: "\u{1F61A}", keywords: ["kissing", "closed eyes"] },
+    { emoji: "\u{1F619}", keywords: ["kissing", "smiling eyes"] },
+    { emoji: "\u{1F972}", keywords: ["smiling", "tear", "sad", "proud"] },
+    { emoji: "\u{1F60B}", keywords: ["yummy", "delicious", "tongue"] },
+    { emoji: "\u{1F61B}", keywords: ["tongue", "playful"] },
+    { emoji: "\u{1F61C}", keywords: ["wink", "tongue", "crazy", "zany"] },
+    { emoji: "\u{1F92A}", keywords: ["zany", "crazy", "wild", "goofy"] },
+    { emoji: "\u{1F61D}", keywords: ["squinting", "tongue"] },
+    { emoji: "\u{1F911}", keywords: ["money", "rich", "dollar"] },
+    { emoji: "\u{1F917}", keywords: ["hug", "hugging", "open hands"] },
+    { emoji: "\u{1F92D}", keywords: ["hand over mouth", "oops", "giggle"] },
+    { emoji: "\u{1FAE2}", keywords: ["open eyes", "hand over mouth", "surprise"] },
+    { emoji: "\u{1FAE3}", keywords: ["peeking", "shy", "hiding"] },
+    { emoji: "\u{1F92B}", keywords: ["shh", "quiet", "secret", "shush"] },
+    { emoji: "\u{1F914}", keywords: ["thinking", "hmm", "consider"] },
+    { emoji: "\u{1FAE1}", keywords: ["salute", "respect"] },
+    { emoji: "\u{1F910}", keywords: ["zipper mouth", "quiet", "secret"] },
+    { emoji: "\u{1F928}", keywords: ["raised eyebrow", "skeptical", "suspicious"] },
+    { emoji: "\u{1F610}", keywords: ["neutral", "blank", "indifferent"] },
+    { emoji: "\u{1F611}", keywords: ["expressionless", "blank"] },
+    { emoji: "\u{1F636}", keywords: ["no mouth", "silent", "speechless"] },
+    { emoji: "\u{1FAE5}", keywords: ["dotted line", "invisible", "hidden"] },
+    { emoji: "\u{1F60F}", keywords: ["smirk", "smug", "sly"] },
+    { emoji: "\u{1F612}", keywords: ["unamused", "annoyed", "meh"] },
+    { emoji: "\u{1F644}", keywords: ["eye roll", "annoyed", "whatever"] },
+    { emoji: "\u{1F62C}", keywords: ["grimace", "awkward", "nervous"] },
+    { emoji: "\u{1FAE8}", keywords: ["shaking", "shock"] },
+    { emoji: "\u{1F62E}\u200D\u{1F4A8}", keywords: ["exhale", "sigh", "relief"] },
+    { emoji: "\u{1F925}", keywords: ["lying", "pinocchio", "liar"] },
+    { emoji: "\u{1FAE0}", keywords: ["melting", "dissolving", "hot"] },
+    { emoji: "\u{1F60C}", keywords: ["relieved", "peaceful", "calm"] },
+    { emoji: "\u{1F614}", keywords: ["pensive", "sad", "thoughtful"] },
+    { emoji: "\u{1F62A}", keywords: ["sleepy", "tired", "tear"] },
+    { emoji: "\u{1F924}", keywords: ["drooling", "hungry", "want"] },
+    { emoji: "\u{1F634}", keywords: ["sleeping", "zzz", "tired"] },
+    { emoji: "\u{1F637}", keywords: ["mask", "sick", "medical"] },
+    { emoji: "\u{1F912}", keywords: ["thermometer", "sick", "fever"] },
+    { emoji: "\u{1F915}", keywords: ["bandage", "hurt", "injured"] },
+    { emoji: "\u{1F922}", keywords: ["nauseated", "sick", "green"] },
+    { emoji: "\u{1F92E}", keywords: ["vomiting", "sick", "puke"] },
+    { emoji: "\u{1F975}", keywords: ["hot", "sweating", "heat"] },
+    { emoji: "\u{1F976}", keywords: ["cold", "freezing", "ice"] },
+    { emoji: "\u{1F974}", keywords: ["woozy", "dizzy", "drunk"] },
+    { emoji: "\u{1F635}", keywords: ["dizzy", "knocked out"] },
+    { emoji: "\u{1F635}\u200D\u{1F4AB}", keywords: ["dizzy", "spiral", "confused"] },
+    { emoji: "\u{1F92F}", keywords: ["exploding head", "mind blown", "shocked"] },
+    { emoji: "\u{1F920}", keywords: ["cowboy", "hat", "yeehaw"] },
+    { emoji: "\u{1F973}", keywords: ["party", "celebrate", "birthday", "hat"] },
+    { emoji: "\u{1F978}", keywords: ["disguise", "glasses", "nose"] },
+    { emoji: "\u{1F60E}", keywords: ["sunglasses", "cool", "confident"] },
+    { emoji: "\u{1F913}", keywords: ["nerd", "glasses", "geek"] },
+    { emoji: "\u{1F9D0}", keywords: ["monocle", "inspect", "curious"] },
+    { emoji: "\u{1F615}", keywords: ["confused", "puzzled"] },
+    { emoji: "\u{1FAE4}", keywords: ["diagonal mouth", "unsure", "meh"] },
+    { emoji: "\u{1F61F}", keywords: ["worried", "concerned"] },
+    { emoji: "\u{1F641}", keywords: ["slightly frowning", "sad"] },
+    { emoji: "\u2639\uFE0F", keywords: ["frowning", "sad"] },
+    { emoji: "\u{1F62E}", keywords: ["open mouth", "surprised"] },
+    { emoji: "\u{1F62F}", keywords: ["hushed", "surprised", "stunned"] },
+    { emoji: "\u{1F632}", keywords: ["astonished", "shocked", "wow"] },
+    { emoji: "\u{1F633}", keywords: ["flushed", "embarrassed", "surprised"] },
+    { emoji: "\u{1F97A}", keywords: ["pleading", "puppy eyes", "please"] },
+    { emoji: "\u{1F979}", keywords: ["holding back tears", "touched", "grateful"] },
+    { emoji: "\u{1F626}", keywords: ["frowning", "open mouth"] },
+    { emoji: "\u{1F627}", keywords: ["anguished", "shocked"] },
+    { emoji: "\u{1F628}", keywords: ["fearful", "scared", "afraid"] },
+    { emoji: "\u{1F630}", keywords: ["anxious", "sweat", "worried"] },
+    { emoji: "\u{1F625}", keywords: ["sad", "relieved", "disappointed"] },
+    { emoji: "\u{1F622}", keywords: ["crying", "sad", "tear"] },
+    { emoji: "\u{1F62D}", keywords: ["sobbing", "crying", "wailing", "sad"] },
+    { emoji: "\u{1F631}", keywords: ["screaming", "fear", "horror", "scared"] },
+    { emoji: "\u{1F616}", keywords: ["confounded", "frustrated"] },
+    { emoji: "\u{1F623}", keywords: ["persevering", "struggling"] },
+    { emoji: "\u{1F61E}", keywords: ["disappointed", "sad"] },
+    { emoji: "\u{1F613}", keywords: ["downcast", "sweat", "sad"] },
+    { emoji: "\u{1F629}", keywords: ["weary", "tired", "exhausted"] },
+    { emoji: "\u{1F62B}", keywords: ["tired", "frustrated"] },
+    { emoji: "\u{1F971}", keywords: ["yawning", "bored", "tired"] },
+    { emoji: "\u{1F624}", keywords: ["huffing", "angry", "frustrated", "triumph"] },
+    { emoji: "\u{1F621}", keywords: ["angry", "pouting", "mad", "rage"] },
+    { emoji: "\u{1F620}", keywords: ["angry", "mad", "grumpy"] },
+    { emoji: "\u{1F92C}", keywords: ["swearing", "cursing", "angry", "symbols"] },
+    { emoji: "\u{1F608}", keywords: ["devil", "evil", "smiling", "horns"] },
+    { emoji: "\u{1F47F}", keywords: ["angry devil", "imp", "evil"] },
+    { emoji: "\u{1F480}", keywords: ["skull", "dead", "death", "skeleton"] },
+    { emoji: "\u2620\uFE0F", keywords: ["skull crossbones", "death", "danger"] },
+    { emoji: "\u{1F4A9}", keywords: ["poop", "poo", "pile"] },
+    { emoji: "\u{1F921}", keywords: ["clown", "joker", "funny"] },
+    { emoji: "\u{1F479}", keywords: ["ogre", "monster", "demon"] },
+    { emoji: "\u{1F47A}", keywords: ["goblin", "tengu", "mask"] },
+    { emoji: "\u{1F47B}", keywords: ["ghost", "halloween", "spooky"] },
+    { emoji: "\u{1F47D}", keywords: ["alien", "ufo", "extraterrestrial"] },
+    { emoji: "\u{1F47E}", keywords: ["alien monster", "space invader", "game"] },
+    { emoji: "\u{1F916}", keywords: ["robot", "machine", "bot"] },
+    { emoji: "\u{1F63A}", keywords: ["cat", "smiling", "happy"] },
+    { emoji: "\u{1F638}", keywords: ["cat", "grinning", "happy"] },
+    { emoji: "\u{1F639}", keywords: ["cat", "tears", "joy", "laugh"] },
+    { emoji: "\u{1F63B}", keywords: ["cat", "heart eyes", "love"] },
+    { emoji: "\u{1F63C}", keywords: ["cat", "smirk", "wry"] },
+    { emoji: "\u{1F63D}", keywords: ["cat", "kiss"] },
+    { emoji: "\u{1F640}", keywords: ["cat", "weary", "surprised"] },
+    { emoji: "\u{1F63F}", keywords: ["cat", "crying", "sad"] },
+    { emoji: "\u{1F63E}", keywords: ["cat", "pouting", "angry"] },
+    { emoji: "\u{1F648}", keywords: ["monkey", "see no evil"] },
+    { emoji: "\u{1F649}", keywords: ["monkey", "hear no evil"] },
+    { emoji: "\u{1F64A}", keywords: ["monkey", "speak no evil"] }
+  ]
+};
+
+// src/compose/emoji/gestures.ts
+var gestures = {
+  label: "Hands & Body",
+  icon: "\u{1F44B}",
+  entries: [
+    { emoji: "\u{1F44B}", keywords: ["wave", "hello", "bye", "hand"] },
+    { emoji: "\u{1F91A}", keywords: ["raised back", "hand", "stop"] },
+    { emoji: "\u{1F590}\uFE0F", keywords: ["hand", "fingers", "splayed"] },
+    { emoji: "\u270B", keywords: ["raised hand", "high five", "stop"] },
+    { emoji: "\u{1F596}", keywords: ["vulcan", "spock", "star trek"] },
+    { emoji: "\u{1FAF1}", keywords: ["rightward hand"] },
+    { emoji: "\u{1FAF2}", keywords: ["leftward hand"] },
+    { emoji: "\u{1FAF3}", keywords: ["palm down hand"] },
+    { emoji: "\u{1FAF4}", keywords: ["palm up hand"] },
+    { emoji: "\u{1FAF7}", keywords: ["leftward pushing hand"] },
+    { emoji: "\u{1FAF8}", keywords: ["rightward pushing hand"] },
+    { emoji: "\u{1F44C}", keywords: ["ok", "perfect", "fine"] },
+    { emoji: "\u{1F90C}", keywords: ["pinched fingers", "italian"] },
+    { emoji: "\u{1F90F}", keywords: ["pinching", "small", "tiny", "little"] },
+    { emoji: "\u270C\uFE0F", keywords: ["victory", "peace", "two"] },
+    { emoji: "\u{1F91E}", keywords: ["crossed fingers", "luck", "hope"] },
+    { emoji: "\u{1FAF0}", keywords: ["hand with index finger and thumb crossed"] },
+    { emoji: "\u{1F91F}", keywords: ["love you", "ily", "hand"] },
+    { emoji: "\u{1F918}", keywords: ["rock on", "metal", "horns"] },
+    { emoji: "\u{1F919}", keywords: ["call me", "shaka", "hang loose"] },
+    { emoji: "\u{1F448}", keywords: ["point left", "direction"] },
+    { emoji: "\u{1F449}", keywords: ["point right", "direction"] },
+    { emoji: "\u{1F446}", keywords: ["point up", "direction"] },
+    { emoji: "\u{1F595}", keywords: ["middle finger"] },
+    { emoji: "\u{1F447}", keywords: ["point down", "direction"] },
+    { emoji: "\u261D\uFE0F", keywords: ["index", "point up"] },
+    { emoji: "\u{1FAF5}", keywords: ["index pointing at viewer", "you"] },
+    { emoji: "\u{1F44D}", keywords: ["thumbs up", "like", "approve", "yes"] },
+    { emoji: "\u{1F44E}", keywords: ["thumbs down", "dislike", "no"] },
+    { emoji: "\u270A", keywords: ["raised fist", "power"] },
+    { emoji: "\u{1F44A}", keywords: ["fist bump", "punch"] },
+    { emoji: "\u{1F91B}", keywords: ["left fist bump"] },
+    { emoji: "\u{1F91C}", keywords: ["right fist bump"] },
+    { emoji: "\u{1F44F}", keywords: ["clap", "applause", "bravo"] },
+    { emoji: "\u{1F64C}", keywords: ["raising hands", "hooray", "celebrate"] },
+    { emoji: "\u{1FAF6}", keywords: ["heart hands", "love"] },
+    { emoji: "\u{1F450}", keywords: ["open hands", "jazz hands"] },
+    { emoji: "\u{1F932}", keywords: ["palms up", "prayer", "cupped"] },
+    { emoji: "\u{1F91D}", keywords: ["handshake", "deal", "agreement"] },
+    { emoji: "\u{1F64F}", keywords: ["pray", "please", "thank you", "namaste"] },
+    { emoji: "\u270D\uFE0F", keywords: ["writing", "hand"] },
+    { emoji: "\u{1F485}", keywords: ["nail polish", "beauty", "nails"] },
+    { emoji: "\u{1F933}", keywords: ["selfie", "phone", "photo"] },
+    { emoji: "\u{1F4AA}", keywords: ["muscle", "strong", "flex", "bicep"] },
+    { emoji: "\u{1F9BE}", keywords: ["mechanical arm", "prosthetic", "robot"] },
+    { emoji: "\u{1F9BF}", keywords: ["mechanical leg", "prosthetic"] },
+    { emoji: "\u{1F9B5}", keywords: ["leg", "kick"] },
+    { emoji: "\u{1F9B6}", keywords: ["foot", "kick"] },
+    { emoji: "\u{1F442}", keywords: ["ear", "listen", "hear"] },
+    { emoji: "\u{1F9BB}", keywords: ["ear with hearing aid"] },
+    { emoji: "\u{1F443}", keywords: ["nose", "smell"] },
+    { emoji: "\u{1F9E0}", keywords: ["brain", "smart", "think", "intelligent"] },
+    { emoji: "\u{1FAC0}", keywords: ["anatomical heart", "organ"] },
+    { emoji: "\u{1FAC1}", keywords: ["lungs", "breathe"] },
+    { emoji: "\u{1F9B7}", keywords: ["tooth", "dentist"] },
+    { emoji: "\u{1F9B4}", keywords: ["bone", "skeleton"] },
+    { emoji: "\u{1F440}", keywords: ["eyes", "look", "see", "watching"] },
+    { emoji: "\u{1F441}\uFE0F", keywords: ["eye", "see", "look"] },
+    { emoji: "\u{1F445}", keywords: ["tongue", "taste", "lick"] },
+    { emoji: "\u{1F444}", keywords: ["mouth", "lips", "kiss"] },
+    { emoji: "\u{1FAE6}", keywords: ["biting lip", "nervous", "flirt"] },
+    { emoji: "\u{1F476}", keywords: ["baby", "infant", "child"] },
+    { emoji: "\u{1F9D2}", keywords: ["child", "kid"] },
+    { emoji: "\u{1F466}", keywords: ["boy", "male", "child"] },
+    { emoji: "\u{1F467}", keywords: ["girl", "female", "child"] },
+    { emoji: "\u{1F9D1}", keywords: ["person", "adult"] },
+    { emoji: "\u{1F471}", keywords: ["blond", "blonde", "person"] },
+    { emoji: "\u{1F468}", keywords: ["man", "male", "guy"] },
+    { emoji: "\u{1F9D4}", keywords: ["beard", "man"] },
+    { emoji: "\u{1F469}", keywords: ["woman", "female", "lady"] },
+    { emoji: "\u{1F9D3}", keywords: ["older person", "elder"] },
+    { emoji: "\u{1F474}", keywords: ["old man", "grandfather"] },
+    { emoji: "\u{1F475}", keywords: ["old woman", "grandmother"] },
+    { emoji: "\u{1F64D}", keywords: ["person frowning", "sad"] },
+    { emoji: "\u{1F64E}", keywords: ["person pouting", "annoyed"] },
+    { emoji: "\u{1F645}", keywords: ["person gesturing no", "stop"] },
+    { emoji: "\u{1F646}", keywords: ["person gesturing ok"] },
+    { emoji: "\u{1F481}", keywords: ["person tipping hand", "info"] },
+    { emoji: "\u{1F64B}", keywords: ["person raising hand", "question"] },
+    { emoji: "\u{1F9CF}", keywords: ["deaf person"] },
+    { emoji: "\u{1F647}", keywords: ["person bowing", "sorry"] },
+    { emoji: "\u{1F926}", keywords: ["facepalm", "smh", "disbelief"] },
+    { emoji: "\u{1F937}", keywords: ["shrug", "idk", "dunno", "whatever"] },
+    { emoji: "\u{1F9D1}\u200D\u2695\uFE0F", keywords: ["health worker", "doctor", "nurse"] },
+    { emoji: "\u{1F9D1}\u200D\u{1F393}", keywords: ["student", "graduate"] },
+    { emoji: "\u{1F9D1}\u200D\u{1F3EB}", keywords: ["teacher", "professor"] },
+    {
+      emoji: "\u{1F9D1}\u200D\u{1F4BB}",
+      keywords: ["technologist", "programmer", "coder", "developer"]
+    },
+    { emoji: "\u{1F9D1}\u200D\u{1F52C}", keywords: ["scientist", "researcher"] },
+    { emoji: "\u{1F9D1}\u200D\u{1F3A8}", keywords: ["artist", "painter"] },
+    { emoji: "\u{1F9D1}\u200D\u{1F680}", keywords: ["astronaut", "space"] },
+    { emoji: "\u{1F9D1}\u200D\u{1F692}", keywords: ["firefighter"] },
+    { emoji: "\u{1F46E}", keywords: ["police", "officer", "cop"] },
+    { emoji: "\u{1F575}\uFE0F", keywords: ["detective", "spy"] },
+    { emoji: "\u{1F482}", keywords: ["guard", "royal"] },
+    { emoji: "\u{1F977}", keywords: ["ninja", "stealth"] },
+    { emoji: "\u{1F477}", keywords: ["construction worker", "builder"] },
+    { emoji: "\u{1FAC5}", keywords: ["person with crown", "royalty"] },
+    { emoji: "\u{1F934}", keywords: ["prince", "royalty"] },
+    { emoji: "\u{1F478}", keywords: ["princess", "royalty"] },
+    { emoji: "\u{1F9D9}", keywords: ["mage", "wizard", "magic"] },
+    { emoji: "\u{1F9DA}", keywords: ["fairy", "magic"] },
+    { emoji: "\u{1F9DB}", keywords: ["vampire", "dracula"] },
+    { emoji: "\u{1F9DC}", keywords: ["merperson", "mermaid"] },
+    { emoji: "\u{1F9DD}", keywords: ["elf", "fantasy"] },
+    { emoji: "\u{1F9DE}", keywords: ["genie", "magic", "lamp"] },
+    { emoji: "\u{1F9DF}", keywords: ["zombie", "undead"] },
+    { emoji: "\u{1F9CC}", keywords: ["troll"] },
+    { emoji: "\u{1F486}", keywords: ["person getting massage", "relax"] },
+    { emoji: "\u{1F487}", keywords: ["person getting haircut", "salon"] },
+    { emoji: "\u{1F6B6}", keywords: ["person walking"] },
+    { emoji: "\u{1F9CD}", keywords: ["person standing"] },
+    { emoji: "\u{1F9CE}", keywords: ["person kneeling"] },
+    { emoji: "\u{1F3C3}", keywords: ["person running", "exercise"] },
+    { emoji: "\u{1F483}", keywords: ["woman dancing", "dance"] },
+    { emoji: "\u{1F57A}", keywords: ["man dancing", "dance", "disco"] },
+    { emoji: "\u{1F46F}", keywords: ["people with bunny ears", "dancers"] },
+    { emoji: "\u{1F9D6}", keywords: ["person in steamy room", "sauna"] },
+    { emoji: "\u{1F9D7}", keywords: ["person climbing", "rock"] },
+    { emoji: "\u{1F938}", keywords: ["person cartwheeling", "gymnastics"] },
+    { emoji: "\u{1F3CC}\uFE0F", keywords: ["person golfing", "golf"] },
+    { emoji: "\u{1F3C7}", keywords: ["horse racing", "jockey"] },
+    { emoji: "\u26F7\uFE0F", keywords: ["skier", "skiing", "snow"] },
+    { emoji: "\u{1F3C2}", keywords: ["snowboarder", "snow", "winter"] },
+    { emoji: "\u{1F3CB}\uFE0F", keywords: ["person lifting weights", "gym"] },
+    { emoji: "\u{1F93C}", keywords: ["people wrestling"] },
+    { emoji: "\u{1F93D}", keywords: ["person playing water polo"] },
+    { emoji: "\u{1F93E}", keywords: ["person playing handball"] },
+    { emoji: "\u{1F93A}", keywords: ["person fencing", "sword"] },
+    { emoji: "\u26F9\uFE0F", keywords: ["person bouncing ball", "basketball"] },
+    { emoji: "\u{1F3CA}", keywords: ["person swimming", "pool"] },
+    { emoji: "\u{1F6A3}", keywords: ["person rowing boat"] },
+    {
+      emoji: "\u{1F9D8}",
+      keywords: ["person in lotus position", "yoga", "meditate"]
+    },
+    { emoji: "\u{1F6C0}", keywords: ["person taking bath", "bathtub"] },
+    { emoji: "\u{1F6CC}", keywords: ["person in bed", "sleeping"] },
+    { emoji: "\u{1F46D}", keywords: ["women holding hands"] },
+    { emoji: "\u{1F46B}", keywords: ["woman and man holding hands", "couple"] },
+    { emoji: "\u{1F46C}", keywords: ["men holding hands"] },
+    { emoji: "\u{1F48F}", keywords: ["kiss", "couple"] },
+    { emoji: "\u{1F491}", keywords: ["couple with heart", "love"] },
+    { emoji: "\u{1F46A}", keywords: ["family"] },
+    { emoji: "\u{1F5E3}\uFE0F", keywords: ["speaking head", "talking"] },
+    { emoji: "\u{1F464}", keywords: ["bust", "silhouette", "person"] },
+    { emoji: "\u{1F465}", keywords: ["busts", "silhouettes", "people", "group"] },
+    { emoji: "\u{1FAC2}", keywords: ["people hugging", "hug", "embrace"] },
+    { emoji: "\u{1F463}", keywords: ["footprints", "feet", "tracks"] }
+  ]
+};
+
+// src/compose/emoji/animals.ts
+var animals = {
+  label: "Animals & Nature",
+  icon: "\u{1F43E}",
+  entries: [
+    { emoji: "\u{1F436}", keywords: ["dog", "puppy", "pet"] },
+    { emoji: "\u{1F431}", keywords: ["cat", "kitten", "pet"] },
+    { emoji: "\u{1F42D}", keywords: ["mouse", "rat"] },
+    { emoji: "\u{1F439}", keywords: ["hamster", "pet"] },
+    { emoji: "\u{1F430}", keywords: ["rabbit", "bunny"] },
+    { emoji: "\u{1F98A}", keywords: ["fox", "cunning"] },
+    { emoji: "\u{1F43B}", keywords: ["bear", "teddy"] },
+    { emoji: "\u{1F43C}", keywords: ["panda", "bear"] },
+    { emoji: "\u{1F43B}\u200D\u2744\uFE0F", keywords: ["polar bear", "arctic"] },
+    { emoji: "\u{1F428}", keywords: ["koala", "australia"] },
+    { emoji: "\u{1F42F}", keywords: ["tiger", "cat"] },
+    { emoji: "\u{1F981}", keywords: ["lion", "king", "mane"] },
+    { emoji: "\u{1F42E}", keywords: ["cow", "moo"] },
+    { emoji: "\u{1F437}", keywords: ["pig", "oink"] },
+    { emoji: "\u{1F438}", keywords: ["frog", "toad"] },
+    { emoji: "\u{1F435}", keywords: ["monkey", "ape"] },
+    { emoji: "\u{1F648}", keywords: ["see no evil", "monkey"] },
+    { emoji: "\u{1F649}", keywords: ["hear no evil", "monkey"] },
+    { emoji: "\u{1F64A}", keywords: ["speak no evil", "monkey"] },
+    { emoji: "\u{1F412}", keywords: ["monkey", "primate"] },
+    { emoji: "\u{1F414}", keywords: ["chicken", "hen", "poultry"] },
+    { emoji: "\u{1F427}", keywords: ["penguin", "arctic", "cold"] },
+    { emoji: "\u{1F426}", keywords: ["bird", "tweet"] },
+    { emoji: "\u{1F424}", keywords: ["chick", "baby", "bird"] },
+    { emoji: "\u{1F423}", keywords: ["hatching", "chick", "egg"] },
+    { emoji: "\u{1F425}", keywords: ["chick", "bird", "baby"] },
+    { emoji: "\u{1F986}", keywords: ["duck", "quack"] },
+    { emoji: "\u{1F985}", keywords: ["eagle", "bird", "freedom"] },
+    { emoji: "\u{1F989}", keywords: ["owl", "wise", "night"] },
+    { emoji: "\u{1F987}", keywords: ["bat", "vampire", "night"] },
+    { emoji: "\u{1F43A}", keywords: ["wolf", "howl"] },
+    { emoji: "\u{1F417}", keywords: ["boar", "wild pig"] },
+    { emoji: "\u{1F434}", keywords: ["horse", "pony"] },
+    { emoji: "\u{1F984}", keywords: ["unicorn", "magic", "fantasy"] },
+    { emoji: "\u{1FACE}", keywords: ["moose", "elk"] },
+    { emoji: "\u{1F41D}", keywords: ["bee", "honeybee", "buzz"] },
+    { emoji: "\u{1FAB1}", keywords: ["worm"] },
+    { emoji: "\u{1F41B}", keywords: ["bug", "caterpillar", "insect"] },
+    { emoji: "\u{1F98B}", keywords: ["butterfly", "insect", "beautiful"] },
+    { emoji: "\u{1F40C}", keywords: ["snail", "slow"] },
+    { emoji: "\u{1F41E}", keywords: ["ladybug", "ladybird", "insect"] },
+    { emoji: "\u{1F41C}", keywords: ["ant", "insect"] },
+    { emoji: "\u{1FAB0}", keywords: ["fly", "insect"] },
+    { emoji: "\u{1FAB2}", keywords: ["beetle", "insect"] },
+    { emoji: "\u{1FAB3}", keywords: ["cockroach", "bug"] },
+    { emoji: "\u{1F99F}", keywords: ["mosquito", "insect"] },
+    { emoji: "\u{1F997}", keywords: ["cricket", "insect"] },
+    { emoji: "\u{1F577}\uFE0F", keywords: ["spider", "arachnid"] },
+    { emoji: "\u{1F578}\uFE0F", keywords: ["spider web", "cobweb"] },
+    { emoji: "\u{1F982}", keywords: ["scorpion"] },
+    { emoji: "\u{1F422}", keywords: ["turtle", "tortoise", "slow"] },
+    { emoji: "\u{1F40D}", keywords: ["snake", "reptile"] },
+    { emoji: "\u{1F98E}", keywords: ["lizard", "reptile"] },
+    { emoji: "\u{1F996}", keywords: ["dinosaur", "t-rex", "trex"] },
+    { emoji: "\u{1F995}", keywords: ["dinosaur", "sauropod", "brontosaurus"] },
+    { emoji: "\u{1F419}", keywords: ["octopus", "sea"] },
+    { emoji: "\u{1F991}", keywords: ["squid", "sea"] },
+    { emoji: "\u{1F990}", keywords: ["shrimp", "prawn", "sea"] },
+    { emoji: "\u{1F99E}", keywords: ["lobster", "sea"] },
+    { emoji: "\u{1F980}", keywords: ["crab", "sea"] },
+    { emoji: "\u{1FAB8}", keywords: ["coral", "reef", "sea"] },
+    { emoji: "\u{1F421}", keywords: ["blowfish", "puffer", "sea"] },
+    { emoji: "\u{1F420}", keywords: ["tropical fish", "sea"] },
+    { emoji: "\u{1F41F}", keywords: ["fish", "sea"] },
+    { emoji: "\u{1F42C}", keywords: ["dolphin", "sea", "ocean"] },
+    { emoji: "\u{1F433}", keywords: ["whale", "spout", "ocean"] },
+    { emoji: "\u{1F40B}", keywords: ["whale", "ocean"] },
+    { emoji: "\u{1F988}", keywords: ["shark", "ocean", "jaws"] },
+    { emoji: "\u{1F40A}", keywords: ["crocodile", "alligator"] },
+    { emoji: "\u{1F405}", keywords: ["tiger", "big cat"] },
+    { emoji: "\u{1F406}", keywords: ["leopard", "cheetah"] },
+    { emoji: "\u{1F993}", keywords: ["zebra", "stripes"] },
+    { emoji: "\u{1FACF}", keywords: ["donkey"] },
+    { emoji: "\u{1F98D}", keywords: ["gorilla", "ape"] },
+    { emoji: "\u{1F9A7}", keywords: ["orangutan", "ape"] },
+    { emoji: "\u{1F418}", keywords: ["elephant", "big"] },
+    { emoji: "\u{1F9A3}", keywords: ["mammoth", "prehistoric"] },
+    { emoji: "\u{1F99B}", keywords: ["hippopotamus", "hippo"] },
+    { emoji: "\u{1F98F}", keywords: ["rhinoceros", "rhino"] },
+    { emoji: "\u{1F42A}", keywords: ["camel", "desert"] },
+    { emoji: "\u{1F42B}", keywords: ["camel", "two humps"] },
+    { emoji: "\u{1F992}", keywords: ["giraffe", "tall"] },
+    { emoji: "\u{1F998}", keywords: ["kangaroo", "australia"] },
+    { emoji: "\u{1F9AC}", keywords: ["bison", "buffalo"] },
+    { emoji: "\u{1F403}", keywords: ["water buffalo"] },
+    { emoji: "\u{1F402}", keywords: ["ox", "bull"] },
+    { emoji: "\u{1F404}", keywords: ["cow", "dairy"] },
+    { emoji: "\u{1F40E}", keywords: ["horse", "racing"] },
+    { emoji: "\u{1F416}", keywords: ["pig", "hog"] },
+    { emoji: "\u{1F40F}", keywords: ["ram", "sheep"] },
+    { emoji: "\u{1F411}", keywords: ["sheep", "lamb", "ewe"] },
+    { emoji: "\u{1F999}", keywords: ["llama", "alpaca"] },
+    { emoji: "\u{1F410}", keywords: ["goat"] },
+    { emoji: "\u{1F98C}", keywords: ["deer", "stag"] },
+    { emoji: "\u{1F415}", keywords: ["dog", "pet"] },
+    { emoji: "\u{1F429}", keywords: ["poodle", "dog"] },
+    { emoji: "\u{1F9AE}", keywords: ["guide dog"] },
+    { emoji: "\u{1F415}\u200D\u{1F9BA}", keywords: ["service dog"] },
+    { emoji: "\u{1F408}", keywords: ["cat", "pet"] },
+    { emoji: "\u{1F408}\u200D\u2B1B", keywords: ["black cat"] },
+    { emoji: "\u{1FAB6}", keywords: ["feather", "bird"] },
+    { emoji: "\u{1F413}", keywords: ["rooster", "chicken"] },
+    { emoji: "\u{1F983}", keywords: ["turkey", "thanksgiving"] },
+    { emoji: "\u{1F99A}", keywords: ["peacock", "bird"] },
+    { emoji: "\u{1F99C}", keywords: ["parrot", "bird", "tropical"] },
+    { emoji: "\u{1F9A2}", keywords: ["swan", "bird", "elegant"] },
+    { emoji: "\u{1F9A9}", keywords: ["flamingo", "pink"] },
+    { emoji: "\u{1F54A}\uFE0F", keywords: ["dove", "peace", "bird"] },
+    { emoji: "\u{1F407}", keywords: ["rabbit", "bunny"] },
+    { emoji: "\u{1F99D}", keywords: ["raccoon", "trash panda"] },
+    { emoji: "\u{1F9A8}", keywords: ["skunk", "stink"] },
+    { emoji: "\u{1F9A1}", keywords: ["badger"] },
+    { emoji: "\u{1F9AB}", keywords: ["beaver", "dam"] },
+    { emoji: "\u{1F9A6}", keywords: ["otter", "sea", "cute"] },
+    { emoji: "\u{1F9A5}", keywords: ["sloth", "lazy", "slow"] },
+    { emoji: "\u{1F401}", keywords: ["mouse", "rodent"] },
+    { emoji: "\u{1F400}", keywords: ["rat", "rodent"] },
+    { emoji: "\u{1F43F}\uFE0F", keywords: ["chipmunk", "squirrel"] },
+    { emoji: "\u{1F994}", keywords: ["hedgehog", "prickly"] },
+    { emoji: "\u{1F43E}", keywords: ["paw prints", "pet", "animal"] },
+    { emoji: "\u{1F409}", keywords: ["dragon", "fantasy"] },
+    { emoji: "\u{1F432}", keywords: ["dragon face", "chinese"] },
+    { emoji: "\u{1F335}", keywords: ["cactus", "desert"] },
+    { emoji: "\u{1F384}", keywords: ["christmas tree", "holiday"] },
+    { emoji: "\u{1F332}", keywords: ["evergreen", "tree", "pine"] },
+    { emoji: "\u{1F333}", keywords: ["deciduous tree", "tree"] },
+    { emoji: "\u{1F334}", keywords: ["palm tree", "tropical", "beach"] },
+    { emoji: "\u{1FAB5}", keywords: ["wood", "log"] },
+    { emoji: "\u{1F331}", keywords: ["seedling", "grow", "plant"] },
+    { emoji: "\u{1F33F}", keywords: ["herb", "plant", "green"] },
+    { emoji: "\u2618\uFE0F", keywords: ["shamrock", "clover", "irish"] },
+    { emoji: "\u{1F340}", keywords: ["four leaf clover", "lucky", "luck"] },
+    { emoji: "\u{1F38D}", keywords: ["bamboo", "decoration"] },
+    { emoji: "\u{1FAB4}", keywords: ["potted plant", "houseplant"] },
+    { emoji: "\u{1F38B}", keywords: ["tanabata tree"] },
+    { emoji: "\u{1F343}", keywords: ["leaf", "wind", "nature"] },
+    { emoji: "\u{1F342}", keywords: ["fallen leaf", "autumn", "fall"] },
+    { emoji: "\u{1F341}", keywords: ["maple leaf", "canada", "fall"] },
+    { emoji: "\u{1FABA}", keywords: ["nest with eggs", "bird"] },
+    { emoji: "\u{1FAB9}", keywords: ["empty nest"] },
+    { emoji: "\u{1F344}", keywords: ["mushroom", "fungi"] },
+    { emoji: "\u{1F33E}", keywords: ["rice", "grain", "plant"] },
+    { emoji: "\u{1F490}", keywords: ["bouquet", "flowers"] },
+    { emoji: "\u{1F337}", keywords: ["tulip", "flower", "spring"] },
+    { emoji: "\u{1F339}", keywords: ["rose", "flower", "love"] },
+    { emoji: "\u{1F940}", keywords: ["wilted flower", "dead"] },
+    { emoji: "\u{1FABB}", keywords: ["hyacinth", "flower"] },
+    { emoji: "\u{1F33A}", keywords: ["hibiscus", "flower", "tropical"] },
+    { emoji: "\u{1F338}", keywords: ["cherry blossom", "flower", "spring"] },
+    { emoji: "\u{1F33C}", keywords: ["blossom", "flower"] },
+    { emoji: "\u{1F33B}", keywords: ["sunflower", "flower"] },
+    { emoji: "\u{1F31E}", keywords: ["sun with face", "sunny"] },
+    { emoji: "\u{1F31D}", keywords: ["moon with face", "night"] },
+    { emoji: "\u{1F31B}", keywords: ["first quarter moon face"] },
+    { emoji: "\u{1F31C}", keywords: ["last quarter moon face"] },
+    { emoji: "\u{1F31A}", keywords: ["new moon face", "creepy"] },
+    { emoji: "\u{1F315}", keywords: ["full moon"] },
+    { emoji: "\u{1F316}", keywords: ["waning gibbous moon"] },
+    { emoji: "\u{1F317}", keywords: ["last quarter moon"] },
+    { emoji: "\u{1F318}", keywords: ["waning crescent moon"] },
+    { emoji: "\u{1F311}", keywords: ["new moon"] },
+    { emoji: "\u{1F312}", keywords: ["waxing crescent moon"] },
+    { emoji: "\u{1F313}", keywords: ["first quarter moon"] },
+    { emoji: "\u{1F314}", keywords: ["waxing gibbous moon"] },
+    { emoji: "\u{1F319}", keywords: ["crescent moon", "night"] },
+    {
+      emoji: "\u{1F30D}",
+      keywords: ["globe", "earth", "europe", "africa", "world"]
+    },
+    { emoji: "\u{1F30E}", keywords: ["globe", "earth", "americas", "world"] },
+    { emoji: "\u{1F30F}", keywords: ["globe", "earth", "asia", "world"] },
+    { emoji: "\u{1FA90}", keywords: ["planet", "saturn", "ring", "space"] },
+    { emoji: "\u{1F4AB}", keywords: ["dizzy", "star", "shooting"] },
+    { emoji: "\u2B50", keywords: ["star", "yellow"] },
+    { emoji: "\u{1F31F}", keywords: ["glowing star", "sparkle"] },
+    { emoji: "\u2728", keywords: ["sparkles", "magic", "clean"] },
+    { emoji: "\u26A1", keywords: ["lightning", "bolt", "electricity", "zap"] },
+    { emoji: "\u2604\uFE0F", keywords: ["comet", "meteor"] },
+    { emoji: "\u{1F4A5}", keywords: ["boom", "collision", "explosion"] },
+    { emoji: "\u{1F525}", keywords: ["fire", "hot", "lit"] },
+    { emoji: "\u{1F32A}\uFE0F", keywords: ["tornado", "twister"] },
+    { emoji: "\u{1F308}", keywords: ["rainbow", "colorful"] },
+    { emoji: "\u2600\uFE0F", keywords: ["sun", "sunny", "bright"] },
+    { emoji: "\u{1F324}\uFE0F", keywords: ["sun behind small cloud"] },
+    { emoji: "\u26C5", keywords: ["sun behind cloud"] },
+    { emoji: "\u{1F325}\uFE0F", keywords: ["sun behind large cloud"] },
+    { emoji: "\u2601\uFE0F", keywords: ["cloud", "overcast"] },
+    { emoji: "\u{1F326}\uFE0F", keywords: ["sun behind rain cloud"] },
+    { emoji: "\u{1F327}\uFE0F", keywords: ["rain", "cloud with rain"] },
+    { emoji: "\u26C8\uFE0F", keywords: ["thunder", "storm", "lightning"] },
+    { emoji: "\u{1F329}\uFE0F", keywords: ["cloud with lightning"] },
+    { emoji: "\u{1F328}\uFE0F", keywords: ["cloud with snow"] },
+    { emoji: "\u2744\uFE0F", keywords: ["snowflake", "cold", "winter"] },
+    { emoji: "\u2603\uFE0F", keywords: ["snowman", "winter", "cold"] },
+    { emoji: "\u26C4", keywords: ["snowman", "winter"] },
+    { emoji: "\u{1F32C}\uFE0F", keywords: ["wind", "blow", "face"] },
+    { emoji: "\u{1F4A8}", keywords: ["dash", "wind", "fast"] },
+    { emoji: "\u{1F4A7}", keywords: ["droplet", "water", "sweat"] },
+    { emoji: "\u{1F4A6}", keywords: ["sweat droplets", "water", "splash"] },
+    { emoji: "\u{1F30A}", keywords: ["wave", "ocean", "water", "sea"] },
+    { emoji: "\u{1FAE7}", keywords: ["bubbles", "soap"] }
+  ]
+};
+
+// src/compose/emoji/food.ts
+var food = {
+  label: "Food & Drink",
+  icon: "\u{1F354}",
+  entries: [
+    { emoji: "\u{1F34F}", keywords: ["green apple", "fruit"] },
+    { emoji: "\u{1F34E}", keywords: ["red apple", "fruit"] },
+    { emoji: "\u{1F350}", keywords: ["pear", "fruit"] },
+    { emoji: "\u{1F34A}", keywords: ["orange", "tangerine", "fruit"] },
+    { emoji: "\u{1F34B}", keywords: ["lemon", "citrus", "fruit"] },
+    { emoji: "\u{1F34C}", keywords: ["banana", "fruit"] },
+    { emoji: "\u{1F349}", keywords: ["watermelon", "fruit", "summer"] },
+    { emoji: "\u{1F347}", keywords: ["grapes", "fruit", "wine"] },
+    { emoji: "\u{1F353}", keywords: ["strawberry", "fruit", "berry"] },
+    { emoji: "\u{1FAD0}", keywords: ["blueberries", "fruit", "berry"] },
+    { emoji: "\u{1F348}", keywords: ["melon", "fruit"] },
+    { emoji: "\u{1F352}", keywords: ["cherries", "fruit"] },
+    { emoji: "\u{1F351}", keywords: ["peach", "fruit"] },
+    { emoji: "\u{1F96D}", keywords: ["mango", "fruit", "tropical"] },
+    { emoji: "\u{1F34D}", keywords: ["pineapple", "fruit", "tropical"] },
+    { emoji: "\u{1F965}", keywords: ["coconut", "tropical"] },
+    { emoji: "\u{1F95D}", keywords: ["kiwi", "fruit"] },
+    { emoji: "\u{1F345}", keywords: ["tomato", "vegetable"] },
+    { emoji: "\u{1F346}", keywords: ["eggplant", "aubergine"] },
+    { emoji: "\u{1F951}", keywords: ["avocado", "guacamole"] },
+    { emoji: "\u{1FADB}", keywords: ["pea pod", "vegetable"] },
+    { emoji: "\u{1F966}", keywords: ["broccoli", "vegetable"] },
+    { emoji: "\u{1F96C}", keywords: ["leafy green", "lettuce", "vegetable"] },
+    { emoji: "\u{1F952}", keywords: ["cucumber", "pickle"] },
+    { emoji: "\u{1F336}\uFE0F", keywords: ["hot pepper", "spicy", "chili"] },
+    { emoji: "\u{1FAD1}", keywords: ["bell pepper", "capsicum"] },
+    { emoji: "\u{1F33D}", keywords: ["corn", "maize"] },
+    { emoji: "\u{1F955}", keywords: ["carrot", "vegetable"] },
+    { emoji: "\u{1FAD2}", keywords: ["olive", "oil"] },
+    { emoji: "\u{1F9C4}", keywords: ["garlic"] },
+    { emoji: "\u{1F9C5}", keywords: ["onion"] },
+    { emoji: "\u{1F954}", keywords: ["potato", "vegetable"] },
+    { emoji: "\u{1F360}", keywords: ["sweet potato", "yam"] },
+    { emoji: "\u{1FAD8}", keywords: ["beans"] },
+    { emoji: "\u{1F950}", keywords: ["croissant", "bread", "french"] },
+    { emoji: "\u{1F35E}", keywords: ["bread", "toast", "loaf"] },
+    { emoji: "\u{1F956}", keywords: ["baguette", "french bread"] },
+    { emoji: "\u{1FAD3}", keywords: ["flatbread", "naan", "pita"] },
+    { emoji: "\u{1F968}", keywords: ["pretzel", "snack"] },
+    { emoji: "\u{1F96F}", keywords: ["bagel", "bread"] },
+    { emoji: "\u{1F95E}", keywords: ["pancakes", "breakfast"] },
+    { emoji: "\u{1F9C7}", keywords: ["waffle", "breakfast"] },
+    { emoji: "\u{1F9C0}", keywords: ["cheese", "wedge"] },
+    { emoji: "\u{1F356}", keywords: ["meat", "bone", "drumstick"] },
+    { emoji: "\u{1F357}", keywords: ["poultry", "chicken leg"] },
+    { emoji: "\u{1F969}", keywords: ["steak", "meat", "beef"] },
+    { emoji: "\u{1F953}", keywords: ["bacon", "meat", "breakfast"] },
+    { emoji: "\u{1F354}", keywords: ["hamburger", "burger", "fast food"] },
+    { emoji: "\u{1F35F}", keywords: ["french fries", "fries", "fast food"] },
+    { emoji: "\u{1F355}", keywords: ["pizza", "slice"] },
+    { emoji: "\u{1F32D}", keywords: ["hot dog", "sausage"] },
+    { emoji: "\u{1F96A}", keywords: ["sandwich", "sub"] },
+    { emoji: "\u{1F32E}", keywords: ["taco", "mexican"] },
+    { emoji: "\u{1F32F}", keywords: ["burrito", "wrap", "mexican"] },
+    { emoji: "\u{1FAD4}", keywords: ["tamale", "mexican"] },
+    { emoji: "\u{1F959}", keywords: ["pita", "falafel", "kebab"] },
+    { emoji: "\u{1F9C6}", keywords: ["falafel"] },
+    { emoji: "\u{1F95A}", keywords: ["egg"] },
+    { emoji: "\u{1F373}", keywords: ["cooking", "fried egg", "breakfast"] },
+    { emoji: "\u{1F958}", keywords: ["shallow pan", "paella", "cooking"] },
+    { emoji: "\u{1F372}", keywords: ["pot", "stew", "soup"] },
+    { emoji: "\u{1FAD5}", keywords: ["fondue", "cheese", "chocolate"] },
+    { emoji: "\u{1F963}", keywords: ["bowl with spoon", "cereal"] },
+    { emoji: "\u{1F957}", keywords: ["salad", "green", "healthy"] },
+    { emoji: "\u{1F37F}", keywords: ["popcorn", "movie", "snack"] },
+    { emoji: "\u{1F9C8}", keywords: ["butter"] },
+    { emoji: "\u{1F9C2}", keywords: ["salt", "seasoning"] },
+    { emoji: "\u{1F96B}", keywords: ["canned food", "tin"] },
+    { emoji: "\u{1F371}", keywords: ["bento box", "japanese", "lunch"] },
+    { emoji: "\u{1F358}", keywords: ["rice cracker", "japanese"] },
+    { emoji: "\u{1F359}", keywords: ["rice ball", "onigiri", "japanese"] },
+    { emoji: "\u{1F35A}", keywords: ["cooked rice"] },
+    { emoji: "\u{1F35B}", keywords: ["curry rice", "indian"] },
+    { emoji: "\u{1F35C}", keywords: ["steaming bowl", "noodles", "ramen"] },
+    { emoji: "\u{1F35D}", keywords: ["spaghetti", "pasta", "italian"] },
+    { emoji: "\u{1F360}", keywords: ["roasted sweet potato"] },
+    { emoji: "\u{1F362}", keywords: ["oden", "skewer", "japanese"] },
+    { emoji: "\u{1F363}", keywords: ["sushi", "japanese", "fish"] },
+    { emoji: "\u{1F364}", keywords: ["fried shrimp", "tempura"] },
+    { emoji: "\u{1F365}", keywords: ["fish cake", "narutomaki"] },
+    { emoji: "\u{1F96E}", keywords: ["moon cake", "chinese"] },
+    { emoji: "\u{1F361}", keywords: ["dango", "japanese", "sweet"] },
+    { emoji: "\u{1F95F}", keywords: ["dumpling", "gyoza", "pierogi"] },
+    { emoji: "\u{1F960}", keywords: ["fortune cookie"] },
+    { emoji: "\u{1F961}", keywords: ["takeout box", "chinese food"] },
+    { emoji: "\u{1F980}", keywords: ["crab", "seafood"] },
+    { emoji: "\u{1F99E}", keywords: ["lobster", "seafood"] },
+    { emoji: "\u{1F990}", keywords: ["shrimp", "prawn", "seafood"] },
+    { emoji: "\u{1F991}", keywords: ["squid", "calamari"] },
+    { emoji: "\u{1F366}", keywords: ["ice cream", "soft serve", "dessert"] },
+    { emoji: "\u{1F367}", keywords: ["shaved ice", "dessert"] },
+    { emoji: "\u{1F368}", keywords: ["ice cream", "dessert", "sundae"] },
+    { emoji: "\u{1F369}", keywords: ["doughnut", "donut", "dessert"] },
+    { emoji: "\u{1F36A}", keywords: ["cookie", "biscuit", "dessert"] },
+    { emoji: "\u{1F382}", keywords: ["birthday cake", "celebration"] },
+    { emoji: "\u{1F370}", keywords: ["cake", "shortcake", "dessert"] },
+    { emoji: "\u{1F9C1}", keywords: ["cupcake", "muffin", "dessert"] },
+    { emoji: "\u{1F967}", keywords: ["pie", "dessert"] },
+    { emoji: "\u{1F36B}", keywords: ["chocolate", "candy", "dessert"] },
+    { emoji: "\u{1F36C}", keywords: ["candy", "sweet"] },
+    { emoji: "\u{1F36D}", keywords: ["lollipop", "candy", "sweet"] },
+    { emoji: "\u{1F36E}", keywords: ["custard", "pudding", "flan"] },
+    { emoji: "\u{1F36F}", keywords: ["honey", "pot", "sweet"] },
+    { emoji: "\u{1F37C}", keywords: ["baby bottle", "milk"] },
+    { emoji: "\u{1F95B}", keywords: ["glass of milk", "dairy"] },
+    { emoji: "\u2615", keywords: ["coffee", "hot", "tea", "drink"] },
+    { emoji: "\u{1FAD6}", keywords: ["teapot", "tea"] },
+    { emoji: "\u{1F375}", keywords: ["tea", "green tea", "drink"] },
+    { emoji: "\u{1F9CB}", keywords: ["bubble tea", "boba", "drink"] },
+    { emoji: "\u{1F376}", keywords: ["sake", "japanese", "drink"] },
+    { emoji: "\u{1F37E}", keywords: ["champagne", "bottle", "celebrate"] },
+    { emoji: "\u{1F377}", keywords: ["wine", "glass", "drink"] },
+    { emoji: "\u{1F378}", keywords: ["cocktail", "martini", "drink"] },
+    { emoji: "\u{1F379}", keywords: ["tropical drink", "cocktail"] },
+    { emoji: "\u{1F37A}", keywords: ["beer", "mug", "drink"] },
+    { emoji: "\u{1F37B}", keywords: ["clinking beer mugs", "cheers"] },
+    {
+      emoji: "\u{1F942}",
+      keywords: ["clinking glasses", "champagne", "cheers", "toast"]
+    },
+    { emoji: "\u{1F943}", keywords: ["tumbler", "whiskey", "drink"] },
+    { emoji: "\u{1FAD7}", keywords: ["pouring liquid", "water"] },
+    { emoji: "\u{1F964}", keywords: ["cup with straw", "soda", "drink"] },
+    { emoji: "\u{1F9CA}", keywords: ["ice", "cube", "cold"] },
+    { emoji: "\u{1F9C3}", keywords: ["juice box", "drink"] },
+    { emoji: "\u{1F964}", keywords: ["cup with straw", "soda"] }
+  ]
+};
+
+// src/compose/emoji/travel.ts
+var travel = {
+  label: "Travel & Places",
+  icon: "\u2708\uFE0F",
+  entries: [
+    { emoji: "\u{1F697}", keywords: ["car", "automobile", "vehicle"] },
+    { emoji: "\u{1F695}", keywords: ["taxi", "cab"] },
+    { emoji: "\u{1F699}", keywords: ["suv", "car", "vehicle"] },
+    { emoji: "\u{1F68C}", keywords: ["bus", "transit"] },
+    { emoji: "\u{1F68E}", keywords: ["trolleybus", "transit"] },
+    { emoji: "\u{1F3CE}\uFE0F", keywords: ["racing car", "formula", "fast"] },
+    { emoji: "\u{1F693}", keywords: ["police car"] },
+    { emoji: "\u{1F691}", keywords: ["ambulance", "emergency"] },
+    { emoji: "\u{1F692}", keywords: ["fire truck", "engine"] },
+    { emoji: "\u{1F690}", keywords: ["minibus", "van"] },
+    { emoji: "\u{1F6FB}", keywords: ["pickup truck"] },
+    { emoji: "\u{1F69A}", keywords: ["delivery truck", "moving"] },
+    { emoji: "\u{1F69B}", keywords: ["articulated lorry", "truck"] },
+    { emoji: "\u{1F69C}", keywords: ["tractor", "farm"] },
+    { emoji: "\u{1F6F5}", keywords: ["motor scooter", "vespa"] },
+    { emoji: "\u{1F3CD}\uFE0F", keywords: ["motorcycle", "motorbike"] },
+    { emoji: "\u{1F6FA}", keywords: ["auto rickshaw", "tuk tuk"] },
+    { emoji: "\u{1F6B2}", keywords: ["bicycle", "bike", "cycling"] },
+    { emoji: "\u{1F6F4}", keywords: ["kick scooter"] },
+    { emoji: "\u{1F68F}", keywords: ["bus stop", "transit"] },
+    { emoji: "\u{1F6E4}\uFE0F", keywords: ["railway track", "train"] },
+    { emoji: "\u{1F683}", keywords: ["railway car", "train"] },
+    { emoji: "\u{1F68B}", keywords: ["tram car", "trolley"] },
+    { emoji: "\u{1F69E}", keywords: ["mountain railway"] },
+    { emoji: "\u{1F69D}", keywords: ["monorail", "train"] },
+    { emoji: "\u{1F684}", keywords: ["bullet train", "high speed", "fast"] },
+    { emoji: "\u{1F685}", keywords: ["bullet train", "shinkansen"] },
+    { emoji: "\u{1F686}", keywords: ["train"] },
+    { emoji: "\u{1F687}", keywords: ["metro", "subway"] },
+    { emoji: "\u{1F688}", keywords: ["light rail"] },
+    { emoji: "\u{1F689}", keywords: ["station", "train"] },
+    { emoji: "\u2708\uFE0F", keywords: ["airplane", "plane", "flight", "travel"] },
+    { emoji: "\u{1F6E9}\uFE0F", keywords: ["small airplane"] },
+    { emoji: "\u{1F6EB}", keywords: ["departure", "takeoff", "airplane"] },
+    { emoji: "\u{1F6EC}", keywords: ["arrival", "landing", "airplane"] },
+    { emoji: "\u{1FA82}", keywords: ["parachute", "skydiving"] },
+    { emoji: "\u{1F4BA}", keywords: ["seat", "airplane", "chair"] },
+    { emoji: "\u{1F681}", keywords: ["helicopter", "chopper"] },
+    { emoji: "\u{1F680}", keywords: ["rocket", "launch", "space"] },
+    { emoji: "\u{1F6F8}", keywords: ["ufo", "flying saucer", "alien"] },
+    { emoji: "\u{1F6F6}", keywords: ["canoe", "boat", "paddle"] },
+    { emoji: "\u26F5", keywords: ["sailboat", "sailing"] },
+    { emoji: "\u{1F6A4}", keywords: ["speedboat", "motorboat"] },
+    { emoji: "\u{1F6E5}\uFE0F", keywords: ["motor boat"] },
+    { emoji: "\u{1F6F3}\uFE0F", keywords: ["passenger ship", "cruise"] },
+    { emoji: "\u26F4\uFE0F", keywords: ["ferry", "boat"] },
+    { emoji: "\u{1F6A2}", keywords: ["ship", "boat", "cruise"] },
+    { emoji: "\u2693", keywords: ["anchor", "ship", "port"] },
+    { emoji: "\u{1FA9D}", keywords: ["hook", "fishing"] },
+    { emoji: "\u26FD", keywords: ["fuel pump", "gas", "petrol"] },
+    { emoji: "\u{1F6A7}", keywords: ["construction", "barrier"] },
+    { emoji: "\u{1F6A6}", keywords: ["traffic light", "signal"] },
+    { emoji: "\u{1F6A5}", keywords: ["horizontal traffic light"] },
+    { emoji: "\u{1F5FA}\uFE0F", keywords: ["world map", "travel"] },
+    { emoji: "\u{1F5FF}", keywords: ["moai", "easter island", "statue"] },
+    { emoji: "\u{1F5FD}", keywords: ["statue of liberty", "new york"] },
+    { emoji: "\u{1F5FC}", keywords: ["tokyo tower", "japan"] },
+    { emoji: "\u{1F3F0}", keywords: ["castle", "european"] },
+    { emoji: "\u{1F3EF}", keywords: ["japanese castle"] },
+    { emoji: "\u{1F3DF}\uFE0F", keywords: ["stadium", "arena"] },
+    { emoji: "\u{1F3A1}", keywords: ["ferris wheel", "amusement"] },
+    { emoji: "\u{1F3A2}", keywords: ["roller coaster", "amusement"] },
+    { emoji: "\u{1F3A0}", keywords: ["carousel", "merry go round"] },
+    { emoji: "\u26F2", keywords: ["fountain", "park"] },
+    { emoji: "\u26F1\uFE0F", keywords: ["umbrella", "beach", "sun"] },
+    { emoji: "\u{1F3D6}\uFE0F", keywords: ["beach", "sand", "sun"] },
+    { emoji: "\u{1F3DD}\uFE0F", keywords: ["desert island", "tropical"] },
+    { emoji: "\u{1F3DC}\uFE0F", keywords: ["desert", "sand"] },
+    { emoji: "\u{1F30B}", keywords: ["volcano", "eruption"] },
+    { emoji: "\u26F0\uFE0F", keywords: ["mountain"] },
+    { emoji: "\u{1F3D4}\uFE0F", keywords: ["snow capped mountain"] },
+    { emoji: "\u{1F5FB}", keywords: ["mount fuji", "japan"] },
+    { emoji: "\u{1F3D5}\uFE0F", keywords: ["camping", "tent"] },
+    { emoji: "\u26FA", keywords: ["tent", "camping"] },
+    { emoji: "\u{1F3E0}", keywords: ["house", "home"] },
+    { emoji: "\u{1F3E1}", keywords: ["house with garden"] },
+    { emoji: "\u{1F3D8}\uFE0F", keywords: ["houses", "neighborhood"] },
+    { emoji: "\u{1F3DA}\uFE0F", keywords: ["derelict house", "abandoned"] },
+    { emoji: "\u{1F3D7}\uFE0F", keywords: ["building construction", "crane"] },
+    { emoji: "\u{1F3ED}", keywords: ["factory", "industrial"] },
+    { emoji: "\u{1F3E2}", keywords: ["office building"] },
+    { emoji: "\u{1F3EC}", keywords: ["department store", "shopping"] },
+    { emoji: "\u{1F3E3}", keywords: ["japanese post office"] },
+    { emoji: "\u{1F3E4}", keywords: ["post office"] },
+    { emoji: "\u{1F3E5}", keywords: ["hospital", "medical"] },
+    { emoji: "\u{1F3E6}", keywords: ["bank", "money"] },
+    { emoji: "\u{1F3E8}", keywords: ["hotel", "accommodation"] },
+    { emoji: "\u{1F3EA}", keywords: ["convenience store", "shop"] },
+    { emoji: "\u{1F3EB}", keywords: ["school", "education"] },
+    { emoji: "\u{1F3E9}", keywords: ["love hotel"] },
+    { emoji: "\u{1F492}", keywords: ["wedding", "chapel"] },
+    { emoji: "\u{1F3DB}\uFE0F", keywords: ["classical building", "museum"] },
+    { emoji: "\u26EA", keywords: ["church", "religion"] },
+    { emoji: "\u{1F54C}", keywords: ["mosque", "islam"] },
+    { emoji: "\u{1F54D}", keywords: ["synagogue", "jewish"] },
+    { emoji: "\u{1F6D5}", keywords: ["hindu temple"] },
+    { emoji: "\u{1F54B}", keywords: ["kaaba", "mecca"] },
+    { emoji: "\u26E9\uFE0F", keywords: ["shinto shrine", "japan"] },
+    { emoji: "\u{1F303}", keywords: ["night", "city", "starry"] },
+    { emoji: "\u{1F306}", keywords: ["cityscape", "sunset"] },
+    { emoji: "\u{1F307}", keywords: ["sunset", "city"] },
+    { emoji: "\u{1F309}", keywords: ["bridge at night"] },
+    { emoji: "\u{1F30C}", keywords: ["milky way", "galaxy", "space"] },
+    { emoji: "\u{1F386}", keywords: ["fireworks", "celebrate"] },
+    { emoji: "\u{1F387}", keywords: ["sparkler", "fireworks"] }
+  ]
+};
+
+// src/compose/emoji/objects.ts
+var objects = {
+  label: "Objects",
+  icon: "\u{1F4A1}",
+  entries: [
+    { emoji: "\u231A", keywords: ["watch", "time"] },
+    { emoji: "\u{1F4F1}", keywords: ["phone", "mobile", "cell", "smartphone"] },
+    { emoji: "\u{1F4F2}", keywords: ["phone", "call", "incoming"] },
+    { emoji: "\u{1F4BB}", keywords: ["laptop", "computer", "pc"] },
+    { emoji: "\u2328\uFE0F", keywords: ["keyboard", "type"] },
+    { emoji: "\u{1F5A5}\uFE0F", keywords: ["desktop computer", "monitor"] },
+    { emoji: "\u{1F5A8}\uFE0F", keywords: ["printer"] },
+    { emoji: "\u{1F5B1}\uFE0F", keywords: ["computer mouse"] },
+    { emoji: "\u{1F5B2}\uFE0F", keywords: ["trackball"] },
+    { emoji: "\u{1F4BD}", keywords: ["computer disk", "minidisk"] },
+    { emoji: "\u{1F4BE}", keywords: ["floppy disk", "save"] },
+    { emoji: "\u{1F4BF}", keywords: ["cd", "disk", "optical"] },
+    { emoji: "\u{1F4C0}", keywords: ["dvd", "disk"] },
+    { emoji: "\u{1F4F7}", keywords: ["camera", "photo"] },
+    { emoji: "\u{1F4F8}", keywords: ["camera with flash", "photo"] },
+    { emoji: "\u{1F4F9}", keywords: ["video camera", "camcorder"] },
+    { emoji: "\u{1F3A5}", keywords: ["movie camera", "film"] },
+    { emoji: "\u{1F4FD}\uFE0F", keywords: ["film projector"] },
+    { emoji: "\u{1F39E}\uFE0F", keywords: ["film frames", "movie"] },
+    { emoji: "\u{1F4DE}", keywords: ["telephone", "call"] },
+    { emoji: "\u260E\uFE0F", keywords: ["telephone", "call", "phone"] },
+    { emoji: "\u{1F4DF}", keywords: ["pager", "beeper"] },
+    { emoji: "\u{1F4E0}", keywords: ["fax machine"] },
+    { emoji: "\u{1F4FA}", keywords: ["television", "tv", "screen"] },
+    { emoji: "\u{1F4FB}", keywords: ["radio", "music"] },
+    { emoji: "\u{1F399}\uFE0F", keywords: ["studio microphone", "podcast"] },
+    { emoji: "\u{1F39A}\uFE0F", keywords: ["level slider", "volume"] },
+    { emoji: "\u{1F39B}\uFE0F", keywords: ["control knobs", "dials"] },
+    { emoji: "\u{1F9ED}", keywords: ["compass", "navigation"] },
+    { emoji: "\u23F1\uFE0F", keywords: ["stopwatch", "timer"] },
+    { emoji: "\u23F2\uFE0F", keywords: ["timer clock"] },
+    { emoji: "\u23F0", keywords: ["alarm clock", "wake up"] },
+    { emoji: "\u{1F570}\uFE0F", keywords: ["mantelpiece clock"] },
+    { emoji: "\u231B", keywords: ["hourglass", "time", "sand"] },
+    { emoji: "\u23F3", keywords: ["hourglass flowing", "time"] },
+    { emoji: "\u{1F50B}", keywords: ["battery", "power", "charge"] },
+    { emoji: "\u{1FAAB}", keywords: ["low battery"] },
+    { emoji: "\u{1F50C}", keywords: ["plug", "electric", "power"] },
+    { emoji: "\u{1F4A1}", keywords: ["light bulb", "idea", "bright"] },
+    { emoji: "\u{1F526}", keywords: ["flashlight", "torch"] },
+    { emoji: "\u{1F56F}\uFE0F", keywords: ["candle", "light", "flame"] },
+    { emoji: "\u{1F9EF}", keywords: ["fire extinguisher"] },
+    { emoji: "\u{1F5D1}\uFE0F", keywords: ["wastebasket", "trash", "delete"] },
+    { emoji: "\u{1F6E2}\uFE0F", keywords: ["oil drum", "barrel"] },
+    { emoji: "\u{1F4B8}", keywords: ["money with wings", "spending"] },
+    { emoji: "\u{1F4B5}", keywords: ["dollar", "money", "cash"] },
+    { emoji: "\u{1F4B4}", keywords: ["yen", "money"] },
+    { emoji: "\u{1F4B6}", keywords: ["euro", "money"] },
+    { emoji: "\u{1F4B7}", keywords: ["pound", "money"] },
+    { emoji: "\u{1FA99}", keywords: ["coin", "money"] },
+    { emoji: "\u{1F4B0}", keywords: ["money bag", "rich", "cash"] },
+    { emoji: "\u{1F4B3}", keywords: ["credit card", "payment"] },
+    { emoji: "\u{1F48E}", keywords: ["gem", "diamond", "jewel"] },
+    { emoji: "\u2696\uFE0F", keywords: ["balance scale", "justice"] },
+    { emoji: "\u{1FA9C}", keywords: ["ladder", "climb"] },
+    { emoji: "\u{1F9F0}", keywords: ["toolbox", "tools"] },
+    { emoji: "\u{1FA9B}", keywords: ["screwdriver", "tool"] },
+    { emoji: "\u{1F527}", keywords: ["wrench", "tool", "settings"] },
+    { emoji: "\u{1F528}", keywords: ["hammer", "tool", "build"] },
+    { emoji: "\u2692\uFE0F", keywords: ["hammer and pick", "tool"] },
+    { emoji: "\u{1F6E0}\uFE0F", keywords: ["hammer and wrench", "tools"] },
+    { emoji: "\u26CF\uFE0F", keywords: ["pick", "mining"] },
+    { emoji: "\u{1FA9A}", keywords: ["saw", "carpentry"] },
+    { emoji: "\u{1F529}", keywords: ["nut and bolt", "hardware"] },
+    { emoji: "\u2699\uFE0F", keywords: ["gear", "settings", "cog"] },
+    { emoji: "\u{1FAA4}", keywords: ["mouse trap"] },
+    { emoji: "\u{1F9F2}", keywords: ["magnet", "attract"] },
+    { emoji: "\u{1F52B}", keywords: ["water gun", "pistol", "squirt"] },
+    { emoji: "\u{1F4A3}", keywords: ["bomb", "explosive"] },
+    { emoji: "\u{1F9E8}", keywords: ["firecracker", "dynamite"] },
+    { emoji: "\u{1FA93}", keywords: ["axe", "chop"] },
+    { emoji: "\u{1F52A}", keywords: ["kitchen knife", "cut"] },
+    { emoji: "\u{1F5E1}\uFE0F", keywords: ["dagger", "sword"] },
+    { emoji: "\u2694\uFE0F", keywords: ["crossed swords", "battle"] },
+    { emoji: "\u{1F6E1}\uFE0F", keywords: ["shield", "defense", "protect"] },
+    { emoji: "\u{1F511}", keywords: ["key", "lock", "password"] },
+    { emoji: "\u{1F5DD}\uFE0F", keywords: ["old key", "vintage"] },
+    { emoji: "\u{1F512}", keywords: ["lock", "locked", "secure", "privacy"] },
+    { emoji: "\u{1F513}", keywords: ["unlocked", "open"] },
+    { emoji: "\u{1F50F}", keywords: ["lock with pen", "privacy"] },
+    { emoji: "\u{1F510}", keywords: ["locked with key", "secure"] },
+    { emoji: "\u{1F4E7}", keywords: ["email", "e-mail", "envelope"] },
+    { emoji: "\u2709\uFE0F", keywords: ["envelope", "mail", "letter"] },
+    { emoji: "\u{1F4E8}", keywords: ["incoming envelope", "email"] },
+    { emoji: "\u{1F4E9}", keywords: ["envelope with arrow", "email"] },
+    { emoji: "\u{1F4E4}", keywords: ["outbox tray", "sent"] },
+    { emoji: "\u{1F4E5}", keywords: ["inbox tray", "received"] },
+    { emoji: "\u{1F4E6}", keywords: ["package", "box", "delivery"] },
+    { emoji: "\u{1F4EB}", keywords: ["mailbox", "mail"] },
+    { emoji: "\u{1F4EA}", keywords: ["mailbox", "empty"] },
+    { emoji: "\u{1F4EC}", keywords: ["mailbox with mail"] },
+    { emoji: "\u{1F4ED}", keywords: ["mailbox", "no mail"] },
+    { emoji: "\u{1F4EE}", keywords: ["postbox", "mail"] },
+    { emoji: "\u{1F4DD}", keywords: ["memo", "note", "write", "pencil"] },
+    { emoji: "\u{1F4C3}", keywords: ["page with curl", "document"] },
+    { emoji: "\u{1F4C4}", keywords: ["page facing up", "document"] },
+    { emoji: "\u{1F4D1}", keywords: ["bookmark tabs"] },
+    { emoji: "\u{1F4CA}", keywords: ["bar chart", "graph", "stats"] },
+    { emoji: "\u{1F4C8}", keywords: ["chart increasing", "growth", "up"] },
+    { emoji: "\u{1F4C9}", keywords: ["chart decreasing", "down"] },
+    { emoji: "\u{1F5D2}\uFE0F", keywords: ["spiral notepad"] },
+    { emoji: "\u{1F5D3}\uFE0F", keywords: ["spiral calendar"] },
+    { emoji: "\u{1F4C6}", keywords: ["tear-off calendar", "date"] },
+    { emoji: "\u{1F4C5}", keywords: ["calendar", "date"] },
+    { emoji: "\u{1F4C7}", keywords: ["card index", "rolodex"] },
+    { emoji: "\u{1F5C3}\uFE0F", keywords: ["card file box"] },
+    { emoji: "\u{1F5F3}\uFE0F", keywords: ["ballot box", "vote"] },
+    { emoji: "\u{1F5C4}\uFE0F", keywords: ["file cabinet"] },
+    { emoji: "\u{1F4CB}", keywords: ["clipboard", "paste"] },
+    { emoji: "\u{1F4C1}", keywords: ["file folder", "directory"] },
+    { emoji: "\u{1F4C2}", keywords: ["open file folder"] },
+    { emoji: "\u{1F5C2}\uFE0F", keywords: ["card index dividers"] },
+    { emoji: "\u{1F4F0}", keywords: ["newspaper", "news"] },
+    { emoji: "\u{1F4D3}", keywords: ["notebook"] },
+    { emoji: "\u{1F4D4}", keywords: ["notebook with decorative cover"] },
+    { emoji: "\u{1F4D2}", keywords: ["ledger", "notebook"] },
+    { emoji: "\u{1F4D5}", keywords: ["closed book", "red"] },
+    { emoji: "\u{1F4D7}", keywords: ["green book"] },
+    { emoji: "\u{1F4D8}", keywords: ["blue book"] },
+    { emoji: "\u{1F4D9}", keywords: ["orange book"] },
+    { emoji: "\u{1F4DA}", keywords: ["books", "library", "study"] },
+    { emoji: "\u{1F4D6}", keywords: ["open book", "read"] },
+    { emoji: "\u{1F517}", keywords: ["link", "chain", "url"] },
+    { emoji: "\u{1F4CE}", keywords: ["paperclip", "attachment"] },
+    { emoji: "\u{1F587}\uFE0F", keywords: ["linked paperclips"] },
+    { emoji: "\u2702\uFE0F", keywords: ["scissors", "cut"] },
+    { emoji: "\u{1F4D0}", keywords: ["triangular ruler"] },
+    { emoji: "\u{1F4CF}", keywords: ["straight ruler", "measure"] },
+    { emoji: "\u{1F9EE}", keywords: ["abacus", "calculate"] },
+    { emoji: "\u{1F4CC}", keywords: ["pushpin", "pin"] },
+    { emoji: "\u{1F4CD}", keywords: ["round pushpin", "location"] },
+    { emoji: "\u270F\uFE0F", keywords: ["pencil", "write"] },
+    { emoji: "\u{1F58A}\uFE0F", keywords: ["pen", "write"] },
+    { emoji: "\u{1F58B}\uFE0F", keywords: ["fountain pen", "write"] },
+    { emoji: "\u{1F58C}\uFE0F", keywords: ["paintbrush", "art"] },
+    { emoji: "\u{1F58D}\uFE0F", keywords: ["crayon", "draw"] },
+    { emoji: "\u{1F50D}", keywords: ["magnifying glass", "search", "zoom"] },
+    { emoji: "\u{1F50E}", keywords: ["magnifying glass right", "search"] }
+  ]
+};
+
+// src/compose/emoji/symbols.ts
+var symbols = {
+  label: "Symbols",
+  icon: "\u{1F49F}",
+  entries: [
+    { emoji: "\u2764\uFE0F", keywords: ["red heart", "love"] },
+    { emoji: "\u{1F9E1}", keywords: ["orange heart", "love"] },
+    { emoji: "\u{1F49B}", keywords: ["yellow heart", "love"] },
+    { emoji: "\u{1F49A}", keywords: ["green heart", "love"] },
+    { emoji: "\u{1F499}", keywords: ["blue heart", "love"] },
+    { emoji: "\u{1F49C}", keywords: ["purple heart", "love"] },
+    { emoji: "\u{1F5A4}", keywords: ["black heart", "love"] },
+    { emoji: "\u{1F90D}", keywords: ["white heart", "love"] },
+    { emoji: "\u{1F90E}", keywords: ["brown heart", "love"] },
+    { emoji: "\u2764\uFE0F\u200D\u{1F525}", keywords: ["heart on fire", "passion"] },
+    { emoji: "\u2764\uFE0F\u200D\u{1FA79}", keywords: ["mending heart", "healing"] },
+    { emoji: "\u{1F494}", keywords: ["broken heart", "sad"] },
+    { emoji: "\u{1F495}", keywords: ["two hearts", "love"] },
+    { emoji: "\u{1F49E}", keywords: ["revolving hearts", "love"] },
+    { emoji: "\u{1F493}", keywords: ["beating heart", "love"] },
+    { emoji: "\u{1F497}", keywords: ["growing heart", "love"] },
+    { emoji: "\u{1F496}", keywords: ["sparkling heart", "love"] },
+    { emoji: "\u{1F498}", keywords: ["heart with arrow", "cupid"] },
+    { emoji: "\u{1F49D}", keywords: ["heart with ribbon", "gift", "love"] },
+    { emoji: "\u{1F49F}", keywords: ["heart decoration", "love"] },
+    { emoji: "\u262E\uFE0F", keywords: ["peace", "symbol"] },
+    { emoji: "\u271D\uFE0F", keywords: ["cross", "christian", "religion"] },
+    { emoji: "\u262A\uFE0F", keywords: ["star and crescent", "islam"] },
+    { emoji: "\u{1F549}\uFE0F", keywords: ["om", "hindu", "buddhist"] },
+    { emoji: "\u2638\uFE0F", keywords: ["wheel of dharma", "buddhism"] },
+    { emoji: "\u2721\uFE0F", keywords: ["star of david", "jewish"] },
+    { emoji: "\u{1F52F}", keywords: ["six pointed star"] },
+    { emoji: "\u{1F54E}", keywords: ["menorah", "jewish", "hanukkah"] },
+    { emoji: "\u262F\uFE0F", keywords: ["yin yang", "balance"] },
+    { emoji: "\u2626\uFE0F", keywords: ["orthodox cross"] },
+    { emoji: "\u{1F6D0}", keywords: ["place of worship", "pray"] },
+    { emoji: "\u26CE", keywords: ["ophiuchus", "zodiac"] },
+    { emoji: "\u2648", keywords: ["aries", "zodiac"] },
+    { emoji: "\u2649", keywords: ["taurus", "zodiac"] },
+    { emoji: "\u264A", keywords: ["gemini", "zodiac"] },
+    { emoji: "\u264B", keywords: ["cancer", "zodiac"] },
+    { emoji: "\u264C", keywords: ["leo", "zodiac"] },
+    { emoji: "\u264D", keywords: ["virgo", "zodiac"] },
+    { emoji: "\u264E", keywords: ["libra", "zodiac"] },
+    { emoji: "\u264F", keywords: ["scorpio", "zodiac"] },
+    { emoji: "\u2650", keywords: ["sagittarius", "zodiac"] },
+    { emoji: "\u2651", keywords: ["capricorn", "zodiac"] },
+    { emoji: "\u2652", keywords: ["aquarius", "zodiac"] },
+    { emoji: "\u2653", keywords: ["pisces", "zodiac"] },
+    { emoji: "\u{1F194}", keywords: ["id", "identity"] },
+    { emoji: "\u269B\uFE0F", keywords: ["atom", "science"] },
+    { emoji: "\u{1F251}", keywords: ["accept", "japanese"] },
+    { emoji: "\u2622\uFE0F", keywords: ["radioactive", "nuclear"] },
+    { emoji: "\u2623\uFE0F", keywords: ["biohazard", "danger"] },
+    { emoji: "\u{1F4F4}", keywords: ["mobile phone off"] },
+    { emoji: "\u{1F4F3}", keywords: ["vibration mode"] },
+    { emoji: "\u{1F236}", keywords: ["japanese not free of charge"] },
+    { emoji: "\u{1F21A}", keywords: ["japanese free of charge"] },
+    { emoji: "\u{1F238}", keywords: ["japanese application"] },
+    { emoji: "\u{1F23A}", keywords: ["japanese open for business"] },
+    { emoji: "\u{1F237}\uFE0F", keywords: ["japanese monthly amount"] },
+    { emoji: "\u2734\uFE0F", keywords: ["eight pointed star"] },
+    { emoji: "\u{1F19A}", keywords: ["vs", "versus", "against"] },
+    { emoji: "\u{1F4AE}", keywords: ["white flower", "good job"] },
+    { emoji: "\u{1F250}", keywords: ["japanese bargain"] },
+    { emoji: "\u3299\uFE0F", keywords: ["japanese secret"] },
+    { emoji: "\u3297\uFE0F", keywords: ["japanese congratulations"] },
+    { emoji: "\u{1F234}", keywords: ["japanese passing grade"] },
+    { emoji: "\u{1F235}", keywords: ["japanese no vacancy"] },
+    { emoji: "\u{1F239}", keywords: ["japanese discount"] },
+    { emoji: "\u{1F232}", keywords: ["japanese prohibited"] },
+    { emoji: "\u{1F170}\uFE0F", keywords: ["a button", "blood type"] },
+    { emoji: "\u{1F171}\uFE0F", keywords: ["b button", "blood type"] },
+    { emoji: "\u{1F18E}", keywords: ["ab button", "blood type"] },
+    { emoji: "\u{1F191}", keywords: ["cl button", "clear"] },
+    { emoji: "\u{1F17E}\uFE0F", keywords: ["o button", "blood type"] },
+    { emoji: "\u{1F198}", keywords: ["sos", "help", "emergency"] },
+    { emoji: "\u274C", keywords: ["cross mark", "no", "wrong", "x"] },
+    { emoji: "\u2B55", keywords: ["hollow red circle", "correct"] },
+    { emoji: "\u{1F6D1}", keywords: ["stop sign", "halt"] },
+    { emoji: "\u26D4", keywords: ["no entry", "prohibited"] },
+    { emoji: "\u{1F4DB}", keywords: ["name badge"] },
+    { emoji: "\u{1F6AB}", keywords: ["prohibited", "forbidden", "no"] },
+    { emoji: "\u{1F4AF}", keywords: ["hundred", "perfect", "score", "100"] },
+    { emoji: "\u{1F4A2}", keywords: ["anger", "angry", "symbol"] },
+    { emoji: "\u2668\uFE0F", keywords: ["hot springs", "steam"] },
+    { emoji: "\u{1F6B7}", keywords: ["no pedestrians"] },
+    { emoji: "\u{1F6AF}", keywords: ["no littering"] },
+    { emoji: "\u{1F6B3}", keywords: ["no bicycles"] },
+    { emoji: "\u{1F6B1}", keywords: ["non-potable water"] },
+    { emoji: "\u{1F51E}", keywords: ["no one under eighteen", "18+"] },
+    { emoji: "\u{1F4F5}", keywords: ["no mobile phones"] },
+    { emoji: "\u{1F507}", keywords: ["muted", "no sound"] },
+    { emoji: "\u{1F515}", keywords: ["bell with slash", "mute"] },
+    { emoji: "\u{1F50A}", keywords: ["speaker high volume", "loud"] },
+    { emoji: "\u{1F509}", keywords: ["speaker medium volume"] },
+    { emoji: "\u{1F508}", keywords: ["speaker low volume"] },
+    { emoji: "\u{1F514}", keywords: ["bell", "notification", "alert"] },
+    { emoji: "\u267B\uFE0F", keywords: ["recycling", "recycle", "green"] },
+    { emoji: "\u2705", keywords: ["check mark", "yes", "correct", "done"] },
+    { emoji: "\u274E", keywords: ["cross mark button", "no"] },
+    { emoji: "\u303D\uFE0F", keywords: ["part alternation mark"] },
+    { emoji: "\u2757", keywords: ["exclamation", "warning", "important"] },
+    { emoji: "\u2753", keywords: ["question mark"] },
+    { emoji: "\u2755", keywords: ["white exclamation mark"] },
+    { emoji: "\u2754", keywords: ["white question mark"] },
+    { emoji: "\u203C\uFE0F", keywords: ["double exclamation mark"] },
+    { emoji: "\u2049\uFE0F", keywords: ["exclamation question mark"] },
+    { emoji: "\u{1F505}", keywords: ["dim button", "brightness low"] },
+    { emoji: "\u{1F506}", keywords: ["bright button", "brightness high"] },
+    { emoji: "\u26A0\uFE0F", keywords: ["warning", "caution", "alert"] },
+    { emoji: "\u{1F6B8}", keywords: ["children crossing"] },
+    { emoji: "\u{1F531}", keywords: ["trident", "emblem"] },
+    { emoji: "\u269C\uFE0F", keywords: ["fleur-de-lis"] },
+    { emoji: "\u{1F530}", keywords: ["japanese symbol for beginner"] },
+    { emoji: "\u267F", keywords: ["wheelchair", "accessibility"] },
+    { emoji: "\u{1F3E7}", keywords: ["atm sign"] },
+    { emoji: "\u24C2\uFE0F", keywords: ["circled m", "metro"] },
+    { emoji: "\u{1F6C2}", keywords: ["passport control"] },
+    { emoji: "\u{1F6C3}", keywords: ["customs"] },
+    { emoji: "\u{1F6C4}", keywords: ["baggage claim"] },
+    { emoji: "\u{1F6C5}", keywords: ["left luggage"] },
+    { emoji: "\u{1F520}", keywords: ["input latin uppercase"] },
+    { emoji: "\u{1F521}", keywords: ["input latin lowercase"] },
+    { emoji: "\u{1F522}", keywords: ["input numbers"] },
+    { emoji: "\u{1F523}", keywords: ["input symbols"] },
+    { emoji: "\u{1F524}", keywords: ["input latin letters"] },
+    { emoji: "\u2139\uFE0F", keywords: ["information", "info"] },
+    { emoji: "\u{1F197}", keywords: ["ok button"] },
+    { emoji: "\u{1F195}", keywords: ["new button"] },
+    { emoji: "\u{1F199}", keywords: ["up button", "upgrade"] },
+    { emoji: "\u{1F192}", keywords: ["cool button"] },
+    { emoji: "\u{1F193}", keywords: ["free button"] },
+    { emoji: "\u{1F196}", keywords: ["ng button", "no good"] },
+    { emoji: "\u{1F17F}\uFE0F", keywords: ["p button", "parking"] },
+    { emoji: "\u{1F201}", keywords: ["japanese here"] },
+    { emoji: "\u{1F202}\uFE0F", keywords: ["japanese service charge"] },
+    { emoji: "\u{1F233}", keywords: ["japanese vacancy"] },
+    { emoji: "\u{1F503}", keywords: ["clockwise arrows", "reload", "refresh"] },
+    { emoji: "\u{1F504}", keywords: ["counterclockwise arrows", "refresh"] },
+    { emoji: "\u{1F519}", keywords: ["back arrow"] },
+    { emoji: "\u{1F51A}", keywords: ["end arrow"] },
+    { emoji: "\u{1F51B}", keywords: ["on arrow"] },
+    { emoji: "\u{1F51C}", keywords: ["soon arrow"] },
+    { emoji: "\u{1F51D}", keywords: ["top arrow"] },
+    { emoji: "\u2B06\uFE0F", keywords: ["up arrow"] },
+    { emoji: "\u2B07\uFE0F", keywords: ["down arrow"] },
+    { emoji: "\u2B05\uFE0F", keywords: ["left arrow"] },
+    { emoji: "\u27A1\uFE0F", keywords: ["right arrow"] },
+    { emoji: "\u2197\uFE0F", keywords: ["up-right arrow"] },
+    { emoji: "\u2198\uFE0F", keywords: ["down-right arrow"] },
+    { emoji: "\u2199\uFE0F", keywords: ["down-left arrow"] },
+    { emoji: "\u2196\uFE0F", keywords: ["up-left arrow"] },
+    { emoji: "\u2195\uFE0F", keywords: ["up-down arrow"] },
+    { emoji: "\u2194\uFE0F", keywords: ["left-right arrow"] },
+    { emoji: "\u21A9\uFE0F", keywords: ["right arrow curving left", "undo"] },
+    { emoji: "\u21AA\uFE0F", keywords: ["left arrow curving right", "redo"] },
+    { emoji: "\u2934\uFE0F", keywords: ["right arrow curving up"] },
+    { emoji: "\u2935\uFE0F", keywords: ["right arrow curving down"] },
+    { emoji: "\u{1F500}", keywords: ["shuffle", "random"] },
+    { emoji: "\u{1F501}", keywords: ["repeat", "loop"] },
+    { emoji: "\u{1F502}", keywords: ["repeat single"] },
+    { emoji: "\u25B6\uFE0F", keywords: ["play button", "start"] },
+    { emoji: "\u23E9", keywords: ["fast forward"] },
+    { emoji: "\u23ED\uFE0F", keywords: ["next track button"] },
+    { emoji: "\u23EF\uFE0F", keywords: ["play or pause button"] },
+    { emoji: "\u25C0\uFE0F", keywords: ["reverse button", "back"] },
+    { emoji: "\u23EA", keywords: ["fast reverse", "rewind"] },
+    { emoji: "\u23EE\uFE0F", keywords: ["last track button"] },
+    { emoji: "\u23F8\uFE0F", keywords: ["pause button"] },
+    { emoji: "\u23F9\uFE0F", keywords: ["stop button"] },
+    { emoji: "\u23FA\uFE0F", keywords: ["record button"] },
+    { emoji: "\u23CF\uFE0F", keywords: ["eject button"] },
+    { emoji: "\u{1F3B5}", keywords: ["musical note", "music", "song"] },
+    { emoji: "\u{1F3B6}", keywords: ["musical notes", "music", "singing"] },
+    { emoji: "\u2795", keywords: ["plus", "add"] },
+    { emoji: "\u2796", keywords: ["minus", "subtract"] },
+    { emoji: "\u2797", keywords: ["divide", "division"] },
+    { emoji: "\u2716\uFE0F", keywords: ["multiply", "times"] },
+    { emoji: "\u267E\uFE0F", keywords: ["infinity", "forever"] },
+    { emoji: "\u{1F4B2}", keywords: ["dollar sign", "money"] },
+    { emoji: "\u{1F4B1}", keywords: ["currency exchange"] },
+    { emoji: "\u2122\uFE0F", keywords: ["trade mark", "tm"] },
+    { emoji: "\xA9\uFE0F", keywords: ["copyright"] },
+    { emoji: "\xAE\uFE0F", keywords: ["registered"] },
+    { emoji: "\u3030\uFE0F", keywords: ["wavy dash"] },
+    { emoji: "\u27B0", keywords: ["curly loop"] },
+    { emoji: "\u27BF", keywords: ["double curly loop"] },
+    { emoji: "#\uFE0F\u20E3", keywords: ["keycap hash", "number sign", "hashtag"] },
+    { emoji: "*\uFE0F\u20E3", keywords: ["keycap asterisk", "star"] },
+    { emoji: "0\uFE0F\u20E3", keywords: ["keycap zero", "0"] },
+    { emoji: "1\uFE0F\u20E3", keywords: ["keycap one", "1"] },
+    { emoji: "2\uFE0F\u20E3", keywords: ["keycap two", "2"] },
+    { emoji: "3\uFE0F\u20E3", keywords: ["keycap three", "3"] },
+    { emoji: "4\uFE0F\u20E3", keywords: ["keycap four", "4"] },
+    { emoji: "5\uFE0F\u20E3", keywords: ["keycap five", "5"] },
+    { emoji: "6\uFE0F\u20E3", keywords: ["keycap six", "6"] },
+    { emoji: "7\uFE0F\u20E3", keywords: ["keycap seven", "7"] },
+    { emoji: "8\uFE0F\u20E3", keywords: ["keycap eight", "8"] },
+    { emoji: "9\uFE0F\u20E3", keywords: ["keycap nine", "9"] },
+    { emoji: "\u{1F51F}", keywords: ["keycap ten", "10"] },
+    { emoji: "\u{1F536}", keywords: ["large orange diamond"] },
+    { emoji: "\u{1F537}", keywords: ["large blue diamond"] },
+    { emoji: "\u{1F538}", keywords: ["small orange diamond"] },
+    { emoji: "\u{1F539}", keywords: ["small blue diamond"] },
+    { emoji: "\u{1F53A}", keywords: ["red triangle up"] },
+    { emoji: "\u{1F53B}", keywords: ["red triangle down"] },
+    { emoji: "\u25FE", keywords: ["black medium-small square"] },
+    { emoji: "\u25FD", keywords: ["white medium-small square"] },
+    { emoji: "\u2B1B", keywords: ["black large square"] },
+    { emoji: "\u2B1C", keywords: ["white large square"] },
+    { emoji: "\u{1F7E5}", keywords: ["red square"] },
+    { emoji: "\u{1F7E7}", keywords: ["orange square"] },
+    { emoji: "\u{1F7E8}", keywords: ["yellow square"] },
+    { emoji: "\u{1F7E9}", keywords: ["green square"] },
+    { emoji: "\u{1F7E6}", keywords: ["blue square"] },
+    { emoji: "\u{1F7EA}", keywords: ["purple square"] },
+    { emoji: "\u{1F7EB}", keywords: ["brown square"] },
+    { emoji: "\u{1F534}", keywords: ["red circle"] },
+    { emoji: "\u{1F7E0}", keywords: ["orange circle"] },
+    { emoji: "\u{1F7E1}", keywords: ["yellow circle"] },
+    { emoji: "\u{1F7E2}", keywords: ["green circle"] },
+    { emoji: "\u{1F535}", keywords: ["blue circle"] },
+    { emoji: "\u{1F7E3}", keywords: ["purple circle"] },
+    { emoji: "\u{1F7E4}", keywords: ["brown circle"] },
+    { emoji: "\u26AB", keywords: ["black circle"] },
+    { emoji: "\u26AA", keywords: ["white circle"] }
+  ]
+};
+
+// src/compose/emoji/activities.ts
+var activities = {
+  label: "Activities",
+  icon: "\u26BD",
+  entries: [
+    { emoji: "\u26BD", keywords: ["soccer", "football", "ball", "sport"] },
+    { emoji: "\u{1F3C0}", keywords: ["basketball", "ball", "sport"] },
+    { emoji: "\u{1F3C8}", keywords: ["american football", "ball", "sport"] },
+    { emoji: "\u26BE", keywords: ["baseball", "ball", "sport"] },
+    { emoji: "\u{1F94E}", keywords: ["softball", "ball"] },
+    { emoji: "\u{1F3BE}", keywords: ["tennis", "ball", "sport"] },
+    { emoji: "\u{1F3D0}", keywords: ["volleyball", "ball", "sport"] },
+    { emoji: "\u{1F3C9}", keywords: ["rugby", "ball", "sport"] },
+    { emoji: "\u{1F94F}", keywords: ["flying disc", "frisbee"] },
+    { emoji: "\u{1F3B1}", keywords: ["billiards", "pool", "8 ball"] },
+    { emoji: "\u{1FA80}", keywords: ["yo-yo", "toy"] },
+    { emoji: "\u{1F3D3}", keywords: ["ping pong", "table tennis"] },
+    { emoji: "\u{1F3F8}", keywords: ["badminton", "shuttlecock"] },
+    { emoji: "\u{1F3D2}", keywords: ["ice hockey", "stick"] },
+    { emoji: "\u{1F3D1}", keywords: ["field hockey", "stick"] },
+    { emoji: "\u{1F94D}", keywords: ["lacrosse", "stick"] },
+    { emoji: "\u{1F3CF}", keywords: ["cricket", "bat"] },
+    { emoji: "\u{1FA83}", keywords: ["boomerang"] },
+    { emoji: "\u{1F945}", keywords: ["goal net", "soccer"] },
+    { emoji: "\u26F3", keywords: ["golf", "flag in hole"] },
+    { emoji: "\u{1FA81}", keywords: ["kite", "fly"] },
+    { emoji: "\u{1F3F9}", keywords: ["bow and arrow", "archery"] },
+    { emoji: "\u{1F3A3}", keywords: ["fishing", "rod"] },
+    { emoji: "\u{1F93F}", keywords: ["diving mask", "scuba", "snorkel"] },
+    { emoji: "\u{1F94A}", keywords: ["boxing glove", "fight"] },
+    { emoji: "\u{1F94B}", keywords: ["martial arts", "karate", "uniform"] },
+    { emoji: "\u{1F3BF}", keywords: ["skis", "skiing", "snow"] },
+    { emoji: "\u26F8\uFE0F", keywords: ["ice skate", "skating"] },
+    { emoji: "\u{1F6F7}", keywords: ["sled", "sledge"] },
+    { emoji: "\u{1F6F9}", keywords: ["skateboard", "skate"] },
+    { emoji: "\u{1F6FC}", keywords: ["roller skate"] },
+    { emoji: "\u{1F3AA}", keywords: ["circus tent"] },
+    { emoji: "\u{1F3AD}", keywords: ["performing arts", "theater", "drama"] },
+    { emoji: "\u{1F3A8}", keywords: ["art", "palette", "paint"] },
+    { emoji: "\u{1F3AC}", keywords: ["clapper board", "movie", "film"] },
+    { emoji: "\u{1F3A4}", keywords: ["microphone", "karaoke", "sing"] },
+    { emoji: "\u{1F3A7}", keywords: ["headphones", "music", "listen"] },
+    { emoji: "\u{1F3BC}", keywords: ["musical score", "music", "sheet"] },
+    { emoji: "\u{1F3B9}", keywords: ["musical keyboard", "piano"] },
+    { emoji: "\u{1F941}", keywords: ["drum", "beat", "percussion"] },
+    { emoji: "\u{1FA98}", keywords: ["long drum"] },
+    { emoji: "\u{1F3B7}", keywords: ["saxophone", "jazz", "music"] },
+    { emoji: "\u{1F3BA}", keywords: ["trumpet", "brass", "music"] },
+    { emoji: "\u{1FA97}", keywords: ["accordion"] },
+    { emoji: "\u{1F3B8}", keywords: ["guitar", "rock", "music"] },
+    { emoji: "\u{1FA95}", keywords: ["banjo", "music"] },
+    { emoji: "\u{1F3BB}", keywords: ["violin", "music"] },
+    { emoji: "\u{1F3B2}", keywords: ["dice", "game", "gamble"] },
+    { emoji: "\u265F\uFE0F", keywords: ["chess pawn", "game"] },
+    { emoji: "\u{1F3AF}", keywords: ["bullseye", "target", "dart"] },
+    { emoji: "\u{1F3B3}", keywords: ["bowling", "sport"] },
+    { emoji: "\u{1F3AE}", keywords: ["video game", "controller", "gaming"] },
+    { emoji: "\u{1F579}\uFE0F", keywords: ["joystick", "arcade", "game"] },
+    { emoji: "\u{1F3B0}", keywords: ["slot machine", "casino", "gamble"] },
+    { emoji: "\u{1F9E9}", keywords: ["puzzle", "piece", "jigsaw"] },
+    { emoji: "\u{1F9F8}", keywords: ["teddy bear", "toy", "plush"] },
+    { emoji: "\u{1FA85}", keywords: ["pi\xF1ata", "party"] },
+    { emoji: "\u{1FAA9}", keywords: ["mirror ball", "disco"] },
+    { emoji: "\u{1FA86}", keywords: ["nesting dolls", "matryoshka"] },
+    { emoji: "\u2660\uFE0F", keywords: ["spade suit", "cards"] },
+    { emoji: "\u2665\uFE0F", keywords: ["heart suit", "cards"] },
+    { emoji: "\u2666\uFE0F", keywords: ["diamond suit", "cards"] },
+    { emoji: "\u2663\uFE0F", keywords: ["club suit", "cards"] },
+    { emoji: "\u{1F0CF}", keywords: ["joker", "card", "wild"] },
+    { emoji: "\u{1F004}", keywords: ["mahjong", "game"] },
+    { emoji: "\u{1F3B4}", keywords: ["flower playing cards"] },
+    { emoji: "\u{1F389}", keywords: ["party popper", "celebrate", "tada"] },
+    { emoji: "\u{1F38A}", keywords: ["confetti ball", "celebrate"] },
+    { emoji: "\u{1F388}", keywords: ["balloon", "party", "birthday"] },
+    { emoji: "\u{1F381}", keywords: ["gift", "present", "wrapped"] },
+    { emoji: "\u{1F380}", keywords: ["ribbon", "bow", "decoration"] },
+    { emoji: "\u{1F3C6}", keywords: ["trophy", "winner", "champion", "award"] },
+    { emoji: "\u{1F947}", keywords: ["gold medal", "first", "winner"] },
+    { emoji: "\u{1F948}", keywords: ["silver medal", "second"] },
+    { emoji: "\u{1F949}", keywords: ["bronze medal", "third"] },
+    { emoji: "\u{1F3C5}", keywords: ["sports medal", "award"] },
+    { emoji: "\u{1F396}\uFE0F", keywords: ["military medal", "honor"] },
+    { emoji: "\u{1F397}\uFE0F", keywords: ["reminder ribbon", "awareness"] },
+    { emoji: "\u{1F39F}\uFE0F", keywords: ["admission tickets"] },
+    { emoji: "\u{1F3AB}", keywords: ["ticket", "admission"] },
+    { emoji: "\u{1F386}", keywords: ["fireworks", "celebrate", "new year"] },
+    { emoji: "\u{1F387}", keywords: ["sparkler", "fireworks"] },
+    { emoji: "\u{1F9E8}", keywords: ["firecracker", "dynamite"] },
+    { emoji: "\u{1F391}", keywords: ["moon viewing", "ceremony"] },
+    { emoji: "\u{1F383}", keywords: ["jack-o-lantern", "halloween", "pumpkin"] },
+    { emoji: "\u{1F384}", keywords: ["christmas tree", "holiday"] },
+    { emoji: "\u{1F38B}", keywords: ["tanabata tree"] },
+    { emoji: "\u{1F38D}", keywords: ["pine decoration", "new year"] },
+    { emoji: "\u{1F38E}", keywords: ["japanese dolls"] },
+    { emoji: "\u{1F38F}", keywords: ["carp streamer", "koinobori"] },
+    { emoji: "\u{1F390}", keywords: ["wind chime"] },
+    { emoji: "\u{1F38C}", keywords: ["crossed flags"] },
+    { emoji: "\u{1F3EE}", keywords: ["red paper lantern", "izakaya"] },
+    { emoji: "\u{1F9E7}", keywords: ["red envelope", "lucky money"] }
+  ]
+};
+
+// src/compose/emoji/flags.ts
+var flags = {
+  label: "Flags",
+  icon: "\u{1F3F3}\uFE0F",
+  entries: [
+    { emoji: "\u{1F3C1}", keywords: ["chequered flag", "race", "finish"] },
+    { emoji: "\u{1F6A9}", keywords: ["triangular flag", "red flag"] },
+    { emoji: "\u{1F38C}", keywords: ["crossed flags"] },
+    { emoji: "\u{1F3F4}", keywords: ["black flag"] },
+    { emoji: "\u{1F3F3}\uFE0F", keywords: ["white flag", "surrender"] },
+    { emoji: "\u{1F3F3}\uFE0F\u200D\u{1F308}", keywords: ["rainbow flag", "pride", "lgbtq"] },
+    { emoji: "\u{1F3F3}\uFE0F\u200D\u26A7\uFE0F", keywords: ["transgender flag", "trans"] },
+    { emoji: "\u{1F3F4}\u200D\u2620\uFE0F", keywords: ["pirate flag", "jolly roger"] },
+    { emoji: "\u{1F1E6}\u{1F1EB}", keywords: ["afghanistan", "flag"] },
+    { emoji: "\u{1F1E6}\u{1F1F1}", keywords: ["albania", "flag"] },
+    { emoji: "\u{1F1E9}\u{1F1FF}", keywords: ["algeria", "flag"] },
+    { emoji: "\u{1F1E6}\u{1F1F7}", keywords: ["argentina", "flag"] },
+    { emoji: "\u{1F1E6}\u{1F1FA}", keywords: ["australia", "flag"] },
+    { emoji: "\u{1F1E6}\u{1F1F9}", keywords: ["austria", "flag"] },
+    { emoji: "\u{1F1E7}\u{1F1E9}", keywords: ["bangladesh", "flag"] },
+    { emoji: "\u{1F1E7}\u{1F1EA}", keywords: ["belgium", "flag"] },
+    { emoji: "\u{1F1E7}\u{1F1F7}", keywords: ["brazil", "flag"] },
+    { emoji: "\u{1F1E8}\u{1F1E6}", keywords: ["canada", "flag"] },
+    { emoji: "\u{1F1E8}\u{1F1F1}", keywords: ["chile", "flag"] },
+    { emoji: "\u{1F1E8}\u{1F1F3}", keywords: ["china", "flag"] },
+    { emoji: "\u{1F1E8}\u{1F1F4}", keywords: ["colombia", "flag"] },
+    { emoji: "\u{1F1ED}\u{1F1F7}", keywords: ["croatia", "flag"] },
+    { emoji: "\u{1F1E8}\u{1F1FA}", keywords: ["cuba", "flag"] },
+    { emoji: "\u{1F1E8}\u{1F1FF}", keywords: ["czech republic", "czechia", "flag"] },
+    { emoji: "\u{1F1E9}\u{1F1F0}", keywords: ["denmark", "flag"] },
+    { emoji: "\u{1F1EA}\u{1F1EC}", keywords: ["egypt", "flag"] },
+    { emoji: "\u{1F1EA}\u{1F1F9}", keywords: ["ethiopia", "flag"] },
+    { emoji: "\u{1F1EB}\u{1F1EE}", keywords: ["finland", "flag"] },
+    { emoji: "\u{1F1EB}\u{1F1F7}", keywords: ["france", "french", "flag"] },
+    { emoji: "\u{1F1E9}\u{1F1EA}", keywords: ["germany", "flag"] },
+    { emoji: "\u{1F1EC}\u{1F1F7}", keywords: ["greece", "flag"] },
+    { emoji: "\u{1F1ED}\u{1F1F0}", keywords: ["hong kong", "flag"] },
+    { emoji: "\u{1F1ED}\u{1F1FA}", keywords: ["hungary", "flag"] },
+    { emoji: "\u{1F1EE}\u{1F1F8}", keywords: ["iceland", "flag"] },
+    { emoji: "\u{1F1EE}\u{1F1F3}", keywords: ["india", "flag"] },
+    { emoji: "\u{1F1EE}\u{1F1E9}", keywords: ["indonesia", "flag"] },
+    { emoji: "\u{1F1EE}\u{1F1F7}", keywords: ["iran", "flag"] },
+    { emoji: "\u{1F1EE}\u{1F1F6}", keywords: ["iraq", "flag"] },
+    { emoji: "\u{1F1EE}\u{1F1EA}", keywords: ["ireland", "flag"] },
+    { emoji: "\u{1F1EE}\u{1F1F1}", keywords: ["israel", "flag"] },
+    { emoji: "\u{1F1EE}\u{1F1F9}", keywords: ["italy", "flag"] },
+    { emoji: "\u{1F1EF}\u{1F1F2}", keywords: ["jamaica", "flag"] },
+    { emoji: "\u{1F1EF}\u{1F1F5}", keywords: ["japan", "flag"] },
+    { emoji: "\u{1F1EF}\u{1F1F4}", keywords: ["jordan", "flag"] },
+    { emoji: "\u{1F1F0}\u{1F1EA}", keywords: ["kenya", "flag"] },
+    { emoji: "\u{1F1F0}\u{1F1F5}", keywords: ["north korea", "flag"] },
+    { emoji: "\u{1F1F0}\u{1F1F7}", keywords: ["south korea", "korea", "flag"] },
+    { emoji: "\u{1F1F0}\u{1F1FC}", keywords: ["kuwait", "flag"] },
+    { emoji: "\u{1F1F1}\u{1F1E7}", keywords: ["lebanon", "flag"] },
+    { emoji: "\u{1F1F2}\u{1F1FE}", keywords: ["malaysia", "flag"] },
+    { emoji: "\u{1F1F2}\u{1F1FD}", keywords: ["mexico", "flag"] },
+    { emoji: "\u{1F1F2}\u{1F1E6}", keywords: ["morocco", "flag"] },
+    { emoji: "\u{1F1F3}\u{1F1F1}", keywords: ["netherlands", "dutch", "flag"] },
+    { emoji: "\u{1F1F3}\u{1F1FF}", keywords: ["new zealand", "flag"] },
+    { emoji: "\u{1F1F3}\u{1F1EC}", keywords: ["nigeria", "flag"] },
+    { emoji: "\u{1F1F3}\u{1F1F4}", keywords: ["norway", "flag"] },
+    { emoji: "\u{1F1F5}\u{1F1F0}", keywords: ["pakistan", "flag"] },
+    { emoji: "\u{1F1F5}\u{1F1ED}", keywords: ["philippines", "flag"] },
+    { emoji: "\u{1F1F5}\u{1F1F1}", keywords: ["poland", "flag"] },
+    { emoji: "\u{1F1F5}\u{1F1F9}", keywords: ["portugal", "flag"] },
+    { emoji: "\u{1F1F6}\u{1F1E6}", keywords: ["qatar", "flag"] },
+    { emoji: "\u{1F1F7}\u{1F1F4}", keywords: ["romania", "flag"] },
+    { emoji: "\u{1F1F7}\u{1F1FA}", keywords: ["russia", "flag"] },
+    { emoji: "\u{1F1F8}\u{1F1E6}", keywords: ["saudi arabia", "flag"] },
+    { emoji: "\u{1F1F8}\u{1F1EC}", keywords: ["singapore", "flag"] },
+    { emoji: "\u{1F1FF}\u{1F1E6}", keywords: ["south africa", "flag"] },
+    { emoji: "\u{1F1EA}\u{1F1F8}", keywords: ["spain", "flag"] },
+    { emoji: "\u{1F1F8}\u{1F1EA}", keywords: ["sweden", "flag"] },
+    { emoji: "\u{1F1E8}\u{1F1ED}", keywords: ["switzerland", "flag"] },
+    { emoji: "\u{1F1F9}\u{1F1FC}", keywords: ["taiwan", "flag"] },
+    { emoji: "\u{1F1F9}\u{1F1ED}", keywords: ["thailand", "flag"] },
+    { emoji: "\u{1F1F9}\u{1F1F7}", keywords: ["turkey", "turkiye", "flag"] },
+    { emoji: "\u{1F1FA}\u{1F1E6}", keywords: ["ukraine", "flag"] },
+    { emoji: "\u{1F1E6}\u{1F1EA}", keywords: ["united arab emirates", "uae", "flag"] },
+    { emoji: "\u{1F1EC}\u{1F1E7}", keywords: ["united kingdom", "uk", "britain", "flag"] },
+    { emoji: "\u{1F1FA}\u{1F1F8}", keywords: ["united states", "usa", "america", "flag"] },
+    { emoji: "\u{1F1FB}\u{1F1F3}", keywords: ["vietnam", "flag"] },
+    { emoji: "\u{1F1EA}\u{1F1FA}", keywords: ["european union", "eu", "flag"] },
+    { emoji: "\u{1F1FA}\u{1F1F3}", keywords: ["united nations", "un", "flag"] }
+  ]
+};
+
+// src/compose/emoji/categories.ts
+var emoji_categories = {
+  smileys,
+  gestures,
+  animals,
+  food,
+  travel,
+  objects,
+  symbols,
+  activities,
+  flags
+};
+
+// src/compose/emoji/search.ts
+function get_all_emojis() {
+  return Object.values(emoji_categories).flatMap(
+    (category) => category.entries
+  );
+}
+function search_emojis(query) {
+  const lower = query.toLowerCase().trim();
+  if (!lower) return [];
+  return get_all_emojis().filter(
+    (entry) => entry.emoji.includes(lower) || entry.keywords.some((kw) => kw.includes(lower))
+  );
+}
+
+// src/compose/emoji/skin_tones.ts
+var skin_tones = [
+  "default",
+  "light",
+  "medium_light",
+  "medium",
+  "medium_dark",
+  "dark"
+];
+var skin_tone_modifiers = {
+  default: "",
+  light: "\u{1F3FB}",
+  medium_light: "\u{1F3FC}",
+  medium: "\u{1F3FD}",
+  medium_dark: "\u{1F3FE}",
+  dark: "\u{1F3FF}"
+};
+var skin_tone_swatches = {
+  default: "\u270B",
+  light: "\u270B\u{1F3FB}",
+  medium_light: "\u270B\u{1F3FC}",
+  medium: "\u270B\u{1F3FD}",
+  medium_dark: "\u270B\u{1F3FE}",
+  dark: "\u270B\u{1F3FF}"
+};
+var tone_capable_emoji = /* @__PURE__ */ new Set([
+  "\u{1F44B}",
+  "\u{1F91A}",
+  "\u{1F590}\uFE0F",
+  "\u270B",
+  "\u{1F596}",
+  "\u{1FAF1}",
+  "\u{1FAF2}",
+  "\u{1FAF3}",
+  "\u{1FAF4}",
+  "\u{1FAF7}",
+  "\u{1FAF8}",
+  "\u{1F44C}",
+  "\u{1F90C}",
+  "\u{1F90F}",
+  "\u270C\uFE0F",
+  "\u{1F91E}",
+  "\u{1FAF0}",
+  "\u{1F91F}",
+  "\u{1F918}",
+  "\u{1F919}",
+  "\u{1F448}",
+  "\u{1F449}",
+  "\u{1F446}",
+  "\u{1F595}",
+  "\u{1F447}",
+  "\u261D\uFE0F",
+  "\u{1FAF5}",
+  "\u{1F44D}",
+  "\u{1F44E}",
+  "\u270A",
+  "\u{1F44A}",
+  "\u{1F91B}",
+  "\u{1F91C}",
+  "\u{1F44F}",
+  "\u{1F64C}",
+  "\u{1FAF6}",
+  "\u{1F450}",
+  "\u{1F932}",
+  "\u{1F64F}",
+  "\u270D\uFE0F",
+  "\u{1F485}",
+  "\u{1F933}",
+  "\u{1F4AA}",
+  "\u{1F442}",
+  "\u{1F9BB}",
+  "\u{1F443}",
+  "\u{1F476}",
+  "\u{1F9D2}",
+  "\u{1F466}",
+  "\u{1F467}",
+  "\u{1F9D1}",
+  "\u{1F471}",
+  "\u{1F468}",
+  "\u{1F9D4}",
+  "\u{1F469}",
+  "\u{1F9D3}",
+  "\u{1F474}",
+  "\u{1F475}",
+  "\u{1F64D}",
+  "\u{1F64E}",
+  "\u{1F645}",
+  "\u{1F646}",
+  "\u{1F481}",
+  "\u{1F64B}",
+  "\u{1F9CF}",
+  "\u{1F647}",
+  "\u{1F926}",
+  "\u{1F937}",
+  "\u{1F46E}",
+  "\u{1F575}\uFE0F",
+  "\u{1F482}",
+  "\u{1F977}",
+  "\u{1F477}",
+  "\u{1FAC5}",
+  "\u{1F934}",
+  "\u{1F478}",
+  "\u{1F9D9}",
+  "\u{1F9DA}",
+  "\u{1F9DB}",
+  "\u{1F9DC}",
+  "\u{1F9DD}",
+  "\u{1F486}",
+  "\u{1F487}",
+  "\u{1F6B6}",
+  "\u{1F9CD}",
+  "\u{1F9CE}",
+  "\u{1F3C3}",
+  "\u{1F483}",
+  "\u{1F57A}",
+  "\u{1F9D6}",
+  "\u{1F9D7}",
+  "\u{1F938}",
+  "\u{1F3CC}\uFE0F",
+  "\u{1F3CB}\uFE0F",
+  "\u{1F93D}",
+  "\u{1F93E}",
+  "\u{1F93A}",
+  "\u26F9\uFE0F",
+  "\u{1F3CA}",
+  "\u{1F6A3}",
+  "\u{1F9D8}",
+  "\u{1F6C0}",
+  "\u{1F6CC}"
+]);
+function is_tone_capable(emoji) {
+  return tone_capable_emoji.has(emoji);
+}
+function apply_skin_tone(emoji, tone) {
+  if (tone === "default" || !is_tone_capable(emoji)) return emoji;
+  const modifier = skin_tone_modifiers[tone];
+  const variation_selector = "\uFE0F";
+  if (emoji.endsWith(variation_selector)) {
+    return emoji.slice(0, -variation_selector.length) + modifier;
+  }
+  return emoji + modifier;
+}
+
+// src/compose/emoji_picker.tsx
+var import_jsx_runtime114 = require("react/jsx-runtime");
+var RECENT_KEY = "recent";
+var CATEGORY_KEYS = Object.keys(emoji_categories);
+var SKIN_TONE_STORAGE_KEY = "aster_emoji_skin_tone";
+var RECENT_STORAGE_KEY = "aster_emoji_recent";
+var RECENT_LIMIT = 16;
+var SCROLL_SPY_OFFSET = 12;
+var TAB_STEPS = { ArrowRight: 1, ArrowLeft: -1 };
+var ICON_SHAPES = {
+  recent: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M12 6v6l4 2" })
+  ] }),
+  smileys: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M8 14s1.5 2 4 2 4-2 4-2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M9 9h.01" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M15 9h.01" })
+  ] }),
+  gestures: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" })
+  ] }),
+  animals: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("circle", { cx: "11", cy: "4", r: "2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("circle", { cx: "18", cy: "8", r: "2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("circle", { cx: "20", cy: "16", r: "2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z" })
+  ] }),
+  food: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M10 2c1 .5 2 2 2 5" })
+  ] }),
+  travel: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("circle", { cx: "7", cy: "17", r: "2" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M9 17h6" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("circle", { cx: "17", cy: "17", r: "2" })
+  ] }),
+  objects: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M9 18h6" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M10 22h4" })
+  ] }),
+  symbols: /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" }),
+  activities: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M11.1 7.1a16.55 16.55 0 0 1 10.9 4" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M12 12a12.6 12.6 0 0 1-8.7 5" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M16.8 13.6a16.55 16.55 0 0 1-9 7.5" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M20.7 17a12.8 12.8 0 0 0-8.7-5 13.3 13.3 0 0 1 0-10" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M6.3 3.8a16.55 16.55 0 0 0 1.9 11.5" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("circle", { cx: "12", cy: "12", r: "10" })
+  ] }),
+  flags: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M4 22v-7" })
+  ] }),
+  search: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "m21 21-4.3-4.3" })
+  ] }),
+  close: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(import_jsx_runtime114.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "M18 6 6 18" }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("path", { d: "m6 6 12 12" })
+  ] })
+};
+function PickerIcon({ name, className }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(
+    "svg",
+    {
+      "aria-hidden": "true",
+      className,
+      fill: "none",
+      focusable: "false",
+      stroke: "currentColor",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeWidth: 1.9,
+      viewBox: "0 0 24 24",
+      children: ICON_SHAPES[name] ?? ICON_SHAPES.smileys
+    }
+  );
+}
+var ENTRY_BY_EMOJI = new Map(
+  Object.values(emoji_categories).flatMap(
+    (category) => category.entries.map((entry) => [entry.emoji, entry])
+  )
+);
+var emoji_support_cache = /* @__PURE__ */ new Map();
+var support_canvas = null;
+var renderable_sections = null;
+function is_emoji_renderable(emoji) {
+  const cached = emoji_support_cache.get(emoji);
+  if (cached !== void 0) return cached;
+  if (!support_canvas) {
+    support_canvas = document.createElement("canvas");
+  }
+  support_canvas.width = 20;
+  support_canvas.height = 20;
+  const ctx = support_canvas.getContext("2d", { willReadFrequently: true });
+  if (!ctx) return true;
+  ctx.textBaseline = "top";
+  ctx.font = "16px 'Segoe UI Emoji','Apple Color Emoji','Noto Color Emoji',sans-serif";
+  ctx.fillStyle = "#000";
+  ctx.fillText(emoji, 0, 0);
+  const data = ctx.getImageData(0, 0, 20, 20).data;
+  let supported = false;
+  for (let i = 0; i < data.length; i += 4) {
+    if (data[i + 3] > 16 && (data[i] !== data[i + 1] || data[i + 1] !== data[i + 2])) {
+      supported = true;
+      break;
+    }
+  }
+  if (supported && emoji.includes(String.fromCharCode(8205))) {
+    const width = ctx.measureText(emoji).width;
+    const single_width = ctx.measureText("\u{1F600}").width;
+    if (width > single_width * 1.25) {
+      supported = false;
+    }
+  }
+  emoji_support_cache.set(emoji, supported);
+  return supported;
+}
+function category_sections() {
+  if (!renderable_sections) {
+    renderable_sections = CATEGORY_KEYS.map((key) => ({
+      key,
+      entries: emoji_categories[key].entries.filter(
+        (entry) => is_emoji_renderable(entry.emoji)
+      )
+    })).filter((section) => section.entries.length > 0);
+  }
+  return renderable_sections;
+}
+function prefers_touch() {
+  try {
+    return window.matchMedia("(pointer: coarse)").matches;
+  } catch {
+    return false;
+  }
+}
+function load_skin_tone() {
+  try {
+    const stored = localStorage.getItem(SKIN_TONE_STORAGE_KEY);
+    if (stored && skin_tones.includes(stored)) {
+      return stored;
+    }
+  } catch {
+    return "default";
+  }
+  return "default";
+}
+function load_recent() {
+  try {
+    const parsed = JSON.parse(
+      localStorage.getItem(RECENT_STORAGE_KEY) ?? "[]"
+    );
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter(
+      (value) => typeof value === "string" && ENTRY_BY_EMOJI.has(value)
+    ).slice(0, RECENT_LIMIT);
+  } catch {
+    return [];
+  }
+}
+function remember_recent(emoji) {
+  const next = [emoji, ...load_recent().filter((value) => value !== emoji)];
+  try {
+    localStorage.setItem(
+      RECENT_STORAGE_KEY,
+      JSON.stringify(next.slice(0, RECENT_LIMIT))
+    );
+  } catch {
+    return;
+  }
+}
+function entry_from_event(event) {
+  const button = event.target.closest(
+    "[data-emoji]"
+  );
+  const emoji = button?.dataset.emoji;
+  return emoji ? ENTRY_BY_EMOJI.get(emoji) ?? null : null;
+}
+function vertical_neighbor(buttons, index, direction) {
+  const current = buttons[index].getBoundingClientRect();
+  let row_top = null;
+  let best = null;
+  let best_distance = Infinity;
+  for (let i = index + direction; i >= 0 && i < buttons.length; i += direction) {
+    const rect = buttons[i].getBoundingClientRect();
+    const crossed = direction === 1 ? rect.top > current.top + 4 : rect.top < current.top - 4;
+    if (!crossed) continue;
+    if (row_top === null) row_top = rect.top;
+    if (Math.abs(rect.top - row_top) > 4) break;
+    const distance = Math.abs(rect.left - current.left);
+    if (distance < best_distance) {
+      best_distance = distance;
+      best = i;
+    }
+  }
+  return best;
+}
+var EmojiGrid = (0, import_react32.memo)(function EmojiGrid2({
+  entries,
+  skin_tone
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("div", { className: "aster_emoji_grid", children: entries.map((entry, index) => {
+    const toned = apply_skin_tone(entry.emoji, skin_tone);
+    return /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(
+      "button",
+      {
+        "aria-label": entry.keywords[0] ?? toned,
+        className: "aster_emoji_cell",
+        "data-emoji": entry.emoji,
+        type: "button",
+        children: toned
+      },
+      `${entry.emoji}-${index}`
+    );
+  }) });
+});
+function EmojiPicker({
+  on_select,
+  labels,
+  reduce_motion: reduce_motion_prop
+}) {
+  const system_reduce_motion = (0, import_framer_motion19.useReducedMotion)();
+  const reduce_motion = reduce_motion_prop ?? !!system_reduce_motion;
+  const indicator_id = (0, import_react32.useId)();
+  const [search_query, set_search_query] = (0, import_react32.useState)("");
+  const [skin_tone, set_skin_tone] = (0, import_react32.useState)(load_skin_tone);
+  const [show_tones, set_show_tones] = (0, import_react32.useState)(false);
+  const [recent] = (0, import_react32.useState)(load_recent);
+  const [is_touch] = (0, import_react32.useState)(prefers_touch);
+  const grid_ref = (0, import_react32.useRef)(null);
+  const input_ref = (0, import_react32.useRef)(null);
+  const tones_ref = (0, import_react32.useRef)(null);
+  const tab_refs = (0, import_react32.useRef)([]);
+  const spy_frame_ref = (0, import_react32.useRef)(0);
+  const pending_jump_ref = (0, import_react32.useRef)(null);
+  const trimmed_query = search_query.trim();
+  const is_searching = trimmed_query.length > 0;
+  const category_labels = labels.categories;
+  const category_label = (key) => category_labels?.[key] ?? emoji_categories[key]?.label ?? key;
+  const sections = (0, import_react32.useMemo)(() => {
+    const recent_entries = recent.map((emoji) => ENTRY_BY_EMOJI.get(emoji)).filter(
+      (entry) => entry !== void 0 && is_emoji_renderable(entry.emoji)
+    );
+    const categories = category_sections();
+    return recent_entries.length > 0 ? [{ key: RECENT_KEY, entries: recent_entries }, ...categories] : categories;
+  }, [recent]);
+  const section_keys = (0, import_react32.useMemo)(
+    () => sections.map((section) => section.key),
+    [sections]
+  );
+  const [active_section, set_active_section] = (0, import_react32.useState)(section_keys[0]);
+  const search_results = (0, import_react32.useMemo)(
+    () => is_searching ? search_emojis(trimmed_query).filter(
+      (entry) => is_emoji_renderable(entry.emoji)
+    ) : [],
+    [is_searching, trimmed_query]
+  );
+  const content = (0, import_react32.useMemo)(() => {
+    if (is_searching) {
+      return search_results.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("div", { className: "aster_emoji_results", children: /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(EmojiGrid, { entries: search_results, skin_tone }) }) : /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)("div", { className: "aster_emoji_empty", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(PickerIcon, { className: "aster_emoji_empty_icon", name: "search" }),
+        /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("p", { children: labels.no_results })
+      ] });
+    }
+    return sections.map((section) => /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)("section", { "data-section": section.key, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("p", { className: "aster_emoji_section_label", children: category_labels?.[section.key] ?? emoji_categories[section.key]?.label ?? section.key }),
+      /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(EmojiGrid, { entries: section.entries, skin_tone })
+    ] }, section.key));
+  }, [
+    is_searching,
+    search_results,
+    sections,
+    skin_tone,
+    labels.no_results,
+    category_labels
+  ]);
+  const select_entry = (entry) => {
+    remember_recent(entry.emoji);
+    on_select(apply_skin_tone(entry.emoji, skin_tone));
+  };
+  const select_skin_tone = (tone) => {
+    set_skin_tone(tone);
+    set_show_tones(false);
+    try {
+      localStorage.setItem(SKIN_TONE_STORAGE_KEY, tone);
+    } catch {
+      return;
+    }
+  };
+  const scroll_to_section = (key) => {
+    const grid = grid_ref.current;
+    const target = grid?.querySelector(`[data-section="${key}"]`);
+    if (!grid || !target) return;
+    grid.scrollTop = target.offsetTop;
+  };
+  const choose_section = (key) => {
+    set_active_section(key);
+    if (is_searching) {
+      pending_jump_ref.current = key;
+      set_search_query("");
+      return;
+    }
+    scroll_to_section(key);
+  };
+  const update_active_from_scroll = () => {
+    const grid = grid_ref.current;
+    if (!grid || is_searching) return;
+    const threshold = grid.scrollTop + SCROLL_SPY_OFFSET;
+    const nodes = grid.querySelectorAll("[data-section]");
+    let current = section_keys[0];
+    for (const node of nodes) {
+      if (node.offsetTop > threshold) break;
+      current = node.dataset.section ?? current;
+    }
+    if (grid.scrollTop + grid.clientHeight >= grid.scrollHeight - 2) {
+      current = nodes[nodes.length - 1]?.dataset.section ?? current;
+    }
+    set_active_section(
+      (previous) => previous === current ? previous : current
+    );
+  };
+  const handle_scroll = () => {
+    if (spy_frame_ref.current) return;
+    spy_frame_ref.current = window.requestAnimationFrame(() => {
+      spy_frame_ref.current = 0;
+      update_active_from_scroll();
+    });
+  };
+  const emoji_buttons = () => Array.from(
+    grid_ref.current?.querySelectorAll("[data-emoji]") ?? []
+  );
+  const focus_emoji = (buttons, index) => {
+    const target = buttons[index];
+    if (!target) return;
+    target.focus({ preventScroll: true });
+    target.scrollIntoView({ block: "nearest" });
+  };
+  const handle_search_key = (event) => {
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      focus_emoji(emoji_buttons(), 0);
+      return;
+    }
+    if (event.key === "Escape" && is_searching) {
+      event.preventDefault();
+      event.stopPropagation();
+      set_search_query("");
+      return;
+    }
+    if (event.key !== "Enter" || !is_searching) return;
+    const first = search_results[0];
+    if (!first) return;
+    event.preventDefault();
+    select_entry(first);
+  };
+  const handle_tab_key = (event, index) => {
+    const step = TAB_STEPS[event.key];
+    if (step === void 0) return;
+    event.preventDefault();
+    const next = (index + step + section_keys.length) % section_keys.length;
+    choose_section(section_keys[next]);
+    tab_refs.current[next]?.focus();
+  };
+  const handle_grid_key = (event) => {
+    const key = event.key;
+    if (key !== "ArrowRight" && key !== "ArrowLeft" && key !== "ArrowDown" && key !== "ArrowUp") {
+      return;
+    }
+    const buttons = emoji_buttons();
+    const index = buttons.indexOf(document.activeElement);
+    if (index === -1) return;
+    event.preventDefault();
+    if (key === "ArrowRight" || key === "ArrowLeft") {
+      const step = key === "ArrowRight" ? 1 : -1;
+      focus_emoji(
+        buttons,
+        Math.max(0, Math.min(buttons.length - 1, index + step))
+      );
+      return;
+    }
+    const next = vertical_neighbor(
+      buttons,
+      index,
+      key === "ArrowDown" ? 1 : -1
+    );
+    if (next === null) {
+      if (key === "ArrowUp") input_ref.current?.focus();
+      return;
+    }
+    focus_emoji(buttons, next);
+  };
+  const handle_grid_click = (event) => {
+    const entry = entry_from_event(event);
+    if (entry) select_entry(entry);
+  };
+  const clear_search = () => {
+    set_search_query("");
+    input_ref.current?.focus();
+  };
+  (0, import_react32.useLayoutEffect)(() => {
+    const grid = grid_ref.current;
+    if (!grid) return;
+    if (is_searching) {
+      grid.scrollTop = 0;
+      return;
+    }
+    const jump = pending_jump_ref.current;
+    pending_jump_ref.current = null;
+    if (jump) {
+      scroll_to_section(jump);
+    } else {
+      grid.scrollTop = 0;
+      set_active_section(section_keys[0]);
+    }
+  }, [is_searching, trimmed_query, section_keys]);
+  (0, import_react32.useEffect)(() => {
+    if (!is_touch) input_ref.current?.focus({ preventScroll: true });
+    return () => window.cancelAnimationFrame(spy_frame_ref.current);
+  }, [is_touch]);
+  (0, import_react32.useEffect)(() => {
+    if (!show_tones) return;
+    const handle_pointer = (event) => {
+      if (!tones_ref.current?.contains(event.target)) {
+        set_show_tones(false);
+      }
+    };
+    document.addEventListener("pointerdown", handle_pointer, true);
+    return () => document.removeEventListener("pointerdown", handle_pointer, true);
+  }, [show_tones]);
+  const fade = reduce_motion ? { duration: 0 } : { duration: 0.16, ease: [0.2, 0, 0, 1] };
+  return /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)("div", { className: "aster_emoji_picker", onMouseDown: (e) => e.preventDefault(), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)("div", { className: "aster_emoji_tabs", role: "tablist", children: section_keys.map((key, index) => {
+      const is_active = !is_searching && active_section === key;
+      const is_focus_target = is_searching ? index === 0 : is_active;
+      return /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(Tooltip, { position: "top", tip: category_label(key), children: /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(
+        "button",
+        {
+          ref: (node) => {
+            tab_refs.current[index] = node;
+          },
+          "aria-label": category_label(key),
+          "aria-selected": is_active,
+          className: "aster_emoji_tab",
+          "data-active": is_active || void 0,
+          role: "tab",
+          tabIndex: is_focus_target ? 0 : -1,
+          type: "button",
+          onClick: () => choose_section(key),
+          onKeyDown: (event) => handle_tab_key(event, index),
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(PickerIcon, { className: "aster_emoji_tab_icon", name: key }),
+            is_active && /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(
+              import_framer_motion19.motion.span,
+              {
+                className: "aster_emoji_tab_indicator",
+                layoutId: `${indicator_id}_emoji_tab`,
+                transition: reduce_motion ? { duration: 0 } : { type: "spring", stiffness: 620, damping: 44 }
+              }
+            )
+          ]
+        }
+      ) }, key);
+    }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(
+      "div",
+      {
+        ref: tones_ref,
+        className: "aster_emoji_head",
+        onKeyDown: (event) => {
+          if (event.key !== "Escape" || !show_tones) return;
+          event.stopPropagation();
+          set_show_tones(false);
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(import_framer_motion19.AnimatePresence, { initial: false, mode: "wait", children: show_tones ? /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(
+            import_framer_motion19.motion.div,
+            {
+              animate: { opacity: 1 },
+              "aria-label": labels.skin_tone,
+              className: "aster_emoji_tone_row",
+              exit: { opacity: 0 },
+              initial: reduce_motion ? false : { opacity: 0 },
+              role: "group",
+              transition: fade,
+              children: skin_tones.map((tone) => /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(
+                "button",
+                {
+                  "aria-label": labels.skin_tone,
+                  "aria-pressed": skin_tone === tone,
+                  className: "aster_emoji_tone_option",
+                  "data-active": skin_tone === tone || void 0,
+                  type: "button",
+                  onClick: () => select_skin_tone(tone),
+                  children: skin_tone_swatches[tone]
+                },
+                tone
+              ))
+            },
+            "tones"
+          ) : /* @__PURE__ */ (0, import_jsx_runtime114.jsxs)(
+            import_framer_motion19.motion.div,
+            {
+              animate: { opacity: 1 },
+              className: "aster_emoji_search",
+              exit: { opacity: 0 },
+              initial: reduce_motion ? false : { opacity: 0 },
+              transition: fade,
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(PickerIcon, { className: "aster_emoji_search_icon", name: "search" }),
+                /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(
+                  "input",
+                  {
+                    ref: input_ref,
+                    "aria-label": labels.search,
+                    autoCapitalize: "off",
+                    autoComplete: "off",
+                    autoCorrect: "off",
+                    className: "aster_emoji_search_input",
+                    enterKeyHint: "done",
+                    inputMode: "search",
+                    placeholder: labels.search,
+                    spellCheck: false,
+                    type: "text",
+                    value: search_query,
+                    onChange: (e) => set_search_query(e.target.value),
+                    onKeyDown: handle_search_key,
+                    onMouseDown: (e) => e.stopPropagation()
+                  }
+                ),
+                is_searching && /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(
+                  "button",
+                  {
+                    "aria-label": labels.clear ?? labels.search,
+                    className: "aster_emoji_search_clear",
+                    type: "button",
+                    onClick: clear_search,
+                    children: /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(PickerIcon, { className: "aster_emoji_clear_icon", name: "close" })
+                  }
+                )
+              ]
+            },
+            "search"
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(Tooltip, { position: "top", tip: labels.skin_tone, children: /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(
+            "button",
+            {
+              "aria-expanded": show_tones,
+              "aria-label": labels.skin_tone,
+              className: "aster_emoji_tone_btn",
+              "data-open": show_tones || void 0,
+              type: "button",
+              onClick: () => set_show_tones(!show_tones),
+              children: show_tones ? /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(PickerIcon, { className: "aster_emoji_tone_close", name: "close" }) : skin_tone_swatches[skin_tone]
+            }
+          ) })
+        ]
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime114.jsx)(
+      "div",
+      {
+        ref: grid_ref,
+        className: "aster_emoji_body",
+        onClick: handle_grid_click,
+        onKeyDown: handle_grid_key,
+        onScroll: handle_scroll,
+        children: content
+      }
+    )
+  ] });
+}
+
+// src/compose/emoji_popover.tsx
+var import_react33 = require("react");
+var import_react_dom4 = require("react-dom");
+var import_framer_motion20 = require("framer-motion");
+var import_jsx_runtime115 = require("react/jsx-runtime");
+var EMOJI_PICKER_WIDTH = 360;
+var EMOJI_PICKER_MAX_HEIGHT = 420;
+var VIEWPORT_MARGIN2 = 8;
+function clamp_emoji_picker_position(rect) {
+  const min_right = VIEWPORT_MARGIN2;
+  const max_right = Math.max(
+    min_right,
+    window.innerWidth - EMOJI_PICKER_WIDTH - VIEWPORT_MARGIN2
+  );
+  const min_bottom = VIEWPORT_MARGIN2;
+  const max_bottom = Math.max(
+    min_bottom,
+    window.innerHeight - EMOJI_PICKER_MAX_HEIGHT - VIEWPORT_MARGIN2
+  );
+  return {
+    right: Math.min(
+      Math.max(window.innerWidth - rect.right, min_right),
+      max_right
+    ),
+    bottom: Math.min(
+      Math.max(window.innerHeight - rect.top + 8, min_bottom),
+      max_bottom
+    )
+  };
+}
+function EmojiPopover({
+  open,
+  anchor_ref,
+  panel_id,
+  on_close,
+  on_select,
+  labels,
+  reduce_motion
+}) {
+  const [pos, set_pos] = (0, import_react33.useState)({ bottom: 0, right: 0 });
+  const picker_ref = (0, import_react33.useRef)(null);
+  (0, import_react33.useEffect)(() => {
+    if (!open) return;
+    const handle_click_outside = (e) => {
+      const target = e.target;
+      if (anchor_ref.current?.contains(target)) return;
+      if (picker_ref.current?.contains(target)) return;
+      on_close();
+    };
+    document.addEventListener("mousedown", handle_click_outside);
+    return () => document.removeEventListener("mousedown", handle_click_outside);
+  }, [open, anchor_ref, on_close]);
+  use_escape_layer(open, on_close, "compose_emoji_picker");
+  use_anchored_layer(
+    open,
+    anchor_ref,
+    (rect) => set_pos(clamp_emoji_picker_position(rect)),
+    on_close
+  );
+  if (typeof document === "undefined") return null;
+  return (0, import_react_dom4.createPortal)(
+    /* @__PURE__ */ (0, import_jsx_runtime115.jsx)(import_framer_motion20.AnimatePresence, { children: open && /* @__PURE__ */ (0, import_jsx_runtime115.jsx)(
+      "div",
+      {
+        ref: picker_ref,
+        className: "aster_emoji_popover",
+        id: panel_id,
+        style: { zIndex: 9999, right: pos.right, bottom: pos.bottom },
+        children: /* @__PURE__ */ (0, import_jsx_runtime115.jsx)(
+          EmojiPicker,
+          {
+            labels,
+            reduce_motion,
+            on_select
+          }
+        )
+      }
+    ) }),
+    document.body
+  );
+}
+
+// src/compose/link_popover.tsx
+var import_react34 = require("react");
+var import_react_dom5 = require("react-dom");
+var import_jsx_runtime116 = require("react/jsx-runtime");
+function LinkPopover({
+  open,
+  anchor_ref,
+  selected_text,
+  on_close,
+  on_insert,
+  labels
+}) {
+  const [url, set_url] = (0, import_react34.useState)("https://");
+  const [text, set_text] = (0, import_react34.useState)("");
+  const [error, set_error] = (0, import_react34.useState)("");
+  const [pos, set_pos] = (0, import_react34.useState)({ top: 0, left: 0 });
+  const card_ref = (0, import_react34.useRef)(null);
+  const url_input_ref = (0, import_react34.useRef)(null);
+  use_escape_layer(open, on_close, "compose_link_popover");
+  use_anchored_layer(
+    open,
+    anchor_ref,
+    (rect) => set_pos({
+      top: rect.top,
+      left: Math.max(8, Math.min(rect.left, window.innerWidth - 308))
+    }),
+    on_close
+  );
+  (0, import_react34.useEffect)(() => {
+    if (!open) return;
+    set_url("https://");
+    set_text(selected_text);
+    set_error("");
+    requestAnimationFrame(() => url_input_ref.current?.focus());
+    const handle_click_outside = (e) => {
+      const target = e.target;
+      if (anchor_ref.current?.contains(target)) return;
+      if (card_ref.current?.contains(target)) return;
+      on_close();
+    };
+    document.addEventListener("mousedown", handle_click_outside);
+    return () => document.removeEventListener("mousedown", handle_click_outside);
+  }, [open]);
+  const handle_insert = () => {
+    const normalized = normalize_link_url(url);
+    if (!normalized) {
+      set_error(labels.invalid_url);
+      return;
+    }
+    on_insert(normalized, text.trim() || void 0);
+    on_close();
+  };
+  if (!open || typeof document === "undefined") return null;
+  return (0, import_react_dom5.createPortal)(
+    /* @__PURE__ */ (0, import_jsx_runtime116.jsxs)(
+      "div",
+      {
+        ref: card_ref,
+        "aria-label": labels.url_placeholder,
+        className: "aster_link_popover",
+        role: "dialog",
+        style: {
+          zIndex: 9999,
+          left: pos.left,
+          bottom: window.innerHeight - pos.top + 8
+        },
+        onKeyDown: (e) => {
+          if (e.key === "Enter" && !is_composing2(e)) {
+            e.preventDefault();
+            handle_insert();
+          }
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime116.jsx)(
+            Input,
+            {
+              ref: url_input_ref,
+              "aria-invalid": error ? true : void 0,
+              "aria-label": labels.url_placeholder,
+              className: "aster_link_popover_input",
+              placeholder: labels.url_placeholder,
+              size: "sm",
+              type: "url",
+              value: url,
+              onChange: (e) => {
+                set_url(e.target.value);
+                if (error) set_error("");
+              }
+            }
+          ),
+          error && /* @__PURE__ */ (0, import_jsx_runtime116.jsx)("p", { className: "aster_link_popover_error", role: "alert", children: error }),
+          !selected_text && /* @__PURE__ */ (0, import_jsx_runtime116.jsx)(
+            Input,
+            {
+              "aria-label": labels.display_text_placeholder,
+              className: "aster_link_popover_input",
+              placeholder: labels.display_text_placeholder,
+              size: "sm",
+              type: "text",
+              value: text,
+              onChange: (e) => set_text(e.target.value)
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime116.jsxs)("div", { className: "aster_link_popover_actions", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime116.jsx)(Button, { size: "sm", variant: "outline", onClick: on_close, children: labels.cancel }),
+            /* @__PURE__ */ (0, import_jsx_runtime116.jsx)(Button, { size: "sm", variant: "depth", onClick: handle_insert, children: labels.insert })
+          ] })
+        ]
+      }
+    ),
+    document.body
+  );
+}
+
+// src/compose/draft_status.tsx
+var import_framer_motion21 = require("framer-motion");
+var import_jsx_runtime117 = require("react/jsx-runtime");
+function DraftStatusIndicator({
+  status,
+  reduce_motion,
+  labels
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime117.jsx)(import_framer_motion21.AnimatePresence, { children: status !== "idle" && /* @__PURE__ */ (0, import_jsx_runtime117.jsx)(
+    import_framer_motion21.motion.div,
+    {
+      animate: { opacity: 1 },
+      className: "aster_draft_status",
+      exit: { opacity: 0 },
+      initial: reduce_motion ? false : { opacity: 0 },
+      transition: { duration: reduce_motion ? 0 : 0.2, ease: "easeOut" },
+      children: /* @__PURE__ */ (0, import_jsx_runtime117.jsx)(import_framer_motion21.AnimatePresence, { initial: false, mode: "wait", children: status === "saving" ? /* @__PURE__ */ (0, import_jsx_runtime117.jsx)(
+        import_framer_motion21.motion.div,
+        {
+          animate: { opacity: 1 },
+          className: "aster_draft_status_item",
+          exit: { opacity: 0 },
+          initial: reduce_motion ? false : { opacity: 0 },
+          transition: { duration: reduce_motion ? 0 : 0.15 },
+          children: /* @__PURE__ */ (0, import_jsx_runtime117.jsx)(
+            "div",
+            {
+              "aria-label": labels.saving,
+              className: "aster_draft_progress",
+              role: "progressbar",
+              children: /* @__PURE__ */ (0, import_jsx_runtime117.jsx)(
+                import_framer_motion21.motion.div,
+                {
+                  animate: reduce_motion ? { x: "0%" } : { x: ["-100%", "250%"] },
+                  className: "aster_draft_progress_bar",
+                  transition: reduce_motion ? { duration: 0 } : { duration: 1.1, ease: "easeInOut", repeat: Infinity }
+                }
+              )
+            }
+          )
+        },
+        "saving"
+      ) : status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime117.jsxs)(
+        import_framer_motion21.motion.div,
+        {
+          animate: { opacity: 1 },
+          className: "aster_draft_status_item aster_draft_status_error",
+          exit: { opacity: 0 },
+          initial: reduce_motion ? false : { opacity: 0 },
+          transition: { duration: reduce_motion ? 0 : 0.15 },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime117.jsxs)(
+              "svg",
+              {
+                className: "aster_draft_status_icon",
+                fill: "none",
+                stroke: "currentColor",
+                strokeWidth: "2",
+                viewBox: "0 0 24 24",
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime117.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime117.jsx)("line", { x1: "12", x2: "12", y1: "8", y2: "12" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime117.jsx)("line", { x1: "12", x2: "12.01", y1: "16", y2: "16" })
+                ]
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime117.jsx)("span", { children: labels.save_failed })
+          ]
+        },
+        "error"
+      ) : /* @__PURE__ */ (0, import_jsx_runtime117.jsxs)(
+        import_framer_motion21.motion.div,
+        {
+          animate: { opacity: 1 },
+          className: "aster_draft_status_item",
+          exit: { opacity: 0 },
+          initial: reduce_motion ? false : { opacity: 0 },
+          transition: { duration: reduce_motion ? 0 : 0.15 },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime117.jsx)(
+              "svg",
+              {
+                className: "aster_draft_status_icon",
+                fill: "currentColor",
+                viewBox: "0 0 24 24",
+                children: /* @__PURE__ */ (0, import_jsx_runtime117.jsx)("path", { d: COMPOSE_ICON_PATHS.saved })
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime117.jsx)("span", { children: labels.saved })
+          ]
+        },
+        "saved"
+      ) })
+    }
+  ) });
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   ASTER_EMAIL_DOMAINS,
+  AVATAR_COLORS,
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -15924,6 +18608,7 @@ function PinLockOverlayView({
   BlockingDialogView,
   Button,
   ButtonSpinner,
+  COMPOSE_ICON_PATHS,
   Card,
   CardContent,
   CardDescription,
@@ -15939,6 +18624,8 @@ function PinLockOverlayView({
   CoinIcon,
   ColorVisionFilters,
   ComposeErrorFallbackView,
+  ComposeIcon,
+  ComposeToolbarLayout,
   ConfirmationModal,
   ContactAvatarView,
   ContextMenu,
@@ -15949,6 +18636,7 @@ function PinLockOverlayView({
   CrownIcon,
   DEFAULT_TOAST_POSITION,
   DashboardSidebar,
+  DraftStatusIndicator,
   DrawerColorSwatches,
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -15965,17 +18653,22 @@ function PinLockOverlayView({
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
+  EMOJI_PICKER_MAX_HEIGHT,
+  EMOJI_PICKER_WIDTH,
   ENCRYPTED_LOCK_COLOR,
   EditFolderSheetView,
   EditTagSheetView,
   EmailErrorFallbackView,
   EmailTag,
+  EmojiPicker,
+  EmojiPopover,
   EmptyState,
   EncryptionInfoDropdownView,
   ErrorBanner,
   ErrorBoundaryView,
   ErrorDetailsView,
   ExternalLinkWarningModal,
+  FORMAT_BAR_STORAGE_KEY,
   Family2faDialogView,
   FaviconOrInitial,
   FeatureCard,
@@ -16005,6 +18698,7 @@ function PinLockOverlayView({
   KeyboardShortcutBadgeView,
   KeyboardShortcutsModal,
   LinkIcon,
+  LinkPopover,
   LockIcon,
   Logo,
   Marquee,
@@ -16185,11 +18879,14 @@ function PinLockOverlayView({
   ThemeMockupLight,
   ThreadHiddenRow,
   ThreeDotsHorizontal,
+  ToolbarButton,
+  ToolbarDivider,
   Tooltip,
   TooltipDotted,
   TooltipRich,
   TrashIcon,
   UiStringsProvider,
+  UnderlineTabs,
   UpgradeBtn,
   UpgradeOverlay,
   ViewMockupFullpage,
@@ -16199,16 +18896,19 @@ function PinLockOverlayView({
   WarningIcon,
   WorkspaceSwitcherView,
   accordion_variants,
+  apply_skin_tone,
   avatar_variants,
   badge_variants,
   button_tap,
   button_variants,
   card_variants,
+  clamp_emoji_picker_position,
   cn,
   default_snooze_time_units,
   default_ui_strings,
   dismiss_toast,
   email_tag_variants,
+  emoji_categories,
   fade_up_item,
   format_error_text,
   format_find_order,
@@ -16216,13 +18916,24 @@ function PinLockOverlayView({
   format_shortcut_modifier,
   format_snooze_time_remaining,
   format_ui_string,
+  get_active_locale,
+  get_all_emojis,
   get_auth_alert_styles,
   get_auth_primary_button_style,
+  get_avatar_color,
+  get_avatar_color_index,
+  get_avatar_key,
   get_badge_visual,
   get_contact_avatar_font_size,
+  get_contrast_text,
+  get_initials,
   has_open_overlay_layer,
+  hash_utf16,
   hex_to_variant,
   is_aster_email_address,
+  is_composing,
+  is_emoji_renderable,
+  is_tone_capable,
   is_top_overlay_layer,
   is_top_position,
   kbd_variants,
@@ -16232,20 +18943,29 @@ function PinLockOverlayView({
   motion_duration_fast,
   motion_duration_slow,
   motion_ease_standard,
+  normalize_link_url,
   page_slide_transition,
   plan_badge_tier,
   push_overlay_layer,
+  read_format_bar_preference,
   remove_overlay_layer,
   resolve_toast_layout,
   resolve_toast_position,
+  search_emojis,
   set_toast_min_duration,
   show_toast,
+  skin_tone_modifiers,
+  skin_tone_swatches,
+  skin_tones,
   stagger_container,
+  store_format_bar_preference,
   switch_variants,
   tag_color_label_key,
   tag_icon_label_key,
   tag_icon_map,
+  tone_capable_emoji,
   unlock_body_scroll,
+  use_anchored_layer,
   use_backdrop_dismiss,
   use_body_scroll_lock,
   use_dialog_shell,

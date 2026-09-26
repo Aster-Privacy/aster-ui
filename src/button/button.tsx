@@ -52,7 +52,7 @@ const button_variants = cva("aster_btn", {
 
 type ButtonVariantProps = VariantProps<typeof button_variants>;
 
-type LoadingPosition = "replace" | "before" | "after";
+type LoadingPosition = "edge" | "replace";
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,

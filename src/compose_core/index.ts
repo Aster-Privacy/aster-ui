@@ -20,27 +20,29 @@
 //
 
 export {
-  Avatar,
-  AvatarWithStatus,
-  AvatarGroup,
-  AvatarNamed,
-  avatar_variants,
-} from "./avatar";
-export type {
-  AvatarProps,
-  AvatarVariantProps,
-  AvatarWithStatusProps,
-  AvatarGroupProps,
-  AvatarNamedProps,
-  StatusType,
-} from "./avatar";
+  FORMAT_BAR_STORAGE_KEY,
+  read_format_bar_preference,
+  store_format_bar_preference,
+  use_anchored_layer,
+} from "../compose/anchored_layer";
 export {
-  AVATAR_COLORS,
-  get_active_locale,
-  get_avatar_color,
-  get_avatar_color_index,
-  get_avatar_key,
-  get_contrast_text,
-  get_initials,
-  hash_utf16,
-} from "./identity";
+  has_open_overlay_layer,
+  is_top_overlay_layer,
+  push_overlay_layer,
+  remove_overlay_layer,
+  use_escape_layer,
+  use_overlay_layer,
+} from "../compose/overlay_layer";
+export { is_composing, normalize_link_url } from "../compose/link_url";
+export {
+  apply_skin_tone,
+  emoji_categories,
+  get_all_emojis,
+  is_tone_capable,
+  search_emojis,
+  skin_tone_modifiers,
+  skin_tone_swatches,
+  skin_tones,
+  tone_capable_emoji,
+} from "../compose/emoji";
+export type { EmojiCategory, EmojiEntry, SkinTone } from "../compose/emoji";

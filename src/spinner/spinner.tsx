@@ -73,27 +73,29 @@ export const Spinner = React.forwardRef<SVGSVGElement, SpinnerProps>(
 
 Spinner.displayName = "Spinner";
 
-export interface ButtonSpinnerProps {
+export interface ButtonSpinnerProps
+  extends React.HTMLAttributes<HTMLSpanElement> {
   size?: SpinnerSize;
   centered?: boolean;
-  className?: string;
 }
 
-export function ButtonSpinner({
-  size = "sm",
-  centered = false,
-  className,
-}: ButtonSpinnerProps) {
+export const ButtonSpinner = React.forwardRef<
+  HTMLSpanElement,
+  ButtonSpinnerProps
+>(({ size = "sm", centered = false, className, ...props }, ref) => {
   return (
     <span
-      aria-hidden="true"
+      ref={ref}
       className={cn(
         "aster_btn_spinner",
         centered && "aster_btn_spinner_centered",
         className,
       )}
+      {...props}
     >
       <Spinner size={size} />
     </span>
   );
-}
+});
+
+ButtonSpinner.displayName = "ButtonSpinner";
