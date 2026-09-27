@@ -56,6 +56,7 @@ export {
   IslandIconButton,
   IslandChip,
   IslandCountPill,
+  SelectionMark,
 } from "./island_controls";
 export type {
   PillButtonProps,
@@ -65,6 +66,7 @@ export type {
   IslandChipProps,
   IslandCountPillProps,
   IslandCountPillSize,
+  SelectionMarkProps,
 } from "./island_controls";
 
 export { SettingToggleRow, SettingControlRow, SettingNote } from "./setting_rows";

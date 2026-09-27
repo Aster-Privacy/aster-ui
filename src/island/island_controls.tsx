@@ -215,3 +215,33 @@ export const IslandCountPill = React.forwardRef<HTMLButtonElement, IslandCountPi
 );
 
 IslandCountPill.displayName = "IslandCountPill";
+
+export interface SelectionMarkProps extends React.HTMLAttributes<HTMLSpanElement> {
+  selected: boolean;
+  check?: boolean;
+}
+
+export function SelectionMark({ selected, check = true, className, ...props }: SelectionMarkProps) {
+  return (
+    <span
+      aria-hidden="true"
+      className={join_classes("aster_selection_mark", className)}
+      data-selected={selected ? "true" : "false"}
+      {...props}
+    >
+      {check ? (
+        <span className="aster_selection_mark_check">
+          <svg fill="none" height="10" viewBox="0 0 16 16" width="10">
+            <path
+              d="M3.5 8.5L6.3 11.3L12.5 4.7"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2.2"
+            />
+          </svg>
+        </span>
+      ) : null}
+    </span>
+  );
+}

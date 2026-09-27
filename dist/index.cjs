@@ -298,6 +298,7 @@ __export(index_exports, {
   SelectSeparator: () => SelectSeparator,
   SelectTrigger: () => SelectTrigger,
   SelectValue: () => SelectValue,
+  SelectionMark: () => SelectionMark,
   SenderProfileCardView: () => SenderProfileCardView,
   SenderProfileModalView: () => SenderProfileModalView,
   Separator: () => Separator4,
@@ -8823,6 +8824,27 @@ var IslandCountPill = React36.forwardRef(
   )
 );
 IslandCountPill.displayName = "IslandCountPill";
+function SelectionMark({ selected, check = true, className, ...props }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
+    "span",
+    {
+      "aria-hidden": "true",
+      className: join_classes7("aster_selection_mark", className),
+      "data-selected": selected ? "true" : "false",
+      ...props,
+      children: check ? /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("span", { className: "aster_selection_mark_check", children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)("svg", { fill: "none", height: "10", viewBox: "0 0 16 16", width: "10", children: /* @__PURE__ */ (0, import_jsx_runtime61.jsx)(
+        "path",
+        {
+          d: "M3.5 8.5L6.3 11.3L12.5 4.7",
+          stroke: "currentColor",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+          strokeWidth: "2.2"
+        }
+      ) }) }) : null
+    }
+  );
+}
 
 // src/thread/thread_hidden_row.tsx
 var React37 = __toESM(require("react"), 1);
@@ -18816,6 +18838,7 @@ function DraftStatusIndicator({
   SelectSeparator,
   SelectTrigger,
   SelectValue,
+  SelectionMark,
   SenderProfileCardView,
   SenderProfileModalView,
   Separator,
