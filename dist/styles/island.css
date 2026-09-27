@@ -168,7 +168,7 @@
     width: 16px;
     height: 16px;
     flex-shrink: 0;
-    color: var(--accent-color);
+    color: var(--text-muted);
   }
 
   .aster_info_popover_body {
