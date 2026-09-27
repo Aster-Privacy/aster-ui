@@ -130,16 +130,14 @@ function DrawerSaveDeleteRow({
       >
         {save_label}
       </Button>
-      <button
-        className="rounded-[16px] px-5 py-3 text-[15px] font-medium text-white transition-all "
-        style={{
-          background: "linear-gradient(180deg, #ef4444 0%, #dc2626 100%)",
-        }}
+      <Button
+        className="rounded-[16px] px-5 py-3 text-[15px] font-medium"
         type="button"
+        variant="depth_destructive"
         onClick={on_delete}
       >
         {delete_label}
-      </button>
+      </Button>
     </div>
   );
 }
@@ -612,7 +610,7 @@ export function CreateAliasSheetView({
                 if (e.key === "Enter") on_submit();
               }}
             />
-            <span className="rounded-e-xl bg-[var(--bg-tertiary)] px-3 py-3 text-[15px] text-[var(--text-muted)] select-none">
+            <span className="flex h-10 items-center rounded-e-[var(--aster-radius-control)] bg-[var(--bg-tertiary)] px-3 text-[15px] text-[var(--text-muted)] select-none">
               @{domain}
             </span>
           </div>

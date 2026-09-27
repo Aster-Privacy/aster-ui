@@ -74,11 +74,9 @@
 
 .app_rail_popout {
   color: var(--icon-muted);
-  background-color: color-mix(in srgb, var(--bg-primary) 65%, transparent);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid color-mix(in srgb, var(--border-primary) 70%, transparent);
-  border-inline-end: none;
+  background-color: var(--bg-primary);
+  border: 0;
+  box-shadow: var(--aster-floating-shadow);
   animation: app_rail_popout_in 0.22s cubic-bezier(0.32, 0.72, 0, 1);
   transition:
     color 0.15s ease,
@@ -87,7 +85,7 @@
 
 .app_rail_popout:hover {
   color: var(--text-primary);
-  background-color: color-mix(in srgb, var(--bg-hover) 85%, transparent);
+  background-color: var(--bg-hover);
 }
 
 @keyframes app_rail_popout_in {

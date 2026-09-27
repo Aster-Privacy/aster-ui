@@ -90,7 +90,6 @@ const DropdownMenuContent = React.forwardRef<
       ref={ref}
       className={cn(
         "z-[200] max-h-[var(--radix-dropdown-menu-content-available-height)] min-w-[8rem] overflow-y-auto overflow-x-hidden aster_floating aster_floating_anim px-1.5 py-2",
-        "",
         className,
       )}
       sideOffset={sideOffset}

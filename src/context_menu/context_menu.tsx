@@ -163,7 +163,7 @@ export function ContextMenu({
         {items.map((item, idx) => (
           <button
             key={item.id}
-            className="w-full rounded-[var(--aster-radius-item)] px-2.5 py-2 text-left text-sm flex items-center gap-2 hover:bg-[var(--aster-floating-hover)] disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-[var(--aster-radius-item)] px-2.5 py-2 text-start text-sm flex items-center gap-2 hover:bg-[var(--aster-floating-hover)] disabled:opacity-50 disabled:cursor-not-allowed"
             disabled={item.disabled}
             role="menuitem"
             style={{

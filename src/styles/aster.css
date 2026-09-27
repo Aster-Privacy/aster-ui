@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 14px;
+  border-radius: var(--aster-radius-control, 16px);
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
@@ -59,36 +59,6 @@
   label:has(.aster_btn_spinner) {
     position: relative;
   }
-}
-
-.aster_btn_spinner {
-  position: absolute;
-  inset-inline-end: 12px;
-  top: 0;
-  bottom: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-
-.aster_btn_xl .aster_btn_spinner {
-  inset-inline-end: 18px;
-}
-
-.aster_btn_lg .aster_btn_spinner,
-.aster_btn_md .aster_btn_spinner {
-  inset-inline-end: 14px;
-}
-
-.aster_btn_sm .aster_btn_spinner {
-  inset-inline-end: 10px;
-}
-
-.aster_btn_icon .aster_btn_spinner,
-.aster_btn_spinner_centered {
-  position: static;
-  inset-inline-end: auto;
 }
 
 .aster_btn_primary {
@@ -2752,27 +2722,6 @@
   }
 }
 
-.aster_btn,
-.aster_btn_loading_host,
-button,
-a,
-label {
-  --aster-btn-spinner-end: 12px;
-}
-
-.aster_btn_xl {
-  --aster-btn-spinner-end: 18px;
-}
-
-.aster_btn_lg,
-.aster_btn_md {
-  --aster-btn-spinner-end: 14px;
-}
-
-.aster_btn_sm {
-  --aster-btn-spinner-end: 10px;
-}
-
 .aster_btn_spinner {
   position: absolute;
   inset: 0;
@@ -2907,10 +2856,6 @@ label:has(> .aster_btn_spinner) > :not(.aster_btn_spinner) {
   padding-inline: 24px;
   border-radius: 9999px;
   white-space: nowrap;
-}
-
-.aster_compose_send:has(.aster_btn_spinner) {
-  padding-inline-end: 40px;
 }
 
 .aster_compose_tool {

@@ -693,9 +693,9 @@
     justify-content: center;
     gap: 6px;
     padding: 0 14px 0 12px;
-    border: 1px solid var(--aster-island-divider, color-mix(in srgb, var(--text-primary, #111827) 10%, transparent));
+    border: 0;
     border-radius: var(--aster-radius-control);
-    background: var(--aster-island-bg, var(--bg-primary, #ffffff));
+    background: color-mix(in srgb, var(--text-primary, #111827) 6%, var(--bg-primary, #ffffff));
     color: var(--text-secondary, #374151);
     font: inherit;
     font-size: 13px;
@@ -703,17 +703,17 @@
     line-height: 1;
     white-space: nowrap;
     cursor: pointer;
-    transition: border-color 0.14s var(--aster-island-ease), color 0.14s var(--aster-island-ease);
+    transition: background-color 0.14s var(--aster-island-ease), color 0.14s var(--aster-island-ease);
     -webkit-tap-highlight-color: transparent;
   }
 
   .aster_thread_hidden_button:hover {
-    border-color: color-mix(in srgb, var(--text-primary, #111827) 22%, transparent);
+    background: color-mix(in srgb, var(--text-primary, #111827) 10%, var(--bg-primary, #ffffff));
     color: var(--text-primary, #111827);
   }
 
   .aster_thread_hidden_button:active {
-    border-color: color-mix(in srgb, var(--text-primary, #111827) 30%, transparent);
+    background: color-mix(in srgb, var(--text-primary, #111827) 14%, var(--bg-primary, #ffffff));
   }
 
   .aster_thread_hidden_button:focus-visible {
@@ -1030,13 +1030,12 @@
   }
 
   .aster_pill_outline {
-    background: transparent;
+    background: color-mix(in srgb, var(--text-primary, #111827) 6%, var(--bg-primary, #ffffff));
     color: var(--text-primary, #111827);
-    border-color: color-mix(in srgb, var(--text-secondary, #374151) 35%, transparent);
   }
 
   .aster_pill_outline:hover:not(:disabled) {
-    background: color-mix(in srgb, var(--text-primary, #111827) 5%, transparent);
+    background: color-mix(in srgb, var(--text-primary, #111827) 10%, var(--bg-primary, #ffffff));
   }
 
   .aster_pill_tonal {
@@ -1140,9 +1139,9 @@
     min-height: 52px;
     padding: 7px 10px 7px 7px;
     box-sizing: border-box;
-    border: 1px solid var(--island-chip-border, var(--border-secondary, #e5e7eb));
+    border: 0;
     border-radius: var(--aster-island-radius-lg);
-    background: var(--island-chip-bg, var(--bg-primary, #ffffff));
+    background: var(--island-chip-bg, color-mix(in srgb, var(--text-primary, #111827) 5%, var(--bg-primary, #ffffff)));
     color: var(--text-primary, #111827);
     font: inherit;
     text-align: start;
@@ -1156,8 +1155,7 @@
   }
 
   .aster_island_chip_pressable:hover {
-    border-color: var(--border-primary, #d1d5db);
-    background: color-mix(in srgb, var(--text-primary, #111827) 3%, var(--island-chip-bg, var(--bg-primary, #ffffff)));
+    background: color-mix(in srgb, var(--text-primary, #111827) 5%, var(--island-chip-bg, color-mix(in srgb, var(--text-primary, #111827) 5%, var(--bg-primary, #ffffff))));
   }
 
   .aster_island_chip_leading {
@@ -1250,9 +1248,9 @@
     height: 26px;
     padding: 0 12px;
     box-sizing: border-box;
-    border: 1px solid color-mix(in srgb, var(--text-primary, #111827) 14%, transparent);
+    border: 0;
     border-radius: 999px;
-    background: var(--bg-primary, #ffffff);
+    background: color-mix(in srgb, var(--text-primary, #111827) 6%, var(--bg-primary, #ffffff));
     color: var(--text-secondary, #374151);
     font-size: 12px;
     font-weight: 600;
@@ -1283,7 +1281,7 @@
   }
 
   .aster_island_count:hover .aster_island_count_pill {
-    background: color-mix(in srgb, var(--text-primary, #111827) 6%, var(--bg-primary, #ffffff));
+    background: color-mix(in srgb, var(--text-primary, #111827) 10%, var(--bg-primary, #ffffff));
     color: var(--text-primary, #111827);
   }
 

@@ -102,8 +102,12 @@ export function MobileDrawerShell({
     [panel_ref],
   );
 
-  const closed_x = side === "right" ? width : -width;
   const is_start = side === "start";
+  const is_rtl_start =
+    is_start &&
+    typeof document !== "undefined" &&
+    document.documentElement.dir === "rtl";
+  const closed_x = side === "right" || is_rtl_start ? "100%" : "-100%";
 
   return (
     <>

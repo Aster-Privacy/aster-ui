@@ -7355,7 +7355,6 @@ var DropdownMenuContent = React32.forwardRef(({ className, sideOffset = 4, style
     ref,
     className: cn(
       "z-[200] max-h-[var(--radix-dropdown-menu-content-available-height)] min-w-[8rem] overflow-y-auto overflow-x-hidden aster_floating aster_floating_anim px-1.5 py-2",
-      "",
       className
     ),
     sideOffset,
@@ -7567,7 +7566,7 @@ function ContextMenu({
       children: items.map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime46.jsxs)(
         "button",
         {
-          className: "w-full rounded-[var(--aster-radius-item)] px-2.5 py-2 text-left text-sm flex items-center gap-2 hover:bg-[var(--aster-floating-hover)] disabled:opacity-50 disabled:cursor-not-allowed",
+          className: "w-full rounded-[var(--aster-radius-item)] px-2.5 py-2 text-start text-sm flex items-center gap-2 hover:bg-[var(--aster-floating-hover)] disabled:opacity-50 disabled:cursor-not-allowed",
           disabled: item.disabled,
           role: "menuitem",
           style: {
@@ -8538,8 +8537,9 @@ function MobileDrawerShell({
     },
     [panel_ref]
   );
-  const closed_x = side === "right" ? width : -width;
   const is_start = side === "start";
+  const is_rtl_start = is_start && typeof document !== "undefined" && document.documentElement.dir === "rtl";
+  const closed_x = side === "right" || is_rtl_start ? "100%" : "-100%";
   return /* @__PURE__ */ (0, import_jsx_runtime59.jsxs)(import_jsx_runtime59.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(import_framer_motion9.AnimatePresence, { children: is_open && /* @__PURE__ */ (0, import_jsx_runtime59.jsx)(
       import_framer_motion9.motion.div,
@@ -15299,13 +15299,11 @@ function DrawerSaveDeleteRow({
       }
     ),
     /* @__PURE__ */ (0, import_jsx_runtime111.jsx)(
-      "button",
+      Button,
       {
-        className: "rounded-[16px] px-5 py-3 text-[15px] font-medium text-white transition-all ",
-        style: {
-          background: "linear-gradient(180deg, #ef4444 0%, #dc2626 100%)"
-        },
+        className: "rounded-[16px] px-5 py-3 text-[15px] font-medium",
         type: "button",
+        variant: "depth_destructive",
         onClick: on_delete,
         children: delete_label
       }
@@ -15698,7 +15696,7 @@ function CreateAliasSheetView({
             }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("span", { className: "rounded-e-xl bg-[var(--bg-tertiary)] px-3 py-3 text-[15px] text-[var(--text-muted)] select-none", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime111.jsxs)("span", { className: "flex h-10 items-center rounded-e-[var(--aster-radius-control)] bg-[var(--bg-tertiary)] px-3 text-[15px] text-[var(--text-muted)] select-none", children: [
           "@",
           domain
         ] })
