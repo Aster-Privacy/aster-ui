@@ -182,28 +182,28 @@ label:has(.aster_btn_spinner) {
   height: 44px;
   padding: 0 22px;
   font-size: 16px;
-  border-radius: var(--aster-radius-control, 14px);
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 .aster_btn_lg {
   height: 36px;
   padding: 0 16px;
   font-size: 14px;
-  border-radius: var(--aster-radius-control, 14px);
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 .aster_btn_md {
   height: 32px;
   padding: 0 14px;
   font-size: 13px;
-  border-radius: var(--aster-radius-control, 14px);
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 .aster_btn_sm {
   height: 28px;
   padding: 0 12px;
   font-size: 12px;
-  border-radius: var(--aster-radius-control, 14px);
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 .aster_btn_icon {
@@ -227,7 +227,7 @@ label:has(.aster_btn_spinner) {
 
 .aster_input {
   display: flex;
-  border-radius: var(--aster-radius-control, 14px);
+  border-radius: var(--aster-radius-control, 16px);
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: #ffffff;
   color: #1a1a1a;
@@ -286,7 +286,7 @@ label:has(.aster_btn_spinner) {
 
 .aster_input_xl {
   font-size: 16px;
-  border-radius: var(--aster-radius-control, 14px);
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 @layer components {
@@ -298,7 +298,7 @@ label:has(.aster_btn_spinner) {
 
 .aster_input_lg {
   font-size: 14px;
-  border-radius: var(--aster-radius-control, 14px);
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 @layer components {
@@ -310,7 +310,7 @@ label:has(.aster_btn_spinner) {
 
 .aster_input_md {
   font-size: 13px;
-  border-radius: var(--aster-radius-control, 14px);
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 @layer components {
@@ -322,7 +322,7 @@ label:has(.aster_btn_spinner) {
 
 .aster_input_sm {
   font-size: 12px;
-  border-radius: var(--aster-radius-control, 14px);
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 @keyframes aster_shimmer {
@@ -1571,7 +1571,7 @@ label:has(.aster_btn_spinner) {
 .aster_seg {
   display: inline-flex;
   background: #f3f4f6;
-  border-radius: var(--aster-radius-control, 14px);
+  border-radius: var(--aster-radius-control, 16px);
   padding: 3px;
   gap: 2px;
 }

@@ -13897,7 +13897,7 @@ function SidebarComposeButtonView({
       children: /* @__PURE__ */ (0, import_jsx_runtime101.jsxs)(
         Button,
         {
-          className: is_collapsed ? "!rounded-[16px] w-14 h-14 min-w-14 !h-14 !p-0 flex items-center justify-center" : "w-full !rounded-[16px] gap-2",
+          className: is_collapsed ? "w-14 h-14 min-w-14 !h-14 !p-0 flex items-center justify-center" : "w-full gap-2",
           "data-onboarding": "compose-button",
           "data-rail-tip": is_collapsed ? label : void 0,
           variant: "depth",

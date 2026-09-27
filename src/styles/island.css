@@ -34,7 +34,7 @@
     --aster-island-row-pad-y: 12px;
     --aster-island-ease: cubic-bezier(0.2, 0, 0, 1);
     --aster-radius-panel: 12px;
-    --aster-radius-control: 14px;
+    --aster-radius-control: 16px;
     --aster-radius-field: var(--aster-radius-control);
     --aster-radius-item: 8px;
     --aster-floating-pad: 6px;
@@ -904,7 +904,7 @@
   .aster_select_trigger {
     background: var(--aster-field-bg);
     border: 0;
-    border-radius: var(--aster-radius-control, 14px);
+    border-radius: var(--aster-radius-control, 16px);
     box-shadow: none;
     outline: none;
     transition: background-color 0.14s var(--aster-island-ease);
