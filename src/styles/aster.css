@@ -252,6 +252,7 @@
 @layer components {
   :where(.aster_input_xl) {
     height: 44px;
+    min-height: 44px;
     padding: 0 16px;
   }
 }
@@ -264,6 +265,7 @@
 @layer components {
   :where(.aster_input_lg) {
     height: 40px;
+    min-height: 40px;
     padding: 0 14px;
   }
 }
@@ -276,6 +278,7 @@
 @layer components {
   :where(.aster_input_md) {
     height: 36px;
+    min-height: 36px;
     padding: 0 12px;
   }
 }
@@ -288,6 +291,7 @@
 @layer components {
   :where(.aster_input_sm) {
     height: 32px;
+    min-height: 32px;
     padding: 0 10px;
   }
 }
