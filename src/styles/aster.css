@@ -111,13 +111,13 @@ label:has(.aster_btn_spinner) {
 
 .aster_btn_outline {
   color: #1a1a1a;
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.04);
+  border: 0;
   transition: background 0.12s ease;
 }
 
 .aster_btn_outline:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .aster_btn_ghost {
@@ -2276,13 +2276,12 @@ label:has(.aster_btn_spinner) {
 
 .dark .aster_btn_outline {
   color: var(--text-secondary, #b0b0b0);
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .dark .aster_btn_outline:hover {
   color: var(--text-primary, #e5e5e5);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .dark .aster_btn_ghost {
