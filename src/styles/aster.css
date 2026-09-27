@@ -29,7 +29,6 @@
 @source "../qr_code/index.js";
 
 .aster_btn {
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -51,12 +50,15 @@
   animation: aster_spin 1s linear infinite;
 }
 
-.aster_btn,
-.aster_btn_loading_host,
-button:has(.aster_btn_spinner),
-a:has(.aster_btn_spinner),
-label:has(.aster_btn_spinner) {
-  position: relative;
+@layer components {
+  .aster_btn,
+  .aster_btn_upgrade,
+  .aster_btn_loading_host,
+  button:has(.aster_btn_spinner),
+  a:has(.aster_btn_spinner),
+  label:has(.aster_btn_spinner) {
+    position: relative;
+  }
 }
 
 .aster_btn_spinner {
@@ -336,7 +338,6 @@ label:has(.aster_btn_spinner) {
     linear-gradient(180deg, #4a84f5 0%, #1c4fd6 100%) padding-box,
     linear-gradient(180deg, #bfdbfe 0%, #3b82f6 50%, #1e3a8a 100%) border-box;
   border: 1.5px solid transparent;
-  position: relative;
   overflow: hidden;
   transition: filter 0.12s ease;
 }
@@ -1118,8 +1119,10 @@ label:has(.aster_btn_spinner) {
   gap: 8px;
 }
 
-[data-tip] {
-  position: relative;
+@layer components {
+  [data-tip] {
+    position: relative;
+  }
 }
 
 .aster_tip_portal {
