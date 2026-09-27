@@ -37,12 +37,7 @@
 }
 
 :root .sidebar-nav-btn.sidebar-selected {
-  border: 1px solid var(--border-primary);
   background-color: var(--indicator-bg, var(--bg-hover));
-}
-
-.dark .sidebar-nav-btn.sidebar-selected {
-  border: none;
 }
 
 .aster_tip_portal[data-tip-arrow] {

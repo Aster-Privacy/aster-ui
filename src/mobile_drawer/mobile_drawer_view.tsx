@@ -203,14 +203,13 @@ export function MobileDrawerNavIndicator({
 }: MobileDrawerNavIndicatorProps) {
   return (
     <div
-      className="pointer-events-none absolute start-0 w-full rounded-lg"
+      className="pointer-events-none absolute start-0 w-full rounded-[16px]"
       style={{
         top: 0,
         transform: `translateY(${indicator_style.y}px)`,
         height: indicator_style.height,
         opacity: indicator_style.opacity,
         backgroundColor: "var(--mobile-indicator-bg, var(--indicator-bg))",
-        boxShadow: "inset 0 0 0 1px var(--border-primary)",
         zIndex: 0,
         transition: "opacity 150ms ease",
       }}
