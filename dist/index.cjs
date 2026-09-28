@@ -10449,124 +10449,124 @@ var email_tag_variants = (0, import_class_variance_authority9.cva)(
     variants: {
       variant: {
         scheduled: [
-          "bg-violet-100 text-violet-700 border border-violet-200",
-          "dark:bg-violet-500/15 dark:text-violet-400 dark:border-violet-500/30"
+          "bg-violet-100 text-violet-700",
+          "dark:bg-violet-500/15 dark:text-violet-400"
         ].join(" "),
         sent: [
-          "bg-emerald-100 text-emerald-700 border border-emerald-200",
-          "dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/30"
+          "bg-emerald-100 text-emerald-700",
+          "dark:bg-emerald-500/15 dark:text-emerald-400"
         ].join(" "),
         draft: [
-          "bg-amber-100 text-amber-700 border border-amber-200",
-          "dark:bg-amber-500/15 dark:text-amber-400 dark:border-amber-500/30"
+          "bg-amber-100 text-amber-700",
+          "dark:bg-amber-500/15 dark:text-amber-400"
         ].join(" "),
         archived: [
-          "bg-sky-100 text-sky-700 border border-sky-200",
-          "dark:bg-sky-500/15 dark:text-sky-400 dark:border-sky-500/30"
+          "bg-sky-100 text-sky-700",
+          "dark:bg-sky-500/15 dark:text-sky-400"
         ].join(" "),
         trashed: [
-          "bg-red-100 text-red-700 border border-red-200",
-          "dark:bg-red-500/15 dark:text-red-400 dark:border-red-500/30"
+          "bg-red-100 text-red-700",
+          "dark:bg-red-500/15 dark:text-red-400"
         ].join(" "),
         spam: [
-          "bg-orange-100 text-orange-700 border border-orange-200",
-          "dark:bg-orange-500/15 dark:text-orange-400 dark:border-orange-500/30"
+          "bg-orange-100 text-orange-700",
+          "dark:bg-orange-500/15 dark:text-orange-400"
         ].join(" "),
         snoozed: [
-          "bg-indigo-100 text-indigo-700 border border-indigo-200",
-          "dark:bg-indigo-500/15 dark:text-indigo-400 dark:border-indigo-500/30"
+          "bg-indigo-100 text-indigo-700",
+          "dark:bg-indigo-500/15 dark:text-indigo-400"
         ].join(" "),
         starred: [
-          "bg-yellow-100 text-yellow-700 border border-yellow-200",
-          "dark:bg-yellow-500/15 dark:text-yellow-400 dark:border-yellow-500/30"
+          "bg-yellow-100 text-yellow-700",
+          "dark:bg-yellow-500/15 dark:text-yellow-400"
         ].join(" "),
         important: [
-          "bg-rose-100 text-rose-700 border border-rose-200",
-          "dark:bg-rose-500/15 dark:text-rose-400 dark:border-rose-500/30"
+          "bg-rose-100 text-rose-700",
+          "dark:bg-rose-500/15 dark:text-rose-400"
         ].join(" "),
         unread: [
-          "bg-blue-100 text-blue-700 border border-blue-200",
-          "dark:bg-blue-500/15 dark:text-blue-400 dark:border-blue-500/30"
+          "bg-blue-100 text-blue-700",
+          "dark:bg-blue-500/15 dark:text-blue-400"
         ].join(" "),
         encrypted: [
-          "bg-teal-100 text-teal-700 border border-teal-200",
-          "dark:bg-teal-500/15 dark:text-teal-400 dark:border-teal-500/30"
+          "bg-teal-100 text-teal-700",
+          "dark:bg-teal-500/15 dark:text-teal-400"
         ].join(" "),
         red: [
-          "bg-red-100 text-red-700 border border-red-200",
-          "dark:bg-red-500/15 dark:text-red-400 dark:border-red-500/30"
+          "bg-red-100 text-red-700",
+          "dark:bg-red-500/15 dark:text-red-400"
         ].join(" "),
         orange: [
-          "bg-orange-100 text-orange-700 border border-orange-200",
-          "dark:bg-orange-500/15 dark:text-orange-400 dark:border-orange-500/30"
+          "bg-orange-100 text-orange-700",
+          "dark:bg-orange-500/15 dark:text-orange-400"
         ].join(" "),
         amber: [
-          "bg-amber-100 text-amber-700 border border-amber-200",
-          "dark:bg-amber-500/15 dark:text-amber-400 dark:border-amber-500/30"
+          "bg-amber-100 text-amber-700",
+          "dark:bg-amber-500/15 dark:text-amber-400"
         ].join(" "),
         yellow: [
-          "bg-yellow-100 text-yellow-700 border border-yellow-200",
-          "dark:bg-yellow-500/15 dark:text-yellow-400 dark:border-yellow-500/30"
+          "bg-yellow-100 text-yellow-700",
+          "dark:bg-yellow-500/15 dark:text-yellow-400"
         ].join(" "),
         lime: [
-          "bg-lime-100 text-lime-700 border border-lime-200",
-          "dark:bg-lime-500/15 dark:text-lime-400 dark:border-lime-500/30"
+          "bg-lime-100 text-lime-700",
+          "dark:bg-lime-500/15 dark:text-lime-400"
         ].join(" "),
         green: [
-          "bg-green-100 text-green-700 border border-green-200",
-          "dark:bg-green-500/15 dark:text-green-400 dark:border-green-500/30"
+          "bg-green-100 text-green-700",
+          "dark:bg-green-500/15 dark:text-green-400"
         ].join(" "),
         emerald: [
-          "bg-emerald-100 text-emerald-700 border border-emerald-200",
-          "dark:bg-emerald-500/15 dark:text-emerald-400 dark:border-emerald-500/30"
+          "bg-emerald-100 text-emerald-700",
+          "dark:bg-emerald-500/15 dark:text-emerald-400"
         ].join(" "),
         teal: [
-          "bg-teal-100 text-teal-700 border border-teal-200",
-          "dark:bg-teal-500/15 dark:text-teal-400 dark:border-teal-500/30"
+          "bg-teal-100 text-teal-700",
+          "dark:bg-teal-500/15 dark:text-teal-400"
         ].join(" "),
         cyan: [
-          "bg-cyan-100 text-cyan-700 border border-cyan-200",
-          "dark:bg-cyan-500/15 dark:text-cyan-400 dark:border-cyan-500/30"
+          "bg-cyan-100 text-cyan-700",
+          "dark:bg-cyan-500/15 dark:text-cyan-400"
         ].join(" "),
         sky: [
-          "bg-sky-100 text-sky-700 border border-sky-200",
-          "dark:bg-sky-500/15 dark:text-sky-400 dark:border-sky-500/30"
+          "bg-sky-100 text-sky-700",
+          "dark:bg-sky-500/15 dark:text-sky-400"
         ].join(" "),
         blue: [
-          "bg-blue-100 text-blue-700 border border-blue-200",
-          "dark:bg-blue-500/15 dark:text-blue-400 dark:border-blue-500/30"
+          "bg-blue-100 text-blue-700",
+          "dark:bg-blue-500/15 dark:text-blue-400"
         ].join(" "),
         indigo: [
-          "bg-indigo-100 text-indigo-700 border border-indigo-200",
-          "dark:bg-indigo-500/15 dark:text-indigo-400 dark:border-indigo-500/30"
+          "bg-indigo-100 text-indigo-700",
+          "dark:bg-indigo-500/15 dark:text-indigo-400"
         ].join(" "),
         violet: [
-          "bg-violet-100 text-violet-700 border border-violet-200",
-          "dark:bg-violet-500/15 dark:text-violet-400 dark:border-violet-500/30"
+          "bg-violet-100 text-violet-700",
+          "dark:bg-violet-500/15 dark:text-violet-400"
         ].join(" "),
         purple: [
-          "bg-purple-100 text-purple-700 border border-purple-200",
-          "dark:bg-purple-500/15 dark:text-purple-400 dark:border-purple-500/30"
+          "bg-purple-100 text-purple-700",
+          "dark:bg-purple-500/15 dark:text-purple-400"
         ].join(" "),
         fuchsia: [
-          "bg-fuchsia-100 text-fuchsia-700 border border-fuchsia-200",
-          "dark:bg-fuchsia-500/15 dark:text-fuchsia-400 dark:border-fuchsia-500/30"
+          "bg-fuchsia-100 text-fuchsia-700",
+          "dark:bg-fuchsia-500/15 dark:text-fuchsia-400"
         ].join(" "),
         pink: [
-          "bg-pink-100 text-pink-700 border border-pink-200",
-          "dark:bg-pink-500/15 dark:text-pink-400 dark:border-pink-500/30"
+          "bg-pink-100 text-pink-700",
+          "dark:bg-pink-500/15 dark:text-pink-400"
         ].join(" "),
         rose: [
-          "bg-rose-100 text-rose-700 border border-rose-200",
-          "dark:bg-rose-500/15 dark:text-rose-400 dark:border-rose-500/30"
+          "bg-rose-100 text-rose-700",
+          "dark:bg-rose-500/15 dark:text-rose-400"
         ].join(" "),
         slate: [
-          "bg-slate-100 text-slate-700 border border-slate-200",
-          "dark:bg-slate-500/15 dark:text-slate-400 dark:border-slate-500/30"
+          "bg-slate-100 text-slate-700",
+          "dark:bg-slate-500/15 dark:text-slate-400"
         ].join(" "),
         neutral: [
-          "bg-neutral-100 text-neutral-700 border border-neutral-200",
-          "dark:bg-neutral-500/15 dark:text-neutral-400 dark:border-neutral-500/30"
+          "bg-neutral-100 text-neutral-700",
+          "dark:bg-neutral-500/15 dark:text-neutral-400"
         ].join(" "),
         custom: ""
       },
@@ -10667,8 +10667,7 @@ function get_custom_color_styles(color) {
   if (!rgb) return {};
   return {
     backgroundColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.12)`,
-    color,
-    borderColor: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.25)`
+    color
   };
 }
 var TAG_COLOR_PRESETS = [

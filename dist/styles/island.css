@@ -81,7 +81,7 @@
   .aster_floating_anim[data-state="open"] {
     animation: aster_floating_in 0.12s cubic-bezier(0.2, 0, 0, 1) both;
     transform-origin: var(--radix-dropdown-menu-content-transform-origin, var(--radix-context-menu-content-transform-origin, var(--radix-popover-content-transform-origin, var(--radix-select-content-transform-origin, center top))));
-    will-change: opacity, transform;
+    will-change: opacity, scale;
   }
 
   .aster_floating_anim[data-state="closed"] {
@@ -131,11 +131,11 @@
   @keyframes aster_dialog_in {
     from {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(0.97);
+      scale: 0.97;
     }
     to {
       opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
+      scale: 1;
     }
   }
 
