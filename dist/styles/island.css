@@ -46,6 +46,7 @@
     --aster-floating-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.08);
     --aster-floating-bg: var(--bg-primary, #ffffff);
     --aster-radius-floating: 16px;
+    --aster-scrim-blur: 6px;
     --aster-field-bg: color-mix(in srgb, var(--text-primary, #111827) 7%, var(--bg-primary, #ffffff));
     --aster-field-hover: color-mix(in srgb, var(--text-primary, #111827) 11%, var(--bg-primary, #ffffff));
     --aster-segmented-track: color-mix(in srgb, var(--text-primary, #111827) 6%, transparent);
@@ -201,6 +202,23 @@
     margin-block: 4px;
     margin-inline: calc(var(--aster-floating-pad) * -1);
     border-top: 1px solid var(--aster-floating-divider);
+  }
+
+  [role="menu"] > [role="separator"]:first-child,
+  [role="menu"] > [role="separator"]:last-child,
+  [role="menu"] > [role="separator"] + [role="separator"] {
+    display: none;
+  }
+
+  :root:not(.reduce-transparency) [style*="var(--modal-overlay)"],
+  :root:not(.reduce-transparency) .bg-modal-overlay,
+  :root:not(.reduce-transparency) .aster_scrim {
+    -webkit-backdrop-filter: blur(var(--aster-scrim-blur)) !important;
+    backdrop-filter: blur(var(--aster-scrim-blur)) !important;
+  }
+
+  .aster_scrim {
+    background-color: var(--modal-overlay);
   }
 
   .aster_segmented {
