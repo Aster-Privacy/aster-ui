@@ -269,7 +269,7 @@ export const SidebarNavRow = React.forwardRef<
       <button
         ref={ref}
         className={join_classes(
-          "sidebar-nav-btn group relative w-full flex items-center rounded-[12px] h-8 text-[14px]",
+          "sidebar-nav-btn group relative w-full flex items-center rounded-[10px] h-8 text-[14px]",
           is_collapsed ? "justify-center px-0" : "gap-2.5 px-2.5",
           selected && "sidebar-active",
           is_collapsed && selected && "sidebar-selected",
@@ -280,7 +280,7 @@ export const SidebarNavRow = React.forwardRef<
             ? "var(--text-primary)"
             : "var(--text-secondary)",
           backgroundColor:
-            is_collapsed && selected ? "var(--indicator-bg)" : undefined,
+            is_collapsed && selected ? "var(--aster-selected)" : undefined,
         }}
         data-rail-tip={rail_tip && is_collapsed ? label : undefined}
         title={title ?? (is_collapsed && !rail_tip ? label : undefined)}
@@ -393,7 +393,7 @@ export const SidebarTagRow = React.forwardRef<
         {...button_props}
         ref={set_refs}
         className={join_classes(
-          "sidebar-nav-btn group relative w-full flex items-center rounded-[12px] h-8 text-[14px]",
+          "sidebar-nav-btn group relative w-full flex items-center rounded-[10px] h-8 text-[14px]",
           is_collapsed ? "justify-center px-0" : "gap-2.5 px-2.5",
           selected && "sidebar-active",
           is_collapsed && selected && "sidebar-selected",
@@ -408,7 +408,7 @@ export const SidebarTagRow = React.forwardRef<
           backgroundColor: drag_over
             ? undefined
             : is_collapsed && selected
-              ? "var(--indicator-bg)"
+              ? "var(--aster-selected)"
               : undefined,
         }}
         title={is_collapsed && !rail_tip ? label : undefined}

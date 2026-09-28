@@ -211,12 +211,11 @@ export function SidebarScrollAreaView({
       <div ref={container_ref} className="relative">
         {show_indicator && (
           <div
-            className="pointer-events-none absolute start-0 w-full rounded-md border-edge-primary"
+            className="pointer-events-none absolute start-0 w-full rounded-[10px]"
             style={{
               ...indicator_style,
               top: 0,
-              backgroundColor: "var(--indicator-bg)",
-              border: "1px solid var(--border-primary)",
+              backgroundColor: "var(--aster-selected)",
               zIndex: 0,
               willChange: "transform, opacity",
               transition:

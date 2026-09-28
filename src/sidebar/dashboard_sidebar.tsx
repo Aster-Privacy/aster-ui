@@ -699,12 +699,11 @@ export function DashboardSidebar({
         <div ref={nav_container_ref} className="relative">
           {!collapsed && (
             <div
-              className="pointer-events-none absolute left-0 w-full rounded-md border-edge-primary"
+              className="pointer-events-none absolute left-0 w-full rounded-[10px]"
               style={{
                 ...indicator_style,
                 top: 0,
-                backgroundColor: "var(--indicator-bg)",
-                border: "1px solid var(--border-primary)",
+                backgroundColor: "var(--aster-selected)",
                 zIndex: 0,
                 willChange: "transform, opacity",
                 transition:
@@ -738,7 +737,7 @@ export function DashboardSidebar({
               return (
                 <button
                   key={item.id}
-                  className={`sidebar-nav-btn group relative w-full flex items-center ${collapsed ? "justify-center" : "gap-2.5"} rounded-[12px] ${collapsed ? "px-0" : "px-2.5"} h-8 text-[14px]  ${selected ? "sidebar-active" : ""} ${collapsed && selected ? "sidebar-selected" : ""}`}
+                  className={`sidebar-nav-btn group relative w-full flex items-center ${collapsed ? "justify-center" : "gap-2.5"} rounded-[10px] ${collapsed ? "px-0" : "px-2.5"} h-8 text-[14px]  ${selected ? "sidebar-active" : ""} ${collapsed && selected ? "sidebar-selected" : ""}`}
                   style={{
                     zIndex: 1,
                     color: selected
@@ -746,7 +745,7 @@ export function DashboardSidebar({
                       : "var(--text-secondary)",
                     backgroundColor:
                       collapsed && selected
-                        ? "var(--indicator-bg)"
+                        ? "var(--aster-selected)"
                         : undefined,
                   }}
                   title={collapsed ? label : undefined}

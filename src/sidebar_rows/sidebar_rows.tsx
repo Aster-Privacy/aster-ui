@@ -265,7 +265,7 @@ export function SidebarFolderRowView({
         className={join_classes(
           "sidebar-nav-btn group relative w-full flex items-center",
           is_collapsed ? "justify-center" : "gap-2.5",
-          "rounded-[12px]",
+          "rounded-[10px]",
           is_collapsed && "px-0",
           "h-8 text-[14px]",
           selected && "sidebar-active",
@@ -285,7 +285,7 @@ export function SidebarFolderRowView({
           backgroundColor: drag_over
             ? undefined
             : is_collapsed && selected
-              ? "var(--indicator-bg)"
+              ? "var(--aster-selected)"
               : undefined,
         }}
         type="button"

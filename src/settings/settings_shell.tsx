@@ -201,7 +201,7 @@ export function SettingsNavItemButton({
   const Icon = item.icon;
   return (
     <button
-      className="w-full flex items-center gap-2.5 px-2.5 h-8 rounded-[12px] text-[13px] transition-colors duration-150 relative z-[1]"
+      className="w-full flex items-center gap-2.5 px-2.5 h-8 rounded-[10px] text-[13px] transition-colors duration-150 relative z-[1] hover:bg-[var(--aster-hover)]"
       style={{
         color: is_selected ? "var(--text-primary)" : "var(--text-secondary)",
       }}
@@ -423,13 +423,12 @@ export function SettingsModalShell({
               )}
               <div ref={nav_container_ref} className="relative">
                   <div
-                    className="pointer-events-none absolute left-0 w-full rounded-md"
+                    className="pointer-events-none absolute left-0 w-full rounded-[10px]"
                     style={{
                       top: indicator_style.top,
                       height: indicator_style.height,
                       opacity: indicator_style.opacity,
-                      backgroundColor: "var(--indicator-bg)",
-                      border: "1px solid var(--border-primary)",
+                      backgroundColor: "var(--aster-selected)",
                       zIndex: 0,
                       transition: "top 200ms ease, height 200ms ease, opacity 200ms ease",
                     }}

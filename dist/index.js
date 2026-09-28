@@ -2690,7 +2690,7 @@ var SidebarNavRow = React22.forwardRef(
       {
         ref,
         className: join_classes2(
-          "sidebar-nav-btn group relative w-full flex items-center rounded-[12px] h-8 text-[14px]",
+          "sidebar-nav-btn group relative w-full flex items-center rounded-[10px] h-8 text-[14px]",
           is_collapsed ? "justify-center px-0" : "gap-2.5 px-2.5",
           selected && "sidebar-active",
           is_collapsed && selected && "sidebar-selected"
@@ -2698,7 +2698,7 @@ var SidebarNavRow = React22.forwardRef(
         style: {
           zIndex: 1,
           color: selected ? "var(--text-primary)" : "var(--text-secondary)",
-          backgroundColor: is_collapsed && selected ? "var(--indicator-bg)" : void 0
+          backgroundColor: is_collapsed && selected ? "var(--aster-selected)" : void 0
         },
         "data-rail-tip": rail_tip && is_collapsed ? label : void 0,
         title: title ?? (is_collapsed && !rail_tip ? label : void 0),
@@ -2768,7 +2768,7 @@ var SidebarTagRow = React22.forwardRef(
         ...button_props,
         ref: set_refs,
         className: join_classes2(
-          "sidebar-nav-btn group relative w-full flex items-center rounded-[12px] h-8 text-[14px]",
+          "sidebar-nav-btn group relative w-full flex items-center rounded-[10px] h-8 text-[14px]",
           is_collapsed ? "justify-center px-0" : "gap-2.5 px-2.5",
           selected && "sidebar-active",
           is_collapsed && selected && "sidebar-selected",
@@ -2778,7 +2778,7 @@ var SidebarTagRow = React22.forwardRef(
         style: {
           zIndex: 1,
           color: selected ? "var(--text-primary)" : "var(--text-secondary)",
-          backgroundColor: drag_over ? void 0 : is_collapsed && selected ? "var(--indicator-bg)" : void 0
+          backgroundColor: drag_over ? void 0 : is_collapsed && selected ? "var(--aster-selected)" : void 0
         },
         title: is_collapsed && !rail_tip ? label : void 0,
         type: "button",
@@ -3455,12 +3455,11 @@ function DashboardSidebar({
               !collapsed && /* @__PURE__ */ jsx25(
                 "div",
                 {
-                  className: "pointer-events-none absolute left-0 w-full rounded-md border-edge-primary",
+                  className: "pointer-events-none absolute left-0 w-full rounded-[10px]",
                   style: {
                     ...indicator_style,
                     top: 0,
-                    backgroundColor: "var(--indicator-bg)",
-                    border: "1px solid var(--border-primary)",
+                    backgroundColor: "var(--aster-selected)",
                     zIndex: 0,
                     willChange: "transform, opacity",
                     transition: indicator_style.opacity === 0 ? "opacity 100ms ease" : "transform 200ms ease, height 200ms ease, opacity 200ms ease"
@@ -3490,11 +3489,11 @@ function DashboardSidebar({
                 return /* @__PURE__ */ jsxs21(
                   "button",
                   {
-                    className: `sidebar-nav-btn group relative w-full flex items-center ${collapsed ? "justify-center" : "gap-2.5"} rounded-[12px] ${collapsed ? "px-0" : "px-2.5"} h-8 text-[14px]  ${selected ? "sidebar-active" : ""} ${collapsed && selected ? "sidebar-selected" : ""}`,
+                    className: `sidebar-nav-btn group relative w-full flex items-center ${collapsed ? "justify-center" : "gap-2.5"} rounded-[10px] ${collapsed ? "px-0" : "px-2.5"} h-8 text-[14px]  ${selected ? "sidebar-active" : ""} ${collapsed && selected ? "sidebar-selected" : ""}`,
                     style: {
                       zIndex: 1,
                       color: selected ? "var(--text-primary)" : "var(--text-secondary)",
-                      backgroundColor: collapsed && selected ? "var(--indicator-bg)" : void 0
+                      backgroundColor: collapsed && selected ? "var(--aster-selected)" : void 0
                     },
                     title: collapsed ? label : void 0,
                     type: "button",
@@ -4130,7 +4129,7 @@ function SettingsNavItemButton({
   return /* @__PURE__ */ jsxs23(
     "button",
     {
-      className: "w-full flex items-center gap-2.5 px-2.5 h-8 rounded-[12px] text-[13px] transition-colors duration-150 relative z-[1]",
+      className: "w-full flex items-center gap-2.5 px-2.5 h-8 rounded-[10px] text-[13px] transition-colors duration-150 relative z-[1] hover:bg-[var(--aster-hover)]",
       style: {
         color: is_selected ? "var(--text-primary)" : "var(--text-secondary)"
       },
@@ -4305,13 +4304,12 @@ function SettingsModalShell({
                   /* @__PURE__ */ jsx27(
                     "div",
                     {
-                      className: "pointer-events-none absolute left-0 w-full rounded-md",
+                      className: "pointer-events-none absolute left-0 w-full rounded-[10px]",
                       style: {
                         top: indicator_style.top,
                         height: indicator_style.height,
                         opacity: indicator_style.opacity,
-                        backgroundColor: "var(--indicator-bg)",
-                        border: "1px solid var(--border-primary)",
+                        backgroundColor: "var(--aster-selected)",
                         zIndex: 0,
                         transition: "top 200ms ease, height 200ms ease, opacity 200ms ease"
                       }
@@ -6980,8 +6978,8 @@ var DropdownMenuSeparator = React32.forwardRef(({ className, ...props }, ref) =>
   DropdownMenuPrimitive.Separator,
   {
     ref,
-    className: cn("-mx-1.5 my-1.5 h-px", className),
-    style: { backgroundColor: "var(--aster-floating-divider)" },
+    className: cn("-mx-1.5 my-1.5 h-0 border-t border-solid", className),
+    style: { borderColor: "var(--aster-floating-divider)" },
     ...props
   }
 ));
@@ -7162,7 +7160,7 @@ var RadixContextMenuSubTrigger = React34.forwardRef(({ className, inset, childre
   {
     ref,
     className: cn(
-      "flex cursor-pointer select-none items-center gap-2 rounded-[var(--aster-radius-item)] px-2 py-1.5 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[state=open]:bg-[var(--aster-floating-hover)] [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+      "flex cursor-pointer select-none items-center gap-2.5 rounded-[var(--aster-radius-item)] px-2.5 py-2 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[state=open]:bg-[var(--aster-floating-hover)] [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
       inset && "ps-8",
       className
     ),
@@ -7179,7 +7177,7 @@ var RadixContextMenuSubContent = React34.forwardRef(({ className, style, ...prop
   {
     ref,
     className: cn(
-      "z-50 min-w-[8rem] overflow-hidden aster_floating p-1.5",
+      "z-[200] min-w-[8rem] max-h-[var(--radix-context-menu-content-available-height)] overflow-y-auto overflow-x-hidden aster_floating aster_floating_anim px-1.5 py-2",
       className
     ),
     style: {
@@ -7194,7 +7192,7 @@ var RadixContextMenuContent = React34.forwardRef(({ className, style, ...props }
   {
     ref,
     className: cn(
-      "z-50 min-w-[8rem] overflow-hidden aster_floating p-1.5",
+      "z-[200] min-w-[8rem] max-h-[var(--radix-context-menu-content-available-height)] overflow-y-auto overflow-x-hidden aster_floating aster_floating_anim px-1.5 py-2",
       className
     ),
     style: {
@@ -7209,7 +7207,7 @@ var RadixContextMenuItem = React34.forwardRef(({ className, inset, ...props }, r
   {
     ref,
     className: cn(
-      "relative flex cursor-pointer select-none items-center gap-2 rounded-[var(--aster-radius-item)] px-2 py-1.5 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0",
+      "relative flex cursor-pointer select-none items-center gap-2.5 rounded-[var(--aster-radius-item)] px-2.5 py-2 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[state=open]:bg-[var(--aster-floating-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0",
       inset && "ps-8",
       className
     ),
@@ -7223,7 +7221,7 @@ var RadixContextMenuCheckboxItem = React34.forwardRef(({ className, children, ch
     ref,
     checked,
     className: cn(
-      "relative flex w-full cursor-pointer select-none items-center rounded-[var(--aster-radius-item)] py-1.5 ps-8 pe-2 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex w-full cursor-pointer select-none items-center rounded-[var(--aster-radius-item)] py-2 ps-8 pe-2.5 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     ),
     ...props,
@@ -7239,7 +7237,7 @@ var RadixContextMenuRadioItem = React34.forwardRef(({ className, children, ...pr
   {
     ref,
     className: cn(
-      "relative flex cursor-pointer select-none items-center rounded-[var(--aster-radius-item)] py-1.5 ps-8 pe-2 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-pointer select-none items-center rounded-[var(--aster-radius-item)] py-2 ps-8 pe-2.5 text-sm outline-none focus:bg-[var(--aster-floating-hover)] data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       className
     ),
     ...props,
@@ -7267,8 +7265,8 @@ var RadixContextMenuSeparator = React34.forwardRef(({ className, ...props }, ref
   ContextMenuPrimitive.Separator,
   {
     ref,
-    className: cn("-mx-1.5 my-1 h-px", className),
-    style: { backgroundColor: "var(--aster-floating-divider)" },
+    className: cn("-mx-1.5 my-1.5 h-0 border-t border-solid", className),
+    style: { borderColor: "var(--aster-floating-divider)" },
     ...props
   }
 ));
@@ -13431,7 +13429,7 @@ function SidebarFolderRowView({
         className: join_classes8(
           "sidebar-nav-btn group relative w-full flex items-center",
           is_collapsed ? "justify-center" : "gap-2.5",
-          "rounded-[12px]",
+          "rounded-[10px]",
           is_collapsed && "px-0",
           "h-8 text-[14px]",
           selected && "sidebar-active",
@@ -13446,7 +13444,7 @@ function SidebarFolderRowView({
           paddingInlineStart: is_collapsed ? void 0 : `${has_children ? 18 : 10}px`,
           paddingInlineEnd: is_collapsed ? void 0 : "10px",
           color: selected ? "var(--text-primary)" : "var(--text-secondary)",
-          backgroundColor: drag_over ? void 0 : is_collapsed && selected ? "var(--indicator-bg)" : void 0
+          backgroundColor: drag_over ? void 0 : is_collapsed && selected ? "var(--aster-selected)" : void 0
         },
         type: "button",
         onClick: on_click,
@@ -13641,12 +13639,11 @@ function SidebarScrollAreaView({
         show_indicator && /* @__PURE__ */ jsx101(
           "div",
           {
-            className: "pointer-events-none absolute start-0 w-full rounded-md border-edge-primary",
+            className: "pointer-events-none absolute start-0 w-full rounded-[10px]",
             style: {
               ...indicator_style,
               top: 0,
-              backgroundColor: "var(--indicator-bg)",
-              border: "1px solid var(--border-primary)",
+              backgroundColor: "var(--aster-selected)",
               zIndex: 0,
               willChange: "transform, opacity",
               transition: indicator_style.opacity === 0 ? "opacity 100ms ease" : "transform 200ms ease, height 200ms ease, opacity 200ms ease"

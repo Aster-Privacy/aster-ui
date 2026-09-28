@@ -43,7 +43,7 @@
     --aster-floating-hover: var(--aster-hover);
     --aster-selected: color-mix(in srgb, var(--text-primary, #111827) 8%, transparent);
     --aster-floating-divider: color-mix(in srgb, var(--text-primary, #111827) 8%, transparent);
-    --aster-floating-shadow: 0 0 0 1px color-mix(in srgb, var(--text-primary, #111827) 8%, transparent), 0 12px 32px -8px rgba(0, 0, 0, 0.18), 0 2px 6px rgba(0, 0, 0, 0.06);
+    --aster-floating-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.08);
     --aster-floating-bg: var(--bg-primary, #ffffff);
     --aster-radius-floating: 16px;
     --aster-field-bg: color-mix(in srgb, var(--text-primary, #111827) 7%, var(--bg-primary, #ffffff));
@@ -59,7 +59,7 @@
     --aster-selected: color-mix(in srgb, var(--text-primary, #f5f5f5) 10%, transparent);
     --aster-floating-hover: color-mix(in srgb, var(--text-primary, #f5f5f5) 8%, transparent);
     --aster-floating-divider: color-mix(in srgb, var(--text-primary, #f5f5f5) 9%, transparent);
-    --aster-floating-shadow: 0 0 0 1px color-mix(in srgb, var(--text-primary, #f5f5f5) 10%, transparent), 0 16px 40px -8px rgba(0, 0, 0, 0.6);
+    --aster-floating-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
     --aster-segmented-track: color-mix(in srgb, var(--text-primary, #f5f5f5) 7%, transparent);
     --aster-dialog-bg: color-mix(in srgb, var(--modal-bg, #121212) 94%, var(--text-primary, #f5f5f5));
     --aster-dialog-shadow: 0 24px 56px -12px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -80,7 +80,7 @@
 
   .aster_floating_anim[data-state="open"] {
     animation: aster_floating_in 0.12s cubic-bezier(0.2, 0, 0, 1) both;
-    transform-origin: var(--radix-dropdown-menu-content-transform-origin, var(--radix-popover-content-transform-origin, var(--radix-select-content-transform-origin, center top)));
+    transform-origin: var(--radix-dropdown-menu-content-transform-origin, var(--radix-context-menu-content-transform-origin, var(--radix-popover-content-transform-origin, var(--radix-select-content-transform-origin, center top))));
     will-change: opacity, transform;
   }
 
@@ -197,10 +197,10 @@
   }
 
   .aster_floating_divider {
-    height: 1px;
+    height: 0;
     margin-block: 4px;
     margin-inline: calc(var(--aster-floating-pad) * -1);
-    background-color: var(--aster-floating-divider);
+    border-top: 1px solid var(--aster-floating-divider);
   }
 
   .aster_segmented {
@@ -661,11 +661,11 @@
   }
 
   .aster_island_divider {
-    height: 1px;
+    height: 0;
     margin: 0;
     margin-inline-start: var(--aster-island-divider-inset, 0);
     border: 0;
-    background: var(--aster-island-divider);
+    border-top: 1px solid var(--aster-island-divider);
   }
 
   .aster_thread_hidden_row {

@@ -22,8 +22,7 @@
 @media (hover: hover) {
   .sidebar-nav-btn:not(.sidebar-active):hover {
     color: var(--text-primary) !important;
-    background-color: var(--indicator-bg, var(--bg-hover)) !important;
-    border-radius: 8px;
+    background-color: var(--aster-hover, var(--bg-hover)) !important;
   }
 
   .sidebar-nav-btn:not(.sidebar-active):hover span {
@@ -33,11 +32,12 @@
 
 .sidebar-nav-btn {
   margin-bottom: 2px;
+  border-radius: 10px;
   transition: none !important;
 }
 
 :root .sidebar-nav-btn.sidebar-selected {
-  background-color: var(--indicator-bg, var(--bg-hover));
+  background-color: var(--aster-selected, var(--bg-hover));
 }
 
 .aster_tip_portal[data-tip-arrow] {
@@ -110,7 +110,7 @@ aside[data-collapsed="true"] .sidebar-rail-btn {
 }
 
 aside[data-collapsed="true"] .sidebar-rail-btn:hover {
-  background-color: var(--indicator-bg, var(--bg-hover));
+  background-color: var(--aster-hover, var(--bg-hover));
   color: var(--text-primary);
 }
 
