@@ -119,20 +119,22 @@ aside[data-collapsed="true"] .sidebar-rail-btn:hover {
 }
 
 .aster_search_open {
-  background-color: var(--dropdown-bg, var(--bg-primary));
-  border: 1px solid var(--border-secondary);
+  background-color: var(--aster-floating-bg, var(--dropdown-bg, var(--bg-primary)));
+  border: 1px solid transparent;
 }
 
 .aster_search_open:not(.aster_search_open_panel) {
-  border-bottom-color: transparent;
   box-shadow: 0 -1px 8px -4px rgba(0, 0, 0, 0.12);
 }
 
 .aster_search_open_panel {
   border-top: 0;
-  box-shadow:
+  clip-path: inset(0 -48px -64px -48px);
+  box-shadow: var(
+    --aster-floating-shadow,
     0 12px 24px -10px rgba(0, 0, 0, 0.22),
-    0 3px 8px -4px rgba(0, 0, 0, 0.12);
+    0 3px 8px -4px rgba(0, 0, 0, 0.12)
+  );
 }
 
 .full-page-loader {
