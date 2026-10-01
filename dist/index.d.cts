@@ -2147,6 +2147,7 @@ interface SidebarFolderRowViewProps {
     is_expanded: boolean;
     is_locked_closed: boolean;
     show_lock_badge?: boolean;
+    muted_label?: string;
     guide_trail?: boolean[];
     guide_has_next?: boolean;
     unread_count: number;
@@ -2162,7 +2163,7 @@ interface SidebarFolderRowViewProps {
     on_drag_over?: (e: React$1.DragEvent<HTMLButtonElement>) => void;
     on_drop?: (e: React$1.DragEvent<HTMLButtonElement>) => void;
 }
-declare function SidebarFolderRowView({ label, color, is_collapsed, selected, depth, has_children, is_expanded, is_locked_closed, show_lock_badge, guide_trail, guide_has_next, unread_count, locale, expand_label, collapse_label, drag_over, button_ref, on_click, on_toggle_expanded, on_drag_enter, on_drag_leave, on_drag_over, on_drop, }: SidebarFolderRowViewProps): React$1.ReactElement;
+declare function SidebarFolderRowView({ label, color, is_collapsed, selected, depth, has_children, is_expanded, is_locked_closed, show_lock_badge, muted_label, guide_trail, guide_has_next, unread_count, locale, expand_label, collapse_label, drag_over, button_ref, on_click, on_toggle_expanded, on_drag_enter, on_drag_leave, on_drag_over, on_drop, }: SidebarFolderRowViewProps): React$1.ReactElement;
 
 interface MobileMenuButtonViewProps {
     label: string;
@@ -2430,11 +2431,12 @@ interface MobileDrawerFolderRowProps {
     locale?: string;
     show_lock_toggle?: boolean;
     lock_closed?: boolean;
+    muted_label?: string;
     on_click: () => void;
     on_long_press?: () => void;
     on_toggle_lock?: () => void;
 }
-declare function MobileDrawerFolderRow({ label, color, depth, guide_trail, guide_has_next, active, count, locale, show_lock_toggle, lock_closed, on_click, on_long_press, on_toggle_lock, }: MobileDrawerFolderRowProps): react_jsx_runtime.JSX.Element;
+declare function MobileDrawerFolderRow({ label, color, depth, guide_trail, guide_has_next, active, count, locale, show_lock_toggle, lock_closed, muted_label, on_click, on_long_press, on_toggle_lock, }: MobileDrawerFolderRowProps): react_jsx_runtime.JSX.Element;
 interface MobileDrawerTagIconProps {
     icon?: string | null;
     color: string;

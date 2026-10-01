@@ -13254,6 +13254,7 @@ function AliasContextMenuView({
 // src/sidebar_rows/sidebar_rows.tsx
 import {
   AtSymbolIcon as AtSymbolIcon2,
+  BellSlashIcon,
   BoltIcon as BoltIcon3,
   ChevronDownIcon as ChevronDownIcon4,
   ChevronRightIcon as ChevronRightIcon5,
@@ -13364,6 +13365,7 @@ function SidebarFolderRowView({
   is_expanded,
   is_locked_closed,
   show_lock_badge,
+  muted_label,
   guide_trail,
   guide_has_next = false,
   unread_count,
@@ -13487,6 +13489,17 @@ function SidebarFolderRowView({
           is_collapsed && !is_locked_closed && /* @__PURE__ */ jsx100(RailUnreadDot, { count: unread_count, label, locale }),
           !is_collapsed && /* @__PURE__ */ jsxs78(Fragment20, { children: [
             /* @__PURE__ */ jsx100("span", { className: "flex-1 text-start truncate", children: label }),
+            muted_label && /* @__PURE__ */ jsx100(
+              BellSlashIcon,
+              {
+                "aria-hidden": false,
+                "aria-label": muted_label,
+                className: "w-3.5 h-3.5 shrink-0 text-icon-muted",
+                "data-folder-muted": "true",
+                role: "img",
+                title: muted_label
+              }
+            ),
             is_locked_closed && /* @__PURE__ */ jsx100(LockClosedIcon2, { className: "w-3 h-3 ms-1 text-icon-muted" }),
             !is_locked_closed && /* @__PURE__ */ jsx100(
               CountBadge,
@@ -14801,6 +14814,7 @@ function MobileDrawerNavIndicator({
 
 // src/mobile_drawer/mobile_drawer_nav_view.tsx
 import {
+  BellSlashIcon as BellSlashIcon2,
   ChevronLeftIcon as ChevronLeftIcon2,
   FolderIcon as FolderIcon3,
   LockClosedIcon as LockClosedIcon3,
@@ -14868,6 +14882,7 @@ function MobileDrawerFolderRow({
   locale,
   show_lock_toggle = false,
   lock_closed = false,
+  muted_label,
   on_click,
   on_long_press,
   on_toggle_lock
@@ -14926,18 +14941,31 @@ function MobileDrawerFolderRow({
         locale,
         on_click,
         on_long_press,
-        trailing: show_lock_toggle ? /* @__PURE__ */ jsx110(
-          "button",
-          {
-            className: "flex h-7 w-7 items-center justify-center rounded-[8px] text-[var(--text-muted)] active:bg-[var(--bg-tertiary)]",
-            type: "button",
-            onClick: (e) => {
-              e.stopPropagation();
-              on_toggle_lock?.();
-            },
-            children: lock_closed ? /* @__PURE__ */ jsx110(LockClosedIcon3, { className: "h-4 w-4" }) : /* @__PURE__ */ jsx110(LockOpenIcon, { className: "h-4 w-4" })
-          }
-        ) : void 0
+        trailing: muted_label || show_lock_toggle ? /* @__PURE__ */ jsxs88(Fragment24, { children: [
+          muted_label && /* @__PURE__ */ jsx110(
+            BellSlashIcon2,
+            {
+              "aria-hidden": false,
+              "aria-label": muted_label,
+              className: "h-4 w-4 shrink-0 text-[var(--text-muted)]",
+              "data-folder-muted": "true",
+              role: "img",
+              title: muted_label
+            }
+          ),
+          show_lock_toggle && /* @__PURE__ */ jsx110(
+            "button",
+            {
+              className: "flex h-7 w-7 items-center justify-center rounded-[8px] text-[var(--text-muted)] active:bg-[var(--bg-tertiary)]",
+              type: "button",
+              onClick: (e) => {
+                e.stopPropagation();
+                on_toggle_lock?.();
+              },
+              children: lock_closed ? /* @__PURE__ */ jsx110(LockClosedIcon3, { className: "h-4 w-4" }) : /* @__PURE__ */ jsx110(LockOpenIcon, { className: "h-4 w-4" })
+            }
+          )
+        ] }) : void 0
       }
     )
   ] });
