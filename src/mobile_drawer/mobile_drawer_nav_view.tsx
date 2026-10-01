@@ -21,6 +21,7 @@
 import type { ReactNode } from "react";
 
 import {
+  BellSlashIcon,
   ChevronLeftIcon,
   FolderIcon,
   LockClosedIcon,
@@ -125,6 +126,7 @@ export interface MobileDrawerFolderRowProps {
   locale?: string;
   show_lock_toggle?: boolean;
   lock_closed?: boolean;
+  muted_label?: string;
   on_click: () => void;
   on_long_press?: () => void;
   on_toggle_lock?: () => void;
@@ -141,6 +143,7 @@ export function MobileDrawerFolderRow({
   locale,
   show_lock_toggle = false,
   lock_closed = false,
+  muted_label,
   on_click,
   on_long_press,
   on_toggle_lock,
@@ -197,21 +200,35 @@ export function MobileDrawerFolderRow({
         on_click={on_click}
         on_long_press={on_long_press}
         trailing={
-          show_lock_toggle ? (
-            <button
-              className="flex h-7 w-7 items-center justify-center rounded-[8px] text-[var(--text-muted)] active:bg-[var(--bg-tertiary)]"
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                on_toggle_lock?.();
-              }}
-            >
-              {lock_closed ? (
-                <LockClosedIcon className="h-4 w-4" />
-              ) : (
-                <LockOpenIcon className="h-4 w-4" />
+          muted_label || show_lock_toggle ? (
+            <>
+              {muted_label && (
+                <BellSlashIcon
+                  aria-hidden={false}
+                  aria-label={muted_label}
+                  className="h-4 w-4 shrink-0 text-[var(--text-muted)]"
+                  data-folder-muted="true"
+                  role="img"
+                  title={muted_label}
+                />
               )}
-            </button>
+              {show_lock_toggle && (
+                <button
+                  className="flex h-7 w-7 items-center justify-center rounded-[8px] text-[var(--text-muted)] active:bg-[var(--bg-tertiary)]"
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    on_toggle_lock?.();
+                  }}
+                >
+                  {lock_closed ? (
+                    <LockClosedIcon className="h-4 w-4" />
+                  ) : (
+                    <LockOpenIcon className="h-4 w-4" />
+                  )}
+                </button>
+              )}
+            </>
           ) : undefined
         }
       />

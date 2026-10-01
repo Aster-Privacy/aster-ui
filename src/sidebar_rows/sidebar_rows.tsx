@@ -21,6 +21,7 @@
 import * as React from "react";
 import {
   AtSymbolIcon,
+  BellSlashIcon,
   BoltIcon,
   ChevronDownIcon,
   ChevronRightIcon,
@@ -174,6 +175,7 @@ export interface SidebarFolderRowViewProps {
   is_expanded: boolean;
   is_locked_closed: boolean;
   show_lock_badge?: boolean;
+  muted_label?: string;
   guide_trail?: boolean[];
   guide_has_next?: boolean;
   unread_count: number;
@@ -200,6 +202,7 @@ export function SidebarFolderRowView({
   is_expanded,
   is_locked_closed,
   show_lock_badge,
+  muted_label,
   guide_trail,
   guide_has_next = false,
   unread_count,
@@ -336,6 +339,16 @@ export function SidebarFolderRowView({
         {!is_collapsed && (
           <>
             <span className="flex-1 text-start truncate">{label}</span>
+            {muted_label && (
+              <BellSlashIcon
+                aria-hidden={false}
+                aria-label={muted_label}
+                className="w-3.5 h-3.5 shrink-0 text-icon-muted"
+                data-folder-muted="true"
+                role="img"
+                title={muted_label}
+              />
+            )}
             {is_locked_closed && (
               <LockClosedIcon className="w-3 h-3 ms-1 text-icon-muted" />
             )}

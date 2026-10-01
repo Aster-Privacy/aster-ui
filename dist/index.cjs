@@ -13680,6 +13680,7 @@ function SidebarFolderRowView({
   is_expanded,
   is_locked_closed,
   show_lock_badge,
+  muted_label,
   guide_trail,
   guide_has_next = false,
   unread_count,
@@ -13803,6 +13804,17 @@ function SidebarFolderRowView({
           is_collapsed && !is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(RailUnreadDot, { count: unread_count, label, locale }),
           !is_collapsed && /* @__PURE__ */ (0, import_jsx_runtime100.jsxs)(import_jsx_runtime100.Fragment, { children: [
             /* @__PURE__ */ (0, import_jsx_runtime100.jsx)("span", { className: "flex-1 text-start truncate", children: label }),
+            muted_label && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
+              import_outline16.BellSlashIcon,
+              {
+                "aria-hidden": false,
+                "aria-label": muted_label,
+                className: "w-3.5 h-3.5 shrink-0 text-icon-muted",
+                "data-folder-muted": "true",
+                role: "img",
+                title: muted_label
+              }
+            ),
             is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(import_outline16.LockClosedIcon, { className: "w-3 h-3 ms-1 text-icon-muted" }),
             !is_locked_closed && /* @__PURE__ */ (0, import_jsx_runtime100.jsx)(
               CountBadge,
@@ -15140,6 +15152,7 @@ function MobileDrawerFolderRow({
   locale,
   show_lock_toggle = false,
   lock_closed = false,
+  muted_label,
   on_click,
   on_long_press,
   on_toggle_lock
@@ -15198,18 +15211,31 @@ function MobileDrawerFolderRow({
         locale,
         on_click,
         on_long_press,
-        trailing: show_lock_toggle ? /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
-          "button",
-          {
-            className: "flex h-7 w-7 items-center justify-center rounded-[8px] text-[var(--text-muted)] active:bg-[var(--bg-tertiary)]",
-            type: "button",
-            onClick: (e) => {
-              e.stopPropagation();
-              on_toggle_lock?.();
-            },
-            children: lock_closed ? /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline22.LockClosedIcon, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline22.LockOpenIcon, { className: "h-4 w-4" })
-          }
-        ) : void 0
+        trailing: muted_label || show_lock_toggle ? /* @__PURE__ */ (0, import_jsx_runtime110.jsxs)(import_jsx_runtime110.Fragment, { children: [
+          muted_label && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+            import_outline22.BellSlashIcon,
+            {
+              "aria-hidden": false,
+              "aria-label": muted_label,
+              className: "h-4 w-4 shrink-0 text-[var(--text-muted)]",
+              "data-folder-muted": "true",
+              role: "img",
+              title: muted_label
+            }
+          ),
+          show_lock_toggle && /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(
+            "button",
+            {
+              className: "flex h-7 w-7 items-center justify-center rounded-[8px] text-[var(--text-muted)] active:bg-[var(--bg-tertiary)]",
+              type: "button",
+              onClick: (e) => {
+                e.stopPropagation();
+                on_toggle_lock?.();
+              },
+              children: lock_closed ? /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline22.LockClosedIcon, { className: "h-4 w-4" }) : /* @__PURE__ */ (0, import_jsx_runtime110.jsx)(import_outline22.LockOpenIcon, { className: "h-4 w-4" })
+            }
+          )
+        ] }) : void 0
       }
     )
   ] });
