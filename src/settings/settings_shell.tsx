@@ -22,6 +22,8 @@
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+import { IslandRow } from "../island/island";
+
 function join_classes(...parts: Array<string | false | null | undefined>): string {
   return parts.filter(Boolean).join(" ");
 }
@@ -139,20 +141,17 @@ export function SettingsSectionHeader({
   trailing,
 }: SettingsSectionHeaderProps) {
   return (
-    <div className="mb-4">
-      <div className="flex items-start justify-between gap-3">
-        <h3 className="text-base font-semibold text-txt-primary flex items-center gap-2 min-w-0">
-          {Icon && (
-            <Icon className="w-[18px] h-[18px] text-txt-primary flex-shrink-0" />
-          )}
-          <span className="truncate">{title}</span>
+    <div className="aster_island_section_header">
+      <div className="aster_island_section_heading">
+        <h3 className="aster_island_section_title">
+          {Icon && <Icon aria-hidden="true" />}
+          <span>{title}</span>
         </h3>
-        {trailing && <div className="flex-shrink-0">{trailing}</div>}
+        {description && (
+          <p className="aster_island_section_description">{description}</p>
+        )}
       </div>
-      <div className="mt-2 h-px bg-edge-secondary" />
-      {description && (
-        <p className="text-sm mt-2 text-txt-muted">{description}</p>
-      )}
+      {trailing && <div className="aster_island_section_trailing">{trailing}</div>}
     </div>
   );
 }
@@ -165,15 +164,12 @@ export interface SettingsRowProps {
 
 export function SettingsRow({ label, description, children }: SettingsRowProps) {
   return (
-    <div className="flex items-center justify-between py-4">
-      <div className="flex-1 pr-4">
-        <p className="text-sm font-medium text-txt-primary">{label}</p>
-        {description && (
-          <p className="text-sm mt-0.5 text-txt-muted">{description}</p>
-        )}
-      </div>
-      <div className="flex-shrink-0">{children}</div>
-    </div>
+    <IslandRow
+      description={description}
+      label={label}
+      layout="stacked"
+      trailing={children}
+    />
   );
 }
 
@@ -205,7 +201,7 @@ export function SettingsNavItemButton({
   const Icon = item.icon;
   return (
     <button
-      className="w-full flex items-center gap-2.5 px-2.5 h-8 rounded-[12px] text-[13px] transition-colors duration-150 relative z-[1]"
+      className="w-full flex items-center gap-2.5 px-2.5 h-8 rounded-[10px] text-[13px] transition-colors duration-150 relative z-[1] hover:bg-[var(--aster-hover)]"
       style={{
         color: is_selected ? "var(--text-primary)" : "var(--text-secondary)",
       }}
@@ -427,13 +423,12 @@ export function SettingsModalShell({
               )}
               <div ref={nav_container_ref} className="relative">
                   <div
-                    className="pointer-events-none absolute left-0 w-full rounded-md"
+                    className="pointer-events-none absolute left-0 w-full rounded-[10px]"
                     style={{
                       top: indicator_style.top,
                       height: indicator_style.height,
                       opacity: indicator_style.opacity,
-                      backgroundColor: "var(--indicator-bg)",
-                      border: "1px solid var(--border-primary)",
+                      backgroundColor: "var(--aster-selected)",
                       zIndex: 0,
                       transition: "top 200ms ease, height 200ms ease, opacity 200ms ease",
                     }}

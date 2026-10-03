@@ -19,16 +19,46 @@
  * along with this program. If not, see <https://www.gnu.org/licenses/>.
  */
 
+@import "./island.css";
+@import "./tokens.css";
+@import "./account.css";
+@import "./shell.css";
+
+@source "../index.js";
+@source "../date_picker/index.js";
+@source "../qr_code/index.js";
+
 .aster_btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border-radius: 14px;
+  border-radius: var(--aster-radius-control, 16px);
   font-weight: 500;
   text-decoration: none;
   cursor: pointer;
   border: none;
+}
+
+@keyframes aster_spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.aster_spinner {
+  animation: aster_spin 1s linear infinite;
+}
+
+@layer components {
+  .aster_btn,
+  .aster_btn_upgrade,
+  .aster_btn_loading_host,
+  button:has(.aster_btn_spinner),
+  a:has(.aster_btn_spinner),
+  label:has(.aster_btn_spinner) {
+    position: relative;
+  }
 }
 
 .aster_btn_primary {
@@ -53,13 +83,13 @@
 
 .aster_btn_outline {
   color: #1a1a1a;
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.04);
+  border: 0;
   transition: background 0.12s ease;
 }
 
 .aster_btn_outline:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .aster_btn_ghost {
@@ -97,7 +127,7 @@
   transition: filter 0.15s ease;
 }
 
-.aster_btn_depth:hover {
+.aster_btn_depth:hover:not(:disabled):not([aria-disabled="true"]) {
   filter: brightness(1.1);
 }
 
@@ -116,43 +146,57 @@
   transition: filter 0.15s ease;
 }
 
-.aster_btn_depth_destructive:hover {
+.aster_btn_depth_destructive:hover:not(:disabled):not([aria-disabled="true"]) {
   filter: brightness(1.1);
+}
+
+.aster_btn_depth:disabled:not([data-loading]),
+.aster_btn_depth[aria-disabled="true"]:not([data-loading]),
+.aster_btn_depth_destructive:disabled:not([data-loading]),
+.aster_btn_depth_destructive[aria-disabled="true"]:not([data-loading]) {
+  opacity: 0.45;
+}
+
+.aster_btn_depth:disabled,
+.aster_btn_depth[aria-disabled="true"],
+.aster_btn_depth_destructive:disabled,
+.aster_btn_depth_destructive[aria-disabled="true"] {
+  cursor: not-allowed;
 }
 
 .aster_btn_xl {
   height: 44px;
   padding: 0 22px;
   font-size: 16px;
-  border-radius: 18px;
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 .aster_btn_lg {
   height: 36px;
   padding: 0 16px;
   font-size: 14px;
-  border-radius: 16px;
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 .aster_btn_md {
   height: 32px;
   padding: 0 14px;
   font-size: 13px;
-  border-radius: 14px;
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 .aster_btn_sm {
   height: 28px;
   padding: 0 12px;
   font-size: 12px;
-  border-radius: 12px;
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 .aster_btn_icon {
   width: 36px;
   height: 36px;
   padding: 0;
-  border-radius: 10px;
+  border-radius: 999px;
 }
 
 .aster_btn:focus-visible {
@@ -160,17 +204,22 @@
   outline-offset: 2px;
 }
 
+@layer components {
+  :where(.aster_input) {
+    width: 100%;
+    padding: 0 14px;
+  }
+}
+
 .aster_input {
   display: flex;
-  width: 100%;
-  border-radius: 12px;
+  border-radius: var(--aster-radius-control, 16px);
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: #ffffff;
   color: #1a1a1a;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-  padding: 0 14px;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
   outline: none;
 }
@@ -179,13 +228,18 @@
   color: #9ca3af;
 }
 
-.aster_input:hover {
+.aster_input {
+  transition: background-color 0.14s cubic-bezier(0.2, 0, 0, 1), border-color 0.14s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.14s cubic-bezier(0.2, 0, 0, 1);
+  outline: none;
+}
+
+.aster_input:hover:not(:disabled):not(:focus) {
   border-color: rgba(0, 0, 0, 0.18);
 }
 
 .aster_input:focus {
   border-color: var(--accent-color, #3b82f6);
-  box-shadow: none;
+  box-shadow: inset 0 0 0 1px var(--accent-color, #3b82f6);
 }
 
 .aster_input_success {
@@ -209,32 +263,56 @@
   cursor: not-allowed;
 }
 
+@layer components {
+  :where(.aster_input_xl) {
+    height: 44px;
+    min-height: 44px;
+    padding: 0 16px;
+  }
+}
+
 .aster_input_xl {
-  height: 44px;
   font-size: 16px;
-  padding: 0 16px;
-  border-radius: 14px;
+  border-radius: var(--aster-radius-control, 16px);
+}
+
+@layer components {
+  :where(.aster_input_lg) {
+    height: 40px;
+    min-height: 40px;
+    padding: 0 14px;
+  }
 }
 
 .aster_input_lg {
-  height: 40px;
   font-size: 14px;
-  padding: 0 14px;
-  border-radius: 14px;
+  border-radius: var(--aster-radius-control, 16px);
+}
+
+@layer components {
+  :where(.aster_input_md) {
+    height: 36px;
+    min-height: 36px;
+    padding: 0 12px;
+  }
 }
 
 .aster_input_md {
-  height: 36px;
   font-size: 13px;
-  padding: 0 12px;
-  border-radius: 12px;
+  border-radius: var(--aster-radius-control, 16px);
+}
+
+@layer components {
+  :where(.aster_input_sm) {
+    height: 32px;
+    min-height: 32px;
+    padding: 0 10px;
+  }
 }
 
 .aster_input_sm {
-  height: 32px;
   font-size: 12px;
-  padding: 0 10px;
-  border-radius: 10px;
+  border-radius: var(--aster-radius-control, 16px);
 }
 
 @keyframes aster_shimmer {
@@ -248,7 +326,6 @@
     linear-gradient(180deg, #4a84f5 0%, #1c4fd6 100%) padding-box,
     linear-gradient(180deg, #bfdbfe 0%, #3b82f6 50%, #1e3a8a 100%) border-box;
   border: 1.5px solid transparent;
-  position: relative;
   overflow: hidden;
   transition: filter 0.12s ease;
 }
@@ -916,7 +993,7 @@
 .aster_modal {
   position: relative;
   background: #fff;
-  border-radius: 14px;
+  border-radius: var(--aster-radius-panel, 12px);
   padding: 24px;
   width: 100%;
   max-width: 400px;
@@ -1030,8 +1107,10 @@
   gap: 8px;
 }
 
-[data-tip] {
-  position: relative;
+@layer components {
+  [data-tip] {
+    position: relative;
+  }
 }
 
 .aster_tip_portal {
@@ -1483,7 +1562,7 @@
 .aster_seg {
   display: inline-flex;
   background: #f3f4f6;
-  border-radius: 10px;
+  border-radius: var(--aster-radius-control, 16px);
   padding: 3px;
   gap: 2px;
 }
@@ -2188,13 +2267,12 @@
 
 .dark .aster_btn_outline {
   color: var(--text-secondary, #b0b0b0);
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .dark .aster_btn_outline:hover {
   color: var(--text-primary, #e5e5e5);
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .dark .aster_btn_ghost {
@@ -2219,7 +2297,7 @@
               linear-gradient(to bottom, var(--accent-mix-w70, color-mix(in srgb, var(--accent-color, #3b6aef) 70%, white)), var(--accent-color, #3b6aef), var(--accent-mix-b75, color-mix(in srgb, var(--accent-color, #3b6aef) 75%, black))) border-box;
 }
 
-.dark .aster_btn_depth:hover {
+.dark .aster_btn_depth:hover:not(:disabled):not([aria-disabled="true"]) {
   filter: brightness(1.25);
 }
 
@@ -2228,41 +2306,47 @@
               linear-gradient(to bottom, #f87171, #dc2626, #991b1b) border-box;
 }
 
-.dark .aster_btn_depth_destructive:hover {
+.dark .aster_btn_depth_destructive:hover:not(:disabled):not([aria-disabled="true"]) {
   filter: brightness(1.25);
 }
 
-.dark .aster_badge_blue {
+.dark .aster_badge_blue,
+[data-theme="dark"] .aster_badge_blue {
   color: #93c5fd;
   background: rgba(59, 130, 246, 0.15);
   border-color: rgba(59, 130, 246, 0.3);
 }
 
-.dark .aster_badge_green {
+.dark .aster_badge_green,
+[data-theme="dark"] .aster_badge_green {
   color: #86efac;
   background: rgba(34, 197, 94, 0.15);
   border-color: rgba(34, 197, 94, 0.3);
 }
 
-.dark .aster_badge_purple {
+.dark .aster_badge_purple,
+[data-theme="dark"] .aster_badge_purple {
   color: #d8b4fe;
   background: rgba(168, 85, 247, 0.15);
   border-color: rgba(168, 85, 247, 0.3);
 }
 
-.dark .aster_badge_amber {
+.dark .aster_badge_amber,
+[data-theme="dark"] .aster_badge_amber {
   color: #fcd34d;
   background: rgba(245, 158, 11, 0.15);
   border-color: rgba(245, 158, 11, 0.3);
 }
 
-.dark .aster_badge_gray {
+.dark .aster_badge_gray,
+[data-theme="dark"] .aster_badge_gray {
   color: #d1d5db;
   background: rgba(107, 114, 128, 0.15);
   border-color: rgba(107, 114, 128, 0.3);
 }
 
-.dark .aster_badge_red {
+.dark .aster_badge_red,
+[data-theme="dark"] .aster_badge_red {
   color: #fca5a5;
   background: rgba(239, 68, 68, 0.15);
   border-color: rgba(239, 68, 68, 0.3);
@@ -2416,7 +2500,7 @@
 }
 
 .dark .aster_modal_overlay {
-  background: var(--modal-overlay, rgba(0, 0, 0, 0.85));
+  background: var(--modal-overlay, rgba(0, 0, 0, 0.6));
 }
 
 .dark .aster_modal {
@@ -2573,13 +2657,13 @@
   color: #6b7280;
 }
 
-.dark .aster_input:hover {
+.dark .aster_input:hover:not(:disabled):not(:focus) {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
 .dark .aster_input:focus {
   border-color: var(--accent-color, #3b82f6);
-  box-shadow: none;
+  box-shadow: inset 0 0 0 1px var(--accent-color, #3b82f6);
 }
 
 .dark .aster_input_success {
@@ -2634,4 +2718,765 @@
   justify-content: center;
   white-space: nowrap;
   line-height: inherit;
+}
+
+@keyframes aster_spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.aster_spinner {
+  animation: aster_spin 1s linear infinite;
+}
+
+@layer components {
+  .aster_btn,
+  .aster_btn_loading_host,
+  button:has(.aster_btn_spinner),
+  a:has(.aster_btn_spinner),
+  label:has(.aster_btn_spinner) {
+    position: relative;
+  }
+}
+
+.aster_btn_spinner {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+.aster_btn_loading_host:has(> .aster_btn_spinner),
+button:has(> .aster_btn_spinner),
+a:has(> .aster_btn_spinner),
+label:has(> .aster_btn_spinner) {
+  -webkit-text-fill-color: transparent;
+}
+
+.aster_btn_loading_host:has(> .aster_btn_spinner) > :not(.aster_btn_spinner),
+button:has(> .aster_btn_spinner) > :not(.aster_btn_spinner),
+a:has(> .aster_btn_spinner) > :not(.aster_btn_spinner),
+label:has(> .aster_btn_spinner) > :not(.aster_btn_spinner) {
+  opacity: 0;
+}
+
+.aster_island .aster_input {
+  border-radius: var(--aster-radius-field, 10px);
+  border-color: transparent;
+  background-color: var(--aster-field-bg);
+  box-shadow: none;
+}
+
+.aster_island .aster_input:hover:not(:disabled):not(:focus) {
+  border-color: transparent;
+  background-color: var(--aster-field-hover);
+}
+
+.aster_island .aster_input:focus {
+  border-color: transparent;
+  background-color: var(--aster-field-bg);
+  box-shadow: inset 0 0 0 2px var(--accent-color, #3b82f6);
+}
+
+.aster_island .aster_input_error,
+.aster_island .aster_input_error:focus {
+  border-color: transparent;
+  box-shadow: inset 0 0 0 2px #ef4444;
+}
+
+.aster_island .aster_input_success,
+.aster_island .aster_input_success:focus {
+  border-color: transparent;
+  box-shadow: inset 0 0 0 2px #22c55e;
+}
+
+.aster_tip_portal,
+.dark .aster_tip_portal,
+.aster_tip_top::after,
+.aster_tip_bottom::after,
+.aster_tip_left::after,
+.aster_tip_right::after,
+.aster_tip_dotted::after,
+.dark [data-tip]::after,
+.dark .aster_tip_dotted::after {
+  background: var(--aster-floating-bg, #ffffff);
+  color: var(--text-secondary, #374151);
+  border: 0;
+  border-radius: var(--aster-radius-item, 8px);
+  box-shadow: var(--aster-floating-shadow);
+}
+
+.aster_tip_portal_dark,
+.dark .aster_tip_portal_dark,
+.aster_tip_dark::after,
+.dark .aster_tip_dark::after {
+  background: var(--text-primary, #1a1a1a);
+  color: var(--bg-primary, #ffffff);
+  border: 0;
+}
+
+.aster_tip_rich,
+.dark .aster_tip_rich {
+  background: var(--aster-floating-bg, #ffffff);
+  border: 0;
+  border-radius: var(--aster-radius-panel, 12px);
+  box-shadow: var(--aster-floating-shadow);
+}
+
+.aster_compose_toolbar {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.aster_compose_format_row {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 12px 0;
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.aster_compose_format_row::-webkit-scrollbar {
+  display: none;
+}
+
+.aster_compose_bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 16px 10px;
+}
+
+.aster_compose_tools {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-inline-start: 4px;
+}
+
+.aster_compose_end {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  margin-inline-start: auto;
+}
+
+.aster_compose_send {
+  flex-shrink: 0;
+  height: 36px;
+  padding-inline: 24px;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.aster_compose_tool {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--text-tertiary, #4b5563);
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    background-color 0.15s,
+    color 0.15s;
+}
+
+.aster_compose_tool:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--text-primary, #111827);
+}
+
+.aster_compose_tool[data-active] {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-primary, #111827);
+}
+
+.aster_compose_tool:active {
+  background-color: rgba(0, 0, 0, 0.12);
+  opacity: 0.75;
+}
+
+.aster_compose_tool:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.aster_compose_tool:disabled:hover {
+  background-color: transparent;
+  color: var(--text-tertiary, #4b5563);
+}
+
+.aster_compose_icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.aster_compose_divider {
+  width: 1px;
+  height: 16px;
+  margin: 0 4px;
+  flex-shrink: 0;
+  background: var(--border-secondary, #e5e7eb);
+}
+
+.aster_emoji_popover {
+  position: fixed;
+}
+
+.aster_emoji_picker {
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  max-width: calc(100vw - 16px);
+  overflow: hidden;
+  border: 1px solid var(--border-primary, #e8e8e8);
+  border-radius: 16px;
+  background: var(--modal-bg, #ffffff);
+  box-shadow:
+    0 16px 40px -12px rgba(0, 0, 0, 0.28),
+    0 2px 6px -2px rgba(0, 0, 0, 0.12);
+  --aster-emoji-soft: rgba(0, 0, 0, 0.05);
+  --aster-emoji-hover: rgba(0, 0, 0, 0.06);
+  --aster-emoji-pressed: rgba(0, 0, 0, 0.1);
+  --aster-emoji-accent: var(--aster-accent, #3b82f6);
+}
+
+.aster_emoji_tabs {
+  display: flex;
+  padding: 4px 8px 0;
+}
+
+.aster_emoji_tab {
+  position: relative;
+  display: flex;
+  flex: 1 1 0%;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted, #6b7280);
+  cursor: pointer;
+  outline: none;
+  transition: color 0.15s;
+}
+
+.aster_emoji_tab:hover,
+.aster_emoji_tab[data-active] {
+  color: var(--text-primary, #111827);
+}
+
+.aster_emoji_tab:focus-visible {
+  box-shadow: inset 0 0 0 2px
+    color-mix(in srgb, var(--aster-emoji-accent) 70%, transparent);
+  border-radius: 8px;
+}
+
+.aster_emoji_tab_icon {
+  width: 20px;
+  height: 20px;
+}
+
+.aster_emoji_tab_indicator {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 24px;
+  height: 3px;
+  margin-left: -12px;
+  border-radius: 9999px;
+  background: var(--aster-emoji-accent);
+}
+
+.aster_emoji_head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px 4px;
+}
+
+.aster_emoji_search,
+.aster_emoji_tone_row {
+  display: flex;
+  flex: 1 1 0%;
+  align-items: center;
+  min-width: 0;
+  height: 40px;
+  border-radius: 9999px;
+  background: var(--aster-emoji-soft);
+}
+
+.aster_emoji_search {
+  position: relative;
+}
+
+.aster_emoji_search:focus-within {
+  box-shadow: 0 0 0 1px var(--aster-emoji-accent);
+}
+
+.aster_emoji_search_icon {
+  position: absolute;
+  inset-inline-start: 12px;
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted, #6b7280);
+  pointer-events: none;
+}
+
+.aster_emoji_search_input {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding-inline: 36px;
+  border: 0;
+  background: transparent;
+  color: var(--text-primary, #111827);
+  font: inherit;
+  font-size: 16px;
+  outline: none;
+}
+
+.aster_emoji_search_input::placeholder {
+  color: var(--text-muted, #6b7280);
+}
+
+.aster_emoji_search_clear,
+.aster_emoji_tone_btn,
+.aster_emoji_tone_option,
+.aster_emoji_cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    transform 0.1s;
+}
+
+.aster_emoji_search_clear {
+  position: absolute;
+  inset-inline-end: 4px;
+  width: 32px;
+  height: 32px;
+  color: var(--text-muted, #6b7280);
+}
+
+.aster_emoji_search_clear:hover {
+  color: var(--text-primary, #111827);
+}
+
+.aster_emoji_clear_icon,
+.aster_emoji_tone_close {
+  width: 16px;
+  height: 16px;
+}
+
+.aster_emoji_tone_row {
+  justify-content: space-around;
+  padding-inline: 4px;
+}
+
+.aster_emoji_tone_option {
+  width: 32px;
+  height: 32px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.aster_emoji_tone_option:hover {
+  background-color: var(--aster-emoji-hover);
+}
+
+.aster_emoji_tone_option[data-active] {
+  background-color: var(--aster-emoji-pressed);
+}
+
+.aster_emoji_tone_btn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--text-muted, #6b7280);
+}
+
+.aster_emoji_tone_btn:hover {
+  background-color: var(--aster-emoji-hover);
+  color: var(--text-primary, #111827);
+}
+
+.aster_emoji_tone_btn[data-open] {
+  background-color: var(--aster-emoji-pressed);
+  color: var(--text-primary, #111827);
+}
+
+.aster_emoji_body {
+  height: min(300px, 42vh);
+  padding: 0 8px 8px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.aster_emoji_body::-webkit-scrollbar {
+  display: none;
+}
+
+.aster_emoji_body > section {
+  position: relative;
+}
+
+.aster_emoji_section_label {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 10px 4px 6px;
+  background: var(--modal-bg, #ffffff);
+  color: var(--text-secondary, #374151);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.aster_emoji_results {
+  padding-top: 8px;
+}
+
+.aster_emoji_grid {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.aster_emoji_cell {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.aster_emoji_cell:hover {
+  background-color: var(--aster-emoji-hover);
+}
+
+.aster_emoji_cell:focus-visible,
+.aster_emoji_tone_option:focus-visible,
+.aster_emoji_tone_btn:focus-visible,
+.aster_emoji_search_clear:focus-visible {
+  box-shadow: 0 0 0 2px
+    color-mix(in srgb, var(--aster-emoji-accent) 70%, transparent);
+}
+
+.aster_emoji_cell:active,
+.aster_emoji_tone_option:active {
+  transform: scale(0.9);
+}
+
+.aster_emoji_empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 160px;
+  color: var(--text-muted, #6b7280);
+  text-align: center;
+}
+
+.aster_emoji_empty_icon {
+  width: 24px;
+  height: 24px;
+}
+
+.aster_emoji_empty p {
+  margin: 0;
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  .aster_emoji_tab {
+    height: 40px;
+  }
+
+  .aster_emoji_search,
+  .aster_emoji_tone_row {
+    height: 36px;
+  }
+
+  .aster_emoji_search_input {
+    font-size: 14px;
+  }
+
+  .aster_emoji_search_clear,
+  .aster_emoji_tone_option {
+    width: 28px;
+    height: 28px;
+  }
+
+  .aster_emoji_tone_option {
+    font-size: 18px;
+  }
+
+  .aster_emoji_tone_btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .aster_emoji_body {
+    height: 300px;
+  }
+
+  .aster_emoji_cell {
+    font-size: 26px;
+  }
+}
+
+.aster_link_popover {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 300px;
+  padding: 12px;
+  border: 1px solid var(--border-primary, #e8e8e8);
+  border-radius: 12px;
+  background: var(--modal-bg, #ffffff);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.aster_link_popover_input.aster_input {
+  width: 100%;
+}
+
+.aster_link_popover_error {
+  margin: 0;
+  font-size: 11px;
+  color: #ef4444;
+}
+
+.aster_link_popover_actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.aster_draft_status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--text-muted, #5f6470);
+}
+
+.aster_draft_status_item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.aster_draft_status_error {
+  color: #ef4444;
+}
+
+.aster_draft_status_icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.aster_draft_progress {
+  width: 64px;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 9999px;
+  background: var(--border-secondary, #e5e7eb);
+}
+
+.aster_draft_progress_bar {
+  width: 40%;
+  height: 100%;
+  border-radius: 9999px;
+  background: #3b82f6;
+}
+
+.dark .aster_compose_tool:hover,
+[data-theme="dark"] .aster_compose_tool:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary, #f5f5f5);
+}
+
+.dark .aster_compose_tool[data-active],
+[data-theme="dark"] .aster_compose_tool[data-active] {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.dark .aster_compose_tool:active,
+[data-theme="dark"] .aster_compose_tool:active {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+.dark .aster_compose_tool:disabled:hover,
+[data-theme="dark"] .aster_compose_tool:disabled:hover {
+  background-color: transparent;
+  color: var(--text-tertiary, #a1a1aa);
+}
+
+.dark .aster_emoji_picker,
+[data-theme="dark"] .aster_emoji_picker {
+  --aster-emoji-soft: rgba(255, 255, 255, 0.07);
+  --aster-emoji-hover: rgba(255, 255, 255, 0.08);
+  --aster-emoji-pressed: rgba(255, 255, 255, 0.16);
+}
+
+.dark .aster_draft_status_error,
+[data-theme="dark"] .aster_draft_status_error {
+  color: #f87171;
+}
+
+.aster_tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-bottom: 1px solid var(--border-secondary, #e5e7eb);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.aster_tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.aster_tab {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 14px;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: var(--text-secondary, #374151);
+  cursor: pointer;
+  outline: none;
+  transition: color 0.15s ease;
+}
+
+.aster_tab:hover {
+  color: var(--text-primary, #111827);
+}
+
+.aster_tab[data-active] {
+  color: var(--accent-color, #3b82f6);
+}
+
+.aster_tab:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--accent-color, #3b82f6);
+  border-radius: 6px;
+}
+
+.aster_tab_icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted, #5f6470);
+}
+
+.aster_tab[data-active] .aster_tab_icon {
+  color: var(--accent-color, #3b82f6);
+}
+
+.aster_tab_count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted, #5f6470);
+  background: color-mix(in srgb, var(--text-muted, #5f6470) 14%, transparent);
+}
+
+.aster_tab[data-active] .aster_tab_count {
+  color: var(--accent-color, #3b82f6);
+  background: color-mix(in srgb, var(--accent-color, #3b82f6) 14%, transparent);
+}
+
+.aster_tab_bar {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 3px;
+  border-radius: 9999px 9999px 0 0;
+  background: var(--accent-color, #3b82f6);
+  pointer-events: none;
+}
+
+.dark .aster_tabs,
+[data-theme="dark"] .aster_tabs {
+  border-bottom-color: var(--border-secondary, #2a2a2a);
+}
+
+.dark .aster_tab,
+[data-theme="dark"] .aster_tab {
+  color: var(--text-secondary, #d4d4d4);
+}
+
+.dark .aster_tab:hover,
+[data-theme="dark"] .aster_tab:hover {
+  color: var(--text-primary, #f5f5f5);
+}
+
+.dark .aster_tab[data-active],
+[data-theme="dark"] .aster_tab[data-active] {
+  color: var(--accent-color, #60a5fa);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aster_tab {
+    transition: none;
+  }
 }

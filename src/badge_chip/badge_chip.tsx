@@ -1,0 +1,92 @@
+//
+// Aster Communications Inc.
+//
+// Copyright (c) 2026 Aster Communications Inc.
+//
+// This file is part of this project.
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with this program. If not, see <https://www.gnu.org/licenses/>.
+//
+
+import * as React from "react";
+
+import { cn } from "../lib/cn";
+
+import { format_find_order, get_badge_visual } from "./badge_registry";
+
+export interface BadgeChipData {
+  slug: string;
+  display_name: string;
+  find_order?: number | null;
+}
+
+export type BadgeChipSize = "xs" | "sm" | "md";
+
+export interface BadgeChipProps {
+  badge: BadgeChipData;
+  size?: BadgeChipSize;
+  show_find_order?: boolean;
+  show_label?: boolean;
+  className?: string;
+  title?: string;
+  locale?: string;
+}
+
+const size_classes: Record<BadgeChipSize, string> = {
+  xs: "text-[9px] px-1 py-[1px] gap-0.5 rounded",
+  sm: "text-[10px] px-1.5 py-0.5 gap-1 rounded",
+  md: "text-[11px] px-2 py-0.5 gap-1 rounded-md",
+};
+
+const icon_size_classes: Record<BadgeChipSize, string> = {
+  xs: "w-2.5 h-2.5",
+  sm: "w-3 h-3",
+  md: "w-3.5 h-3.5",
+};
+
+export const BadgeChip = React.memo(function BadgeChip({
+  badge,
+  size = "sm",
+  show_find_order = true,
+  show_label = true,
+  className,
+  title,
+  locale,
+}: BadgeChipProps) {
+  const visual = get_badge_visual(badge.slug);
+  const Icon = visual.icon;
+  const find_label = show_find_order
+    ? format_find_order(badge.find_order, locale)
+    : null;
+
+  return (
+    <span
+      className={cn(
+        "inline-flex items-center font-medium border select-none",
+        size_classes[size],
+        visual.bg_class,
+        visual.text_class,
+        visual.border_class,
+        className,
+      )}
+      title={title ?? badge.display_name}
+    >
+      <Icon className={cn(icon_size_classes[size], "flex-shrink-0")} />
+      {show_label && <span className="truncate">{badge.display_name}</span>}
+      {find_label && (
+        <span className="tabular-nums opacity-70">{find_label}</span>
+      )}
+    </span>
+  );
+});

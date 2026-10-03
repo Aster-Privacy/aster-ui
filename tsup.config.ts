@@ -23,12 +23,25 @@ import { defineConfig } from "tsup";
 import { cpSync } from "fs";
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/crypto/index.ts"],
+  entry: [
+    "src/index.ts",
+    "src/crypto/index.ts",
+    "src/date_picker/index.ts",
+    "src/qr_code/index.ts",
+    "src/compose_core/index.ts",
+  ],
   format: ["esm", "cjs"],
   dts: true,
   splitting: false,
   clean: true,
-  external: ["react", "react-dom", "framer-motion", "openpgp"],
+  external: [
+    "react",
+    "react-dom",
+    "framer-motion",
+    "openpgp",
+    "qr-code-styling",
+    "react-day-picker",
+  ],
   onSuccess: async () => {
     cpSync("src/styles", "dist/styles", { recursive: true });
   },

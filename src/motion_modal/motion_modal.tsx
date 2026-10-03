@@ -18,13 +18,19 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
+"use client";
+
 import * as React from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
-const cn = (...classes: Array<string | undefined | null | false>) =>
-  classes.filter(Boolean).join(" ");
+import { cn } from "../lib/cn";
+import { use_dialog_shell } from "../lib/use_dialog_shell";
+import { use_should_reduce_motion } from "../motion/use_should_reduce_motion";
+import { use_ui_strings } from "../i18n/ui_strings";
 
-export type MotionModalSize = "sm" | "md" | "lg" | "xl" | "2xl";
+export type MotionModalSize = "sm" | "md" | "lg" | "xl" | "2xl" | "full";
 
 const SIZE_MAX_WIDTH: Record<MotionModalSize, string> = {
   sm: "max-w-[360px]",
@@ -32,32 +38,16 @@ const SIZE_MAX_WIDTH: Record<MotionModalSize, string> = {
   lg: "max-w-[520px]",
   xl: "max-w-[640px]",
   "2xl": "max-w-[860px]",
+  full: "max-w-[800px]",
 };
 
-function get_reduce_motion(): boolean {
-  if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+interface MotionModalLabels {
+  title_id: string;
+  description_id: string;
 }
 
-function XMarkIcon({ className, style }: { className?: string; style?: React.CSSProperties }) {
-  return (
-    <svg
-      className={className}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      style={style}
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M6 18 18 6M6 6l12 12"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+const motion_modal_labels_context =
+  React.createContext<MotionModalLabels | null>(null);
 
 export interface MotionModalProps {
   is_open: boolean;
@@ -65,8 +55,13 @@ export interface MotionModalProps {
   size?: MotionModalSize;
   show_close_button?: boolean;
   close_on_overlay?: boolean;
+  close_on_escape?: boolean;
   z_index?: number;
   className?: string;
+  panel_class_name?: string;
+  overlay_class_name?: string;
+  reduce_motion?: boolean;
+  close_label?: string;
   children: React.ReactNode;
 }
 
@@ -76,68 +71,91 @@ export function MotionModal({
   size = "md",
   show_close_button = true,
   close_on_overlay = true,
+  close_on_escape = true,
   z_index,
   className,
+  panel_class_name,
+  overlay_class_name,
+  reduce_motion,
+  close_label,
   children,
 }: MotionModalProps) {
-  const [reduce_motion, set_reduce_motion] = React.useState(get_reduce_motion);
+  const system_reduce_motion = use_should_reduce_motion();
+  const ui_strings = use_ui_strings();
+  const should_reduce_motion = reduce_motion ?? system_reduce_motion;
+  const resolved_close_label = close_label ?? ui_strings.close;
+  const instance_id = React.useId().replace(/:/g, "");
 
-  React.useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const handle = () => set_reduce_motion(mq.matches);
-    mq.addEventListener("change", handle);
-    return () => mq.removeEventListener("change", handle);
-  }, []);
+  const { dialog_ref, handle_backdrop_pointer_down } =
+    use_dialog_shell<HTMLDivElement>(
+      is_open,
+      on_close,
+      "modal",
+      close_on_escape,
+    );
 
-  React.useEffect(() => {
-    if (!is_open) return;
-    const handle = (e: KeyboardEvent) => {
-      if (e.key === "Escape") on_close();
-    };
-    document.addEventListener("keydown", handle);
-    return () => document.removeEventListener("keydown", handle);
-  }, [is_open, on_close]);
+  const label_ids = React.useMemo<MotionModalLabels>(
+    () => ({
+      title_id: `${instance_id}_title`,
+      description_id: `${instance_id}_description`,
+    }),
+    [instance_id],
+  );
 
-  return (
+  const overlay = (
     <AnimatePresence>
       {is_open && (
         <div
           className="fixed inset-0 flex items-center justify-center"
           style={{ zIndex: z_index ?? 60 }}
         >
-          <motion.div
-            animate={{ opacity: 1 }}
-            className="absolute inset-0 backdrop-blur-md"
-            exit={{ opacity: 0 }}
-            initial={reduce_motion ? false : { opacity: 0 }}
-            style={{ backgroundColor: "var(--modal-overlay)" }}
-            transition={{ duration: reduce_motion ? 0 : 0.2 }}
-            onClick={close_on_overlay ? on_close : undefined}
-          />
-          <motion.div
-            animate={{ opacity: 1, scale: 1, y: 0 }}
+          <div
             className={cn(
-              "relative w-full mx-4 my-4 rounded-xl border flex flex-col max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain",
+              "absolute inset-0 backdrop-blur-sm sm:backdrop-blur-md",
+              overlay_class_name,
+            )}
+            style={{
+              backgroundColor: "var(--modal-overlay)",
+              transform: "translateZ(0)",
+            }}
+            onPointerDown={
+              close_on_overlay ? handle_backdrop_pointer_down : undefined
+            }
+          />
+
+          <motion.div
+            ref={dialog_ref}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            aria-describedby={label_ids.description_id}
+            aria-labelledby={label_ids.title_id}
+            aria-modal="true"
+            className={cn(
+              "relative w-full mx-4 my-4 rounded-[var(--aster-radius-panel)] flex flex-col max-h-[calc(100dvh-2rem)] overflow-y-auto overscroll-contain outline-none focus:outline-none focus-visible:outline-none",
               SIZE_MAX_WIDTH[size],
               className,
+              panel_class_name,
             )}
             exit={{ opacity: 0, scale: 0.97, y: 4 }}
-            initial={reduce_motion ? false : { opacity: 0, scale: 0.97, y: 4 }}
+            initial={
+              should_reduce_motion ? false : { opacity: 0, scale: 0.97, y: 4 }
+            }
+            role="dialog"
             style={{
               backgroundColor: "var(--modal-bg)",
-              borderColor: "var(--border-primary)",
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.35)",
+              boxShadow: "var(--aster-dialog-shadow)",
+              outline: "none",
             }}
+            tabIndex={-1}
             transition={{
-              duration: reduce_motion ? 0 : 0.2,
+              duration: should_reduce_motion ? 0 : 0.12,
               ease: [0.16, 1, 0.3, 1],
             }}
             onClick={(e) => e.stopPropagation()}
           >
             {show_close_button && (
               <button
-                aria-label="Close"
-                className="aster_modal_close absolute right-5 top-4 z-10 flex items-center justify-center rounded-[14px] transition-colors hover:bg-black/5 dark:hover:bg-white/10"
+                aria-label={resolved_close_label}
+                className="aster_modal_close absolute end-5 top-5 z-10 flex items-center justify-center rounded-[var(--aster-radius-item)] transition-colors hover:bg-[var(--aster-floating-hover)]"
                 style={{ width: 28, height: 28, padding: 0 }}
                 type="button"
                 onClick={on_close}
@@ -148,12 +166,18 @@ export function MotionModal({
                 />
               </button>
             )}
-            {children}
+            <motion_modal_labels_context.Provider value={label_ids}>
+              {children}
+            </motion_modal_labels_context.Provider>
           </motion.div>
         </div>
       )}
     </AnimatePresence>
   );
+
+  if (typeof document === "undefined") return overlay;
+
+  return createPortal(overlay, document.body);
 }
 
 export interface MotionModalHeaderProps
@@ -167,7 +191,7 @@ export function MotionModalHeader({
   return (
     <div
       className={cn(
-        "aster_modal_header flex flex-col px-6 pt-6 pb-5 pr-12",
+        "aster_modal_header flex flex-col px-6 pt-6 pb-5 pe-12",
         className,
       )}
       {...props}
@@ -183,14 +207,20 @@ export interface MotionModalTitleProps
 export function MotionModalTitle({
   className,
   children,
+  id,
+  style,
   ...props
 }: MotionModalTitleProps) {
+  const labels = React.useContext(motion_modal_labels_context);
+
   return (
     <h3
       className={cn(
-        "aster_modal_title w-full text-base font-semibold leading-tight text-txt-primary",
+        "aster_modal_title w-full text-base font-semibold leading-tight",
         className,
       )}
+      id={labels?.title_id ?? id}
+      style={{ color: "var(--text-primary)", ...style }}
       {...props}
     >
       {children}
@@ -204,14 +234,17 @@ export interface MotionModalDescriptionProps
 export function MotionModalDescription({
   className,
   children,
+  id,
+  style,
   ...props
 }: MotionModalDescriptionProps) {
+  const labels = React.useContext(motion_modal_labels_context);
+
   return (
     <p
-      className={cn(
-        "text-[13px] w-full mt-2.5 leading-relaxed text-txt-tertiary",
-        className,
-      )}
+      className={cn("text-[13px] w-full mt-2.5 leading-relaxed", className)}
+      id={labels?.description_id ?? id}
+      style={{ color: "var(--text-tertiary)", ...style }}
       {...props}
     >
       {children}
@@ -228,10 +261,7 @@ export function MotionModalBody({
   ...props
 }: MotionModalBodyProps) {
   return (
-    <div
-      className={cn("aster_modal_body px-5 pb-5", className)}
-      {...props}
-    >
+    <div className={cn("aster_modal_body px-5 pb-5", className)} {...props}>
       {children}
     </div>
   );

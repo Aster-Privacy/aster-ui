@@ -34,3 +34,13 @@ export type {
   AvatarNamedProps,
   StatusType,
 } from "./avatar";
+export {
+  AVATAR_COLORS,
+  get_active_locale,
+  get_avatar_color,
+  get_avatar_color_index,
+  get_avatar_key,
+  get_contrast_text,
+  get_initials,
+  hash_utf16,
+} from "./identity";

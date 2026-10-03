@@ -25,3 +25,19 @@ export type {
   ContextMenuItem,
   ContextMenuPosition,
 } from "./context_menu";
+export {
+  RadixContextMenu,
+  RadixContextMenuTrigger,
+  RadixContextMenuContent,
+  RadixContextMenuItem,
+  RadixContextMenuCheckboxItem,
+  RadixContextMenuRadioItem,
+  RadixContextMenuLabel,
+  RadixContextMenuSeparator,
+  RadixContextMenuGroup,
+  RadixContextMenuPortal,
+  RadixContextMenuSub,
+  RadixContextMenuSubContent,
+  RadixContextMenuSubTrigger,
+  RadixContextMenuRadioGroup,
+} from "./radix_context_menu";

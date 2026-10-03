@@ -578,7 +578,7 @@ export function DashboardSidebar({
 
   const footer_collapsed_slot: ReactNode = (
     <button
-      className="p-2 rounded-[14px] hover:bg-black/[0.04] dark:hover:bg-white/[0.04] text-txt-muted"
+      className="p-2 rounded-[var(--aster-radius-item)] hover:bg-black/[0.04] dark:hover:bg-white/[0.04] text-txt-muted"
       title={t_strings.settings}
       type="button"
       onClick={on_settings_click}
@@ -676,7 +676,7 @@ export function DashboardSidebar({
 
       <div className={`${collapsed ? "px-2" : "px-2.5"} pb-3`}>
         <Button
-          className={`w-full !rounded-[14px] ${collapsed ? "" : "gap-2"}`}
+          className={`w-full !rounded-[var(--aster-radius-field)] ${collapsed ? "" : "gap-2"}`}
           variant="depth"
           onClick={() => {
             on_add_account();
@@ -699,12 +699,11 @@ export function DashboardSidebar({
         <div ref={nav_container_ref} className="relative">
           {!collapsed && (
             <div
-              className="pointer-events-none absolute left-0 w-full rounded-md border-edge-primary"
+              className="pointer-events-none absolute left-0 w-full rounded-[10px]"
               style={{
                 ...indicator_style,
                 top: 0,
-                backgroundColor: "var(--indicator-bg)",
-                border: "1px solid var(--border-primary)",
+                backgroundColor: "var(--aster-selected)",
                 zIndex: 0,
                 willChange: "transform, opacity",
                 transition:
@@ -738,7 +737,7 @@ export function DashboardSidebar({
               return (
                 <button
                   key={item.id}
-                  className={`sidebar-nav-btn group relative w-full flex items-center ${collapsed ? "justify-center" : "gap-2.5"} rounded-[12px] ${collapsed ? "px-0" : "px-2.5"} h-8 text-[14px]  ${selected ? "sidebar-active" : ""} ${collapsed && selected ? "sidebar-selected" : ""}`}
+                  className={`sidebar-nav-btn group relative w-full flex items-center ${collapsed ? "justify-center" : "gap-2.5"} rounded-[10px] ${collapsed ? "px-0" : "px-2.5"} h-8 text-[14px]  ${selected ? "sidebar-active" : ""} ${collapsed && selected ? "sidebar-selected" : ""}`}
                   style={{
                     zIndex: 1,
                     color: selected
@@ -746,7 +745,7 @@ export function DashboardSidebar({
                       : "var(--text-secondary)",
                     backgroundColor:
                       collapsed && selected
-                        ? "var(--indicator-bg)"
+                        ? "var(--aster-selected)"
                         : undefined,
                   }}
                   title={collapsed ? label : undefined}
@@ -786,7 +785,7 @@ export function DashboardSidebar({
               on_toggle={toggle_tags_section}
               right_slot={
                 <button
-                  className="p-1 rounded-[14px] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-muted"
+                  className="p-1 rounded-[var(--aster-radius-item)] hover:bg-black/[0.06] dark:hover:bg-white/[0.08] text-txt-muted"
                   title={t_strings.create_tag}
                   type="button"
                   onClick={() => {

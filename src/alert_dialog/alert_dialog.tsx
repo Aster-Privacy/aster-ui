@@ -24,8 +24,7 @@ import * as React from "react";
 import * as AlertDialogPrimitive from "@radix-ui/react-alert-dialog";
 import { button_variants } from "../button";
 
-const cn = (...classes: Array<string | undefined | null | false>) =>
-  classes.filter(Boolean).join(" ");
+import { cn } from "../lib/cn";
 
 const AlertDialog = AlertDialogPrimitive.Root;
 
@@ -44,23 +43,16 @@ const AlertDialogContent = React.forwardRef<
 >(({ className, on_overlay_click, ...props }, ref) => (
   <AlertDialogPortal>
     <AlertDialogPrimitive.Overlay
-      className="fixed inset-0 z-[60] backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 duration-150"
+      className="fixed inset-0 z-[60] backdrop-blur-md aster_overlay_anim"
       style={{ backgroundColor: "var(--modal-overlay)" }}
       onClick={on_overlay_click}
     />
     <AlertDialogPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed left-[50%] top-[50%] z-[60] grid w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 p-6 border rounded-xl",
-        "data-[state=open]:animate-in data-[state=closed]:animate-out",
-        "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+        "fixed left-[50%] top-[50%] z-[60] grid w-full max-w-[400px] translate-x-[-50%] translate-y-[-50%] gap-4 p-6 aster_floating aster_dialog_surface aster_dialog_anim",
         className,
       )}
-      style={{
-        backgroundColor: "var(--modal-bg)",
-        borderColor: "var(--border-primary)",
-        boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.35)",
-      }}
       {...props}
     />
   </AlertDialogPortal>
@@ -73,7 +65,7 @@ const AlertDialogHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn("flex flex-col gap-3 text-center sm:text-left", className)}
+    className={cn("flex flex-col gap-3 text-center sm:text-start", className)}
     {...props}
   />
 );
@@ -143,7 +135,7 @@ const AlertDialogCancel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Cancel
     ref={ref}
-    className={cn(button_variants({ variant: "outline" }), className)}
+    className={cn(button_variants({ variant: "secondary" }), className)}
     {...props}
   />
 ));

@@ -58,6 +58,14 @@ export {
   AvatarGroup,
   AvatarNamed,
   avatar_variants,
+  AVATAR_COLORS,
+  get_active_locale,
+  get_avatar_color,
+  get_avatar_color_index,
+  get_avatar_key,
+  get_contrast_text,
+  get_initials,
+  hash_utf16,
 } from "./avatar";
 export type {
   AvatarProps,
@@ -108,8 +116,8 @@ export type {
 export { Skeleton, SkeletonText } from "./skeleton";
 export type { SkeletonProps, SkeletonTextProps, SkeletonVariant } from "./skeleton";
 
-export { Spinner } from "./spinner";
-export type { SpinnerProps, SpinnerSize } from "./spinner";
+export { Spinner, ButtonSpinner } from "./spinner";
+export type { SpinnerProps, SpinnerSize, ButtonSpinnerProps } from "./spinner";
 
 export { SimpleToast, show_toast, dismiss_toast } from "./toast";
 export type { SimpleToastProps, ToastKind, ToastPayload } from "./toast";
@@ -388,6 +396,8 @@ export type {
 export { FullPageLoader } from "./full_page_loader";
 
 export { CountBadge } from "./count_badge";
+export { UnderlineTabs } from "./tabs";
+export type { UnderlineTabItem, UnderlineTabsProps } from "./tabs";
 
 export { SettingRow } from "./setting_row";
 
@@ -446,3 +456,181 @@ export type {
   MobileDrawerShellProps,
   MobileActionSheetShellProps,
 } from "./mobile";
+
+export {
+  Island,
+  IslandSection,
+  IslandSections,
+  IslandRow,
+  IslandDivider,
+  IslandStack,
+  IslandGrid,
+  IslandPage,
+  IslandLink,
+  IslandBlock,
+  IslandEmpty,
+  PillButton,
+  IslandIconButton,
+  IslandChip,
+  IslandCountPill,
+  SelectionMark,
+  SettingToggleRow,
+  SettingControlRow,
+  SettingNote,
+} from "./island";
+export type {
+  IslandProps,
+  IslandPadding,
+  IslandTone,
+  IslandSectionProps,
+  IslandSectionsProps,
+  IslandRowProps,
+  IslandRowToggle,
+  IslandDividerProps,
+  IslandStackProps,
+  IslandGridProps,
+  IslandPageProps,
+  IslandPageWidth,
+  IslandLinkProps,
+  IslandBlockProps,
+  IslandBlockSize,
+  IslandEmptyProps,
+  PillButtonProps,
+  PillVariant,
+  PillSize,
+  IslandIconButtonProps,
+  IslandChipProps,
+  IslandCountPillProps,
+  IslandCountPillSize,
+  SelectionMarkProps,
+  SettingToggleRowProps,
+  SettingControlRowProps,
+  SettingNoteProps,
+  SettingNoteTone,
+} from "./island";
+export { cn } from "./lib/cn";
+export { ThreadHiddenRow } from "./thread";
+export type { ThreadHiddenRowProps } from "./thread";
+export {
+  UiStringsProvider,
+  use_ui_strings,
+  format_ui_string,
+  default_ui_strings,
+} from "./i18n/ui_strings";
+export type { AsterUiStrings, UiStringsProviderProps } from "./i18n/ui_strings";
+
+export { Separator } from "./separator";
+export { Progress } from "./progress";
+export { CrownIcon } from "./crown_icon";
+export { CoinIcon } from "./coin_icon";
+export type { CoinIconProps } from "./coin_icon";
+export { FaviconOrInitial } from "./favicon_or_initial";
+export type { FaviconOrInitialProps } from "./favicon_or_initial";
+export { SparkleOverlay } from "./sparkle_overlay";
+export type { SparkleOverlayProps } from "./sparkle_overlay";
+export { OtpInput } from "./otp_input";
+export type { OtpInputProps } from "./otp_input";
+export { Slider } from "./slider";
+export type { SliderProps } from "./slider";
+export { Popover, PopoverTrigger, PopoverContent, PopoverAnchor } from "./popover";
+export { InfoPopover } from "./info_popover";
+export type { InfoPopoverProps } from "./info_popover";
+export {
+  push_overlay_layer,
+  remove_overlay_layer,
+  is_top_overlay_layer,
+  has_open_overlay_layer,
+  use_overlay_layer,
+  use_escape_layer,
+} from "./lib/overlay_layer_stack";
+
+export {
+  lock_body_scroll,
+  unlock_body_scroll,
+  use_body_scroll_lock,
+} from "./lib/body_scroll_lock";
+export {
+  use_focus_trap,
+  use_backdrop_dismiss,
+  use_dialog_shell,
+} from "./lib/use_dialog_shell";
+export {
+  RadixContextMenu,
+  RadixContextMenuTrigger,
+  RadixContextMenuContent,
+  RadixContextMenuItem,
+  RadixContextMenuCheckboxItem,
+  RadixContextMenuRadioItem,
+  RadixContextMenuLabel,
+  RadixContextMenuSeparator,
+  RadixContextMenuGroup,
+  RadixContextMenuPortal,
+  RadixContextMenuSub,
+  RadixContextMenuSubContent,
+  RadixContextMenuSubTrigger,
+  RadixContextMenuRadioGroup,
+} from "./context_menu";
+export {
+  SelectLabel,
+  SelectSeparator,
+  SelectScrollUpButton,
+  SelectScrollDownButton,
+} from "./select";
+export type {
+  SelectLabelProps,
+  SelectSeparatorProps,
+  SelectScrollUpButtonProps,
+  SelectScrollDownButtonProps,
+} from "./select";
+export * from "./index_account";
+export * from "./index_shell";
+export * from "./index_sidebar";
+export * from "./index_mobile";
+export * from "./index_drawer";
+export {
+  COMPOSE_ICON_PATHS,
+  ComposeIcon,
+  ComposeToolbarLayout,
+  ToolbarButton,
+  ToolbarDivider,
+  FORMAT_BAR_STORAGE_KEY,
+  read_format_bar_preference,
+  store_format_bar_preference,
+  use_anchored_layer,
+  is_composing,
+  normalize_link_url,
+  EmojiPicker,
+  is_emoji_renderable,
+  EMOJI_PICKER_MAX_HEIGHT,
+  EMOJI_PICKER_WIDTH,
+  EmojiPopover,
+  clamp_emoji_picker_position,
+  LinkPopover,
+  DraftStatusIndicator,
+  apply_skin_tone,
+  emoji_categories,
+  get_all_emojis,
+  is_tone_capable,
+  search_emojis,
+  skin_tone_modifiers,
+  skin_tone_swatches,
+  skin_tones,
+  tone_capable_emoji,
+} from "./compose";
+export type {
+  ComposeIconName,
+  ComposeIconProps,
+  ComposeToolbarLayoutProps,
+  ToolbarButtonProps,
+  EmojiPickerLabels,
+  EmojiPickerProps,
+  EmojiPopoverProps,
+  LinkPopoverLabels,
+  LinkPopoverProps,
+  DraftStatus,
+  DraftStatusIndicatorProps,
+  DraftStatusLabels,
+  EmojiCategory,
+  EmojiEntry,
+  SkinTone,
+} from "./compose";

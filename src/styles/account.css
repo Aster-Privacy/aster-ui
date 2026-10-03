@@ -1,0 +1,393 @@
+/*
+ * Aster Communications Inc.
+ *
+ * Copyright (c) 2026 Aster Communications Inc.
+ *
+ * This file is part of this project.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+.aster_scrollbar_thin {
+  scrollbar-width: thin;
+}
+
+.aster_scrollbar_thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.aster_scrollbar_thin::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.aster_scrollbar_thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.aster_scrollbar_thin::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 999px;
+}
+
+.dark .aster_scrollbar_thin::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.app_rail_btn,
+.app_rail_toggle {
+  color: var(--icon-muted);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.app_rail_btn:hover,
+.app_rail_toggle:hover {
+  background-color: var(--aster-hover);
+  color: var(--text-primary);
+}
+
+.app_rail_btn[data-selected="true"] {
+  color: var(--text-primary);
+  background-color: var(--aster-selected);
+}
+
+.app_rail_column {
+  transition:
+    width 0.22s cubic-bezier(0.32, 0.72, 0, 1),
+    opacity 0.16s ease;
+}
+
+.app_rail_popout {
+  color: var(--icon-muted);
+  background-color: var(--bg-primary);
+  border: 0;
+  box-shadow: var(--aster-floating-shadow);
+  animation: app_rail_popout_in 0.22s cubic-bezier(0.32, 0.72, 0, 1);
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.app_rail_popout:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+@keyframes app_rail_popout_in {
+  from {
+    opacity: 0;
+    transform: translateX(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app_rail_column,
+  .app_rail_popout {
+    transition: none;
+    animation: none;
+  }
+}
+
+.plan_ring {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  isolation: isolate;
+}
+
+.plan_ring > * {
+  box-sizing: content-box;
+  margin: -3px;
+  border: 3px solid var(--plan-ring-gap-color, var(--bg-primary, #ffffff));
+  border-radius: 9999px;
+  outline: 2px solid var(--plan-ring-color, var(--accent-color, #3b82f6));
+  outline-offset: 0;
+}
+
+aside[data-collapsed="true"] .sidebar-rail-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 9999px;
+  color: var(--icon-muted);
+}
+
+aside[data-collapsed="true"] .sidebar-rail-btn:hover {
+  background-color: var(--aster-hover);
+  color: var(--text-primary);
+}
+
+.account_menu_surface {
+  background-color: color-mix(
+    in srgb,
+    var(--text-primary) 4%,
+    var(--dropdown-bg)
+  );
+  border: none;
+}
+
+.account_menu_card {
+  --plan-ring-gap-color: color-mix(
+    in srgb,
+    var(--text-primary) 9%,
+    var(--dropdown-bg)
+  );
+  background-color: color-mix(
+    in srgb,
+    var(--text-primary) 9%,
+    var(--dropdown-bg)
+  );
+}
+
+.account_menu_card .plan_ring,
+.account_menu_row .plan_ring,
+.account_menu_tile .plan_ring {
+  margin: 5px;
+}
+
+.account_menu_manage {
+  align-self: center;
+  padding: 0 18px;
+  background-color: color-mix(in srgb, var(--text-primary) 8%, transparent);
+  color: var(--text-primary);
+}
+
+.account_menu_manage:hover {
+  background-color: color-mix(in srgb, var(--text-primary) 13%, transparent);
+}
+
+.account_menu_manage:active {
+  background-color: color-mix(in srgb, var(--text-primary) 17%, transparent);
+}
+
+.account_menu_row {
+  --plan-ring-gap-color: color-mix(
+    in srgb,
+    var(--text-primary) 9%,
+    var(--dropdown-bg)
+  );
+  background-color: color-mix(
+    in srgb,
+    var(--text-primary) 9%,
+    var(--dropdown-bg)
+  );
+  transition: background-color 120ms ease;
+}
+
+.account_menu_row:hover {
+  --plan-ring-gap-color: color-mix(
+    in srgb,
+    var(--text-primary) 11%,
+    var(--dropdown-bg)
+  );
+  background-color: color-mix(
+    in srgb,
+    var(--text-primary) 11%,
+    var(--dropdown-bg)
+  );
+}
+
+.account_menu_tile {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 14px;
+  border-radius: 16px;
+  text-align: start;
+  background-color: color-mix(
+    in srgb,
+    var(--text-primary) 9%,
+    var(--dropdown-bg)
+  );
+  color: var(--text-primary);
+  transition: background-color 120ms ease;
+}
+
+.account_menu_tile:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--text-primary) 11%,
+    var(--dropdown-bg)
+  );
+}
+
+.account_menu_tile_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  color: var(--text-secondary);
+  transition: color 120ms ease;
+}
+
+.account_menu_tile_label {
+  flex: 1 1 auto;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+.account_menu_tile_accent .account_menu_tile_icon,
+.account_menu_tile_accent .account_menu_tile_label {
+  color: var(--accent-color);
+}
+
+.account_menu_tile_meta {
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .account_menu_row,
+  .account_menu_tile {
+    transition: none;
+  }
+}
+
+.account_avatar_button {
+  background-color: transparent;
+  overflow: visible;
+}
+
+.account_avatar_ring {
+  --plan-ring-gap-color: var(--bg-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  aspect-ratio: 1 / 1;
+  vertical-align: middle;
+  line-height: 0;
+  border-radius: 9999px;
+  transition: box-shadow 120ms ease;
+}
+
+.account_avatar_ring > * {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+}
+
+.account_avatar_button:hover .account_avatar_ring:not(.plan_ring),
+.account_avatar_button[data-state="open"] .account_avatar_ring:not(.plan_ring) {
+  box-shadow: 0 0 0 3px var(--bg-hover);
+}
+
+.account_avatar_ring.plan_ring {
+  box-shadow: none;
+}
+
+.account_avatar_ring.plan_ring::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  z-index: -2;
+  border-radius: 9999px;
+  background-color: transparent;
+  transition: background-color 120ms ease;
+  pointer-events: none;
+}
+
+.account_avatar_button:hover .account_avatar_ring.plan_ring::after,
+.account_avatar_button[data-state="open"]
+  .account_avatar_ring.plan_ring::after {
+  background-color: var(--bg-hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .account_avatar_ring,
+  .account_avatar_button {
+    transition: none;
+  }
+}
+
+.account_menu_badge {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  background-color: color-mix(
+    in srgb,
+    var(--accent-color) 72%,
+    var(--dropdown-bg)
+  );
+  color: color-mix(in srgb, var(--accent-fg, #ffffff) 92%, var(--accent-color));
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--accent-color) 45%, transparent);
+}
+
+.account_menu_badge_muted {
+  background-color: color-mix(in srgb, var(--text-primary) 10%, transparent);
+  color: var(--text-muted);
+  box-shadow: inset 0 0 0 1px
+    color-mix(in srgb, var(--text-primary) 16%, transparent);
+}
+
+.plan_badge {
+  --plan_badge_accent: var(--accent-color, #3b82f6);
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  max-width: 100%;
+  padding: 0.16em 0.62em 0.2em;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.012em;
+  line-height: 1.35;
+  white-space: nowrap;
+  color: #fff;
+  background:
+    radial-gradient(
+      120% 180% at 30% -30%,
+      color-mix(in srgb, var(--plan_badge_accent) 82%, #ffffff 18%) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      175deg,
+      color-mix(in srgb, var(--plan_badge_accent) 96%, #000000 4%) 0%,
+      color-mix(in srgb, var(--plan_badge_accent) 74%, #05070f 26%) 100%
+    );
+  box-shadow: inset 0 0.5px 0 color-mix(in srgb, #ffffff 46%, transparent);
+}

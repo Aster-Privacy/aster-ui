@@ -107,7 +107,7 @@ export function AppSwitcher({ apps, current_app_id, title }: AppSwitcherProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.12 }}
-            className="absolute right-0 top-full mt-2 z-30 w-72 rounded-[14px] shadow-lg overflow-hidden"
+            className="absolute right-0 top-full mt-2 z-30 w-72 rounded-[var(--aster-radius-panel)] shadow-lg overflow-hidden"
             style={{
               backgroundColor: "var(--bg-card)",
               border: "1px solid var(--border-primary)",

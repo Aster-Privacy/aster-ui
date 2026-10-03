@@ -19,20 +19,26 @@
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
 
+import * as React from "react";
+
+import { SettingControlRow } from "../island/setting_rows";
+
 interface SettingRowProps {
   label: string;
-  description: string;
-  children: React.ReactNode;
+  description?: string;
+  children?: React.ReactNode;
+  className?: string;
 }
 
-export function SettingRow({ label, description, children }: SettingRowProps) {
+export function SettingRow({ label, description, children, className }: SettingRowProps) {
   return (
-    <div className="flex items-center justify-between py-4">
-      <div className="flex-1 pr-4">
-        <p className="text-sm font-medium text-txt-primary">{label}</p>
-        <p className="text-sm mt-0.5 text-txt-muted">{description}</p>
-      </div>
-      <div className="flex-shrink-0">{children}</div>
-    </div>
+    <SettingControlRow
+      className={className}
+      control={children}
+      control_width="auto"
+      description={description}
+      label={label}
+      layout="stacked"
+    />
   );
 }

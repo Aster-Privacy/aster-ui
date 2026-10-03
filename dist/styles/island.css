@@ -1,0 +1,1409 @@
+/*
+ * Aster Communications Inc.
+ *
+ * Copyright (c) 2026 Aster Communications Inc.
+ *
+ * This file is part of this project.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ */
+
+@layer theme, base, components, utilities;
+
+@layer components {
+  :root {
+    --aster-island-radius: 16px;
+    --aster-island-radius-lg: 18px;
+    --aster-island-radius-inner: 6px;
+    --aster-island-gap: 8px;
+    --aster-island-stack-gap: 3px;
+    --aster-island-section-gap: 24px;
+    --aster-island-row-min-height: 56px;
+    --aster-island-row-pad-x: 16px;
+    --aster-island-row-pad-y: 12px;
+    --aster-island-ease: cubic-bezier(0.2, 0, 0, 1);
+    --aster-radius-panel: 12px;
+    --aster-radius-control: 16px;
+    --aster-radius-field: var(--aster-radius-control);
+    --aster-radius-item: 8px;
+    --aster-floating-pad: 6px;
+    --aster-floating-fg: var(--text-primary, #111827);
+    --aster-hover: color-mix(in srgb, var(--text-primary, #111827) 6%, transparent);
+    --aster-floating-hover: var(--aster-hover);
+    --aster-selected: color-mix(in srgb, var(--text-primary, #111827) 8%, transparent);
+    --aster-floating-divider: color-mix(in srgb, var(--text-primary, #111827) 8%, transparent);
+    --aster-floating-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.08);
+    --aster-floating-bg: var(--bg-primary, #ffffff);
+    --aster-radius-floating: 16px;
+    --aster-scrim-blur: 6px;
+    --aster-field-bg: color-mix(in srgb, var(--text-primary, #111827) 7%, var(--bg-primary, #ffffff));
+    --aster-field-hover: color-mix(in srgb, var(--text-primary, #111827) 11%, var(--bg-primary, #ffffff));
+    --aster-segmented-track: color-mix(in srgb, var(--text-primary, #111827) 6%, transparent);
+    --aster-dialog-bg: var(--modal-bg, #ffffff);
+    --aster-dialog-shadow: 0 24px 56px -12px rgba(0, 0, 0, 0.28), 0 2px 8px rgba(0, 0, 0, 0.06);
+  }
+
+  .dark {
+    --aster-floating-bg: color-mix(in srgb, var(--bg-primary, #121212) 84%, var(--text-primary, #f5f5f5));
+    --aster-hover: color-mix(in srgb, var(--text-primary, #f5f5f5) 6%, transparent);
+    --aster-selected: color-mix(in srgb, var(--text-primary, #f5f5f5) 10%, transparent);
+    --aster-floating-hover: color-mix(in srgb, var(--text-primary, #f5f5f5) 8%, transparent);
+    --aster-floating-divider: color-mix(in srgb, var(--text-primary, #f5f5f5) 9%, transparent);
+    --aster-floating-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.6), 0 2px 8px rgba(0, 0, 0, 0.3);
+    --aster-segmented-track: color-mix(in srgb, var(--text-primary, #f5f5f5) 7%, transparent);
+    --aster-dialog-bg: color-mix(in srgb, var(--modal-bg, #121212) 94%, var(--text-primary, #f5f5f5));
+    --aster-dialog-shadow: 0 24px 56px -12px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .aster_island {
+    --aster-field-bg: var(--bg-primary, #ffffff);
+    --aster-field-hover: color-mix(in srgb, var(--text-primary, #111827) 9%, var(--bg-primary, #ffffff));
+  }
+
+  .aster_floating {
+    background-color: var(--aster-floating-bg);
+    color: var(--aster-floating-fg);
+    border: 0;
+    border-radius: var(--aster-radius-floating, 16px);
+    box-shadow: var(--aster-floating-shadow);
+  }
+
+  .aster_floating_anim[data-state="open"] {
+    animation: aster_floating_in 0.12s cubic-bezier(0.2, 0, 0, 1) both;
+    transform-origin: var(--radix-dropdown-menu-content-transform-origin, var(--radix-context-menu-content-transform-origin, var(--radix-popover-content-transform-origin, var(--radix-select-content-transform-origin, center top))));
+    will-change: opacity, scale;
+  }
+
+  .aster_floating_anim[data-state="closed"] {
+    animation: none;
+  }
+
+  @keyframes aster_floating_in {
+    from {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aster_floating_anim[data-state="open"] {
+      animation: none;
+    }
+  }
+
+  .aster_overlay_anim[data-state="open"] {
+    animation: aster_overlay_in 0.15s ease-out both;
+  }
+
+  .aster_overlay_anim[data-state="closed"],
+  .aster_dialog_anim[data-state="closed"] {
+    animation: none;
+  }
+
+  .aster_dialog_anim[data-state="open"] {
+    animation: aster_dialog_in 0.16s cubic-bezier(0.2, 0, 0, 1) both;
+    will-change: opacity, transform;
+  }
+
+  @keyframes aster_overlay_in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes aster_dialog_in {
+    from {
+      opacity: 0;
+      scale: 0.97;
+    }
+    to {
+      opacity: 1;
+      scale: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aster_overlay_anim[data-state="open"],
+    .aster_dialog_anim[data-state="open"] {
+      animation: none;
+    }
+  }
+
+  .aster_info_popover {
+    width: 300px;
+    max-width: calc(100vw - 24px);
+    padding: 16px;
+  }
+
+  .aster_info_popover_title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 4px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    overflow-wrap: anywhere;
+  }
+
+  .aster_info_popover_title svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--text-muted);
+  }
+
+  .aster_info_popover_body {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 20px;
+    color: var(--text-secondary);
+    overflow-wrap: anywhere;
+  }
+
+  .aster_info_popover_link {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent-color);
+  }
+
+  .aster_info_popover_link:hover {
+    text-decoration: underline;
+  }
+
+  .aster_floating.aster_dialog_surface {
+    background-color: var(--aster-dialog-bg);
+    box-shadow: var(--aster-dialog-shadow);
+  }
+
+  .aster_floating_divider {
+    height: 0;
+    margin-block: 4px;
+    margin-inline: calc(var(--aster-floating-pad) * -1);
+    border-top: 1px solid var(--aster-floating-divider);
+  }
+
+  [role="menu"] > [role="separator"]:first-child,
+  [role="menu"] > [role="separator"]:last-child,
+  [role="menu"] > [role="separator"] + [role="separator"] {
+    display: none;
+  }
+
+  :root:not(.reduce-transparency) [style*="var(--modal-overlay)"],
+  :root:not(.reduce-transparency) .bg-modal-overlay,
+  :root:not(.reduce-transparency) .aster_scrim {
+    -webkit-backdrop-filter: blur(var(--aster-scrim-blur)) !important;
+    backdrop-filter: blur(var(--aster-scrim-blur)) !important;
+  }
+
+  .aster_scrim {
+    background-color: var(--modal-overlay);
+  }
+
+  .aster_segmented {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    gap: 2px;
+    padding: 3px;
+    border-radius: var(--aster-radius-field);
+    background: var(--aster-segmented-track);
+  }
+
+  .aster_segmented_option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: calc(var(--aster-radius-control) - 3px);
+    background: transparent;
+    color: var(--text-secondary, #374151);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.14s var(--aster-island-ease), color 0.14s var(--aster-island-ease);
+  }
+
+  .aster_segmented_option:hover:not(:disabled):not([aria-pressed="true"]) {
+    background: var(--aster-floating-hover);
+    color: var(--text-primary, #111827);
+  }
+
+  .aster_segmented_option[aria-pressed="true"] {
+    background: var(--accent-color, #3b82f6);
+    color: var(--accent-color-foreground, var(--accent-fg, #ffffff));
+  }
+
+  .aster_segmented_option:focus-visible {
+    outline: 2px solid var(--accent-color, #3b82f6);
+    outline-offset: 1px;
+  }
+
+  .aster_segmented_option:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+
+  .aster_island {
+    --aster-island-fill: var(--island-bg, color-mix(in srgb, var(--bg-primary, #ffffff) 96%, #000000));
+    --aster-island-hover: var(--island-hover, color-mix(in srgb, var(--text-primary, #111827) 4.5%, transparent));
+    --aster-island-press: var(--island-press, color-mix(in srgb, var(--text-primary, #111827) 8%, transparent));
+    --aster-island-divider: var(--island-divider, color-mix(in srgb, var(--text-primary, #111827) 7%, transparent));
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    min-width: 0;
+    background: var(--aster-island-fill);
+    border: 0;
+    border-radius: var(--aster-island-radius);
+    box-shadow: none;
+    color: var(--text-primary, #111827);
+    overflow: clip;
+    overflow-clip-margin: 0;
+  }
+
+  .aster_island_overflow_visible {
+    overflow: visible;
+  }
+
+  .dark .aster_island,
+  .aster_island.aster_island_dark {
+    --aster-island-fill: var(--island-bg, color-mix(in srgb, var(--bg-primary, #121212) 94.5%, #ffffff));
+    --aster-island-hover: var(--island-hover, color-mix(in srgb, var(--text-primary, #f5f5f5) 5%, transparent));
+    --aster-island-press: var(--island-press, color-mix(in srgb, var(--text-primary, #f5f5f5) 9%, transparent));
+    --aster-island-divider: var(--island-divider, color-mix(in srgb, var(--text-primary, #f5f5f5) 7%, transparent));
+  }
+
+  @supports not (color: color-mix(in srgb, red 50%, blue)) {
+    .aster_island {
+      --aster-island-fill: var(--island-bg, rgba(0, 0, 0, 0.04));
+      --aster-island-hover: var(--island-hover, rgba(0, 0, 0, 0.045));
+      --aster-island-press: var(--island-press, rgba(0, 0, 0, 0.08));
+      --aster-island-divider: var(--island-divider, rgba(0, 0, 0, 0.07));
+    }
+
+    .dark .aster_island,
+    .aster_island.aster_island_dark {
+      --aster-island-fill: var(--island-bg, rgba(255, 255, 255, 0.055));
+      --aster-island-hover: var(--island-hover, rgba(255, 255, 255, 0.05));
+      --aster-island-press: var(--island-press, rgba(255, 255, 255, 0.09));
+      --aster-island-divider: var(--island-divider, rgba(255, 255, 255, 0.07));
+    }
+  }
+
+  .aster_island_pad_sm { padding: 12px; }
+  .aster_island_pad_md { padding: 16px; }
+  .aster_island_pad_lg { padding: 24px; }
+
+  .aster_island.aster_island_tone_danger {
+    --aster-island-fill: var(--island-danger-bg, color-mix(in srgb, var(--color-danger, #ef4444) 8%, var(--bg-primary, #ffffff)));
+  }
+
+  .aster_island.aster_island_tone_accent {
+    --aster-island-fill: var(--island-accent-bg, color-mix(in srgb, var(--accent-color, #3b82f6) 9%, var(--bg-primary, #ffffff)));
+  }
+
+  .aster_island.aster_island_tone_warning {
+    --aster-island-fill: var(--island-warning-bg, color-mix(in srgb, var(--color-warning, #d97706) 9%, var(--bg-primary, #ffffff)));
+  }
+
+  .aster_island.aster_island_tone_success {
+    --aster-island-fill: var(--island-success-bg, color-mix(in srgb, var(--color-success, #16a34a) 8%, var(--bg-primary, #ffffff)));
+  }
+
+  .aster_island_link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .aster_island_link:focus-visible {
+    outline: 2px solid var(--accent-color, #3b82f6);
+    outline-offset: 2px;
+  }
+
+  .aster_island_block_sm {
+    padding: 12px;
+  }
+
+  .aster_island_block_md {
+    padding: 16px;
+  }
+
+  .aster_island_block_lg {
+    padding: 24px;
+  }
+
+  .aster_island_empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+  }
+
+  .aster_island_empty_icon {
+    display: inline-flex;
+    margin-bottom: 8px;
+    color: var(--text-muted, #9ca3af);
+  }
+
+  .aster_island_empty_icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .aster_island_empty_title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--text-primary, #111827);
+  }
+
+  .aster_island_empty_description {
+    margin: 0;
+    max-width: 36ch;
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--text-muted, #6b7280);
+  }
+
+  .aster_island_empty_action {
+    margin-top: 12px;
+  }
+
+  .aster_island_section_title_info {
+    display: inline-flex;
+    align-items: center;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  .aster_island_interactive {
+    cursor: pointer;
+    transition: background-color 0.16s var(--aster-island-ease);
+  }
+
+  .aster_island_interactive:hover {
+    background: linear-gradient(var(--aster-island-hover), var(--aster-island-hover)), var(--aster-island-fill);
+  }
+
+  .aster_island_interactive:active {
+    background: linear-gradient(var(--aster-island-press), var(--aster-island-press)), var(--aster-island-fill);
+  }
+
+  .aster_island_interactive:focus-visible,
+  .aster_pill:focus-visible,
+  .aster_island_icon_btn:focus-visible,
+  .aster_island_chip:focus-visible,
+  .aster_island_count:focus-visible {
+    outline: 2px solid var(--accent-color, #3b82f6);
+    outline-offset: 2px;
+  }
+
+  .aster_island_row:focus-visible {
+    outline: 2px solid var(--accent-color, #3b82f6);
+    outline-offset: -2px;
+  }
+
+  .aster_selection_mark {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 2;
+    box-shadow: inset 0 0 0 0 transparent;
+    transition: box-shadow 0.16s var(--aster-island-ease);
+  }
+
+  .aster_selection_mark[data-selected="true"] {
+    box-shadow: inset 0 0 0 2px var(--accent-color, #3b82f6);
+  }
+
+  .aster_selection_mark_check {
+    position: absolute;
+    top: 8px;
+    inset-inline-end: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 9999px;
+    background: var(--accent-color, #3b82f6);
+    color: var(--accent-fg, #ffffff);
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.16s var(--aster-island-ease), transform 0.16s var(--aster-island-ease);
+  }
+
+  .aster_selection_mark[data-selected="true"] .aster_selection_mark_check {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .aster_island_selected::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 2px var(--accent-color, #3b82f6);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .aster_island_page {
+    width: 100%;
+    max-width: var(--aster-island-page-width, 820px);
+    margin-inline: auto;
+    padding: 32px 32px 48px;
+    box-sizing: border-box;
+  }
+
+  .aster_island_page_narrow { --aster-island-page-width: 640px; }
+  .aster_island_page_wide { --aster-island-page-width: 1040px; }
+  .aster_island_page_full { --aster-island-page-width: none; }
+
+  .aster_island_page_header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-inline: 4px;
+  }
+
+  .aster_island_page_heading {
+    min-width: 0;
+  }
+
+  .aster_island_page_breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-size: 12.5px;
+    color: var(--text-muted, #5f6470);
+  }
+
+  .aster_island_page_title {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary, #111827);
+    overflow-wrap: anywhere;
+  }
+
+  .aster_island_page_description {
+    margin: 6px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-muted, #5f6470);
+  }
+
+  .aster_island_page_actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .aster_island_section {
+    display: block;
+    min-width: 0;
+  }
+
+  .aster_island_section + .aster_island_section {
+    margin-top: var(--aster-island-section-gap);
+  }
+
+  .aster_island_sections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--aster-island-section-gap);
+    min-width: 0;
+  }
+
+  .aster_island_sections > .aster_island_section + .aster_island_section {
+    margin-top: 0;
+  }
+
+  .aster_island_section_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 4px 8px;
+  }
+
+  .aster_island_section_heading {
+    min-width: 0;
+  }
+
+  .aster_island_section_title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    font-size: 11.5px;
+    line-height: 16px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--text-tertiary, #4b5563);
+  }
+
+  .aster_island_section_title > svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--text-muted, #5f6470);
+  }
+
+  .aster_island_section_description {
+    margin: 3px 0 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--text-muted, #5f6470);
+  }
+
+  .aster_island_section_trailing {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .aster_island_section_body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--aster-island-gap);
+    min-width: 0;
+  }
+
+  .aster_island_section_footer {
+    margin: 0;
+    padding: 8px 4px 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--text-muted, #5f6470);
+  }
+
+  .aster_island_row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: var(--aster-island-row-min-height);
+    padding: var(--aster-island-row-pad-y) var(--aster-island-row-pad-x);
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: start;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .aster_island > .aster_island_row:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+  }
+
+  .aster_island > .aster_island_row:last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+
+  .aster_island_row_pressable {
+    cursor: pointer;
+    transition: background-color 0.14s var(--aster-island-ease);
+  }
+
+  .aster_island_row_pressable:hover {
+    background-color: var(--aster-island-hover);
+  }
+
+  .aster_island_row_pressable:active {
+    background-color: var(--aster-island-press);
+  }
+
+  .aster_island_row_disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .aster_island_divided > .aster_island_row + .aster_island_row::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    inset-inline-start: var(--aster-island-divider-inset, 0);
+    inset-inline-end: 0;
+    height: 1px;
+    background: var(--aster-island-divider);
+    pointer-events: none;
+  }
+
+  .aster_island_divider {
+    height: 0;
+    margin: 0;
+    margin-inline-start: var(--aster-island-divider-inset, 0);
+    border: 0;
+    border-top: 1px solid var(--aster-island-divider);
+  }
+
+  .aster_thread_hidden_row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding-block: 6px;
+  }
+
+  .aster_thread_hidden_row::before,
+  .aster_thread_hidden_row::after {
+    content: "";
+    flex: 1 1 0;
+    height: 1px;
+    background: var(--aster-island-divider, color-mix(in srgb, var(--text-primary, #111827) 7%, transparent));
+  }
+
+  .aster_thread_hidden_button {
+    display: inline-flex;
+    flex-shrink: 0;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 0 14px 0 12px;
+    border: 0;
+    border-radius: var(--aster-radius-control);
+    background: color-mix(in srgb, var(--text-primary, #111827) 6%, var(--bg-primary, #ffffff));
+    color: var(--text-secondary, #374151);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.14s var(--aster-island-ease), color 0.14s var(--aster-island-ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .aster_thread_hidden_button:hover {
+    background: color-mix(in srgb, var(--text-primary, #111827) 10%, var(--bg-primary, #ffffff));
+    color: var(--text-primary, #111827);
+  }
+
+  .aster_thread_hidden_button:active {
+    background: color-mix(in srgb, var(--text-primary, #111827) 14%, var(--bg-primary, #ffffff));
+  }
+
+  .aster_thread_hidden_button:focus-visible {
+    outline: 2px solid var(--accent-color, #3b82f6);
+    outline-offset: 2px;
+  }
+
+  .aster_thread_hidden_icon {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .aster_thread_hidden_icon > svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .aster_island_row_icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    color: var(--text-secondary, #374151);
+  }
+
+  .aster_island_row_icon > svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .aster_island_row_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .aster_island_row_label {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--text-primary, #111827);
+    overflow-wrap: anywhere;
+  }
+
+  .aster_island_row_description {
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--text-muted, #5f6470);
+    overflow-wrap: anywhere;
+  }
+
+  .aster_island_row_destructive .aster_island_row_label,
+  .aster_island_row_destructive .aster_island_row_icon {
+    color: var(--color-danger, #ef4444);
+  }
+
+  .aster_island_row_value {
+    flex-shrink: 1;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 13.5px;
+    line-height: 20px;
+    color: var(--text-muted, #5f6470);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .aster_island_row_trailing {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 50%;
+  }
+
+  .aster_island_row_trailing > :not(.aster_island_row_value) {
+    flex-shrink: 0;
+  }
+
+  .aster_island_row_chevron {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted, #5f6470);
+  }
+
+  [dir="rtl"] .aster_island_row_chevron {
+    transform: scaleX(-1);
+  }
+
+  .aster_island_row_stacked {
+    flex-wrap: wrap;
+  }
+
+  .aster_island_row_stacked > .aster_island_row_trailing {
+    flex: 0 1 auto;
+  }
+
+  .aster_island_row_block {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+
+  .aster_island_row_block > .aster_island_row_head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+  }
+
+  .aster_island_row_block > .aster_island_row_trailing {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .aster_island_toggle_stop {
+    display: inline-flex;
+  }
+
+  .aster_island_row_label_group {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-width: 100%;
+  }
+
+  .aster_island_row_note {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 16px;
+    color: var(--text-muted, #5f6470);
+  }
+
+  .aster_island_row_note_warning {
+    color: var(--color-warning, #d97706);
+  }
+
+  .aster_island_row_note svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+  }
+
+  .aster_island_row_control {
+    display: flex;
+    justify-content: flex-end;
+    width: var(--aster-island-control-width, 200px);
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .aster_island_row_control > * {
+    width: 100%;
+  }
+
+  .aster_island_row_control:has(> .aster_select_trigger) {
+    width: auto;
+    max-width: min(100%, 320px);
+  }
+
+  .aster_island_row_control:has(> .aster_select_trigger) > .aster_select_trigger {
+    width: auto;
+  }
+
+  .aster_island_row_control_auto {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    width: auto;
+  }
+
+  .aster_island_row_control_auto > * {
+    width: auto;
+  }
+
+  .aster_island_stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--aster-island-gap);
+    min-width: 0;
+  }
+
+  .aster_island_stack_grouped {
+    gap: var(--aster-island-stack-gap);
+  }
+
+  .aster_island_stack_grouped > .aster_island {
+    border-radius: var(--aster-island-radius-inner);
+  }
+
+  .aster_island_stack_grouped > .aster_island:first-child {
+    border-top-left-radius: var(--aster-island-radius-lg);
+    border-top-right-radius: var(--aster-island-radius-lg);
+  }
+
+  .aster_island_stack_grouped > .aster_island:last-child {
+    border-bottom-left-radius: var(--aster-island-radius-lg);
+    border-bottom-right-radius: var(--aster-island-radius-lg);
+  }
+
+  .aster_island_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--aster-island-grid-min, 220px)), 1fr));
+    gap: var(--aster-island-gap);
+  }
+
+  .aster_select_trigger {
+    background: var(--aster-field-bg);
+    border: 0;
+    border-radius: var(--aster-radius-control, 16px);
+    box-shadow: none;
+    outline: none;
+    transition: background-color 0.14s var(--aster-island-ease);
+  }
+
+  .aster_island_row_trailing > .aster_select_trigger,
+  .aster_island_row_control > .aster_select_trigger {
+    min-width: var(--aster-select-min-width, 160px);
+  }
+
+  .aster_select_trigger:hover:not(:disabled) {
+    background: var(--aster-field-hover);
+  }
+
+  .aster_select_trigger[data-state="open"],
+  .aster_select_trigger:active:not(:disabled) {
+    background: var(--aster-field-press, color-mix(in srgb, var(--text-primary, #111827) 13%, transparent));
+    box-shadow: none;
+  }
+
+  .aster_select_trigger:focus-visible {
+    box-shadow: 0 0 0 2px var(--bg-primary, #ffffff), 0 0 0 4px var(--accent-color, #3b82f6);
+  }
+
+  .aster_pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 40px;
+    padding: 0 18px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: var(--aster-radius-control);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.16s var(--aster-island-ease), border-color 0.16s var(--aster-island-ease), color 0.16s var(--aster-island-ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .aster_pill:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .aster_pill > svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .aster_pill_sm {
+    height: 32px;
+    padding: 0 14px;
+    gap: 6px;
+    font-size: 13px;
+  }
+
+  .aster_pill_sm > svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .aster_pill_lg {
+    height: 48px;
+    padding: 0 22px;
+    font-size: 15px;
+  }
+
+  .aster_pill_block {
+    width: 100%;
+  }
+
+  .aster_pill_filled {
+    background: var(--accent-color, #3b82f6);
+    color: var(--accent-color-foreground, #ffffff);
+  }
+
+  .aster_pill_filled:hover:not(:disabled) {
+    background: var(--accent-color-hover, #2563eb);
+  }
+
+  .aster_pill_outline {
+    background: color-mix(in srgb, var(--text-primary, #111827) 6%, var(--bg-primary, #ffffff));
+    color: var(--text-primary, #111827);
+  }
+
+  .aster_pill_outline:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--text-primary, #111827) 10%, var(--bg-primary, #ffffff));
+  }
+
+  .aster_pill_tonal {
+    background: color-mix(in srgb, var(--text-primary, #111827) 8%, var(--bg-primary, #ffffff));
+    color: var(--text-primary, #111827);
+  }
+
+  .aster_pill_tonal:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--text-primary, #111827) 12%, var(--bg-primary, #ffffff));
+  }
+
+  .aster_pill_neutral {
+    background: color-mix(in srgb, var(--text-primary, #111827) 8%, var(--bg-primary, #ffffff));
+    color: var(--text-primary, #111827);
+  }
+
+  .aster_pill_neutral:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--text-primary, #111827) 12%, var(--bg-primary, #ffffff));
+  }
+
+  .aster_pill_ghost {
+    background: transparent;
+    color: var(--text-secondary, #374151);
+  }
+
+  .aster_pill_ghost:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--text-primary, #111827) 6%, transparent);
+    color: var(--text-primary, #111827);
+  }
+
+  .aster_pill_danger {
+    background: var(--color-danger, #ef4444);
+    color: #ffffff;
+  }
+
+  .aster_pill_danger:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-danger, #ef4444) 88%, #000000);
+  }
+
+  .aster_island_icon_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text-secondary, #374151);
+    cursor: pointer;
+    transition: background-color 0.14s var(--aster-island-ease), color 0.14s var(--aster-island-ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .aster_island_icon_btn:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--text-primary, #111827) 7%, transparent);
+    color: var(--text-primary, #111827);
+  }
+
+  .aster_island_icon_btn:active:not(:disabled) {
+    background: color-mix(in srgb, var(--text-primary, #111827) 11%, transparent);
+  }
+
+  .aster_island_icon_btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  .aster_island_icon_btn > svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .aster_island_icon_btn_sm {
+    width: 32px;
+    height: 32px;
+  }
+
+  .aster_island_icon_btn_sm > svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .aster_island_icon_btn_lg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .aster_island_icon_btn_active {
+    color: var(--accent-color, #3b82f6);
+  }
+
+  .aster_island_chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 52px;
+    padding: 7px 10px 7px 7px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: var(--aster-island-radius-lg);
+    background: var(--island-chip-bg, color-mix(in srgb, var(--text-primary, #111827) 5%, var(--bg-primary, #ffffff)));
+    color: var(--text-primary, #111827);
+    font: inherit;
+    text-align: start;
+    text-decoration: none;
+    transition: background-color 0.14s var(--aster-island-ease), border-color 0.14s var(--aster-island-ease);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .aster_island_chip_pressable {
+    cursor: pointer;
+  }
+
+  .aster_island_chip_pressable:hover {
+    background: color-mix(in srgb, var(--text-primary, #111827) 5%, var(--island-chip-bg, color-mix(in srgb, var(--text-primary, #111827) 5%, var(--bg-primary, #ffffff))));
+  }
+
+  .aster_island_chip_leading {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--text-primary, #111827) 6%, transparent);
+    color: var(--text-secondary, #374151);
+  }
+
+  .aster_island_chip_leading > svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .aster_island_chip_leading > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .aster_island_chip_text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .aster_island_chip_name {
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .aster_island_chip_meta {
+    font-size: 11.5px;
+    line-height: 15px;
+    color: var(--text-muted, #5f6470);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .aster_island_chip_trailing {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  .aster_island_count {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .aster_island_count::before {
+    content: "";
+    position: absolute;
+    inset-inline: 16px;
+    top: 50%;
+    height: 1px;
+    background: color-mix(in srgb, var(--text-primary, #111827) 10%, transparent);
+  }
+
+  .aster_island_count_pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 26px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--text-primary, #111827) 6%, var(--bg-primary, #ffffff));
+    color: var(--text-secondary, #374151);
+    font-size: 12px;
+    font-weight: 600;
+    transition: background-color 0.14s var(--aster-island-ease), color 0.14s var(--aster-island-ease);
+  }
+
+  .aster_island_count_md {
+    height: 48px;
+  }
+
+  .aster_island_count_md .aster_island_count_pill {
+    min-width: 56px;
+    height: 40px;
+    padding: 0 16px;
+    font-size: 14px;
+  }
+
+  .aster_island_count_trailing {
+    display: inline-flex;
+    width: 16px;
+    height: 16px;
+    margin-inline-start: 6px;
+  }
+
+  .aster_island_count_trailing > svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .aster_island_count:hover .aster_island_count_pill {
+    background: color-mix(in srgb, var(--text-primary, #111827) 10%, var(--bg-primary, #ffffff));
+    color: var(--text-primary, #111827);
+  }
+
+  @media (max-width: 767px) {
+    .aster_island_page {
+      padding: 16px 16px 32px;
+    }
+
+    .aster_island_page_header {
+      flex-direction: column;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+
+    .aster_island_page_title {
+      font-size: 24px;
+    }
+
+    .aster_island_section + .aster_island_section {
+      margin-top: 24px;
+    }
+
+    .aster_island_sections {
+      gap: 24px;
+    }
+
+    .aster_island_sections > .aster_island_section + .aster_island_section {
+      margin-top: 0;
+    }
+
+    .aster_island_row_label {
+      font-size: 15px;
+    }
+
+    .aster_island_row_trailing {
+      max-width: 45%;
+    }
+
+    .aster_island_row_stacked > .aster_island_row_trailing {
+      flex-basis: 100%;
+      justify-content: flex-start;
+    }
+
+    .aster_island_row_stacked .aster_island_row_control {
+      width: 100%;
+    }
+
+    .aster_island_row_stacked .aster_island_row_control_auto {
+      justify-content: flex-start;
+    }
+
+    .aster_pill {
+      height: 44px;
+    }
+
+    .aster_pill_sm {
+      height: 36px;
+    }
+
+    .aster_island_icon_btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .aster_island_icon_btn_sm {
+      width: 36px;
+      height: 36px;
+    }
+  }
+
+  @media (hover: none) {
+    .aster_island_row_pressable:hover {
+      background-color: transparent;
+    }
+
+    .aster_island_interactive:hover {
+      background: var(--aster-island-fill);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aster_island_interactive,
+    .aster_island_row_pressable,
+    .aster_pill,
+    .aster_island_icon_btn,
+    .aster_island_chip,
+    .aster_island_count_pill {
+      transition: none;
+    }
+
+    .aster_pill:active:not(:disabled) {
+      transform: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .aster_island {
+      border: 1px solid CanvasText;
+    }
+
+    .aster_pill_outline,
+    .aster_island_chip,
+    .aster_island_count_pill {
+      border-color: CanvasText;
+    }
+  }
+}
