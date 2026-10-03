@@ -127,7 +127,7 @@
   transition: filter 0.15s ease;
 }
 
-.aster_btn_depth:hover {
+.aster_btn_depth:hover:not(:disabled):not([aria-disabled="true"]) {
   filter: brightness(1.1);
 }
 
@@ -146,8 +146,22 @@
   transition: filter 0.15s ease;
 }
 
-.aster_btn_depth_destructive:hover {
+.aster_btn_depth_destructive:hover:not(:disabled):not([aria-disabled="true"]) {
   filter: brightness(1.1);
+}
+
+.aster_btn_depth:disabled:not([data-loading]),
+.aster_btn_depth[aria-disabled="true"]:not([data-loading]),
+.aster_btn_depth_destructive:disabled:not([data-loading]),
+.aster_btn_depth_destructive[aria-disabled="true"]:not([data-loading]) {
+  opacity: 0.45;
+}
+
+.aster_btn_depth:disabled,
+.aster_btn_depth[aria-disabled="true"],
+.aster_btn_depth_destructive:disabled,
+.aster_btn_depth_destructive[aria-disabled="true"] {
+  cursor: not-allowed;
 }
 
 .aster_btn_xl {
@@ -2283,7 +2297,7 @@
               linear-gradient(to bottom, var(--accent-mix-w70, color-mix(in srgb, var(--accent-color, #3b6aef) 70%, white)), var(--accent-color, #3b6aef), var(--accent-mix-b75, color-mix(in srgb, var(--accent-color, #3b6aef) 75%, black))) border-box;
 }
 
-.dark .aster_btn_depth:hover {
+.dark .aster_btn_depth:hover:not(:disabled):not([aria-disabled="true"]) {
   filter: brightness(1.25);
 }
 
@@ -2292,7 +2306,7 @@
               linear-gradient(to bottom, #f87171, #dc2626, #991b1b) border-box;
 }
 
-.dark .aster_btn_depth_destructive:hover {
+.dark .aster_btn_depth_destructive:hover:not(:disabled):not([aria-disabled="true"]) {
   filter: brightness(1.25);
 }
 
