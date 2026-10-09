@@ -92,6 +92,8 @@ export function ConfirmationModal({
 
   return (
     <Modal
+      close_on_escape={!is_saving}
+      close_on_overlay={!is_saving}
       is_open={is_open}
       on_close={on_cancel}
       show_close_button={false}
