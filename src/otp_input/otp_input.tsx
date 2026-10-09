@@ -53,8 +53,6 @@ export function OtpInput({
     digits: Array.from({ length }, (_, i) => value[i] ?? ""),
   }));
 
-  // Keep empty boxes in place while preserving the digit-only value API.
-  // A value or length change from the parent resets the local box positions.
   const digits =
     input_state.value === value && input_state.length === length
       ? input_state.digits
