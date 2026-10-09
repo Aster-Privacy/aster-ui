@@ -54,7 +54,15 @@ export function use_focus_trap<T extends HTMLElement>(
 
       const focusables = Array.from(
         node.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
-      );
+      ).filter((element) => {
+        if (element.tabIndex < 0 || element.matches(":disabled")) return false;
+        if (element.closest("[inert]")) return false;
+        if (element.getClientRects().length === 0) return false;
+
+        const { visibility } = getComputedStyle(element);
+
+        return visibility !== "hidden" && visibility !== "collapse";
+      });
       const active = document.activeElement as HTMLElement | null;
 
       if (focusables.length === 0) {
@@ -67,7 +75,7 @@ export function use_focus_trap<T extends HTMLElement>(
       const first = focusables[0];
       const last = focusables[focusables.length - 1];
 
-      if (!node.contains(active)) {
+      if (!active || !focusables.includes(active)) {
         e.preventDefault();
         (e.shiftKey ? last : first).focus();
 
