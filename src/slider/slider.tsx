@@ -69,7 +69,7 @@ export function Slider({
   const percent_to_stepped_value = useCallback(
     (percent: number) => {
       const raw_value = min + (percent / 100) * (max - min);
-      const stepped = Math.round(raw_value / step) * step;
+      const stepped = min + Math.round((raw_value - min) / step) * step;
 
       return Math.min(max, Math.max(min, stepped));
     },
