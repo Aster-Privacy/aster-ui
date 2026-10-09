@@ -27,7 +27,7 @@ import { use_body_scroll_lock } from "./body_scroll_lock";
 import { is_top_overlay_layer, use_escape_layer } from "./overlay_layer_stack";
 
 const FOCUSABLE_SELECTOR =
-  'a[href],button:not([disabled]),textarea:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])';
+  'a[href],button:not([disabled]),textarea:not([disabled]),input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"]),[contenteditable]:not([contenteditable="false"])';
 
 export function use_focus_trap<T extends HTMLElement>(
   is_open: boolean,
