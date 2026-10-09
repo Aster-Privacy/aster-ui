@@ -19,7 +19,7 @@
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 import { cn } from "../lib/cn";
 
@@ -47,6 +47,20 @@ export function OtpInput({
   const box_refs = useRef<Array<HTMLInputElement | null>>([]);
   const autofocus_done_ref = useRef(false);
   const restore_index_ref = useRef<number | null>(null);
+  const [input_state, set_input_state] = useState(() => ({
+    value,
+    length,
+    digits: Array.from({ length }, (_, i) => value[i] ?? ""),
+  }));
+
+  const digits =
+    input_state.value === value && input_state.length === length
+      ? input_state.digits
+      : Array.from({ length }, (_, i) => value[i] ?? "");
+
+  if (input_state.value !== value || input_state.length !== length) {
+    set_input_state({ value, length, digits });
+  }
 
   useEffect(() => {
     if (disabled) return;
@@ -66,17 +80,20 @@ export function OtpInput({
     box_refs.current[restore_index]?.focus();
   }, [autofocus, disabled]);
 
-  const digits = Array.from({ length }, (_, i) => value[i] ?? "");
+  const update_digits = (next: string[]) => {
+    const joined = next.join("").slice(0, length);
+
+    set_input_state({ value: joined, length, digits: next });
+    onChange(joined);
+    if (next.every((digit) => digit !== "")) onComplete?.(joined);
+  };
 
   const set_at = (index: number, digit: string) => {
     const next = digits.slice();
 
     next[index] = digit;
 
-    const joined = next.join("").slice(0, length);
-
-    onChange(joined);
-    if (joined.length === length) onComplete?.(joined);
+    update_digits(next);
   };
 
   const handle_change = (index: number, raw: string) => {
@@ -88,7 +105,7 @@ export function OtpInput({
       return;
     }
 
-    const start = Math.min(index, value.length);
+    const start = index;
 
     if (cleaned.length > 1) {
       const next = digits.slice();
@@ -97,10 +114,7 @@ export function OtpInput({
         next[start + i] = cleaned[i];
       }
 
-      const joined = next.join("").slice(0, length);
-
-      onChange(joined);
-      if (joined.length === length) onComplete?.(joined);
+      update_digits(next);
 
       const last_index = Math.min(start + cleaned.length, length - 1);
 
@@ -121,6 +135,7 @@ export function OtpInput({
     e: React.KeyboardEvent<HTMLInputElement>,
   ) => {
     if (e.key === "Backspace" && !digits[index] && index > 0) {
+      e.preventDefault();
       box_refs.current[index - 1]?.focus();
       set_at(index - 1, "");
     } else if (e.key === "ArrowLeft" && index > 0) {
