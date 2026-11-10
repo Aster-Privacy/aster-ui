@@ -76,7 +76,7 @@ export const MobileHeader = memo(function MobileHeader({
             : `calc(${height}px + ${safe_area_top})`,
       }}
     >
-      <div className="flex items-center gap-1">
+      <div className="flex flex-1 basis-0 items-center justify-start gap-1">
         {left_action}
         {on_back && (
           <button
@@ -101,7 +101,7 @@ export const MobileHeader = memo(function MobileHeader({
         )}
       </div>
 
-      <div className="flex-1 min-w-0 flex items-center justify-center px-2">
+      <div className="flex min-w-0 shrink items-center justify-center px-2">
         {center_content ? (
           center_content
         ) : title_click ? (
@@ -119,7 +119,7 @@ export const MobileHeader = memo(function MobileHeader({
         )}
       </div>
 
-      <div className="flex shrink-0 items-center gap-1">
+      <div className="flex flex-1 basis-0 items-center justify-end gap-1">
         {right_actions}
         {on_search && (
           <button
