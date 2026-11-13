@@ -18,9 +18,22 @@
 // You should have received a copy of the AGPLv3
 // along with this program. If not, see <https://www.gnu.org/licenses/>.
 //
+const RANDOM_FILL_CHUNK_BYTES = 65536;
+
 export function secure_zero_memory(buffer: Uint8Array): void {
-  crypto.getRandomValues(buffer);
-  buffer.fill(0);
+  try {
+    for (
+      let offset = 0;
+      offset < buffer.length;
+      offset += RANDOM_FILL_CHUNK_BYTES
+    ) {
+      crypto.getRandomValues(
+        buffer.subarray(offset, offset + RANDOM_FILL_CHUNK_BYTES),
+      );
+    }
+  } finally {
+    buffer.fill(0);
+  }
 }
 
 export function array_to_base64(array: Uint8Array): string {

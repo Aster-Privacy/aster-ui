@@ -22,6 +22,16 @@ import * as openpgp from "openpgp";
 
 import { secure_zero_memory } from "./crypto_core";
 
+export async function recipient_fingerprint(
+  recipient_pubkey: string,
+): Promise<string> {
+  const key = await openpgp.readKey({ armoredKey: recipient_pubkey });
+
+  await key.getEncryptionKey();
+
+  return key.getFingerprint();
+}
+
 export async function wrap_vault_key(
   vault_key: Uint8Array,
   recipient_pubkeys: string[],
