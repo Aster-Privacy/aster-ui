@@ -29,6 +29,7 @@ export {
 export { reconstruct, split } from "./family_shamir";
 
 export {
+  recipient_fingerprint,
   rewrap_vault_key,
   unwrap_vault_key,
   wrap_vault_key,
@@ -41,5 +42,6 @@ export {
 } from "./family_recovery";
 export type {
   family_encrypted_share,
+  family_recovery_binding,
   family_recovery_setup_result,
 } from "./family_recovery";
