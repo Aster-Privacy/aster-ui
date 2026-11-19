@@ -21,7 +21,7 @@
 import type { ReactNode } from "react";
 import type { ProfileAvatarSize } from "../profile_avatar";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   XMarkIcon,
@@ -29,7 +29,8 @@ import {
   UserMinusIcon,
   EnvelopeIcon,
   NoSymbolIcon,
-  ClipboardDocumentIcon,
+  Square2StackIcon,
+  CheckIcon,
   ShieldCheckIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/outline";
@@ -108,6 +109,7 @@ export interface SenderProfileCardStrings {
   remove_from_allowlist: string;
   block_sender: string;
   unblock_sender: string;
+  copy_email?: string;
 }
 
 export interface SenderProfileCardViewProps extends SenderProfileBaseProps {
@@ -120,6 +122,60 @@ export interface SenderProfileCardViewProps extends SenderProfileBaseProps {
   on_toggle_notes: () => void;
   is_blocked: boolean;
   strings: SenderProfileCardStrings;
+}
+
+const COPIED_RESET_MS = 1600;
+
+function CopyEmailRow({
+  email,
+  label,
+  on_copy_email,
+}: {
+  email: string;
+  label?: string;
+  on_copy_email: () => void;
+}) {
+  const [copied, set_copied] = useState(false);
+  const reset_timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(
+    () => () => {
+      if (reset_timer.current) clearTimeout(reset_timer.current);
+    },
+    [],
+  );
+
+  const handle_click = () => {
+    on_copy_email();
+    set_copied(true);
+    if (reset_timer.current) clearTimeout(reset_timer.current);
+    reset_timer.current = setTimeout(() => set_copied(false), COPIED_RESET_MS);
+  };
+
+  const Icon = copied ? CheckIcon : Square2StackIcon;
+
+  return (
+    <button
+      aria-label={label ? `${label}: ${email}` : undefined}
+      className="group mt-2.5 flex h-8 w-full items-center gap-2 rounded-full ps-3 pe-1 text-[12px] text-txt-secondary transition-colors bg-[color-mix(in_srgb,var(--text-primary)_5%,transparent)] hover:bg-[color-mix(in_srgb,var(--text-primary)_9%,transparent)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-color)]"
+      title={label}
+      type="button"
+      onClick={handle_click}
+    >
+      <span className="min-w-0 flex-1 truncate text-start" dir="auto">
+        {email}
+      </span>
+      <span
+        className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full transition-colors ${
+          copied
+            ? "text-emerald-500"
+            : "text-txt-muted group-hover:text-txt-primary"
+        }`}
+      >
+        <Icon className="h-3.5 w-3.5" />
+      </span>
+    </button>
+  );
 }
 
 const CARD_AVATAR_CLASS = "ring-1 ring-black/5 dark:ring-white/10 flex-shrink-0";
@@ -196,14 +252,11 @@ export function SenderProfileCardView({
             </div>
           </div>
           {!is_aster_user && (
-            <button
-              className="mt-2 w-full flex items-center justify-center gap-1.5 py-1.5 rounded-[12px] text-[12px] transition-colors border text-txt-secondary border-edge-secondary bg-surf-secondary hover:bg-surf-hover"
-              type="button"
-              onClick={on_copy_email}
-            >
-              <span className="truncate">{email}</span>
-              <ClipboardDocumentIcon className="w-3 h-3 flex-shrink-0 opacity-60" />
-            </button>
+            <CopyEmailRow
+              email={email}
+              label={strings.copy_email}
+              on_copy_email={on_copy_email}
+            />
           )}
         </div>
 
@@ -337,6 +390,7 @@ export interface SenderProfileModalStrings {
   remove_from_allowlist: string;
   block_sender: string;
   close: string;
+  copy_email?: string;
 }
 
 export interface SenderProfileModalViewProps extends SenderProfileBaseProps {
@@ -424,6 +478,7 @@ export function SenderProfileModalView({
             ) : (
               <ModalExternalHeader
                 close_label={strings.close}
+                copy_label={strings.copy_email}
                 display_name={display_name}
                 domain={domain}
                 email={email}
@@ -566,6 +621,7 @@ interface ModalExternalHeaderProps {
   on_close: () => void;
   on_copy_email: () => void;
   close_label: string;
+  copy_label?: string;
   render_avatar: SenderProfileAvatarRenderer;
 }
 
@@ -576,6 +632,7 @@ function ModalExternalHeader({
   on_close,
   on_copy_email,
   close_label,
+  copy_label,
   render_avatar,
 }: ModalExternalHeaderProps) {
   return (
@@ -598,16 +655,13 @@ function ModalExternalHeader({
           {domain && (
             <p className="text-[12px] mt-0.5 text-txt-muted">{domain}</p>
           )}
-          <button
-            className="mt-1 flex items-center gap-1 text-[11px] text-txt-muted hover:text-txt-secondary transition-colors group"
-            type="button"
-            onClick={on_copy_email}
-          >
-            <span className="truncate max-w-[220px]">{email}</span>
-            <ClipboardDocumentIcon className="w-3 h-3 flex-shrink-0 opacity-0 group-hover:opacity-60 transition-opacity" />
-          </button>
         </div>
       </div>
+      <CopyEmailRow
+        email={email}
+        label={copy_label}
+        on_copy_email={on_copy_email}
+      />
     </div>
   );
 }
