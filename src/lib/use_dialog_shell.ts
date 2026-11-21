@@ -33,7 +33,7 @@ export function use_focus_trap<T extends HTMLElement>(
   is_open: boolean,
   layer_id: symbol,
 ) {
-  const dialog_ref = useRef<T>(null);
+  const dialog_ref = useRef<T | null>(null);
 
   useEffect(() => {
     if (!is_open) return;

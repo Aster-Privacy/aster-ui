@@ -24,6 +24,7 @@ import * as React from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useDismissableLayerSurface } from "@radix-ui/react-dismissable-layer";
 
 import { cn } from "../lib/cn";
 import { use_dialog_shell } from "../lib/use_dialog_shell";
@@ -93,6 +94,14 @@ export function MotionModal({
       "modal",
       close_on_escape,
     );
+  const register_dismissable_surface = useDismissableLayerSurface();
+  const set_panel_ref = React.useCallback(
+    (node: HTMLDivElement | null) => {
+      dialog_ref.current = node;
+      register_dismissable_surface(node);
+    },
+    [dialog_ref, register_dismissable_surface],
+  );
 
   const label_ids = React.useMemo<MotionModalLabels>(
     () => ({
@@ -124,7 +133,7 @@ export function MotionModal({
           />
 
           <motion.div
-            ref={dialog_ref}
+            ref={set_panel_ref}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             aria-describedby={label_ids.description_id}
             aria-labelledby={label_ids.title_id}
