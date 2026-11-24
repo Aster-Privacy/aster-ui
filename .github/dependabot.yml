@@ -32,6 +32,9 @@ updates:
       - dependency-name: "@types/react-dom"
         update-types:
           - version-update:semver-major
+      - dependency-name: tsup
+        update-types:
+          - version-update:semver-major
 
   - package-ecosystem: github-actions
     directory: /
