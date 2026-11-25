@@ -103,12 +103,13 @@ export function AppSwitcher({ apps, current_app_id, title }: AppSwitcherProps) {
       <AnimatePresence>
         {is_open && (
           <motion.div
-            initial={{ opacity: 0, y: -4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -4 }}
-            transition={{ duration: 0.12 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0 } }}
+            transition={{ duration: 0.11, ease: [0.2, 0, 0, 1] }}
             className="absolute right-0 top-full mt-2 z-30 w-72 rounded-[var(--aster-radius-panel)] shadow-lg overflow-hidden"
             style={{
+              transformOrigin: "top right",
               backgroundColor: "var(--bg-card)",
               border: "1px solid var(--border-primary)",
             }}
