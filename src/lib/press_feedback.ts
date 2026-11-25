@@ -21,10 +21,24 @@
 
 export const PRESS_ATTRIBUTE = "data-aster-press";
 export const PRESS_MODE_ATTRIBUTE = "data-aster-press-mode";
-export const PRESS_MIN_HOLD_MS = 100;
-export const PRESS_RELEASE_MS = 160;
-export const PRESS_TOUCH_DELAY_MS = 60;
+export const PRESS_WAVE_ATTRIBUTE = "data-aster-press-wave";
+export const PRESS_MIN_HOLD_MS = 225;
+export const PRESS_RELEASE_MS = 375;
+export const PRESS_TOUCH_DELAY_MS = 150;
 export const PRESS_SLOP_PX = 8;
+export const RIPPLE_SOLID_SHARE = 0.65;
+export const RIPPLE_START_SHARE = 0.1;
+
+const RIPPLE_PROPERTIES = [
+  "--aster-ripple-from-x",
+  "--aster-ripple-from-y",
+  "--aster-ripple-from-r",
+  "--aster-ripple-to-x",
+  "--aster-ripple-to-y",
+  "--aster-ripple-to-r",
+] as const;
+
+const OVERLAY_CLASS = "aster_press_overlay";
 
 const INTERACTIVE_SELECTOR = [
   "button",
@@ -181,6 +195,58 @@ export function pick_press_mode(el: HTMLElement): PressMode {
   return "tint";
 }
 
+export interface RippleGeometry {
+  from_x: number;
+  from_y: number;
+  from_r: number;
+  to_x: number;
+  to_y: number;
+  to_r: number;
+}
+
+export function ripple_geometry(
+  width: number,
+  height: number,
+  press_x: number | null,
+  press_y: number | null,
+): RippleGeometry {
+  const to_x = width / 2;
+  const to_y = height / 2;
+  const half_diagonal = Math.sqrt(width * width + height * height) / 2;
+  const from_x =
+    press_x === null ? to_x : Math.min(Math.max(press_x, 0), width);
+  const from_y =
+    press_y === null ? to_y : Math.min(Math.max(press_y, 0), height);
+
+  return {
+    from_x,
+    from_y,
+    from_r: Math.max(width, height) * RIPPLE_START_SHARE,
+    to_x,
+    to_y,
+    to_r: half_diagonal / RIPPLE_SOLID_SHARE,
+  };
+}
+
+function apply_ripple(el: HTMLElement, geometry: RippleGeometry): void {
+  const values = [
+    geometry.from_x,
+    geometry.from_y,
+    geometry.from_r,
+    geometry.to_x,
+    geometry.to_y,
+    geometry.to_r,
+  ];
+
+  RIPPLE_PROPERTIES.forEach((name, index) => {
+    el.style.setProperty(name, `${Math.round(values[index] * 10) / 10}px`);
+  });
+}
+
+function clear_ripple(el: HTMLElement): void {
+  RIPPLE_PROPERTIES.forEach((name) => el.style.removeProperty(name));
+}
+
 export function start_press_feedback(): () => void {
   if (typeof document === "undefined") return () => {};
 
@@ -194,6 +260,27 @@ export function start_press_feedback(): () => void {
   let tracked_pointer: number | null = null;
   let origin_x = 0;
   let origin_y = 0;
+  let wave = 0;
+  let overlay: HTMLElement | null = null;
+  let overlay_owner: HTMLElement | null = null;
+
+  const get_overlay = (): HTMLElement => {
+    if (overlay && overlay.isConnected) return overlay;
+    overlay = document.createElement("div");
+    overlay.className = OVERLAY_CLASS;
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.appendChild(overlay);
+
+    return overlay;
+  };
+
+  const hide_overlay = () => {
+    if (!overlay) return;
+    overlay.removeAttribute(PRESS_ATTRIBUTE);
+    overlay.removeAttribute(PRESS_MODE_ATTRIBUTE);
+    overlay.removeAttribute(PRESS_WAVE_ATTRIBUTE);
+    overlay_owner = null;
+  };
 
   const clear_timers = () => {
     if (hold_timer) clearTimeout(hold_timer);
@@ -207,15 +294,55 @@ export function start_press_feedback(): () => void {
   const clear_element = (el: HTMLElement) => {
     el.removeAttribute(PRESS_ATTRIBUTE);
     el.removeAttribute(PRESS_MODE_ATTRIBUTE);
+    el.removeAttribute(PRESS_WAVE_ATTRIBUTE);
+    clear_ripple(el);
+    if (overlay_owner === el) hide_overlay();
   };
 
-  const press = (el: HTMLElement) => {
+  const set_state = (el: HTMLElement, state: "down" | "release") => {
+    el.setAttribute(PRESS_ATTRIBUTE, state);
+    if (overlay_owner === el && overlay) {
+      overlay.setAttribute(PRESS_ATTRIBUTE, state);
+    }
+  };
+
+  const press = (el: HTMLElement, point: { x: number; y: number } | null) => {
     clear_timers();
     pending_touch = null;
     if (current && current !== el) clear_element(current);
     clear_element(el);
-    el.setAttribute(PRESS_MODE_ATTRIBUTE, pick_press_mode(el));
-    el.setAttribute(PRESS_ATTRIBUTE, "down");
+    const mode = pick_press_mode(el);
+    const rect = el.getBoundingClientRect();
+    const geometry = ripple_geometry(
+      rect.width,
+      rect.height,
+      point ? point.x - rect.left : null,
+      point ? point.y - rect.top : null,
+    );
+
+    wave = wave === 0 ? 1 : 0;
+    const wave_name = wave === 0 ? "a" : "b";
+
+    if (mode === "filter") {
+      const layer = get_overlay();
+      const style = getComputedStyle(el);
+
+      layer.style.left = `${rect.left}px`;
+      layer.style.top = `${rect.top}px`;
+      layer.style.width = `${rect.width}px`;
+      layer.style.height = `${rect.height}px`;
+      layer.style.borderRadius = style.borderRadius;
+      layer.style.color = style.color;
+      apply_ripple(layer, geometry);
+      layer.setAttribute(PRESS_MODE_ATTRIBUTE, "tint");
+      layer.setAttribute(PRESS_WAVE_ATTRIBUTE, wave_name);
+      overlay_owner = el;
+    } else {
+      apply_ripple(el, geometry);
+    }
+    el.setAttribute(PRESS_MODE_ATTRIBUTE, mode);
+    el.setAttribute(PRESS_WAVE_ATTRIBUTE, wave_name);
+    set_state(el, "down");
     current = el;
     down_at = performance.now();
     is_down = true;
@@ -229,7 +356,7 @@ export function start_press_feedback(): () => void {
 
     hold_timer = setTimeout(() => {
       hold_timer = null;
-      el.setAttribute(PRESS_ATTRIBUTE, "release");
+      set_state(el, "release");
       release_timer = setTimeout(() => {
         release_timer = null;
         if (el.getAttribute(PRESS_ATTRIBUTE) === "release") clear_element(el);
@@ -255,17 +382,19 @@ export function start_press_feedback(): () => void {
     tracked_pointer = e.pointerId;
     origin_x = e.clientX;
     origin_y = e.clientY;
+    const point = { x: e.clientX, y: e.clientY };
+
     if (e.pointerType === "touch") {
       if (touch_timer) clearTimeout(touch_timer);
       pending_touch = target;
       touch_timer = setTimeout(() => {
         touch_timer = null;
-        if (pending_touch === target) press(target);
+        if (pending_touch === target) press(target, point);
       }, PRESS_TOUCH_DELAY_MS);
 
       return;
     }
-    press(target);
+    press(target, point);
   };
 
   const handle_pointer_move = (e: PointerEvent) => {
@@ -286,7 +415,7 @@ export function start_press_feedback(): () => void {
     if (pending_touch) {
       const el = pending_touch;
 
-      press(el);
+      press(el, { x: origin_x, y: origin_y });
     }
     release();
   };
@@ -297,7 +426,7 @@ export function start_press_feedback(): () => void {
     const target = find_press_target(document.activeElement);
 
     if (!target || target !== document.activeElement) return;
-    press(target);
+    press(target, null);
   };
 
   const handle_key_up = (e: KeyboardEvent) => {
@@ -356,5 +485,7 @@ export function start_press_feedback(): () => void {
     document.removeEventListener("mousedown", handle_mouse_down, true);
     document.removeEventListener("selectstart", handle_select_start, true);
     window.removeEventListener("blur", cancel);
+    if (overlay) overlay.remove();
+    overlay = null;
   };
 }
