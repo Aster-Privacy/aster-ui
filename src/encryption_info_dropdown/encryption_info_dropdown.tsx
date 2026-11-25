@@ -192,15 +192,19 @@ export function EncryptionInfoDropdownView({
           {is_open && (
             <motion.div
               ref={panel_ref}
-              animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
               className="aster_floating fixed z-[200] w-72 max-w-[calc(100vw-24px)]"
-              exit={{ opacity: 0, y: -4 }}
+              exit={{ opacity: 0, transition: { duration: 0 } }}
               id={panel_id}
-              initial={reduce_motion ? false : { opacity: 0, y: -4 }}
-              style={{ top: panel_position.top, left: panel_position.left }}
+              initial={reduce_motion ? false : { opacity: 0, scale: 0.98 }}
+              style={{
+                top: panel_position.top,
+                left: panel_position.left,
+                transformOrigin: "top",
+              }}
               transition={{
-                duration: reduce_motion ? 0 : 0.15,
-                ease: "easeOut",
+                duration: reduce_motion ? 0 : 0.11,
+                ease: [0.2, 0, 0, 1],
               }}
               onClick={(e) => e.stopPropagation()}
             >

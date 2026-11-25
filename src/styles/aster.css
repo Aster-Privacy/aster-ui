@@ -3480,3 +3480,78 @@ label:has(> .aster_btn_spinner) > :not(.aster_btn_spinner) {
     transition: none;
   }
 }
+
+@property --aster-press-layer {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
+}
+
+[data-aster-press]:not([data-aster-press-mode="filter"]) {
+  --aster-press-layer: color-mix(in srgb, currentColor 11%, transparent);
+  background-image: linear-gradient(
+    var(--aster-press-layer),
+    var(--aster-press-layer)
+  ) !important;
+}
+
+[data-aster-press][data-aster-press-mode="shade"] {
+  --aster-press-layer: rgb(0 0 0 / 0.12);
+}
+
+[data-aster-press="down"][data-aster-press-mode="filter"] {
+  filter: brightness(0.92);
+}
+
+[data-aster-press="release"]:not([data-aster-press-mode="filter"]) {
+  animation: aster_press_release 160ms cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+[data-aster-press="release"][data-aster-press-mode="filter"] {
+  animation: aster_press_release_filter 160ms cubic-bezier(0.2, 0, 0, 1)
+    forwards;
+}
+
+@keyframes aster_press_release {
+  to {
+    --aster-press-layer: transparent;
+  }
+}
+
+@keyframes aster_press_release_filter {
+  from {
+    filter: brightness(0.92);
+  }
+  to {
+    filter: brightness(1);
+  }
+}
+
+@layer base {
+  :where(
+      button,
+      [role="button"],
+      [role="tab"],
+      [role="menuitem"],
+      [role="menuitemcheckbox"],
+      [role="menuitemradio"],
+      [role="option"],
+      [role="switch"],
+      [role="checkbox"],
+      [role="radio"],
+      [role="treeitem"],
+      summary,
+      .aster_btn
+    ) {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aster-press="release"] {
+    animation: none !important;
+    --aster-press-layer: transparent;
+    filter: none;
+  }
+}

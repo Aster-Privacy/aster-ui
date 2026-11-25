@@ -634,3 +634,9 @@ export type {
   EmojiEntry,
   SkinTone,
 } from "./compose";
+
+export {
+  start_press_feedback,
+  find_press_target,
+  pick_press_mode,
+} from "./lib/press_feedback";

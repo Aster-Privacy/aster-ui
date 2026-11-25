@@ -99,17 +99,18 @@ export function SidebarAccountMenu({
       <AnimatePresence>
         {is_open && (
           <motion.div
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
             className="absolute left-0 top-full mt-2 z-30 w-[290px] rounded-2xl overflow-hidden"
-            exit={{ opacity: 0, y: -4 }}
-            initial={{ opacity: 0, y: -4 }}
+            exit={{ opacity: 0, transition: { duration: 0 } }}
+            initial={{ opacity: 0, scale: 0.98 }}
             style={{
+              transformOrigin: "top left",
               backgroundColor: "var(--dropdown-bg)",
               border: "1px solid var(--border-secondary)",
               boxShadow:
                 "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
             }}
-            transition={{ duration: 0.12 }}
+            transition={{ duration: 0.11, ease: [0.2, 0, 0, 1] }}
           >
             <div className="px-3 pt-2.5 pb-1">
               <span

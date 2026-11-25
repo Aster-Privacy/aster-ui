@@ -146,10 +146,10 @@ export function ContextMenu({
     <AnimatePresence>
       <motion.div
         ref={menu_ref}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
         className="aster_floating fixed z-[9999] p-1.5 overflow-hidden"
-        exit={{ opacity: 0, scale: 0.95, y: -4 }}
-        initial={{ opacity: 0, scale: 0.95, y: -8 }}
+        exit={{ opacity: 0, transition: { duration: 0 } }}
+        initial={{ opacity: 0, scale: 0.97 }}
         role="menu"
         style={{
           top: resolved.top,
