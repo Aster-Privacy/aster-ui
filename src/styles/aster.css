@@ -3505,6 +3505,12 @@ label:has(> .aster_btn_spinner) > :not(.aster_btn_spinner) {
   initial-value: 0px;
 }
 
+[data-selectable],
+[data-selectable] * {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 [data-aster-press]:not([data-aster-press-mode="filter"]) {
   --aster-press-alpha: 12%;
   --aster-press-color: color-mix(
