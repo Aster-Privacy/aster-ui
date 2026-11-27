@@ -237,7 +237,8 @@
   border-color: rgba(0, 0, 0, 0.18);
 }
 
-.aster_input:focus {
+.aster_input:is(input, textarea, [contenteditable]):focus,
+.aster_input:not(input, textarea, [contenteditable]):focus-visible {
   border-color: var(--accent-color, #3b82f6);
   box-shadow: inset 0 0 0 1px var(--accent-color, #3b82f6);
 }
@@ -246,7 +247,8 @@
   border-color: #22c55e;
 }
 
-.aster_input_success:focus {
+.aster_input_success:is(input, textarea, [contenteditable]):focus,
+.aster_input_success:not(input, textarea, [contenteditable]):focus-visible {
   border-color: #22c55e;
 }
 
@@ -254,7 +256,8 @@
   border-color: #ef4444;
 }
 
-.aster_input_error:focus {
+.aster_input_error:is(input, textarea, [contenteditable]):focus,
+.aster_input_error:not(input, textarea, [contenteditable]):focus-visible {
   border-color: #ef4444;
 }
 
@@ -2661,7 +2664,8 @@
   border-color: rgba(255, 255, 255, 0.18);
 }
 
-.dark .aster_input:focus {
+.dark .aster_input:is(input, textarea, [contenteditable]):focus,
+.dark .aster_input:not(input, textarea, [contenteditable]):focus-visible {
   border-color: var(--accent-color, #3b82f6);
   box-shadow: inset 0 0 0 1px var(--accent-color, #3b82f6);
 }
@@ -2670,7 +2674,8 @@
   border-color: #22c55e;
 }
 
-.dark .aster_input_success:focus {
+.dark .aster_input_success:is(input, textarea, [contenteditable]):focus,
+.dark .aster_input_success:not(input, textarea, [contenteditable]):focus-visible {
   border-color: #22c55e;
 }
 
@@ -2678,7 +2683,8 @@
   border-color: #ef4444;
 }
 
-.dark .aster_input_error:focus {
+.dark .aster_input_error:is(input, textarea, [contenteditable]):focus,
+.dark .aster_input_error:not(input, textarea, [contenteditable]):focus-visible {
   border-color: #ef4444;
 }
 
@@ -2776,7 +2782,8 @@ label:has(> .aster_btn_spinner) > :not(.aster_btn_spinner) {
   background-color: var(--aster-field-hover);
 }
 
-.aster_island .aster_input:focus {
+.aster_island .aster_input:is(input, textarea, [contenteditable]):focus,
+.aster_island .aster_input:not(input, textarea, [contenteditable]):focus-visible {
   border-color: transparent;
   background-color: var(--aster-field-bg);
   box-shadow: inset 0 0 0 2px var(--accent-color, #3b82f6);
