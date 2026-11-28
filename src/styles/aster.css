@@ -3828,3 +3828,8 @@ label:has(> .aster_btn_spinner) > :not(.aster_btn_spinner) {
     transition: none;
   }
 }
+
+.aster_code_block_pre,
+.aster_code_block_pre * {
+  font-family: var(--aster-code-font);
+}
