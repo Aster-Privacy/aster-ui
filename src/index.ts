@@ -213,6 +213,9 @@ export type {
   AccordionContentProps,
 } from "./accordion";
 
+export { CodeBlock, code_block_variants } from "./code_block";
+export type { CodeBlockProps, CodeBlockVariantProps } from "./code_block";
+
 export { Kbd, kbd_variants } from "./kbd";
 export type { KbdProps, KbdVariantProps } from "./kbd";
 
