@@ -302,7 +302,7 @@ export function SidebarFolderRowView({
           <span
             aria-expanded={is_expanded}
             aria-label={is_expanded ? collapse_label : expand_label}
-            className="absolute start-0 top-1/2 -translate-y-1/2 p-0.5 rounded hover:bg-black/[0.06] dark:hover:bg-white/[0.08]"
+            className="absolute start-0 top-1/2 -translate-y-1/2 p-0.5 rounded opacity-70 transition-opacity hover:opacity-100 focus-visible:opacity-100"
             role="button"
             tabIndex={0}
             onClick={(e) => {
